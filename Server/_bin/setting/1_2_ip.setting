@@ -12,7 +12,7 @@
 	<TcpServer>
 		<!-- route服务器 -->
 		<Server AppName="route" AppType="master">
-			<App Id="22.0.1" Ip="192.168.1.155" Type="1" Port="10000"/>
+			<App Id="22.0.1" Ip="127.0.0.1" Type="1" Port="10000"/>
 		</Server>
 
 		<!-- zone master -->
