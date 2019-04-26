@@ -14,8 +14,8 @@ if not exist %localpath%\CMakeLists.txt (
     copy /y %framepath%\CMakeLists.txt %localpath%\ 
 )
 
-if not exist %localpath%\Chess.sln ( 
-    copy /y %framepath%\Frame.sln %localpath%\Chess.sln 
+if not exist %localpath%\Fighter.sln ( 
+    copy /y %framepath%\Frame.sln %localpath%\Fighter.sln 
 )
 
 rem ===========================================================================
