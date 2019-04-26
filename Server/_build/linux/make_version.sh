@@ -14,7 +14,7 @@ if  [ ! -n "$3" ] ;then
 	exit 0
 fi
 
-svn up ../../../Resource
+git pull
 
 build="1"
 if  [ "$4" = "0" ] ;then
@@ -31,10 +31,10 @@ if  [ "$build" = "1" ] ;then
 fi
 
 # make version
-svnversion=`svn info |awk 'NR==6{print $2}'`
-if [ "$svnversion" = "" ];then
- svnversion=`git log -1 --pretty=format:"%h"`
-fi
+#svnversion=`svn info |awk 'NR==6{print $2}'`
+#if [ "$svnversion" = "" ];then
+svnversion=`git log -1 --pretty=format:"%h"`
+#fi
 
 # resource
 cd ../../
