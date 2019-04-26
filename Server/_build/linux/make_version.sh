@@ -1,3 +1,4 @@
+#!/bin/bash
 
 if [ ! -n "$1" ]; then
     	echo "please input app channel : 1"
@@ -17,8 +18,10 @@ fi
 git pull
 
 build="1"
+uptype=1
 if  [ "$4" = "0" ] ;then
 	build="0"
+	uptype=3
 fi
 
 if  [ "$build" = "1" ] ;then
@@ -46,9 +49,10 @@ echo $version
 
 # config
 cp -rf ../Resource/config/ _bin/
+cp -rf ../Resource/script/ _bin/
 
 cd _bin/_gcm/builder/
 chmod 777 gcm_build
-./gcm_build -p "fighter" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2
+./gcm_build -p "fighter" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2 -t $uptype
 
 cd ../../../../../
