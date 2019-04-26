@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Setting>
 	<Deploys>
-		<Deploy Name="内网测试中控" Channel="1" ChannelName="内网测试" Id="11.0.1" Ip="192.168.1.250" Port="10000"/>
+		<Deploy Name="点晴测试中控" Channel="1" ChannelName="点晴测试" Id="11.0.1" Ip="180.169.238.146" Port="10000"/>
 	</Deploys>
 
 	<Apps>
