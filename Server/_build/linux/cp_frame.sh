@@ -5,7 +5,8 @@ libpath=../../_lib/linux
 rm -rf $libpath
 mkdir -p "$libpath"
 
-framelibpath=../../../../../../frame/trunk/_lib/linux
+framepath=../../../../KFrame
+framelibpath=$framepath/_lib/linux
 cp -rf $framelibpath/* $libpath/ 
 
 
@@ -19,7 +20,7 @@ if [ $1 == "debug" ];then
 	filename="d"
 fi
 
-framebinpath=../../../../../../frame/trunk/_bin/bin/linux/$1
+framebinpath=$framepath/_bin/bin/linux/$1
 cp -f $framebinpath/KFStartup$filename $binpath/
 cp -f $framebinpath/KFConfig$filename.so $binpath/
 cp -f $framebinpath/KFMySQL$filename.so $binpath/
