@@ -29,9 +29,6 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
-#include <google/protobuf/map.h>  // IWYU pragma: export
-#include <google/protobuf/map_entry.h>
-#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "FrameDefineMessage.pb.h"
 // @@protoc_insertion_point(includes)
@@ -42,7 +39,7 @@ namespace protobuf_DefineMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[2];
+  static const ::google::protobuf::internal::ParseTable schema[1];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -53,40 +50,15 @@ namespace KFMsg {
 class PBMatchPlayer;
 class PBMatchPlayerDefaultTypeInternal;
 LIBPROTOC_EXPORT extern PBMatchPlayerDefaultTypeInternal _PBMatchPlayer_default_instance_;
-class PBMatchPlayer_HeroEntry_DoNotUse;
-class PBMatchPlayer_HeroEntry_DoNotUseDefaultTypeInternal;
-LIBPROTOC_EXPORT extern PBMatchPlayer_HeroEntry_DoNotUseDefaultTypeInternal _PBMatchPlayer_HeroEntry_DoNotUse_default_instance_;
 }  // namespace KFMsg
 namespace google {
 namespace protobuf {
 template<> LIBPROTOC_EXPORT ::KFMsg::PBMatchPlayer* Arena::CreateMaybeMessage<::KFMsg::PBMatchPlayer>(Arena*);
-template<> LIBPROTOC_EXPORT ::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse* Arena::CreateMaybeMessage<::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace KFMsg {
 
 // ===================================================================
-
-class PBMatchPlayer_HeroEntry_DoNotUse : public ::google::protobuf::internal::MapEntry<PBMatchPlayer_HeroEntry_DoNotUse, 
-    ::google::protobuf::uint64, ::KFMsg::PBObject,
-    ::google::protobuf::internal::WireFormatLite::TYPE_UINT64,
-    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-    0 > {
-public:
-  typedef ::google::protobuf::internal::MapEntry<PBMatchPlayer_HeroEntry_DoNotUse, 
-    ::google::protobuf::uint64, ::KFMsg::PBObject,
-    ::google::protobuf::internal::WireFormatLite::TYPE_UINT64,
-    ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-    0 > SuperType;
-  PBMatchPlayer_HeroEntry_DoNotUse();
-  PBMatchPlayer_HeroEntry_DoNotUse(::google::protobuf::Arena* arena);
-  void MergeFrom(const PBMatchPlayer_HeroEntry_DoNotUse& other);
-  static const PBMatchPlayer_HeroEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const PBMatchPlayer_HeroEntry_DoNotUse*>(&_PBMatchPlayer_HeroEntry_DoNotUse_default_instance_); }
-  void MergeFrom(const ::google::protobuf::Message& other) final;
-  ::google::protobuf::Metadata GetMetadata() const;
-};
-
-// -------------------------------------------------------------------
 
 class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.PBMatchPlayer) */ {
  public:
@@ -123,7 +95,7 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
                &_PBMatchPlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    0;
 
   void Swap(PBMatchPlayer* other);
   friend void swap(PBMatchPlayer& a, PBMatchPlayer& b) {
@@ -173,17 +145,7 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
 
   // nested types ----------------------------------------------------
 
-
   // accessors -------------------------------------------------------
-
-  // map<uint64, .KFMsg.PBObject> hero = 5;
-  int hero_size() const;
-  void clear_hero();
-  static const int kHeroFieldNumber = 5;
-  const ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >&
-      hero() const;
-  ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >*
-      mutable_hero();
 
   // bytes name = 2;
   void clear_name();
@@ -211,26 +173,20 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::uint64 serverid() const;
   void set_serverid(::google::protobuf::uint64 value);
 
-  // uint32 campid = 4;
-  void clear_campid();
-  static const int kCampidFieldNumber = 4;
-  ::google::protobuf::uint32 campid() const;
-  void set_campid(::google::protobuf::uint32 value);
+  // uint32 heroid = 5;
+  void clear_heroid();
+  static const int kHeroidFieldNumber = 5;
+  ::google::protobuf::uint32 heroid() const;
+  void set_heroid(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:KFMsg.PBMatchPlayer)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::MapField<
-      PBMatchPlayer_HeroEntry_DoNotUse,
-      ::google::protobuf::uint64, ::KFMsg::PBObject,
-      ::google::protobuf::internal::WireFormatLite::TYPE_UINT64,
-      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-      0 > hero_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::uint64 id_;
   ::google::protobuf::uint64 serverid_;
-  ::google::protobuf::uint32 campid_;
+  ::google::protobuf::uint32 heroid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_DefineMessage_2eproto::TableStruct;
 };
@@ -243,8 +199,6 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // PBMatchPlayer
 
 // uint64 id = 1;
@@ -328,40 +282,23 @@ inline void PBMatchPlayer::set_serverid(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.serverid)
 }
 
-// uint32 campid = 4;
-inline void PBMatchPlayer::clear_campid() {
-  campid_ = 0u;
+// uint32 heroid = 5;
+inline void PBMatchPlayer::clear_heroid() {
+  heroid_ = 0u;
 }
-inline ::google::protobuf::uint32 PBMatchPlayer::campid() const {
-  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.campid)
-  return campid_;
+inline ::google::protobuf::uint32 PBMatchPlayer::heroid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.heroid)
+  return heroid_;
 }
-inline void PBMatchPlayer::set_campid(::google::protobuf::uint32 value) {
+inline void PBMatchPlayer::set_heroid(::google::protobuf::uint32 value) {
   
-  campid_ = value;
-  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.campid)
-}
-
-// map<uint64, .KFMsg.PBObject> hero = 5;
-inline int PBMatchPlayer::hero_size() const {
-  return hero_.size();
-}
-inline const ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >&
-PBMatchPlayer::hero() const {
-  // @@protoc_insertion_point(field_map:KFMsg.PBMatchPlayer.hero)
-  return hero_.GetMap();
-}
-inline ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >*
-PBMatchPlayer::mutable_hero() {
-  // @@protoc_insertion_point(field_mutable_map:KFMsg.PBMatchPlayer.hero)
-  return hero_.MutableMap();
+  heroid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.heroid)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 
 // @@protoc_insertion_point(namespace_scope)
 

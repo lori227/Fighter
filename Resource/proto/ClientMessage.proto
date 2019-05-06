@@ -8,14 +8,19 @@ enum ClientProtocol
  {
 	MSG_CLIENT_BEGIN 			= 0;	// pb3 需要0
 
+	// hero
+	MSG_FIGHTER_HERO_REQ 		= 3001;	// 选择出战英雄
+
 	// match
-	MSG_START_MATCH_REQ  		= 3001;	// 开始匹配 
-	MSG_CANCEL_MATCH_REQ		= 3002;	// 取消匹配
-	MSG_INFORM_MATCH_RESULT 	= 3003;	// 通知匹配结果
-	MSG_AFFIRM_MATCH_REQ 		= 3004;	// 请求确认匹配
-	MSG_INFORM_BATTLE_REQ		= 3005;	// 服务器通知战场信息
-	MSG_INFORM_BATTLE_ACK		= 3006;	// 客户端确认战场信息
-	MSG_FINISH_ROOM_REQ			= 3007;	// 服务器通知战场房间结束
+	MSG_START_MATCH_REQ  		= 3101;	// 开始匹配 
+	MSG_CANCEL_MATCH_REQ		= 3102;	// 取消匹配
+	MSG_INFORM_MATCH_RESULT 	= 3103;	// 通知匹配结果
+	MSG_AFFIRM_MATCH_REQ 		= 3104;	// 请求确认匹配
+	MSG_INFORM_BATTLE_REQ		= 3105;	// 服务器通知战场信息
+	MSG_INFORM_BATTLE_ACK		= 3106;	// 客户端确认战场信息
+	MSG_FINISH_ROOM_REQ			= 3107;	// 服务器通知战场房间结束
+
+
  }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -20,7 +20,7 @@
 // @@protoc_insertion_point(includes)
 
 namespace protobuf_DefineMessage_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_DefineMessage_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_PBMatchPlayer;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_DefineMessage_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PBMatchPlayer;
 }  // namespace protobuf_DefineMessage_2eproto
 namespace protobuf_FrameDefineMessage_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<7> scc_info_PBObject;

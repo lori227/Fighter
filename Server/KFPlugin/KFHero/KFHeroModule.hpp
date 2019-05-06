@@ -11,7 +11,6 @@
 #include "KFrameEx.h"
 #include "KFHeroInterface.h"
 #include "KFProtocol/KFProtocol.h"
-#include "KFOption/KFOptionInterface.h"
 #include "KFConfig/KFConfigInterface.h"
 #include "KFKernel/KFKernelInterface.h"
 #include "KFPlayer/KFPlayerInterface.h"
@@ -19,7 +18,6 @@
 
 namespace KFrame
 {
-    class KFComponent;
     class KFHeroModule : public KFHeroInterface
     {
     public:
@@ -40,10 +38,6 @@ namespace KFrame
         // 添加物品
         __KF_ADD_ELEMENT_FUNCTION__( AddHeroElement );
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    protected:
-        // 随机名字
-        std::string& RandHeroName( uint32 firstid, uint32 secondid );
-
     protected:
         KFComponent* _kf_component = nullptr;
     };

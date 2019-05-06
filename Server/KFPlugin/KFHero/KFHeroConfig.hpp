@@ -1,38 +1,39 @@
-﻿#ifndef __KF_NAME_CONFIG_H__
-#define __KF_NAME_CONFIG_H__
+﻿#ifndef __KF_HERO_CONFIG_H__
+#define __KF_HERO_CONFIG_H__
 
 #include "KFConfig/KFConfigInterface.h"
 
 namespace KFrame
 {
-    class KFNameSetting
+    class KFHeroSetting
     {
     public:
-        // 名字列表
-        std::vector< std::string > _name_list;
+        // id
+        uint32 _id = 0u;
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFNameConfig : public KFConfig, public KFSingleton< KFNameConfig >
+    class KFHeroConfig : public KFConfig, public KFSingleton< KFHeroConfig >
     {
     public:
-        KFNameConfig()
+        KFHeroConfig()
         {
-            _file = "name.config";
+            _file = "hero.config";
         }
 
         // 读取配置
         bool LoadConfig();
 
-        // 随机名字
-        const std::string& RandName( uint32 id ) const;
+        // 查找配置
+        const KFHeroSetting* FindHeroSetting( uint32 heroid ) const;
+
     private:
-        // 名字列表
-        KFHashMap< uint32, uint32, KFNameSetting > _name_setting;
+        // 品质列表
+        KFHashMap< uint32, uint32, KFHeroSetting > _settings;
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    static auto _kf_name_config = KFNameConfig::Instance();
+    static auto _kf_hero_config = KFHeroConfig::Instance();
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

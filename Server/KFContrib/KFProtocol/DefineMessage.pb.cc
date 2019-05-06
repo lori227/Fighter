@@ -19,18 +19,7 @@
 #endif
 // @@protoc_insertion_point(includes)
 
-namespace protobuf_DefineMessage_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_DefineMessage_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_PBMatchPlayer_HeroEntry_DoNotUse;
-}  // namespace protobuf_DefineMessage_2eproto
-namespace protobuf_FrameDefineMessage_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<7> scc_info_PBObject;
-}  // namespace protobuf_FrameDefineMessage_2eproto
 namespace KFMsg {
-class PBMatchPlayer_HeroEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<PBMatchPlayer_HeroEntry_DoNotUse>
-      _instance;
-} _PBMatchPlayer_HeroEntry_DoNotUse_default_instance_;
 class PBMatchPlayerDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<PBMatchPlayer>
@@ -38,20 +27,6 @@ class PBMatchPlayerDefaultTypeInternal {
 } _PBMatchPlayer_default_instance_;
 }  // namespace KFMsg
 namespace protobuf_DefineMessage_2eproto {
-static void InitDefaultsPBMatchPlayer_HeroEntry_DoNotUse() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::KFMsg::_PBMatchPlayer_HeroEntry_DoNotUse_default_instance_;
-    new (ptr) ::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse();
-  }
-  ::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_PBMatchPlayer_HeroEntry_DoNotUse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsPBMatchPlayer_HeroEntry_DoNotUse}, {
-      &protobuf_FrameDefineMessage_2eproto::scc_info_PBObject.base,}};
-
 static void InitDefaultsPBMatchPlayer() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -63,27 +38,16 @@ static void InitDefaultsPBMatchPlayer() {
   ::KFMsg::PBMatchPlayer::InitAsDefaultInstance();
 }
 
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_PBMatchPlayer =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsPBMatchPlayer}, {
-      &protobuf_DefineMessage_2eproto::scc_info_PBMatchPlayer_HeroEntry_DoNotUse.base,}};
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_PBMatchPlayer =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPBMatchPlayer}, {}};
 
 void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_PBMatchPlayer_HeroEntry_DoNotUse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_PBMatchPlayer.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[2];
+::google::protobuf::Metadata file_level_metadata[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse, key_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse, value_),
-  0,
-  1,
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -92,16 +56,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, serverid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, campid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, hero_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, heroid_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 7, sizeof(::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse)},
-  { 9, -1, sizeof(::KFMsg::PBMatchPlayer)},
+  { 0, -1, sizeof(::KFMsg::PBMatchPlayer)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_PBMatchPlayer_HeroEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_PBMatchPlayer_default_instance_),
 };
 
@@ -120,22 +81,19 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 2);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 1);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\023DefineMessage.proto\022\005KFMsg\032\030FrameDefin"
-      "eMessage.proto\"\267\001\n\rPBMatchPlayer\022\n\n\002id\030\001"
-      " \001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\016\n\006"
-      "campid\030\004 \001(\r\022,\n\004hero\030\005 \003(\0132\036.KFMsg.PBMat"
-      "chPlayer.HeroEntry\032<\n\tHeroEntry\022\013\n\003key\030\001"
-      " \001(\004\022\036\n\005value\030\002 \001(\0132\017.KFMsg.PBObject:\0028\001"
-      "b\006proto3"
+      "eMessage.proto\"K\n\rPBMatchPlayer\022\n\n\002id\030\001 "
+      "\001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\016\n\006h"
+      "eroid\030\005 \001(\rb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 248);
+      descriptor, 139);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DefineMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -156,34 +114,13 @@ namespace KFMsg {
 
 // ===================================================================
 
-PBMatchPlayer_HeroEntry_DoNotUse::PBMatchPlayer_HeroEntry_DoNotUse() {}
-PBMatchPlayer_HeroEntry_DoNotUse::PBMatchPlayer_HeroEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
-void PBMatchPlayer_HeroEntry_DoNotUse::MergeFrom(const PBMatchPlayer_HeroEntry_DoNotUse& other) {
-  MergeFromInternal(other);
-}
-::google::protobuf::Metadata PBMatchPlayer_HeroEntry_DoNotUse::GetMetadata() const {
-  ::protobuf_DefineMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_DefineMessage_2eproto::file_level_metadata[0];
-}
-void PBMatchPlayer_HeroEntry_DoNotUse::MergeFrom(
-    const ::google::protobuf::Message& other) {
-  ::google::protobuf::Message::MergeFrom(other);
-}
-
-
-// ===================================================================
-
 void PBMatchPlayer::InitAsDefaultInstance() {
-}
-void PBMatchPlayer::clear_hero() {
-  hero_.Clear();
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int PBMatchPlayer::kIdFieldNumber;
 const int PBMatchPlayer::kNameFieldNumber;
 const int PBMatchPlayer::kServeridFieldNumber;
-const int PBMatchPlayer::kCampidFieldNumber;
-const int PBMatchPlayer::kHeroFieldNumber;
+const int PBMatchPlayer::kHeroidFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PBMatchPlayer::PBMatchPlayer()
@@ -197,22 +134,21 @@ PBMatchPlayer::PBMatchPlayer(const PBMatchPlayer& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  hero_.MergeFrom(from.hero_);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.name().size() > 0) {
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&campid_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(campid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&heroid_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(heroid_));
   // @@protoc_insertion_point(copy_constructor:KFMsg.PBMatchPlayer)
 }
 
 void PBMatchPlayer::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&campid_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(campid_));
+      reinterpret_cast<char*>(&heroid_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(heroid_));
 }
 
 PBMatchPlayer::~PBMatchPlayer() {
@@ -244,11 +180,10 @@ void PBMatchPlayer::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  hero_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&campid_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(campid_));
+      reinterpret_cast<char*>(&heroid_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(heroid_));
   _internal_metadata_.Clear();
 }
 
@@ -302,33 +237,14 @@ bool PBMatchPlayer::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 campid = 4;
-      case 4: {
+      // uint32 heroid = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &campid_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // map<uint64, .KFMsg.PBObject> hero = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
-          PBMatchPlayer_HeroEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
-              PBMatchPlayer_HeroEntry_DoNotUse,
-              ::google::protobuf::uint64, ::KFMsg::PBObject,
-              ::google::protobuf::internal::WireFormatLite::TYPE_UINT64,
-              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-              0 >,
-            ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject > > parser(&hero_);
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-              input, &parser));
+                 input, &heroid_)));
         } else {
           goto handle_unusual;
         }
@@ -377,48 +293,9 @@ void PBMatchPlayer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->serverid(), output);
   }
 
-  // uint32 campid = 4;
-  if (this->campid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->campid(), output);
-  }
-
-  // map<uint64, .KFMsg.PBObject> hero = 5;
-  if (!this->hero().empty()) {
-    typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_pointer
-        ConstPtr;
-    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::uint64, ConstPtr > SortItem;
-    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
-
-    if (output->IsSerializationDeterministic() &&
-        this->hero().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->hero().size()]);
-      typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      ::std::unique_ptr<PBMatchPlayer_HeroEntry_DoNotUse> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(hero_.NewEntryWrapper(
-            items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            5, *entry, output);
-      }
-    } else {
-      ::std::unique_ptr<PBMatchPlayer_HeroEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it) {
-        entry.reset(hero_.NewEntryWrapper(
-            it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            5, *entry, output);
-      }
-    }
+  // uint32 heroid = 5;
+  if (this->heroid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->heroid(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -452,52 +329,9 @@ void PBMatchPlayer::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->serverid(), target);
   }
 
-  // uint32 campid = 4;
-  if (this->campid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->campid(), target);
-  }
-
-  // map<uint64, .KFMsg.PBObject> hero = 5;
-  if (!this->hero().empty()) {
-    typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_pointer
-        ConstPtr;
-    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::uint64, ConstPtr > SortItem;
-    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
-
-    if (deterministic &&
-        this->hero().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->hero().size()]);
-      typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      ::std::unique_ptr<PBMatchPlayer_HeroEntry_DoNotUse> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(hero_.NewEntryWrapper(
-            items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       5, *entry, deterministic, target);
-;
-      }
-    } else {
-      ::std::unique_ptr<PBMatchPlayer_HeroEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it) {
-        entry.reset(hero_.NewEntryWrapper(
-            it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       5, *entry, deterministic, target);
-;
-      }
-    }
+  // uint32 heroid = 5;
+  if (this->heroid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->heroid(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -517,20 +351,6 @@ size_t PBMatchPlayer::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // map<uint64, .KFMsg.PBObject> hero = 5;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->hero_size());
-  {
-    ::std::unique_ptr<PBMatchPlayer_HeroEntry_DoNotUse> entry;
-    for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-        it = this->hero().begin();
-        it != this->hero().end(); ++it) {
-      entry.reset(hero_.NewEntryWrapper(it->first, it->second));
-      total_size += ::google::protobuf::internal::WireFormatLite::
-          MessageSizeNoVirtual(*entry);
-    }
-  }
-
   // bytes name = 2;
   if (this->name().size() > 0) {
     total_size += 1 +
@@ -552,11 +372,11 @@ size_t PBMatchPlayer::ByteSizeLong() const {
         this->serverid());
   }
 
-  // uint32 campid = 4;
-  if (this->campid() != 0) {
+  // uint32 heroid = 5;
+  if (this->heroid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->campid());
+        this->heroid());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -586,7 +406,6 @@ void PBMatchPlayer::MergeFrom(const PBMatchPlayer& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  hero_.MergeFrom(from.hero_);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -597,8 +416,8 @@ void PBMatchPlayer::MergeFrom(const PBMatchPlayer& from) {
   if (from.serverid() != 0) {
     set_serverid(from.serverid());
   }
-  if (from.campid() != 0) {
-    set_campid(from.campid());
+  if (from.heroid() != 0) {
+    set_heroid(from.heroid());
   }
 }
 
@@ -626,12 +445,11 @@ void PBMatchPlayer::Swap(PBMatchPlayer* other) {
 }
 void PBMatchPlayer::InternalSwap(PBMatchPlayer* other) {
   using std::swap;
-  hero_.Swap(&other->hero_);
   name_.Swap(&other->name_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(id_, other->id_);
   swap(serverid_, other->serverid_);
-  swap(campid_, other->campid_);
+  swap(heroid_, other->heroid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -645,9 +463,6 @@ void PBMatchPlayer::InternalSwap(PBMatchPlayer* other) {
 }  // namespace KFMsg
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse* Arena::CreateMaybeMessage< ::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::PBMatchPlayer_HeroEntry_DoNotUse >(arena);
-}
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::PBMatchPlayer* Arena::CreateMaybeMessage< ::KFMsg::PBMatchPlayer >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::PBMatchPlayer >(arena);
 }
