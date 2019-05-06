@@ -47,9 +47,6 @@ namespace KFrame
         // 请求取消匹配
         __KF_MESSAGE_FUNCTION__( HandleCancelMatchToShardReq );
 
-        // 请求确认房间
-        __KF_MESSAGE_FUNCTION__( HandleAffirmMatchToShardReq );
-
         // 创建房间
         __KF_MESSAGE_FUNCTION__( HandleCreateRoomToMatchAck );
 

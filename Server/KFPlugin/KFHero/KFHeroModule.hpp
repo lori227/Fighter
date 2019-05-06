@@ -14,6 +14,7 @@
 #include "KFConfig/KFConfigInterface.h"
 #include "KFKernel/KFKernelInterface.h"
 #include "KFPlayer/KFPlayerInterface.h"
+#include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 
 namespace KFrame
@@ -38,6 +39,8 @@ namespace KFrame
         // 添加物品
         __KF_ADD_ELEMENT_FUNCTION__( AddHeroElement );
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 选择出战英雄
+        __KF_MESSAGE_FUNCTION__( HandleFighterHeroReq );
     protected:
         KFComponent* _kf_component = nullptr;
     };

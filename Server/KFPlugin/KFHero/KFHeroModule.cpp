@@ -13,6 +13,7 @@ namespace KFrame
         _kf_component = _kf_kernel->FindComponent( __KF_STRING__( player ) );
         _kf_component->RegisterAddElementFunction( __KF_STRING__( hero ), this, &KFHeroModule::AddHeroElement );
         //////////////////////////////////////////////////////////////////////////////////////////////////
+        __REGISTER_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ, &KFHeroModule::HandleFighterHeroReq );
     }
 
     void KFHeroModule::BeforeShut()
@@ -20,6 +21,7 @@ namespace KFrame
         __KF_REMOVE_CONFIG__( _kf_hero_config );
         _kf_component->UnRegisterAddElementFunction( __KF_STRING__( hero ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
+        __UNREGISTER_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddHeroElement )
@@ -54,5 +56,18 @@ namespace KFrame
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFighterHeroReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgFighterHeroReq );
 
+        // 判断是否存在英雄
+        auto kfobject = player->GetData();
+        auto kfhero = kfobject->FindData( __KF_STRING__( hero ), kfmsg.heroid() );
+        if ( kfhero == nullptr )
+        {
+            return _kf_display->SendToClient( player, KFMsg::HeroNotExist );
+        }
+
+        player->UpdateData( __KF_STRING__( heroid ), KFEnum::Set, kfmsg.heroid() );
+    }
 }

@@ -56,7 +56,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, serverid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, isrobot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, heroid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, grade_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::KFMsg::PBMatchPlayer)},
@@ -88,12 +90,13 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\023DefineMessage.proto\022\005KFMsg\032\030FrameDefin"
-      "eMessage.proto\"K\n\rPBMatchPlayer\022\n\n\002id\030\001 "
-      "\001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\016\n\006h"
-      "eroid\030\005 \001(\rb\006proto3"
+      "eMessage.proto\"k\n\rPBMatchPlayer\022\n\n\002id\030\001 "
+      "\001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\017\n\007i"
+      "srobot\030\004 \001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n\005grade\030\006 "
+      "\001(\rb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 139);
+      descriptor, 171);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DefineMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -120,7 +123,9 @@ void PBMatchPlayer::InitAsDefaultInstance() {
 const int PBMatchPlayer::kIdFieldNumber;
 const int PBMatchPlayer::kNameFieldNumber;
 const int PBMatchPlayer::kServeridFieldNumber;
+const int PBMatchPlayer::kIsrobotFieldNumber;
 const int PBMatchPlayer::kHeroidFieldNumber;
+const int PBMatchPlayer::kGradeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PBMatchPlayer::PBMatchPlayer()
@@ -139,16 +144,16 @@ PBMatchPlayer::PBMatchPlayer(const PBMatchPlayer& from)
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&heroid_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(heroid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&grade_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(grade_));
   // @@protoc_insertion_point(copy_constructor:KFMsg.PBMatchPlayer)
 }
 
 void PBMatchPlayer::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&heroid_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(heroid_));
+      reinterpret_cast<char*>(&grade_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(grade_));
 }
 
 PBMatchPlayer::~PBMatchPlayer() {
@@ -182,8 +187,8 @@ void PBMatchPlayer::Clear() {
 
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&heroid_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(heroid_));
+      reinterpret_cast<char*>(&grade_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(grade_));
   _internal_metadata_.Clear();
 }
 
@@ -237,6 +242,20 @@ bool PBMatchPlayer::MergePartialFromCodedStream(
         break;
       }
 
+      // bool isrobot = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isrobot_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       // uint32 heroid = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
@@ -245,6 +264,20 @@ bool PBMatchPlayer::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &heroid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 grade = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &grade_)));
         } else {
           goto handle_unusual;
         }
@@ -293,9 +326,19 @@ void PBMatchPlayer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->serverid(), output);
   }
 
+  // bool isrobot = 4;
+  if (this->isrobot() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->isrobot(), output);
+  }
+
   // uint32 heroid = 5;
   if (this->heroid() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->heroid(), output);
+  }
+
+  // uint32 grade = 6;
+  if (this->grade() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->grade(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -329,9 +372,19 @@ void PBMatchPlayer::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->serverid(), target);
   }
 
+  // bool isrobot = 4;
+  if (this->isrobot() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->isrobot(), target);
+  }
+
   // uint32 heroid = 5;
   if (this->heroid() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->heroid(), target);
+  }
+
+  // uint32 grade = 6;
+  if (this->grade() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->grade(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -372,11 +425,23 @@ size_t PBMatchPlayer::ByteSizeLong() const {
         this->serverid());
   }
 
+  // bool isrobot = 4;
+  if (this->isrobot() != 0) {
+    total_size += 1 + 1;
+  }
+
   // uint32 heroid = 5;
   if (this->heroid() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->heroid());
+  }
+
+  // uint32 grade = 6;
+  if (this->grade() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->grade());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -416,8 +481,14 @@ void PBMatchPlayer::MergeFrom(const PBMatchPlayer& from) {
   if (from.serverid() != 0) {
     set_serverid(from.serverid());
   }
+  if (from.isrobot() != 0) {
+    set_isrobot(from.isrobot());
+  }
   if (from.heroid() != 0) {
     set_heroid(from.heroid());
+  }
+  if (from.grade() != 0) {
+    set_grade(from.grade());
   }
 }
 
@@ -449,7 +520,9 @@ void PBMatchPlayer::InternalSwap(PBMatchPlayer* other) {
     GetArenaNoVirtual());
   swap(id_, other->id_);
   swap(serverid_, other->serverid_);
+  swap(isrobot_, other->isrobot_);
   swap(heroid_, other->heroid_);
+  swap(grade_, other->grade_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

@@ -33,7 +33,6 @@ namespace KFrame
     {
         _room_id = 0u;
         _is_affirm = false;
-        _pb_player.set_campid( 0 );
     }
 
     void KFMatchPlayer::CopyFrom( const KFMsg::PBMatchPlayer* pbplayer )

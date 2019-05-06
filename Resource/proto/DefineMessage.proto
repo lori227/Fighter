@@ -15,6 +15,12 @@ message PBMatchPlayer
     // 服务器id( 服务器使用 )
     uint64 serverid = 3;
 
+    // 是否是机器人
+    bool isrobot = 4;
+
     // 英雄id
     uint32 heroid = 5;
+
+    // 排位积分
+    uint32 grade = 6;
 }

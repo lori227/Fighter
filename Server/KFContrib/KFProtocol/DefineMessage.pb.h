@@ -173,11 +173,23 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::uint64 serverid() const;
   void set_serverid(::google::protobuf::uint64 value);
 
+  // bool isrobot = 4;
+  void clear_isrobot();
+  static const int kIsrobotFieldNumber = 4;
+  bool isrobot() const;
+  void set_isrobot(bool value);
+
   // uint32 heroid = 5;
   void clear_heroid();
   static const int kHeroidFieldNumber = 5;
   ::google::protobuf::uint32 heroid() const;
   void set_heroid(::google::protobuf::uint32 value);
+
+  // uint32 grade = 6;
+  void clear_grade();
+  static const int kGradeFieldNumber = 6;
+  ::google::protobuf::uint32 grade() const;
+  void set_grade(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:KFMsg.PBMatchPlayer)
  private:
@@ -186,7 +198,9 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::uint64 id_;
   ::google::protobuf::uint64 serverid_;
+  bool isrobot_;
   ::google::protobuf::uint32 heroid_;
+  ::google::protobuf::uint32 grade_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_DefineMessage_2eproto::TableStruct;
 };
@@ -282,6 +296,20 @@ inline void PBMatchPlayer::set_serverid(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.serverid)
 }
 
+// bool isrobot = 4;
+inline void PBMatchPlayer::clear_isrobot() {
+  isrobot_ = false;
+}
+inline bool PBMatchPlayer::isrobot() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.isrobot)
+  return isrobot_;
+}
+inline void PBMatchPlayer::set_isrobot(bool value) {
+  
+  isrobot_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.isrobot)
+}
+
 // uint32 heroid = 5;
 inline void PBMatchPlayer::clear_heroid() {
   heroid_ = 0u;
@@ -294,6 +322,20 @@ inline void PBMatchPlayer::set_heroid(::google::protobuf::uint32 value) {
   
   heroid_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.heroid)
+}
+
+// uint32 grade = 6;
+inline void PBMatchPlayer::clear_grade() {
+  grade_ = 0u;
+}
+inline ::google::protobuf::uint32 PBMatchPlayer::grade() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.grade)
+  return grade_;
+}
+inline void PBMatchPlayer::set_grade(::google::protobuf::uint32 value) {
+  
+  grade_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.grade)
 }
 
 #ifdef __GNUC__

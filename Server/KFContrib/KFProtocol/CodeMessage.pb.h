@@ -50,13 +50,15 @@ namespace KFMsg {
 
 enum ProjectCodeEnum {
   LogicError = 0,
-  MatchRequestOk = 31001,
-  MatchAlreadyWait = 31002,
-  MatchInRoom = 31003,
-  MatchNotInMatch = 31004,
-  MatchCancelOk = 31005,
-  MatchAffirmTimeout = 31007,
-  RoomAllotBattle = 31008,
+  HeroNotExist = 31001,
+  MatchRequestOk = 32001,
+  MatchAlreadyWait = 32002,
+  MatchInRoom = 32003,
+  MatchNotInMatch = 32004,
+  MatchCancelOk = 32005,
+  MatchAffirmTimeout = 32007,
+  MatchNotFighterHero = 32008,
+  RoomAllotBattle = 32101,
   ProjectCodeEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ProjectCodeEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };

@@ -293,7 +293,7 @@ call :CopyInterface KFClusterShard
 call :CopyInterface KFLogClient
 call :CopyInterface KFLogShard
 call :CopyInterface KFKernel class.xlsx
-call :CopyInterface KFFilter
+call :CopyInterface KFFilter filter.xlsx
 call :CopyInterface KFPlayer
 call :CopyInterface KFHttpClient
 call :CopyInterface KFHttpServer

@@ -41,6 +41,9 @@ namespace KFrame
 
         // 玩家的列表
         KFHashMap< uint64, uint64, KFMatchPlayer > _player_list;
+
+        // 正在等待匹配的房间
+        KFList< KFMatchRoom > _room_list;
     };
 }
 

@@ -22,12 +22,6 @@
 namespace protobuf_DefineMessage_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_DefineMessage_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PBMatchPlayer;
 }  // namespace protobuf_DefineMessage_2eproto
-namespace protobuf_FrameDefineMessage_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<7> scc_info_PBObject;
-}  // namespace protobuf_FrameDefineMessage_2eproto
-namespace protobuf_ServerMessage_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_ServerMessage_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_S2SAffirmMatchToShardReq_HeroEntry_DoNotUse;
-}  // namespace protobuf_ServerMessage_2eproto
 namespace KFMsg {
 class S2SRegisterBattleToRoomReqDefaultTypeInternal {
  public:
@@ -89,21 +83,6 @@ class S2SCreateRoomToMatchAckDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<S2SCreateRoomToMatchAck>
       _instance;
 } _S2SCreateRoomToMatchAck_default_instance_;
-class S2SAffirmMatchTimeoutToGameDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<S2SAffirmMatchTimeoutToGame>
-      _instance;
-} _S2SAffirmMatchTimeoutToGame_default_instance_;
-class S2SAffirmMatchToShardReq_HeroEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<S2SAffirmMatchToShardReq_HeroEntry_DoNotUse>
-      _instance;
-} _S2SAffirmMatchToShardReq_HeroEntry_DoNotUse_default_instance_;
-class S2SAffirmMatchToShardReqDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<S2SAffirmMatchToShardReq>
-      _instance;
-} _S2SAffirmMatchToShardReq_default_instance_;
 class S2SInformBattleToGameReqDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<S2SInformBattleToGameReq>
@@ -312,49 +291,6 @@ static void InitDefaultsS2SCreateRoomToMatchAck() {
 LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_S2SCreateRoomToMatchAck =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsS2SCreateRoomToMatchAck}, {}};
 
-static void InitDefaultsS2SAffirmMatchTimeoutToGame() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::KFMsg::_S2SAffirmMatchTimeoutToGame_default_instance_;
-    new (ptr) ::KFMsg::S2SAffirmMatchTimeoutToGame();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::KFMsg::S2SAffirmMatchTimeoutToGame::InitAsDefaultInstance();
-}
-
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_S2SAffirmMatchTimeoutToGame =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsS2SAffirmMatchTimeoutToGame}, {}};
-
-static void InitDefaultsS2SAffirmMatchToShardReq_HeroEntry_DoNotUse() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::KFMsg::_S2SAffirmMatchToShardReq_HeroEntry_DoNotUse_default_instance_;
-    new (ptr) ::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse();
-  }
-  ::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_S2SAffirmMatchToShardReq_HeroEntry_DoNotUse =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsS2SAffirmMatchToShardReq_HeroEntry_DoNotUse}, {
-      &protobuf_FrameDefineMessage_2eproto::scc_info_PBObject.base,}};
-
-static void InitDefaultsS2SAffirmMatchToShardReq() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::KFMsg::_S2SAffirmMatchToShardReq_default_instance_;
-    new (ptr) ::KFMsg::S2SAffirmMatchToShardReq();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::KFMsg::S2SAffirmMatchToShardReq::InitAsDefaultInstance();
-}
-
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_S2SAffirmMatchToShardReq =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsS2SAffirmMatchToShardReq}, {
-      &protobuf_ServerMessage_2eproto::scc_info_S2SAffirmMatchToShardReq_HeroEntry_DoNotUse.base,}};
-
 static void InitDefaultsS2SInformBattleToGameReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -466,9 +402,6 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_S2SCancelMatchToShardReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_S2SCreateRoomToRoomReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_S2SCreateRoomToMatchAck.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_S2SAffirmMatchTimeoutToGame.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_S2SAffirmMatchToShardReq_HeroEntry_DoNotUse.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_S2SAffirmMatchToShardReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_S2SInformBattleToGameReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_S2SInformBattleToRoomAck.base);
   ::google::protobuf::internal::InitSCC(&scc_info_S2SQueryRoomToRoomReq.base);
@@ -478,7 +411,7 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_S2SQueryMatchToGameAck.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[22];
+::google::protobuf::Metadata file_level_metadata[19];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -573,28 +506,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SCreateRoomToMatchAck, roomid_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchTimeoutToGame, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchTimeoutToGame, playerid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse, _has_bits_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse, key_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse, value_),
-  0,
-  1,
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq, playerid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SAffirmMatchToShardReq, hero_),
-  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SInformBattleToGameReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -658,16 +569,13 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 67, -1, sizeof(::KFMsg::S2SCancelMatchToShardReq)},
   { 74, -1, sizeof(::KFMsg::S2SCreateRoomToRoomReq)},
   { 84, -1, sizeof(::KFMsg::S2SCreateRoomToMatchAck)},
-  { 90, -1, sizeof(::KFMsg::S2SAffirmMatchTimeoutToGame)},
-  { 96, 103, sizeof(::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse)},
-  { 105, -1, sizeof(::KFMsg::S2SAffirmMatchToShardReq)},
-  { 112, -1, sizeof(::KFMsg::S2SInformBattleToGameReq)},
-  { 122, -1, sizeof(::KFMsg::S2SInformBattleToRoomAck)},
-  { 129, -1, sizeof(::KFMsg::S2SQueryRoomToRoomReq)},
-  { 136, -1, sizeof(::KFMsg::S2SQueryRoomToGameAck)},
-  { 142, -1, sizeof(::KFMsg::S2SFinishRoomToGameReq)},
-  { 149, -1, sizeof(::KFMsg::S2SQueryMatchToMatchReq)},
-  { 156, -1, sizeof(::KFMsg::S2SQueryMatchToGameAck)},
+  { 90, -1, sizeof(::KFMsg::S2SInformBattleToGameReq)},
+  { 100, -1, sizeof(::KFMsg::S2SInformBattleToRoomAck)},
+  { 107, -1, sizeof(::KFMsg::S2SQueryRoomToRoomReq)},
+  { 114, -1, sizeof(::KFMsg::S2SQueryRoomToGameAck)},
+  { 120, -1, sizeof(::KFMsg::S2SFinishRoomToGameReq)},
+  { 127, -1, sizeof(::KFMsg::S2SQueryMatchToMatchReq)},
+  { 134, -1, sizeof(::KFMsg::S2SQueryMatchToGameAck)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -683,9 +591,6 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SCancelMatchToShardReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SCreateRoomToRoomReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SCreateRoomToMatchAck_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SAffirmMatchTimeoutToGame_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SAffirmMatchToShardReq_HeroEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SAffirmMatchToShardReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SInformBattleToGameReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SInformBattleToRoomAck_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_S2SQueryRoomToRoomReq_default_instance_),
@@ -710,7 +615,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 22);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 19);
 }
 
 void AddDescriptorsImpl() {
@@ -740,46 +645,39 @@ void AddDescriptorsImpl() {
       "\016\n\006roomid\030\002 \001(\004\022\017\n\007version\030\003 \001(\014\022\020\n\010serv"
       "erid\030\004 \001(\004\022&\n\010pbplayer\030\005 \003(\0132\024.KFMsg.PBM"
       "atchPlayer\")\n\027S2SCreateRoomToMatchAck\022\016\n"
-      "\006roomid\030\001 \001(\004\"/\n\033S2SAffirmMatchTimeoutTo"
-      "Game\022\020\n\010playerid\030\001 \001(\004\"\243\001\n\030S2SAffirmMatc"
-      "hToShardReq\022\020\n\010playerid\030\001 \001(\004\0227\n\004hero\030\002 "
-      "\003(\0132).KFMsg.S2SAffirmMatchToShardReq.Her"
-      "oEntry\032<\n\tHeroEntry\022\013\n\003key\030\001 \001(\004\022\036\n\005valu"
-      "e\030\002 \001(\0132\017.KFMsg.PBObject:\0028\001\"h\n\030S2SInfor"
-      "mBattleToGameReq\022\020\n\010playerid\030\001 \001(\004\022\016\n\006ro"
-      "omid\030\002 \001(\004\022\020\n\010battleid\030\003 \001(\004\022\n\n\002ip\030\004 \001(\014"
-      "\022\014\n\004port\030\005 \001(\r\"<\n\030S2SInformBattleToRoomA"
-      "ck\022\020\n\010playerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\"9\n\025"
-      "S2SQueryRoomToRoomReq\022\020\n\010playerid\030\001 \001(\004\022"
-      "\016\n\006roomid\030\002 \001(\004\")\n\025S2SQueryRoomToGameAck"
-      "\022\020\n\010playerid\030\001 \001(\004\":\n\026S2SFinishRoomToGam"
-      "eReq\022\020\n\010playerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\"<"
-      "\n\027S2SQueryMatchToMatchReq\022\020\n\010playerid\030\001 "
-      "\001(\004\022\017\n\007matchid\030\002 \001(\r\"*\n\026S2SQueryMatchToG"
-      "ameAck\022\020\n\010playerid\030\001 \001(\004*\245\006\n\016ServerProto"
-      "col\022\035\n\031S2S_SERVER_PROTOCOL_BEGIN\020\000\022\"\n\034S2"
-      "S_START_MATCH_TO_SHARD_REQ\020\231\362\001\022!\n\033S2S_ST"
-      "ART_MATCH_TO_GAME_ACK\020\232\362\001\022#\n\035S2S_CANCEL_"
-      "MATCH_TO_SHARD_REQ\020\233\362\001\022&\n S2S_AFFIRM_MAT"
-      "CH_TIMEOUT_TO_GAME\020\234\362\001\022#\n\035S2S_AFFIRM_MAT"
-      "CH_TO_SHARD_REQ\020\235\362\001\022%\n\037S2S_REGISTER_BATT"
-      "LE_TO_ROOM_REQ\020\375\362\001\022\'\n!S2S_REGISTER_BATTL"
-      "E_TO_BATTLE_ACK\020\376\362\001\022!\n\033S2S_OPEN_ROOM_TO_"
-      "BATTLE_REQ\020\377\362\001\022\037\n\031S2S_OPEN_ROOM_TO_ROOM_"
-      "ACK\020\200\363\001\022!\n\033S2S_FINISH_ROOM_TO_ROOM_REQ\020\201"
-      "\363\001\022#\n\035S2S_FINISH_ROOM_TO_BATTLE_ACK\020\202\363\001\022"
-      " \n\032S2S_HEART_BEAT_TO_ROOM_REQ\020\203\363\001\022!\n\033S2S"
-      "_CREATE_ROOM_TO_ROOM_REQ\020\341\363\001\022\"\n\034S2S_CREA"
-      "TE_ROOM_TO_MATCH_ACK\020\342\363\001\022#\n\035S2S_INFORM_B"
-      "ATTLE_TO_GAME_REQ\020\343\363\001\022#\n\035S2S_INFORM_BATT"
-      "LE_TO_ROOM_ACK\020\344\363\001\022 \n\032S2S_QUERY_ROOM_TO_"
-      "ROOM_REQ\020\345\363\001\022 \n\032S2S_QUERY_ROOM_TO_GAME_A"
-      "CK\020\346\363\001\022!\n\033S2S_FINISH_ROOM_TO_GAME_REQ\020\347\363"
-      "\001\022\"\n\034S2S_QUERY_MATCH_TO_MATCH_REQ\020\350\363\001\022!\n"
-      "\033S2S_QUERY_MATCH_TO_GAME_ACK\020\351\363\001b\006proto3"
+      "\006roomid\030\001 \001(\004\"h\n\030S2SInformBattleToGameRe"
+      "q\022\020\n\010playerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\022\020\n\010b"
+      "attleid\030\003 \001(\004\022\n\n\002ip\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\""
+      "<\n\030S2SInformBattleToRoomAck\022\020\n\010playerid\030"
+      "\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\"9\n\025S2SQueryRoomToR"
+      "oomReq\022\020\n\010playerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004"
+      "\")\n\025S2SQueryRoomToGameAck\022\020\n\010playerid\030\001 "
+      "\001(\004\":\n\026S2SFinishRoomToGameReq\022\020\n\010playeri"
+      "d\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\"<\n\027S2SQueryMatch"
+      "ToMatchReq\022\020\n\010playerid\030\001 \001(\004\022\017\n\007matchid\030"
+      "\002 \001(\r\"*\n\026S2SQueryMatchToGameAck\022\020\n\010playe"
+      "rid\030\001 \001(\004*\330\005\n\016ServerProtocol\022\035\n\031S2S_SERV"
+      "ER_PROTOCOL_BEGIN\020\000\022\"\n\034S2S_START_MATCH_T"
+      "O_SHARD_REQ\020\231\362\001\022!\n\033S2S_START_MATCH_TO_GA"
+      "ME_ACK\020\232\362\001\022#\n\035S2S_CANCEL_MATCH_TO_SHARD_"
+      "REQ\020\233\362\001\022%\n\037S2S_REGISTER_BATTLE_TO_ROOM_R"
+      "EQ\020\375\362\001\022\'\n!S2S_REGISTER_BATTLE_TO_BATTLE_"
+      "ACK\020\376\362\001\022!\n\033S2S_OPEN_ROOM_TO_BATTLE_REQ\020\377"
+      "\362\001\022\037\n\031S2S_OPEN_ROOM_TO_ROOM_ACK\020\200\363\001\022!\n\033S"
+      "2S_FINISH_ROOM_TO_ROOM_REQ\020\201\363\001\022#\n\035S2S_FI"
+      "NISH_ROOM_TO_BATTLE_ACK\020\202\363\001\022 \n\032S2S_HEART"
+      "_BEAT_TO_ROOM_REQ\020\203\363\001\022!\n\033S2S_CREATE_ROOM"
+      "_TO_ROOM_REQ\020\341\363\001\022\"\n\034S2S_CREATE_ROOM_TO_M"
+      "ATCH_ACK\020\342\363\001\022#\n\035S2S_INFORM_BATTLE_TO_GAM"
+      "E_REQ\020\343\363\001\022#\n\035S2S_INFORM_BATTLE_TO_ROOM_A"
+      "CK\020\344\363\001\022 \n\032S2S_QUERY_ROOM_TO_ROOM_REQ\020\345\363\001"
+      "\022 \n\032S2S_QUERY_ROOM_TO_GAME_ACK\020\346\363\001\022!\n\033S2"
+      "S_FINISH_ROOM_TO_GAME_REQ\020\347\363\001\022\"\n\034S2S_QUE"
+      "RY_MATCH_TO_MATCH_REQ\020\350\363\001\022!\n\033S2S_QUERY_M"
+      "ATCH_TO_GAME_ACK\020\351\363\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2440);
+      descriptor, 2148);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_DefineMessage_2eproto::AddDescriptors();
@@ -808,8 +706,6 @@ bool ServerProtocol_IsValid(int value) {
     case 31001:
     case 31002:
     case 31003:
-    case 31004:
-    case 31005:
     case 31101:
     case 31102:
     case 31103:
@@ -4280,592 +4176,6 @@ void S2SCreateRoomToMatchAck::InternalSwap(S2SCreateRoomToMatchAck* other) {
 
 // ===================================================================
 
-void S2SAffirmMatchTimeoutToGame::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int S2SAffirmMatchTimeoutToGame::kPlayeridFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-S2SAffirmMatchTimeoutToGame::S2SAffirmMatchTimeoutToGame()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_ServerMessage_2eproto::scc_info_S2SAffirmMatchTimeoutToGame.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:KFMsg.S2SAffirmMatchTimeoutToGame)
-}
-S2SAffirmMatchTimeoutToGame::S2SAffirmMatchTimeoutToGame(const S2SAffirmMatchTimeoutToGame& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  playerid_ = from.playerid_;
-  // @@protoc_insertion_point(copy_constructor:KFMsg.S2SAffirmMatchTimeoutToGame)
-}
-
-void S2SAffirmMatchTimeoutToGame::SharedCtor() {
-  playerid_ = GOOGLE_ULONGLONG(0);
-}
-
-S2SAffirmMatchTimeoutToGame::~S2SAffirmMatchTimeoutToGame() {
-  // @@protoc_insertion_point(destructor:KFMsg.S2SAffirmMatchTimeoutToGame)
-  SharedDtor();
-}
-
-void S2SAffirmMatchTimeoutToGame::SharedDtor() {
-}
-
-void S2SAffirmMatchTimeoutToGame::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* S2SAffirmMatchTimeoutToGame::descriptor() {
-  ::protobuf_ServerMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_ServerMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const S2SAffirmMatchTimeoutToGame& S2SAffirmMatchTimeoutToGame::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_ServerMessage_2eproto::scc_info_S2SAffirmMatchTimeoutToGame.base);
-  return *internal_default_instance();
-}
-
-
-void S2SAffirmMatchTimeoutToGame::Clear() {
-// @@protoc_insertion_point(message_clear_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  playerid_ = GOOGLE_ULONGLONG(0);
-  _internal_metadata_.Clear();
-}
-
-bool S2SAffirmMatchTimeoutToGame::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 playerid = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &playerid_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:KFMsg.S2SAffirmMatchTimeoutToGame)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:KFMsg.S2SAffirmMatchTimeoutToGame)
-  return false;
-#undef DO_
-}
-
-void S2SAffirmMatchTimeoutToGame::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 playerid = 1;
-  if (this->playerid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->playerid(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:KFMsg.S2SAffirmMatchTimeoutToGame)
-}
-
-::google::protobuf::uint8* S2SAffirmMatchTimeoutToGame::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 playerid = 1;
-  if (this->playerid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->playerid(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.S2SAffirmMatchTimeoutToGame)
-  return target;
-}
-
-size_t S2SAffirmMatchTimeoutToGame::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // uint64 playerid = 1;
-  if (this->playerid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->playerid());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void S2SAffirmMatchTimeoutToGame::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  GOOGLE_DCHECK_NE(&from, this);
-  const S2SAffirmMatchTimeoutToGame* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const S2SAffirmMatchTimeoutToGame>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.S2SAffirmMatchTimeoutToGame)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.S2SAffirmMatchTimeoutToGame)
-    MergeFrom(*source);
-  }
-}
-
-void S2SAffirmMatchTimeoutToGame::MergeFrom(const S2SAffirmMatchTimeoutToGame& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.playerid() != 0) {
-    set_playerid(from.playerid());
-  }
-}
-
-void S2SAffirmMatchTimeoutToGame::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void S2SAffirmMatchTimeoutToGame::CopyFrom(const S2SAffirmMatchTimeoutToGame& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.S2SAffirmMatchTimeoutToGame)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool S2SAffirmMatchTimeoutToGame::IsInitialized() const {
-  return true;
-}
-
-void S2SAffirmMatchTimeoutToGame::Swap(S2SAffirmMatchTimeoutToGame* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void S2SAffirmMatchTimeoutToGame::InternalSwap(S2SAffirmMatchTimeoutToGame* other) {
-  using std::swap;
-  swap(playerid_, other->playerid_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata S2SAffirmMatchTimeoutToGame::GetMetadata() const {
-  protobuf_ServerMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_ServerMessage_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse() {}
-S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
-void S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::MergeFrom(const S2SAffirmMatchToShardReq_HeroEntry_DoNotUse& other) {
-  MergeFromInternal(other);
-}
-::google::protobuf::Metadata S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::GetMetadata() const {
-  ::protobuf_ServerMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_ServerMessage_2eproto::file_level_metadata[13];
-}
-void S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::MergeFrom(
-    const ::google::protobuf::Message& other) {
-  ::google::protobuf::Message::MergeFrom(other);
-}
-
-
-// ===================================================================
-
-void S2SAffirmMatchToShardReq::InitAsDefaultInstance() {
-}
-void S2SAffirmMatchToShardReq::clear_hero() {
-  hero_.Clear();
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int S2SAffirmMatchToShardReq::kPlayeridFieldNumber;
-const int S2SAffirmMatchToShardReq::kHeroFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-S2SAffirmMatchToShardReq::S2SAffirmMatchToShardReq()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_ServerMessage_2eproto::scc_info_S2SAffirmMatchToShardReq.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:KFMsg.S2SAffirmMatchToShardReq)
-}
-S2SAffirmMatchToShardReq::S2SAffirmMatchToShardReq(const S2SAffirmMatchToShardReq& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  hero_.MergeFrom(from.hero_);
-  playerid_ = from.playerid_;
-  // @@protoc_insertion_point(copy_constructor:KFMsg.S2SAffirmMatchToShardReq)
-}
-
-void S2SAffirmMatchToShardReq::SharedCtor() {
-  playerid_ = GOOGLE_ULONGLONG(0);
-}
-
-S2SAffirmMatchToShardReq::~S2SAffirmMatchToShardReq() {
-  // @@protoc_insertion_point(destructor:KFMsg.S2SAffirmMatchToShardReq)
-  SharedDtor();
-}
-
-void S2SAffirmMatchToShardReq::SharedDtor() {
-}
-
-void S2SAffirmMatchToShardReq::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* S2SAffirmMatchToShardReq::descriptor() {
-  ::protobuf_ServerMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_ServerMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const S2SAffirmMatchToShardReq& S2SAffirmMatchToShardReq::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_ServerMessage_2eproto::scc_info_S2SAffirmMatchToShardReq.base);
-  return *internal_default_instance();
-}
-
-
-void S2SAffirmMatchToShardReq::Clear() {
-// @@protoc_insertion_point(message_clear_start:KFMsg.S2SAffirmMatchToShardReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  hero_.Clear();
-  playerid_ = GOOGLE_ULONGLONG(0);
-  _internal_metadata_.Clear();
-}
-
-bool S2SAffirmMatchToShardReq::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:KFMsg.S2SAffirmMatchToShardReq)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 playerid = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &playerid_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // map<uint64, .KFMsg.PBObject> hero = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          S2SAffirmMatchToShardReq_HeroEntry_DoNotUse::Parser< ::google::protobuf::internal::MapField<
-              S2SAffirmMatchToShardReq_HeroEntry_DoNotUse,
-              ::google::protobuf::uint64, ::KFMsg::PBObject,
-              ::google::protobuf::internal::WireFormatLite::TYPE_UINT64,
-              ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
-              0 >,
-            ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject > > parser(&hero_);
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-              input, &parser));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:KFMsg.S2SAffirmMatchToShardReq)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:KFMsg.S2SAffirmMatchToShardReq)
-  return false;
-#undef DO_
-}
-
-void S2SAffirmMatchToShardReq::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KFMsg.S2SAffirmMatchToShardReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 playerid = 1;
-  if (this->playerid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->playerid(), output);
-  }
-
-  // map<uint64, .KFMsg.PBObject> hero = 2;
-  if (!this->hero().empty()) {
-    typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_pointer
-        ConstPtr;
-    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::uint64, ConstPtr > SortItem;
-    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
-
-    if (output->IsSerializationDeterministic() &&
-        this->hero().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->hero().size()]);
-      typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      ::std::unique_ptr<S2SAffirmMatchToShardReq_HeroEntry_DoNotUse> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(hero_.NewEntryWrapper(
-            items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            2, *entry, output);
-      }
-    } else {
-      ::std::unique_ptr<S2SAffirmMatchToShardReq_HeroEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it) {
-        entry.reset(hero_.NewEntryWrapper(
-            it->first, it->second));
-        ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            2, *entry, output);
-      }
-    }
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:KFMsg.S2SAffirmMatchToShardReq)
-}
-
-::google::protobuf::uint8* S2SAffirmMatchToShardReq::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.S2SAffirmMatchToShardReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 playerid = 1;
-  if (this->playerid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->playerid(), target);
-  }
-
-  // map<uint64, .KFMsg.PBObject> hero = 2;
-  if (!this->hero().empty()) {
-    typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_pointer
-        ConstPtr;
-    typedef ::google::protobuf::internal::SortItem< ::google::protobuf::uint64, ConstPtr > SortItem;
-    typedef ::google::protobuf::internal::CompareByFirstField<SortItem> Less;
-
-    if (deterministic &&
-        this->hero().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->hero().size()]);
-      typedef ::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::size_type size_type;
-      size_type n = 0;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      ::std::unique_ptr<S2SAffirmMatchToShardReq_HeroEntry_DoNotUse> entry;
-      for (size_type i = 0; i < n; i++) {
-        entry.reset(hero_.NewEntryWrapper(
-            items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       2, *entry, deterministic, target);
-;
-      }
-    } else {
-      ::std::unique_ptr<S2SAffirmMatchToShardReq_HeroEntry_DoNotUse> entry;
-      for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-          it = this->hero().begin();
-          it != this->hero().end(); ++it) {
-        entry.reset(hero_.NewEntryWrapper(
-            it->first, it->second));
-        target = ::google::protobuf::internal::WireFormatLite::
-                   InternalWriteMessageNoVirtualToArray(
-                       2, *entry, deterministic, target);
-;
-      }
-    }
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.S2SAffirmMatchToShardReq)
-  return target;
-}
-
-size_t S2SAffirmMatchToShardReq::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KFMsg.S2SAffirmMatchToShardReq)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // map<uint64, .KFMsg.PBObject> hero = 2;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->hero_size());
-  {
-    ::std::unique_ptr<S2SAffirmMatchToShardReq_HeroEntry_DoNotUse> entry;
-    for (::google::protobuf::Map< ::google::protobuf::uint64, ::KFMsg::PBObject >::const_iterator
-        it = this->hero().begin();
-        it != this->hero().end(); ++it) {
-      entry.reset(hero_.NewEntryWrapper(it->first, it->second));
-      total_size += ::google::protobuf::internal::WireFormatLite::
-          MessageSizeNoVirtual(*entry);
-    }
-  }
-
-  // uint64 playerid = 1;
-  if (this->playerid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->playerid());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void S2SAffirmMatchToShardReq::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.S2SAffirmMatchToShardReq)
-  GOOGLE_DCHECK_NE(&from, this);
-  const S2SAffirmMatchToShardReq* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const S2SAffirmMatchToShardReq>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.S2SAffirmMatchToShardReq)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.S2SAffirmMatchToShardReq)
-    MergeFrom(*source);
-  }
-}
-
-void S2SAffirmMatchToShardReq::MergeFrom(const S2SAffirmMatchToShardReq& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.S2SAffirmMatchToShardReq)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  hero_.MergeFrom(from.hero_);
-  if (from.playerid() != 0) {
-    set_playerid(from.playerid());
-  }
-}
-
-void S2SAffirmMatchToShardReq::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.S2SAffirmMatchToShardReq)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void S2SAffirmMatchToShardReq::CopyFrom(const S2SAffirmMatchToShardReq& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.S2SAffirmMatchToShardReq)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool S2SAffirmMatchToShardReq::IsInitialized() const {
-  return true;
-}
-
-void S2SAffirmMatchToShardReq::Swap(S2SAffirmMatchToShardReq* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void S2SAffirmMatchToShardReq::InternalSwap(S2SAffirmMatchToShardReq* other) {
-  using std::swap;
-  hero_.Swap(&other->hero_);
-  swap(playerid_, other->playerid_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata S2SAffirmMatchToShardReq::GetMetadata() const {
-  protobuf_ServerMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_ServerMessage_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
 void S2SInformBattleToGameReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -6792,15 +6102,6 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::S2SCreateRoomToRoomReq* A
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::S2SCreateRoomToMatchAck* Arena::CreateMaybeMessage< ::KFMsg::S2SCreateRoomToMatchAck >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::S2SCreateRoomToMatchAck >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::S2SAffirmMatchTimeoutToGame* Arena::CreateMaybeMessage< ::KFMsg::S2SAffirmMatchTimeoutToGame >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::S2SAffirmMatchTimeoutToGame >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse* Arena::CreateMaybeMessage< ::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::S2SAffirmMatchToShardReq_HeroEntry_DoNotUse >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::S2SAffirmMatchToShardReq* Arena::CreateMaybeMessage< ::KFMsg::S2SAffirmMatchToShardReq >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::S2SAffirmMatchToShardReq >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::S2SInformBattleToGameReq* Arena::CreateMaybeMessage< ::KFMsg::S2SInformBattleToGameReq >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::S2SInformBattleToGameReq >(arena);

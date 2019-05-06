@@ -14,8 +14,6 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::MSG_START_MATCH_REQ, &KFMatchClientModule::HandleStartMatchReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleStartMatchToGameAck );
         __REGISTER_MESSAGE__( KFMsg::MSG_CANCEL_MATCH_REQ, &KFMatchClientModule::HandleCancelMatchReq );
-        __REGISTER_MESSAGE__( KFMsg::MSG_AFFIRM_MATCH_REQ, &KFMatchClientModule::HandleAffirmMatchReq );
-        __REGISTER_MESSAGE__( KFMsg::S2S_AFFIRM_MATCH_TIMEOUT_TO_GAME, &KFMatchClientModule::HandleAffirmMatchTimeoutToGame );
         __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleQueryMatchToGameAck );
 
     }
@@ -28,8 +26,6 @@ namespace KFrame
         __UNREGISTER_MESSAGE__( KFMsg::MSG_START_MATCH_REQ );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK );
         __UNREGISTER_MESSAGE__( KFMsg::MSG_CANCEL_MATCH_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::MSG_AFFIRM_MATCH_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_AFFIRM_MATCH_TIMEOUT_TO_GAME );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK );
     }
 
@@ -124,6 +120,13 @@ namespace KFrame
             return KFMsg::MatchAlreadyWait;
         }
 
+        // 出战英雄
+        auto heroid = kfobject->GetValue< uint32 >( __KF_STRING__( heroid ) );
+        if ( heroid == _invalid_int )
+        {
+            return KFMsg::MatchNotFighterHero;
+        }
+
         // 发送给匹配集群， 进行匹配
         KFMsg::S2SStartMatchToShardReq req;
         req.set_version( version );
@@ -147,30 +150,9 @@ namespace KFrame
         pbplayer->set_name( kfobject->GetValue< std::string >( __KF_STRING__( name ) ) );
         pbplayer->set_serverid( KFGlobal::Instance()->_app_id->GetId() );
 
-        // 测试用
-        player->RemoveData( __KF_STRING__( hero ) );
-
-        static auto _init = false;
-        static KFElements elements;
-        if ( !_init )
-        {
-            _init = true;
-            std::string _element = "[{\"hero\":{\"rand\":\"1\"}}]";
-            elements.Parse( _element, __FUNC_LINE__ );
-        }
-
-        for ( auto i = 0u; i < 10u; ++i )
-        {
-            player->AddElement( __FUNC_LINE__, &elements, false );
-        }
-
-        // 英雄列表
-        auto kfherorecord = kfobject->FindData( __KF_STRING__( hero ) );
-        for ( auto kfhero = kfherorecord->FirstData(); kfhero != nullptr; kfhero = kfherorecord->NextData() )
-        {
-            auto& pbhero = ( *pbplayer->mutable_hero() )[ kfhero->GetKeyID() ];
-            _kf_kernel->SerializeToClient( kfhero, &pbhero );
-        }
+        pbplayer->set_isrobot( false );
+        pbplayer->set_heroid( kfobject->GetValue<uint32>( __KF_STRING__( heroid ) ) );
+        pbplayer->set_grade( kfobject->GetValue<uint32>( __KF_STRING__( basic ), __KF_STRING__( grade ) ) );
     }
 
     void KFMatchClientModule::SetMatchData( KFEntity* player, uint32 matchid, uint64 serverid )
@@ -217,35 +199,5 @@ namespace KFrame
         SetMatchData( player, _invalid_int, _invalid_int );
         _kf_display->SendToClient( player, KFMsg::MatchCancelOk );
         __LOG_DEBUG__( "player=[{}] cancel match req!", playerid );
-    }
-
-    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleAffirmMatchReq )
-    {
-        __CLIENT_PROTO_PARSE__( KFMsg::MsgAffirmMatchReq );
-
-        auto kfobject = player->GetData();
-        auto matchserverid = kfobject->GetValue( __KF_STRING__( matchserverid ) );
-        if ( matchserverid == _invalid_int )
-        {
-            return;
-        }
-
-        KFMsg::S2SAffirmMatchToShardReq req;
-        req.set_playerid( playerid );
-        auto ok = _kf_route->SendToServer( matchserverid, KFMsg::S2S_AFFIRM_MATCH_TO_SHARD_REQ, &req );
-        if ( !ok )
-        {
-            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
-        }
-    }
-
-    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleAffirmMatchTimeoutToGame )
-    {
-        __SERVER_PROTO_PARSE__( KFMsg::S2SAffirmMatchTimeoutToGame );
-
-        SetMatchData( player, _invalid_int, _invalid_int );
-        _kf_display->SendToClient( player, KFMsg::MatchAffirmTimeout );
-
-        __LOG_DEBUG__( "player=[{}] affirm timeout!", kfmsg.playerid() );
     }
 }

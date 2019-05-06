@@ -47,12 +47,6 @@ namespace KFrame
         // 取消匹配
         __KF_MESSAGE_FUNCTION__( HandleCancelMatchReq );
 
-        // 请求确认
-        __KF_MESSAGE_FUNCTION__( HandleAffirmMatchReq );
-
-        // 匹配确认超时
-        __KF_MESSAGE_FUNCTION__( HandleAffirmMatchTimeoutToGame );
-
         // 查询匹配
         __KF_MESSAGE_FUNCTION__( HandleQueryMatchToGameAck );
 

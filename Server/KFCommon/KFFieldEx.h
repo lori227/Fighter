@@ -24,6 +24,8 @@ namespace KFrame
         __STRING_DEFINE__( battle );
         __STRING_DEFINE__( battlelist );
         __STRING_DEFINE__( roomserverid );
+        __STRING_DEFINE__( heroid );
+        __STRING_DEFINE__( grade );
 
     }
 }

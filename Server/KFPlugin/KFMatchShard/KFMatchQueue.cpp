@@ -29,7 +29,6 @@ namespace KFrame
     bool KFMatchQueue::CancelMatch( uint64 playerid )
     {
         RemovePlayer( playerid );
-
         return true;
     }
 

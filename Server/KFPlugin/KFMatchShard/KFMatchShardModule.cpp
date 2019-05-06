@@ -11,7 +11,6 @@ namespace KFrame
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleStartMatchToShardReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleCancelMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMsg::S2S_AFFIRM_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleAffirmMatchToShardReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK, &KFMatchShardModule::HandleCreateRoomToMatchAck );
         __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ, &KFMatchShardModule::HandleQueryMatchToMatchReq );
     }
@@ -21,14 +20,13 @@ namespace KFrame
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UNREGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_SHARD_REQ );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_AFFIRM_MATCH_TO_SHARD_REQ );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ );
     }
 
     void KFMatchShardModule::OnceRun()
     {
-        // 添加匹配模式
+        // todo: 添加匹配模式
         RouteObjectList matchlist;
         matchlist.insert( 1 );
         _kf_route->SyncObject( matchlist );
@@ -161,27 +159,6 @@ namespace KFrame
             auto kfqueue = FindMatchQueue( kfplayer->_match_id );
             kfqueue->CancelMatch( kfmsg.playerid() );
         }
-    }
-
-    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleAffirmMatchToShardReq )
-    {
-        __PROTO_PARSE__( KFMsg::S2SAffirmMatchToShardReq );
-
-        __LOG_DEBUG__( "player=[{}] affrim match req!", kfmsg.playerid() );
-
-        auto kfplayer = _match_player_manage->Find( kfmsg.playerid() );
-        if ( kfplayer == nullptr )
-        {
-            return __LOG_ERROR__( "can't find player=[{}]!", kfmsg.playerid() );
-        }
-
-        auto kfroom = _match_room_list.Find( kfplayer->_room_id );
-        if ( kfroom == nullptr )
-        {
-            return __LOG_ERROR__( "can't find room=[{}]!", kfplayer->_room_id );
-        }
-
-        kfroom->PlayerAffirm( kfplayer->_id );
     }
 
     __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleCreateRoomToMatchAck )
