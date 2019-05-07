@@ -17,6 +17,11 @@ namespace KFrame
 
     bool KFBattlePlayer::SendToGame( uint32 msgid, google::protobuf::Message* message )
     {
+        if ( _pb_player.isrobot() )
+        {
+            return true;
+        }
+
         return _kf_route->SendToPlayer( _pb_player.serverid(), _id, msgid, message );
     }
 

@@ -37,6 +37,12 @@ namespace KFrame
             return __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_parent->_data );
         }
 
+        auto kfsetting = _kf_hero_config->FindHeroSetting( kfelementobject->_config_id );
+        if ( kfsetting == nullptr )
+        {
+            return __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no setting!", kfelement->_parent->_data );
+        }
+
         // todo: 临时代码, 不重复添加英雄
         auto kfchild = kfparent->FindData( kfelementobject->_config_id );
         if ( kfchild != nullptr )

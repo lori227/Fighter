@@ -58,6 +58,7 @@ enum ProjectCodeEnum {
   MatchCancelOk = 32005,
   MatchAffirmTimeout = 32007,
   MatchNotFighterHero = 32008,
+  MatchDataError = 32009,
   RoomAllotBattle = 32101,
   ProjectCodeEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ProjectCodeEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max

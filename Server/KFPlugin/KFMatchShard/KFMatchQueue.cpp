@@ -4,22 +4,25 @@
 namespace KFrame
 {
     //////////////////////////////////////////////////////////////////////////////////
-    void KFMatchQueue::RemovePlayer( uint64 id )
+    void KFMatchQueue::RemovePlayer( uint64 playerid )
     {
-        _player_list.Remove( id );
+        _player_list.Remove( playerid );
     }
 
     void KFMatchQueue::AddPlayer( KFMatchPlayer* kfplayer )
     {
-        kfplayer->Reset();
+        kfplayer->_match_room = nullptr;
         _player_list.Insert( kfplayer->_id, kfplayer );
     }
 
+    void KFMatchQueue::RemoveRoom( KFMatchRoom* kfroom )
+    {
+        _room_list.Remove( kfroom->_id );
+    }
     //////////////////////////////////////////////////////////////////////////////////
     void KFMatchQueue::StartMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid )
     {
         auto kfplayer = __KF_NEW__( KFMatchPlayer );
-        kfplayer->_match_id = _match_id;
         kfplayer->_version = version;
         kfplayer->_battle_server_id = battleserverid;
         kfplayer->CopyFrom( pbplayer );
@@ -33,74 +36,67 @@ namespace KFrame
     }
 
     //////////////////////////////////////////////////////////////////////////////////
-    bool KFMatchQueue::IsMatched( KFMatchPlayer* firstplayer, KFMatchPlayer* secondplayer )
-    {
-        // 同一个人
-        if ( firstplayer->_id == secondplayer->_id )
-        {
-            return false;
-        }
-
-        // 指定的战斗服不一致
-        if ( firstplayer->_battle_server_id != secondplayer->_battle_server_id )
-        {
-            return false;
-        }
-
-        // 版本不一致
-        if ( firstplayer->_version != secondplayer->_version )
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    std::tuple< bool, KFMatchPlayer*, KFMatchPlayer* > KFMatchQueue::RunMatchPlayer()
-    {
-        // demo版本,简单做匹配
-        for ( auto fiter = _player_list._objects.begin(); fiter != _player_list._objects.end(); ++fiter )
-        {
-            auto firstplayer = fiter->second;
-
-            for ( auto siter = _player_list._objects.begin(); siter != _player_list._objects.end(); ++siter )
-            {
-                auto secondplayer = siter->second;
-
-                auto ok = IsMatched( firstplayer, secondplayer );
-                if ( ok )
-                {
-                    return std::make_tuple( true, firstplayer, secondplayer );
-                }
-            }
-        }
-
-        return std::make_tuple( false, nullptr, nullptr );
-    }
-
     void KFMatchQueue::RunMatch()
     {
-        // demo版本,简单做匹配
-        auto ok = false;
-        do
+        // 匹配玩家
+        RunMatchPlayer();
+
+        // 匹配房间
+        RunMatchRoom();
+    }
+
+    KFMatchRoom* KFMatchQueue::FindMatchRoom( KFMatchPlayer* kfplayer )
+    {
+        for ( auto iter : _room_list._objects )
         {
-            auto retvalue = RunMatchPlayer();
-            ok = std::get< 0 >( retvalue );
+            auto kfroom = iter.second;
+            if ( kfroom->IsMatched( kfplayer ) )
+            {
+                return kfroom;
+            }
+        }
+
+        // 创建一个新的房间
+        auto kfroom = __KF_NEW__( KFMatchRoom );
+        kfroom->InitRoom( this, kfplayer->_pb_player.grade(), kfplayer->_version, kfplayer->_battle_server_id );
+        _room_list.Insert( kfroom->_id, kfroom );
+        return kfroom;
+    }
+
+    void KFMatchQueue::RunMatchPlayer()
+    {
+        for ( auto iter = _player_list._objects.begin(); iter != _player_list._objects.end(); ++iter )
+        {
+            auto kfplayer = iter->second;
+
+            auto kfroom = FindMatchRoom( kfplayer );
+            auto ok = kfroom->AddPlayer( kfplayer );
             if ( ok )
             {
-                auto firstplayer = std::get< 1 >( retvalue );
-                auto secondplayer = std::get< 2 >( retvalue );
-
-                auto kfroom = _match_module->CreateMatchRoom( this, firstplayer->_version, firstplayer->_battle_server_id );
-
-                // 红色阵营
-                _player_list.Remove( firstplayer->_id, false );
-                kfroom->AddPlayer( firstplayer, KFMsg::RedCamp );
-
-                // 蓝色阵营
-                _player_list.Remove( secondplayer->_id, false );
-                kfroom->AddPlayer( secondplayer, KFMsg::BlueCamp );
+                _match_module->AddRoom( kfroom );
+                _room_list.Remove( kfroom->_id, false );
             }
-        } while ( ok );
+        }
+
+        _player_list.Clear( false );
     }
+
+    void KFMatchQueue::RunMatchRoom()
+    {
+        for ( auto iter = _room_list._objects.begin(); iter != _room_list._objects.end(); )
+        {
+            auto kfroom = iter->second;
+            bool ok = kfroom->AddRobot();
+            if ( ok )
+            {
+                iter = _room_list._objects.erase( iter );
+                _match_module->AddRoom( kfroom );
+            }
+            else
+            {
+                ++iter;
+            }
+        }
+    }
+
 }

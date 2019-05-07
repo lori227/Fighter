@@ -162,6 +162,11 @@ namespace KFrame
 
     void KFBattleRoom::AddInformPlayer( KFBattlePlayer* kfplayer )
     {
+        if ( kfplayer->_pb_player.isrobot() )
+        {
+            return;
+        }
+
         // 发送通知
         SendInformToPlayer( kfplayer );
 
@@ -184,11 +189,11 @@ namespace KFrame
     void KFBattleRoom::SendInformToPlayer( KFBattlePlayer* kfplayer )
     {
         KFMsg::S2SInformBattleToGameReq req;
-        req.set_playerid( kfplayer->_id );
         req.set_roomid( _id );
-        req.set_battleid( _allot_id );
         req.set_ip( _allot_ip );
         req.set_port( _allot_port );
+        req.set_battleid( _allot_id );
+        req.set_playerid( kfplayer->_id );
         kfplayer->SendToGame( KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, &req );
 
         __LOG_DEBUG__( "inform player=[{}] battle=[{}|{}:{}]", kfplayer->_id, KFAppId::ToString( _allot_id ), _allot_ip, _allot_port );

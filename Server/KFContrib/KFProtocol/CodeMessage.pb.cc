@@ -50,16 +50,17 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021CodeMessage.proto\022\005KFMsg*\356\001\n\017ProjectCo"
+      "\n\021CodeMessage.proto\022\005KFMsg*\204\002\n\017ProjectCo"
       "deEnum\022\016\n\nLogicError\020\000\022\022\n\014HeroNotExist\020\231"
       "\362\001\022\024\n\016MatchRequestOk\020\201\372\001\022\026\n\020MatchAlready"
       "Wait\020\202\372\001\022\021\n\013MatchInRoom\020\203\372\001\022\025\n\017MatchNotI"
       "nMatch\020\204\372\001\022\023\n\rMatchCancelOk\020\205\372\001\022\030\n\022Match"
       "AffirmTimeout\020\207\372\001\022\031\n\023MatchNotFighterHero"
-      "\020\210\372\001\022\025\n\017RoomAllotBattle\020\345\372\001b\006proto3"
+      "\020\210\372\001\022\024\n\016MatchDataError\020\211\372\001\022\025\n\017RoomAllotB"
+      "attle\020\345\372\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 275);
+      descriptor, 297);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CodeMessage.proto", &protobuf_RegisterTypes);
 }
@@ -91,6 +92,7 @@ bool ProjectCodeEnum_IsValid(int value) {
     case 32005:
     case 32007:
     case 32008:
+    case 32009:
     case 32101:
       return true;
     default:

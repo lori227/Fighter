@@ -18,6 +18,7 @@ enum ProjectCodeEnum
 	MatchCancelOk	    = 32005;	// 取消匹配成功
 	MatchAffirmTimeout  = 32007;	// 确认匹配超时
 	MatchNotFighterHero = 32008;	// 没有匹配英雄
+	MatchDataError		= 32009;	// 匹配数据错误
 
 	RoomAllotBattle		= 32101;	// 正在分配战场服务器, 请等待
 	

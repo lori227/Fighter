@@ -1,17 +1,22 @@
 ﻿#include "KFMatchRoom.h"
 #include "KFMatchQueue.h"
+#include "KFMatchNameConfig.hpp"
+#include "KFMatchHeroConfig.hpp"
+#include "KFMatchShardConfig.hpp"
 #include "KFRouteClient/KFRouteClientInterface.h"
 
 namespace KFrame
 {
-    void KFMatchRoom::Initialize( KFMatchQueue* kfqueue, const std::string& version, uint64 battleserverid )
+    void KFMatchRoom::InitRoom( KFMatchQueue* kfqueue, uint32 grade, const std::string& version, uint64 battleserverid )
     {
+        _grade = grade;
         _version = version;
         _match_queue = kfqueue;
         _battle_server_id = battleserverid;
         _id = KFGlobal::Instance()->MakeUUID();
 
-        ChangeState( InitState, 1000 );
+        _state = MatchState;
+        _next_add_robot_time = KFGlobal::Instance()->_game_time + _match_queue->_match_setting->_add_robot_time;
     }
 
     void KFMatchRoom::ChangeState( uint32 state, uint32 time )
@@ -22,11 +27,24 @@ namespace KFrame
         __LOG_DEBUG__( "room=[{}] state=[{}] time=[{}]", _id, _state, time );
     }
 
-    void KFMatchRoom::AddPlayer( KFMatchPlayer* kfplayer, uint32 campid )
+    bool KFMatchRoom::AddPlayer( KFMatchPlayer* kfplayer )
     {
-        kfplayer->_room_id = _id;
-        kfplayer->_pb_player.set_campid( campid );
+        kfplayer->_match_room = this;
         _player_list.Insert( kfplayer->_id, kfplayer );
+        __LOG_DEBUG__( "room=[{}] add player=[{}] count=[{}]!", _id, kfplayer->_id, _player_list.Size() );
+
+        return CheckFull();
+    }
+
+    bool KFMatchRoom::CheckFull()
+    {
+        auto ok = ( _player_list.Size() >= _match_queue->_match_setting->_max_count );
+        if ( ok )
+        {
+            ChangeState( CreateState, 5000 );
+        }
+
+        return ok;
     }
 
     bool KFMatchRoom::IsValid()
@@ -40,12 +58,6 @@ namespace KFrame
         {
             switch ( _state )
             {
-            case InitState:
-                AffirmToPlayer();
-                break;
-            case AffirmState:
-                AffirmTimeout();
-                break;
             case CreateState:
                 CreateRoom();
                 break;
@@ -57,83 +69,6 @@ namespace KFrame
         return IsValid();
     }
 
-    void KFMatchRoom::AffirmToPlayer()
-    {
-        // 等待时间
-        static uint32 _affirm_time = 1000u;
-
-        ChangeState( AffirmState, ( _affirm_time + 1 ) * 1000 );
-        //////////////////////////////////////////////////////
-        // 发送消息
-        for ( auto& iter : _player_list._objects )
-        {
-            auto player = iter.second;
-            player->TellMatchResult( _affirm_time );
-        }
-    }
-
-    void KFMatchRoom::QueryRoom( KFMatchPlayer* kfplayer )
-    {
-        if ( _state == AffirmState )
-        {
-            auto lefttime = _timer.GetLeftTime();
-            kfplayer->TellMatchResult( lefttime );
-        }
-    }
-
-    void KFMatchRoom::AffirmTimeout()
-    {
-        // 销毁房间
-        ChangeState( DestroyState, 1000 );
-        //////////////////////////////////////////////////////
-
-        std::set< uint64 > _removes;
-        for ( auto& iter : _player_list._objects )
-        {
-            auto player = iter.second;
-            if ( player->_is_affirm )
-            {
-                _removes.insert( player->_id );
-                _match_queue->AddPlayer( player );
-            }
-            else
-            {
-                KFMsg::S2SAffirmMatchTimeoutToGame msg;
-                msg.set_playerid( player->_id );
-                player->SendToGame( KFMsg::S2S_AFFIRM_MATCH_TIMEOUT_TO_GAME, &msg );
-            }
-        }
-
-        for ( auto id : _removes )
-        {
-            _player_list.Remove( id, false );
-        }
-    }
-
-    void KFMatchRoom::PlayerAffirm( uint64 playerid )
-    {
-        auto player = _player_list.Find( playerid );
-        if ( player == nullptr )
-        {
-            return;
-        }
-
-        player->_is_affirm = true;
-
-        // 判断是否全部确认
-        for ( auto& iter : _player_list._objects )
-        {
-            auto player = iter.second;
-            if ( !player->_is_affirm )
-            {
-                return;
-            }
-        }
-
-        // 1秒后创建房间
-        ChangeState( CreateState, 1000 );
-    }
-
     void KFMatchRoom::CreateRoom()
     {
         ChangeState( CreateState, 5000 );
@@ -142,7 +77,7 @@ namespace KFrame
         req.set_roomid( _id );
         req.set_version( _version );
         req.set_serverid( _battle_server_id );
-        req.set_matchid( _match_queue->_match_id );
+        req.set_matchid( _match_queue->_match_setting->_id );
 
         for ( auto& iter : _player_list._objects )
         {
@@ -160,7 +95,96 @@ namespace KFrame
 
     void KFMatchRoom::CancelMatch( KFMatchPlayer* kfplayer )
     {
-        // 有人取消, 直接消费
-        ChangeState( DestroyState, 100 );
+        if ( _state != MatchState )
+        {
+            return;
+        }
+
+        // 删除玩家
+        _player_list.Remove( kfplayer->_id );
+
+        // 判断是否全是机器人
+        for ( auto iter : _player_list._objects )
+        {
+            auto kfplayer = iter.second;
+            if ( !kfplayer->_pb_player.isrobot() )
+            {
+                return;
+            }
+        }
+
+        // 如果没有真是玩家, 房间销毁
+        _match_queue->RemoveRoom( this );
+    }
+
+    bool KFMatchRoom::IsMatched( KFMatchPlayer* kfplayer )
+    {
+        // 版本号
+        if ( kfplayer->_version != _version )
+        {
+            return false;
+        }
+
+        // 服务器id
+        if ( kfplayer->_battle_server_id != _battle_server_id )
+        {
+            return false;
+        }
+
+        // 上限积分差距
+        if ( kfplayer->_pb_player.grade() > _grade + _match_queue->_match_setting->_upper_grade )
+        {
+            return false;
+        }
+
+        // 下限积分差距
+        if ( kfplayer->_pb_player.grade() + _match_queue->_match_setting->_lower_grade < _grade )
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    bool KFMatchRoom::AddRobot()
+    {
+        if ( _next_add_robot_time < KFGlobal::Instance()->_game_time )
+        {
+            return false;
+        }
+
+        _next_add_robot_time = KFGlobal::Instance()->_game_time + _match_queue->_match_setting->_add_robot_time;
+        auto addcount = __MIN__( _match_queue->_match_setting->_add_robot_count, _match_queue->_match_setting->_max_count - _player_list.Size() );
+
+        do
+        {
+            auto kfrobot = CreateMatchRobot();
+            _player_list.Insert( kfrobot->_id, kfrobot );
+            __LOG_DEBUG__( "room=[{}] add robot=[{}] count=[{}]!", _id, kfrobot->_id, _player_list.Size() );
+
+        } while ( ( --addcount ) > 0 );
+
+        return CheckFull();
+    }
+
+    KFMatchPlayer* KFMatchRoom::CreateMatchRobot()
+    {
+        auto kfrobot = __KF_NEW__( KFMatchPlayer );
+        kfrobot->_id = KFGlobal::Instance()->MakeUUID();
+        kfrobot->_version = _version;
+        kfrobot->_battle_server_id = _battle_server_id;
+        kfrobot->_pb_player.set_id( kfrobot->_id );
+        kfrobot->_pb_player.set_grade( _grade );
+        kfrobot->_pb_player.set_isrobot( true );
+
+        // 机器人名字
+        auto name = _kf_match_name_config->RandName();
+        kfrobot->_pb_player.set_name( name );
+
+        // 英雄id
+        auto heroid = _kf_match_hero_config->RandHero();
+        kfrobot->_pb_player.set_heroid( heroid );
+
+        return kfrobot;
     }
 }

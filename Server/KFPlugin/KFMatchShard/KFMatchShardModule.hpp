@@ -12,7 +12,6 @@
 #include "KFMatchQueue.h"
 #include "KFMatchShardInterface.h"
 #include "KFProtocol/KFProtocol.h"
-#include "KFOption/KFOptionInterface.h"
 #include "KFConfig/KFConfigInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFRouteClient/KFRouteClientInterface.h"
@@ -38,7 +37,7 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
         // 创建房间
-        KFMatchRoom* CreateMatchRoom( KFMatchQueue* kfqueue, const std::string& version, uint64 battleserverid );
+        void AddRoom( KFMatchRoom* kfroom );
 
     protected:
         // 请求开始匹配

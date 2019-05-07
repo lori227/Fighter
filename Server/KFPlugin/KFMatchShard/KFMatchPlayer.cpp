@@ -29,12 +29,6 @@ namespace KFrame
         _match_player_manage->Remove( _id );
     }
 
-    void KFMatchPlayer::Reset()
-    {
-        _room_id = 0u;
-        _is_affirm = false;
-    }
-
     void KFMatchPlayer::CopyFrom( const KFMsg::PBMatchPlayer* pbplayer )
     {
         _id = pbplayer->id();
@@ -46,17 +40,4 @@ namespace KFrame
     {
         pbplayer->CopyFrom( _pb_player );
     }
-
-    bool KFMatchPlayer::SendToGame( uint32 msgid, google::protobuf::Message* message )
-    {
-        return _kf_route->SendToPlayer( _pb_player.serverid(), _id, msgid, message );
-    }
-
-    void KFMatchPlayer::TellMatchResult( uint32 time )
-    {
-        KFMsg::MsgInformMatchResult result;
-        result.set_time( time );
-        SendToGame( KFMsg::MSG_INFORM_MATCH_RESULT, &result );
-    }
-
 }

@@ -13,6 +13,15 @@
     <ClCompile Include="KFMatchRoom.cpp">
       <Filter>KFMatch</Filter>
     </ClCompile>
+    <ClCompile Include="KFMatchHeroConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="KFMatchNameConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="KFMatchShardConfig.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KFMatchShardInterface.h" />
@@ -27,10 +36,22 @@
     <ClInclude Include="KFMatchRoom.h">
       <Filter>KFMatch</Filter>
     </ClInclude>
+    <ClInclude Include="KFMatchHeroConfig.hpp">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="KFMatchNameConfig.hpp">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="KFMatchShardConfig.hpp">
+      <Filter>Config</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="KFMatch">
       <UniqueIdentifier>{3b327ea6-2695-4730-a1ab-f9bb09e34a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{d4844965-90f0-4b4d-988c-4dfa44246554}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

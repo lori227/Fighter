@@ -6,13 +6,11 @@
 
 namespace KFrame
 {
+    class KFMatchRoom;
     class KFMatchPlayer
     {
     public:
         ~KFMatchPlayer();
-
-        // 重置状态
-        void Reset();
 
         // 加载
         void CopyFrom( const KFMsg::PBMatchPlayer* pbplayer );
@@ -20,20 +18,12 @@ namespace KFrame
         // 保存
         void SaveTo( KFMsg::PBMatchPlayer* pbplayer );
 
-        // 发送消息
-        bool SendToGame( uint32 msgid, google::protobuf::Message* message );
-
-        // 通知匹配结果
-        void TellMatchResult( uint32 time );
     public:
         // 玩家id
         uint64 _id = 0;
 
-        // 匹配id
-        uint32 _match_id = 0u;
-
         // 所在房间
-        uint64 _room_id = 0u;
+        KFMatchRoom* _match_room = nullptr;
 
         // 玩家的版本号
         std::string _version;
@@ -43,9 +33,6 @@ namespace KFrame
 
         // 游戏玩家数据
         KFMsg::PBMatchPlayer _pb_player;
-
-        // 是否已经确认
-        bool _is_affirm = false;
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////

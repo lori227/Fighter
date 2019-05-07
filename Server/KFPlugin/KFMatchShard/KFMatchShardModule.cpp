@@ -1,9 +1,15 @@
 ﻿#include "KFMatchShardModule.hpp"
+#include "KFMatchShardConfig.hpp"
+#include "KFMatchNameConfig.hpp"
+#include "KFMatchHeroConfig.hpp"
 
 namespace KFrame
 {
     void KFMatchShardModule::InitModule()
     {
+        __KF_ADD_CONFIG__( _kf_match_shard_config, true );
+        __KF_ADD_CONFIG__( _kf_match_name_config, true );
+        __KF_ADD_CONFIG__( _kf_match_hero_config, true );
     }
 
     void KFMatchShardModule::BeforeRun()
@@ -17,6 +23,9 @@ namespace KFrame
 
     void KFMatchShardModule::BeforeShut()
     {
+        __KF_REMOVE_CONFIG__( _kf_match_shard_config );
+        __KF_REMOVE_CONFIG__( _kf_match_name_config );
+        __KF_REMOVE_CONFIG__( _kf_match_hero_config );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UNREGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_SHARD_REQ );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ );
@@ -26,9 +35,13 @@ namespace KFrame
 
     void KFMatchShardModule::OnceRun()
     {
-        // todo: 添加匹配模式
+        // 添加匹配模式
         RouteObjectList matchlist;
-        matchlist.insert( 1 );
+        for ( auto iter : _kf_match_shard_config->_settings._objects )
+        {
+            auto kfsetting = iter.second;
+            matchlist.insert( kfsetting->_id );
+        }
         _kf_route->SyncObject( matchlist );
     }
 
@@ -61,23 +74,26 @@ namespace KFrame
         }
     }
 
-    KFMatchRoom* KFMatchShardModule::CreateMatchRoom( KFMatchQueue* kfqueue, const std::string& version, uint64 battleserverid )
+    void KFMatchShardModule::AddRoom( KFMatchRoom* kfroom )
     {
-        auto kfroom = __KF_NEW__( KFMatchRoom );
-        kfroom->Initialize( kfqueue, version, battleserverid );
-
         _match_room_list.Insert( kfroom->_id, kfroom );
-        return kfroom;
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
     KFMatchQueue* KFMatchShardModule::FindMatchQueue( uint32 matchid )
     {
+        auto kfsetting = _kf_match_shard_config->FindMatchSetting( matchid );
+        if ( kfsetting == nullptr )
+        {
+            __LOG_ERROR__( "can't find match=[{}] setting!", matchid );
+            return nullptr;
+        }
+
         auto kfqueue = _match_queue_list.Find( matchid );
         if ( kfqueue == nullptr )
         {
             kfqueue = _match_queue_list.Create( matchid );
-            kfqueue->_match_id = matchid;
+            kfqueue->_match_setting = kfsetting;
             kfqueue->_match_module = this;
         }
 
@@ -91,20 +107,17 @@ namespace KFrame
         auto kfplayer = _match_player_manage->Find( pbplayer->id() );
         if ( kfplayer != nullptr )
         {
-            if ( kfplayer->_room_id != _invalid_int )
-            {
-                return KFMsg::MatchInRoom;
-            }
-
-            // 删除旧玩家
-            auto kfqueue = FindMatchQueue( kfplayer->_match_id );
-            kfqueue->RemovePlayer( pbplayer->id() );
+            return KFMsg::MatchInRoom;
         }
 
         // 判断版本
 
-
         auto kfqueue = FindMatchQueue( matchid );
+        if ( kfqueue == nullptr )
+        {
+            return KFMsg::MatchDataError;
+        }
+
         kfqueue->StartMatch( pbplayer, version, battleserverid );
         return KFMsg::MatchRequestOk;
     }
@@ -148,16 +161,18 @@ namespace KFrame
             return __LOG_ERROR__( "player=[{}] not in match!", kfmsg.playerid() );
         }
 
-        auto kfroom = _match_room_list.Find( kfplayer->_room_id );
-        if ( kfroom != nullptr )
+        if ( kfplayer->_match_room != nullptr )
         {
-            kfroom->CancelMatch( kfplayer );
+            kfplayer->_match_room->CancelMatch( kfplayer );
         }
         else
         {
             // 删除玩家
-            auto kfqueue = FindMatchQueue( kfplayer->_match_id );
-            kfqueue->CancelMatch( kfmsg.playerid() );
+            auto kfqueue = FindMatchQueue( kfmsg.matchid() );
+            if ( kfqueue != nullptr )
+            {
+                kfqueue->CancelMatch( kfplayer->_id );
+            }
         }
     }
 
@@ -185,12 +200,6 @@ namespace KFrame
         if ( kfplayer != nullptr )
         {
             kfplayer->_pb_player.set_serverid( __ROUTE_SERVER_ID__ );
-            auto kfroom = _match_room_list.Find( kfplayer->_room_id );
-            if ( kfroom != nullptr )
-            {
-                kfroom->QueryRoom( kfplayer );
-            }
-
             return __LOG_DEBUG__( "player=[{}] query in match!", kfmsg.playerid() );
         }
 

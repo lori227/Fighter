@@ -17,7 +17,6 @@ namespace KFrame
 
     void KFMatchShardPlugin::LoadModule()
     {
-        __FIND_MODULE__( _kf_option, KFOptionInterface );
         __FIND_MODULE__( _kf_config, KFConfigInterface );
         __FIND_MODULE__( _kf_message, KFMessageInterface );
         __FIND_MODULE__( _kf_route, KFRouteClientInterface );
