@@ -28,37 +28,54 @@ namespace KFrame
     {
         if ( !kfelement->IsObject() )
         {
-            return __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", kfelement->_parent->_data );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", kfelement->_data_name );
+            return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
         auto kfelementobject = reinterpret_cast< KFElementObject* >( kfelement );
         if ( kfelementobject->_config_id == _invalid_int )
         {
-            return __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_parent->_data );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_data_name );
+            return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
         auto kfsetting = _kf_hero_config->FindHeroSetting( kfelementobject->_config_id );
         if ( kfsetting == nullptr )
         {
-            return __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no setting!", kfelement->_parent->_data );
+            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
+            return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
         // todo: 临时代码, 不重复添加英雄
-        auto kfchild = kfparent->FindData( kfelementobject->_config_id );
-        if ( kfchild != nullptr )
+        auto kfhero = kfparent->FindData( kfelementobject->_config_id );
+        if ( kfhero != nullptr )
         {
-            return;
+            return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
-        kfchild = _kf_kernel->CreateObject( kfparent->GetDataSetting() );
+        kfhero = _kf_kernel->CreateObject( kfparent->GetDataSetting() );
         for ( auto& iter : kfelementobject->_values._objects )
         {
-            auto& name = iter.first;
-            auto value = iter.second->CalcUInt64( multiple );
-            kfchild->OperateValue( name, kfelementobject->_operate, value );
+            auto kfchild = kfhero->FindData( iter.first );
+            if ( kfchild == nullptr )
+            {
+                continue;
+            }
+
+            auto kfelementvalue = reinterpret_cast< KFElementValue* >( iter.second );
+            if ( kfelementvalue->_value->IsInt() )
+            {
+                auto value = kfelementvalue->_value->CalcUseValue( kfchild->GetDataSetting(), multiple );
+                kfchild->SetValue( value );
+            }
+            else if ( kfelementvalue->_value->IsString() )
+            {
+                kfchild->SetValue( kfelementvalue->_value->GetValue() );
+            }
         }
 
-        player->AddData( kfparent, kfelementobject->_config_id, kfchild );
+        player->AddData( kfparent, kfelementobject->_config_id, kfhero );
+        return std::make_tuple( KFDataDefine::Show_Element, kfhero );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
