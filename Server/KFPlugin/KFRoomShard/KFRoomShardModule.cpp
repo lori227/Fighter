@@ -35,7 +35,7 @@ namespace KFrame
 
     void KFRoomShardModule::OnceRun()
     {
-        _room_redis = _kf_redis->Create( __KF_STRING__( room ) );
+        _room_redis = _kf_redis->Create( __KF_STRING__( logic ) );
         _battle_allot->Initialize( _room_redis );
     }
 
