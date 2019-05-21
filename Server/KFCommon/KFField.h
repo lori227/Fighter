@@ -78,6 +78,7 @@ namespace KFrame
         __STRING_DEFINE__( basic );
         __STRING_DEFINE__( serverid );
         __STRING_DEFINE__( name );
+        __STRING_DEFINE__( online );
         __STRING_DEFINE__( onlinetime );
         __STRING_DEFINE__( offlinetime );
         __STRING_DEFINE__( totaltime );
@@ -132,7 +133,6 @@ namespace KFrame
         __STRING_DEFINE__( logic );
         __STRING_DEFINE__( openactivation );
         __STRING_DEFINE__( activationcode );
-        __STRING_DEFINE__( online );
         __STRING_DEFINE__( kickonline );
         __STRING_DEFINE__( accountlist );
         __STRING_DEFINE__( accountmake );
@@ -210,6 +210,7 @@ namespace KFrame
         __STRING_DEFINE__( friendlinesslimit );
         __STRING_DEFINE__( invitelist );
         __STRING_DEFINE__( message );
+        __STRING_DEFINE__( variable );
         __STRING_DEFINE__( freindinvitecount );
         __STRING_DEFINE__( newadd );
         __STRING_DEFINE__( freindinvitekeeptime );
@@ -227,7 +228,7 @@ namespace KFrame
         __STRING_DEFINE__( payquerycount );
         __STRING_DEFINE__( querypay );
         __STRING_DEFINE__( finishpay );
-        __STRING_DEFINE__( variable );
+        __STRING_DEFINE__( internalpay );
 
     }
 }
