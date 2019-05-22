@@ -1,12 +1,12 @@
 #!bash/sh
 
 # lib
-libpath=../../_lib/linux
+libpath=../../_lib/linux/$1
 rm -rf $libpath
 mkdir -p "$libpath"
 
-framepath=../../../../KFrame
-framelibpath=$framepath/_lib/linux
+framepath=../../../../../../frame/trunk
+framelibpath=$framepath/_lib/linux/$1
 cp -rf $framelibpath/* $libpath/ 
 
 
