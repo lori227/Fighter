@@ -5,7 +5,7 @@ libpath=../../_lib/linux/$1
 rm -rf $libpath
 mkdir -p "$libpath"
 
-framepath=../../../../../../frame/trunk
+framepath=../../../../KFrame
 framelibpath=$framepath/_lib/linux/$1
 cp -rf $framelibpath/* $libpath/ 
 
