@@ -25,7 +25,7 @@ public class Fighter : ModuleRules
             new string[] 
             { 
                 "Core", "CoreUObject", "Engine", "InputCore",
-                "slua_unreal"
+                "slua_unreal", "lua_wrapper"
             }
         );
 
