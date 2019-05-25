@@ -29,23 +29,35 @@
     <None Include="..\..\Source\Fighter\Fighter.Build.cs">
       <Filter>Source\Fighter</Filter>
     </None>
-    <ClCompile Include="..\..\Source\Fighter\Fighter.cpp">
-      <Filter>Source\Fighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Fighter\Fighter.h">
-      <Filter>Source\Fighter</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Fighter\FighterDefine.cpp">
-      <Filter>Source\Fighter</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Fighter\FighterDefine.h">
-      <Filter>Source\Fighter</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\Fighter\FighterInstance.cpp">
       <Filter>Source\Fighter</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Fighter\FighterInstance.h">
       <Filter>Source\Fighter</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\Fighter\Private">
+      <UniqueIdentifier>{64ab13f4-cccf-4e35-aa87-d9b096d6597f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Fighter\Public">
+      <UniqueIdentifier>{776371c7-acf5-4fda-a29e-9ec0215b8322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Fighter\Public\Common">
+      <UniqueIdentifier>{bfef286d-40fc-490c-b7cc-b3ce756b5e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Fighter\Private\Common">
+      <UniqueIdentifier>{b566524f-eb83-4277-bdf0-525464aab92b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Macros.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
+      <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

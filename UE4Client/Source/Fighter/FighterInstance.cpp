@@ -2,7 +2,7 @@
 
 
 #include "FighterInstance.h"
-
+IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
 DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
 
 UFighterInstance* UFighterInstance::s_This = nullptr;

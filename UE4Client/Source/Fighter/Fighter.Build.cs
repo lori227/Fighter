@@ -9,11 +9,11 @@ public class Fighter : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicIncludePaths.AddRange(
-    new string[]
-    {
+            new string[]
+            {
                 "Fighter/Public"
-    }
-);
+            }
+        );
         PrivateIncludePaths.AddRange(
             new string[]
             {

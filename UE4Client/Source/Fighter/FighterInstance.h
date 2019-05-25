@@ -3,13 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "FighterDefine.h"
+#include "Common/Macros.h"
 #include "Public/Tickable.h"
 #include "Engine/GameInstance.h"
 #include "FighterInstance.generated.h"
 
 /**
- * @brief 游戏实例 \n
+ * @brief 游戏实例
  * 游戏全局的管理器
  */
 
@@ -24,16 +24,16 @@ public:
     /** Starts the GameInstance state machine running */
     virtual void StartGameInstance() override;
 
-	// init
+    // init
     virtual void Init() override;
 
-	// shutdown
+    // shutdown
     virtual void Shutdown() override;
 
-	// tick
-	virtual void Tick( float DeltaTime ) override;
-	inline bool IsTickable() const;
-	inline TStatId GetStatId() const;
+    // tick
+    virtual void Tick( float DeltaTime ) override;
+    inline bool IsTickable() const;
+    inline TStatId GetStatId() const;
 
 protected:
     static UFighterInstance* s_This;
@@ -45,6 +45,6 @@ protected:
     uint32 m_AccountId = 0;
 
 private:
-	bool m_EnableTick;
-	TStatId m_StatId;
+    bool m_EnableTick;
+    TStatId m_StatId;
 };
