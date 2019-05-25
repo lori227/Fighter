@@ -21,7 +21,13 @@ public class Fighter : ModuleRules
             }
         );
 
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+        PublicDependencyModuleNames.AddRange(
+            new string[] 
+            { 
+                "Core", "CoreUObject", "Engine", "InputCore",
+                "slua_unreal"
+            }
+        );
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
