@@ -1,3 +1,13 @@
 
 conf_output
 Document/服务器部署工具/_output/
+.vs
+UE4Client/Fighter/Binaries/Win64/
+UE4Client/Fighter/Intermediate/Build/Win64/
+UE4Client/Fighter/Intermediate/ProjectFiles/UE4.vcxproj.user
+*.bin
+*.log
+UE4Client/Fighter/Saved/Crashes/
+UE4Client/Fighter/Saved/Config/CrashReportClient/
+UE4Client/Fighter/Intermediate/Build/BuildRules/FighterModuleRules.dll
+UE4Client/Fighter/Intermediate/Build/BuildRules/FighterModuleRules.pdb

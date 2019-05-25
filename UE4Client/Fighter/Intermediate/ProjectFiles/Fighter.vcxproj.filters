@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Fighter.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{B4191C28-A689-4E24-8CEE-21B72A164B39}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Fighter.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\FighterEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{CB9D549F-735E-4FCC-8A07-B9BD3E3D2938}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Fighter">
+      <UniqueIdentifier>{4599784D-CD80-4A01-9E53-159BD0A610F2}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Fighter\Fighter.Build.cs">
+      <Filter>Source\Fighter</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Fighter\Fighter.cpp">
+      <Filter>Source\Fighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Fighter\Fighter.h">
+      <Filter>Source\Fighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Fighter\FighterDefine.cpp">
+      <Filter>Source\Fighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Fighter\FighterDefine.h">
+      <Filter>Source\Fighter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Fighter\FighterInstance.cpp">
+      <Filter>Source\Fighter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Fighter\FighterInstance.h">
+      <Filter>Source\Fighter</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
