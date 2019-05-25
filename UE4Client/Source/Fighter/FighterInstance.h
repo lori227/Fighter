@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Common/Macros.h"
+#include "Public/Common/Macros.h"
 #include "Public/Tickable.h"
 #include "Engine/GameInstance.h"
 #include "FighterInstance.generated.h"
