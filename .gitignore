@@ -12,16 +12,8 @@ UE4Client/Saved/Config/CrashReportClient/
 UE4Client/Intermediate/Build/BuildRules/FighterModuleRules.dll
 UE4Client/Intermediate/Build/BuildRules/FighterModuleRules.pdb
 UE4Client/Plugins/slua_unreal/Intermediate/Build/
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-Win64-DebugGame.dll
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-Win64-DebugGame.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-0001.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-0001.dll
 UE4Client/Intermediate/Build/BuildRules/FighterModuleRulesSourceFiles.txt
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-0003.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-0002.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-0002.dll
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-0003.dll
 UE4Client/Plugins/lua_wrapper/Intermediate/Build/
-UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper.pdb
 UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile.pdb
 UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_unreal.pdb
+UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper.pdb
