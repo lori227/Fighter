@@ -78,6 +78,15 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Common\CircleQueue.h">
       <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSend.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetRecv.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetClient.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
@@ -93,6 +102,15 @@
       <Filter>Source\Fighter\Private\Network</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetMessage.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSend.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRecv.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetClient.cpp">
       <Filter>Source\Fighter\Private\Network</Filter>
     </ClCompile>
   </ItemGroup>
