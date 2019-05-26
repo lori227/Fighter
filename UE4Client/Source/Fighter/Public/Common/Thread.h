@@ -24,7 +24,7 @@ public:
 
 public:
     // start
-    void Start( const FString& name, bool loop = false );
+    void Start( const FString& name, bool loop );
 
     EThreadStatus GetThreadStatus();
     void Suspend();
@@ -45,14 +45,14 @@ private:
     FString _name;
 
     // 是否循环
-    bool _loop;
+    bool _loop = false;
 
     /**< 线程 */
-    FRunnableThread* _runable;
+    FRunnableThread* _runable = nullptr;
 
     /**< 线程悬挂和唤醒事件 */
-    FEvent* _suspended_event;
+    FEvent* _suspended_event = nullptr;
 
     /**< 线程状态 */
-    EThreadStatus _status;
+    EThreadStatus _status = EThreadStatus::New;
 };

@@ -49,6 +49,12 @@
     <Filter Include="Source\Fighter\Private\Common">
       <UniqueIdentifier>{b566524f-eb83-4277-bdf0-525464aab92b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Fighter\Public\Network">
+      <UniqueIdentifier>{23a0d4eb-4ef3-4e76-b623-14f8ac38db5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Fighter\Private\Network">
+      <UniqueIdentifier>{4477f29e-6e7f-45a9-b761-2892b5bed423}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Macros.h">
@@ -63,6 +69,12 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Define.h">
       <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetRoute.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetMessage.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
@@ -73,6 +85,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Define.cpp">
       <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRoute.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetMessage.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

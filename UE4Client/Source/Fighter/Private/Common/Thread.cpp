@@ -4,9 +4,6 @@
 
 UThread::UThread( const FObjectInitializer& ObjectInitializer )
     : Super( ObjectInitializer )
-    , _loop( false )
-    , _runable( nullptr )
-    , _status( EThreadStatus::New )
 {
     _suspended_event = FPlatformProcess::GetSynchEventFromPool();
 }
@@ -54,7 +51,7 @@ bool UThread::IsFinished()
     return _status == EThreadStatus::Terminated;
 }
 
-void UThread::Start( const FString& name, bool loop /* = false */ )
+void UThread::Start( const FString& name, bool loop )
 {
     _name = name;
     _loop = loop;
