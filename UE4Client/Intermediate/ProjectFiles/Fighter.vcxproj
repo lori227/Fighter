@@ -364,8 +364,13 @@
     <NMakeOutput>..\..\Binaries\HTML5\Fighter-HTML5-Shipping.js</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Define.cpp" />
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp" />
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Thread.cpp" />
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Define.h" />
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Include.h" />
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Macros.h" />
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Thread.h" />
     <None Include="..\..\Fighter.uproject" />
     <None Include="..\..\Source\Fighter.Target.cs" />
     <None Include="..\..\Source\FighterEditor.Target.cs" />

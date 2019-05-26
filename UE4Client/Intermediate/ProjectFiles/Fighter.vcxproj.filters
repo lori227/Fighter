@@ -54,9 +54,24 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Macros.h">
       <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Thread.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Include.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Define.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
+      <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Thread.cpp">
+      <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Define.cpp">
       <Filter>Source\Fighter\Private\Common</Filter>
     </ClCompile>
   </ItemGroup>

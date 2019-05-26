@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Public/Common/Macros.h"
+#include "Public/Common/Include.h"
 #include "Public/Tickable.h"
 #include "Engine/GameInstance.h"
 #include "FighterInstance.generated.h"
@@ -36,15 +37,15 @@ public:
     inline TStatId GetStatId() const;
 
 protected:
-    static UFighterInstance* s_This;
+    static UFighterInstance* _this;
 
     UPROPERTY( Transient )
-    FString m_Account;
+    FString _account;
 
     UPROPERTY( Transient )
-    uint32 m_AccountId = 0;
+    uint32 _account_id = 0;
 
 private:
-    bool m_EnableTick;
-    TStatId m_StatId;
+    bool _enable_tick;
+    TStatId _stat_id;
 };

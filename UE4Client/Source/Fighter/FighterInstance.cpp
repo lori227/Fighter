@@ -5,11 +5,11 @@
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
 DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
 
-UFighterInstance* UFighterInstance::s_This = nullptr;
+UFighterInstance* UFighterInstance::_this = nullptr;
 UFighterInstance::UFighterInstance( const FObjectInitializer& ObjectInitializer )
     : Super( ObjectInitializer )
 {
-    s_This = this;
+    _this = this;
 }
 
 void UFighterInstance::StartGameInstance()
@@ -20,19 +20,19 @@ void UFighterInstance::StartGameInstance()
 
 inline bool UFighterInstance::IsTickable() const
 {
-	return m_EnableTick;
+    return _enable_tick;
 }
 
 inline TStatId UFighterInstance::GetStatId() const
 {
-	return m_StatId;
+    return _stat_id;
 }
 
 void UFighterInstance::Init()
 {
-	m_Account = TEXT( "ssss" );
-	m_AccountId = 1111;
-	__LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
+    _account = TEXT( "ssss" );
+    _account_id = 1111;
+    __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 }
 
 void UFighterInstance::Shutdown()
@@ -41,5 +41,6 @@ void UFighterInstance::Shutdown()
 
 void UFighterInstance::Tick( float DeltaTime )
 {
+    //ClientSocket = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateSocket( NAME_Stream, TEXT( "default" ), false );
 
 }
