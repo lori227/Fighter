@@ -11,9 +11,14 @@
 class NetHead
 {
 public:
-    uint32 _length = 0u;	// 消息长度
-    uint16 _msgid = 0u;		// 消息类型
-    uint16 _child = 0u;		// 子消息个数( 包括自己 )
+    // 消息长度
+    uint32 _length = 0u;
+
+    // 消息类型
+    uint16 _msgid = 0u;
+
+    // 子消息个数( 包括自己 )
+    uint16 _child = 0u;
 };
 
 // 客户端与服务器之间的消息头
@@ -27,7 +32,8 @@ public:
 class ServerHead : public NetHead
 {
 public:
-    NetRoute _route;		// 路由信息
+    // 路由信息
+    NetRoute _route;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////
 // 消息基类
@@ -53,12 +59,15 @@ public:
     ///////////////////////////////////////////////////////////////////////////////
 
 protected:
+    NetMessage() = default;
+
     // 分配内存
     void MallocData( uint32 length );
     void FreeData();
 
 public:
-    int8* _data = nullptr;		// 消息数据
+    // 消息数据
+    int8* _data = nullptr;
 };
 
 #pragma pack()
