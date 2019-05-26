@@ -75,6 +75,9 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetMessage.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\CircleQueue.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
