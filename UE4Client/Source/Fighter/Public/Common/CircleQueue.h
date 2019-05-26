@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "CoreMinimal.h"
+#include "Include.h"
 
 // 环形队列, 适用于一个生产者和一个消费者的多线程情况
 
@@ -19,7 +20,6 @@ public:
             auto object = _objects[ i ];
             if ( object != nullptr )
             {
-                delete object;
                 _objects[ i ] = nullptr;
             }
         }
@@ -107,7 +107,6 @@ public:
         auto oldobject = _objects[ _push_index ];
         if ( oldobject != nullptr )
         {
-            delete object;
             return false;
         }
 
@@ -144,7 +143,6 @@ public:
             return;
         }
 
-        delete object;
         _objects[ _pop_index ] = nullptr;
         _pop_index = ( _pop_index + 1 ) % _max_count;
     }

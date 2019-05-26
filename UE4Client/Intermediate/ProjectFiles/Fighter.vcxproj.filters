@@ -87,6 +87,18 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetClient.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSocket.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetConnect.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetDefine.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetEvent.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
@@ -111,6 +123,15 @@
       <Filter>Source\Fighter\Private\Network</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetClient.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSocket.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetConnect.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetEvent.cpp">
       <Filter>Source\Fighter\Private\Network</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,19 +2,25 @@
 
 #include "Public/Network/NetMessage.h"
 
-NetMessage::~NetMessage()
+UNetMessage::UNetMessage( const FObjectInitializer& ObjectInitializer )
+    : Super( ObjectInitializer )
+{
+}
+
+
+UNetMessage::~UNetMessage()
 {
     FreeData();
 }
 
-uint32 NetMessage::HeadLength()
+uint32 UNetMessage::HeadLength()
 {
     return sizeof( ServerHead );
 }
 
-void NetMessage::CopyData( const int8* data, uint32 length )
+void UNetMessage::CopyData( const int8* data, uint32 length )
 {
-    _length = length;
+    _head._length = length;
     if ( length == 0u || data == nullptr )
     {
         return;
@@ -23,47 +29,44 @@ void NetMessage::CopyData( const int8* data, uint32 length )
     memcpy( _data, data, length );
 }
 
-NetMessage* NetMessage::Create( uint32 length )
+UNetMessage* UNetMessage::Create( uint32 length )
 {
-    auto* message = new NetMessage();
+    auto message = NewObject< UNetMessage >();
     message->MallocData( length );
     return message;
 }
 
-void NetMessage::Release()
+void UNetMessage::Release()
 {
     FreeData();
 }
 
-void NetMessage::CopyFrom( NetMessage* message )
+void UNetMessage::CopyFrom( UNetMessage* message )
 {
-    _route = message->_route;
-    _msgid = message->_msgid;
-    _length = message->_length;
-    _child = message->_child;
-    if ( _length > 0u )
+    _head = message->_head;
+    if ( _head._length > 0u )
     {
-        CopyData( message->_data, message->_length );
+        CopyData( message->_data, message->_head._length );
     }
 }
 
-void NetMessage::CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length )
+void UNetMessage::CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length )
 {
-    _route = route;
-    _msgid = msgid;
+    _head._route = route;
+    _head._msgid = msgid;
     CopyData( data, length );
 }
 
-void NetMessage::MallocData( uint32 length )
+void UNetMessage::MallocData( uint32 length )
 {
-    _length = length;
-    if ( _length > 0u )
+    _head._length = length;
+    if ( _head._length > 0u )
     {
         _data = ( int8* )malloc( length );
     }
 }
 
-void NetMessage::FreeData()
+void UNetMessage::FreeData()
 {
     if ( _data != nullptr )
     {
@@ -71,5 +74,5 @@ void NetMessage::FreeData()
     }
 
     _data = nullptr;
-    _length = 0;
+    _head._length = 0;
 }

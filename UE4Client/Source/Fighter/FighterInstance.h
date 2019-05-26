@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "Public/Common/Macros.h"
-#include "Public/Common/Include.h"
+#include "Headers.h"
 #include "Public/Tickable.h"
 #include "Engine/GameInstance.h"
 #include "FighterInstance.generated.h"
@@ -20,6 +18,7 @@ class UFighterInstance : public UGameInstance, public FTickableGameObject
     GENERATED_UCLASS_BODY()
 
 public:
+    ~UFighterInstance();
     static UFighterInstance* GetInstance();
 
     /** Starts the GameInstance state machine running */

@@ -12,11 +12,15 @@ UFighterInstance::UFighterInstance( const FObjectInitializer& ObjectInitializer 
     _this = this;
 }
 
+UFighterInstance::~UFighterInstance()
+{
+    _this = nullptr;
+}
+
 void UFighterInstance::StartGameInstance()
 {
     Super::StartGameInstance();
 }
-
 
 inline bool UFighterInstance::IsTickable() const
 {

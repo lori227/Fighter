@@ -1,6 +1,7 @@
 #include "Public/Common/Thread.h"
 #include "Event.h"
 #include "RunnableThread.h"
+#include "Public/Common/Macros.h"
 
 UThread::UThread( const FObjectInitializer& ObjectInitializer )
     : Super( ObjectInitializer )
@@ -51,7 +52,7 @@ bool UThread::IsFinished()
     return _status == EThreadStatus::Terminated;
 }
 
-void UThread::Start( const FString& name, bool loop )
+void UThread::StartThread( const FString& name, bool loop )
 {
     _name = name;
     _loop = loop;
@@ -69,7 +70,6 @@ void UThread::EnsureCompletion()
     {
         Stop();
         _runable->Kill( true );
-        _runable->WaitForCompletion();
     }
 }
 

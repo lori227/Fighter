@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Runnable.h"
-#include "Public/Common/Macros.h"
 #include "Public/Common/Define.h"
 #include "Thread.generated.h"
 
@@ -24,7 +23,7 @@ public:
 
 public:
     // start
-    void Start( const FString& name, bool loop );
+    void StartThread( const FString& name, bool loop );
 
     EThreadStatus GetThreadStatus();
     void Suspend();
