@@ -5,10 +5,10 @@
 // 环形队列, 适用于一个生产者和一个消费者的多线程情况
 
 template< class T >
-class CircleQueue
+class TCircle
 {
 public:
-    ~CircleQueue()
+    ~TCircle()
     {
         ClearObject();
     }

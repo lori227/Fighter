@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Network/NetSocket.h"
 #include "Public/Network/NetConnect.h"
@@ -22,8 +22,6 @@ NetSocket::~NetSocket()
 
 void NetSocket::Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize )
 {
-    _event_queue.InitQueue( 100 );
-
     _net_connect = NewObject<UNetConnect>();
     _net_connect->InitData( this );
 
@@ -74,7 +72,9 @@ void NetSocket::AddNetEvent( uint32 type, const FString& describe /* = TEXT( "" 
     event->_describe = describe;
     event->_code = code;
     event->_data = data;
-    _event_queue.PushObject( event );
+
+    FScopeLock Lock( &_event_lock );
+    _event_queue.Insert( event, 0 );
 }
 
 void NetSocket::StartConnect( const FString& ip, uint32 port )

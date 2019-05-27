@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -24,16 +24,16 @@ private:
     // socket
     NetSocket* _net_socket = nullptr;
 
-    // »º³åÇø
+    // ç¼“å†²åŒº
     int8* _data_buff = nullptr;
 
-    // ÊÕÏûÏ¢¶ÓÁĞ
-    CircleQueue< UNetMessage > _recv_queue;
+    // æ”¶æ¶ˆæ¯é˜Ÿåˆ—
+    TCircle< UNetMessage > _recv_queue;
 
-    // Í¶µİ½ÓÊÜÊı¾İµÄ´óĞ¡
+    // æŠ•é€’æ¥å—æ•°æ®çš„å¤§å°
     int8 _req_buff[ NetDefine::MaxReqBuffLength ];
 
-    // ½ÓÊÜÏûÏ¢¶ÓÁĞ
+    // æ¥å—æ¶ˆæ¯é˜Ÿåˆ—
     uint32 _recv_length = 0u;
     int8 _recv_buff[ NetDefine::MaxRecvBuffLength ];
 };

@@ -375,7 +375,7 @@
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRoute.cpp" />
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSend.cpp" />
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSocket.cpp" />
-    <ClInclude Include="..\..\Source\Fighter\Public\Common\CircleQueue.h" />
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Circle.h" />
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Define.h" />
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Include.h" />
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Macros.h" />

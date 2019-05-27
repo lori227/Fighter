@@ -75,9 +75,6 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetMessage.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Common\CircleQueue.h">
-      <Filter>Source\Fighter\Public\Common</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSend.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
@@ -98,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetEvent.h">
       <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Circle.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

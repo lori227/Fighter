@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -47,19 +47,22 @@ public:
     // socket
     FSocket* _socket = nullptr;
 
-    // ÊÇ·ñÁ¬½Ó
+    // æ˜¯å¦è¿æ¥
     std::atomic<bool> _is_connect;
 
-    // ÊÇ·ñ¹Ø±Õ
+    // æ˜¯å¦å…³é—­
     std::atomic<bool> _is_close;
 
-    // ÏûÏ¢Í·³¤¶È
+    // æ¶ˆæ¯å¤´é•¿åº¦
     uint32 _message_head_length = 0u;
 
     UNetConnect* _net_connect = nullptr;
     UNetSend* _net_send = nullptr;
     UNetRecv* _net_recv = nullptr;
 
-    // ÍøÂçÊÂ¼şÁĞ±í
-    CircleQueue< UNetEvent > _event_queue;
+    // ç½‘ç»œäº‹ä»¶åˆ—è¡¨
+    TArray< UNetEvent* > _event_queue;
+
+    /**< äº’æ–¥é” */
+    FCriticalSection _event_lock;
 };
