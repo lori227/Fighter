@@ -71,7 +71,7 @@ public:
 
 private:
     // 连接线程
-    //UPROPERTY( Transient )
+    UPROPERTY( Transient )
     UNetConnect* _net_connect = nullptr;
 
     // 发送线程
