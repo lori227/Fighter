@@ -7,7 +7,7 @@
 #include "NetMessage.h"
 #include "NetRecv.generated.h"
 
-class NetSocket;
+class UNetSocket;
 
 UCLASS()
 class UNetRecv : public UThread
@@ -17,15 +17,35 @@ class UNetRecv : public UThread
 public:
     ~UNetRecv();
 
-    // init
-    void InitData( NetSocket* socket, uint32 queuesize );
+    // 开始服务
+    void StartService( UNetSocket* socket, uint32 queuesize );
+
+    // 停止服务
+    void StopService();
+
+    // 弹出消息
+    UNetMessage* PopMessage();
+
+protected:
+    // read
+    virtual void ThreadBody();
+
+    // parse message
+    void ParseBuffToMessage();
+
+    // read head
+    NetHead* CheckRecvBuffValid( uint32 position );
+
+    // 计算地址长度
+    void CalcBuffTotalLength( uint32 totallength );
 
 private:
     // socket
-    NetSocket* _net_socket = nullptr;
+    UNetSocket* _net_socket = nullptr;
 
     // 缓冲区
     int8* _data_buff = nullptr;
+    uint32 _data_buff_length = 0u;
 
     // 收消息队列
     TCircle< UNetMessage > _recv_queue;

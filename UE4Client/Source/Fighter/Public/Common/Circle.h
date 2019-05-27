@@ -134,19 +134,6 @@ public:
         return _objects[ _pop_index ];
     }
 
-    // 删除掉一个元素
-    void PopRemove()
-    {
-        auto object = _objects[ _pop_index ];
-        if ( object == nullptr )
-        {
-            return;
-        }
-
-        _objects[ _pop_index ] = nullptr;
-        _pop_index = ( _pop_index + 1 ) % _max_count;
-    }
-
 private:
     // 当前push的索引
     volatile uint32 _push_index = 0u;

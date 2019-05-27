@@ -14,32 +14,23 @@ UNetSend::~UNetSend()
     _send_queue.ClearObject();
 }
 
-void UNetSend::InitData( NetSocket* socket, uint32 queuesize )
+void UNetSend::StartService( UNetSocket* socket, uint32 queuesize )
 {
     Init();
 
     _net_socket = socket;
     _send_queue.Resize( queuesize );
-}
 
-
-void UNetSend::StartService()
-{
     _send_length = 0u;
-    if ( !_is_send_start )
-    {
-        _is_send_start = true;
-        StartThread( TEXT( "NetSend" ), true );
+    StartThread( TEXT( "NetSend" ), true );
 
-        __LOG_INFO__( LogNetwork, "network send start!" );
-    }
+    __LOG_INFO__( LogNetwork, "network send start!" );
 }
 
 void UNetSend::StopService()
 {
     EnsureCompletion();
 
-    _is_send_start = false;
     __LOG_INFO__( LogNetwork, "network send stop!" );
 }
 
@@ -146,7 +137,7 @@ void UNetSend::ThreadBody()
         }
 
         // 释放内存
-        _send_queue.PopRemove();
+        _send_queue.PopObject();
     } while ( true );
 
     if ( _send_length != 0 )

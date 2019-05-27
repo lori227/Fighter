@@ -7,7 +7,7 @@
 #include "NetMessage.h"
 #include "NetSend.generated.h"
 
-class NetSocket;
+class UNetSocket;
 
 UCLASS()
 class UNetSend : public UThread
@@ -17,11 +17,8 @@ class UNetSend : public UThread
 public:
     ~UNetSend();
 
-    // init
-    void InitData( NetSocket* socket, uint32 queuesize );
-
     // start
-    void StartService();
+    void StartService( UNetSocket* socket, uint32 queuesize );
 
     // stop
     void StopService();
@@ -47,7 +44,7 @@ protected:
 
 private:
     // socket
-    NetSocket* _net_socket = nullptr;
+    UNetSocket* _net_socket = nullptr;
 
     // 是否开启了发送
     bool _is_send_start = false;
@@ -57,5 +54,5 @@ private:
 
     // 发送消息buff
     uint32 _send_length = 0u;
-    uint8 _send_buff[ NetDefine::MaxReqBuffLength ];
+    int8 _send_buff[ NetDefine::MaxReqBuffLength ];
 };

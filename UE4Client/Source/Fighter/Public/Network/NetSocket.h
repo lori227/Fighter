@@ -7,6 +7,8 @@
 #include "SocketSubsystem.h"
 #include "NetEvent.h"
 #include "Runtime/Networking/Public/Networking.h"
+#include "NetSocket.generated.h"
+
 
 DECLARE_LOG_CATEGORY_CLASS( LogNetwork, All, All );
 
@@ -14,16 +16,19 @@ class FSocket;
 class UNetSend;
 class UNetRecv;
 class UNetConnect;
+class UNetMessage;
 
-class NetSocket
+UCLASS()
+class UNetSocket : public UObject
 {
+    GENERATED_UCLASS_BODY()
+
 public:
-    NetSocket( uint32 headlength, bool disconnectsend );
-    ~NetSocket();
+    ~UNetSocket();
 
 public:
     // init
-    void Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize );
+    void Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize, uint32 headlength, bool disconnectsend );
 
     // close
     void Close();
@@ -38,7 +43,7 @@ public:
     // event
     void PushNetEvent( uint32 type, const FString& describe = TEXT( "" ), int32 code = 0, void* data = nullptr );
 
-    // 弹出一个网络时间
+    // 弹出一个网络事件
     UNetEvent* PopNetEvent();
 
     // connect
@@ -46,6 +51,9 @@ public:
 
     // send
     bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );
+
+    // 弹出一个消息
+    UNetMessage* PopNetMessage();
 
 public:
     // socket
@@ -62,6 +70,7 @@ public:
 
     // 断线是否需要加入发送队列
     bool _is_disconnect_send = false;
+
 private:
     // 连接线程
     UNetConnect* _net_connect = nullptr;

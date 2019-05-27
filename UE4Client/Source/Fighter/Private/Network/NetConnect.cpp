@@ -11,26 +11,23 @@ UNetConnect::UNetConnect( const FObjectInitializer& ObjectInitializer )
 {
 }
 
-
-void UNetConnect::InitData( NetSocket* socket )
-{
-    Init();
-
-    _net_socket = socket;
-}
-
 UNetConnect::~UNetConnect()
 {
-    Stop();
 }
 
-void UNetConnect::Connect( const FString& ip, uint32 port )
+void UNetConnect::StartService( UNetSocket* socket, const FString& ip, uint32 port )
 {
     _ip = ip;
     _port = port;
+    _net_socket = socket;
 
     // 开启线程
     StartThread( TEXT( "NetConnect" ), false );
+}
+
+void UNetConnect::StopService()
+{
+    EnsureCompletion();
 }
 
 void UNetConnect::ThreadBody()
