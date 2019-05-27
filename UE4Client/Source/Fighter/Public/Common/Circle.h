@@ -3,31 +3,21 @@
 #include "Include.h"
 
 // 环形队列, 适用于一个生产者和一个消费者的多线程情况
-
 template< class T >
 class TCircle
 {
 public:
+    TCircle()
+    {
+        _push_index = 0;
+        _pop_index = 0;
+        _max_count = 0;
+        _objects.clear();
+    }
+
     ~TCircle()
     {
         ClearObject();
-    }
-
-    void ClearObject()
-    {
-        for ( auto i = 0u; i < _max_count; ++i )
-        {
-            auto object = _objects[ i ];
-            if ( object != nullptr )
-            {
-                _objects[ i ] = nullptr;
-            }
-        }
-
-        _pop_index = 0;
-        _push_index = 0;
-        _max_count = 0;
-        _objects.clear();
     }
 
     // 初始化
@@ -107,6 +97,7 @@ public:
         auto oldobject = _objects[ _push_index ];
         if ( oldobject != nullptr )
         {
+            delete object;
             return false;
         }
 
@@ -134,19 +125,53 @@ public:
         return _objects[ _pop_index ];
     }
 
+    // 删除掉一个元素
+    void PopRemove()
+    {
+        auto object = _objects[ _pop_index ];
+        if ( object == nullptr )
+        {
+            return;
+        }
+
+        delete object;
+
+        _objects[ _pop_index ] = nullptr;
+        _pop_index = ( _pop_index + 1 ) % _max_count;
+    }
+
+    void ClearObject()
+    {
+        for ( auto i = 0u; i < _max_count; ++i )
+        {
+            auto object = _objects[ i ];
+            if ( object != nullptr )
+            {
+                delete object;
+                _objects[ i ] = nullptr;
+            }
+        }
+
+        _pop_index = 0;
+        _push_index = 0;
+        _max_count = 0;
+        _objects.clear();
+    }
+
 private:
     // 当前push的索引
-    volatile uint32 _push_index = 0u;
+    volatile uint32 _push_index;
 
     // 当前pop的索引
-    volatile uint32 _pop_index = 0u;
+    volatile uint32 _pop_index;
 
     // 最大数量
-    volatile uint32 _max_count = 0u;
+    volatile uint32 _max_count;
 
     // 列表
     std::vector< T* > _objects;
 };
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////

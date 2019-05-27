@@ -2,6 +2,8 @@
 
 
 #include "FighterInstance.h"
+#include "Public/Network/NetClient.h"
+
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
 DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
 
@@ -10,6 +12,8 @@ UFighterInstance::UFighterInstance( const FObjectInitializer& ObjectInitializer 
     : Super( ObjectInitializer )
 {
     _this = this;
+
+    _net_client = NewObject< UNetClient >();
 }
 
 UFighterInstance::~UFighterInstance()
@@ -24,27 +28,52 @@ void UFighterInstance::StartGameInstance()
 
 inline bool UFighterInstance::IsTickable() const
 {
-    return _enable_tick;
+    return true;
 }
 
 inline TStatId UFighterInstance::GetStatId() const
 {
-    return _stat_id;
+    return m_TStatId;
 }
 
 void UFighterInstance::Init()
 {
-    _account = TEXT( "ssss" );
-    _account_id = 1111;
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
+
+    _net_client->Init( TEXT( "client" ), ENetType::Client, 100, 200, false );
+    _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
+    _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
+
+
+
+    FString ip = TEXT( "192.168.1.155" );
+    uint32 port = 12006;
+    _net_client->Connect( ip, port );
 }
 
 void UFighterInstance::Shutdown()
 {
+    _net_client->Close();
+    _net_client = nullptr;
 }
 
 void UFighterInstance::Tick( float DeltaTime )
 {
-    //ClientSocket = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateSocket( NAME_Stream, TEXT( "default" ), false );
+    _net_client->Tick( DeltaTime );
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
+{
+    __LOG_INFO__( LogInstance, "dddd" );
+    int8 data[] = "xxxx";
+    _net_client->SendNetMessage( 100, data, 4 );
+}
+
+void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
+{
+    __LOG_INFO__( LogInstance, "msgid=[{}], length=[{}]", msgid, length );
 
 }
+/////////////////////////////////////////////////////////////////////////////////////

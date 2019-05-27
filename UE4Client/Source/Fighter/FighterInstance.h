@@ -12,6 +12,9 @@
  * 游戏全局的管理器
  */
 
+class NetEvent;
+class UNetClient;
+
 UCLASS( BlueprintType, Blueprintable )
 class UFighterInstance : public UGameInstance, public FTickableGameObject
 {
@@ -35,16 +38,21 @@ public:
     inline bool IsTickable() const;
     inline TStatId GetStatId() const;
 
+
+protected:
+    // 连接成功时间
+    void OnNetClientConnectOk( const NetEvent* event );
+
+    // 处理消息函数
+    void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );
+
 protected:
     static UFighterInstance* _this;
 
+    // 网络客户端
     UPROPERTY( Transient )
-    FString _account;
+    UNetClient* _net_client = nullptr;
 
-    UPROPERTY( Transient )
-    uint32 _account_id = 0;
+    TStatId m_TStatId;
 
-private:
-    bool _enable_tick;
-    TStatId _stat_id;
 };

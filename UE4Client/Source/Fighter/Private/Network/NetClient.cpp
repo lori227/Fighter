@@ -10,25 +10,32 @@ UNetClient::UNetClient( const FObjectInitializer& ObjectInitializer )
 
 UNetClient::~UNetClient()
 {
-
+    __SAFE_DELETE__( _net_socket );
 }
 
-void UNetClient::Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize, uint32 headlength, bool disconnectsend )
+void UNetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
 {
-    _net_socket = NewObject< UNetSocket >();
-    _net_socket->Init( name, sendqueuesize, recvqueuesize, headlength, disconnectsend );
+    _net_socket = new NetSocket();
+    _net_socket->Init( name, nettype, sendqueuesize, recvqueuesize, disconnectsend );
 }
 
 void UNetClient::Connect( const FString& ip, uint32 port )
 {
+    // 先关闭
+    Close();
+
+    // 创建新的连接
     _net_socket->StartConnect( ip, port );
 }
 
 void UNetClient::Close()
 {
     _net_socket->Close();
-    _net_socket->Shutdown();
-    _net_socket = nullptr;
+}
+
+bool UNetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+{
+    return _net_socket->SendNetMessage( msgid, data, length );
 }
 
 void UNetClient::Tick( float ParamDeltaTime )
@@ -42,11 +49,6 @@ void UNetClient::Tick( float ParamDeltaTime )
 
 void UNetClient::HandleNetEvent()
 {
-    if ( _net_socket == nullptr )
-    {
-        return;
-    }
-
     auto event = _net_socket->PopNetEvent();
     if ( event == nullptr )
     {
@@ -66,11 +68,6 @@ void UNetClient::HandleNetEvent()
 
 void UNetClient::HandleNetMessage()
 {
-    if ( _net_socket == nullptr )
-    {
-        return;
-    }
-
     auto message = _net_socket->PopNetMessage();
     if ( message == nullptr )
     {

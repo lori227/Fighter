@@ -16,7 +16,7 @@ UNetRecv::~UNetRecv()
     _recv_queue.ClearObject();
 }
 
-void UNetRecv::StartService( UNetSocket* socket, uint32 queuesize )
+void UNetRecv::StartService( NetSocket* socket, uint32 queuesize )
 {
     Init();
 
@@ -28,14 +28,14 @@ void UNetRecv::StartService( UNetSocket* socket, uint32 queuesize )
     _recv_length = 0u;
     StartThread( TEXT( "NetRecv" ), true );
 
-    __LOG_INFO__( LogNetwork, "network recv start!" );
+    __LOG_INFO__( LogNetwork, "network recv thread start!" );
 }
 
 void UNetRecv::StopService()
 {
     EnsureCompletion();
 
-    __LOG_INFO__( LogNetwork, "network send stop!" );
+    __LOG_INFO__( LogNetwork, "network send thread stop!" );
 }
 
 void UNetRecv::CalcBuffTotalLength( uint32 totallength )
@@ -57,6 +57,8 @@ void UNetRecv::ThreadBody()
     {
         return;
     }
+
+    return;
 
     uint32 recvsize = 0u;
     auto ok = _net_socket->_socket->HasPendingData( recvsize );
@@ -96,8 +98,8 @@ void UNetRecv::ParseBuffToMessage()
 
     while ( _recv_length >= ( nowposition + _net_socket->_message_head_length + nethead->_length ) )
     {
-        auto recvmessage = UNetMessage::Create( nethead->_length );
-        memcpy( recvmessage, nethead, _net_socket->_message_head_length );
+        auto recvmessage = NetMessage::Create( nethead->_length );
+        memcpy( &recvmessage->_head, nethead, _net_socket->_message_head_length );
 
         nowposition += _net_socket->_message_head_length;
         if ( nethead->_length > 0 )
@@ -148,7 +150,7 @@ NetHead* UNetRecv::CheckRecvBuffValid( uint32 position )
     return nethead;
 }
 
-UNetMessage* UNetRecv::PopMessage()
+NetMessage* UNetRecv::PopMessage()
 {
     auto message = _recv_queue.Front();
     if ( message == nullptr )
@@ -156,7 +158,7 @@ UNetMessage* UNetRecv::PopMessage()
         return nullptr;
     }
 
-    UNetMessage* retmessage = nullptr;
+    NetMessage* retmessage = nullptr;
     switch ( message->_head._msgid )
     {
     case NetDefine::CUT_MSGCHILDBEGIN:	// 子消息头
@@ -170,22 +172,22 @@ UNetMessage* UNetRecv::PopMessage()
 
             // 重新计算buff大小
             auto temphead = reinterpret_cast< NetHead* >( message->_data );
-            auto totallength = temphead->_length + static_cast< uint32 >( sizeof( UNetMessage ) );
+            auto totallength = temphead->_length + static_cast< uint32 >( sizeof( NetMessage ) );
             CalcBuffTotalLength( totallength );
 
             // 强转成UNetMessage
-            retmessage = reinterpret_cast< UNetMessage* >( _data_buff );
+            retmessage = reinterpret_cast< NetMessage* >( _data_buff );
 
             // 先将消息头拷贝过去
             memcpy( &retmessage->_head, message->_data, message->_head._length );
-            _recv_queue.PopObject();
+            _recv_queue.PopRemove();
 
             // 重定向data地址
-            retmessage->_data = _data_buff + sizeof( UNetMessage );
+            retmessage->_data = _data_buff + sizeof( NetMessage );
 
             // 合并子消息
             auto copylength = 0u;
-            auto leftlength = _data_buff_length - sizeof( UNetMessage );
+            auto leftlength = _data_buff_length - sizeof( NetMessage );
 
             for ( auto i = 0u; i < childcount; ++i )
             {
@@ -200,7 +202,7 @@ UNetMessage* UNetRecv::PopMessage()
                 // 长度不足, 返回null
                 if ( leftlength < childmessage->_head._length )
                 {
-                    _recv_queue.PopObject();
+                    _recv_queue.PopRemove();
                     return nullptr;
                 }
 
@@ -208,7 +210,7 @@ UNetMessage* UNetRecv::PopMessage()
                 copylength += childmessage->_head._length;
                 leftlength -= childmessage->_head._length;
 
-                _recv_queue.PopObject();
+                _recv_queue.PopRemove();
             }
         }
         else
@@ -216,27 +218,27 @@ UNetMessage* UNetRecv::PopMessage()
             // 如果超出了最大的队列长度
             if ( childcount >= _recv_queue.Capacity() )
             {
-                _recv_queue.PopObject();
+                _recv_queue.PopRemove();
             }
         }
         break;
     }
     case NetDefine::CUT_MSGCHILD:		// 如果取到的是子消息, 直接丢掉
     {
-        _recv_queue.PopObject();
+        _recv_queue.PopRemove();
         break;
     }
     default:	// 不是拆包消息, 直接返回
     {
-        if ( message->_head._length + sizeof( UNetMessage ) <= _data_buff_length )
+        if ( message->_head._length + sizeof( NetMessage ) <= _data_buff_length )
         {
             // 强转成UNetMessage
-            retmessage = reinterpret_cast< UNetMessage* >( _data_buff );
-            retmessage->_data = _data_buff + sizeof( UNetMessage );
+            retmessage = reinterpret_cast< NetMessage* >( _data_buff );
+            retmessage->_data = _data_buff + sizeof( NetMessage );
             retmessage->CopyFrom( message );
         }
 
-        _recv_queue.PopObject();
+        _recv_queue.PopRemove();
         break;
     }
     }

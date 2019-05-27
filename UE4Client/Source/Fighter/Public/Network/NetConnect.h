@@ -5,7 +5,7 @@
 #include "Headers.h"
 #include "NetConnect.generated.h"
 
-class UNetSocket;
+class NetSocket;
 
 UCLASS()
 class UNetConnect : public UThread
@@ -16,7 +16,7 @@ public:
     ~UNetConnect();
 
     // start
-    void StartService( UNetSocket* socket, const FString& ip, uint32 port );
+    void StartService( NetSocket* socket, const FString& ip, uint32 port );
 
     // ֹͣ
     void StopService();
@@ -27,7 +27,7 @@ protected:
 
 private:
     // socket
-    UNetSocket* _net_socket = nullptr;
+    NetSocket* _net_socket = nullptr;
 
     // ip
     FString _ip;

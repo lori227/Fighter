@@ -15,7 +15,7 @@ UNetConnect::~UNetConnect()
 {
 }
 
-void UNetConnect::StartService( UNetSocket* socket, const FString& ip, uint32 port )
+void UNetConnect::StartService( NetSocket* socket, const FString& ip, uint32 port )
 {
     _ip = ip;
     _port = port;
@@ -35,14 +35,13 @@ void UNetConnect::ThreadBody()
     uint32 eventtype = 0u;
     __LOG_INFO__( LogNetwork, "start connect server=[{}:{}]!", TCHAR_TO_UTF8( *_ip ), _port );
 
+    FIPv4Address address;
+    FIPv4Address::Parse( _ip, address );
+
     // 创建addr存放IPv4地址和端口
-    auto internetaddr = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateInternetAddr();
+    auto internetaddr = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateInternetAddr( address.Value, _port );
     if ( internetaddr->IsValid() )
     {
-        bool isvalid;
-        internetaddr->SetIp( *_ip, isvalid );
-        internetaddr->SetPort( _port );
-
         auto ok = _net_socket->_socket->Connect( *internetaddr );
         if ( ok )
         {

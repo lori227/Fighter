@@ -16,3 +16,10 @@ enum class EThreadStatus : uint8
     TimedWaiting UMETA( DisplayName = 'TimedWaiting' ),
     Terminated UMETA( DisplayName = 'Terminated' )
 };
+
+UENUM( BlueprintType )
+enum class ENetType : uint8
+{
+    Server UMETA( DisplayName = "Server" ),
+    Client UMETA( DisplayName = "Client" ),
+};

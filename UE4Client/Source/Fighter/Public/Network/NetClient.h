@@ -18,7 +18,7 @@ public:
     ~UNetClient();
 
     // 初始化
-    void Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize, uint32 headlength, bool disconnectsend );
+    void Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend );
 
     // tick
     void Tick( float ParamDeltaTime );
@@ -29,13 +29,16 @@ public:
     // 关闭
     void Close();
 
+    // 发送消息
+    bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );
+
 public:
     // 注册网络事件函数
     template< class T >
-    void RegisterEventFunction( uint32 type, T* object, void( T::*handle )( const UNetEvent* ) )
+    void RegisterNetEventFunction( uint32 type, T* object, void( T::*handle )( const NetEvent* ) )
     {
         NetEventFunction function = std::bind( handle, object, std::placeholders::_1 );
-        _event_function.Add( tpe, function );
+        _event_function.Add( type, function );
     }
 
     // 注册消息处理函数
@@ -53,7 +56,7 @@ protected:
     void HandleNetMessage();
 protected:
     // socket
-    UNetSocket* _net_socket = nullptr;
+    NetSocket* _net_socket = nullptr;
 
     // 网络时间
     TMap< uint32, NetEventFunction > _event_function;

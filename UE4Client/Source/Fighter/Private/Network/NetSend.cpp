@@ -14,7 +14,7 @@ UNetSend::~UNetSend()
     _send_queue.ClearObject();
 }
 
-void UNetSend::StartService( UNetSocket* socket, uint32 queuesize )
+void UNetSend::StartService( NetSocket* socket, uint32 queuesize )
 {
     Init();
 
@@ -24,14 +24,14 @@ void UNetSend::StartService( UNetSocket* socket, uint32 queuesize )
     _send_length = 0u;
     StartThread( TEXT( "NetSend" ), true );
 
-    __LOG_INFO__( LogNetwork, "network send start!" );
+    __LOG_INFO__( LogNetwork, "network send thread start!" );
 }
 
 void UNetSend::StopService()
 {
     EnsureCompletion();
 
-    __LOG_INFO__( LogNetwork, "network send stop!" );
+    __LOG_INFO__( LogNetwork, "network send thread stop!" );
 }
 
 bool UNetSend::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
@@ -53,7 +53,7 @@ bool UNetSend::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 
 bool UNetSend::SendSingleMessage( uint32 msgid, const int8* data, uint32 length )
 {
-    auto netmessage = UNetMessage::Create( length );
+    auto netmessage = NetMessage::Create( length );
     netmessage->CopyFrom( msgid, data, length );
 
     return _send_queue.PushObject( netmessage );
@@ -71,9 +71,9 @@ bool UNetSend::SendMultiMessage( uint32 msgid, const int8* data, uint32 length )
     uint32 messagecount = ( datalength + NetDefine::MaxMessageLength - 1 ) / NetDefine::MaxMessageLength;
 
     // 子消息头
-    auto headmessage = UNetMessage::Create( UNetMessage::HeadLength() );
+    auto headmessage = NetMessage::Create( NetMessage::HeadLength() );
     headmessage->_head._child = messagecount;
-    headmessage->CopyFrom( NetDefine::CUT_MSGCHILDBEGIN, ( int8* )&head, UNetMessage::HeadLength() );
+    headmessage->CopyFrom( NetDefine::CUT_MSGCHILDBEGIN, ( int8* )&head, NetMessage::HeadLength() );
     if ( !_send_queue.PushObject( headmessage ) )
     {
         return false;
@@ -87,7 +87,7 @@ bool UNetSend::SendMultiMessage( uint32 msgid, const int8* data, uint32 length )
         auto sendlength = __MIN__( datalength, NetDefine::MaxMessageLength );
 
         // 消息拷贝
-        auto childmessage = UNetMessage::Create( sendlength );
+        auto childmessage = NetMessage::Create( sendlength );
         childmessage->_head._child = i + 1;
         childmessage->CopyFrom( NetDefine::CUT_MSGCHILD, data + copydatalength, sendlength );
         if ( _send_queue.PushObject( childmessage ) )
@@ -137,7 +137,7 @@ void UNetSend::ThreadBody()
         }
 
         // 释放内存
-        _send_queue.PopObject();
+        _send_queue.PopRemove();
     } while ( true );
 
     if ( _send_length != 0 )
@@ -176,7 +176,7 @@ void UNetSend::SendNetBuff()
             {
                 _send_length = 0u;
                 _net_socket->_is_connect = false;
-                _net_socket->PushNetEvent( NetDefine::DisconnectEvent, TEXT( "network send failed" ) );
+                _net_socket->PushNetEvent( NetDefine::DisconnectEvent, state );
                 break;
             }
         }

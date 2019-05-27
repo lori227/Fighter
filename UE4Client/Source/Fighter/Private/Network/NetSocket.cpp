@@ -5,21 +5,22 @@
 #include "Public/Network/NetSend.h"
 #include "Public/Network/NetRecv.h"
 
-
-UNetSocket::UNetSocket( const FObjectInitializer& ObjectInitializer )
-    : Super( ObjectInitializer )
+NetSocket::NetSocket()
 {
     _is_close = false;
-    _is_connect = true;
+    _is_connect = false;
 }
 
-UNetSocket::~UNetSocket()
+NetSocket::~NetSocket()
 {
-
+    __SAFE_DELETE_FUNCTION__( _socket, ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->DestroySocket );
 }
 
-void UNetSocket::Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize, uint32 headlength, bool disconnectsend )
+void NetSocket::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
 {
+    _is_disconnect_send = disconnectsend;
+    _message_head_length = ( nettype == ENetType::Server ? sizeof( ServerHead ) : sizeof( ClientHead ) );
+
     _net_connect = NewObject<UNetConnect>();
 
     _net_send = NewObject<UNetSend>();
@@ -30,15 +31,16 @@ void UNetSocket::Init( const FString& name, uint32 sendqueuesize, uint32 recvque
     _socket = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateSocket( NAME_Stream, name, false );
 }
 
-void UNetSocket::Close()
+void NetSocket::Close()
 {
     _is_close = true;
     _is_connect = false;
-    _socket->Close();
-}
 
-void UNetSocket::Shutdown()
-{
+    if ( _socket != nullptr )
+    {
+        _socket->Close();
+    }
+
     if ( _net_connect != nullptr )
     {
         _net_connect->StopService();
@@ -53,41 +55,50 @@ void UNetSocket::Shutdown()
     {
         _net_recv->StopService();
     }
-
-    __SAFE_DELETE_FUNCTION__( _socket, ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->DestroySocket );
 }
 
-void UNetSocket::StartConnect( const FString& ip, uint32 port )
+void NetSocket::StartConnect( const FString& ip, uint32 port )
 {
     // 开启连接服务
     _net_connect->StartService( this, ip, port );
 }
 
-void UNetSocket::PushNetEvent( uint32 type, const FString& describe /* = TEXT( "" ) */, int32 code /* = 0 */, void* data /* = nullptr */ )
+void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* = nullptr */ )
 {
-    auto event = NewObject< UNetEvent >();
+    auto event = new NetEvent();
     event->_type = type;
-    event->_describe = describe;
     event->_code = code;
     event->_data = data;
 
     FScopeLock Lock( &_event_lock );
-    _event_queue.Insert( event, 0 );
+    _event_queue.push_back( event );
 }
 
-UNetEvent* UNetSocket::PopNetEvent()
+NetEvent* NetSocket::PopNetEvent()
 {
-    FScopeLock Lock( &_event_lock );
-    auto size = _event_queue.Num();
-    if ( size == 0 )
+    NetEvent* event = nullptr;
+    {
+        FScopeLock Lock( &_event_lock );
+        if ( !_event_queue.empty() )
+        {
+            event = _event_queue.front();
+            _event_queue.pop_front();
+        }
+    }
+
+    if ( event == nullptr )
     {
         return nullptr;
     }
 
-    return _event_queue.Pop();
+    static int8* _buff[ 56 ] = {};
+    memcpy( _buff, event, sizeof( NetEvent ) );
+
+    delete event;
+    return ( NetEvent* )_buff;
 }
 
-bool UNetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     if ( !_is_connect && !_is_disconnect_send )
     {
@@ -97,7 +108,7 @@ bool UNetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
     return _net_send->SendNetMessage( msgid, data, length );
 }
 
-UNetMessage* UNetSocket::PopNetMessage()
+NetMessage* NetSocket::PopNetMessage()
 {
     return _net_recv->PopMessage();
 }

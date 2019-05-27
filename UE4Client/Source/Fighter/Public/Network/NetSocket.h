@@ -6,8 +6,8 @@
 #include "Sockets.h"
 #include "SocketSubsystem.h"
 #include "NetEvent.h"
+#include "NetDefine.h"
 #include "Runtime/Networking/Public/Networking.h"
-#include "NetSocket.generated.h"
 
 
 DECLARE_LOG_CATEGORY_CLASS( LogNetwork, All, All );
@@ -16,19 +16,17 @@ class FSocket;
 class UNetSend;
 class UNetRecv;
 class UNetConnect;
-class UNetMessage;
+class NetMessage;
 
-UCLASS()
-class UNetSocket : public UObject
+class NetSocket
 {
-    GENERATED_UCLASS_BODY()
-
 public:
-    ~UNetSocket();
+    NetSocket();
+    ~NetSocket();
 
 public:
     // init
-    void Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize, uint32 headlength, bool disconnectsend );
+    void Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend );
 
     // close
     void Close();
@@ -41,10 +39,10 @@ public:
 
 public:
     // event
-    void PushNetEvent( uint32 type, const FString& describe = TEXT( "" ), int32 code = 0, void* data = nullptr );
+    void PushNetEvent( uint32 type, int32 code = 0, void* data = nullptr );
 
     // 弹出一个网络事件
-    UNetEvent* PopNetEvent();
+    NetEvent* PopNetEvent();
 
     // connect
     void StartConnect( const FString& ip, uint32 port );
@@ -53,7 +51,7 @@ public:
     bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );
 
     // 弹出一个消息
-    UNetMessage* PopNetMessage();
+    NetMessage* PopNetMessage();
 
 public:
     // socket
@@ -73,16 +71,19 @@ public:
 
 private:
     // 连接线程
+    //UPROPERTY( Transient )
     UNetConnect* _net_connect = nullptr;
 
     // 发送线程
+    UPROPERTY( Transient )
     UNetSend* _net_send = nullptr;
 
     // 接收线程
+    UPROPERTY( Transient )
     UNetRecv* _net_recv = nullptr;
 
     // 网络事件列表
-    TArray< UNetEvent* > _event_queue;
+    std::list< NetEvent* > _event_queue;
 
     /**< 互斥锁 */
     FCriticalSection _event_lock;

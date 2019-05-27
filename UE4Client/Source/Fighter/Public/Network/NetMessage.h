@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "NetRoute.h"
-#include "NetMessage.generated.h"
 
 #pragma pack( 1 )
 
@@ -37,18 +36,14 @@ public:
     NetRoute _route;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////
-// 消息基类
-//
-UCLASS()
-class UNetMessage : public UObject
+// 消息类
+class NetMessage
 {
-    GENERATED_UCLASS_BODY()
-
 public:
-    ~UNetMessage();
+    ~NetMessage();
 
     // 创建消息
-    static UNetMessage* Create( uint32 length );
+    static NetMessage* Create( uint32 length );
     void Release();
 
     // 消息长度
@@ -59,12 +54,13 @@ public:
     void CopyData( const int8* data, uint32 length );
 
     // 复制消息
-    void CopyFrom( UNetMessage* message );
+    void CopyFrom( NetMessage* message );
     void CopyFrom( uint32 msgid, const int8* data, uint32 length );
     void CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length );
     ///////////////////////////////////////////////////////////////////////////////
 
 protected:
+    NetMessage( uint32 length );
 
     // 分配内存
     void MallocData( uint32 length );
