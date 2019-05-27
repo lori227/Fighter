@@ -50,29 +50,27 @@ void UNetClient::Tick( float ParamDeltaTime )
 void UNetClient::HandleNetEvent()
 {
     auto event = _net_socket->PopNetEvent();
-    if ( event == nullptr )
+    while ( event != nullptr )
     {
-        return;
+        auto function = _event_function.Find( event->_type );
+        if ( function != nullptr )
+        {
+            // 网络事件回调
+            function->operator()( event );
+        }
+        else
+        {
+            __LOG_ERROR__( LogNetwork, "event type=[{}] error!", event->_type );       
+        }
     }
-
-    auto function = _event_function.Find( event->_type );
-    if ( function == nullptr )
-    {
-        __LOG_ERROR__( LogNetwork, "event type=[{}] error!", event->_type );
-        return;
-    }
-
-    // 网络事件回调
-    function->operator()( event );
 }
 
 void UNetClient::HandleNetMessage()
 {
     auto message = _net_socket->PopNetMessage();
-    if ( message == nullptr )
+    while( message != nullptr )
     {
-        return;
+        _message_function( message->_head._msgid, message->_data, message->_head._length );
+        message = _net_socket->PopNetMessage();
     }
-
-    _message_function( message->_head._msgid, message->_data, message->_head._length );
 }
