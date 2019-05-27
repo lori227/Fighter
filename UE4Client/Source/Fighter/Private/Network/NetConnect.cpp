@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Public/Network/NetConnect.h"
@@ -29,16 +29,16 @@ void UNetConnect::Connect( const FString& ip, uint32 port )
     _ip = ip;
     _port = port;
 
-    // ¿ªÆôÏß³Ì
+    // å¼€å¯çº¿ç¨‹
     StartThread( TEXT( "NetConnect" ), false );
 }
 
-uint32 UNetConnect::ThreadBody()
+void UNetConnect::ThreadBody()
 {
     uint32 eventtype = 0u;
     __LOG_INFO__( LogNetwork, "start connect server=[{}:{}]!", TCHAR_TO_UTF8( *_ip ), _port );
 
-    // ´´½¨addr´æ·ÅIPv4µØÖ·ºÍ¶Ë¿Ú
+    // åˆ›å»ºaddrå­˜æ”¾IPv4åœ°å€å’Œç«¯å£
     auto internetaddr = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateInternetAddr();
     if ( internetaddr->IsValid() )
     {
@@ -49,6 +49,7 @@ uint32 UNetConnect::ThreadBody()
         auto ok = _net_socket->_socket->Connect( *internetaddr );
         if ( ok )
         {
+            _net_socket->_is_connect = true;
             eventtype = NetDefine::ConnectEvent;
             __LOG_INFO__( LogNetwork, "connect server=[{}:{}] ok!", TCHAR_TO_UTF8( *_ip ), _port );
         }
@@ -64,7 +65,6 @@ uint32 UNetConnect::ThreadBody()
         __LOG_ERROR__( LogNetwork, "createinternetaddr failed!" );
     }
 
-    // Ìí¼ÓÍøÂçÊÂ¼þ
-    _net_socket->AddNetEvent( eventtype );
-    return 0u;
+    // æ·»åŠ ç½‘ç»œäº‹ä»¶
+    _net_socket->PushNetEvent( eventtype );
 }

@@ -6,11 +6,12 @@
 #include "Public/Network/NetRecv.h"
 
 
-NetSocket::NetSocket( uint32 headlength )
+NetSocket::NetSocket( uint32 headlength, bool disconnectsend )
 {
     _is_close = false;
     _is_connect = true;
     _message_head_length = headlength;
+    _is_disconnect_send = disconnectsend;
 }
 
 NetSocket::~NetSocket()
@@ -60,12 +61,12 @@ void NetSocket::Shutdown()
     __SAFE_DELETE_FUNCTION__( _socket, ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->DestroySocket );
 }
 
-void NetSocket::Tick( float DeltaTime )
+void NetSocket::StartConnect( const FString& ip, uint32 port )
 {
-
+    _net_connect->Connect( ip, port );
 }
 
-void NetSocket::AddNetEvent( uint32 type, const FString& describe /* = TEXT( "" ) */, int32 code /* = 0 */, void* data /* = nullptr */ )
+void NetSocket::PushNetEvent( uint32 type, const FString& describe /* = TEXT( "" ) */, int32 code /* = 0 */, void* data /* = nullptr */ )
 {
     auto event = NewObject< UNetEvent >();
     event->_type = type;
@@ -77,7 +78,25 @@ void NetSocket::AddNetEvent( uint32 type, const FString& describe /* = TEXT( "" 
     _event_queue.Insert( event, 0 );
 }
 
-void NetSocket::StartConnect( const FString& ip, uint32 port )
+UNetEvent* NetSocket::PopNetEvent()
 {
-    _net_connect->Connect( ip, port );
+    FScopeLock Lock( &_event_lock );
+    auto size = _event_queue.Num();
+    if ( size == 0 )
+    {
+        return nullptr;
+    }
+
+    return _event_queue.Pop();
+}
+
+
+bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+{
+    if ( !_is_connect && !_is_disconnect_send )
+    {
+        return false;
+    }
+
+    return _net_send->SendNetMessage( msgid, data, length );
 }

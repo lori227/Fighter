@@ -1,4 +1,4 @@
-#include "Public/Common/Thread.h"
+﻿#include "Public/Common/Thread.h"
 #include "Event.h"
 #include "RunnableThread.h"
 #include "Public/Common/Macros.h"
@@ -36,9 +36,9 @@ uint32 UThread::Run()
 }
 
 // int32 UThread::ThreadBody_Implementation()
-uint32 UThread::ThreadBody()
+void UThread::ThreadBody()
 {
-    return 0;
+
 }
 
 void UThread::Stop()

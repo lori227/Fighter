@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Network/NetMessage.h"
 
@@ -48,6 +48,12 @@ void UNetMessage::CopyFrom( UNetMessage* message )
     {
         CopyData( message->_data, message->_head._length );
     }
+}
+
+void UNetMessage::CopyFrom( uint32 msgid, const int8* data, uint32 length )
+{
+    _head._msgid = msgid;
+    CopyData( data, length );
 }
 
 void UNetMessage::CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length )

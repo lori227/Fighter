@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include "Runnable.h"
 #include "Public/Common/Define.h"
@@ -33,25 +33,25 @@ public:
     void TaskSleep( float ParamSeconds );
 
 protected:
-    // Ïß³ÌÂß¼­
-    virtual uint32 ThreadBody();
+    // çº¿ç¨‹é€»è¾‘
+    virtual void ThreadBody();
 
-    // ÊÇ·ñÍê³É
+    // æ˜¯å¦å®Œæˆ
     virtual bool IsFinished();
 
 private:
-    /**< Ïß³ÌÃû */
+    /**< çº¿ç¨‹å */
     FString _name;
 
-    // ÊÇ·ñÑ­»·
+    // æ˜¯å¦å¾ªç¯
     bool _loop = false;
 
-    /**< Ïß³Ì */
+    /**< çº¿ç¨‹ */
     FRunnableThread* _runable = nullptr;
 
-    /**< Ïß³ÌĞü¹ÒºÍ»½ĞÑÊÂ¼ş */
+    /**< çº¿ç¨‹æ‚¬æŒ‚å’Œå”¤é†’äº‹ä»¶ */
     FEvent* _suspended_event = nullptr;
 
-    /**< Ïß³Ì×´Ì¬ */
+    /**< çº¿ç¨‹çŠ¶æ€ */
     EThreadStatus _status = EThreadStatus::New;
 };

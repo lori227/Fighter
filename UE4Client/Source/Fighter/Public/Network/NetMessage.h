@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -12,32 +12,32 @@
 class NetHead
 {
 public:
-    // ÏûÏ¢³¤¶È
+    // æ¶ˆæ¯é•¿åº¦
     uint32 _length = 0u;
 
-    // ÏûÏ¢ÀàĞÍ
+    // æ¶ˆæ¯ç±»å‹
     uint16 _msgid = 0u;
 
-    // ×ÓÏûÏ¢¸öÊı( °üÀ¨×Ô¼º )
+    // å­æ¶ˆæ¯ä¸ªæ•°( åŒ…æ‹¬è‡ªå·± )
     uint16 _child = 0u;
 };
 
-// ¿Í»§¶ËÓë·şÎñÆ÷Ö®¼äµÄÏûÏ¢Í·
+// å®¢æˆ·ç«¯ä¸æœåŠ¡å™¨ä¹‹é—´çš„æ¶ˆæ¯å¤´
 class ClientHead : public NetHead
 {
 public:
 
 };
 
-// ·şÎñÆ÷Ö®¼äµÄÏûÏ¢Í·
+// æœåŠ¡å™¨ä¹‹é—´çš„æ¶ˆæ¯å¤´
 class ServerHead : public NetHead
 {
 public:
-    // Â·ÓÉĞÅÏ¢
+    // è·¯ç”±ä¿¡æ¯
     NetRoute _route;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////
-// ÏûÏ¢»ùÀà
+// æ¶ˆæ¯åŸºç±»
 //
 UCLASS()
 class UNetMessage : public UObject
@@ -47,33 +47,34 @@ class UNetMessage : public UObject
 public:
     ~UNetMessage();
 
-    // ´´½¨ÏûÏ¢
+    // åˆ›å»ºæ¶ˆæ¯
     static UNetMessage* Create( uint32 length );
     void Release();
 
-    // ÏûÏ¢³¤¶È
+    // æ¶ˆæ¯é•¿åº¦
     static uint32 HeadLength();
     //////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////
-    // ¿½±´Êı¾İ
+    // æ‹·è´æ•°æ®
     void CopyData( const int8* data, uint32 length );
 
-    // ¸´ÖÆÏûÏ¢
+    // å¤åˆ¶æ¶ˆæ¯
     void CopyFrom( UNetMessage* message );
+    void CopyFrom( uint32 msgid, const int8* data, uint32 length );
     void CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length );
     ///////////////////////////////////////////////////////////////////////////////
 
 protected:
 
-    // ·ÖÅäÄÚ´æ
+    // åˆ†é…å†…å­˜
     void MallocData( uint32 length );
     void FreeData();
 
 public:
-    // ÏûÏ¢Í·
+    // æ¶ˆæ¯å¤´
     ServerHead _head;
 
-    // ÏûÏ¢Êı¾İ
+    // æ¶ˆæ¯æ•°æ®
     int8* _data = nullptr;
 };
 

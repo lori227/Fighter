@@ -40,3 +40,15 @@
 #ifndef __SAFE_DELETE_FUNCTION__
     #define  __SAFE_DELETE_FUNCTION__( p, function ) if ( p != nullptr ){ function( p ); p = nullptr;}
 #endif
+
+#ifndef __FUNC_LINE__
+    #define __FUNC_LINE__ __FUNCTION__, __LINE__
+#endif
+
+#ifndef __MIN__
+    #define __MIN__( x, y ) ( (x) > (y) ? (y) : (x) )
+#endif
+
+#ifndef __MAX__
+    #define __MAX__( x, y ) ( (x) > (y) ? (x) : (y) )
+#endif

@@ -18,7 +18,7 @@ class UNetConnect;
 class NetSocket
 {
 public:
-    NetSocket( uint32 headlength );
+    NetSocket( uint32 headlength, bool disconnectsend );
     ~NetSocket();
 
 public:
@@ -36,12 +36,16 @@ public:
 
 public:
     // event
-    void AddNetEvent( uint32 type, const FString& describe = TEXT( "" ), int32 code = 0, void* data = nullptr );
+    void PushNetEvent( uint32 type, const FString& describe = TEXT( "" ), int32 code = 0, void* data = nullptr );
+
+    // 弹出一个网络时间
+    UNetEvent* PopNetEvent();
 
     // connect
     void StartConnect( const FString& ip, uint32 port );
 
-
+    // send
+    bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );
 
 public:
     // socket
@@ -56,8 +60,16 @@ public:
     // 消息头长度
     uint32 _message_head_length = 0u;
 
+    // 断线是否需要加入发送队列
+    bool _is_disconnect_send = false;
+private:
+    // 连接线程
     UNetConnect* _net_connect = nullptr;
+
+    // 发送线程
     UNetSend* _net_send = nullptr;
+
+    // 接收线程
     UNetRecv* _net_recv = nullptr;
 
     // 网络事件列表
