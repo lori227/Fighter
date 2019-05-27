@@ -16,9 +16,7 @@ NetSocket::NetSocket( uint32 headlength, bool disconnectsend )
 
 NetSocket::~NetSocket()
 {
-    __SAFE_DELETE__( _net_connect );
-    __SAFE_DELETE__( _net_send );
-    __SAFE_DELETE__( _net_recv );
+
 }
 
 void NetSocket::Init( const FString& name, uint32 sendqueuesize, uint32 recvqueuesize )

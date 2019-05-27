@@ -183,8 +183,10 @@ void UNetSend::SendNetBuff()
             auto state = _net_socket->_socket->GetConnectionState();
             if ( state != SCS_Connected )
             {
+                _send_length = 0u;
                 _net_socket->_is_connect = false;
                 _net_socket->PushNetEvent( NetDefine::DisconnectEvent, TEXT( "network send failed" ) );
+                break;
             }
         }
     } while ( true );
