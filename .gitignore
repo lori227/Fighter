@@ -30,3 +30,6 @@ UE4Client/Binaries/IOS/Payload/Info.plist
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/UserInterfaceState.xcuserstate
 UE4Client/Fighter.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/WorkspaceSettings.xcsettings
+UE4Client/Binaries/
+UE4Client/Plugins/lua_wrapper/Binaries/Mac/
+UE4Client/Plugins/slua_unreal/Binaries/Mac/
