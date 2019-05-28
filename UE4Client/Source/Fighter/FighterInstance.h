@@ -33,6 +33,8 @@ public:
     // shutdown
     virtual void Shutdown() override;
 
+    //////////////////////////////////////////////////////////////////////////////
+
     // tick
     virtual void Tick( float DeltaTime ) override;
     inline bool IsTickable() const;
@@ -40,7 +42,8 @@ public:
 
 
 protected:
-    // 连接成功时间
+
+    // 连接成功
     void OnNetClientConnectOk( const NetEvent* event );
 
     // 连接失败

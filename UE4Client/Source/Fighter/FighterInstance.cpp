@@ -46,12 +46,6 @@ void UFighterInstance::Init()
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
     _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
     _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
-
-
-
-    FString ip = TEXT( "192.168.1.155" );
-    uint32 port = 12006;
-    _net_client->Connect( ip, port );
 }
 
 void UFighterInstance::Shutdown()

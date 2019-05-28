@@ -32,6 +32,15 @@ bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 
 void NetClient::Tick( float ParamDeltaTime )
 {
+    static bool _is_init = false;
+    if ( !_is_init )
+    {
+        FString ip = TEXT( "192.168.1.155" );
+        uint32 port = 12006;
+        Connect( ip, port );
+        _is_init = true;
+    }
+
     // 处理网络事件
     HandleNetEvent();
 
