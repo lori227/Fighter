@@ -38,6 +38,7 @@ inline TStatId UFighterInstance::GetStatId() const
 
 void UFighterInstance::Init()
 {
+    Super::Init();
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 
     _net_client = new NetClient();
@@ -60,6 +61,8 @@ void UFighterInstance::Shutdown()
         _net_client->Close();
         _net_client = nullptr;
     }
+
+    Super::Shutdown();
 }
 
 void UFighterInstance::Tick( float DeltaTime )
