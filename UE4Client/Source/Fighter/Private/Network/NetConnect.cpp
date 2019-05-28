@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Public/Network/NetConnect.h"
@@ -46,7 +46,7 @@ void NetConnect::ThreadBody()
         else
         {
             eventtype = NetDefine::FailedEvent;
-            __LOG_ERROR__( LogNetwork, "connect server=[{}:{}] failed=[{}]!", TCHAR_TO_UTF8( *_ip ), _port );
+            __LOG_ERROR__( LogNetwork, "connect server=[{}:{}]!", TCHAR_TO_UTF8( *_ip ), _port );
         }
     }
     else
