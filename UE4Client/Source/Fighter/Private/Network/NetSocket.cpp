@@ -65,6 +65,7 @@ void NetSocket::StartConnect( const FString& ip, uint32 port )
 
     // 开启连接服务
     _net_connect->StartService( ip, port );
+    _last_recv_time = clock();
 }
 
 void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* = nullptr */ )
@@ -114,5 +115,30 @@ bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 
 NetMessage* NetSocket::PopNetMessage()
 {
-    return _net_recv->PopMessage();
+    auto message = _net_recv->PopMessage();
+    if ( message != nullptr )
+    {
+        _last_recv_time = clock();
+
+        // ping 消息
+        if ( message->_head._msgid == 0 )
+        {
+            message = _net_recv->PopMessage();
+        }
+    }
+    else
+    {
+        // 超过60秒没有消息,认为已经断线了,
+        // 服务器没20秒发送一个ping消息
+        if ( _is_connect )
+        {
+            if ( ( clock() - _last_recv_time ) > 60000 )
+            {
+                _is_connect = false;
+                PushNetEvent( NetDefine::DisconnectEvent );
+            }
+        }
+    }
+
+    return message;
 }

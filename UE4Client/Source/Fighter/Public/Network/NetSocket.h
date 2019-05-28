@@ -79,5 +79,6 @@ private:
     /**< 互斥锁 */
     FCriticalSection _event_lock;
 
-    //
+    // 最后一次接受消息时间
+    uint64 _last_recv_time = 0;
 };
