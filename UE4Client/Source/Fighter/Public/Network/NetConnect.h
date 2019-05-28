@@ -3,20 +3,16 @@
 #pragma once
 
 #include "Headers.h"
-#include "NetConnect.generated.h"
 
 class NetSocket;
 
-UCLASS()
-class UNetConnect : public UThread
+class NetConnect : public Thread
 {
-    GENERATED_UCLASS_BODY()
-
 public:
-    ~UNetConnect();
+    NetConnect( NetSocket* socket );
 
     // start
-    void StartService( NetSocket* socket, const FString& ip, uint32 port );
+    void StartService( const FString& ip, uint32 port );
 
     // ֹͣ
     void StopService();

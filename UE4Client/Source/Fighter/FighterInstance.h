@@ -13,7 +13,7 @@
  */
 
 class NetEvent;
-class UNetClient;
+class NetClient;
 
 UCLASS( BlueprintType, Blueprintable )
 class UFighterInstance : public UGameInstance, public FTickableGameObject
@@ -43,6 +43,9 @@ protected:
     // 连接成功时间
     void OnNetClientConnectOk( const NetEvent* event );
 
+    // 连接失败
+    void OnNetClientConnectFailed( const NetEvent* event );
+
     // 处理消息函数
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );
 
@@ -50,8 +53,7 @@ protected:
     static UFighterInstance* _this;
 
     // 网络客户端
-    UPROPERTY( Transient )
-    UNetClient* _net_client = nullptr;
+    NetClient* _net_client = nullptr;
 
     TStatId m_TStatId;
 

@@ -2,15 +2,12 @@
 
 #include "Runnable.h"
 #include "Public/Common/Define.h"
-#include "Thread.generated.h"
 
-UCLASS( Blueprintable )
-class UThread : public UObject, public FRunnable
+class Thread : public FRunnable
 {
-    GENERATED_UCLASS_BODY()
 public:
-
-    virtual ~UThread();
+    Thread();
+    virtual ~Thread();
 
     // init
     virtual bool Init() override;
@@ -23,13 +20,14 @@ public:
 
 public:
     // start
-    void StartThread( const FString& name, bool loop );
+    void Start( const FString& name, bool loop );
 
-    EThreadStatus GetThreadStatus();
+    // shutdown
+    void Shutdown();
+
     void Suspend();
     void Resume();
-    void EnsureCompletion();
-
+    EThreadStatus GetThreadStatus();
     void TaskSleep( float ParamSeconds );
 
 protected:

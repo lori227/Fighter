@@ -13,6 +13,9 @@ NetSocket::NetSocket()
 
 NetSocket::~NetSocket()
 {
+    __SAFE_DELETE__( _net_connect );
+    __SAFE_DELETE__( _net_send );
+    __SAFE_DELETE__( _net_recv );
     __SAFE_DELETE_FUNCTION__( _socket, ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->DestroySocket );
 }
 
@@ -21,13 +24,9 @@ void NetSocket::Init( const FString& name, ENetType nettype, uint32 sendqueuesiz
     _is_disconnect_send = disconnectsend;
     _message_head_length = ( nettype == ENetType::Server ? sizeof( ServerHead ) : sizeof( ClientHead ) );
 
-    _net_connect = NewObject<UNetConnect>();
-
-    _net_send = NewObject<UNetSend>();
-    _net_send->StartService( this, sendqueuesize );
-
-    _net_recv = NewObject<UNetRecv>();
-    _net_recv->StartService( this, recvqueuesize );
+    _net_connect = new NetConnect( this );
+    _net_send = new NetSend( this, sendqueuesize );
+    _net_recv = new NetRecv( this, recvqueuesize );
     _socket = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateSocket( NAME_Stream, name, false );
 }
 
@@ -59,8 +58,13 @@ void NetSocket::Close()
 
 void NetSocket::StartConnect( const FString& ip, uint32 port )
 {
+    Close();
+
+    _net_send->StartService();
+    _net_recv->StartService();
+
     // 开启连接服务
-    _net_connect->StartService( this, ip, port );
+    _net_connect->StartService( ip, port );
 }
 
 void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* = nullptr */ )

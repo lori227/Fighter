@@ -13,9 +13,9 @@
 DECLARE_LOG_CATEGORY_CLASS( LogNetwork, All, All );
 
 class FSocket;
-class UNetSend;
-class UNetRecv;
-class UNetConnect;
+class NetSend;
+class NetRecv;
+class NetConnect;
 class NetMessage;
 
 class NetSocket
@@ -65,16 +65,13 @@ public:
 
 private:
     // 连接线程
-    UPROPERTY( Transient )
-    UNetConnect* _net_connect = nullptr;
+    NetConnect* _net_connect = nullptr;
 
     // 发送线程
-    UPROPERTY( Transient )
-    UNetSend* _net_send = nullptr;
+    NetSend* _net_send = nullptr;
 
     // 接收线程
-    UPROPERTY( Transient )
-    UNetRecv* _net_recv = nullptr;
+    NetRecv* _net_recv = nullptr;
 
     // 网络事件列表
     std::list< NetEvent* > _event_queue;

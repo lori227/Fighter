@@ -4,18 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "NetSocket.h"
-#include "NetClient.generated.h"
 
-UCLASS()
-class UNetClient : public UObject
+class NetClient
 {
-    GENERATED_UCLASS_BODY()
-
 private:
     typedef std::function<void( uint32 msgid, const int8* data, uint32 length )> MessageFunction;
 
 public:
-    ~UNetClient();
+    ~NetClient();
 
     // 初始化
     void Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend );

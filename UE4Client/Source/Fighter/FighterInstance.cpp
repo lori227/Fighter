@@ -17,6 +17,7 @@ UFighterInstance::UFighterInstance( const FObjectInitializer& ObjectInitializer 
 UFighterInstance::~UFighterInstance()
 {
     _this = nullptr;
+    __SAFE_DELETE__( _net_client );
 }
 
 void UFighterInstance::StartGameInstance()
@@ -39,10 +40,11 @@ void UFighterInstance::Init()
 {
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 
-    _net_client = NewObject< UNetClient >();
+    _net_client = new NetClient();
     _net_client->Init( TEXT( "client" ), ENetType::Client, 100, 200, false );
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
     _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
+    _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
 
 
 
@@ -68,7 +70,6 @@ void UFighterInstance::Tick( float DeltaTime )
     }
 }
 
-
 /////////////////////////////////////////////////////////////////////////////////////
 void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
 {
@@ -76,6 +77,14 @@ void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
     int8 data[] = "xxxx";
     _net_client->SendNetMessage( 100, data, 4 );
 }
+
+void UFighterInstance::OnNetClientConnectFailed( const NetEvent* event )
+{
+    FString ip = TEXT( "192.168.1.155" );
+    uint32 port = 12006;
+    //_net_client->Connect( ip, port );
+}
+
 
 void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {

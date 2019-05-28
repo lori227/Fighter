@@ -5,20 +5,17 @@
 #include "Headers.h"
 #include "NetDefine.h"
 #include "NetMessage.h"
-#include "NetRecv.generated.h"
 
 class NetSocket;
 
-UCLASS()
-class UNetRecv : public UThread
+class NetRecv : public Thread
 {
-    GENERATED_UCLASS_BODY()
-
 public:
-    ~UNetRecv();
+    NetRecv( NetSocket* socket, uint32 queuesize );
+    ~NetRecv();
 
     // 开始服务
-    void StartService( NetSocket* socket, uint32 queuesize );
+    void StartService();
 
     // 停止服务
     void StopService();
@@ -38,6 +35,9 @@ protected:
 
     // 计算地址长度
     void CalcBuffTotalLength( uint32 totallength );
+
+    NetMessage* PopSingleMessage( NetMessage* message );
+    NetMessage* PopMultiMessage( NetMessage* message );
 
 private:
     // socket

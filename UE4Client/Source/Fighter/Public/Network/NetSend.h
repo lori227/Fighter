@@ -5,20 +5,17 @@
 #include "Headers.h"
 #include "NetDefine.h"
 #include "NetMessage.h"
-#include "NetSend.generated.h"
 
 class NetSocket;
 
-UCLASS()
-class UNetSend : public UThread
+class NetSend : public Thread
 {
-    GENERATED_UCLASS_BODY()
-
 public:
-    ~UNetSend();
+    NetSend( NetSocket* socket, uint32 queuesize );
+    ~NetSend();
 
     // start
-    void StartService( NetSocket* socket, uint32 queuesize );
+    void StartService();
 
     // stop
     void StopService();

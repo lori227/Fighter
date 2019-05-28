@@ -5,32 +5,26 @@
 #include "Public/Network/NetSocket.h"
 #include "Public/Network/NetDefine.h"
 
-
-UNetConnect::UNetConnect( const FObjectInitializer& ObjectInitializer )
-    : Super( ObjectInitializer )
+NetConnect::NetConnect( NetSocket* socket )
 {
+    _net_socket = socket;
 }
 
-UNetConnect::~UNetConnect()
-{
-}
-
-void UNetConnect::StartService( NetSocket* socket, const FString& ip, uint32 port )
+void NetConnect::StartService( const FString& ip, uint32 port )
 {
     _ip = ip;
     _port = port;
-    _net_socket = socket;
 
     // 开启线程
-    StartThread( TEXT( "NetConnect" ), false );
+    Start( TEXT( "NetConnect" ), false );
 }
 
-void UNetConnect::StopService()
+void NetConnect::StopService()
 {
-    EnsureCompletion();
+    Shutdown();
 }
 
-void UNetConnect::ThreadBody()
+void NetConnect::ThreadBody()
 {
     uint32 eventtype = 0u;
     __LOG_INFO__( LogNetwork, "start connect server=[{}:{}]!", TCHAR_TO_UTF8( *_ip ), _port );
@@ -42,7 +36,12 @@ void UNetConnect::ThreadBody()
     auto internetaddr = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateInternetAddr( address.Value, _port );
     if ( internetaddr->IsValid() )
     {
+        internetaddr->SetIp( address.Value );
+        internetaddr->SetPort( _port );
         auto ok = _net_socket->_socket->Connect( *internetaddr );
+
+        auto state = _net_socket->_socket->GetConnectionState();
+
         if ( ok )
         {
             _net_socket->_is_connect = true;
@@ -52,7 +51,7 @@ void UNetConnect::ThreadBody()
         else
         {
             eventtype = NetDefine::FailedEvent;
-            __LOG_ERROR__( LogNetwork, "connect server=[{}:{}] failed!", TCHAR_TO_UTF8( *_ip ), _port );
+            __LOG_ERROR__( LogNetwork, "connect server=[{}:{}] failed=[{}]!", TCHAR_TO_UTF8( *_ip ), _port, ( uint32 )state );
         }
     }
     else

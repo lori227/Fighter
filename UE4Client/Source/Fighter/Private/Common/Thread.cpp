@@ -3,25 +3,24 @@
 #include "RunnableThread.h"
 #include "Public/Common/Macros.h"
 
-UThread::UThread( const FObjectInitializer& ObjectInitializer )
-    : Super( ObjectInitializer )
+Thread::Thread()
 {
     _suspended_event = FPlatformProcess::GetSynchEventFromPool();
 }
 
-UThread::~UThread()
+Thread::~Thread()
 {
     __SAFE_DELETE__( _runable );
     __SAFE_DELETE_FUNCTION__( _suspended_event, FPlatformProcess::ReturnSynchEventToPool );
 }
 
-bool UThread::Init()
+bool Thread::Init()
 {
     _status = EThreadStatus::New;
     return true;
 }
 
-uint32 UThread::Run()
+uint32 Thread::Run()
 {
     _status = EThreadStatus::Runnable;
 
@@ -36,56 +35,56 @@ uint32 UThread::Run()
 }
 
 // int32 UThread::ThreadBody_Implementation()
-void UThread::ThreadBody()
+void Thread::ThreadBody()
 {
 
 }
 
-void UThread::Stop()
+void Thread::Stop()
 {
     _loop = false;
 }
 
+void Thread::Shutdown()
+{
+    Stop();
+    if ( _runable != nullptr )
+    {
+        _runable->Kill( true );
+    }
+}
+
 //bool UThread::IsFinished_Implementation()
-bool UThread::IsFinished()
+bool Thread::IsFinished()
 {
     return _status == EThreadStatus::Terminated;
 }
 
-void UThread::StartThread( const FString& name, bool loop )
+void Thread::Start( const FString& name, bool loop )
 {
     _name = name;
     _loop = loop;
     _runable = FRunnableThread::Create( this, *_name );
 }
 
-EThreadStatus UThread::GetThreadStatus()
+EThreadStatus Thread::GetThreadStatus()
 {
     return _status;
 }
 
-void UThread::EnsureCompletion()
-{
-    if ( _runable != nullptr )
-    {
-        Stop();
-        _runable->Kill( true );
-    }
-}
-
-void UThread::Suspend()
+void Thread::Suspend()
 {
     _suspended_event->Wait();
     _status = EThreadStatus::Waiting;
 }
 
-void UThread::Resume()
+void Thread::Resume()
 {
     _suspended_event->Trigger();
     _status = EThreadStatus::Runnable;
 }
 
-void UThread::TaskSleep( float ParamSeconds )
+void Thread::TaskSleep( float ParamSeconds )
 {
     FPlatformProcess::Sleep( ParamSeconds );
 }

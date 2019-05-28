@@ -4,37 +4,33 @@
 #include "Public/Network/NetSocket.h"
 
 
-UNetSend::UNetSend( const FObjectInitializer& ObjectInitializer )
-    : Super( ObjectInitializer )
+NetSend::NetSend( NetSocket* socket, uint32 queuesize )
 {
+    _net_socket = socket;
+    _send_queue.Resize( queuesize );
 }
 
-UNetSend::~UNetSend()
+NetSend::~NetSend()
 {
     _send_queue.ClearObject();
 }
 
-void UNetSend::StartService( NetSocket* socket, uint32 queuesize )
+void NetSend::StartService()
 {
     Init();
-
-    _net_socket = socket;
-    _send_queue.Resize( queuesize );
-
     _send_length = 0u;
-    StartThread( TEXT( "NetSend" ), true );
+    Start( TEXT( "NetSend" ), true );
 
     __LOG_INFO__( LogNetwork, "network send thread start!" );
 }
 
-void UNetSend::StopService()
+void NetSend::StopService()
 {
-    EnsureCompletion();
-
+    Shutdown();
     __LOG_INFO__( LogNetwork, "network send thread stop!" );
 }
 
-bool UNetSend::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+bool NetSend::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     bool ok = false;
 
@@ -51,7 +47,7 @@ bool UNetSend::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
     return ok;
 }
 
-bool UNetSend::SendSingleMessage( uint32 msgid, const int8* data, uint32 length )
+bool NetSend::SendSingleMessage( uint32 msgid, const int8* data, uint32 length )
 {
     auto netmessage = NetMessage::Create( length );
     netmessage->CopyFrom( msgid, data, length );
@@ -59,7 +55,7 @@ bool UNetSend::SendSingleMessage( uint32 msgid, const int8* data, uint32 length 
     return _send_queue.PushObject( netmessage );
 }
 
-bool UNetSend::SendMultiMessage( uint32 msgid, const int8* data, uint32 length )
+bool NetSend::SendMultiMessage( uint32 msgid, const int8* data, uint32 length )
 {
     // 消息头
     ServerHead head;
@@ -73,7 +69,7 @@ bool UNetSend::SendMultiMessage( uint32 msgid, const int8* data, uint32 length )
     // 子消息头
     auto headmessage = NetMessage::Create( NetMessage::HeadLength() );
     headmessage->_head._child = messagecount;
-    headmessage->CopyFrom( NetDefine::CUT_MSGCHILDBEGIN, ( int8* )&head, NetMessage::HeadLength() );
+    headmessage->CopyFrom( NetDefine::CUT_MSGCHILDBEGIN, reinterpret_cast< int8*>( &head ), NetMessage::HeadLength() );
     if ( !_send_queue.PushObject( headmessage ) )
     {
         return false;
@@ -103,7 +99,7 @@ bool UNetSend::SendMultiMessage( uint32 msgid, const int8* data, uint32 length )
     return true;
 }
 
-void UNetSend::ThreadBody()
+void NetSend::ThreadBody()
 {
     // 关闭 或者 断开
     if ( _net_socket->_is_close || !_net_socket->_is_connect )
@@ -146,13 +142,13 @@ void UNetSend::ThreadBody()
     }
 }
 
-bool UNetSend::CheckBuffLength( uint32 totallength, uint32 messagelength )
+bool NetSend::CheckBuffLength( uint32 totallength, uint32 messagelength )
 {
     auto sendlength = totallength + _net_socket->_message_head_length + messagelength;
     return ( sendlength <= NetDefine::MaxReqBuffLength );
 }
 
-void UNetSend::SendNetBuff()
+void NetSend::SendNetBuff()
 {
     int32 sendlength = 0;
     uint32 totallength = 0u;

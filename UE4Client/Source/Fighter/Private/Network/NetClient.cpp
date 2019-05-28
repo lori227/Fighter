@@ -3,42 +3,34 @@
 #include "Public/Network/NetClient.h"
 #include "Public/Network/NetMessage.h"
 
-UNetClient::UNetClient( const FObjectInitializer& ObjectInitializer )
-    : Super( ObjectInitializer )
-{
-}
-
-UNetClient::~UNetClient()
+NetClient::~NetClient()
 {
     __SAFE_DELETE__( _net_socket );
 }
 
-void UNetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
+void NetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
 {
     _net_socket = new NetSocket();
     _net_socket->Init( name, nettype, sendqueuesize, recvqueuesize, disconnectsend );
 }
 
-void UNetClient::Connect( const FString& ip, uint32 port )
+void NetClient::Connect( const FString& ip, uint32 port )
 {
-    // 先关闭
-    Close();
-
     // 创建新的连接
     _net_socket->StartConnect( ip, port );
 }
 
-void UNetClient::Close()
+void NetClient::Close()
 {
     _net_socket->Close();
 }
 
-bool UNetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     return _net_socket->SendNetMessage( msgid, data, length );
 }
 
-void UNetClient::Tick( float ParamDeltaTime )
+void NetClient::Tick( float ParamDeltaTime )
 {
     // 处理网络事件
     HandleNetEvent();
@@ -47,7 +39,7 @@ void UNetClient::Tick( float ParamDeltaTime )
     HandleNetMessage();
 }
 
-void UNetClient::HandleNetEvent()
+void NetClient::HandleNetEvent()
 {
     auto event = _net_socket->PopNetEvent();
     while ( event != nullptr )
@@ -60,15 +52,17 @@ void UNetClient::HandleNetEvent()
         }
         else
         {
-            __LOG_ERROR__( LogNetwork, "event type=[{}] error!", event->_type );       
+            __LOG_ERROR__( LogNetwork, "event type=[{}] error!", event->_type );
         }
+
+        event = _net_socket->PopNetEvent();
     }
 }
 
-void UNetClient::HandleNetMessage()
+void NetClient::HandleNetMessage()
 {
     auto message = _net_socket->PopNetMessage();
-    while( message != nullptr )
+    while ( message != nullptr )
     {
         _message_function( message->_head._msgid, message->_data, message->_head._length );
         message = _net_socket->PopNetMessage();
