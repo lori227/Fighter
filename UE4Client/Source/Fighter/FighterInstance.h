@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "Headers.h"
+#include "Public/Headers.h"
 #include "Public/Tickable.h"
 #include "Engine/GameInstance.h"
 #include "FighterInstance.generated.h"

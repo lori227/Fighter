@@ -154,8 +154,6 @@ public:
 
         _pop_index = 0;
         _push_index = 0;
-        _max_count = 0;
-        _objects.clear();
     }
 
 private:

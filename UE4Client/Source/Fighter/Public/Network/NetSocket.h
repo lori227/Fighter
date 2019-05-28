@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "Headers.h"
+#include "Public/Headers.h"
 #include "Sockets.h"
 #include "SocketSubsystem.h"
 #include "NetEvent.h"
@@ -64,6 +64,9 @@ public:
     bool _is_disconnect_send = false;
 
 private:
+    // 名字
+    FString _name;
+
     // 连接线程
     NetConnect* _net_connect = nullptr;
 

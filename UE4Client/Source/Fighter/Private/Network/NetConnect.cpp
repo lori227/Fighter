@@ -37,7 +37,6 @@ void NetConnect::ThreadBody()
     if ( internetaddr->IsValid() )
     {
         auto ok = _net_socket->_socket->Connect( *internetaddr );
-        auto state = _net_socket->_socket->GetConnectionState();
         if ( ok )
         {
             _net_socket->_is_connect = true;
@@ -47,7 +46,7 @@ void NetConnect::ThreadBody()
         else
         {
             eventtype = NetDefine::FailedEvent;
-            __LOG_ERROR__( LogNetwork, "connect server=[{}:{}] failed=[{}]!", TCHAR_TO_UTF8( *_ip ), _port, ( uint32 )state );
+            __LOG_ERROR__( LogNetwork, "connect server=[{}:{}] failed=[{}]!", TCHAR_TO_UTF8( *_ip ), _port );
         }
     }
     else

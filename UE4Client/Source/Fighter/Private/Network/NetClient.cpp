@@ -39,9 +39,7 @@ void NetClient::Tick( float ParamDeltaTime )
     {
         if ( clock() > _connect_time )
         {
-            FString ip = TEXT( "192.168.1.155" );
-            uint32 port = 12006;
-            Connect( ip, port );
+
             _is_init = true;
         }
     }

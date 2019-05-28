@@ -21,13 +21,13 @@ NetSocket::~NetSocket()
 
 void NetSocket::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
 {
+    _name = name;
     _is_disconnect_send = disconnectsend;
     _message_head_length = ( nettype == ENetType::Server ? sizeof( ServerHead ) : sizeof( ClientHead ) );
 
     _net_connect = new NetConnect( this );
     _net_send = new NetSend( this, sendqueuesize );
     _net_recv = new NetRecv( this, recvqueuesize );
-    _socket = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateSocket( NAME_Stream, name, false );
 }
 
 void NetSocket::Close()
@@ -38,6 +38,7 @@ void NetSocket::Close()
     if ( _socket != nullptr )
     {
         _socket->Close();
+        __SAFE_DELETE_FUNCTION__( _socket, ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->DestroySocket );
     }
 
     if ( _net_connect != nullptr )
@@ -58,18 +59,33 @@ void NetSocket::Close()
 
 void NetSocket::StartConnect( const FString& ip, uint32 port )
 {
-    //Close();
+    Close();
 
-    _net_send->StartService();
-    _net_recv->StartService();
+    _is_close = false;
+    if ( _socket == nullptr )
+    {
+        _socket = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateSocket( NAME_Stream, _name, false );
+        if ( _socket == nullptr )
+        {
+            __LOG_ERROR__( LogNetwork, "create [{}] socket failed!", TCHAR_TO_UTF8( *_name ) );
+            return PushNetEvent( NetDefine::FailedEvent );
+        }
+    }
 
     // 开启连接服务
-    _net_connect->StartService( ip, port );
     _last_recv_time = clock();
+    _net_send->StartService();
+    _net_recv->StartService();
+    _net_connect->StartService( ip, port );
 }
 
 void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* = nullptr */ )
 {
+    if ( _is_close )
+    {
+        return;
+    }
+
     auto event = new NetEvent();
     event->_type = type;
     event->_code = code;
@@ -121,7 +137,7 @@ NetMessage* NetSocket::PopNetMessage()
         _last_recv_time = clock();
 
         // ping 消息
-        if ( message->_head._msgid == 0 )
+        if ( message->_head._msgid == 0u )
         {
             message = _net_recv->PopMessage();
         }
