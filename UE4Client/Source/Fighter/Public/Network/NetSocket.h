@@ -78,4 +78,6 @@ private:
 
     /**< 互斥锁 */
     FCriticalSection _event_lock;
+
+    //
 };

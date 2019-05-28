@@ -36,12 +36,8 @@ void NetConnect::ThreadBody()
     auto internetaddr = ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->CreateInternetAddr( address.Value, _port );
     if ( internetaddr->IsValid() )
     {
-        internetaddr->SetIp( address.Value );
-        internetaddr->SetPort( _port );
         auto ok = _net_socket->_socket->Connect( *internetaddr );
-
         auto state = _net_socket->_socket->GetConnectionState();
-
         if ( ok )
         {
             _net_socket->_is_connect = true;
@@ -57,7 +53,7 @@ void NetConnect::ThreadBody()
     else
     {
         eventtype = NetDefine::FailedEvent;
-        __LOG_ERROR__( LogNetwork, "createinternetaddr failed!" );
+        __LOG_ERROR__( LogNetwork, "createinternetaddr server=[{}:{}] failed!", TCHAR_TO_UTF8( *_ip ), _port );
     }
 
     // 添加网络事件
