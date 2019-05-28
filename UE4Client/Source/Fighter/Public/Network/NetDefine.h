@@ -21,6 +21,6 @@ namespace NetDefine
         DisconnectEvent = 2,	// 关闭事件
         FailedEvent = 3,		// 失败事件
         ErrorEvent = 4,			// 错误事件
-        ShutEvent = 5,			// 销毁时间
+        ShutEvent = 5,			// 销毁事件
     };
 }

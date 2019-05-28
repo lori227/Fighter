@@ -14,7 +14,7 @@ public:
     // start
     void StartService( const FString& ip, uint32 port );
 
-    // ֹͣ
+    // stop
     void StopService();
 
 protected:
