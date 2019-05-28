@@ -33,6 +33,7 @@ void NetRecv::StartService()
 void NetRecv::StopService()
 {
     Shutdown();
+    _recv_queue.ClearObject();
     __LOG_INFO__( LogNetwork, "network send thread stop!" );
 }
 

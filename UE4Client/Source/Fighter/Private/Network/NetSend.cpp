@@ -27,6 +27,7 @@ void NetSend::StartService()
 void NetSend::StopService()
 {
     Shutdown();
+    _send_queue.ClearObject();
     __LOG_INFO__( LogNetwork, "network send thread stop!" );
 }
 
