@@ -46,6 +46,7 @@ void UFighterInstance::Init()
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
     _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
     _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
+    _net_client->RegisterNetEventFunction( NetDefine::DisconnectEvent, this, &UFighterInstance::OnNetClientConnectFailed );
 }
 
 void UFighterInstance::Shutdown()
@@ -70,18 +71,24 @@ void UFighterInstance::Tick( float DeltaTime )
 /////////////////////////////////////////////////////////////////////////////////////
 void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
 {
-    __LOG_INFO__( LogInstance, "dddd" );
+    __LOG_INFO__( LogInstance, "network connect ok!" );
     int8 data[] = "xxxx";
     _net_client->SendNetMessage( 100, data, 4 );
 }
 
 void UFighterInstance::OnNetClientConnectFailed( const NetEvent* event )
 {
+    __LOG_INFO__( LogInstance, "network connect failed!" );
+
     FString ip = TEXT( "192.168.1.155" );
     uint32 port = 12006;
     //_net_client->Connect( ip, port );
 }
 
+void UFighterInstance::OnNetClientDisconnect( const NetEvent* event )
+{
+    __LOG_ERROR__( LogInstance, "network disconnect!" );
+}
 
 void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {

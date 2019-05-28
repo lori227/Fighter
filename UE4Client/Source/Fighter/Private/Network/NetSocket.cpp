@@ -58,7 +58,7 @@ void NetSocket::Close()
 
 void NetSocket::StartConnect( const FString& ip, uint32 port )
 {
-    Close();
+    //Close();
 
     _net_send->StartService();
     _net_recv->StartService();

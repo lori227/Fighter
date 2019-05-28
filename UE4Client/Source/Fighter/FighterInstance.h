@@ -49,6 +49,9 @@ protected:
     // 连接失败
     void OnNetClientConnectFailed( const NetEvent* event );
 
+    // 连接断开
+    void OnNetClientDisconnect( const NetEvent* event );
+
     // 处理消息函数
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );
 
