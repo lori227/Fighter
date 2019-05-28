@@ -25,6 +25,8 @@ UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-Win64-DebugG
 UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-Win64-DebugGame.modules
 UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper-Win64-DebugGame.pdb
 UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper-Win64-DebugGame.dll
-UE4Client/Intermediate/ProjectFiles/Fighter.vcxproj.user
-UE4Client/Intermediate/Config/CoalescedSourceConfigs/Engine.ini
-UE4Client/Intermediate/Config/CoalescedSourceConfigs/EditorPerProjectUserSettings.ini
+UE4Client/Intermediate/
+UE4Client/Binaries/IOS/Payload/Info.plist
+UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/UserInterfaceState.xcuserstate
+UE4Client/Fighter.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/WorkspaceSettings.xcsettings
