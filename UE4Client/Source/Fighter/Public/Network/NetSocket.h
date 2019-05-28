@@ -31,12 +31,6 @@ public:
     // close
     void Close();
 
-    // shutdown
-    void Shutdown();
-
-    // tick
-    void Tick( float DeltaTime );
-
 public:
     // event
     void PushNetEvent( uint32 type, int32 code = 0, void* data = nullptr );

@@ -12,8 +12,6 @@ UFighterInstance::UFighterInstance( const FObjectInitializer& ObjectInitializer 
     : Super( ObjectInitializer )
 {
     _this = this;
-
-    _net_client = NewObject< UNetClient >();
 }
 
 UFighterInstance::~UFighterInstance()
@@ -24,6 +22,7 @@ UFighterInstance::~UFighterInstance()
 void UFighterInstance::StartGameInstance()
 {
     Super::StartGameInstance();
+
 }
 
 inline bool UFighterInstance::IsTickable() const
@@ -40,6 +39,7 @@ void UFighterInstance::Init()
 {
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 
+    _net_client = NewObject< UNetClient >();
     _net_client->Init( TEXT( "client" ), ENetType::Client, 100, 200, false );
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
     _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
@@ -53,13 +53,19 @@ void UFighterInstance::Init()
 
 void UFighterInstance::Shutdown()
 {
-    _net_client->Close();
-    _net_client = nullptr;
+    if ( _net_client != nullptr )
+    {
+        _net_client->Close();
+        _net_client = nullptr;
+    }
 }
 
 void UFighterInstance::Tick( float DeltaTime )
 {
-    _net_client->Tick( DeltaTime );
+    if ( _net_client != nullptr )
+    {
+        _net_client->Tick( DeltaTime );
+    }
 }
 
 
