@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include "FrameDefineMessage.pb.h"
 #include "FrameCodeMessage.pb.h"
@@ -19,13 +19,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 #define __PROTO_PARSE__( msgtype ) \
     msgtype msg;\
-    if ( !Protocol::Parse( &msg, data, length ) )\
+    if ( !FProtocol::Parse( &msg, data, length ) )\
     {\
         return;\
     }
 ///////////////////////////////////////////////////////////////////////////////////
 
-class Protocol
+class FProtocol
 {
 public:
     // 解析消息

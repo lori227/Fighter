@@ -1,9 +1,9 @@
-﻿#include "Public/Protocol/Protocol.h"
+#include "Public/Protocol/Protocol.h"
 #include "Public/Common/Macros.h"
 
 DECLARE_LOG_CATEGORY_CLASS( LogProtocol, All, All );
 
-bool Protocol::Parse( ::google::protobuf::Message* proto, const int8* data, uint32 length )
+bool FProtocol::Parse( ::google::protobuf::Message* proto, const int8* data, uint32 length )
 {
     if ( data == nullptr || length == 0 )
     {
