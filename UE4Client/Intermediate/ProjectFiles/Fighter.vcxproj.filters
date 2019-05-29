@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Fighter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{68274C8D-B473-4B63-889C-1E3207F89E8B}</UniqueIdentifier>
+      <UniqueIdentifier>{32B6DA89-63BD-4C94-B0E1-9CC837A73826}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Fighter.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{08432B58-4280-4C06-80A3-D63FC997A40F}</UniqueIdentifier>
+      <UniqueIdentifier>{6E1D196C-D042-48E7-B569-A55ED5C41B95}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,22 +24,103 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{55B9940F-3387-4DC5-B672-A84D270D2865}</UniqueIdentifier>
+      <UniqueIdentifier>{7C5424F1-756A-410B-A201-A96071D2A190}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugins\libprotobuf">
+      <UniqueIdentifier>{EB670515-1439-4A6F-B859-07EDAD57D409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\libprotobuf\Source">
+      <UniqueIdentifier>{A424E24E-4E1E-454A-BF50-BB62E852E9BD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\libprotobuf\Source\libprotobuf">
+      <UniqueIdentifier>{427EC5FB-2F87-49EC-A713-1E189C3E2E59}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\libprotobuf\Source\libprotobuf\libprotobuf.Build.cs">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf</Filter>
+    </None>
+    <Filter Include="Plugins\libprotobuf\Source\libprotobuf\Private">
+      <UniqueIdentifier>{1F6F7B95-02C5-4050-BFBA-E657C4A9D8A6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Private\libprotobuf.cpp">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Private\MyProtobufGameMode.cpp">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\libprotobuf\Source\libprotobuf\Proto">
+      <UniqueIdentifier>{1366360D-C89E-414B-A821-8E357A8D45C5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Proto\test.pb.cc">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Proto</Filter>
+    </None>
+    <ClInclude Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Proto\test.pb.h">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Proto</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Proto\test.proto">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Proto</Filter>
+    </None>
+    <Filter Include="Plugins\libprotobuf\Source\libprotobuf\Public">
+      <UniqueIdentifier>{F9373EF0-DA0E-44D1-AF44-C120F5A0FB77}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Public\libprotobuf.h">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\libprotobuf\Source\libprotobuf\Public\MyProtobufGameMode.h">
+      <Filter>Plugins\libprotobuf\Source\libprotobuf\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\libprotobuf\libprotobuf.uplugin">
+      <Filter>Plugins\libprotobuf</Filter>
+    </None>
+    <Filter Include="Plugins\libprotobuf\Resources">
+      <UniqueIdentifier>{F220A789-A727-4F76-9FE7-7AC4478152C4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\libprotobuf\Resources\Icon128.png">
+      <Filter>Plugins\libprotobuf\Resources</Filter>
+    </None>
     <Filter Include="Plugins\lua_wrapper">
-      <UniqueIdentifier>{10F79F7E-95A0-41BC-8869-28F2D4BD580E}</UniqueIdentifier>
+      <UniqueIdentifier>{714705BC-6E51-42D7-AC12-7552138E4A63}</UniqueIdentifier>
     </Filter>
+    <None Include="..\..\Plugins\lua_wrapper\lua_wrapper.uplugin">
+      <Filter>Plugins\lua_wrapper</Filter>
+    </None>
+    <Filter Include="Plugins\lua_wrapper\Resources">
+      <UniqueIdentifier>{307F940D-1F96-49B6-816A-9E2305ACB1E0}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\lua_wrapper\Resources\ButtonIcon_40x.png">
+      <Filter>Plugins\lua_wrapper\Resources</Filter>
+    </None>
+    <None Include="..\..\Plugins\lua_wrapper\Resources\Icon128.png">
+      <Filter>Plugins\lua_wrapper\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal">
+      <UniqueIdentifier>{01DF5280-2F4B-46A3-BEDB-5F2988A49F02}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\slua_unreal.uplugin">
+      <Filter>Plugins\slua_unreal</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Config">
+      <UniqueIdentifier>{77ECA460-18D5-4424-A496-B1ED1FD1841E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\Config\FilterPlugin.ini">
+      <Filter>Plugins\slua_unreal\Config</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Resources">
+      <UniqueIdentifier>{07669064-1FC9-4D37-9314-5D4250A0D349}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\Resources\Icon128.png">
+      <Filter>Plugins\slua_unreal\Resources</Filter>
+    </None>
     <Filter Include="Plugins\lua_wrapper\Source">
-      <UniqueIdentifier>{BF592FDC-8AB8-40E7-8C15-376FB9B21F9B}</UniqueIdentifier>
+      <UniqueIdentifier>{F897A11B-9E26-4021-8106-754964209115}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\lua_wrapper\Source\lua_wrapper">
-      <UniqueIdentifier>{08EDF410-A2A7-45A0-A316-C838EEC63569}</UniqueIdentifier>
+      <UniqueIdentifier>{C069C926-FB01-4CBF-821A-52D108BC8AE9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\lua_wrapper.Build.cs">
       <Filter>Plugins\lua_wrapper\Source\lua_wrapper</Filter>
     </None>
     <Filter Include="Plugins\lua_wrapper\Source\lua_wrapper\Private">
-      <UniqueIdentifier>{E722B747-1C74-4575-93D1-BEB56D8BBB2C}</UniqueIdentifier>
+      <UniqueIdentifier>{ED0DABC4-B3E6-41FC-92C1-0E4AEB1E6B03}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Private\lua_wrapper.cpp">
       <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Private</Filter>
@@ -51,7 +132,7 @@
       <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\lua_wrapper\Source\lua_wrapper\Public">
-      <UniqueIdentifier>{D2FD9EC3-62E6-491B-A6C7-DB432B11142C}</UniqueIdentifier>
+      <UniqueIdentifier>{7BCD8BC0-6336-48FC-8E79-4D0921DA61BB}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Public\lua_wrapper.h">
       <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Public</Filter>
@@ -62,47 +143,17 @@
     <ClInclude Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Public\lua_wrapperStyle.h">
       <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Public</Filter>
     </ClInclude>
-    <None Include="..\..\Plugins\lua_wrapper\lua_wrapper.uplugin">
-      <Filter>Plugins\lua_wrapper</Filter>
-    </None>
-    <Filter Include="Plugins\lua_wrapper\Resources">
-      <UniqueIdentifier>{6238945E-11CC-4C52-8D34-95C95A55F1D3}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\lua_wrapper\Resources\ButtonIcon_40x.png">
-      <Filter>Plugins\lua_wrapper\Resources</Filter>
-    </None>
-    <None Include="..\..\Plugins\lua_wrapper\Resources\Icon128.png">
-      <Filter>Plugins\lua_wrapper\Resources</Filter>
-    </None>
-    <Filter Include="Plugins\slua_unreal">
-      <UniqueIdentifier>{5CEE24B5-640B-46AE-949A-5D450830ECBB}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\slua_unreal\slua_unreal.uplugin">
-      <Filter>Plugins\slua_unreal</Filter>
-    </None>
-    <Filter Include="Plugins\slua_unreal\Config">
-      <UniqueIdentifier>{C3A1B7F5-3F8C-48AF-9D10-3A03F9C6AC9C}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\slua_unreal\Config\FilterPlugin.ini">
-      <Filter>Plugins\slua_unreal\Config</Filter>
-    </None>
-    <Filter Include="Plugins\slua_unreal\Resources">
-      <UniqueIdentifier>{D9CD3A43-1D6B-4A5C-BDDF-44177CE745D8}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\slua_unreal\Resources\Icon128.png">
-      <Filter>Plugins\slua_unreal\Resources</Filter>
-    </None>
     <Filter Include="Plugins\slua_unreal\Source">
-      <UniqueIdentifier>{AE8DE805-B8EA-4339-A799-BA31DB68A37C}</UniqueIdentifier>
+      <UniqueIdentifier>{00922FD8-DE7E-45CF-9364-C41F451A2772}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\slua_unreal\Source\slua_profile">
-      <UniqueIdentifier>{81DAB511-4E73-49A9-BC6E-14A86DFF4D9B}</UniqueIdentifier>
+      <UniqueIdentifier>{446B3A82-C09C-4F37-A589-C2E40D131F1E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\slua_unreal\Source\slua_profile\slua_profile.Build.cs">
       <Filter>Plugins\slua_unreal\Source\slua_profile</Filter>
     </None>
     <Filter Include="Plugins\slua_unreal\Source\slua_profile\Private">
-      <UniqueIdentifier>{47487163-83EF-415A-B7C3-4B8C0BE591E5}</UniqueIdentifier>
+      <UniqueIdentifier>{0A161842-6D70-4BBB-BCB0-ECD116477716}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_profile\Private\slua_profile.cpp">
       <Filter>Plugins\slua_unreal\Source\slua_profile\Private</Filter>
@@ -111,7 +162,7 @@
       <Filter>Plugins\slua_unreal\Source\slua_profile\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\slua_unreal\Source\slua_profile\Public">
-      <UniqueIdentifier>{1C7C3585-7E1B-4213-945C-F1BA1B3AD713}</UniqueIdentifier>
+      <UniqueIdentifier>{4001A24F-9030-4246-913B-4941A5B160EC}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_profile\Public\slua_profile.h">
       <Filter>Plugins\slua_unreal\Source\slua_profile\Public</Filter>
@@ -120,13 +171,13 @@
       <Filter>Plugins\slua_unreal\Source\slua_profile\Public</Filter>
     </ClInclude>
     <Filter Include="Plugins\slua_unreal\Source\slua_unreal">
-      <UniqueIdentifier>{B8DE8656-52F5-483E-B33F-0FDEDD655834}</UniqueIdentifier>
+      <UniqueIdentifier>{67F3E5D5-448B-4C47-A5F9-2D91AFAF5866}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\slua_unreal\Source\slua_unreal\slua_unreal.Build.cs">
       <Filter>Plugins\slua_unreal\Source\slua_unreal</Filter>
     </None>
     <Filter Include="Plugins\slua_unreal\Source\slua_unreal\Private">
-      <UniqueIdentifier>{2BFC84CE-01FB-426F-AEFF-F07058E48FF8}</UniqueIdentifier>
+      <UniqueIdentifier>{A8E1F5DC-9722-45D7-940E-60E9410450EC}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\Log.cpp">
       <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
@@ -213,7 +264,7 @@
       <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
     </ClInclude>
     <Filter Include="Plugins\slua_unreal\Source\slua_unreal\Public">
-      <UniqueIdentifier>{50FA0170-4508-4620-80F9-6D94977CB87A}</UniqueIdentifier>
+      <UniqueIdentifier>{F49168DC-4E5A-4ECF-8DC6-4AFFD058522F}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\Log.h">
       <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
@@ -264,7 +315,7 @@
       <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
     </ClInclude>
     <Filter Include="Source\Fighter">
-      <UniqueIdentifier>{EF499C20-EF84-4A8F-81B3-9A72EFFBEC71}</UniqueIdentifier>
+      <UniqueIdentifier>{AE93D83E-F4AD-4C27-A998-B6AF76AC9155}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Fighter\Fighter.Build.cs">
       <Filter>Source\Fighter</Filter>
@@ -276,10 +327,10 @@
       <Filter>Source\Fighter</Filter>
     </ClInclude>
     <Filter Include="Source\Fighter\Private">
-      <UniqueIdentifier>{6DC76AF9-790A-422A-8D5D-067C9EE941A3}</UniqueIdentifier>
+      <UniqueIdentifier>{C5963BF1-FCE8-4DCC-A4A0-DF083C3D9034}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Fighter\Private\Common">
-      <UniqueIdentifier>{C89607DF-B226-4F54-B634-CB9F1864F377}</UniqueIdentifier>
+      <UniqueIdentifier>{1A4E32A5-6F66-4594-B8BB-1866FD69D40C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Fighter\Private\Common\Define.cpp">
       <Filter>Source\Fighter\Private\Common</Filter>
@@ -291,7 +342,7 @@
       <Filter>Source\Fighter\Private\Common</Filter>
     </ClCompile>
     <Filter Include="Source\Fighter\Private\Network">
-      <UniqueIdentifier>{716DC7B7-2F03-4B99-BC5C-11F6B74E1642}</UniqueIdentifier>
+      <UniqueIdentifier>{DA02123F-4C40-470E-ACE4-8C3E82C0F555}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetClient.cpp">
       <Filter>Source\Fighter\Private\Network</Filter>
@@ -317,14 +368,50 @@
     <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSocket.cpp">
       <Filter>Source\Fighter\Private\Network</Filter>
     </ClCompile>
+    <Filter Include="Source\Fighter\Private\Protocol">
+      <UniqueIdentifier>{4FC74650-7735-4B3E-9D5B-14EA6BD91280}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Fighter\Private\Protocol\ClientMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\CodeMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\DefineMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\EnumMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\FrameClientMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\FrameCodeMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\FrameDefineMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\FrameEnumMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\FrameMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\FrameServerMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
+    <None Include="..\..\Source\Fighter\Private\Protocol\ServerMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </None>
     <Filter Include="Source\Fighter\Public">
-      <UniqueIdentifier>{FDA067A1-5A12-4B81-961E-3B24D1CA4706}</UniqueIdentifier>
+      <UniqueIdentifier>{B5F402BC-E06D-4033-B069-48E231131B5B}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Fighter\Public\Headers.h">
       <Filter>Source\Fighter\Public</Filter>
     </ClInclude>
     <Filter Include="Source\Fighter\Public\Common">
-      <UniqueIdentifier>{5EFBE718-E2CC-4E04-8B2E-D1F0A2F320AE}</UniqueIdentifier>
+      <UniqueIdentifier>{AF42AD14-590B-4307-8F4C-3C994E4046DF}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Circle.h">
       <Filter>Source\Fighter\Public\Common</Filter>
@@ -342,7 +429,7 @@
       <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
     <Filter Include="Source\Fighter\Public\Network">
-      <UniqueIdentifier>{8F6D5533-9C92-4998-BA87-802DA47D26B1}</UniqueIdentifier>
+      <UniqueIdentifier>{93E3295C-1BAE-4159-BE54-727B84418E26}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetClient.h">
       <Filter>Source\Fighter\Public\Network</Filter>
@@ -371,16 +458,9 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSocket.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Source\Fighter\Private\Protocol">
-      <UniqueIdentifier>{cff65d18-4f9e-466b-bda8-9f72f94a25bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\Fighter\Public\Protocol">
-      <UniqueIdentifier>{afa924fd-fa77-4d1b-809d-a085c0bf5daf}</UniqueIdentifier>
+      <UniqueIdentifier>{CA719CA5-1AFF-4339-9797-754CFA7E8871}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\Source\Fighter\Public\Protocol\ClientMessage.pb.h">
       <Filter>Source\Fighter\Public\Protocol</Filter>
     </ClInclude>
@@ -411,46 +491,11 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameServerMessage.pb.h">
       <Filter>Source\Fighter\Public\Protocol</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\ServerMessage.pb.h">
-      <Filter>Source\Fighter\Public\Protocol</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Fighter\Public\Protocol\Protocol.h">
       <Filter>Source\Fighter\Public\Protocol</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\ClientMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\CodeMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\DefineMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\EnumMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameClientMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameCodeMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameDefineMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameEnumMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameServerMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\ServerMessage.pb.cc">
-      <Filter>Source\Fighter\Private\Protocol</Filter>
-    </ClCompile>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\ServerMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
