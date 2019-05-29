@@ -25,3 +25,5 @@ UE4Client/Plugins/libprotobuf/Binaries/
 UE4Client/Plugins/libprotobuf/Intermediate/Build/
 UE4Client/Plugins/lua_wrapper/Binaries/
 UE4Client/Plugins/slua_unreal/Binaries/
+UE4Client/Fighter.sln
+UE4Client/Fighter.xcworkspace/contents.xcworkspacedata
