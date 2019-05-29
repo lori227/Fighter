@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Fighter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{B4191C28-A689-4E24-8CEE-21B72A164B39}</UniqueIdentifier>
+      <UniqueIdentifier>{68274C8D-B473-4B63-889C-1E3207F89E8B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Fighter.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{CB9D549F-735E-4FCC-8A07-B9BD3E3D2938}</UniqueIdentifier>
+      <UniqueIdentifier>{08432B58-4280-4C06-80A3-D63FC997A40F}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,8 +23,248 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Plugins">
+      <UniqueIdentifier>{55B9940F-3387-4DC5-B672-A84D270D2865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\lua_wrapper">
+      <UniqueIdentifier>{10F79F7E-95A0-41BC-8869-28F2D4BD580E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\lua_wrapper\Source">
+      <UniqueIdentifier>{BF592FDC-8AB8-40E7-8C15-376FB9B21F9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\lua_wrapper\Source\lua_wrapper">
+      <UniqueIdentifier>{08EDF410-A2A7-45A0-A316-C838EEC63569}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\lua_wrapper.Build.cs">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper</Filter>
+    </None>
+    <Filter Include="Plugins\lua_wrapper\Source\lua_wrapper\Private">
+      <UniqueIdentifier>{E722B747-1C74-4575-93D1-BEB56D8BBB2C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Private\lua_wrapper.cpp">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Private\lua_wrapperCommands.cpp">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Private\lua_wrapperStyle.cpp">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\lua_wrapper\Source\lua_wrapper\Public">
+      <UniqueIdentifier>{D2FD9EC3-62E6-491B-A6C7-DB432B11142C}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Public\lua_wrapper.h">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Public\lua_wrapperCommands.h">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\lua_wrapper\Source\lua_wrapper\Public\lua_wrapperStyle.h">
+      <Filter>Plugins\lua_wrapper\Source\lua_wrapper\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\lua_wrapper\lua_wrapper.uplugin">
+      <Filter>Plugins\lua_wrapper</Filter>
+    </None>
+    <Filter Include="Plugins\lua_wrapper\Resources">
+      <UniqueIdentifier>{6238945E-11CC-4C52-8D34-95C95A55F1D3}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\lua_wrapper\Resources\ButtonIcon_40x.png">
+      <Filter>Plugins\lua_wrapper\Resources</Filter>
+    </None>
+    <None Include="..\..\Plugins\lua_wrapper\Resources\Icon128.png">
+      <Filter>Plugins\lua_wrapper\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal">
+      <UniqueIdentifier>{5CEE24B5-640B-46AE-949A-5D450830ECBB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\slua_unreal.uplugin">
+      <Filter>Plugins\slua_unreal</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Config">
+      <UniqueIdentifier>{C3A1B7F5-3F8C-48AF-9D10-3A03F9C6AC9C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\Config\FilterPlugin.ini">
+      <Filter>Plugins\slua_unreal\Config</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Resources">
+      <UniqueIdentifier>{D9CD3A43-1D6B-4A5C-BDDF-44177CE745D8}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\Resources\Icon128.png">
+      <Filter>Plugins\slua_unreal\Resources</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Source">
+      <UniqueIdentifier>{AE8DE805-B8EA-4339-A799-BA31DB68A37C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\slua_unreal\Source\slua_profile">
+      <UniqueIdentifier>{81DAB511-4E73-49A9-BC6E-14A86DFF4D9B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\Source\slua_profile\slua_profile.Build.cs">
+      <Filter>Plugins\slua_unreal\Source\slua_profile</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Source\slua_profile\Private">
+      <UniqueIdentifier>{47487163-83EF-415A-B7C3-4B8C0BE591E5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_profile\Private\slua_profile.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_profile\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_profile\Private\slua_profile_inspector.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_profile\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\slua_unreal\Source\slua_profile\Public">
+      <UniqueIdentifier>{1C7C3585-7E1B-4213-945C-F1BA1B3AD713}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_profile\Public\slua_profile.h">
+      <Filter>Plugins\slua_unreal\Source\slua_profile\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_profile\Public\slua_profile_inspector.h">
+      <Filter>Plugins\slua_unreal\Source\slua_profile\Public</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\slua_unreal\Source\slua_unreal">
+      <UniqueIdentifier>{B8DE8656-52F5-483E-B33F-0FDEDD655834}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\slua_unreal\Source\slua_unreal\slua_unreal.Build.cs">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal</Filter>
+    </None>
+    <Filter Include="Plugins\slua_unreal\Source\slua_unreal\Private">
+      <UniqueIdentifier>{2BFC84CE-01FB-426F-AEFF-F07058E48FF8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\Log.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaActor.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaArray.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaBase.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaBlueprintLibrary.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaCppBinding.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaDelegate.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaExtensionMethod.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaMap.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaMemoryProfile.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaMemoryProfile.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaObject.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaReference.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaReference.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaSocketWrap.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaSocketWrap.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaState.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaUserWidget.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaVar.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaWidgetTree.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaWidgetTree.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaWrapper.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\LuaWrapper.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\PropertyUtil.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\SluaLib.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\SluaLib.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\slua_unreal.cpp">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Private\slua_unreal.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Private</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\slua_unreal\Source\slua_unreal\Public">
+      <UniqueIdentifier>{50FA0170-4508-4620-80F9-6D94977CB87A}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\Log.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaActor.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaArray.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaBase.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaBlueprintLibrary.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaCppBinding.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaCppBindingPost.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaDelegate.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaMap.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaObject.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaState.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaUserWidget.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\LuaVar.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\PropertyUtil.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\slua.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\slua_unreal\Source\slua_unreal\Public\SluaUtil.h">
+      <Filter>Plugins\slua_unreal\Source\slua_unreal\Public</Filter>
+    </ClInclude>
     <Filter Include="Source\Fighter">
-      <UniqueIdentifier>{4599784D-CD80-4A01-9E53-159BD0A610F2}</UniqueIdentifier>
+      <UniqueIdentifier>{EF499C20-EF84-4A8F-81B3-9A72EFFBEC71}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Fighter\Fighter.Build.cs">
       <Filter>Source\Fighter</Filter>
@@ -35,56 +275,76 @@
     <ClInclude Include="..\..\Source\Fighter\FighterInstance.h">
       <Filter>Source\Fighter</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Source\Fighter\Private">
-      <UniqueIdentifier>{64ab13f4-cccf-4e35-aa87-d9b096d6597f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fighter\Public">
-      <UniqueIdentifier>{776371c7-acf5-4fda-a29e-9ec0215b8322}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Fighter\Public\Common">
-      <UniqueIdentifier>{bfef286d-40fc-490c-b7cc-b3ce756b5e28}</UniqueIdentifier>
+      <UniqueIdentifier>{6DC76AF9-790A-422A-8D5D-067C9EE941A3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Fighter\Private\Common">
-      <UniqueIdentifier>{b566524f-eb83-4277-bdf0-525464aab92b}</UniqueIdentifier>
+      <UniqueIdentifier>{C89607DF-B226-4F54-B634-CB9F1864F377}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Fighter\Public\Network">
-      <UniqueIdentifier>{23a0d4eb-4ef3-4e76-b623-14f8ac38db5f}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Define.cpp">
+      <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
+      <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Common\Thread.cpp">
+      <Filter>Source\Fighter\Private\Common</Filter>
+    </ClCompile>
     <Filter Include="Source\Fighter\Private\Network">
-      <UniqueIdentifier>{4477f29e-6e7f-45a9-b761-2892b5bed423}</UniqueIdentifier>
+      <UniqueIdentifier>{716DC7B7-2F03-4B99-BC5C-11F6B74E1642}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetClient.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetConnect.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetEvent.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetMessage.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRecv.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRoute.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSend.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSocket.cpp">
+      <Filter>Source\Fighter\Private\Network</Filter>
+    </ClCompile>
+    <Filter Include="Source\Fighter\Public">
+      <UniqueIdentifier>{FDA067A1-5A12-4B81-961E-3B24D1CA4706}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Fighter\Public\Headers.h">
+      <Filter>Source\Fighter\Public</Filter>
+    </ClInclude>
+    <Filter Include="Source\Fighter\Public\Common">
+      <UniqueIdentifier>{5EFBE718-E2CC-4E04-8B2E-D1F0A2F320AE}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Circle.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Define.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Common\Include.h">
+      <Filter>Source\Fighter\Public\Common</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Macros.h">
       <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Fighter\Public\Common\Thread.h">
       <Filter>Source\Fighter\Public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Common\Include.h">
-      <Filter>Source\Fighter\Public\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Common\Define.h">
-      <Filter>Source\Fighter\Public\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetRoute.h">
-      <Filter>Source\Fighter\Public\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetMessage.h">
-      <Filter>Source\Fighter\Public\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSend.h">
-      <Filter>Source\Fighter\Public\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetRecv.h">
-      <Filter>Source\Fighter\Public\Network</Filter>
-    </ClInclude>
+    <Filter Include="Source\Fighter\Public\Network">
+      <UniqueIdentifier>{8F6D5533-9C92-4998-BA87-802DA47D26B1}</UniqueIdentifier>
+    </Filter>
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetClient.h">
-      <Filter>Source\Fighter\Public\Network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSocket.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetConnect.h">
@@ -96,43 +356,20 @@
     <ClInclude Include="..\..\Source\Fighter\Public\Network\NetEvent.h">
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Fighter\Public\Common\Circle.h">
-      <Filter>Source\Fighter\Public\Common</Filter>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetMessage.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\Fighter\Private\Common\Macros.cpp">
-      <Filter>Source\Fighter\Private\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Common\Thread.cpp">
-      <Filter>Source\Fighter\Private\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Common\Define.cpp">
-      <Filter>Source\Fighter\Private\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRoute.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetMessage.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSend.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetRecv.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetClient.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetSocket.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetConnect.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Fighter\Private\Network\NetEvent.cpp">
-      <Filter>Source\Fighter\Private\Network</Filter>
-    </ClCompile>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetRecv.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetRoute.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSend.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Network\NetSocket.h">
+      <Filter>Source\Fighter\Public\Network</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

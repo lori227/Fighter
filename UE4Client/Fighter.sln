@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.25807.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{33E32CCC-22FA-469D-97E2-7165CACD1B2F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{DC622B29-9889-4503-90FB-D814D19FB3A2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{4620CC4D-50A9-4A80-8E99-C81AD5C0D5F9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Games", "Games", "{9342CFF5-1B39-4BD8-8D1C-537A05C2A082}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fighter", "Intermediate\ProjectFiles\Fighter.vcxproj", "{A52082FA-EA49-4AA1-BB04-3C0C7AF3B5C1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UE4", "Intermediate\ProjectFiles\UE4.vcxproj", "{62BD9760-34E6-41BF-BFFA-5684988BC8D4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{DEC0697A-C516-4B55-9267-805DB339D30B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualizers", "Visualizers", "{91D393CD-C1D4-4EEC-BDEE-314C7E5E3124}"
 	ProjectSection(SolutionItems) = preProject
-		e:\Program Files\Epic Games\UE_4.22\Engine\Extras\VisualStudioDebugging\UE4.natvis = e:\Program Files\Epic Games\UE_4.22\Engine\Extras\VisualStudioDebugging\UE4.natvis
+		E:\Program Files\Epic Games\UE_4.22\Engine\Extras\VisualStudioDebugging\UE4.natvis = E:\Program Files\Epic Games\UE_4.22\Engine\Extras\VisualStudioDebugging\UE4.natvis
 	EndProjectSection
 EndProject
 Global
@@ -81,7 +81,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{62BD9760-34E6-41BF-BFFA-5684988BC8D4} = {33E32CCC-22FA-469D-97E2-7165CACD1B2F}
-		{A52082FA-EA49-4AA1-BB04-3C0C7AF3B5C1} = {4620CC4D-50A9-4A80-8E99-C81AD5C0D5F9}
+		{62BD9760-34E6-41BF-BFFA-5684988BC8D4} = {DC622B29-9889-4503-90FB-D814D19FB3A2}
+		{A52082FA-EA49-4AA1-BB04-3C0C7AF3B5C1} = {9342CFF5-1B39-4BD8-8D1C-537A05C2A082}
 	EndGlobalSection
 EndGlobal
