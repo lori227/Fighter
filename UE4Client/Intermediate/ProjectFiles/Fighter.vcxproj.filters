@@ -498,4 +498,9 @@
       <Filter>Source\Fighter\Public\Protocol</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\Protocol.cpp">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

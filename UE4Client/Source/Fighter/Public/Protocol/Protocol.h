@@ -14,3 +14,21 @@
 #include "ServerMessage.pb.h"
 
 #include "google/protobuf/util/json_util.h"
+#include "CoreMinimal.h"
+
+///////////////////////////////////////////////////////////////////////////////////
+#define __PROTO_PARSE__( msgtype ) \
+    msgtype msg;\
+    if ( !Protocol::Parse( &msg, data, length ) )\
+    {\
+        return;\
+    }
+///////////////////////////////////////////////////////////////////////////////////
+
+class Protocol
+{
+public:
+    // 解析消息
+    static bool Parse( ::google::protobuf::Message* proto, const int8* data, uint32 length );
+};
+

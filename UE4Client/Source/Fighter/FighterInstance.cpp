@@ -24,7 +24,6 @@ UFighterInstance::~UFighterInstance()
 void UFighterInstance::StartGameInstance()
 {
     Super::StartGameInstance();
-
 }
 
 inline bool UFighterInstance::IsTickable() const
@@ -101,13 +100,10 @@ void UFighterInstance::OnNetClientDisconnect( const NetEvent* event )
 
 void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
-
     if ( msgid == KFMsg::MSG_RESULT_DISPLAY )
     {
-        KFMsg::MsgResultDisplay display;
-        display.ParseFromArray( data, length );
-
-        __LOG_INFO__( LogInstance, "result=[{}]", display.result() );
+        __PROTO_PARSE__( KFMsg::MsgResultDisplay );
+        __LOG_INFO__( LogInstance, "result=[{}]", msg.result() );
     }
     else
     {
