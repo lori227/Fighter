@@ -12,8 +12,6 @@ void NetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesiz
 {
     _net_socket = new NetSocket();
     _net_socket->Init( name, nettype, sendqueuesize, recvqueuesize, disconnectsend );
-
-    _connect_time = clock() + 10000;
 }
 
 void NetClient::Connect( const FString& ip, uint32 port )
@@ -40,16 +38,6 @@ bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 
 void NetClient::Tick( float ParamDeltaTime )
 {
-    static bool _is_init = false;
-    if ( !_is_init )
-    {
-        if ( clock() > _connect_time )
-        {
-
-            _is_init = true;
-        }
-    }
-
     // 处理网络事件
     HandleNetEvent();
 

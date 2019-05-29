@@ -61,6 +61,4 @@ protected:
 
     // 消息处理函数
     MessageFunction _message_function;
-
-    uint64 _connect_time;
 };
