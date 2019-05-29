@@ -43,7 +43,7 @@ void UFighterInstance::Init()
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 
     _net_client = new NetClient();
-    _net_client->Init( TEXT( "client" ), ENetType::Client, 100, 200, false );
+    _net_client->Init( TEXT( "client" ), ENetType::Client, 200, 200, false );
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
     _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
     _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
