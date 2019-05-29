@@ -25,7 +25,8 @@ public class Fighter : ModuleRules
             new string[] 
             { 
                 "Core", "CoreUObject", "Engine", "InputCore",
-                "slua_unreal", "lua_wrapper","Sockets", "Networking"
+                "slua_unreal", "lua_wrapper","Sockets", "Networking",
+                "libprotobuf"
             }
         );
 

@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.libprotobuf.cpp.obj": [
+			"libprotobuf.cpp.obj",
+			"MyProtobufGameMode.cpp.obj"
+		],
+		"Module.libprotobuf.gen.cpp.obj": [
+			"libprotobuf.init.gen.cpp.obj",
+			"MyProtobufGameMode.gen.cpp.obj"
+		]
+	}
+}
