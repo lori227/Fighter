@@ -14,17 +14,6 @@ UE4Client/Intermediate/Build/BuildRules/FighterModuleRules.pdb
 UE4Client/Plugins/slua_unreal/Intermediate/Build/
 UE4Client/Intermediate/Build/BuildRules/FighterModuleRulesSourceFiles.txt
 UE4Client/Plugins/lua_wrapper/Intermediate/Build/
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_unreal.pdb
-UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-Win64-DebugGame.modules
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_unreal-Win64-DebugGame.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_unreal-Win64-DebugGame.dll
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-Win64-DebugGame.pdb
-UE4Client/Plugins/slua_unreal/Binaries/Win64/UE4Editor-slua_profile-Win64-DebugGame.dll
-UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-Win64-DebugGame.modules
-UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper-Win64-DebugGame.pdb
-UE4Client/Plugins/lua_wrapper/Binaries/Win64/UE4Editor-lua_wrapper-Win64-DebugGame.dll
 UE4Client/Intermediate/
 UE4Client/Binaries/IOS/Payload/Info.plist
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/UserInterfaceState.xcuserstate
