@@ -28,7 +28,7 @@ void UFighterInstance::StartGameInstance()
 
 inline bool UFighterInstance::IsTickable() const
 {
-    return true;
+    return _is_tick;
 }
 
 inline TStatId UFighterInstance::GetStatId() const
@@ -39,6 +39,7 @@ inline TStatId UFighterInstance::GetStatId() const
 void UFighterInstance::Init()
 {
     Super::Init();
+    _is_tick = true;
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 
     _net_client = new NetClient();
@@ -66,10 +67,7 @@ void UFighterInstance::Shutdown()
 
 void UFighterInstance::Tick( float DeltaTime )
 {
-    if ( _net_client != nullptr )
-    {
-        _net_client->Tick( DeltaTime );
-    }
+    _net_client->Tick( DeltaTime );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////

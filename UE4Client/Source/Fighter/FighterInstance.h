@@ -61,6 +61,10 @@ protected:
     // 网络客户端
     NetClient* _net_client = nullptr;
 
+private:
+    // 是否tick
+    bool _is_tick = false;
+
     TStatId m_TStatId;
 
 };
