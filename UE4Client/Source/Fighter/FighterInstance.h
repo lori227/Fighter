@@ -36,11 +36,9 @@ public:
     //////////////////////////////////////////////////////////////////////////////
 
     // tick
+    virtual TStatId GetStatId() const;
     virtual void Tick( float DeltaTime ) override;
-    inline bool IsTickable() const;
-    inline TStatId GetStatId() const;
-
-
+    virtual ETickableTickType GetTickableTickType() const;
 protected:
 
     // 连接成功
@@ -62,8 +60,6 @@ protected:
     NetClient* _net_client = nullptr;
 
 private:
-    // 是否tick
-    bool _is_tick = false;
 
     TStatId m_TStatId;
 

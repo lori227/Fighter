@@ -26,20 +26,19 @@ void UFighterInstance::StartGameInstance()
     Super::StartGameInstance();
 }
 
-inline bool UFighterInstance::IsTickable() const
-{
-    return _is_tick;
-}
-
-inline TStatId UFighterInstance::GetStatId() const
+TStatId UFighterInstance::GetStatId() const
 {
     return m_TStatId;
+}
+
+ETickableTickType UFighterInstance::GetTickableTickType() const
+{
+    return HasAnyFlags( RF_ClassDefaultObject ) ? ETickableTickType::Never : ETickableTickType::Always;
 }
 
 void UFighterInstance::Init()
 {
     Super::Init();
-    _is_tick = true;
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
 
     _net_client = new NetClient();
