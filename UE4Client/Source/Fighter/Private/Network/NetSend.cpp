@@ -171,6 +171,8 @@ void NetSend::SendNetBuff()
             auto state = _net_socket->_socket->GetConnectionState();
             if ( state != SCS_Connected )
             {
+                __LOG_ERROR__( LogNetwork, "send failed state=[{}]", ( uint32 )state );
+
                 _send_length = 0u;
                 _net_socket->OnDisconnect();
                 break;
