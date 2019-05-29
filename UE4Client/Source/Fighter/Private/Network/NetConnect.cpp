@@ -38,18 +38,18 @@ void NetConnect::ThreadBody()
         auto ok = _net_socket->_socket->Connect( *internetaddr );
         if ( ok )
         {
-            _net_socket->OnConnect();
             __LOG_INFO__( LogNetwork, "connect server=[{}:{}] ok!", TCHAR_TO_UTF8( *_ip ), _port );
+            _net_socket->OnConnect();
         }
         else
         {
-            _net_socket->OnFailed();
             __LOG_ERROR__( LogNetwork, "connect server=[{}:{}]!", TCHAR_TO_UTF8( *_ip ), _port );
+            _net_socket->OnFailed();
         }
     }
     else
     {
-        _net_socket->OnFailed();
         __LOG_ERROR__( LogNetwork, "createinternetaddr server=[{}:{}] failed!", TCHAR_TO_UTF8( *_ip ), _port );
+        _net_socket->OnFailed();
     }
 }

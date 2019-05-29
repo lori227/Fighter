@@ -150,25 +150,27 @@ bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 
 NetMessage* NetSocket::PopNetMessage()
 {
-    auto message = _net_recv->PopMessage();
-    if ( message != nullptr )
+    NetMessage* message = nullptr;
+    if ( _is_connect )
     {
-        _last_recv_time = clock();
+        message = _net_recv->PopMessage();
+        if ( message != nullptr )
+        {
+            _last_recv_time = clock();
 
-        // ping 消息
-        if ( message->_head._msgid == 0u )
-        {
-            message = _net_recv->PopMessage();
+            // ping 消息
+            if ( message->_head._msgid == 0u )
+            {
+                message = _net_recv->PopMessage();
+            }
         }
-    }
-    else
-    {
-        // 超过60秒没有消息,认为已经断线了,
-        // 服务器没20秒发送一个ping消息
-        if ( _is_connect )
+        else
         {
+            // 超过60秒没有消息,认为已经断线了,
+            // 服务器没20秒发送一个ping消息
             if ( ( clock() - _last_recv_time ) > 60000 )
             {
+                __LOG_ERROR__( LogNetwork, "can't recv server message!" );
                 OnDisconnect();
             }
         }
