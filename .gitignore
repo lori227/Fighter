@@ -31,8 +31,8 @@ UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/UserInterfaceState.xcu
 UE4Client/Fighter.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/WorkspaceSettings.xcsettings
 UE4Client/Binaries/
-UE4Client/Plugins/lua_wrapper/Binaries/Mac/
-UE4Client/Plugins/slua_unreal/Binaries/Mac/
 UE4Client/Saved/BinaryPSOs/
 UE4Client/Plugins/libprotobuf/Binaries/Win64/
 UE4Client/Plugins/libprotobuf/Intermediate/Build/
+UE4Client/Plugins/lua_wrapper/Binaries/
+UE4Client/Plugins/slua_unreal/Binaries/

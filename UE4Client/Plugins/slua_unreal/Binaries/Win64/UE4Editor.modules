@@ -1,8 +1,0 @@
-{
-	"BuildId": "5660361",
-	"Modules": 
-	{
-		"slua_profile": "UE4Editor-slua_profile.dll",
-		"slua_unreal": "UE4Editor-slua_unreal.dll"
-	}
-}
