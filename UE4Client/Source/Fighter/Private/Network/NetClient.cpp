@@ -27,6 +27,12 @@ void NetClient::Close()
     _net_socket->Close();
 }
 
+bool NetClient::SendNetMessage( uint32 msgid, google::protobuf::Message* message )
+{
+    auto strdata = message->SerializeAsString();
+    return SendNetMessage( msgid, ( const int8* )strdata.data(), strdata.size() );
+}
+
 bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     return _net_socket->SendNetMessage( msgid, data, length );

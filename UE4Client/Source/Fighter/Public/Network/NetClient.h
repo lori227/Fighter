@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "NetSocket.h"
+#include "google/protobuf/message.h"
 
 class NetClient
 {
@@ -27,6 +28,7 @@ public:
 
     // 发送消息
     bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );
+    bool SendNetMessage( uint32 msgid, google::protobuf::Message* message );
 
 public:
     // 注册网络事件函数

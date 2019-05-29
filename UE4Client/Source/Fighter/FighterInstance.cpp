@@ -3,6 +3,7 @@
 
 #include "FighterInstance.h"
 #include "Public/Network/NetClient.h"
+#include "Public/Protocol/Protocol.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
 DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
@@ -76,8 +77,12 @@ void UFighterInstance::Tick( float DeltaTime )
 void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
 {
     __LOG_INFO__( LogInstance, "network connect ok!" );
-    int8 data[] = "xxxx";
-    _net_client->SendNetMessage( 100, data, 4 );
+
+    KFMsg::MsgLoginReq req;
+    req.set_accountid( 111111 );
+    req.set_token( "sss" );
+    req.set_version( "0.0.0.0" );
+    _net_client->SendNetMessage( KFMsg::MSG_LOGIN_REQ, &req );
 }
 
 void UFighterInstance::OnNetClientConnectFailed( const NetEvent* event )
@@ -96,7 +101,18 @@ void UFighterInstance::OnNetClientDisconnect( const NetEvent* event )
 
 void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
-    __LOG_INFO__( LogInstance, "msgid=[{}], length=[{}]", msgid, length );
+
+    if ( msgid == KFMsg::MSG_RESULT_DISPLAY )
+    {
+        KFMsg::MsgResultDisplay display;
+        display.ParseFromArray( data, length );
+
+        __LOG_INFO__( LogInstance, "result=[{}]", display.result() );
+    }
+    else
+    {
+        __LOG_INFO__( LogInstance, "msgid=[{}], length=[{}]", msgid, length );
+    }
 
 }
 /////////////////////////////////////////////////////////////////////////////////////
