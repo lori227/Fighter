@@ -34,7 +34,5 @@ UE4Client/Binaries/
 UE4Client/Plugins/lua_wrapper/Binaries/Mac/
 UE4Client/Plugins/slua_unreal/Binaries/Mac/
 UE4Client/Saved/BinaryPSOs/
-UE4Client/Plugins/libprotobuf/ThirdParty/lib/Debug/libprotobufd.lib
-UE4Client/Plugins/libprotobuf/ThirdParty/lib/Release/libprotobuf.lib
 UE4Client/Plugins/libprotobuf/Binaries/Win64/
 UE4Client/Plugins/libprotobuf/Intermediate/Build/
