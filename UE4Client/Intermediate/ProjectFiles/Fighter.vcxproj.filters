@@ -372,4 +372,85 @@
       <Filter>Source\Fighter\Public\Network</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\Fighter\Private\Protocol">
+      <UniqueIdentifier>{cff65d18-4f9e-466b-bda8-9f72f94a25bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Fighter\Public\Protocol">
+      <UniqueIdentifier>{afa924fd-fa77-4d1b-809d-a085c0bf5daf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\ClientMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\CodeMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\DefineMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\EnumMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameClientMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameCodeMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameDefineMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameEnumMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\FrameServerMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\ServerMessage.pb.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Fighter\Public\Protocol\Protocol.h">
+      <Filter>Source\Fighter\Public\Protocol</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\ClientMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\CodeMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\DefineMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\EnumMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameClientMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameCodeMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameDefineMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameEnumMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\FrameServerMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Fighter\Private\Protocol\ServerMessage.pb.cc">
+      <Filter>Source\Fighter\Private\Protocol</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

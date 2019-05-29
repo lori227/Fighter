@@ -37,3 +37,4 @@ UE4Client/Saved/BinaryPSOs/
 UE4Client/Plugins/libprotobuf/ThirdParty/lib/Debug/libprotobufd.lib
 UE4Client/Plugins/libprotobuf/ThirdParty/lib/Release/libprotobuf.lib
 UE4Client/Plugins/libprotobuf/Binaries/Win64/
+UE4Client/Plugins/libprotobuf/Intermediate/Build/
