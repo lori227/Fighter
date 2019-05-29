@@ -1,0 +1,7 @@
+require "logic/gameState/checkVersion/checkVersion"
+require "logic/gameState/batchUpdate/batchUpdate"
+require "logic/gameState/serverAuth/serverAuth"
+require "logic/gameState/login/login"
+require "logic/gameState/pvpMatch/pvpMatch"
+require "logic/gameState/event/event"
+require "logic/gameState/mainCampsite/mainCampsite"

@@ -1,0 +1,1 @@
+CCheckVersionState = require "logic/gameState/checkVersion/checkVersionState"

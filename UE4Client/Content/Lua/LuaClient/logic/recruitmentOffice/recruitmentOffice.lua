@@ -1,0 +1,14 @@
+CRecruitmentOfficeProxy = require "logic/recruitmentOffice/CRecruitmentOfficeProxy"
+CRecruitmentOfficeMediator = require "logic/recruitmentOffice/CRecruitmentOfficeMediator"
+
+CRecruitmentDeviationItem = require "logic/recruitmentOffice/CRecruitmentDeviationItem"
+CRecruitmentDeviationRefreshUICommand = require "logic/recruitmentOffice/CRecruitmentDeviationRefreshUICommand"
+CRecruitmentDeviationRequestDataCommand = require "logic/recruitmentOffice/CRecruitmentDeviationRequestDataCommand"
+CRecruitmentDeviationResponseDataCommand = require "logic/recruitmentOffice/CRecruitmentDeviationResponseDataCommand"
+
+CRecruitmentShopItem = require "logic/recruitmentOffice/CRecruitmentShopItem"
+CRecruitmentShopRefreshUICommand = require "logic/recruitmentOffice/CRecruitmentShopRefreshUICommand"
+CRecruitmentShopRequestDataCommand = require "logic/recruitmentOffice/CRecruitmentShopRequestDataCommand"
+CRecruitmentShopResponseDataCommand = require "logic/recruitmentOffice/CRecruitmentShopResponseDataCommand"
+
+CRequestRefreshGetNewRoleCommand = require "logic/recruitmentOffice/CRequestRefreshGetNewRoleCommand"
