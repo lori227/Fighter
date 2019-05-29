@@ -172,8 +172,7 @@ void NetSend::SendNetBuff()
             if ( state != SCS_Connected )
             {
                 _send_length = 0u;
-                _net_socket->_is_connect = false;
-                _net_socket->PushNetEvent( NetDefine::DisconnectEvent, state );
+                _net_socket->OnDisconnect();
                 break;
             }
         }

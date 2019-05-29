@@ -68,15 +68,34 @@ void NetSocket::StartConnect( const FString& ip, uint32 port )
         if ( _socket == nullptr )
         {
             __LOG_ERROR__( LogNetwork, "create [{}] socket failed!", TCHAR_TO_UTF8( *_name ) );
-            return PushNetEvent( NetDefine::FailedEvent );
+            return OnFailed();
         }
     }
 
     // 开启连接服务
-    _last_recv_time = clock();
     _net_send->StartService();
     _net_recv->StartService();
     _net_connect->StartService( ip, port );
+}
+
+void NetSocket::OnConnect()
+{
+    _is_close = false;
+    _is_connect = true;
+    _last_recv_time = clock();
+    PushNetEvent( NetDefine::ConnectEvent );
+}
+
+void NetSocket::OnFailed()
+{
+    _is_connect = false;
+    PushNetEvent( NetDefine::FailedEvent );
+}
+
+void NetSocket::OnDisconnect()
+{
+    _is_connect = false;
+    PushNetEvent( NetDefine::DisconnectEvent );
 }
 
 void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* = nullptr */ )
@@ -150,8 +169,7 @@ NetMessage* NetSocket::PopNetMessage()
         {
             if ( ( clock() - _last_recv_time ) > 60000 )
             {
-                _is_connect = false;
-                PushNetEvent( NetDefine::DisconnectEvent );
+                OnDisconnect();
             }
         }
     }

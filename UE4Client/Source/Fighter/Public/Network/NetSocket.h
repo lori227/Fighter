@@ -32,6 +32,15 @@ public:
     void Close();
 
 public:
+    // connect
+    void OnConnect();
+
+    // failed
+    void OnFailed();
+
+    // disconnect
+    void OnDisconnect();
+
     // event
     void PushNetEvent( uint32 type, int32 code = 0, void* data = nullptr );
 
