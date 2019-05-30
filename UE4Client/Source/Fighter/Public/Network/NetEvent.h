@@ -17,4 +17,4 @@ public:
 };
 
 // 网络时间函数
-typedef std::function< void( const NetEvent* ) > NetEventFunction;
+typedef std::function< void( int32 code, void* data ) > NetEventFunction;

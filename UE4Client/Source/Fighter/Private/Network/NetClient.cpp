@@ -54,7 +54,7 @@ void NetClient::HandleNetEvent()
         if ( function != nullptr )
         {
             // 网络事件回调
-            function->operator()( event );
+            function->operator()( event->_code, event->_data );
         }
         else
         {

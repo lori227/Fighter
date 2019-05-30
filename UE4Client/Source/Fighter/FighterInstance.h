@@ -12,9 +12,7 @@
  * 游戏全局的管理器
  */
 
-class NetEvent;
 class NetClient;
-
 UCLASS( BlueprintType, Blueprintable )
 class UFighterInstance : public UGameInstance, public FTickableGameObject
 {
@@ -42,13 +40,13 @@ public:
 protected:
 
     // 连接成功
-    void OnNetClientConnectOk( const NetEvent* event );
+    void OnNetClientConnectOk( int32 code, void* data );
 
     // 连接失败
-    void OnNetClientConnectFailed( const NetEvent* event );
+    void OnNetClientConnectFailed( int32 code, void* data );
 
     // 连接断开
-    void OnNetClientDisconnect( const NetEvent* event );
+    void OnNetClientDisconnect( int32 code, void* data );
 
     // 处理消息函数
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );

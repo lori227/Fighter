@@ -33,9 +33,9 @@ public:
 public:
     // 注册网络事件函数
     template< class T >
-    void RegisterNetEventFunction( uint32 type, T* object, void( T::*handle )( const NetEvent* ) )
+    void RegisterNetEventFunction( uint32 type, T* object, void( T::*handle )( int32 code, void* data ) )
     {
-        NetEventFunction function = std::bind( handle, object, std::placeholders::_1 );
+        NetEventFunction function = std::bind( handle, object, std::placeholders::_1, std::placeholders::_2 );
         _event_function.Add( type, function );
     }
 

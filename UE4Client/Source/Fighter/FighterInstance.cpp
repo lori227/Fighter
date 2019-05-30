@@ -70,7 +70,7 @@ void UFighterInstance::Tick( float DeltaTime )
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
+void UFighterInstance::OnNetClientConnectOk( int32 code, void* data )
 {
     __LOG_INFO__( LogInstance, "network connect ok!" );
 
@@ -81,7 +81,7 @@ void UFighterInstance::OnNetClientConnectOk( const NetEvent* event )
     _net_client->SendNetMessage( KFMsg::MSG_LOGIN_REQ, &req );
 }
 
-void UFighterInstance::OnNetClientConnectFailed( const NetEvent* event )
+void UFighterInstance::OnNetClientConnectFailed( int32 code, void* data )
 {
     __LOG_INFO__( LogInstance, "network connect failed!" );
 
@@ -90,7 +90,7 @@ void UFighterInstance::OnNetClientConnectFailed( const NetEvent* event )
     //_net_client->Connect( ip, port );
 }
 
-void UFighterInstance::OnNetClientDisconnect( const NetEvent* event )
+void UFighterInstance::OnNetClientDisconnect( int32 code, void* data )
 {
     __LOG_ERROR__( LogInstance, "network disconnect!" );
 }
