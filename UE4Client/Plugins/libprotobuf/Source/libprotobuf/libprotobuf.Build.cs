@@ -12,7 +12,7 @@ public class libprotobuf : ModuleRules
 
     private string HeadPath
     {
-        get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../ThirdParty/include")); }
+        get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../ThirdParty/include/src")); }
     }
 
     public libprotobuf(ReadOnlyTargetRules Target):base(Target)
