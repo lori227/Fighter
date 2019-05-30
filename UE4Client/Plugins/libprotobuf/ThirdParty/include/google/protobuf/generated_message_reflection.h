@@ -693,10 +693,12 @@ template<typename To, typename From>
 inline To dynamic_cast_if_available(From from) {
 #ifdef GOOGLE_PROTOBUF_NO_RTTI
   // Avoid the compiler warning about unused variables.
-  (void)from;
-  return NULL;
+	(void)from;
+	return NULL;
 #else
-  return dynamic_cast<To>(from);
+  //return dynamic_cast<To>(from);
+	(void)from;
+	return NULL;
 #endif
 }
 
@@ -725,7 +727,11 @@ T* DynamicCastToGenerated(const Message* from) {
                 from->GetDescriptor());
   return ok ? down_cast<T*>(from) : NULL;
 #else
-  return dynamic_cast<T*>(from);
+  //return dynamic_cast<T*>(from);
+  bool ok = &T::default_instance() ==
+	  from->GetReflection()->GetMessageFactory()->GetPrototype(
+		  from->GetDescriptor());
+  return ok ? down_cast<T*>(from) : NULL;
 #endif
 }
 

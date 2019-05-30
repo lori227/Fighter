@@ -170,7 +170,7 @@ static_assert(std::is_pod<AuxillaryParseTableField::string_aux>::value, "");
 static_assert(std::is_pod<ParseTable>::value, "");
 
 #ifndef __NVCC__  // This assertion currently fails under NVCC.
-static_assert(std::is_pod<AuxillaryParseTableField>::value, "");
+//static_assert(std::is_pod<AuxillaryParseTableField>::value, "");
 #endif
 
 // TODO(ckennelly): Consolidate these implementations into a single one, using

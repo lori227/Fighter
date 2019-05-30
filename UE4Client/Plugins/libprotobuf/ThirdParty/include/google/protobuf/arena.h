@@ -186,7 +186,8 @@ struct ArenaOptions {
 // Support for non-RTTI environments. (The metrics hooks API uses type
 // information.)
 #ifndef GOOGLE_PROTOBUF_NO_RTTI
-#define RTTI_TYPE_ID(type) (&typeid(type))
+//#define RTTI_TYPE_ID(type) (&typeid(type))
+#define RTTI_TYPE_ID(type) (NULL)
 #else
 #define RTTI_TYPE_ID(type) (NULL)
 #endif
