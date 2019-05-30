@@ -53,10 +53,6 @@
 #include <google/protobuf/message_lite.h>
 #include <google/protobuf/wire_format_lite.h>
 
-#ifdef _MSC_VER
-#pragma warning(disable: 4946)
-#endif //_MSC_VER
-
 namespace google {
 
 namespace protobuf {

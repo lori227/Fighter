@@ -31,8 +31,6 @@
 #ifndef GOOGLE_PROTOBUF_MAP_FIELD_H__
 #define GOOGLE_PROTOBUF_MAP_FIELD_H__
 
-
-
 #include <atomic>
 
 #include <google/protobuf/stubs/mutex.h>
@@ -47,9 +45,6 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/unknown_field_set.h>
 
-#ifdef _MSC_VER
-#pragma warning(disable: 4661)
-#endif //_MSC_VER
 
 namespace google {
 namespace protobuf {

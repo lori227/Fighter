@@ -1,19 +1,15 @@
-// Some copyright should be here...
+﻿// Some copyright should be here...
 
 using UnrealBuildTool;
 using System.IO;
 
 public class libprotobuf : ModuleRules
 {
+    private string LibProtoPath
+    {
+        get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../ThirdParty/lib")); }
+    }
 
-    private string LibProtoPathR
-    {
-        get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../ThirdParty/lib/Release/libprotobuf.lib")); }
-    }
-    private string LibProtoPathD
-    {
-        get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../ThirdParty/lib/Debug/libprotobufd.lib")); }
-    }
     private string HeadPath
     {
         get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "../../ThirdParty/include")); }
@@ -21,6 +17,10 @@ public class libprotobuf : ModuleRules
 
     public libprotobuf(ReadOnlyTargetRules Target):base(Target)
 	{
+        bEnableExceptions = true;
+        bEnableShadowVariableWarnings = false;
+        bEnableUndefinedIdentifierWarnings = false;
+        
        // Type = ModuleType.External;
 
         PublicIncludePaths.AddRange(
@@ -66,19 +66,35 @@ public class libprotobuf : ModuleRules
 			}
 			);
 
-        if ((Target.Platform == UnrealTargetPlatform.Win64) || (Target.Platform == UnrealTargetPlatform.Win32))
-        {
-            PublicAdditionalLibraries.Add(LibProtoPathR);
-        }
 
-        bEnableShadowVariableWarnings = false;
-        bEnableUndefinedIdentifierWarnings = false;
-        bEnableExceptions = true;
 
-        if (Target.Platform == UnrealTargetPlatform.Win32 || Target.Platform == UnrealTargetPlatform.Win64)
+         switch (Target.Platform)
         {
-            //Definitions.Add("_CRT_SECURE_NO_WARNINGS");
-            PublicDefinitions.Add("_CRT_SECURE_NO_WARNINGS");
+            case UnrealTargetPlatform.IOS:
+                {
+
+                    break;
+                }
+            case UnrealTargetPlatform.Android:
+                {
+
+                    break;
+                }
+            case UnrealTargetPlatform.Win64:
+                {
+                    PublicDefinitions.Add("_CRT_SECURE_NO_WARNINGS");
+                    PublicLibraryPaths.Add(Path.Combine(LibProtoPath, "Win64"));
+                    PublicAdditionalLibraries.Add("libprotobuf.lib");
+                    break;
+                }
+            case UnrealTargetPlatform.Mac:
+                {
+			        break;
+                }
+            case UnrealTargetPlatform.Linux:
+                {
+                    break;
+                }
         }
     }
 }
