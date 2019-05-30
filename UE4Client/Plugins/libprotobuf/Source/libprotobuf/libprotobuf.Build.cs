@@ -83,13 +83,11 @@ public class libprotobuf : ModuleRules
             case UnrealTargetPlatform.Win64:
                 {
                     PublicDefinitions.Add("_CRT_SECURE_NO_WARNINGS");
-                    PublicLibraryPaths.Add(Path.Combine(LibProtoPath, "Win64"));
-                    PublicAdditionalLibraries.Add("libprotobuf.lib");
+                    PublicAdditionalLibraries.Add(Path.Combine(LibProtoPath, "Win64/libprotobuf.lib"));
                     break;
                 }
             case UnrealTargetPlatform.Mac:
                 {
-                    //PublicLibraryPaths.Add(Path.Combine(LibProtoPath, "Mac"));
                     PublicAdditionalLibraries.Add(Path.Combine(LibProtoPath, "Mac/libprotobuf.a"));
 			        break;
                 }
