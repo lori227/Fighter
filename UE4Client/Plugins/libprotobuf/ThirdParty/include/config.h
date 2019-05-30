@@ -86,10 +86,9 @@
 #define HAVE_UNISTD_H 1
 
 /* Enable classes using zlib compression. */
-/* #undef HAVE_ZLIB */
+#define HAVE_ZLIB 1
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */

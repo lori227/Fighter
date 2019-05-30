@@ -18,3 +18,15 @@ UE4Client/Fighter.sln
 UE4Client/Fighter.xcworkspace/contents.xcworkspacedata
 UE4Client/Intermediate/
 UE4Client/Saved/
+UE4Client/Plugins/libprotobuf/ThirdParty/include/benchmarks/
+UE4Client/Plugins/libprotobuf/ThirdParty/include/conformance/
+.deps
+.libs
+UE4Client/Plugins/libprotobuf/ThirdParty/include/src/google/protobuf/compiler
+*.o
+*.lo
+googletest
+*unittest*
+*testdata*
+.dirstamp
+*-test*
