@@ -4,6 +4,11 @@
 #ifndef PROTOBUF_INCLUDED_DefineMessage_2eproto
 #define PROTOBUF_INCLUDED_DefineMessage_2eproto
 
+#ifdef _MSC_VER
+	#pragma warning(push)
+	#pragma warning(disable : 4946)
+#endif
+
 #include <string>
 
 #include <google/protobuf/stubs/common.h>
@@ -348,4 +353,8 @@ inline void PBMatchPlayer::set_grade(::google::protobuf::uint32 value) {
 
 // @@protoc_insertion_point(global_scope)
 
+
+#ifdef _MSC_VER
+	#pragma warning(  pop  )
+#endif
 #endif  // PROTOBUF_INCLUDED_DefineMessage_2eproto
