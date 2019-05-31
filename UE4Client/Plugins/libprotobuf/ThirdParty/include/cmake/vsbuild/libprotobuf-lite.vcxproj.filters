@@ -141,10 +141,10 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{BD911276-031F-3CD8-BE7D-2AA815EEB741}</UniqueIdentifier>
+      <UniqueIdentifier>{AF3F92D1-778D-3775-BE88-1ADAF131DDA6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{BCC3E6A4-58C3-3446-A6D0-9A6E676C5207}</UniqueIdentifier>
+      <UniqueIdentifier>{507702AF-925D-35FA-A74A-8AA1A94C29A6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

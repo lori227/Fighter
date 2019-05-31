@@ -30,3 +30,9 @@ googletest
 *testdata*
 .dirstamp
 *-test*
+UE4Client/Plugins/libprotobuf/ThirdParty/include/cmake/vsbuild/CMakeFiles/
+UE4Client/Plugins/libprotobuf/ThirdParty/include/cmake/vsbuild/libprotobuf.dir/
+UE4Client/Plugins/libprotobuf/ThirdParty/include/cmake/vsbuild/x64/
+*.user
+Release
+Debug
