@@ -62,7 +62,10 @@ namespace KFrame
         __STRING_DEFINE__( reloadconfig );
         __STRING_DEFINE__( loadconfig );
         __STRING_DEFINE__( loadscript );
+        __STRING_DEFINE__( reloadplugin );
+        __STRING_DEFINE__( loadplugin );
         __STRING_DEFINE__( resource );
+        __STRING_DEFINE__( downplugin );
         __STRING_DEFINE__( downresource );
         __STRING_DEFINE__( time );
         __STRING_DEFINE__( restart );
@@ -95,6 +98,7 @@ namespace KFrame
         __STRING_DEFINE__( serverport );
         __STRING_DEFINE__( file );
         __STRING_DEFINE__( unschedule );
+        __STRING_DEFINE__( plugin );
 
 
         __STRING_DEFINE__( zoneregister );
@@ -134,6 +138,7 @@ namespace KFrame
         __STRING_DEFINE__( openactivation );
         __STRING_DEFINE__( activationcode );
         __STRING_DEFINE__( kickonline );
+        __STRING_DEFINE__( onlinelist );
         __STRING_DEFINE__( accountlist );
         __STRING_DEFINE__( accountmake );
         __STRING_DEFINE__( access_token );
@@ -200,7 +205,7 @@ namespace KFrame
         __STRING_DEFINE__( minrankscore );
         __STRING_DEFINE__( statustime );
         __STRING_DEFINE__( relation );
-        __STRING_DEFINE__( freindmaxcount );
+        __STRING_DEFINE__( relationmaxcount );
         __STRING_DEFINE__( friendinvite );
         __STRING_DEFINE__( friendliness );
         __STRING_DEFINE__( refusefriend );

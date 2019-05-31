@@ -50,7 +50,7 @@ if not exist %localpath%\%binpath%\bin\win64\debug ( mkdir  %localpath%\%binpath
 if not exist %localpath%\%binpath%\bin\win64\release ( mkdir  %localpath%\%binpath%\bin\win64\release )
 copy /y %framepath%\%binpath%\bin\win64\debug\KFStartupd.exe %localpath%\%binpath%\bin\win64\debug
 copy /y %framepath%\%binpath%\bin\win64\debug\libmysql.dll %localpath%\%binpath%\bin\win64\debug
-copy /y %framepath%\%binpath%\bin\win64\debug\libtcmalloc_minimal.dll %localpath%\%binpath%\bin\win64\debug
+copy /y %framepath%\%binpath%\bin\win64\debug\libtcmalloc_minimald.dll %localpath%\%binpath%\bin\win64\debug
 
 copy /y %framepath%\%binpath%\bin\win64\release\KFStartup.exe %localpath%\%binpath%\bin\win64\release
 copy /y %framepath%\%binpath%\bin\win64\release\libmysql.dll %localpath%\%binpath%\bin\win64\release
