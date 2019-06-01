@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -18,13 +18,13 @@ public:
     void Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend );
 
     // tick
-    void Tick( float ParamDeltaTime );
+    void Tick( float deltatime );
 
     // 开始连接
     void Connect( const FString& ip, uint32 port );
 
     // 关闭
-    void Close();
+    void Shutdown();
 
     // 发送消息
     bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );

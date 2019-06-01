@@ -3,6 +3,7 @@
 
 #include "FighterInstance.h"
 #include "Public/Network/NetClient.h"
+#include "Public/Lua/LuaModule.h"
 #include "Public/Protocol/Protocol.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
@@ -19,6 +20,12 @@ UFighterInstance::~UFighterInstance()
 {
     _this = nullptr;
     __SAFE_DELETE__( _net_client );
+    __SAFE_DELETE__( _lua_module );
+}
+
+UFighterInstance* UFighterInstance::Instance()
+{
+    return _this;
 }
 
 void UFighterInstance::StartGameInstance()
@@ -28,7 +35,7 @@ void UFighterInstance::StartGameInstance()
 
 TStatId UFighterInstance::GetStatId() const
 {
-    return m_TStatId;
+    return _statid;
 }
 
 ETickableTickType UFighterInstance::GetTickableTickType() const
@@ -40,7 +47,8 @@ void UFighterInstance::Init()
 {
     Super::Init();
     __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
-
+    
+    // net work
     _net_client = new NetClient();
     _net_client->Init( TEXT( "client" ), ENetType::Client, 200, 200, false );
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
@@ -48,64 +56,63 @@ void UFighterInstance::Init()
     _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
     _net_client->RegisterNetEventFunction( NetDefine::DisconnectEvent, this, &UFighterInstance::OnNetClientDisconnect );
 
-    FString ip = TEXT( "192.168.1.155" );
-    uint32 port = 12006;
-    _net_client->Connect( ip, port );
+    // lua
+    _lua_module = new LuaModule();
+    _lua_module->Init( ENetType::Client );
+    _lua_module->Startup();
 }
 
 void UFighterInstance::Shutdown()
 {
+    // net
     if ( _net_client != nullptr )
     {
-        _net_client->Close();
+        _net_client->Shutdown();
         _net_client = nullptr;
+    }
+    
+    // lua
+    if ( _lua_module != nullptr )
+    {
+        _lua_module->Shutdown();
+        _lua_module = nullptr;
     }
 
     Super::Shutdown();
 }
 
-void UFighterInstance::Tick( float DeltaTime )
+void UFighterInstance::Tick( float deltatime )
 {
-    _net_client->Tick( DeltaTime );
+    // net
+    _net_client->Tick( deltatime );
+    
+    // lua
+    _lua_module->Tick( deltatime );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
+void UFighterInstance::Connect( FString& ip, uint32 port )
+{
+    _net_client->Connect( ip, port );
+}
+
 void UFighterInstance::OnNetClientConnectOk( int32 code, void* data )
 {
-    __LOG_INFO__( LogInstance, "network connect ok!" );
-
-    KFMsg::MsgLoginReq req;
-    req.set_accountid( 111111 );
-    req.set_token( "sss" );
-    req.set_version( "0.0.0.0" );
-    _net_client->SendNetMessage( KFMsg::MSG_LOGIN_REQ, &req );
+    _lua_module->OnNetConnectOk( code ,data );
 }
 
 void UFighterInstance::OnNetClientConnectFailed( int32 code, void* data )
 {
-    __LOG_INFO__( LogInstance, "network connect failed!" );
-
-    FString ip = TEXT( "192.168.1.155" );
-    uint32 port = 12006;
-    //_net_client->Connect( ip, port );
+    _lua_module->OnNetFailed( code, data );
 }
 
 void UFighterInstance::OnNetClientDisconnect( int32 code, void* data )
 {
-    __LOG_ERROR__( LogInstance, "network disconnect!" );
+    _lua_module->OnNetDisconnect( code, data );
 }
 
 void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
-    if ( msgid == KFMsg::MSG_RESULT_DISPLAY )
-    {
-        __PROTO_PARSE__( KFMsg::MsgResultDisplay );
-        __LOG_INFO__( LogInstance, "result=[{}]", msg.result() );
-    }
-    else
-    {
-        __LOG_INFO__( LogInstance, "msgid=[{}], length=[{}]", msgid, length );
-    }
-
+    _lua_module->HandleNetMessage( msgid, data, length );
 }
 /////////////////////////////////////////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -13,6 +13,7 @@
  */
 
 class NetClient;
+class LuaModule;
 UCLASS( BlueprintType, Blueprintable )
 class UFighterInstance : public UGameInstance, public FTickableGameObject
 {
@@ -20,7 +21,7 @@ class UFighterInstance : public UGameInstance, public FTickableGameObject
 
 public:
     ~UFighterInstance();
-    static UFighterInstance* GetInstance();
+    static UFighterInstance* Instance();
 
     /** Starts the GameInstance state machine running */
     virtual void StartGameInstance() override;
@@ -35,8 +36,13 @@ public:
 
     // tick
     virtual TStatId GetStatId() const;
-    virtual void Tick( float DeltaTime ) override;
+    virtual void Tick( float deltatime ) override;
     virtual ETickableTickType GetTickableTickType() const;
+    
+public:
+    // net connect
+    void Connect( FString& ip, uint32 port );
+    
 protected:
 
     // 连接成功
@@ -57,8 +63,10 @@ protected:
     // 网络客户端
     NetClient* _net_client = nullptr;
 
+    // lua
+    LuaModule* _lua_module = nullptr;
 private:
 
-    TStatId m_TStatId;
+    TStatId _statid;
 
 };
