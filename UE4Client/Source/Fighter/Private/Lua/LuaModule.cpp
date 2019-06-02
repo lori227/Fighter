@@ -19,11 +19,11 @@ void LuaModule::Init( ENetType nettype )
 {
     if ( nettype == ENetType::Client )
     {
-        _main_file = "/Lua/LuaClient/Main";
+        _main_file = "Lua/LuaClient/Main";
     }
     else
     {
-        _main_file = "/Lua/LuaServer/Main";
+        _main_file = "Lua/LuaServer/Main";
     }
     
     _state.init();

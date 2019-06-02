@@ -1,3 +1,10 @@
+--pbc = require "protobuf"
+
+--print(package.path)
+--print(package.cpath)
+--pb = require "pb"
+json = require "core.json"
+
 Main = {}
 
 function Main.Init()

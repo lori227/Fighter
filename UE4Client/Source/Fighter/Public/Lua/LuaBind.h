@@ -18,6 +18,9 @@ namespace slua
         // create
         static LuaOwnedPtr<FLuaBind> Create();
         
+        // content path
+        static FString ProjectContentDir();
+        
         // net connect
         static void Connect( const char* ip, uint32 port );
     };

@@ -1,4 +1,4 @@
-﻿// Some copyright should be here...
+// Some copyright should be here...
 
 using UnrealBuildTool;
 using System.IO;
@@ -37,7 +37,7 @@ public class libprotobuf : ModuleRules
 			}
 			);
 
-        PrivatePCHHeaderFile = "Public/libprotobuf.h";
+        //PrivatePCHHeaderFile = "Public/libprotobuf.h";
         
         PublicDependencyModuleNames.AddRange(
 			new string[]
