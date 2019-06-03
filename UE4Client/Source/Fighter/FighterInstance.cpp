@@ -46,11 +46,22 @@ ETickableTickType UFighterInstance::GetTickableTickType() const
 void UFighterInstance::Init()
 {
     Super::Init();
-    __LOG_INFO__( LogInstance, "UFighterInstance::Init..." );
+    
+#if !UE_SERVER
+    // client
+    auto nettype = ENetType::Client;
+    FString name = TEXT( "client" );
+#else
+    // server
+    auto nettype = ENetType::Server;
+    FString name = TEXT( "server" );
+#endif
+    
+    __LOG_INFO__( LogInstance, "UFighterInstance::Init...[{}]!", TCHAR_TO_UTF8( *name ) );
     
     // net work
     _net_client = new NetClient();
-    _net_client->Init( TEXT( "client" ), ENetType::Client, 200, 200, false );
+    _net_client->Init( name, nettype, 200, 200, false );
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
     _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
     _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
@@ -58,7 +69,7 @@ void UFighterInstance::Init()
 
     // lua
     _lua_module = new LuaModule();
-    _lua_module->Init( ENetType::Client );
+    _lua_module->Init( nettype );
     _lua_module->Startup();
 }
 
