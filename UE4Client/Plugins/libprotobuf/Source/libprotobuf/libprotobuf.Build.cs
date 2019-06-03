@@ -37,7 +37,7 @@ public class libprotobuf : ModuleRules
 			}
 			);
 
-        //PrivatePCHHeaderFile = "Public/libprotobuf.h";
+        PrivatePCHHeaderFile = "Public/libprotobuf.h";
         
         PublicDependencyModuleNames.AddRange(
 			new string[]

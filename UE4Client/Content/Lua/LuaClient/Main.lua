@@ -2,8 +2,9 @@
 
 --print(package.path)
 --print(package.cpath)
---pb = require "pb"
-json = require "core.json"
+--pb = require "pb
+--print( os.getenv("PWD"))
+--json = require "core.json"
 
 Main = {}
 
@@ -12,7 +13,7 @@ function Main.Init()
 	print( _VERSION )
 
 	-- connect
-	FLuaBind.Connect( "192.168.1.155", 12005 )
+	FLuaBind.Connect( "139.196.33.35", 12027 )
 end
 
 function Main.Tick( deltatime )

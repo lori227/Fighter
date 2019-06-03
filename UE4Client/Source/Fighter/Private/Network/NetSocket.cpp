@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Network/NetSocket.h"
 #include "Public/Network/NetConnect.h"
@@ -82,7 +82,8 @@ void NetSocket::OnConnect()
 {
     _is_close = false;
     _is_connect = true;
-    _last_recv_time = clock();
+    _last_recv_time = FPlatformTime::Seconds();
+
     PushNetEvent( NetDefine::ConnectEvent );
 }
 
@@ -156,8 +157,8 @@ NetMessage* NetSocket::PopNetMessage()
         message = _net_recv->PopMessage();
         if ( message != nullptr )
         {
-            _last_recv_time = clock();
-
+            _last_recv_time = FPlatformTime::Seconds();
+            
             // ping 消息
             if ( message->_head._msgid == 0u )
             {
@@ -168,9 +169,9 @@ NetMessage* NetSocket::PopNetMessage()
         {
             // 超过60秒没有消息,认为已经断线了,
             // 服务器没20秒发送一个ping消息
-            if ( ( clock() - _last_recv_time ) > 60000 )
+            if ( _last_recv_time + 60 < (uint64)FPlatformTime::Seconds() )
             {
-                __LOG_ERROR__( LogNetwork, "can't recv server message!" );
+                __LOG_ERROR__( LogNetwork, "disconnect=[can't recv server message]!" );
                 OnDisconnect();
             }
         }

@@ -37,8 +37,7 @@ bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 }
 
 void NetClient::Tick( float deltatime )
-{
-    // 处理网络事件
+{    // 处理网络事件
     HandleNetEvent();
 
     // 处理网络消息
