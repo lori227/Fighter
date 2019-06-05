@@ -25,10 +25,11 @@ function Main.NetFailed( code )
 end
 
 function Main.NetDisconnect( code )
+	
 end
 
 function Main.HandleMessage( msgid, data, length )
-	
+	_message.Call( msgid, data, length )
 end
 
 return 0

@@ -5,7 +5,9 @@ require "../Common/class"
 require "../Common/table"
 
 
-json = require "../Common/json"
+_json = require "../Common/json"
+_message = require "../Common/message"
+
 --pb = require "pb"
 --pbc = require "../Common/pbc"
 
