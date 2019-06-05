@@ -1,5 +1,7 @@
-local setmetatable = setmetatable
 local ipairs = ipairs
+local setmetatable = setmetatable
+
+
 function class(clsname, ...)
 	local cls = {classname = clsname}
 	local args = {...}

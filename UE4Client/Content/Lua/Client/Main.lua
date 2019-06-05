@@ -1,11 +1,9 @@
 --pbc = require "protobuf"
-json = require "core/json"
+require "../Utility/Utility"
 
 Main = {}
 
 function Main.Init()
-
-	print( _VERSION )
 
 	-- connect
 	FLuaBind.Connect( "139.196.33.35", 12027 )
