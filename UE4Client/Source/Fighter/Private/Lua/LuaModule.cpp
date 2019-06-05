@@ -41,7 +41,6 @@ void LuaModule::Startup()
             if ( buff != nullptr )
             {
                 filepath = fullPath;
-                __LOG_INFO__( LogLua, "lua file=[{}]", TCHAR_TO_UTF8(*filepath));
                 return buff;
             }
         }
