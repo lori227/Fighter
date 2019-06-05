@@ -33,7 +33,7 @@ void LuaModule::Startup()
         FString path = FPaths::ProjectContentDir();
         path += UFighterInstance::Instance()->_lua_module->_lua_path;
         path += UTF8_TO_TCHAR( fn );
-        TArray<FString> luaExts = { TEXT(".luac"), TEXT(".lua") };
+        TArray<FString> luaExts = { TEXT(".luac"), TEXT(".lua"), TEXT(".so") };
         for ( auto ptr = luaExts.CreateConstIterator(); ptr; ++ptr )
         {
             auto fullPath = path + *ptr;
@@ -41,6 +41,7 @@ void LuaModule::Startup()
             if ( buff != nullptr )
             {
                 filepath = fullPath;
+                __LOG_INFO__( LogLua, "lua file=[{}]", TCHAR_TO_UTF8(*filepath));
                 return buff;
             }
         }

@@ -1,11 +1,12 @@
 print( _VERSION )
 
-require "../Common/Define"
-require "../Common/Class"
-require "../Common/Table"
+require "../Common/define"
+require "../Common/class"
+require "../Common/table"
 
 
-json = require "../Common/Json"
+json = require "../Common/json"
+pbc = require "../Common/pbc"
 
 
 
