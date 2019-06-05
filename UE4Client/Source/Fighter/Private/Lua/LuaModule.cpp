@@ -2,28 +2,20 @@
 #include "Public/Lua/LuaModule.h"
 #include "HAL/PlatformFileManager.h"
 #include "GenericPlatformFile.h"
+#include "FighterInstance.h"
 
 DECLARE_LOG_CATEGORY_CLASS( LogLua, All, All );
 
-LuaModule::LuaModule()
-{
-    _is_lua_ok = false;
-}
-
-LuaModule::~LuaModule()
-{
-    
-}
 
 void LuaModule::Init( ENetType nettype )
 {
     if ( nettype == ENetType::Client )
     {
-        _main_file = "Lua/LuaClient/Main";
+        _lua_path = TEXT( "Lua/Client/" );
     }
     else
     {
-        _main_file = "Lua/LuaServer/Main";
+        _lua_path = TEXT( "Lua/Server/" );
     }
     
     _state.init();
@@ -39,6 +31,7 @@ void LuaModule::Startup()
     {
         auto& platformfile = FPlatformFileManager::Get().GetPlatformFile();
         FString path = FPaths::ProjectContentDir();
+        path += UFighterInstance::Instance()->_lua_module->_lua_path;
         path += UTF8_TO_TCHAR( fn );
         TArray<FString> luaExts = { TEXT(".luac"), TEXT(".lua") };
         for ( auto ptr = luaExts.CreateConstIterator(); ptr; ++ptr )
@@ -56,7 +49,7 @@ void LuaModule::Startup()
     });
     
     // load main file
-    slua::LuaVar v = _state.doFile( _main_file.c_str() );
+    slua::LuaVar v = _state.doFile( "Main" );
     if ( !v.isNil() && v.getAt(1).asInt() == 0 )
     {
         // call init

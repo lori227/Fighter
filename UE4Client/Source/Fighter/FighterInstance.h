@@ -57,14 +57,16 @@ protected:
     // 处理消息函数
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );
 
+public:    
+    // 网络客户端
+    NetClient* _net_client = nullptr;
+    
+    // lua
+    LuaModule* _lua_module = nullptr;
+    
 protected:
     static UFighterInstance* _this;
 
-    // 网络客户端
-    NetClient* _net_client = nullptr;
-
-    // lua
-    LuaModule* _lua_module = nullptr;
 private:
 
     TStatId _statid;

@@ -1,6 +1,6 @@
 #include "Public/Common/Utility.h"
 
-uint8* FUtility::ReadFile(IPlatformFile& platformfile, FString path, uint32& len)
+uint8* FUtility::ReadFile(IPlatformFile& platformfile, FString& path, uint32& len)
 {
     auto handle = platformfile.OpenRead( *path );
     if ( handle == nullptr )

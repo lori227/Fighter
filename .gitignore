@@ -37,6 +37,6 @@ UE4Client/Plugins/libprotobuf/ThirdParty/include/cmake/vsbuild/x64/
 Release
 Debug
 UE4Client/ChessWar/
-UE4Client/Content/Lua/LuaClient/.vscode/ipch/37d88ee1b822eb1b/ToLuaPaths.ipch
+*.ipch
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/IDEFindNavigatorScopes.plist
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist

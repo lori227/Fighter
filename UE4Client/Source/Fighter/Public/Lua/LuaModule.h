@@ -9,9 +9,6 @@
 class LuaModule
 {
 public:
-    LuaModule();
-    ~LuaModule();
-    
     // int
     void Init( ENetType nettype );
     
@@ -37,13 +34,13 @@ public:
     // handle message
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );
     
+public:
+    // lua path
+    FString _lua_path;
 private:
     // state
     slua::LuaState _state;
     
-    // main file
-    std::string _main_file;
-    
     // lua ok
-    bool _is_lua_ok;
+    bool _is_lua_ok = false;
 };

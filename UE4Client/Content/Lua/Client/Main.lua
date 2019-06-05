@@ -1,10 +1,5 @@
 --pbc = require "protobuf"
-
---print(package.path)
---print(package.cpath)
---pb = require "pb
---print( os.getenv("PWD"))
---json = require "core.json"
+json = require "core/json"
 
 Main = {}
 
