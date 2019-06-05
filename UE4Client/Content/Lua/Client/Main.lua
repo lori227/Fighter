@@ -1,5 +1,5 @@
 --pbc = require "protobuf"
-require "../Utility/Utility"
+require "../Common/Common"
 
 Main = {}
 
