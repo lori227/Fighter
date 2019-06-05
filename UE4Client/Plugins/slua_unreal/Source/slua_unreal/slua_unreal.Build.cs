@@ -33,7 +33,7 @@ public class slua_unreal : ModuleRules
                 Path.Combine(externalSource, "lua"),
 				// ... add public include paths required here ...
 			}
-            );
+        );
 
         switch (Target.Platform)
         {

@@ -6,6 +6,7 @@ require "../Common/table"
 
 
 json = require "../Common/json"
+--pb = require "pb"
 --pbc = require "../Common/pbc"
 
 
