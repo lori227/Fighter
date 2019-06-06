@@ -34,8 +34,8 @@ function Main.LoadProto()
 		"ClientMessage.pb",
 	}
 
-	local protodir = string.format("%sLua/Protocol", FLuaBind.ProjectContentDir(), filename)
-	for _, v inpairs( protofiles ) do
+	local protodir = string.format( "%sLua/Protocol", FLuaBind.ContentDir() )
+	for _, v in ipairs( protofiles ) do
 		local protofile = string.format( "%s/%s", protodir, v )
 		pbc.register_file(protofile)
 	end
