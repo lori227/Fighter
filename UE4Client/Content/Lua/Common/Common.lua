@@ -8,8 +8,7 @@ _define = require "../Common/define"
 _message = require "../Common/message"
 _kernel = require "../Common/kernel"
 
---pb = require "pb"
---pbc = require "../Common/pbc"
+pbc = require "../Common/pbc"
 
 
 

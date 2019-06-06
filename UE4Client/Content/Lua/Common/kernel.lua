@@ -145,6 +145,7 @@ end
 
 ---------------------------------------------------------
 ---------------------------------------------------------
+-- 查找属性
 function M.FindData( childname )
     if childname == nil then
         return nil
@@ -153,6 +154,7 @@ function M.FindData( childname )
     return M._data[ childname ]
 end
 
+-- 获得属性值
 function M.GetDataValue( childname )
     local data = M.FindData( childname )
     if data == nil then
@@ -162,6 +164,7 @@ function M.GetDataValue( childname )
     return data.value
 end
 
+-- 设置属性值
 function M.SetDataValue( childname, value )
     if childname == nil then
         return
@@ -177,6 +180,7 @@ function M.SetDataValue( childname, value )
     end
 end
 
+-- 查找对象属性
 function M.FindObjectData( parentname, childname )
     local parentdata = M.FindData( parentname )
     if parentdata == nil then
@@ -190,6 +194,7 @@ function M.FindObjectData( parentname, childname )
     return parentdata[ childname ]
 end
 
+-- 获得对象属性值
 function M.GetObjectValue( parentname, childname )
     local data = M.FindObjectData( parentname, childname )
     if data == nil then
@@ -199,6 +204,7 @@ function M.GetObjectValue( parentname, childname )
     return data.value
 end
 
+-- 设置对象属性值
 function M.SetObjectValue( parentname, childname, value )
     if parentname == nil or childname == nil then
         return
@@ -219,6 +225,7 @@ function M.SetObjectValue( parentname, childname, value )
     childdata.value = value
 end
 
+-- 查找集合属性
 function M.FindRecordData( parentname, key, childname )
     local parentdata = M.FindData( parentname )
     if parentdata == nil then
@@ -237,6 +244,7 @@ function M.FindRecordData( parentname, key, childname )
     return childdata[ childname ]
 end
 
+-- 获得集合属性值
 function M.GetRecordValue( parentname, key, childname )
     local data = M.FindRecordData( parentname, key, childname )
     if data == nil then
@@ -246,6 +254,7 @@ function M.GetRecordValue( parentname, key, childname )
     return data.value
 end
 
+-- 设置集合属性值
 function M.SetRecordValue( parentname, key, childname, value )
     local data = M.FindRecordData( parentname, key, childname )
     if data == nil then

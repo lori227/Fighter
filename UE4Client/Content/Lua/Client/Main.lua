@@ -5,29 +5,43 @@ Main = {}
 
 function Main.Init()
 
+	-- init pb
+	Main.LoadProto()
+
 	-- connect
 	--FLuaBind.Connect( "139.196.33.35", 12027 )
 
-	_kernel.SetObjectValue( "signin", "day", 2 )
-	local day = _kernel.GetObjectValue( "signin", "day" )
-	print( day )
 end
 
 function Main.Tick( deltatime )
 
 end
 
-function Main.Money( data )
-	print( "money") 
+------------------------------------------------------------------
+------------------------------------------------------------------
+------------------------------------------------------------------
+------------------------------------------------------------------
+function Main.LoadProto()
+	local protofiles = 
+	{
+		"FrameDefineMessage.pb",
+		"FrameEnumMessage.pb",
+		"FrameCodeMessage.pb",
+		"FrameClientMessage.pb",
+		"EnumMessage.pb",
+		"CodeMessage.pb",
+		"DefineMessage.pb",
+		"ClientMessage.pb",
+	}
+
+	local protodir = string.format("%sLua/Protocol", FLuaBind.ProjectContentDir(), filename)
+	for _, v inpairs( protofiles ) do
+		local protofile = string.format( "%s/%s", protodir, v )
+		pbc.register_file(protofile)
+	end
 end
 
-function Main.Level( data )
-	print( "level" )
-end
-------------------------------------------------------------------
-------------------------------------------------------------------
-------------------------------------------------------------------
-------------------------------------------------------------------
+
 function Main.NetConnect( code )
 end
 

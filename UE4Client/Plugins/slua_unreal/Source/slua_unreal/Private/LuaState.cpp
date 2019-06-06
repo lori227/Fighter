@@ -31,6 +31,7 @@
 #include "HAL/RunnableThread.h"
 #include "GameDelegates.h"
 #include "LuaActor.h"
+#include "LuaPbcWrap.h"
 
 namespace slua {
 
@@ -258,6 +259,7 @@ namespace slua {
         lua_rawseti(L,loaderTable,2);
 		lua_settop(L, 0);
         
+        LuaPbc::init(L);
 		LuaSocket::init(L);
         LuaObject::init(L);
         SluaUtil::openLib(L);

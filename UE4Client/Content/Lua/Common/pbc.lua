@@ -1,5 +1,4 @@
-
-local c = require "protobuf.c"
+local c = require "pbc.c"
 
 local setmetatable = setmetatable
 local type = type
@@ -501,10 +500,15 @@ function M.register(buffer)
 end
 
 function M.register_file(filename)
-	local f = assert(io.open(filename , "rb"))
-	local buffer = f:read "*a"
-	c._env_register(P, buffer)
-	f:close()
+  	local fh, err = io.open(filename, "rb")
+  	if fh then
+     	local buffer = fh:read "*a"
+     	--print(buffer)
+     	c._env_register(P, buffer)
+		fh:close()
+  	else
+  		error("register_file error: "..filename.."\n\t")
+   	end
 end
 
 function M.enum_id(enum_type, enum_name)
