@@ -9,7 +9,7 @@ function Main.Init()
 	Main.LoadProto()
 
 	-- connect
-	--FLuaBind.Connect( "139.196.33.35", 12027 )
+	FLuaBind.Connect( "139.196.33.35", 12027 )
 
 end
 
@@ -39,10 +39,23 @@ function Main.LoadProto()
 		local protofile = string.format( "%s/%s", protodir, v )
 		pbc.register_file(protofile)
 	end
+
+	print( EnumMessage.MSG_LOGIN_REQ )
 end
 
 
 function Main.NetConnect( code )
+
+	local MsgLoginReqData = 
+	{
+	   token = "xxxxx",
+	   accountid = "500001",
+	   version = "0.0.0.0"
+	}
+	
+	local str = pbc.encode("KFMsg.MsgLoginReq", MsgLoginReqData)
+	g_Network:Send(100, str, #str)
+
 end
 
 function Main.NetFailed( code )
