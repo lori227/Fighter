@@ -1,9 +1,7 @@
-local table = table
-local pairs = pairs
-local ipairs = ipairs
-local select = select
-local assert = assert
-local xpcall = xpcall
-local tostring = tostring
-local tinsert = table.insert
-local setmetatable = setmetatable
+local M = {}
+
+-- 玩家属性名称
+M._kernel_name = "player"
+
+
+return M

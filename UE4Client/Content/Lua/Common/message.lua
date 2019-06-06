@@ -4,6 +4,7 @@ local M = {}
 -- 函数列表
 local functions = {}
 
+-- 添加消息处理
 function M.Add( msgid, msgname, callfunction )
     if functions[ msgid ] ~= nil then
         print( "msgid = "..msgid.." already exist!" )
@@ -16,10 +17,12 @@ function M.Add( msgid, msgname, callfunction )
     functions[ msgid ] = data
 end
 
+-- 删除消息处理
 function M.Remove( msgid )
     functions[ msgid ] = nil
 end
 
+-- 消息回调
 function M.Call( msgid, msgdata, msglength )
     local data = functions[ msgid ]
     if data == nil then
