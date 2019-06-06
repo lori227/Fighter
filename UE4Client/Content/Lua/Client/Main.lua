@@ -8,11 +8,9 @@ function Main.Init()
 	-- connect
 	--FLuaBind.Connect( "139.196.33.35", 12027 )
 
-	_kernel.RegisterUpdateDataFunction( "money", Main.Money )
-	_kernel.RegisterUpdateObjectFunction( "hero", "level", Main.Level )
-
-	_kernel.CallUpdateFunction( "hero", "level" )
-	_kernel.CallUpdateFunction( _define._kernel_name, "money" )
+	_kernel.SetObjectValue( "signin", "day", 2 )
+	local day = _kernel.GetObjectValue( "signin", "day" )
+	print( day )
 end
 
 function Main.Tick( deltatime )

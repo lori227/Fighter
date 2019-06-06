@@ -1,11 +1,10 @@
 
 local M = {}
 
--- 玩家id
-local _id = {}
-
 -- 数据信息
-local _data = {}
+M._id = 0
+M._name = ""
+M._data = {}
 
 -- 回调函数
 local _add_function = {}
@@ -103,8 +102,157 @@ end
 function M.InitData( id, data )
     M._id = id
 
-    
+end
+---------------------------------------------------------
 
+local function UpdateAllData( data )
+end
+
+function M.UpdateData( data )
+    UpdateAllData( data )
+end
+---------------------------------------------------------
+
+local function AddAllData( data )
+
+end
+
+function M.AddData( data )
+    AddAllData( data )
+end
+---------------------------------------------------------
+
+local function RemoveAllData( data )
+
+end
+
+local function RemoveData( parentdata, key )
+    local childdata = parentdata[ key ]
+    if childdata == nil then
+        return
+    end
+
+    -- 回调函数
+    M.CallRemoveFunction( parentdata.name, childdata.name, key, childdata )
+
+    -- 删除数据
+    parentdata[ key ]= nil
+end
+
+function M.RemoveData( data )
+    RemoveAllData( data )
+end
+
+---------------------------------------------------------
+---------------------------------------------------------
+function M.FindData( childname )
+    if childname == nil then
+        return nil
+    end
+
+    return M._data[ childname ]
+end
+
+function M.GetDataValue( childname )
+    local data = M.FindData( childname )
+    if data == nil then
+        return nil
+    end
+
+    return data.value
+end
+
+function M.SetDataValue( childname, value )
+    if childname == nil then
+        return
+    end
+
+    local data = M.FindData( childname )
+    if data ~= nil then
+        data.value = value
+    else
+        data = {}
+        data.value = value
+        M._data[ childname ] = data
+    end
+end
+
+function M.FindObjectData( parentname, childname )
+    local parentdata = M.FindData( parentname )
+    if parentdata == nil then
+        return nil
+    end
+
+    if childname == nil then
+        return nil
+    end
+
+    return parentdata[ childname ]
+end
+
+function M.GetObjectValue( parentname, childname )
+    local data = M.FindObjectData( parentname, childname )
+    if data == nil then
+        return nil
+    end
+
+    return data.value
+end
+
+function M.SetObjectValue( parentname, childname, value )
+    if parentname == nil or childname == nil then
+        return
+    end
+    
+    local parentdata = M.FindData( parentname )
+    if parentdata == nil then
+        parentdata = {}
+        M._data[ parentname ] = parentdata
+    end
+
+    local childdata = parentdata[ childname ]
+    if childdata == nil then
+        childdata = {}
+        parentdata[ childname ] = childdata
+    end
+
+    childdata.value = value
+end
+
+function M.FindRecordData( parentname, key, childname )
+    local parentdata = M.FindData( parentname )
+    if parentdata == nil then
+        return nil
+    end
+
+    local childdata = parentdata[ key ]
+    if childdata == nil then
+        return nil
+    end
+
+    if childname == nil then
+        return childdata
+    end
+
+    return childdata[ childname ]
+end
+
+function M.GetRecordValue( parentname, key, childname )
+    local data = M.FindRecordData( parentname, key, childname )
+    if data == nil then
+        return nil
+    end
+
+    return data.value
+end
+
+function M.SetRecordValue( parentname, key, childname, value )
+    local data = M.FindRecordData( parentname, key, childname )
+    if data == nil then
+        return
+    end
+
+    data.value = value
 end
 
 return M
