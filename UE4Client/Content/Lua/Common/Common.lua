@@ -3,6 +3,8 @@ print( _VERSION )
 require "../Common/class"
 require "../Common/table"
 
+_ltn12 = require "ltn12"
+_http = require "socket.http"
 _log = require "../Common/log"
 _pbc = require "../Common/pbc"
 _json = require "../Common/json"
