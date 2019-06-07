@@ -6,7 +6,7 @@ Main = {}
 function Main.Init()
 
 	-- init pb
-	Main.LoadProto()
+	Main.LoadProtocol()
 
 	-- connect
 	FLuaBind.Connect( "139.196.33.35", 12027 )
@@ -21,7 +21,7 @@ end
 ------------------------------------------------------------------
 ------------------------------------------------------------------
 ------------------------------------------------------------------
-function Main.LoadProto()
+function Main.LoadProtocol()
 	local protofiles = 
 	{
 		"FrameDefineMessage.pb",
@@ -39,8 +39,6 @@ function Main.LoadProto()
 		local protofile = string.format( "%s/%s", protodir, v )
 		pbc.register_file(protofile)
 	end
-
-	print( EnumMessage.MSG_LOGIN_REQ )
 end
 
 

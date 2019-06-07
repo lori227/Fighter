@@ -107,6 +107,11 @@ void UFighterInstance::Connect( FString& ip, uint32 port )
     _net_client->Connect( ip, port );
 }
 
+bool UFighterInstance::Send( uint32 msgid, const int8* data, uint32 length )
+{
+    return _net_client->SendNetMessage( msgid, data, length );
+}
+
 void UFighterInstance::OnNetClientConnectOk( int32 code, void* data )
 {
     _lua_module->OnNetConnectOk( code ,data );

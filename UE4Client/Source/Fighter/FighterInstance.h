@@ -43,6 +43,9 @@ public:
     // net connect
     void Connect( FString& ip, uint32 port );
     
+    // net send
+    bool Send( uint32 msgid, const int8* data, uint32 length );
+    
 protected:
 
     // 连接成功

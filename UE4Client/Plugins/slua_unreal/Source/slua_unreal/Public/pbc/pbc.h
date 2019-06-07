@@ -25,9 +25,8 @@
 #ifdef __cplusplus
     extern "C" {
 #endif
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
+
+#include "lua/lua.hpp"
     
 namespace slua {
 		typedef struct _pbc_array { char _data[PBC_ARRAY_CAP]; } pbc_array[1];

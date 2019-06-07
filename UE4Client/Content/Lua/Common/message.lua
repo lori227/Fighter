@@ -31,14 +31,23 @@ function M.Call( msgid, msgdata, msglength )
     end
 
     -- 解析消息
-    local msg = {};
-    if msg == nil then
-        print( "msgname = "..data.msgname.." parse failed!" )
+    local msg, error = pbc.decode( data.msgname, msgdata, msglength );
+    if msg == false then
+        print( "msgname = "..data.msgname.." parse failed = "..error )
         return
     end
 
     -- 回调函数
     data.callfunction( msg )
+end
+
+-- 获得消息Id枚举
+function M.GetFrameClientMsgId( name )
+    return pbc.enum_id( "KFMsg.FrameClientProtocol", name )
+end
+
+function M.GetClientMsgId( name )
+    return pbc.enum_id( "KFMsg.ClientProtocol", name )
 end
 
 return M
