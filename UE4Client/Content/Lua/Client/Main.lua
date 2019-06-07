@@ -16,7 +16,7 @@ function Main.Init()
 		"DefineMessage.pb",
 		"ClientMessage.pb",
 	}
-	_protobuf:LoadProtocol( protofiles )
+	_protobuf:LoadProtocol( "Lua/Protocol", protofiles )
 
 	-- logic module
 	_logic:Init()
