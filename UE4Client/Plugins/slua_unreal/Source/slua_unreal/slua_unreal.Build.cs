@@ -70,7 +70,6 @@ public class slua_unreal : ModuleRules
 					// Unreal ignores PublicLibraryPaths on Mac. But why? 
                     // PublicLibraryPaths.Add(Path.Combine(externalLib, "Mac"));
 
-                    PublicAdditionalLibraries.Add(Path.Combine(externalLib, "Mac/liblua.a"));
                     PublicAdditionalLibraries.Add(Path.Combine(externalLib, "Mac/libpbc.a"));
                     PublicAdditionalLibraries.Add(Path.Combine(externalLib, "Mac/liblua.a"));
                     break;
