@@ -6,8 +6,6 @@ function M.Init()
 end
 
 function M.ShowDisplay( data )
-    table.print( data )
-
     _log.LogInfo( "display result=["..data.result.."]" )
 end
 
