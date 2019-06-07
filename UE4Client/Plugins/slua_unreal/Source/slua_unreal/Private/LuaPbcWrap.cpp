@@ -16,11 +16,11 @@
 
 namespace slua {
 
-	namespace LuaPbc {
+	//namespace LuaPbc {
 		
 		void init(lua_State *L) {
 
 			luaL_requiref(L, "pbc.c", luaopen_protobuf_c, 0);
 		}
-	}
+	//}
 }
