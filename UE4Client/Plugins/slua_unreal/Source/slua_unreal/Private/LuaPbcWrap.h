@@ -16,7 +16,7 @@
 #include "lua/lua.hpp"
 
 namespace slua {
-	//namespace LuaPbc {
+	namespace LuaPbc {
 		void init(lua_State *L);
-	//}
+	}
 }

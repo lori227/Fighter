@@ -1,5 +1,4 @@
-#ifndef PROTOBUF_C_H
-#define PROTOBUF_C_H
+#pragma once
 
 #include <stdio.h>
 #include <stdint.h>
@@ -117,7 +116,4 @@ namespace slua {
 
 #ifdef __cplusplus
 }
-#endif
-
-
 #endif
