@@ -1,15 +1,20 @@
+local CKernel = class( "CKernel" )
 
-local M = {}
+function CKernel:ctor()
+    -- id
+    self._id = 0
 
--- 数据信息
-M._id = 0
-M._name = ""
-M._data = {}
+    -- name
+    self._name = 0
 
--- 回调函数
-local _add_function = {}
-local _update_function = {}
-local _remove_function = {}
+    -- 数据
+    self._data = {}
+
+    -- 回调函数
+    self._add_function = {}
+    self._update_function = {}
+    self._remove_function = {}
+end
 
 --------------------------------------------------------------------
 --------------------------------------------------------------------
@@ -29,16 +34,16 @@ end
 
 --------------------------------------------------------------------
 -- 添加属性回调
-function M.RegisterAddDataFunction( dataname, callfunction )
-    RegisterFunction( _add_function, _define._kernel_name, dataname, callfunction )
+function CKernel:RegisterAddDataFunction( dataname, callfunction )
+    RegisterFunction( self._add_function, _define._kernel_name, dataname, callfunction )
 end
 
-function M.RegisterAddObjectFunction( parentname, childname, callfunction )
-    RegisterFunction( _add_function, parentname, childname, callfunction )
+function CKernel:RegisterAddObjectFunction( parentname, childname, callfunction )
+    RegisterFunction( self._add_function, parentname, childname, callfunction )
 end
 
-function M.CallAddFunction( parentname, childname, key, data )
-    local parentdata = _add_function[ parentname ]
+function CKernel:CallAddFunction( parentname, childname, key, data )
+    local parentdata = self._add_function[ parentname ]
     if parentdata == nil then
         return
     end
@@ -52,16 +57,16 @@ function M.CallAddFunction( parentname, childname, key, data )
 end
 --------------------------------------------------------------------
 -- 删除属性回调
-function M.RegisterRemoveDataFunction( dataname, callfunction )
-    RegisterFunction( _remove_function, _define._kernel_name, dataname, callfunction )
+function CKernel:RegisterRemoveDataFunction( dataname, callfunction )
+    RegisterFunction( self._remove_function, _define._kernel_name, dataname, callfunction )
 end
 
-function M.RegisterRemoveObjectFunction( parentname, childname, callfunction )
-    RegisterFunction( _remove_function, parentname, childname, callfunction )
+function CKernel:RegisterRemoveObjectFunction( parentname, childname, callfunction )
+    RegisterFunction( self._remove_function, parentname, childname, callfunction )
 end
 
-function M.CallRemoveFunction( parentname, childname, key, data )
-    local parentdata = _remove_function[ parentname ]
+function CKernel:CallRemoveFunction( parentname, childname, key, data )
+    local parentdata = self._remove_function[ parentname ]
     if parentdata == nil then
         return
     end
@@ -76,16 +81,16 @@ end
 
 --------------------------------------------------------------------
 -- 更新属性回调
-function M.RegisterUpdateDataFunction( dataname, callfunction )
-    RegisterFunction( _update_function, _define._kernel_name, dataname, callfunction )
+function CKernel:RegisterUpdateDataFunction( dataname, callfunction )
+    RegisterFunction( self._update_function, _define._kernel_name, dataname, callfunction )
 end
 
-function M.RegisterUpdateObjectFunction( parentname, childname, callfunction )
-    RegisterFunction( _update_function, parentname, childname, callfunction )
+function CKernel:RegisterUpdateObjectFunction( parentname, childname, callfunction )
+    RegisterFunction( self._update_function, parentname, childname, callfunction )
 end
 
-function M.CallUpdateFunction( parentname, childname, key, oldvalue, newvalue )
-    local parentdata = _update_function[ parentname ]
+function CKernel:CallUpdateFunction( parentname, childname, key, oldvalue, newvalue )
+    local parentdata = self._update_function[ parentname ]
     if parentdata == nil then
         return
     end
@@ -99,64 +104,50 @@ function M.CallUpdateFunction( parentname, childname, key, oldvalue, newvalue )
 end
 --------------------------------------------------------------------
 --------------------------------------------------------------------
-function M.InitData( id, data )
-    M._id = id
+function CKernel:InitData( id, data )
+    self._id = id
 
 end
 ---------------------------------------------------------
-
-local function UpdateAllData( data )
-end
-
-function M.UpdateData( data )
-    UpdateAllData( data )
+function CKernel:SyncUpdateData( data )
+    
 end
 ---------------------------------------------------------
-
-local function AddAllData( data )
-
-end
-
-function M.AddData( data )
-    AddAllData( data )
+function CKernel:SyncAddData( data )
+   
 end
 ---------------------------------------------------------
-
-local function RemoveAllData( data )
-
-end
-
-local function RemoveData( parentdata, key )
+function CKernel:RemoveData( parentdata, key )
     local childdata = parentdata[ key ]
     if childdata == nil then
         return
     end
 
     -- 回调函数
-    M.CallRemoveFunction( parentdata.name, childdata.name, key, childdata )
+    self:CallRemoveFunction( parentdata.name, childdata.name, key, childdata )
 
     -- 删除数据
     parentdata[ key ]= nil
 end
 
-function M.RemoveData( data )
-    RemoveAllData( data )
+function CKernel:SyncRemoveData( data )
+    
 end
 
 ---------------------------------------------------------
 ---------------------------------------------------------
 -- 查找属性
-function M.FindData( childname )
+function CKernel:FindData( childname )
     if childname == nil then
         return nil
     end
 
-    return M._data[ childname ]
+    return self._data[ childname ]
 end
 
 -- 获得属性值
-function M.GetDataValue( childname )
-    local data = M.FindData( childname )
+function CKernel:GetDataValue( childname )
+    local data = self:FindData( childname )
     if data == nil then
         return nil
     end
@@ -165,24 +156,24 @@ function M.GetDataValue( childname )
 end
 
 -- 设置属性值
-function M.SetDataValue( childname, value )
+function CKernel:SetDataValue( childname, value )
     if childname == nil then
         return
     end
 
-    local data = M.FindData( childname )
+    local data = self:FindData( childname )
     if data ~= nil then
         data.value = value
     else
         data = {}
         data.value = value
-        M._data[ childname ] = data
+        self._data[ childname ] = data
     end
 end
 
 -- 查找对象属性
-function M.FindObjectData( parentname, childname )
-    local parentdata = M.FindData( parentname )
+function CKernel:FindObjectData( parentname, childname )
+    local parentdata = self:FindData( parentname )
     if parentdata == nil then
         return nil
     end
@@ -195,8 +186,8 @@ function M.FindObjectData( parentname, childname )
 end
 
 -- 获得对象属性值
-function M.GetObjectValue( parentname, childname )
-    local data = M.FindObjectData( parentname, childname )
+function CKernel:GetObjectValue( parentname, childname )
+    local data = self:FindObjectData( parentname, childname )
     if data == nil then
         return nil
     end
@@ -205,15 +196,15 @@ function M.GetObjectValue( parentname, childname )
 end
 
 -- 设置对象属性值
-function M.SetObjectValue( parentname, childname, value )
+function CKernel:SetObjectValue( parentname, childname, value )
     if parentname == nil or childname == nil then
         return
     end
     
-    local parentdata = M.FindData( parentname )
+    local parentdata = self:FindData( parentname )
     if parentdata == nil then
         parentdata = {}
-        M._data[ parentname ] = parentdata
+        self._data[ parentname ] = parentdata
     end
 
     local childdata = parentdata[ childname ]
@@ -226,8 +217,8 @@ function M.SetObjectValue( parentname, childname, value )
 end
 
 -- 查找集合属性
-function M.FindRecordData( parentname, key, childname )
-    local parentdata = M.FindData( parentname )
+function CKernel:FindRecordData( parentname, key, childname )
+    local parentdata = self:FindData( parentname )
     if parentdata == nil then
         return nil
     end
@@ -245,8 +236,8 @@ function M.FindRecordData( parentname, key, childname )
 end
 
 -- 获得集合属性值
-function M.GetRecordValue( parentname, key, childname )
-    local data = M.FindRecordData( parentname, key, childname )
+function CKernel:GetRecordValue( parentname, key, childname )
+    local data = self:FindRecordData( parentname, key, childname )
     if data == nil then
         return nil
     end
@@ -255,8 +246,8 @@ function M.GetRecordValue( parentname, key, childname )
 end
 
 -- 设置集合属性值
-function M.SetRecordValue( parentname, key, childname, value )
-    local data = M.FindRecordData( parentname, key, childname )
+function CKernel:SetRecordValue( parentname, key, childname, value )
+    local data = self:FindRecordData( parentname, key, childname )
     if data == nil then
         return
     end
@@ -264,4 +255,4 @@ function M.SetRecordValue( parentname, key, childname, value )
     data.value = value
 end
 
-return M
+return CKernel

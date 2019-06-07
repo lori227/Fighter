@@ -1,6 +1,5 @@
---pbc = require "protobuf"
 require "../Common/common"
-_display = require "display"
+_logic = require "Logic/logic"
 
 Main = {}
 
@@ -25,8 +24,7 @@ function Main.Init()
 	_net_client.AddConnect( "Main", Main.OnConnect )
 
 	-- display
-	_display.Init()
-	
+	_logic:Init()
 end
 
 function Main.Tick( deltatime )

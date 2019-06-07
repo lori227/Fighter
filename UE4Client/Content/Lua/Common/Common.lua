@@ -9,9 +9,10 @@ _log = require "../Common/log"
 _pbc = require "../Common/pbc"
 _json = require "../Common/json"
 _define = require "../Common/define"
-_kernel = require "../Common/kernel"
 _message = require "../Common/message"
 _net_client = require "../Common/netclient"
 
 
+local CKernel = require "../Common/kernel"
+_kernel = CKernel.new()
 
