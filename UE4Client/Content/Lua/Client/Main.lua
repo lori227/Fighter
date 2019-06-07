@@ -4,7 +4,7 @@ _logic = require "Logic/logic"
 Main = {}
 
 function Main.Init()
-	-- init pb
+	-- init protobuf
 	local protofiles = 
 	{
 		"FrameDefineMessage.pb",
@@ -16,15 +16,16 @@ function Main.Init()
 		"DefineMessage.pb",
 		"ClientMessage.pb",
 	}
-	_message:LoadProtocol( protofiles )
+	_protobuf:LoadProtocol( protofiles )
+
+	-- logic module
+	_logic:Init()
 
 	-- connect
 	_net_client:Connect( 1, "139.196.33.35", 12027 )
 
 	_net_client:AddConnect( "Main", Main.OnConnect )
 
-	-- logic module
-	_logic:Init()
 end
 
 function Main.Tick( deltatime )

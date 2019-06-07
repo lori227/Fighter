@@ -62,9 +62,8 @@ function CNetClient:Send( msgid, msgname, msgtable )
         return false
     end
 
-    local str = _pbc.encode( msgname, msgtable )
+    local str = _protobuf:Encode( msgname, msgtable )
     if str == nil then
-        _log:LogError( "msgname=["..msgname.."] encode failed!" )
         return false
     end
 
