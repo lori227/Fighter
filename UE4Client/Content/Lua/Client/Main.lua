@@ -9,7 +9,7 @@ function Main.Init()
 	Main.LoadProtocol()
 
 	-- connect
-	FLuaBind.Connect( "139.196.33.35", 12027 )
+	_net_client.Connect( "139.196.33.35", 12027 )
 
 end
 
@@ -37,13 +37,12 @@ function Main.LoadProtocol()
 	local protodir = string.format( "%sLua/Protocol", FLuaBind.ContentDir() )
 	for _, v in ipairs( protofiles ) do
 		local protofile = string.format( "%s/%s", protodir, v )
-		pbc.register_file(protofile)
+		_pbc.register_file(protofile)
 	end
 end
 
 
 function Main.NetConnect( code )
-
 	local MsgLoginReqData = 
 	{
 	   token = "xxxxx",
@@ -51,9 +50,7 @@ function Main.NetConnect( code )
 	   version = "0.0.0.0"
 	}
 	
-	local str = pbc.encode("KFMsg.MsgLoginReq", MsgLoginReqData)
-	g_Network:Send(100, str, #str)
-
+	_net_client.Send( 100, "KFMsg.MsgLoginReq", MsgLoginReqData )
 end
 
 function Main.NetFailed( code )

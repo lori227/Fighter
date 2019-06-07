@@ -7,7 +7,7 @@ local functions = {}
 -- 添加消息处理
 function M.Add( msgid, msgname, callfunction )
     if functions[ msgid ] ~= nil then
-        print( "msgid = "..msgid.." already exist!" )
+        _log.LogError( "msgid = "..msgid.." already exist!" )
         return
     end
 
@@ -26,14 +26,14 @@ end
 function M.Call( msgid, msgdata, msglength )
     local data = functions[ msgid ]
     if data == nil then
-        print( "msgid = "..msgid.." no function!" )
+        _log.LogError( "msgid = "..msgid.." no function!" )
         return
     end
 
     -- 解析消息
-    local msg, error = pbc.decode( data.msgname, msgdata, msglength );
+    local msg, error = _pbc.decode( data.msgname, msgdata, msglength );
     if msg == false then
-        print( "msgname = "..data.msgname.." parse failed = "..error )
+        _log.LogError( "msgname = "..data.msgname.." parse failed = "..error )
         return
     end
 
@@ -43,11 +43,11 @@ end
 
 -- 获得消息Id枚举
 function M.GetFrameClientMsgId( name )
-    return pbc.enum_id( "KFMsg.FrameClientProtocol", name )
+    return _pbc.enum_id( "KFMsg.FrameClientProtocol", name )
 end
 
 function M.GetClientMsgId( name )
-    return pbc.enum_id( "KFMsg.ClientProtocol", name )
+    return _pbc.enum_id( "KFMsg.ClientProtocol", name )
 end
 
 return M

@@ -7,7 +7,6 @@
 #include "Public/Protocol/Protocol.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
-DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
 
 UFighterInstance* UFighterInstance::_this = nullptr;
 UFighterInstance::UFighterInstance( const FObjectInitializer& ObjectInitializer )

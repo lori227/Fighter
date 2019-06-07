@@ -4,9 +4,6 @@
 #include "GenericPlatformFile.h"
 #include "FighterInstance.h"
 
-DECLARE_LOG_CATEGORY_CLASS( LogLua, All, All );
-
-
 void LuaModule::Init( ENetType nettype )
 {
     if ( nettype == ENetType::Client )

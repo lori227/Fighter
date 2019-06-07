@@ -11,6 +11,7 @@
  * @brief 游戏实例
  * 游戏全局的管理器
  */
+DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
 
 class NetClient;
 class LuaModule;

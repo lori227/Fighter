@@ -6,6 +6,8 @@
 #include "LuaState.h"
 #include "Public/Headers.h"
 
+DECLARE_LOG_CATEGORY_CLASS( LogLua, All, All );
+
 class LuaModule
 {
 public:
