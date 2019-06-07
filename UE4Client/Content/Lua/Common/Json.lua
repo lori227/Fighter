@@ -1,6 +1,3 @@
-
-local json = { _version = "0.1.1" }
-
 -------------------------------------------------------------------------------
 -- Encode
 -------------------------------------------------------------------------------
@@ -105,11 +102,6 @@ encode = function(val, stack)
     return f(val, stack)
   end
   error("unexpected type '" .. t .. "'")
-end
-
-
-function json.encode(val)
-  return ( encode(val) )
 end
 
 
@@ -360,8 +352,19 @@ parse = function(str, idx)
   decode_error(str, idx, "unexpected character '" .. chr .. "'")
 end
 
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+local CJson = class( "CJson" )
 
-function json.decode(str)
+function CJson:ctor()
+    self._version = "0.1.1"
+end
+
+function CJson:encode(val)
+  return ( encode(val) )
+end
+
+function CJson:decode(str)
   if type(str) ~= "string" then
     error("expected argument of type string, got " .. type(str))
   end
@@ -373,4 +376,4 @@ function json.decode(str)
   return res
 end
 
-return json
+return CJson

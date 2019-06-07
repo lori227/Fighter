@@ -1,23 +1,26 @@
-local M = {}
+local CLog = class( "CLog" )
 
-local function Log( level, content )
+function CLog:ctor()
+
+end
+
+function CLog:Log( level, content )
     FLuaBind.Log( level, content )
 end
 
 -- info
-function M.LogInfo( content )
-    Log( 5, content )
+function CLog:LogInfo( content )
+    self:Log( 5, content )
 end
 
 -- warn
-function M.LogWarn( content )
-    Log( 3, content )
+function CLog:LogWarn( content )
+    self:Log( 3, content )
 end
 
 -- error
-function M.LogError( content )
-    Log( 2, content )
+function CLog:LogError( content )
+    self:Log( 2, content )
 end
 
-
-return M
+return CLog

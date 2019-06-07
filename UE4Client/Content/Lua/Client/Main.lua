@@ -16,14 +16,14 @@ function Main.Init()
 		"DefineMessage.pb",
 		"ClientMessage.pb",
 	}
-	_message.LoadProtocol( protofiles )
+	_message:LoadProtocol( protofiles )
 
 	-- connect
-	_net_client.Connect( 1, "139.196.33.35", 12027 )
+	_net_client:Connect( 1, "139.196.33.35", 12027 )
 
-	_net_client.AddConnect( "Main", Main.OnConnect )
+	_net_client:AddConnect( "Main", Main.OnConnect )
 
-	-- display
+	-- logic module
 	_logic:Init()
 end
 
@@ -40,26 +40,26 @@ function Main.OnConnect( id, code )
 	   version = "0.0.0.0"
 	}
 	
-    _net_client.Send( 100, "KFMsg.MsgLoginReq", MsgLoginReqData )
+    _net_client:Send( 100, "KFMsg.MsgLoginReq", MsgLoginReqData )
 end
 ------------------------------------------------------------------
 ------------------------------------------------------------------
 ------------------------------------------------------------------
 ------------------------------------------------------------------
 function Main.NetConnect( id, code )
-	_net_client.OnConnect( id, code )
+	_net_client:OnConnect( id, code )
 end
 
 function Main.NetFailed( id, code )
-	_net_client.OnFailed( id, code )
+	_net_client:OnFailed( id, code )
 end
 
 function Main.NetDisconnect( id, code )
-	_net_client.OnDisconnect( id, code )
+	_net_client:OnDisconnect( id, code )
 end
 
 function Main.HandleMessage( msgid, data, length )
-	_message.Call( msgid, data, length )
+	_message:Call( msgid, data, length )
 end
 
 return 0

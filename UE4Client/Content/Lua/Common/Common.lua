@@ -3,16 +3,20 @@ print( _VERSION )
 require "../Common/class"
 require "../Common/table"
 
-_ltn12 = require "ltn12"
-_http = require "socket.http"
-_log = require "../Common/log"
 _pbc = require "../Common/pbc"
-_json = require "../Common/json"
 _define = require "../Common/define"
-_message = require "../Common/message"
-_net_client = require "../Common/netclient"
 
-
+local CJson = require "../Common/json"
+local CMessage = require "../Common/message"
+local CNetClient = require "../Common/netclient"
 local CKernel = require "../Common/kernel"
+local CLog = require "../Common/log"
+local CHttpClient = require "../Common/httpclient"
+
+_json = CJson.new()
+_log = CLog.new()
 _kernel = CKernel.new()
+_message = CMessage.new()
+_net_client = CNetClient.new()
+_http_client = CHttpClient.new()
 

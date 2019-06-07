@@ -5,14 +5,14 @@ function CDisplay:ctor()
 end
 
 function CDisplay:Init()
-    local msgid = _message.GetFrameClientMsgId( "MSG_RESULT_DISPLAY" )
-    _message.Add( msgid, "KFMsg.MsgResultDisplay", function( msg )
+    local msgid = _message:GetFrameClientMsgId( "MSG_RESULT_DISPLAY" )
+    _message:Add( msgid, "KFMsg.MsgResultDisplay", function( msg )
         self:ShowDisplay( msg )
     end )
 end
 
 function CDisplay:ShowDisplay( msg )
-    _log.LogInfo( "display result=["..msg.result.."]" )
+    _log:LogInfo( "display result=["..msg.result.."]" )
 end
 
 
