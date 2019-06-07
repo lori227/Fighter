@@ -789,8 +789,9 @@ namespace slua {
 		}
 		else {
 			slice.buffer = checkuserdata(L, 5);
-			slice.len = luaL_checkinteger(L, 6);
 		}
+        slice.len = luaL_checkinteger(L, 6);
+            
 		lua_pushvalue(L, 2);
 		lua_pushvalue(L, 3);
 		lua_newtable(L);

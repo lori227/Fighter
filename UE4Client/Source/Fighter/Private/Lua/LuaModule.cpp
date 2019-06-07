@@ -92,6 +92,6 @@ void LuaModule::OnNetDisconnect( uint64 id, int32 code )
 
 void LuaModule::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
-    _state.call( "Main.HandleMessage", msgid, data, length );
+    _state.call( "Main.HandleMessage", msgid, (const char*)data, length );
 }
 

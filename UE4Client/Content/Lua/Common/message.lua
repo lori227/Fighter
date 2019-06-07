@@ -39,9 +39,6 @@ function M.Call( msgid, msgdata, msglength )
         return
     end
 
-    print( msgdata )
-    print( msglength )
-
     -- 解析消息
     local msg, error = _pbc.decode( data.msgname, msgdata, msglength );
     if msg == false then
