@@ -14,8 +14,10 @@ void NetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesiz
     _net_socket->Init( name, nettype, sendqueuesize, recvqueuesize, disconnectsend );
 }
 
-void NetClient::Connect( const FString& ip, uint32 port )
+void NetClient::Connect( uint64 id, const FString& ip, uint32 port )
 {
+    _id = id;
+    
     // 创建新的连接
     _net_socket->StartConnect( ip, port );
 }
@@ -53,7 +55,7 @@ void NetClient::HandleNetEvent()
         if ( function != nullptr )
         {
             // 网络事件回调
-            function->operator()( event->_code, event->_data );
+            function->operator()( _id, event->_code );
         }
         else
         {

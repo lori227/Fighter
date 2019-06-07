@@ -99,7 +99,7 @@ void NetSocket::OnDisconnect()
     PushNetEvent( NetDefine::DisconnectEvent );
 }
 
-void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* = nullptr */ )
+void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */ )
 {
     if ( _is_close )
     {
@@ -109,7 +109,6 @@ void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */, void* data /* =
     auto event = new NetEvent();
     event->_type = type;
     event->_code = code;
-    event->_data = data;
 
     FScopeLock Lock( &_event_lock );
     _event_queue.push_back( event );

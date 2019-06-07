@@ -1,27 +1,11 @@
 --pbc = require "protobuf"
 require "../Common/common"
+_display = require "display"
 
 Main = {}
 
 function Main.Init()
-
 	-- init pb
-	Main.LoadProtocol()
-
-	-- connect
-	_net_client.Connect( "139.196.33.35", 12027 )
-
-end
-
-function Main.Tick( deltatime )
-
-end
-
-------------------------------------------------------------------
-------------------------------------------------------------------
-------------------------------------------------------------------
-------------------------------------------------------------------
-function Main.LoadProtocol()
 	local protofiles = 
 	{
 		"FrameDefineMessage.pb",
@@ -33,16 +17,24 @@ function Main.LoadProtocol()
 		"DefineMessage.pb",
 		"ClientMessage.pb",
 	}
+	_message.LoadProtocol( protofiles )
 
-	local protodir = string.format( "%sLua/Protocol", FLuaBind.ContentDir() )
-	for _, v in ipairs( protofiles ) do
-		local protofile = string.format( "%s/%s", protodir, v )
-		_pbc.register_file(protofile)
-	end
+	-- connect
+	_net_client.Connect( 1, "139.196.33.35", 12027 )
+
+	_net_client.AddConnect( "Main", Main.OnConnect )
+
+	-- display
+	_display.Init()
+	
 end
 
+function Main.Tick( deltatime )
 
-function Main.NetConnect( code )
+end
+
+function Main.OnConnect( id, code )
+
 	local MsgLoginReqData = 
 	{
 	   token = "xxxxx",
@@ -50,15 +42,22 @@ function Main.NetConnect( code )
 	   version = "0.0.0.0"
 	}
 	
-	_net_client.Send( 100, "KFMsg.MsgLoginReq", MsgLoginReqData )
+    _net_client.Send( 100, "KFMsg.MsgLoginReq", MsgLoginReqData )
+end
+------------------------------------------------------------------
+------------------------------------------------------------------
+------------------------------------------------------------------
+------------------------------------------------------------------
+function Main.NetConnect( id, code )
+	_net_client.OnConnect( id, code )
 end
 
-function Main.NetFailed( code )
-	print( "net failed code = " .. code )
+function Main.NetFailed( id, code )
+	_net_client.OnFailed( id, code )
 end
 
-function Main.NetDisconnect( code )
-
+function Main.NetDisconnect( id, code )
+	_net_client.OnDisconnect( id, code )
 end
 
 function Main.HandleMessage( msgid, data, length )

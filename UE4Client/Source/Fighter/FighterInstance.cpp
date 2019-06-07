@@ -101,9 +101,9 @@ void UFighterInstance::Tick( float deltatime )
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-void UFighterInstance::Connect( FString& ip, uint32 port )
+void UFighterInstance::Connect( uint64 id, FString& ip, uint32 port )
 {
-    _net_client->Connect( ip, port );
+    _net_client->Connect( id, ip, port );
 }
 
 bool UFighterInstance::Send( uint32 msgid, const int8* data, uint32 length )
@@ -111,19 +111,19 @@ bool UFighterInstance::Send( uint32 msgid, const int8* data, uint32 length )
     return _net_client->SendNetMessage( msgid, data, length );
 }
 
-void UFighterInstance::OnNetClientConnectOk( int32 code, void* data )
+void UFighterInstance::OnNetClientConnectOk( uint64 id, int32 code )
 {
-    _lua_module->OnNetConnectOk( code ,data );
+    _lua_module->OnNetConnectOk( id, code );
 }
 
-void UFighterInstance::OnNetClientConnectFailed( int32 code, void* data )
+void UFighterInstance::OnNetClientConnectFailed( uint64 id, int32 code )
 {
-    _lua_module->OnNetFailed( code, data );
+    _lua_module->OnNetFailed( id, code );
 }
 
-void UFighterInstance::OnNetClientDisconnect( int32 code, void* data )
+void UFighterInstance::OnNetClientDisconnect( uint64 id, int32 code )
 {
-    _lua_module->OnNetDisconnect( code, data );
+    _lua_module->OnNetDisconnect( id, code );
 }
 
 void UFighterInstance::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )

@@ -25,13 +25,13 @@ public:
     
 public:
     // conenct ok
-    void OnNetConnectOk( int32 code, void* data );
+    void OnNetConnectOk( uint64 id, int32 code );
     
     // connect failed
-    void OnNetFailed( int32 code, void* data );
+    void OnNetFailed( uint64 id, int32 code );
     
     // disconnect
-    void OnNetDisconnect( int32 code, void* data );
+    void OnNetDisconnect( uint64 id, int32 code );
     
     // handle message
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );

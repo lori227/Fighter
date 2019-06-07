@@ -42,7 +42,7 @@ public:
     
 public:
     // net connect
-    void Connect( FString& ip, uint32 port );
+    void Connect( uint64 id, FString& ip, uint32 port );
     
     // net send
     bool Send( uint32 msgid, const int8* data, uint32 length );
@@ -50,13 +50,13 @@ public:
 protected:
 
     // 连接成功
-    void OnNetClientConnectOk( int32 code, void* data );
+    void OnNetClientConnectOk( uint64 id, int32 code );
 
     // 连接失败
-    void OnNetClientConnectFailed( int32 code, void* data );
+    void OnNetClientConnectFailed( uint64 id, int32 code );
 
     // 连接断开
-    void OnNetClientDisconnect( int32 code, void* data );
+    void OnNetClientDisconnect( uint64 id, int32 code );
 
     // 处理消息函数
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );

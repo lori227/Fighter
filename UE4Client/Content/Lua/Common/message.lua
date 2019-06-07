@@ -4,6 +4,15 @@ local M = {}
 -- 函数列表
 local functions = {}
 
+-- 初始化协议
+function M.LoadProtocol( protofiles )
+	local protodir = string.format( "%sLua/Protocol", FLuaBind.ContentDir() )
+	for _, v in pairs( protofiles ) do
+		local protofile = string.format( "%s/%s", protodir, v )
+		_pbc.register_file(protofile)
+	end
+end
+
 -- 添加消息处理
 function M.Add( msgid, msgname, callfunction )
     if functions[ msgid ] ~= nil then
@@ -29,6 +38,9 @@ function M.Call( msgid, msgdata, msglength )
         _log.LogError( "msgid = "..msgid.." no function!" )
         return
     end
+
+    print( msgdata )
+    print( msglength )
 
     -- 解析消息
     local msg, error = _pbc.decode( data.msgname, msgdata, msglength );

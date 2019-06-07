@@ -21,7 +21,7 @@ public:
     void Tick( float deltatime );
 
     // 开始连接
-    void Connect( const FString& ip, uint32 port );
+    void Connect( uint64 id, const FString& ip, uint32 port );
 
     // 关闭
     void Shutdown();
@@ -33,7 +33,7 @@ public:
 public:
     // 注册网络事件函数
     template< class T >
-    void RegisterNetEventFunction( uint32 type, T* object, void( T::*handle )( int32 code, void* data ) )
+    void RegisterNetEventFunction( uint32 type, T* object, void( T::*handle )( uint64 id, int32 code ) )
     {
         NetEventFunction function = std::bind( handle, object, std::placeholders::_1, std::placeholders::_2 );
         _event_function.Add( type, function );
@@ -53,6 +53,9 @@ protected:
     // 处理网络消息
     void HandleNetMessage();
 protected:
+    // id
+    uint64 _id = 0u;
+    
     // socket
     NetSocket* _net_socket = nullptr;
 

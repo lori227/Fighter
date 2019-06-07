@@ -1,8 +1,51 @@
 local M = {}
 
+-- 连接成功
+local _connect_functions = {}
+
+function M.AddConnect( name, callfunction )
+    _connect_functions[ name ] = callfunction
+end
+
+function M.OnConnect( id, code )
+    _log.LogInfo( "client=["..id.."] connect!" )
+
+    for k, callfunction in pairs( _connect_functions ) do
+        callfunction( id, code )
+    end
+end
+
+-- 连接失败
+local _failed_functions = {}
+function M.AddFailed( name, callfunction )
+    _failed_functions[ name ] = callfunction
+end
+
+function M.OnFailed( id, code )
+    _log.LogError( "client=["..id.."] failed, code=["..code.."]!" )
+
+    for k, callfunction in pairs( _failed_functions ) do
+        callfunction( id, code )
+    end
+end
+
+-- 断开连接
+local _disconnect_functions = {}
+function M.AddDisconenct( name, callfunction )
+    _disconnect_functions[ name ] = callfunction
+end
+
+function M.OnDisconnect( id, code )
+    _log.LogError( "client=["..id.."] disconnect, code=["..code.."]!" )
+
+    for k, callfunction in pairs( _disconnect_functions ) do
+        callfunction( id, code )
+    end
+end
+
 -- 连接
-function M.Connect( ip, port )
-    FLuaBind.Connect( ip, port )
+function M.Connect( id, ip, port )
+    FLuaBind.Connect( id, ip, port )
 end
 
 -- 删除消息处理

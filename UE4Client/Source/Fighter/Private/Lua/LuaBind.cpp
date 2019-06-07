@@ -17,10 +17,10 @@ namespace slua
         return FPaths::ProjectContentDir();
     }
     
-    void FLuaBind::Connect( const char* ip, uint32 port )
+    void FLuaBind::Connect( uint64 id, const char* ip, uint32 port )
     {
         FString strip = UTF8_TO_TCHAR( ip );
-        UFighterInstance::Instance()->Connect( strip, port );
+        UFighterInstance::Instance()->Connect( id, strip, port );
     }
     
     bool FLuaBind::Send( uint32 msgid, const char* data, uint32 length )

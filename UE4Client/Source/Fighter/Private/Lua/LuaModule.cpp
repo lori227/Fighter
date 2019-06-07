@@ -30,7 +30,7 @@ void LuaModule::Startup()
         FString path = FPaths::ProjectContentDir();
         path += UFighterInstance::Instance()->_lua_module->_lua_path;
         path += UTF8_TO_TCHAR( fn );
-        TArray<FString> luaExts = { TEXT(".luac"), TEXT(".lua"), TEXT(".so") };
+        TArray<FString> luaExts = { TEXT(".luac"), TEXT(".lua") };
         for ( auto ptr = luaExts.CreateConstIterator(); ptr; ++ptr )
         {
             auto fullPath = path + *ptr;
@@ -46,7 +46,7 @@ void LuaModule::Startup()
     });
     
     // load main file
-    slua::LuaVar v = _state.doFile( "Main" );
+    slua::LuaVar v = _state.doFile( "main" );
     if ( !v.isNil() && v.getAt(1).asInt() == 0 )
     {
         // call init
@@ -75,19 +75,19 @@ void LuaModule::Shutdown()
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-void LuaModule::OnNetConnectOk( int32 code, void* data )
+void LuaModule::OnNetConnectOk( uint64 id, int32 code )
 {
-    _state.call( "Main.NetConnect", code );
+    _state.call( "Main.NetConnect", id, code );
 }
 
-void LuaModule::OnNetFailed( int32 code, void* data )
+void LuaModule::OnNetFailed( uint64 id, int32 code )
 {
-    _state.call( "Main.NetFailed", code );
+    _state.call( "Main.NetFailed", id, code );
 }
 
-void LuaModule::OnNetDisconnect( int32 code, void* data )
+void LuaModule::OnNetDisconnect( uint64 id, int32 code )
 {
-    _state.call( "Main.NetDisconnect", code );
+    _state.call( "Main.NetDisconnect", id, code );
 }
 
 void LuaModule::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )

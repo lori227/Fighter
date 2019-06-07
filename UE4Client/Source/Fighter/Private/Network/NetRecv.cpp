@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Network/NetRecv.h"
 #include "Public/Network/NetSocket.h"
@@ -34,7 +34,7 @@ void NetRecv::StopService()
 {
     Shutdown();
     _recv_queue.ClearObject();
-    __LOG_INFO__( LogNetwork, "network send thread stop!" );
+    __LOG_INFO__( LogNetwork, "network recv thread stop!" );
 }
 
 void NetRecv::CalcBuffTotalLength( uint32 totallength )

@@ -1,4 +1,4 @@
-﻿// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -42,7 +42,7 @@ public:
     void OnDisconnect();
 
     // event
-    void PushNetEvent( uint32 type, int32 code = 0, void* data = nullptr );
+    void PushNetEvent( uint32 type, int32 code = 0 );
 
     // 弹出一个网络事件
     NetEvent* PopNetEvent();

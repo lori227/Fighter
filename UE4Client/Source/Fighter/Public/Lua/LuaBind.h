@@ -22,7 +22,7 @@ namespace slua
         static FString ProjectContentDir();
         
         // net connect
-        static void Connect( const char* ip, uint32 port );
+        static void Connect( uint64 id, const char* ip, uint32 port );
         
         // net send
         static bool Send( uint32 msgid, const char* data, uint32 length );
