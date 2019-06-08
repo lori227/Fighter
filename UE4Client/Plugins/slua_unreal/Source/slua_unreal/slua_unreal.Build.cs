@@ -63,6 +63,7 @@ public class slua_unreal : ModuleRules
                 {
                     PublicLibraryPaths.Add(Path.Combine(externalLib, "Win64"));
                     PublicAdditionalLibraries.Add("lua.lib");
+                    PublicAdditionalLibraries.Add("pbc.lib");
                     break;
                 }
             case UnrealTargetPlatform.Mac:
