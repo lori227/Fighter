@@ -28,7 +28,9 @@ function HttpRequest( url, method, senddata )
         source = ltn12.source.string(senddata),
     }
 
-    return response[1]
+    local str = response[1]
+    _log:LogInfo( "http result=["..str.."]" )
+    return str
 end
 
 function CHttpClient:PostData( url, senddata )
@@ -42,7 +44,8 @@ function CHttpClient:PostJson( url, sendjson )
         return nil
     end
 
-    return self:PostData( url, senddata )
+    local response = self:PostData( url, senddata )
+    return _json:decode( response )
 end
 
 function CHttpClient:GetData( url, senddata )
@@ -56,7 +59,8 @@ function CHttpClient:GetJson( url, sendjson )
         return nil
     end
 
-    return self:GetData( url, senddata )
+    local response = self:GetData( url, senddata )
+    return _json:decode( response )
 end
 
 return CHttpClient

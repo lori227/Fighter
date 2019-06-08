@@ -21,10 +21,31 @@ function Main.Init()
 	-- logic module
 	_logic:Init()
 
-	-- connect
-	--_net_client:Connect( 1, "139.196.33.35", 12027 )
+	_net_client:AddConnect( "Main", Main.OnConnect )
 
-	--_net_client:AddConnect( "Main", Main.OnConnect )
+	-- 认证
+	_timer:AddDelayTimer( "main", 2, Main.Auth )
+end
+
+function Main.Auth()
+	local request = { ["channel"] = 1, ["account"] = "lori227" }
+	local response = _http_client:PostJson( _define._auth_url, request )
+	if response == nil then
+		print( "failed" )
+		return
+	end
+
+	if response.retcode ~= 1 then
+		_display:ShowResult( response.retcode )
+		return
+	end
+
+	Main._token = response.token
+	Main._account_id = response.accountid
+
+	-- connect
+	local zone = response["zone"]
+	_net_client:Connect( zone.zoneid, zone.ip, zone.port )
 end
 
 function Main.Tick( deltatime )
@@ -35,14 +56,14 @@ end
 
 function Main.OnConnect( id, code )
 
-	local MsgLoginReqData = 
+	local data = 
 	{
-	   token = "xxxxx",
-	   accountid = "500001",
+	   token = Main._token,
+	   accountid = Main._account_id,
 	   version = "0.0.0.0"
 	}
 	
-    _net_client:Send( 100, "KFMsg.MsgLoginReq", MsgLoginReqData )
+    _net_client:Send( 100, "KFMsg.MsgLoginReq", data )
 end
 ------------------------------------------------------------------
 ------------------------------------------------------------------
