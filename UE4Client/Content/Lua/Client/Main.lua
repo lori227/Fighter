@@ -28,10 +28,11 @@ function Main.Init()
 end
 
 function Main.Auth()
-	local request = { ["channel"] = 1, ["account"] = "lori227" }
+	local channel = _protobuf:GetEnumId("KFMsg.ChannelEnum", "Internal" )
+	local request = { ["channel"] = channel, ["account"] = "lori227" }
 	local response = _http_client:PostJson( _define._auth_url, request )
 	if response == nil then
-		print( "failed" )
+		print( "http failed" )
 		return
 	end
 

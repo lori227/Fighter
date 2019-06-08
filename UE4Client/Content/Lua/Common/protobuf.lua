@@ -43,6 +43,7 @@ function CProtobuf:GetMsgId( name )
     return nil
 end
 
+-- 反序列化消息
 function CProtobuf:Decode( msgname, msgdata, msglength )
     local msg, error = pbc.decode( msgname, msgdata, msglength );
     if msg == false then
@@ -53,6 +54,7 @@ function CProtobuf:Decode( msgname, msgdata, msglength )
     return msg
 end
 
+-- 序列化消息
 function CProtobuf:Encode( msgname, msgtable )
     local str = pbc.encode( msgname, msgtable )
     if str == nil then

@@ -15,6 +15,8 @@ function HttpRequest( url, method, senddata )
         senddata = ""
     end
 
+    _log:LogInfo( "http send=["..senddata.."]" )
+
     local response = {}
     local body, code, headers, status = http.request {
         method = method,
