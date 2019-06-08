@@ -44,6 +44,7 @@ function CTimer:ctor()
     self._remove_list = {}
 end
 
+-- 添加循环定时器
 function CTimer:AddLoopTimer( name, intervaltime, delaytime, cbfunc, ... )
     local data = {}
     data.name = name
@@ -55,6 +56,7 @@ function CTimer:AddLoopTimer( name, intervaltime, delaytime, cbfunc, ... )
     tableinsert( self._add_list, data )
 end
 
+-- 添加次数定时器
 function CTimer:AddCountTimer( name, intervaltime, count, delaytime, cbfunc, ... )
     local data = {}
     data.name = name
@@ -65,6 +67,11 @@ function CTimer:AddCountTimer( name, intervaltime, count, delaytime, cbfunc, ...
     data.cbfunc = cbfunc
     data.args = { ... }
     tableinsert( self._add_list, data )
+end
+
+-- 添加一个延迟执行( 只执行一次 )
+function CTimer:AddDelayTimer( name, delaytime, cbfunc, ... )
+    self:AddCountTimer( name, delaytime, 1, delaytime, cbfunc, ... )
 end
 
 function CTimer:RunAddTimer()
@@ -181,6 +188,7 @@ function CTimer:RumTimerData( data )
     -- 执行定时器
     xpcall( data.cbfunc( unpack( data.args, select( "#", data.args ) ) ), printerror );
 
+    -- 执行完后重新注册
     if data.type == _loop_type then
         local slot = self:AddToWheel( data )
         self._timer_list[ data.name ].slot = slot
