@@ -18,9 +18,9 @@ end
 
 --------------------------------------------------------------------
 --------------------------------------------------------------------
-local function RegisterFunction( functions, parentname, childname, callfunction )
+local function RegisterFunction( functions, parentname, childname, cbfunc )
     local childdata = {}
-    childdata.callfunction = callfunction
+    childdata.cbfunc = cbfunc
 
     local parentdata = functions[ parentname ]
     if parentdata == nil then
@@ -34,12 +34,12 @@ end
 
 --------------------------------------------------------------------
 -- 添加属性回调
-function CKernel:RegisterAddDataFunction( dataname, callfunction )
-    RegisterFunction( self._add_function, _define._kernel_name, dataname, callfunction )
+function CKernel:RegisterAddDataFunction( dataname, cbfunc )
+    RegisterFunction( self._add_function, _define._kernel_name, dataname, cbfunc )
 end
 
-function CKernel:RegisterAddObjectFunction( parentname, childname, callfunction )
-    RegisterFunction( self._add_function, parentname, childname, callfunction )
+function CKernel:RegisterAddObjectFunction( parentname, childname, cbfunc )
+    RegisterFunction( self._add_function, parentname, childname, cbfunc )
 end
 
 function CKernel:CallAddFunction( parentname, childname, key, data )
@@ -53,16 +53,16 @@ function CKernel:CallAddFunction( parentname, childname, key, data )
         return
     end 
 
-    childdata.callfunction( key, data )
+    childdata.cbfunc( key, data )
 end
 --------------------------------------------------------------------
 -- 删除属性回调
-function CKernel:RegisterRemoveDataFunction( dataname, callfunction )
-    RegisterFunction( self._remove_function, _define._kernel_name, dataname, callfunction )
+function CKernel:RegisterRemoveDataFunction( dataname, cbfunc )
+    RegisterFunction( self._remove_function, _define._kernel_name, dataname, cbfunc )
 end
 
-function CKernel:RegisterRemoveObjectFunction( parentname, childname, callfunction )
-    RegisterFunction( self._remove_function, parentname, childname, callfunction )
+function CKernel:RegisterRemoveObjectFunction( parentname, childname, cbfunc )
+    RegisterFunction( self._remove_function, parentname, childname, cbfunc )
 end
 
 function CKernel:CallRemoveFunction( parentname, childname, key, data )
@@ -76,17 +76,17 @@ function CKernel:CallRemoveFunction( parentname, childname, key, data )
         return
     end 
 
-    childdata.callfunction( key, data )
+    childdata.cbfunc( key, data )
 end
 
 --------------------------------------------------------------------
 -- 更新属性回调
-function CKernel:RegisterUpdateDataFunction( dataname, callfunction )
-    RegisterFunction( self._update_function, _define._kernel_name, dataname, callfunction )
+function CKernel:RegisterUpdateDataFunction( dataname, cbfunc )
+    RegisterFunction( self._update_function, _define._kernel_name, dataname, cbfunc )
 end
 
-function CKernel:RegisterUpdateObjectFunction( parentname, childname, callfunction )
-    RegisterFunction( self._update_function, parentname, childname, callfunction )
+function CKernel:RegisterUpdateObjectFunction( parentname, childname, cbfunc )
+    RegisterFunction( self._update_function, parentname, childname, cbfunc )
 end
 
 function CKernel:CallUpdateFunction( parentname, childname, key, oldvalue, newvalue )
@@ -100,7 +100,7 @@ function CKernel:CallUpdateFunction( parentname, childname, key, oldvalue, newva
         return
     end 
 
-    childdata.callfunction( key, oldvalue, newvalue )
+    childdata.cbfunc( key, oldvalue, newvalue )
 end
 --------------------------------------------------------------------
 --------------------------------------------------------------------

@@ -1,7 +1,7 @@
 local CDisplay = class( "CDisplay" )
 
 function CDisplay:ctor()
- 
+
 end
 
 function CDisplay:Init()

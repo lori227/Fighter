@@ -6,7 +6,7 @@ function CMessage:ctor()
 end
 
 -- 添加消息处理
-function CMessage:Add( msgid, msgname, callfunction )
+function CMessage:Add( msgid, msgname, cbfunc )
     if self._functions[ msgid ] ~= nil then
         _log:LogError( "msgid = "..msgid.." already exist!" )
         return
@@ -14,7 +14,7 @@ function CMessage:Add( msgid, msgname, callfunction )
 
     local data = {}
     data.msgname = msgname
-    data.callfunction = callfunction
+    data.cbfunc = cbfunc
     self._functions[ msgid ] = data
 end
 
@@ -38,7 +38,7 @@ function CMessage:Call( msgid, msgdata, msglength )
     end
 
     -- 回调函数
-    data.callfunction( msg )
+    data.cbfunc( msg )
 end
 
 return CMessage

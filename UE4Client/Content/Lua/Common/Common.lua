@@ -14,9 +14,11 @@ local CLog = require "../Common/log"
 local CProtobuf = require "../Common/protobuf"
 local CHttpClient = require "../Common/httpclient"
 local CProtobuf = require "../Common/protobuf"
+local CTimer = require "../Common/timer"
 
-_json = CJson.new()
 _log = CLog.new()
+_json = CJson.new()
+_timer = CTimer.new()
 _kernel = CKernel.new()
 _message = CMessage.new()
 _protobuf = CProtobuf.new()

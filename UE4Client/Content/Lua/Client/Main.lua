@@ -22,13 +22,14 @@ function Main.Init()
 	_logic:Init()
 
 	-- connect
-	_net_client:Connect( 1, "139.196.33.35", 12027 )
+	--_net_client:Connect( 1, "139.196.33.35", 12027 )
 
-	_net_client:AddConnect( "Main", Main.OnConnect )
-
+	--_net_client:AddConnect( "Main", Main.OnConnect )
 end
 
 function Main.Tick( deltatime )
+	-- 定时器逻辑
+	_timer:Tick( deltatime )
 
 end
 

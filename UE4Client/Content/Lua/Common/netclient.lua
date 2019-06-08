@@ -12,41 +12,41 @@ function CNetClient:ctor()
 end
 
 -- 连接成功
-function CNetClient:AddConnect( name, callfunction )
-    self._connect_functions[ name ] = callfunction
+function CNetClient:AddConnect( name, cbfunc )
+    self._connect_functions[ name ] = cbfunc
 end
 
 function CNetClient:OnConnect( id, code )
     _log:LogInfo( "client=["..id.."] connect!" )
 
-    for k, callfunction in pairs( self._connect_functions ) do
-        callfunction( id, code )
+    for k, cbfunc in pairs( self._connect_functions ) do
+        cbfunc( id, code )
     end
 end
 
 -- 连接失败
-function CNetClient:AddFailed( name, callfunction )
-    self._failed_functions[ name ] = callfunction
+function CNetClient:AddFailed( name, cbfunc )
+    self._failed_functions[ name ] = cbfunc
 end
 
 function CNetClient:OnFailed( id, code )
     _log:LogError( "client=["..id.."] failed, code=["..code.."]!" )
 
-    for k, callfunction in pairs( self._failed_functions ) do
-        callfunction( id, code )
+    for k, cbfunc in pairs( self._failed_functions ) do
+        cbfunc( id, code )
     end
 end
 
 -- 断开连接
-function CNetClient:AddDisconenct( name, callfunction )
-    self._disconnect_functions[ name ] = callfunction
+function CNetClient:AddDisconenct( name, cbfunc )
+    self._disconnect_functions[ name ] = cbfunc
 end
 
 function CNetClient:OnDisconnect( id, code )
     _log:LogError( "client=["..id.."] disconnect, code=["..code.."]!" )
 
-    for k, callfunction in pairs( self._disconnect_functions ) do
-        callfunction( id, code )
+    for k, cbfunc in pairs( self._disconnect_functions ) do
+        cbfunc( id, code )
     end
 end
 
