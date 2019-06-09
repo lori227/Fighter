@@ -113,7 +113,7 @@ function CTimer:AddToWheel( data )
     local slot = slots % self._max_slot;
     data.slot = ( ( slot + self._now_slot ) % self._max_slot )
     if data.slot == 0 then
-        data.slot = 1
+        data.slot = self._max_slot
     end
 
     -- 加入时间轮
@@ -158,7 +158,7 @@ function CTimer:RunTimers( deltatime )
     for i = 1, slots do
         self._now_slot = ( self._now_slot + 1 ) % self._max_slot
         if self._now_slot == 0 then
-            self._now_slot = 1
+            self._now_slot = self._max_slot
         end
 
         local executes = {}
