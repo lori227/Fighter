@@ -36,6 +36,7 @@ function CMessage:Call( msgid, msgdata, msglength )
     if msg == nil then
         return
     end
+    table.print( msg )
 
     -- 回调函数
     data.cbfunc( msg )
