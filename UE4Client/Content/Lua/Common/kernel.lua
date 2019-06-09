@@ -104,13 +104,69 @@ function CKernel:CallUpdateFunction( parentname, childname, key, oldvalue, newva
 end
 --------------------------------------------------------------------
 --------------------------------------------------------------------
-function CKernel:InitData( id, data )
+local function ParseData( data, pbdata )
+    for k, v in pairs( pbdata ) do
+        if k == "pbobject" then
+            for _, pbobject in pairs( v ) do
+                data[ pbobject.key ] = {}
+                ParseData( data[ pbobject.key ], pbobject.value )
+            end
+        elseif k == "pbrecord" then
+            for _, pbrecord in pairs( v ) do
+                data[ pbrecord.key ] = {}
+                for _, pbobject in pairs( pbrecord.value ) do
+                    data[ pbrecord.key ][ pbobject.key ] = {}
+                    ParseData( data[ pbrecord.key ][ pbobject.key ], pbobject.value )
+                end
+            end
+        else
+            for _, pbvalue in pairs( v ) do
+                data[ pbvalue.key ] = pbvalue.value
+            end   
+        end
+    end
+end
+
+function CKernel:InitData( id, pbdata )
     self._id = id
 
+    -- 解析数据
+    ParseData( self._data, pbdata )
 end
+
 ---------------------------------------------------------
+local function UpdateData( dataname, datakey, data, pbdata )
+    for k, v in pairs( pbdata ) do
+        if k == "pbobject" then
+            for _, pbobject in pairs( v ) do
+                data[ pbobject.key ] = {}
+                UpdateData( pbobject.key, 0, data[ pbobject.key ], pbobject.value )
+            end
+        elseif k == "pbrecord" then
+            for _, pbrecord in pairs( v ) do
+                data[ pbrecord.key ] = {}
+                for _, pbobject in pairs( pbrecord.value ) do
+                    local object = data[ pbrecord.key ][ pbobject.key ]
+                    if object ~= nil then
+                        UpdateData( pbrecord.key, pbobject.key, object, pbobject.value )
+                    end
+                end
+            end
+        else
+            for _, pbvalue in pairs( v ) do
+                local oldvalue = data[ pbvalue.key ] or 0
+                data[ pbvalue.key ] = pbvalue.value
+
+                -- 回调逻辑
+                _kernel:CallUpdateFunction( dataname, pbvalue.key, datakey, oldvalue, pbvalue.value )
+            end   
+        end
+    end
+end
+
 function CKernel:SyncUpdateData( data )
-    
+    -- 更新数据
+    UpdateData( _define._kernel_name, 0, self._data, data )
 end
 ---------------------------------------------------------
 function CKernel:SyncAddData( data )
@@ -136,23 +192,13 @@ end
 
 ---------------------------------------------------------
 ---------------------------------------------------------
--- 查找属性
-function CKernel:FindData( childname )
+-- 获得属性值
+function CKernel:GetDataValue( childname )
     if childname == nil then
         return nil
     end
 
     return self._data[ childname ]
-end
-
--- 获得属性值
-function CKernel:GetDataValue( childname )
-    local data = self:FindData( childname )
-    if data == nil then
-        return nil
-    end
-
-    return data.value
 end
 
 -- 设置属性值
@@ -161,38 +207,17 @@ function CKernel:SetDataValue( childname, value )
         return
     end
 
-    local data = self:FindData( childname )
-    if data ~= nil then
-        data.value = value
-    else
-        data = {}
-        data.value = value
-        self._data[ childname ] = data
-    end
-end
-
--- 查找对象属性
-function CKernel:FindObjectData( parentname, childname )
-    local parentdata = self:FindData( parentname )
-    if parentdata == nil then
-        return nil
-    end
-
-    if childname == nil then
-        return nil
-    end
-
-    return parentdata[ childname ]
+    self._data[ childname ] = value
 end
 
 -- 获得对象属性值
 function CKernel:GetObjectValue( parentname, childname )
-    local data = self:FindObjectData( parentname, childname )
-    if data == nil then
+    local parentdata = self:GetDataValue( parentname )
+    if parentdata == nil then
         return nil
     end
 
-    return data.value
+    return parentdata[ childname ]
 end
 
 -- 设置对象属性值
@@ -201,24 +226,18 @@ function CKernel:SetObjectValue( parentname, childname, value )
         return
     end
     
-    local parentdata = self:FindData( parentname )
+    local parentdata = self:GetDataValue( parentname )
     if parentdata == nil then
         parentdata = {}
         self._data[ parentname ] = parentdata
     end
 
-    local childdata = parentdata[ childname ]
-    if childdata == nil then
-        childdata = {}
-        parentdata[ childname ] = childdata
-    end
-
-    childdata.value = value
+    parentdata[ childname ] = value
 end
 
--- 查找集合属性
-function CKernel:FindRecordData( parentname, key, childname )
-    local parentdata = self:FindData( parentname )
+-- 获得集合属性值
+function CKernel:GetRecordValue( parentname, key, childname )
+    local parentdata = self:GetDataValue( parentname )
     if parentdata == nil then
         return nil
     end
@@ -228,31 +247,22 @@ function CKernel:FindRecordData( parentname, key, childname )
         return nil
     end
 
-    if childname == nil then
-        return childdata
-    end
-
     return childdata[ childname ]
-end
-
--- 获得集合属性值
-function CKernel:GetRecordValue( parentname, key, childname )
-    local data = self:FindRecordData( parentname, key, childname )
-    if data == nil then
-        return nil
-    end
-
-    return data.value
 end
 
 -- 设置集合属性值
 function CKernel:SetRecordValue( parentname, key, childname, value )
-    local data = self:FindRecordData( parentname, key, childname )
-    if data == nil then
-        return
+    local parentdata = self:GetDataValue( parentname )
+    if parentdata == nil then
+        return nil
     end
 
-    data.value = value
+    local childdata = parentdata[ key ]
+    if childdata == nil then
+        return nil
+    end
+
+    childdata[ childname ] = value
 end
 
 return CKernel

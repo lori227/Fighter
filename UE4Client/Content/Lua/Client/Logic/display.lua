@@ -6,7 +6,10 @@ function CDisplay:ctor()
 end
 
 function CDisplay:Init()
-    _message:Add( _protobuf:GetMsgId( "MSG_RESULT_DISPLAY" ), "KFMsg.MsgResultDisplay", function( msg ) self:HandleShowDisplay( msg ) end )
+    _message:Add( _protobuf:GetMsgId( "MSG_RESULT_DISPLAY" ), "KFMsg.MsgResultDisplay", 
+    function( msg ) 
+        self:HandleShowDisplay( msg ) 
+    end )
 end
 
 function CDisplay:HandleShowDisplay( msg )

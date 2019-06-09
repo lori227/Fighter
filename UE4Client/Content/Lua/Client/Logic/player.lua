@@ -5,20 +5,26 @@ function CPlayer:ctor()
 end
 
 function CPlayer:Init()
-    _message:Add( _protobuf:GetMsgId( "MSG_LOGIN_ACK" ), "KFMsg.MsgLoginAck", function( msg ) self:HandleLoginAck( msg ) end )
+    _message:Add( _protobuf:GetMsgId( "MSG_LOGIN_ACK" ), "KFMsg.MsgLoginAck", 
+    function( msg )
+         self:HandleLoginAck( msg )
+    end )
+
+    _kernel:RegisterUpdateDataFunction( "id", 
+    function( key, oldvalue, newvalue )
+        self:OnServerIdUpdate( key, oldvalue, newvalue )
+    end )
 end
 
 function CPlayer:HandleLoginAck( msg )
     self._id = msg.playerid
-    print( msg.playerid )
-    print( msg.servertime )
-
-    local playerdata = msg.playerdata
-    print( #playerdata )
-
-    table.print( playerdata )
-
+    _kernel:InitData( msg.playerid, msg.playerdata )
 end
 
+function CPlayer:OnServerIdUpdate( key, oldvalue, newvalue )
+    print( "key.."..key )
+    print( "oldvalue.."..oldvalue )
+    print( "newvalue.."..newvalue )
+end
 
 return CPlayer
