@@ -8,10 +8,11 @@ _player = CPlayer.new()
 -------------------------------------------------------
 local M = {}
 
-function M.Init()
-    
+function M.Init()  
     -- display
     _display:Init()
+
+    -- player
     _player:Init()
 end
 
