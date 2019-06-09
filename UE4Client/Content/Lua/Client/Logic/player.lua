@@ -18,14 +18,6 @@ function CPlayer:HandleLoginAck( msg )
 
     table.print( playerdata )
 
-    -- local pbuint64 = playerdata["pbobject"][1]["value"]["pbuint64"]
-    -- if pbuint64[1] ~= nil then
-    --    print( pbuint64[1]["value"] )
-    -- end    
-    -- for k, v in pairs( playerdata ) do
-    --     print( k )
-    -- end
-    -- table.dump( msg.playerdata, "playerdata -->" )
 end
 
 
