@@ -43,6 +43,11 @@ end
 function CPlayer:HandleSyncUpdateData( msg )
     _kernel:SyncUpdateData( msg.pbdata )
 
+    print("money=".._kernel:GetDataValue( "money") )
+    print("sex=".._kernel:GetObjectValue( "basic", "sex") )
+end
+
+
 function CPlayer:HandleSyncAddData( msg )
     _kernel:SyncAddData( msg.pbdata )
 end
