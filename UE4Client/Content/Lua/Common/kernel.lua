@@ -122,8 +122,10 @@ local function ParseData( data, pbdata )
         elseif k == "pbarray" then
             for _, pbarray in pairs( v ) do
                 data[ pbarray.key ] = {}
-                for _, pbuint64 in pairs( pbarray.value ) do
-                    data[ pbarray.key ][pbuint64.key] = pbuint64.value
+                for k, pbuint64s in pairs( pbarray.value )  do
+                    for _, pbuint64 in pairs( pbuint64s ) do
+                        data[ pbarray.key ][pbuint64.key] = pbuint64.value
+                    end
                 end
             end
         else
@@ -187,26 +189,71 @@ function CKernel:SyncUpdateData( data )
     UpdateData( _define._kernel_name, 0, self._data, data )
 end
 ---------------------------------------------------------
-function CKernel:SyncAddData( data )
-   --table.print( data )
+local function AddData( parentname, data, pbdata )
+    for k, v in pairs( pbdata ) do
+        if k == "pbobject" then
+            for _, pbobject in pairs( v ) do
+                if data[ pbobject.key ] == nil then
+                    data[ pbobject.key ] = {}
+                end
 
+                AddData( pbobject.key, data[ pbobject.key ], pbobject.value )
+            end
+        elseif k == "pbrecord" then
+            for _, pbrecord in pairs( v ) do
+                if data[ pbrecord.key ] == nil then
+                    data[ pbrecord.key ] = {}
+                end
+
+                for k, pbobjects in pairs( pbrecord.value ) do
+                    for _, pbobject in pairs( pbobjects )do
+                        local childdata = {}
+                        ParseData( childdata, pbobject.value )
+                        data[ pbrecord.key ][ pbobject.key ] = childdata
+
+                        -- 回调函数
+                        _kernel:CallAddFunction( parentname, pbrecord.key, pbobject.key, childdata ) 
+                    end
+                end
+            end
+        end
+    end
+end
+
+function CKernel:SyncAddData( pbdata )
+    AddData( _define._kernel_name, self._data, pbdata )
 end
 ---------------------------------------------------------
-function CKernel:RemoveData( parentdata, key )
-    local childdata = parentdata[ key ]
-    if childdata == nil then
-        return
+local function RemoveData( parentname, data, pbdata )
+    for k, v in pairs ( pbdata ) do
+        if k == "pbobject" then
+            for _, pbobject in pairs( v ) do
+                if data[ pbobject.key ] ~= nil then
+                    RemoveData( pbobject.key, data[ pbobject.key ], pbobject.value )
+                end
+            end
+        elseif k == "pbrecord" then
+            for _, pbrecord in pairs( v ) do
+                if data[ pbrecord.key ] ~= nil then
+                    for k, pbobjects in pairs( pbrecord.value ) do
+                        for _, pbobject in pairs( pbobjects )do
+                            local childdata = data[ pbrecord.key ][ pbobject.key ]
+                            if childdata ~= nil then
+                                -- 回调函数
+                                _kernel:CallRemoveFunction( parentname, pbrecord.key, pbobject.key, childdata ) 
+                                data[ pbrecord.key ][ pbobject.key ] = nil
+                            end
+
+                        end
+                    end
+                end
+            end
+        end 
     end
-
-    -- 回调函数
-    self:CallRemoveFunction( parentdata.name, childdata.name, key, childdata )
-
-    -- 删除数据
-    parentdata[ key ]= nil
 end
 
-function CKernel:SyncRemoveData( data )
-    
+function CKernel:SyncRemoveData( pbdata )
+    RemoveData( _define._kernel_name, self._data, pbdata )    
 end
 
 ---------------------------------------------------------

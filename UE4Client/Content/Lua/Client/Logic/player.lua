@@ -42,10 +42,7 @@ end
 
 function CPlayer:HandleSyncUpdateData( msg )
     _kernel:SyncUpdateData( msg.pbdata )
-
-    table.print( _kernel._data )
 end
-
 
 function CPlayer:HandleSyncAddData( msg )
     _kernel:SyncAddData( msg.pbdata )
@@ -53,6 +50,7 @@ end
 
 function CPlayer:HandleSyncRemoveData( msg )
     _kernel:SyncRemoveData( msg.pbdata )
+    table.print( _kernel._data )
 end
 
 return CPlayer

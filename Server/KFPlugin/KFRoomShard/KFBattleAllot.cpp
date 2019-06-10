@@ -96,6 +96,7 @@ namespace KFrame
                 {
                     __LOG_ERROR__( "version[{}] battle list empty!", version );
                 }
+                break;
             }
         } while ( isempty );
 
@@ -105,6 +106,6 @@ namespace KFrame
     void KFBattleAllot::UpdateBattle( uint64 serverid )
     {
         // 保存10分钟
-        _room_redis->Append( "expire {}:{} {}", __KF_STRING__( battle ), serverid, 300 );
+        _room_redis->Execute( "expire {}:{} {}", __KF_STRING__( battle ), serverid, 300 );
     }
 }
