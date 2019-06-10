@@ -41,12 +41,9 @@ function CPlayer:HandleLoginAck( msg )
 end
 
 function CPlayer:HandleSyncUpdateData( msg )
-    table.print( msg.pbdata )
-
     _kernel:SyncUpdateData( msg.pbdata )
 
-    print("money=".._kernel:GetDataValue( "money") )
-    --print("sex=".._kernel:GetObjectValue( "basic", "sex") )
+    table.print( _kernel._data )
 end
 
 

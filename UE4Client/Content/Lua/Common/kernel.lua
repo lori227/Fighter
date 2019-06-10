@@ -163,7 +163,11 @@ local function UpdateData( dataname, datakey, data, pbdata )
             for _, pbarray in pairs( v ) do
                 data[ pbarray.key ] = {}
                 for _, pbuint64 in pairs( pbarray.value ) do
+                    local oldvalue = data[ pbarray.key ][pbuint64.key] or 0
                     data[ pbarray.key ][pbuint64.key] = pbuint64.value
+                    
+                    -- 回调逻辑
+                    _kernel:CallUpdateFunction( dataname, pbarray.key, datakey, oldvalue, pbhnt64.value )
                 end
             end
         else
