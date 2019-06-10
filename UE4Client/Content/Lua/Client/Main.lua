@@ -32,7 +32,7 @@ function Main.Auth()
 	local request = { ["channel"] = channel, ["account"] = "lori227" }
 	local response = _http_client:PostJson( _define._auth_url, request )
 	if response == nil then
-		print( "http failed" )
+		_log:LogError( "url=[".._define._auth_url.."] http failed!" )
 		return
 	end
 

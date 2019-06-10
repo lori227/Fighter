@@ -31,7 +31,10 @@ function HttpRequest( url, method, senddata )
     }
 
     local str = response[1]
-    _log:LogInfo( "http result=["..str.."]" )
+    if str ~= nil then
+        _log:LogInfo( "http result=["..str.."]" )
+    end
+
     return str
 end
 
@@ -47,6 +50,10 @@ function CHttpClient:PostJson( url, sendjson )
     end
 
     local response = self:PostData( url, senddata )
+    if  response == nil then
+        return nil
+    end
+
     return _json:decode( response )
 end
 
@@ -62,6 +69,10 @@ function CHttpClient:GetJson( url, sendjson )
     end
 
     local response = self:GetData( url, senddata )
+    if response == nil then
+        return nil
+    end
+
     return _json:decode( response )
 end
 
