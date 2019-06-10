@@ -12,8 +12,8 @@
 #ifndef __LOG__
 #define __LOG__( name, level, format, ... ) \
     {\
-        auto temp = __FORMAT__( format, ##__VA_ARGS__ );\
-        FString ftemp( temp.c_str() );\
+        auto logtemp = __FORMAT__( format, ##__VA_ARGS__ );\
+        FString ftemp( logtemp.c_str() );\
         UE_LOG( name, level, TEXT( "%s" ), *ftemp );\
     }
 #endif

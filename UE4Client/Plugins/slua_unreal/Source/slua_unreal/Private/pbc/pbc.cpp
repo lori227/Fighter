@@ -723,8 +723,8 @@ namespace slua {
             lua_pushvalue( L, -3 );
             lua_pushstring( L, type_name );
             lua_pushlstring( L, ( const char* )v->s.buffer, v->s.len );
-            lua_pushnumber( L, v->s.len );
-            lua_call( L, 3, 1 );
+            //lua_pushnumber( L, v->s.len );
+            lua_call( L, 2, 1 );
             break;
         case PBC_FIXED64:
         case PBC_UINT:

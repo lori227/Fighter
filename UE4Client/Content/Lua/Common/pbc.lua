@@ -447,8 +447,8 @@ end
 
 local decode_message_mt = {}
 
-local function decode_message_cb(typename, buffer, length)
-	return setmetatable ( { typename, buffer, length } , decode_message_mt)
+local function decode_message_cb(typename, buffer)
+	return setmetatable ( { typename, buffer } , decode_message_mt)
 end
 
 function M.decode(typename, buffer, length)
@@ -464,10 +464,10 @@ end
 local function expand(tbl)
 	local typename = rawget(tbl , 1)
 	local buffer = rawget(tbl , 2)
-	local length = rawget(tbl , 3)
+	--local length = rawget(tbl , 3)
 
-	tbl[1] , tbl[2], tbl[3] = nil , nil, nil
-	assert(c._decode(P, decode_message_cb, tbl, typename, buffer, length), typename)
+	tbl[1] , tbl[2] = nil , nil
+	assert(c._decode(P, decode_message_cb, tbl, typename, buffer), typename)
 	setmetatable(tbl , default_table(typename))
 end
 

@@ -184,7 +184,7 @@ function CKernel:SyncUpdateData( data )
 end
 ---------------------------------------------------------
 function CKernel:SyncAddData( data )
-   table.print( data )
+   --table.print( data )
 
 end
 ---------------------------------------------------------

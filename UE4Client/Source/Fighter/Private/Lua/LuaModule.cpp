@@ -1,4 +1,4 @@
-
+﻿
 #include "Public/Lua/LuaModule.h"
 #include "HAL/PlatformFileManager.h"
 #include "GenericPlatformFile.h"
@@ -14,7 +14,7 @@ void LuaModule::Init( ENetType nettype )
     {
         _lua_path = TEXT( "Lua/Server/" );
     }
-    
+
     _state.init();
 }
 
@@ -22,15 +22,15 @@ void LuaModule::Startup()
 {
     _state.close();
     _state.init();
-    
+
     // register load function
-    _state.setLoadFileDelegate( []( const char* fn, uint32& len, FString& filepath )->uint8*
+    _state.setLoadFileDelegate( []( const char* fn, uint32 & len, FString & filepath )->uint8*
     {
         auto& platformfile = FPlatformFileManager::Get().GetPlatformFile();
         FString path = FPaths::ProjectContentDir();
         path += UFighterInstance::Instance()->_lua_module->_lua_path;
         path += UTF8_TO_TCHAR( fn );
-        TArray<FString> luaExts = { TEXT(".luac"), TEXT(".lua") };
+        TArray<FString> luaExts = { TEXT( ".luac" ), TEXT( ".lua" ) };
         for ( auto ptr = luaExts.CreateConstIterator(); ptr; ++ptr )
         {
             auto fullPath = path + *ptr;
@@ -41,13 +41,13 @@ void LuaModule::Startup()
                 return buff;
             }
         }
-                                   
+
         return nullptr;
-    });
-    
+    } );
+
     // load main file
     slua::LuaVar v = _state.doFile( "main" );
-    if ( !v.isNil() && v.getAt(1).asInt() == 0 )
+    if ( !v.isNil() && v.getAt( 1 ).asInt() == 0 )
     {
         // call init
         _state.call( "Main.Init" );
@@ -64,7 +64,7 @@ void LuaModule::Tick( float deltatime )
     if ( _is_lua_ok )
     {
         _state.tick( deltatime );
-        _state.call("Main.Tick", deltatime );
+        _state.call( "Main.Tick", deltatime );
     }
 }
 
@@ -92,6 +92,6 @@ void LuaModule::OnNetDisconnect( uint64 id, int32 code )
 
 void LuaModule::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
-    _state.call( "Main.HandleMessage", msgid, (const char*)data, length );
+    _state.call( "Main.HandleMessage", msgid, ( void* )data, length );
 }
 
