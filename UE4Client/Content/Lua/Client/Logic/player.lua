@@ -50,7 +50,7 @@ end
 
 function CPlayer:HandleSyncRemoveData( msg )
     _kernel:SyncRemoveData( msg.pbdata )
-    table.print( _kernel._data )
+
 end
 
 return CPlayer

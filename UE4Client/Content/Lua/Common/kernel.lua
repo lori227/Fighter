@@ -114,9 +114,12 @@ local function ParseData( data, pbdata )
         elseif k == "pbrecord" then
             for _, pbrecord in pairs( v ) do
                 data[ pbrecord.key ] = {}
-                for _, pbobject in pairs( pbrecord.value ) do
-                    data[ pbrecord.key ][ pbobject.key ] = {}
-                    ParseData( data[ pbrecord.key ][ pbobject.key ], pbobject.value )
+
+                for k, pbobjects in pairs( pbrecord.value ) do
+                    for _, pbobject in pairs( pbobjects )do
+                        data[ pbrecord.key ][ pbobject.key ] = {}
+                        ParseData( data[ pbrecord.key ][ pbobject.key ], pbobject.value )
+                    end
                 end
             end
         elseif k == "pbarray" then
@@ -153,11 +156,16 @@ local function UpdateData( dataname, datakey, data, pbdata )
             end
         elseif k == "pbrecord" then
             for _, pbrecord in pairs( v ) do
-                data[ pbrecord.key ] = {}
-                for _, pbobject in pairs( pbrecord.value ) do
-                    local object = data[ pbrecord.key ][ pbobject.key ]
-                    if object ~= nil then
-                        UpdateData( pbrecord.key, pbobject.key, object, pbobject.value )
+                if data[ pbrecord.key ] == nil then
+                    data[ pbrecord.key ] = {}
+                end
+                
+                for k, pbobjects in pairs( pbrecord.value ) do
+                    for _, pbobject in pairs( pbobjects ) do
+                        local childdata = data[ pbrecord.key ][ pbobject.key ]
+                        if childdata ~= nil then
+                            UpdateData( pbrecord.key, pbobject.key, childdata, pbobject.value )
+                        end
                     end
                 end
             end
