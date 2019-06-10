@@ -47,7 +47,7 @@ end
 function CProtobuf:Decode( msgname, msgdata, msglength )
     local msg, error = pbc.decode( msgname, msgdata, msglength );
     if msg == false then
-        _log:LogError( "msgname = "..msgname.." parse failed = "..error )
+        _log:LogError( "msgname=["..msgname.."] parse failed=["..error.."]" )
         return nil
     end
 
