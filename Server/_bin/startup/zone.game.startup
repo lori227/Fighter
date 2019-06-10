@@ -21,6 +21,7 @@
 		<Plugin Name="KFDataClient" Config=""/>	
 		<Plugin Name="KFMatchClient" Config=""/>	
 		<Plugin Name="KFRoomClient" Config=""/>	
+		<Plugin Name="KFPublicClient" Config=""/>	
 		<Plugin Name="KFHero" Config="./config/hero.config"/>		
 	</Plugins>
 </Setting>

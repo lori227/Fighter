@@ -88,6 +88,7 @@ rem ===========================================================================
 rem ===========================================================================
 echo "update _lib path begin"
 set libpath=_lib
+rd /s /q %localpath%\%libpath%
 if not exist %localpath%\%libpath% ( mkdir %localpath%\%libpath% )
 if not exist %localpath%\%libpath%\win64 ( mkdir %localpath%\%libpath%\win64 )
 xcopy /y /S %framepath%\%libpath%\win64\* %localpath%\%libpath%\win64 
@@ -238,8 +239,8 @@ if not exist %resourcepath%\config\rank.config (
 )
 
 rem tool=================================
-if not exist %resourcepath%\tool ( mkdir %resourcepath%\tool )
-xcopy /y %framepath%\_resource\tool\* %resourcepath%\tool 
+rem if not exist %resourcepath%\tool ( mkdir %resourcepath%\tool )
+rem xcopy /y %framepath%\_resource\tool\* %resourcepath%\tool 
 
 rem excel=================================
 if not exist %resourcepath%\excel ( mkdir %resourcepath%\excel )
@@ -335,8 +336,8 @@ rem call :CopyInterface KFRankShard
 copy /y %framepath%\%binpath%\config\rank.config ..\Resource\config\
 
 rem public
-rem call :CopyInterface KFPublicClient
-rem call :CopyInterface KFPublicShard
+call :CopyInterface KFPublicClient
+call :CopyInterface KFPublicShard
 
 rem relation
 rem call :CopyInterface KFRelationClient

@@ -16,7 +16,7 @@ namespace KFrame
         }
 
         // 读取配置
-        bool LoadConfig();
+        bool LoadConfig( const std::string& file );
 
         // 随机英雄
         uint32 RandHero() const;

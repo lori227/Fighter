@@ -3,11 +3,11 @@
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////
-    bool KFHeroConfig::LoadConfig()
+    bool KFHeroConfig::LoadConfig( const std::string& file )
     {
         _settings.Clear();
         //////////////////////////////////////////////////////////////////
-        KFXml kfxml( _file );
+        KFXml kfxml( file );
         auto config = kfxml.RootNode();
         auto xmlnode = config.FindNode( "Setting" );
         while ( xmlnode.IsValid() )

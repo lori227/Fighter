@@ -960,11 +960,18 @@ class LIBPROTOC_EXPORT S2SHeartBeatToRoomReq : public ::google::protobuf::Messag
   ::google::protobuf::uint64 roomid() const;
   void set_roomid(::google::protobuf::uint64 value);
 
+  // uint64 serverid = 2;
+  void clear_serverid();
+  static const int kServeridFieldNumber = 2;
+  ::google::protobuf::uint64 serverid() const;
+  void set_serverid(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.S2SHeartBeatToRoomReq)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint64 roomid_;
+  ::google::protobuf::uint64 serverid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
 };
@@ -2693,6 +2700,20 @@ inline void S2SHeartBeatToRoomReq::set_roomid(::google::protobuf::uint64 value) 
   
   roomid_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.S2SHeartBeatToRoomReq.roomid)
+}
+
+// uint64 serverid = 2;
+inline void S2SHeartBeatToRoomReq::clear_serverid() {
+  serverid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 S2SHeartBeatToRoomReq::serverid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SHeartBeatToRoomReq.serverid)
+  return serverid_;
+}
+inline void S2SHeartBeatToRoomReq::set_serverid(::google::protobuf::uint64 value) {
+  
+  serverid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SHeartBeatToRoomReq.serverid)
 }
 
 // -------------------------------------------------------------------

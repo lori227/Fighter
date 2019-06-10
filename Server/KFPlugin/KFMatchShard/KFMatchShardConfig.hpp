@@ -37,7 +37,7 @@ namespace KFrame
         }
 
         // 读取配置
-        bool LoadConfig();
+        bool LoadConfig( const std::string& file );
 
         // 查找配置
         const KFMatchSetting* FindMatchSetting( uint32 matchid ) const;

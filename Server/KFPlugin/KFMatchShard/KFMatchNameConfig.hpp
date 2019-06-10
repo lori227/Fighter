@@ -22,7 +22,7 @@ namespace KFrame
         }
 
         // 读取配置
-        bool LoadConfig();
+        bool LoadConfig( const std::string& file );
 
         // 随机名字
         const std::string& RandName() const;

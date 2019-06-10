@@ -22,7 +22,7 @@ namespace KFrame
         }
 
         // 读取配置
-        bool LoadConfig();
+        bool LoadConfig( const std::string& file );
 
         // 查找配置
         const KFHeroSetting* FindHeroSetting( uint32 heroid ) const;

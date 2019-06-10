@@ -85,7 +85,7 @@ namespace KFrame
             player->SaveTo( req.add_pbplayer() );
         }
 
-        _kf_route->SendToBalance( __KF_STRING__( room ), KFMsg::S2S_CREATE_ROOM_TO_ROOM_REQ, &req );
+        _kf_route->SendToBalance( __KF_STRING__( room ), KFMsg::S2S_CREATE_ROOM_TO_ROOM_REQ, &req, false );
     }
 
     void KFMatchRoom::AffirmCreate()

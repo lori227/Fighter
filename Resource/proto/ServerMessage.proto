@@ -107,6 +107,7 @@ message S2SFinishRoomToBattleAck
 message S2SHeartBeatToRoomReq
 {
 	uint64 roomid = 1;
+	uint64 serverid = 2;
 }
 
 
