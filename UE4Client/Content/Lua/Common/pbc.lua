@@ -447,13 +447,13 @@ end
 
 local decode_message_mt = {}
 
-local function decode_message_cb(typename, buffer)
-	return setmetatable ( { typename, buffer } , decode_message_mt)
+local function decode_message_cb(typename, buffer, length)
+	return setmetatable ( { typename, buffer, length } , decode_message_mt)
 end
 
 function M.decode(typename, buffer, length)
 	local ret = {}
-	local ok = c._decode(P, decode_message_cb , ret , typename, buffer, length)
+	local ok = c._decode(P, decode_message_cb, ret, typename, buffer, length)
 	if ok then
 		return setmetatable(ret , default_table(typename))
 	else
@@ -464,8 +464,10 @@ end
 local function expand(tbl)
 	local typename = rawget(tbl , 1)
 	local buffer = rawget(tbl , 2)
-	tbl[1] , tbl[2] = nil , nil
-	assert(c._decode(P, decode_message_cb , tbl , typename, buffer), typename)
+	local length = rawget(tbl , 3)
+
+	tbl[1] , tbl[2], tbl[3] = nil , nil, nil
+	assert(c._decode(P, decode_message_cb, tbl, typename, buffer, length), typename)
 	setmetatable(tbl , default_table(typename))
 end
 
@@ -503,7 +505,6 @@ function M.register_file(filename)
   	local fh, err = io.open(filename, "rb")
   	if fh then
      	local buffer = fh:read "*a"
-     	--print(buffer)
      	c._env_register(P, buffer)
 		fh:close()
   	else

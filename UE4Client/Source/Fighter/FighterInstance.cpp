@@ -1,10 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "FighterInstance.h"
 #include "Public/Network/NetClient.h"
 #include "Public/Lua/LuaModule.h"
-#include "Public/Protocol/Protocol.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Fighter, "Fighter" );
 
@@ -45,7 +44,7 @@ ETickableTickType UFighterInstance::GetTickableTickType() const
 void UFighterInstance::Init()
 {
     Super::Init();
-    
+
 #if !UE_SERVER
     // client
     auto nettype = ENetType::Client;
@@ -55,9 +54,9 @@ void UFighterInstance::Init()
     auto nettype = ENetType::Server;
     FString name = TEXT( "server" );
 #endif
-    
+
     __LOG_INFO__( LogInstance, "UFighterInstance::Init...[{}]!", TCHAR_TO_UTF8( *name ) );
-    
+
     // net work
     _net_client = new NetClient();
     _net_client->Init( name, nettype, 200, 200, false );
@@ -80,7 +79,7 @@ void UFighterInstance::Shutdown()
         _net_client->Shutdown();
         _net_client = nullptr;
     }
-    
+
     // lua
     if ( _lua_module != nullptr )
     {
@@ -95,7 +94,7 @@ void UFighterInstance::Tick( float deltatime )
 {
     // net
     _net_client->Tick( deltatime );
-    
+
     // lua
     _lua_module->Tick( deltatime );
 }

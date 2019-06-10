@@ -120,9 +120,13 @@ local function ParseData( data, pbdata )
                 end
             end
         else
-            for _, pbvalue in pairs( v ) do
-                data[ pbvalue.key ] = pbvalue.value
-            end   
+            if ( type( v ) ~= "table" ) then
+                print( "v ......."..v )
+            else
+                for _, pbvalue in pairs( v ) do
+                    data[ pbvalue.key ] = pbvalue.value
+                end
+            end  
         end
     end
 end
@@ -153,13 +157,18 @@ local function UpdateData( dataname, datakey, data, pbdata )
                 end
             end
         else
-            for _, pbvalue in pairs( v ) do
-                local oldvalue = data[ pbvalue.key ] or 0
-                data[ pbvalue.key ] = pbvalue.value
 
-                -- 回调逻辑
-                _kernel:CallUpdateFunction( dataname, pbvalue.key, datakey, oldvalue, pbvalue.value )
-            end   
+            if ( type( v ) ~= "table" ) then
+                print( "v ......."..v )
+            else
+                for _, pbvalue in pairs( v ) do
+                    local oldvalue = data[ pbvalue.key ] or 0
+                    data[ pbvalue.key ] = pbvalue.value
+
+                    -- 回调逻辑
+                    _kernel:CallUpdateFunction( dataname, pbvalue.key, datakey, oldvalue, pbvalue.value )
+                end   
+            end
         end
     end
 end
@@ -170,7 +179,8 @@ function CKernel:SyncUpdateData( data )
 end
 ---------------------------------------------------------
 function CKernel:SyncAddData( data )
-   
+   --table.print( data )
+
 end
 ---------------------------------------------------------
 function CKernel:RemoveData( parentdata, key )

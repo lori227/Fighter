@@ -10,21 +10,45 @@ function CPlayer:Init()
          self:HandleLoginAck( msg )
     end )
 
-    _kernel:RegisterUpdateDataFunction( "id", 
-    function( key, oldvalue, newvalue )
-        self:OnServerIdUpdate( key, oldvalue, newvalue )
+    _message:Add( _protobuf:GetMsgId( "MSG_SYNC_UPDATE_DATA" ), "KFMsg.MsgSyncUpdateData", 
+    function( msg )
+         self:HandleSyncUpdateData( msg )
+    end )
+
+    _message:Add( _protobuf:GetMsgId( "MSG_SYNC_ADD_DATA" ), "KFMsg.MsgSyncAddData", 
+    function( msg )
+         self:HandleSyncAddData( msg )
+    end )
+
+    _message:Add( _protobuf:GetMsgId( "MSG_SYNC_REMOVE_DATA" ), "KFMsg.MsgSyncRemoveData", 
+    function( msg )
+         self:HandleSyncRemoveData( msg )
     end )
 end
 
 function CPlayer:HandleLoginAck( msg )
     self._id = msg.playerid
     _kernel:InitData( msg.playerid, msg.playerdata )
+
+    local data = 
+	{
+	   matchid = 1,
+       serverid = 0,
+	   version = "0.0.0.0"
+	}
+	
+    _net_client:Send( _protobuf:GetMsgId( "MSG_START_MATCH_REQ" ), "KFMsg.MsgStartMatchReq", data )
 end
 
-function CPlayer:OnServerIdUpdate( key, oldvalue, newvalue )
-    print( "key.."..key )
-    print( "oldvalue.."..oldvalue )
-    print( "newvalue.."..newvalue )
+function CPlayer:HandleSyncUpdateData( msg )
+    _kernel:SyncUpdateData( msg.pbdata )
+
+function CPlayer:HandleSyncAddData( msg )
+    _kernel:SyncAddData( msg.pbdata )
+end
+
+function CPlayer:HandleSyncRemoveData( msg )
+    _kernel:SyncRemoveData( msg.pbdata )
 end
 
 return CPlayer
