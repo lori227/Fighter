@@ -52,7 +52,6 @@ end
 function Main.Tick( deltatime )
 	-- 定时器逻辑
 	_timer:Tick( deltatime )
-
 end
 
 function Main.OnConnect( id, code )
