@@ -7,7 +7,7 @@ function CHttpClient:ctor()
     self._version = "0.1.1"
 end
 
-function CoroutineHttpRequest( url, method, senddata )
+function HttpRequest( url, method, senddata )
     local length = 0
     if senddata ~= nil then
         length = #senddata
@@ -34,14 +34,6 @@ function CoroutineHttpRequest( url, method, senddata )
     if str ~= nil then
         _log:LogInfo( "http result=["..str.."]" )
     end
-
-    coroutine.yield( str )
-end
-
-function HttpRequest( url, method, senddata )
-    local request = coroutine.create( CoroutineHttpRequest )
-    local status, value = coroutine.resume( request, url, method, senddata )  
-    return value
 end
 
 function CHttpClient:PostData( url, senddata )
