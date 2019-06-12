@@ -15,7 +15,7 @@ if  [ ! -n "$3" ] ;then
 	exit 0
 fi
 
-git pull
+svn up ../../../Resource
 
 build="1"
 uptype=1
@@ -34,10 +34,10 @@ if  [ "$build" = "1" ] ;then
 fi
 
 # make version
-#svnversion=`svn info |awk 'NR==6{print $2}'`
-#if [ "$svnversion" = "" ];then
-svnversion=`git log -1 --pretty=format:"%h"`
-#fi
+svnversion=`svn info |awk 'NR==6{print $2}'`
+if [ "$svnversion" = "" ];then
+ svnversion=`git log -1 --pretty=format:"%h"`
+fi
 
 # resource
 cd ../../
@@ -53,6 +53,6 @@ cp -rf ../Resource/script/ _bin/
 
 cd _bin/_gcm/builder/
 chmod 777 gcm_build
-./gcm_build -p "fighter" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2 -t $uptype
+./gcm_build -p "chess" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2 -t $uptype
 
 cd ../../../../../

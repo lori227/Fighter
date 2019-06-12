@@ -34,6 +34,8 @@ function HttpRequest( url, method, senddata )
     if str ~= nil then
         _log:LogInfo( "http result=["..str.."]" )
     end
+
+    return str
 end
 
 function CHttpClient:PostData( url, senddata )

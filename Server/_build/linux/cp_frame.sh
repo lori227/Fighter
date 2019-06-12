@@ -1,14 +1,18 @@
 #!bash/sh
 
 # lib
-libpath=../../_lib/linux/$1
-rm -rf $libpath
-mkdir -p "$libpath"
+libpath=../../_lib/linux
 
-framepath=../../../../KFrame
-framelibpath=$framepath/_lib/linux/$1
-cp -rf $framelibpath/* $libpath/ 
+rm -rf $libpath/3rd
+mkdir -p $libpath/3rd
 
+rm -rf $libpath/$1
+mkdir -p $libpath/$1
+
+framepath=../../../../../../frame/trunk
+framelibpath=$framepath/_lib/linux
+cp -rf $framelibpath/3rd/* $libpath/3rd
+cp -rf $framelibpath/$1/* $libpath/$1
 
 # bin
 binpath=../../_bin/bin/linux/$1
@@ -63,4 +67,5 @@ cp -f $framebinpath/KFCommand$filename.so $binpath/
 cp -f $framebinpath/KFEnter$filename.so $binpath/
 cp -f $framebinpath/KFLeave$filename.so $binpath/
 cp -f $framebinpath/KFReset$filename.so $binpath/
-
+cp -f $framebinpath/KFPublicClient$filename.so $binpath/
+cp -f $framebinpath/KFPublicShard$filename.so $binpath/
