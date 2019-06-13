@@ -145,26 +145,38 @@ bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
         return false;
     }
 
+    _last_send_time = ( uint64 )FPlatformTime::Seconds();
     return _net_send->SendNetMessage( msgid, data, length );
+}
+
+void NetSocket::SendPingMessage()
+{
+    // 20秒没有消息通讯, 发送一次ping消息
+    // keeplive 经常会失灵, 很久才检测到断开 问题待查
+    if ( _last_send_time + 20 > ( uint64 )FPlatformTime::Seconds() )
+    {
+        return;
+    }
+
+    SendNetMessage( 0, nullptr, 0u );
 }
 
 NetMessage* NetSocket::PopNetMessage()
 {
-    NetMessage* message = nullptr;
-    if ( _is_connect )
+    auto message = _net_recv->PopMessage();
+    if ( message != nullptr )
     {
-        message = _net_recv->PopMessage();
-        if ( message != nullptr )
-        {
-            _last_recv_time = FPlatformTime::Seconds();
+        _last_recv_time = FPlatformTime::Seconds();
 
-            // ping 消息不处理
-            if ( message->_head._msgid == 0u )
-            {
-                message = nullptr;
-            }
+        // ping 消息不处理
+        if ( message->_head._msgid == 0u )
+        {
+            message = nullptr;
         }
-        else
+    }
+    else
+    {
+        if ( _is_connect )
         {
             // 超过60秒没有消息,认为已经断线了,
             // 服务器没20秒发送一个ping消息

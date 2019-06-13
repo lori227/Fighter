@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Network/NetClient.h"
 #include "Public/Network/NetMessage.h"
@@ -17,7 +17,7 @@ void NetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesiz
 void NetClient::Connect( uint64 id, const FString& ip, uint32 port )
 {
     _id = id;
-    
+
     // 创建新的连接
     _net_socket->StartConnect( ip, port );
 }
@@ -39,7 +39,7 @@ bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 }
 
 void NetClient::Tick( float deltatime )
-{    // 处理网络事件
+{   // 处理网络事件
     HandleNetEvent();
 
     // 处理网络消息
@@ -68,6 +68,9 @@ void NetClient::HandleNetEvent()
 
 void NetClient::HandleNetMessage()
 {
+    // 发送ping消息
+    _net_socket->SendPingMessage();
+
     auto message = _net_socket->PopNetMessage();
     while ( message != nullptr )
     {

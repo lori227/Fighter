@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -56,6 +56,8 @@ public:
     // 弹出一个消息
     NetMessage* PopNetMessage();
 
+    // 发送ping消息
+    void SendPingMessage();
 public:
     // socket
     FSocket* _socket = nullptr;
@@ -93,4 +95,5 @@ private:
 
     // 最后一次接受消息时间
     uint64 _last_recv_time = 0;
+    uint64 _last_send_time = 0;
 };
