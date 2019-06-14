@@ -9,7 +9,7 @@ mkdir -p $libpath/3rd
 rm -rf $libpath/$1
 mkdir -p $libpath/$1
 
-framepath=../../../../../../frame/trunk
+framepath=../../../../KFrame
 framelibpath=$framepath/_lib/linux
 cp -rf $framelibpath/3rd/* $libpath/3rd
 cp -rf $framelibpath/$1/* $libpath/$1
