@@ -6,13 +6,13 @@
 #include "NetDefine.h"
 #include "NetMessage.h"
 
-class NetSocket;
+class FNetSocket;
 
-class NetRecv : public Thread
+class FNetRecv : public FThread
 {
 public:
-    NetRecv( NetSocket* socket, uint32 queuesize );
-    ~NetRecv();
+    FNetRecv( FNetSocket* socket, uint32 queuesize );
+    ~FNetRecv();
 
     // 开始服务
     void StartService();
@@ -21,7 +21,7 @@ public:
     void StopService();
 
     // 弹出消息
-    NetMessage* PopMessage();
+    FNetMessage* PopMessage();
 
 protected:
     // read
@@ -31,29 +31,29 @@ protected:
     void ParseBuffToMessage();
 
     // read head
-    NetHead* CheckRecvBuffValid( uint32 position );
+    FNetHead* CheckRecvBuffValid( uint32 position );
 
     // 计算地址长度
     void CalcBuffTotalLength( uint32 totallength );
 
-    NetMessage* PopSingleMessage( NetMessage* message );
-    NetMessage* PopMultiMessage( NetMessage* message );
+    FNetMessage* PopSingleMessage( FNetMessage* message );
+    FNetMessage* PopMultiMessage( FNetMessage* message );
 
 private:
     // socket
-    NetSocket* _net_socket = nullptr;
+    FNetSocket* _net_socket = nullptr;
 
     // 缓冲区
     int8* _data_buff = nullptr;
     uint32 _data_buff_length = 0u;
 
     // 收消息队列
-    TCircle< NetMessage > _recv_queue;
+    TCircle< FNetMessage > _recv_queue;
 
     // 投递接受数据的大小
-    int8 _req_buff[ NetDefine::MaxReqBuffLength ];
+    int8 _req_buff[ ENetDefine::MaxReqBuffLength ];
 
     // 接受消息队列
     uint32 _recv_length = 0u;
-    int8 _recv_buff[ NetDefine::MaxRecvBuffLength ];
+    int8 _recv_buff[ ENetDefine::MaxRecvBuffLength ];
 };

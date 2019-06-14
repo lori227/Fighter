@@ -4,7 +4,7 @@
 #include "GenericPlatformFile.h"
 #include "FighterInstance.h"
 
-void LuaModule::Init( ENetType nettype )
+void FLuaModule::Init( ENetType nettype )
 {
     if ( nettype == ENetType::Client )
     {
@@ -18,7 +18,7 @@ void LuaModule::Init( ENetType nettype )
     _state.init();
 }
 
-void LuaModule::Startup()
+void FLuaModule::Startup()
 {
     _state.close();
     _state.init();
@@ -59,7 +59,7 @@ void LuaModule::Startup()
     }
 }
 
-void LuaModule::Tick( float deltatime )
+void FLuaModule::Tick( float deltatime )
 {
     if ( _is_lua_ok )
     {
@@ -68,29 +68,29 @@ void LuaModule::Tick( float deltatime )
     }
 }
 
-void LuaModule::Shutdown()
+void FLuaModule::Shutdown()
 {
     _state.close();
 }
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-void LuaModule::OnNetConnectOk( uint64 id, int32 code )
+void FLuaModule::OnNetConnectOk( uint64 id, int32 code )
 {
     _state.call( "Main.NetConnect", id, code );
 }
 
-void LuaModule::OnNetFailed( uint64 id, int32 code )
+void FLuaModule::OnNetFailed( uint64 id, int32 code )
 {
     _state.call( "Main.NetFailed", id, code );
 }
 
-void LuaModule::OnNetDisconnect( uint64 id, int32 code )
+void FLuaModule::OnNetDisconnect( uint64 id, int32 code )
 {
     _state.call( "Main.NetDisconnect", id, code );
 }
 
-void LuaModule::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
+void FLuaModule::HandleNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     _state.call( "Main.HandleMessage", msgid, ( void* )data, length );
 }

@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-namespace NetDefine
+namespace ENetDefine
 {
     enum EConstDefine
     {

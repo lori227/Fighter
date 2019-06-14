@@ -1,16 +1,16 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Public/Network/NetConnect.h"
 #include "Public/Network/NetSocket.h"
 #include "Public/Network/NetDefine.h"
 
-NetConnect::NetConnect( NetSocket* socket )
+FNetConnect::FNetConnect( FNetSocket* socket )
 {
     _net_socket = socket;
 }
 
-void NetConnect::StartService( const FString& ip, uint32 port )
+void FNetConnect::StartService( const FString& ip, uint32 port )
 {
     _ip = ip;
     _port = port;
@@ -19,12 +19,12 @@ void NetConnect::StartService( const FString& ip, uint32 port )
     Start( TEXT( "NetConnect" ), false );
 }
 
-void NetConnect::StopService()
+void FNetConnect::StopService()
 {
     Shutdown();
 }
 
-void NetConnect::ThreadBody()
+void FNetConnect::ThreadBody()
 {
     __LOG_INFO__( LogNetwork, "start connect server=[{}:{}]!", TCHAR_TO_UTF8( *_ip ), _port );
 

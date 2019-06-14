@@ -3,18 +3,18 @@
 #include "Public/Network/NetClient.h"
 #include "Public/Network/NetMessage.h"
 
-NetClient::~NetClient()
+FNetClient::~FNetClient()
 {
     __SAFE_DELETE__( _net_socket );
 }
 
-void NetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
+void FNetClient::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
 {
-    _net_socket = new NetSocket();
+    _net_socket = new FNetSocket();
     _net_socket->Init( name, nettype, sendqueuesize, recvqueuesize, disconnectsend );
 }
 
-void NetClient::Connect( uint64 id, const FString& ip, uint32 port )
+void FNetClient::Connect( uint64 id, const FString& ip, uint32 port )
 {
     _id = id;
 
@@ -22,23 +22,23 @@ void NetClient::Connect( uint64 id, const FString& ip, uint32 port )
     _net_socket->StartConnect( ip, port );
 }
 
-void NetClient::Shutdown()
+void FNetClient::Shutdown()
 {
     _net_socket->Close();
 }
 
-bool NetClient::SendNetMessage( uint32 msgid, google::protobuf::Message* message )
+bool FNetClient::SendNetMessage( uint32 msgid, google::protobuf::Message* message )
 {
     auto strdata = message->SerializeAsString();
     return SendNetMessage( msgid, ( const int8* )strdata.data(), strdata.size() );
 }
 
-bool NetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+bool FNetClient::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     return _net_socket->SendNetMessage( msgid, data, length );
 }
 
-void NetClient::Tick( float deltatime )
+void FNetClient::Tick( float deltatime )
 {   // 处理网络事件
     HandleNetEvent();
 
@@ -46,7 +46,7 @@ void NetClient::Tick( float deltatime )
     HandleNetMessage();
 }
 
-void NetClient::HandleNetEvent()
+void FNetClient::HandleNetEvent()
 {
     auto event = _net_socket->PopNetEvent();
     while ( event != nullptr )
@@ -66,7 +66,7 @@ void NetClient::HandleNetEvent()
     }
 }
 
-void NetClient::HandleNetMessage()
+void FNetClient::HandleNetMessage()
 {
     // 发送ping消息
     _net_socket->SendPingMessage();

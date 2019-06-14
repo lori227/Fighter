@@ -13,16 +13,16 @@
 DECLARE_LOG_CATEGORY_CLASS( LogNetwork, All, All );
 
 class FSocket;
-class NetSend;
-class NetRecv;
-class NetConnect;
-class NetMessage;
+class FNetSend;
+class FNetRecv;
+class FNetConnect;
+class FNetMessage;
 
-class NetSocket
+class FNetSocket
 {
 public:
-    NetSocket();
-    ~NetSocket();
+    FNetSocket();
+    ~FNetSocket();
 
 public:
     // init
@@ -45,7 +45,7 @@ public:
     void PushNetEvent( uint32 type, int32 code = 0 );
 
     // 弹出一个网络事件
-    NetEvent* PopNetEvent();
+    FNetEvent* PopNetEvent();
 
     // connect
     void StartConnect( const FString& ip, uint32 port );
@@ -54,7 +54,7 @@ public:
     bool SendNetMessage( uint32 msgid, const int8* data, uint32 length );
 
     // 弹出一个消息
-    NetMessage* PopNetMessage();
+    FNetMessage* PopNetMessage();
 
     // 发送ping消息
     void SendPingMessage();
@@ -79,16 +79,16 @@ private:
     FString _name;
 
     // 连接线程
-    NetConnect* _net_connect = nullptr;
+    FNetConnect* _net_connect = nullptr;
 
     // 发送线程
-    NetSend* _net_send = nullptr;
+    FNetSend* _net_send = nullptr;
 
     // 接收线程
-    NetRecv* _net_recv = nullptr;
+    FNetRecv* _net_recv = nullptr;
 
     // 网络事件列表
-    std::list< NetEvent* > _event_queue;
+    std::list< FNetEvent* > _event_queue;
 
     /**< 互斥锁 */
     FCriticalSection _event_lock;

@@ -58,15 +58,15 @@ void UFighterInstance::Init()
     __LOG_INFO__( LogInstance, "UFighterInstance::Init...[{}]!", TCHAR_TO_UTF8( *name ) );
 
     // net work
-    _net_client = new NetClient();
+    _net_client = new FNetClient();
     _net_client->Init( name, nettype, 200, 200, false );
     _net_client->RegisterMessageFunction( this, &UFighterInstance::HandleNetMessage );
-    _net_client->RegisterNetEventFunction( NetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
-    _net_client->RegisterNetEventFunction( NetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
-    _net_client->RegisterNetEventFunction( NetDefine::DisconnectEvent, this, &UFighterInstance::OnNetClientDisconnect );
+    _net_client->RegisterNetEventFunction( ENetDefine::ConnectEvent, this, &UFighterInstance::OnNetClientConnectOk );
+    _net_client->RegisterNetEventFunction( ENetDefine::FailedEvent, this, &UFighterInstance::OnNetClientConnectFailed );
+    _net_client->RegisterNetEventFunction( ENetDefine::DisconnectEvent, this, &UFighterInstance::OnNetClientDisconnect );
 
     // lua
-    _lua_module = new LuaModule();
+    _lua_module = new FLuaModule();
     _lua_module->Init( nettype );
     _lua_module->Startup();
 }

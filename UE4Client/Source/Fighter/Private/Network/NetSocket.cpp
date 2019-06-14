@@ -5,13 +5,13 @@
 #include "Public/Network/NetSend.h"
 #include "Public/Network/NetRecv.h"
 
-NetSocket::NetSocket()
+FNetSocket::FNetSocket()
 {
     _is_close = false;
     _is_connect = false;
 }
 
-NetSocket::~NetSocket()
+FNetSocket::~FNetSocket()
 {
     __SAFE_DELETE__( _net_connect );
     __SAFE_DELETE__( _net_send );
@@ -19,18 +19,18 @@ NetSocket::~NetSocket()
     __SAFE_DELETE_FUNCTION__( _socket, ISocketSubsystem::Get( PLATFORM_SOCKETSUBSYSTEM )->DestroySocket );
 }
 
-void NetSocket::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
+void FNetSocket::Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend )
 {
     _name = name;
     _is_disconnect_send = disconnectsend;
-    _message_head_length = ( nettype == ENetType::Server ? sizeof( ServerHead ) : sizeof( ClientHead ) );
+    _message_head_length = ( nettype == ENetType::Server ? sizeof( FServerHead ) : sizeof( FClientHead ) );
 
-    _net_connect = new NetConnect( this );
-    _net_send = new NetSend( this, sendqueuesize );
-    _net_recv = new NetRecv( this, recvqueuesize );
+    _net_connect = new FNetConnect( this );
+    _net_send = new FNetSend( this, sendqueuesize );
+    _net_recv = new FNetRecv( this, recvqueuesize );
 }
 
-void NetSocket::Close()
+void FNetSocket::Close()
 {
     _is_close = true;
     _is_connect = false;
@@ -57,7 +57,7 @@ void NetSocket::Close()
     }
 }
 
-void NetSocket::StartConnect( const FString& ip, uint32 port )
+void FNetSocket::StartConnect( const FString& ip, uint32 port )
 {
     Close();
 
@@ -78,35 +78,35 @@ void NetSocket::StartConnect( const FString& ip, uint32 port )
     _net_connect->StartService( ip, port );
 }
 
-void NetSocket::OnConnect()
+void FNetSocket::OnConnect()
 {
     _is_close = false;
     _is_connect = true;
     _last_recv_time = FPlatformTime::Seconds();
 
-    PushNetEvent( NetDefine::ConnectEvent );
+    PushNetEvent( ENetDefine::ConnectEvent );
 }
 
-void NetSocket::OnFailed()
+void FNetSocket::OnFailed()
 {
     _is_connect = false;
-    PushNetEvent( NetDefine::FailedEvent );
+    PushNetEvent( ENetDefine::FailedEvent );
 }
 
-void NetSocket::OnDisconnect()
+void FNetSocket::OnDisconnect()
 {
     _is_connect = false;
-    PushNetEvent( NetDefine::DisconnectEvent );
+    PushNetEvent( ENetDefine::DisconnectEvent );
 }
 
-void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */ )
+void FNetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */ )
 {
     if ( _is_close )
     {
         return;
     }
 
-    auto event = new NetEvent();
+    auto event = new FNetEvent();
     event->_type = type;
     event->_code = code;
 
@@ -114,9 +114,9 @@ void NetSocket::PushNetEvent( uint32 type, int32 code /* = 0 */ )
     _event_queue.push_back( event );
 }
 
-NetEvent* NetSocket::PopNetEvent()
+FNetEvent* FNetSocket::PopNetEvent()
 {
-    NetEvent* event = nullptr;
+    FNetEvent* event = nullptr;
     {
         FScopeLock Lock( &_event_lock );
         if ( !_event_queue.empty() )
@@ -132,13 +132,13 @@ NetEvent* NetSocket::PopNetEvent()
     }
 
     static int8* _buff[ 56 ] = {};
-    memcpy( _buff, event, sizeof( NetEvent ) );
+    memcpy( _buff, event, sizeof( FNetEvent ) );
 
     delete event;
-    return ( NetEvent* )_buff;
+    return ( FNetEvent* )_buff;
 }
 
-bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
+bool FNetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
 {
     if ( !_is_connect && !_is_disconnect_send )
     {
@@ -149,7 +149,7 @@ bool NetSocket::SendNetMessage( uint32 msgid, const int8* data, uint32 length )
     return _net_send->SendNetMessage( msgid, data, length );
 }
 
-void NetSocket::SendPingMessage()
+void FNetSocket::SendPingMessage()
 {
     // 20秒没有消息通讯, 发送一次ping消息
     // keeplive 经常会失灵, 很久才检测到断开 问题待查
@@ -161,7 +161,7 @@ void NetSocket::SendPingMessage()
     SendNetMessage( 0, nullptr, 0u );
 }
 
-NetMessage* NetSocket::PopNetMessage()
+FNetMessage* FNetSocket::PopNetMessage()
 {
     auto message = _net_recv->PopMessage();
     if ( message != nullptr )

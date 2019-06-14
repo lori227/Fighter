@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -6,13 +6,13 @@
 #include "NetSocket.h"
 #include "google/protobuf/message.h"
 
-class NetClient
+class FNetClient
 {
 private:
     typedef std::function<void( uint32 msgid, const int8* data, uint32 length )> MessageFunction;
 
 public:
-    ~NetClient();
+    ~FNetClient();
 
     // 初始化
     void Init( const FString& name, ENetType nettype, uint32 sendqueuesize, uint32 recvqueuesize, bool disconnectsend );
@@ -55,9 +55,9 @@ protected:
 protected:
     // id
     uint64 _id = 0u;
-    
+
     // socket
-    NetSocket* _net_socket = nullptr;
+    FNetSocket* _net_socket = nullptr;
 
     // 网络时间
     TMap< uint32, NetEventFunction > _event_function;

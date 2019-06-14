@@ -6,13 +6,13 @@
 #include "NetDefine.h"
 #include "NetMessage.h"
 
-class NetSocket;
+class FNetSocket;
 
-class NetSend : public Thread
+class FNetSend : public FThread
 {
 public:
-    NetSend( NetSocket* socket, uint32 queuesize );
-    ~NetSend();
+    FNetSend( FNetSocket* socket, uint32 queuesize );
+    ~FNetSend();
 
     // start
     void StartService();
@@ -41,15 +41,15 @@ protected:
 
 private:
     // socket
-    NetSocket* _net_socket = nullptr;
+    FNetSocket* _net_socket = nullptr;
 
     // 是否开启了发送
     bool _is_send_start = false;
 
     // 发消息队列
-    TCircle< NetMessage > _send_queue;
+    TCircle< FNetMessage > _send_queue;
 
     // 发送消息buff
     uint32 _send_length = 0u;
-    int8 _send_buff[ NetDefine::MaxReqBuffLength ];
+    int8 _send_buff[ ENetDefine::MaxReqBuffLength ];
 };

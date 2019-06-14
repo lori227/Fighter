@@ -1,23 +1,23 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
 #include "CoreMinimal.h"
 
-class NetRoute
+class FNetRoute
 {
 public:
-    NetRoute() = default;
-    NetRoute( uint64 serverid, uint64 sendid, uint64 recvid );
+    FNetRoute() = default;
+    FNetRoute( uint64 serverid, uint64 sendid, uint64 recvid );
 
 public:
-    /**< ·¢ËÍ·þÎñÆ÷Id */
+    /**< å‘é€æœåŠ¡å™¨Id */
     uint64 _server_id = 0u;
 
-    /**< ·¢ËÍÕßId */
+    /**< å‘é€è€…Id */
     uint64 _send_id = 0u;
 
-    /**< ½ÓÊÜÕßId */
+    /**< æŽ¥å—è€…Id */
     uint64 _recv_id = 0u;
 };
 

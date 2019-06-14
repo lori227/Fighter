@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -13,8 +13,8 @@
  */
 DECLARE_LOG_CATEGORY_CLASS( LogInstance, All, All );
 
-class NetClient;
-class LuaModule;
+class FNetClient;
+class FLuaModule;
 UCLASS( BlueprintType, Blueprintable )
 class UFighterInstance : public UGameInstance, public FTickableGameObject
 {
@@ -39,14 +39,14 @@ public:
     virtual TStatId GetStatId() const;
     virtual void Tick( float deltatime ) override;
     virtual ETickableTickType GetTickableTickType() const;
-    
+
 public:
     // net connect
     void Connect( uint64 id, FString& ip, uint32 port );
-    
+
     // net send
     bool Send( uint32 msgid, const int8* data, uint32 length );
-    
+
 protected:
 
     // 连接成功
@@ -61,13 +61,13 @@ protected:
     // 处理消息函数
     void HandleNetMessage( uint32 msgid, const int8* data, uint32 length );
 
-public:    
+public:
     // 网络客户端
-    NetClient* _net_client = nullptr;
-    
+    FNetClient* _net_client = nullptr;
+
     // lua
-    LuaModule* _lua_module = nullptr;
-    
+    FLuaModule* _lua_module = nullptr;
+
 protected:
     static UFighterInstance* _this;
 

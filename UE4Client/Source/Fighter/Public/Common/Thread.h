@@ -3,11 +3,11 @@
 #include "Runnable.h"
 #include "Public/Common/Define.h"
 
-class Thread : public FRunnable
+class FThread : public FRunnable
 {
 public:
-    Thread();
-    virtual ~Thread();
+    FThread();
+    virtual ~FThread();
 
     // init
     virtual bool Init() override;

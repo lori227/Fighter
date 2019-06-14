@@ -2,23 +2,23 @@
 
 #include "Public/Network/NetMessage.h"
 
-NetMessage::NetMessage( uint32 length )
+FNetMessage::FNetMessage( uint32 length )
 {
     _head._length = length;
     MallocData( length );
 }
 
-NetMessage::~NetMessage()
+FNetMessage::~FNetMessage()
 {
     FreeData();
 }
 
-uint32 NetMessage::HeadLength()
+uint32 FNetMessage::HeadLength()
 {
-    return sizeof( ServerHead );
+    return sizeof( FServerHead );
 }
 
-void NetMessage::CopyData( const int8* data, uint32 length )
+void FNetMessage::CopyData( const int8* data, uint32 length )
 {
     _head._length = length;
     if ( length == 0u || data == nullptr )
@@ -29,17 +29,17 @@ void NetMessage::CopyData( const int8* data, uint32 length )
     memcpy( _data, data, length );
 }
 
-NetMessage* NetMessage::Create( uint32 length )
+FNetMessage* FNetMessage::Create( uint32 length )
 {
-    return new NetMessage( length );
+    return new FNetMessage( length );
 }
 
-void NetMessage::Release()
+void FNetMessage::Release()
 {
     FreeData();
 }
 
-void NetMessage::CopyFrom( NetMessage* message )
+void FNetMessage::CopyFrom( FNetMessage* message )
 {
     _head = message->_head;
     if ( _head._length > 0u )
@@ -48,20 +48,20 @@ void NetMessage::CopyFrom( NetMessage* message )
     }
 }
 
-void NetMessage::CopyFrom( uint32 msgid, const int8* data, uint32 length )
+void FNetMessage::CopyFrom( uint32 msgid, const int8* data, uint32 length )
 {
     _head._msgid = msgid;
     CopyData( data, length );
 }
 
-void NetMessage::CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length )
+void FNetMessage::CopyFrom( const FNetRoute& route, uint32 msgid, const int8* data, uint32 length )
 {
     _head._route = route;
     _head._msgid = msgid;
     CopyData( data, length );
 }
 
-void NetMessage::MallocData( uint32 length )
+void FNetMessage::MallocData( uint32 length )
 {
     _head._length = length;
     if ( _head._length > 0u )
@@ -70,7 +70,7 @@ void NetMessage::MallocData( uint32 length )
     }
 }
 
-void NetMessage::FreeData()
+void FNetMessage::FreeData()
 {
     if ( _data != nullptr )
     {

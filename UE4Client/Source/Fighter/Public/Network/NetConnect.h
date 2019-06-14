@@ -4,12 +4,12 @@
 
 #include "Public/Headers.h"
 
-class NetSocket;
+class FNetSocket;
 
-class NetConnect : public Thread
+class FNetConnect : public FThread
 {
 public:
-    NetConnect( NetSocket* socket );
+    FNetConnect( FNetSocket* socket );
 
     // start
     void StartService( const FString& ip, uint32 port );
@@ -23,7 +23,7 @@ protected:
 
 private:
     // socket
-    NetSocket* _net_socket = nullptr;
+    FNetSocket* _net_socket = nullptr;
 
     // ip
     FString _ip;

@@ -8,7 +8,7 @@
 #pragma pack( 1 )
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-class NetHead
+class FNetHead
 {
 public:
     // 消息长度
@@ -22,28 +22,28 @@ public:
 };
 
 // 客户端与服务器之间的消息头
-class ClientHead : public NetHead
+class FClientHead : public FNetHead
 {
 public:
 
 };
 
 // 服务器之间的消息头
-class ServerHead : public NetHead
+class FServerHead : public FNetHead
 {
 public:
     // 路由信息
-    NetRoute _route;
+    FNetRoute _route;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////
 // 消息类
-class NetMessage
+class FNetMessage
 {
 public:
-    ~NetMessage();
+    ~FNetMessage();
 
     // 创建消息
-    static NetMessage* Create( uint32 length );
+    static FNetMessage* Create( uint32 length );
     void Release();
 
     // 消息长度
@@ -54,13 +54,13 @@ public:
     void CopyData( const int8* data, uint32 length );
 
     // 复制消息
-    void CopyFrom( NetMessage* message );
+    void CopyFrom( FNetMessage* message );
     void CopyFrom( uint32 msgid, const int8* data, uint32 length );
-    void CopyFrom( const NetRoute& route, uint32 msgid, const int8* data, uint32 length );
+    void CopyFrom( const FNetRoute& route, uint32 msgid, const int8* data, uint32 length );
     ///////////////////////////////////////////////////////////////////////////////
 
 protected:
-    NetMessage( uint32 length );
+    FNetMessage( uint32 length );
 
     // 分配内存
     void MallocData( uint32 length );
@@ -68,7 +68,7 @@ protected:
 
 public:
     // 消息头
-    ServerHead _head;
+    FServerHead _head;
 
     // 消息数据
     int8* _data = nullptr;

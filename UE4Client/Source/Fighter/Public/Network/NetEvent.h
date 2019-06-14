@@ -1,9 +1,9 @@
-#pragma once
+﻿#pragma once
 
 #include "Public/Headers.h"
 
 // 网络事件
-class NetEvent
+class FNetEvent
 {
 public:
     // 类型

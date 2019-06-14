@@ -1,18 +1,18 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Public/Network/NetRecv.h"
 #include "Public/Network/NetSocket.h"
 
-NetRecv::NetRecv( NetSocket* socket, uint32 queuesize )
+FNetRecv::FNetRecv( FNetSocket* socket, uint32 queuesize )
 {
     _net_socket = socket;
     _recv_queue.InitQueue( queuesize );
 
-    _data_buff_length = NetDefine::SerializeBuffLength;
+    _data_buff_length = ENetDefine::SerializeBuffLength;
     _data_buff = ( int8* )malloc( _data_buff_length );
 }
 
-NetRecv::~NetRecv()
+FNetRecv::~FNetRecv()
 {
     free( _data_buff );
     _data_buff = nullptr;
@@ -20,7 +20,7 @@ NetRecv::~NetRecv()
     _recv_queue.ClearObject();
 }
 
-void NetRecv::StartService()
+void FNetRecv::StartService()
 {
     Init();
 
@@ -30,14 +30,14 @@ void NetRecv::StartService()
     __LOG_INFO__( LogNetwork, "network recv thread start!" );
 }
 
-void NetRecv::StopService()
+void FNetRecv::StopService()
 {
     Shutdown();
     _recv_queue.ClearObject();
     __LOG_INFO__( LogNetwork, "network recv thread stop!" );
 }
 
-void NetRecv::CalcBuffTotalLength( uint32 totallength )
+void FNetRecv::CalcBuffTotalLength( uint32 totallength )
 {
     if ( totallength <= _data_buff_length )
     {
@@ -50,7 +50,7 @@ void NetRecv::CalcBuffTotalLength( uint32 totallength )
     _data_buff = ( int8* )( realloc( _data_buff, totallength ) );
 }
 
-void NetRecv::ThreadBody()
+void FNetRecv::ThreadBody()
 {
     if ( _net_socket->_is_close || !_net_socket->_is_connect )
     {
@@ -65,13 +65,13 @@ void NetRecv::ThreadBody()
     }
 
     int32 readsize = 0;
-    _net_socket->_socket->Recv( ( uint8* )_req_buff, NetDefine::MaxReqBuffLength, readsize );
+    _net_socket->_socket->Recv( ( uint8* )_req_buff, ENetDefine::MaxReqBuffLength, readsize );
     if ( readsize == 0 )
     {
         return;
     }
 
-    if ( _recv_length + readsize > NetDefine::MaxRecvBuffLength )
+    if ( _recv_length + readsize > ENetDefine::MaxRecvBuffLength )
     {
         _recv_length = 0u;
     }
@@ -83,7 +83,7 @@ void NetRecv::ThreadBody()
     ParseBuffToMessage();
 }
 
-void NetRecv::ParseBuffToMessage()
+void FNetRecv::ParseBuffToMessage()
 {
     // 长度不足一个消息头
     uint32 nowposition = 0;
@@ -95,7 +95,7 @@ void NetRecv::ParseBuffToMessage()
 
     while ( _recv_length >= ( nowposition + _net_socket->_message_head_length + nethead->_length ) )
     {
-        auto recvmessage = NetMessage::Create( nethead->_length );
+        auto recvmessage = FNetMessage::Create( nethead->_length );
         memcpy( &recvmessage->_head, nethead, _net_socket->_message_head_length );
 
         nowposition += _net_socket->_message_head_length;
@@ -125,17 +125,17 @@ void NetRecv::ParseBuffToMessage()
     }
 }
 
-NetHead* NetRecv::CheckRecvBuffValid( uint32 position )
+FNetHead* FNetRecv::CheckRecvBuffValid( uint32 position )
 {
     if ( _recv_length < ( position + _net_socket->_message_head_length ) )
     {
         return nullptr;
     }
 
-    auto nethead = reinterpret_cast< NetHead* >( _recv_buff + position );
+    auto nethead = reinterpret_cast< FNetHead* >( _recv_buff + position );
 
     // 收到的消息长度有错误
-    if ( nethead->_length > NetDefine::MaxMessageLength )
+    if ( nethead->_length > ENetDefine::MaxMessageLength )
     {
         _recv_length = 0;
 
@@ -148,7 +148,7 @@ NetHead* NetRecv::CheckRecvBuffValid( uint32 position )
 }
 
 // 弹出一个消息
-NetMessage* NetRecv::PopMessage()
+FNetMessage* FNetRecv::PopMessage()
 {
     auto message = _recv_queue.Front();
     if ( message == nullptr )
@@ -156,13 +156,13 @@ NetMessage* NetRecv::PopMessage()
         return nullptr;
     }
 
-    NetMessage* retmessage = nullptr;
+    FNetMessage* retmessage = nullptr;
     switch ( message->_head._msgid )
     {
-    case NetDefine::CUT_MSGCHILDBEGIN:	// 子消息头
+    case ENetDefine::CUT_MSGCHILDBEGIN:	// 子消息头
         retmessage = PopMultiMessage( message );
         break;
-    case NetDefine::CUT_MSGCHILD:			// 如果取到的是子消息, 直接丢掉
+    case ENetDefine::CUT_MSGCHILD:			// 如果取到的是子消息, 直接丢掉
         _recv_queue.PopRemove();
         break;
     default:		// 不是拆包消息, 直接返回
@@ -173,13 +173,13 @@ NetMessage* NetRecv::PopMessage()
     return retmessage;
 }
 
-NetMessage* NetRecv::PopSingleMessage( NetMessage* message )
+FNetMessage* FNetRecv::PopSingleMessage( FNetMessage* message )
 {
-    NetMessage* retmessage = nullptr;
-    if ( message->_head._length + sizeof( NetMessage ) <= _data_buff_length )
+    FNetMessage* retmessage = nullptr;
+    if ( message->_head._length + sizeof( FNetMessage ) <= _data_buff_length )
     {
-        retmessage = reinterpret_cast< NetMessage* >( _data_buff );
-        retmessage->_data = _data_buff + sizeof( NetMessage );
+        retmessage = reinterpret_cast< FNetMessage* >( _data_buff );
+        retmessage->_data = _data_buff + sizeof( FNetMessage );
         retmessage->CopyFrom( message );
     }
 
@@ -187,9 +187,9 @@ NetMessage* NetRecv::PopSingleMessage( NetMessage* message )
     return retmessage;
 }
 
-NetMessage* NetRecv::PopMultiMessage( NetMessage* message )
+FNetMessage* FNetRecv::PopMultiMessage( FNetMessage* message )
 {
-    if ( message->_data == nullptr || message->_head._length < sizeof( NetHead ) )
+    if ( message->_data == nullptr || message->_head._length < sizeof( FNetHead ) )
     {
         // 消息异常, 直接丢弃
         _recv_queue.PopRemove();
@@ -212,8 +212,8 @@ NetMessage* NetRecv::PopMultiMessage( NetMessage* message )
     }
 
     // 重新计算buff大小
-    auto nethead = reinterpret_cast< NetHead* >( message->_data );
-    auto totallength = nethead->_length + static_cast< uint32 >( sizeof( NetMessage ) );
+    auto nethead = reinterpret_cast< FNetHead* >( message->_data );
+    auto totallength = nethead->_length + static_cast< uint32 >( sizeof( FNetMessage ) );
     CalcBuffTotalLength( totallength );
     if ( _data_buff_length < totallength )
     {
@@ -226,18 +226,18 @@ NetMessage* NetRecv::PopMultiMessage( NetMessage* message )
     memcpy( _data_buff, message->_data, message->_head._length );
     _recv_queue.PopRemove();
 
-    auto retmessage = reinterpret_cast< NetMessage* >( _data_buff );
-    retmessage->_data = _data_buff + sizeof( NetMessage );
+    auto retmessage = reinterpret_cast< FNetMessage* >( _data_buff );
+    retmessage->_data = _data_buff + sizeof( FNetMessage );
 
     // 合并子消息
     auto copylength = 0u;
-    auto leftlength = _data_buff_length - sizeof( NetMessage );
+    auto leftlength = _data_buff_length - sizeof( FNetMessage );
     for ( auto i = 0u; i < childcount; ++i )
     {
         auto childmessage = _recv_queue.Front();
 
         // 不是子消息, 直接返回null
-        if ( childmessage == nullptr || childmessage->_head._msgid != NetDefine::CUT_MSGCHILD )
+        if ( childmessage == nullptr || childmessage->_head._msgid != ENetDefine::CUT_MSGCHILD )
         {
             return nullptr;
         }
