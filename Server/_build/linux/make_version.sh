@@ -53,6 +53,6 @@ cp -rf ../Resource/script/ _bin/
 
 cd _bin/_gcm/builder/
 chmod 777 gcm_build
-./gcm_build -p "chess" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2 -t $uptype
+./gcm_build -p "fighter" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2 -t $uptype
 
 cd ../../../../../
