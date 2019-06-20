@@ -1,8 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
-if not exist ..\..\Server\_bin\config\ ( mkdir ..\..\Server\_bin\config\ )
+if not exist ..\config ( mkdir ..\config )
 
 for /f "delims=\" %%x in ('dir /b /a-d /o-d "*.xlsx"') do (
 echo %%x
-_parse.exe %%~nx.xlsx --xml=..\..\Server\_bin\config\
+_parse.exe %%~nx.xlsx --xml=..\config
 )
