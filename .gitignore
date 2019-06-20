@@ -40,3 +40,5 @@ UE4Client/ChessWar/
 *.ipch
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/IDEFindNavigatorScopes.plist
 UE4Client/Fighter.xcworkspace/xcuserdata/lori.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Server/_bin/config/
+Server/_bin/script/

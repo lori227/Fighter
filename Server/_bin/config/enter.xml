@@ -1,3 +1,0 @@
-<root version="00000">
-	<item NoteId="1" ChannelId="0" Service="0" LuaFile="./script/game/enter.lua" LuaFunction="NewPlayerFunction"/>
-</root>

@@ -354,8 +354,8 @@ call :CopyInterface KFZone
 rem player
 call :CopyInterface KFCommand
 call :CopyInterface KFEnter 1101-进入游戏.xlsx
-call :CopyInterface KFLeave 1103-离开游戏.xlsx
-call :CopyInterface KFReset 1102-属性重置.xlsx
+call :CopyInterface KFLeave 1102-属性重置.xlsx
+call :CopyInterface KFReset 1103-离开游戏.xlsx
 
 rem robot
 call :CopyInterface KFRobot
