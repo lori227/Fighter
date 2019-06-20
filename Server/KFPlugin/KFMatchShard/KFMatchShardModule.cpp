@@ -82,7 +82,7 @@ namespace KFrame
     //////////////////////////////////////////////////////////////////////////////////////////////////
     KFMatchQueue* KFMatchShardModule::FindMatchQueue( uint32 matchid )
     {
-        auto kfsetting = _kf_match_shard_config->FindMatchSetting( matchid );
+        auto kfsetting = _kf_match_shard_config->FindSetting( matchid );
         if ( kfsetting == nullptr )
         {
             __LOG_ERROR__( "can't find match=[{}] setting!", matchid );

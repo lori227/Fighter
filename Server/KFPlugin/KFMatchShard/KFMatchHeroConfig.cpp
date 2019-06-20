@@ -3,34 +3,23 @@
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////
-    bool KFMatchHeroConfig::LoadConfig( const std::string& file )
+    void KFMatchHeroConfig::ReadSetting( KFNode& xmlnode, KFMatchHeroSetting* kfsetting )
     {
-        _hero_list.clear();
-        //////////////////////////////////////////////////////////////////
-        KFXml kfxml( file );
-        auto config = kfxml.RootNode();
-        auto xmlnode = config.FindNode( "item" );
-        while ( xmlnode.IsValid() )
-        {
-            auto id = xmlnode.GetUInt32( "Id" );
-            _hero_list.push_back( id );
-
-            xmlnode.NextNode();
-        }
-        //////////////////////////////////////////////////////////////////
-
-        return true;
+        kfsetting->_name = xmlnode.GetString( "Name" );
     }
 
     /////////////////////////////////////////////////////////////////////////////////
-    uint32 KFMatchHeroConfig::RandHero() const
+    uint32 KFMatchHeroConfig::RandHero()
     {
-        if ( _hero_list.empty() )
+        auto size = _settings.Size();
+        if ( size == 0u )
         {
             return _invalid_int;
         }
 
-        auto index = KFGlobal::Instance()->RandRatio( _hero_list.size() );
-        return _hero_list[ index ];
+        auto index = KFGlobal::Instance()->RandRatio( size );
+        auto begin = _settings._objects.begin();
+        std::advance( begin, index );
+        return begin->second->_id;
     }
 }

@@ -5,7 +5,7 @@
 
 namespace KFrame
 {
-    class KFMatchNameSetting
+    class KFMatchNameSetting : public KFIntSetting
     {
     public:
         // 名字列表
@@ -13,27 +13,24 @@ namespace KFrame
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFMatchNameConfig : public KFConfig, public KFSingleton< KFMatchNameConfig >
+    class KFMatchNameConfig : public KFIntConfigT< KFMatchNameSetting >, public KFSingleton< KFMatchNameConfig >
     {
     public:
-        KFMatchNameConfig()
+        KFMatchNameConfig( const std::string& file, bool isclear )
+            : KFIntConfigT< KFMatchNameSetting >( file, isclear )
         {
-            _file = "name.config";
         }
-
-        // 读取配置
-        bool LoadConfig( const std::string& file );
 
         // 随机名字
         const std::string& RandName() const;
 
-    private:
-        // 名字列表
-        KFHashMap< uint32, uint32, KFMatchNameSetting > _settings;
+    protected:
+        // 读取配置
+        void ReadSetting( KFNode& xmlnode, KFMatchNameSetting* kfsetting );
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    static auto _kf_match_name_config = KFMatchNameConfig::Instance();
+    static auto _kf_match_name_config = KFMatchNameConfig::Instance( "name.xml", true );
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

@@ -5,35 +5,27 @@
 
 namespace KFrame
 {
-    class KFHeroSetting
+    class KFHeroSetting : public KFIntSetting
     {
     public:
-        // id
-        uint32 _id = 0u;
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFHeroConfig : public KFConfig, public KFSingleton< KFHeroConfig >
+    class KFHeroConfig : public KFIntConfigT< KFHeroSetting >, public KFSingleton< KFHeroConfig >
     {
     public:
-        KFHeroConfig()
+        KFHeroConfig( const std::string& file, bool isclear )
+            : KFIntConfigT< KFHeroSetting >( file, isclear )
         {
-            _file = "hero.config";
         }
 
+    protected:
         // 读取配置
-        bool LoadConfig( const std::string& file );
-
-        // 查找配置
-        const KFHeroSetting* FindHeroSetting( uint32 heroid ) const;
-
-    private:
-        // 品质列表
-        KFHashMap< uint32, uint32, KFHeroSetting > _settings;
+        void ReadSetting( KFNode& xmlnode, KFHeroSetting* kfsetting );
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    static auto _kf_hero_config = KFHeroConfig::Instance();
+    static auto _kf_hero_config = KFHeroConfig::Instance( "hero.xml", true );
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

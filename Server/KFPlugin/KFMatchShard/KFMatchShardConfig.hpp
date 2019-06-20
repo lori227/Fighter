@@ -5,12 +5,9 @@
 
 namespace KFrame
 {
-    class KFMatchSetting
+    class KFMatchSetting : public KFIntSetting
     {
     public:
-        // id
-        uint32 _id = 0u;
-
         // 最大玩家数量
         uint32 _max_count = 0u;
 
@@ -28,27 +25,21 @@ namespace KFrame
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFMatchShardConfig : public KFConfig, public KFSingleton< KFMatchShardConfig >
+    class KFMatchShardConfig : public KFIntConfigT< KFMatchSetting >, public KFSingleton< KFMatchShardConfig >
     {
     public:
-        KFMatchShardConfig()
+        KFMatchShardConfig( const std::string& file, bool isclear )
+            : KFIntConfigT< KFMatchSetting >( file, isclear )
         {
-            _file = "match.config";
         }
 
+    protected:
         // 读取配置
-        bool LoadConfig( const std::string& file );
-
-        // 查找配置
-        const KFMatchSetting* FindMatchSetting( uint32 matchid ) const;
-
-    public:
-        // 品质列表
-        KFHashMap< uint32, uint32, KFMatchSetting > _settings;
+        void ReadSetting( KFNode& xmlnode, KFMatchSetting* kfsetting );
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    static auto _kf_match_shard_config = KFMatchShardConfig::Instance();
+    static auto _kf_match_shard_config = KFMatchShardConfig::Instance( "match.xml", true );
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

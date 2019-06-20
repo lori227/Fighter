@@ -39,7 +39,7 @@ namespace KFrame
             return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
-        auto kfsetting = _kf_hero_config->FindHeroSetting( kfelementobject->_config_id );
+        auto kfsetting = _kf_hero_config->FindSetting( kfelementobject->_config_id );
         if ( kfsetting == nullptr )
         {
             __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
@@ -54,25 +54,7 @@ namespace KFrame
         }
 
         kfhero = _kf_kernel->CreateObject( kfparent->GetDataSetting() );
-        for ( auto& iter : kfelementobject->_values._objects )
-        {
-            auto kfchild = kfhero->FindData( iter.first );
-            if ( kfchild == nullptr )
-            {
-                continue;
-            }
-
-            auto kfelementvalue = reinterpret_cast< KFElementValue* >( iter.second );
-            if ( kfelementvalue->_value->IsInt() )
-            {
-                auto value = kfelementvalue->_value->CalcUseValue( kfchild->GetDataSetting(), multiple );
-                kfchild->SetValue( value );
-            }
-            else if ( kfelementvalue->_value->IsString() )
-            {
-                kfchild->SetValue( kfelementvalue->_value->GetValue() );
-            }
-        }
+        player->SetElementToData( kfelementobject, kfhero, multiple );
 
         player->AddData( kfparent, kfelementobject->_config_id, kfhero );
         return std::make_tuple( KFDataDefine::Show_Element, kfhero );

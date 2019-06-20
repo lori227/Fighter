@@ -3,26 +3,10 @@
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////
-    bool KFMatchNameConfig::LoadConfig( const std::string& file )
+    void KFMatchNameConfig::ReadSetting( KFNode& xmlnode, KFMatchNameSetting* kfsetting )
     {
-        _settings.Clear();
-        //////////////////////////////////////////////////////////////////
-        KFXml kfxml( file );
-        auto config = kfxml.RootNode();
-        auto xmlnode = config.FindNode( "item" );
-        while ( xmlnode.IsValid() )
-        {
-            auto type = xmlnode.GetUInt32( "Type" );
-            auto name = xmlnode.GetString( "Name" );
-
-            auto kfsetting = _settings.Create( type );
-            kfsetting->_name_list.push_back( name );
-
-            xmlnode.NextNode();
-        }
-        //////////////////////////////////////////////////////////////////
-
-        return true;
+        auto name = xmlnode.GetString( "Name" );
+        kfsetting->_name_list.push_back( name );
     }
 
     /////////////////////////////////////////////////////////////////////////////////

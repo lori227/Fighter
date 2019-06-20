@@ -5,29 +5,33 @@
 
 namespace KFrame
 {
-    ////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////
-    class KFMatchHeroConfig : public KFConfig, public KFSingleton< KFMatchHeroConfig >
+    class KFMatchHeroSetting : public KFIntSetting
     {
     public:
-        KFMatchHeroConfig()
+        // 名字
+        std::string _name;
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    class KFMatchHeroConfig : public KFIntConfigT< KFMatchHeroSetting >, public KFSingleton< KFMatchHeroConfig >
+    {
+    public:
+        KFMatchHeroConfig( const std::string& file, bool isclear )
+            : KFIntConfigT< KFMatchHeroSetting >( file, isclear )
         {
-            _file = "hero.config";
         }
 
-        // 读取配置
-        bool LoadConfig( const std::string& file );
-
         // 随机英雄
-        uint32 RandHero() const;
+        uint32 RandHero();
 
-    private:
-        // 英雄列表
-        std::vector< uint32 > _hero_list;
+    protected:
+        // 读取配资
+        void ReadSetting( KFNode& xmlnode, KFMatchHeroSetting* kfsetting );
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    static auto _kf_match_hero_config = KFMatchHeroConfig::Instance();
+    static auto _kf_match_hero_config = KFMatchHeroConfig::Instance( "hero.xml", true );
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 

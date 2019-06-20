@@ -3,34 +3,12 @@
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////
-    bool KFMatchShardConfig::LoadConfig( const std::string& file )
+    void KFMatchShardConfig::ReadSetting( KFNode& xmlnode, KFMatchSetting* kfsetting )
     {
-        //////////////////////////////////////////////////////////////////
-        KFXml kfxml( file );
-        auto config = kfxml.RootNode();
-        auto xmlnode = config.FindNode( "item" );
-        while ( xmlnode.IsValid() )
-        {
-            auto id = xmlnode.GetUInt32( "Id" );
-            auto kfsetting = _settings.Create( id );
-
-            kfsetting->_id = id;
-            kfsetting->_max_count = xmlnode.GetUInt32( "MaxCount" );
-            kfsetting->_upper_grade = xmlnode.GetUInt32( "UpperGrade" );
-            kfsetting->_lower_grade = xmlnode.GetUInt32( "LowerGrade" );
-            kfsetting->_add_robot_time = xmlnode.GetUInt32( "AddRobotTime" );
-            kfsetting->_add_robot_count = xmlnode.GetUInt32( "AddRobotCount" );
-
-            xmlnode.NextNode();
-        }
-        //////////////////////////////////////////////////////////////////
-
-        return true;
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////
-    const KFMatchSetting* KFMatchShardConfig::FindMatchSetting( uint32 matchid ) const
-    {
-        return _settings.Find( matchid );
+        kfsetting->_max_count = xmlnode.GetUInt32( "MaxCount" );
+        kfsetting->_upper_grade = xmlnode.GetUInt32( "UpperGrade" );
+        kfsetting->_lower_grade = xmlnode.GetUInt32( "LowerGrade" );
+        kfsetting->_add_robot_time = xmlnode.GetUInt32( "AddRobotTime" );
+        kfsetting->_add_robot_count = xmlnode.GetUInt32( "AddRobotCount" );
     }
 }
