@@ -333,7 +333,7 @@ rem rank
 rem call :CopyInterface KFRankClient
 rem call :CopyInterface KFRankMaster
 rem call :CopyInterface KFRankShard
-copy /y %framepath%\%binpath%\config\rank.config ..\Resource\config\
+copy /y %framepath%\%binpath%\config\rank.xml ..\Resource\config\
 
 rem public
 call :CopyInterface KFPublicClient
@@ -357,6 +357,9 @@ call :CopyInterface KFEnter 1101-进入游戏.xlsx
 call :CopyInterface KFLeave 1103-离开游戏.xlsx
 call :CopyInterface KFReset 1102-属性重置.xlsx
 
+rem robot
+call :CopyInterface KFRobot
+
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
@@ -364,7 +367,6 @@ rem ===========================================================================
 rem ===========================================================================
 rem Attribute
 call :CopyPlugin KFAttribute
-call :CopyPlugin KFRobot
 
 rem ===========================================================================
 rem ===========================================================================
