@@ -23,8 +23,11 @@ enum ServerProtocol
 	S2S_FINISH_ROOM_TO_ROOM_REQ			= 31105;	// 结束房间
 	S2S_FINISH_ROOM_TO_BATTLE_ACK		= 31106;	// 结束房间
 	S2S_HEART_BEAT_TO_ROOM_REQ			= 31107;	// 心跳消息
+	S2S_PLAYER_BALANCE_TO_ROOM_REQ		= 31108;	// 玩家结算 
+	S2S_PLAYER_BALANCE_TO_BATTLE_ACK	= 31109;	// 玩家结算 
 	// 战斗服和房间集群的消息 end
 
+	// 匹配集群, 游戏集群 房间集群的消息 begin
 	S2S_CREATE_ROOM_TO_ROOM_REQ			= 31201;	// 创建房间
 	S2S_CREATE_ROOM_TO_MATCH_ACK		= 31202;	// 创建房间
 	S2S_INFORM_BATTLE_TO_GAME_REQ		= 31203;	// 通知战场
@@ -34,6 +37,7 @@ enum ServerProtocol
 	S2S_FINISH_ROOM_TO_GAME_REQ			= 31207;	// 结束房间
 	S2S_QUERY_MATCH_TO_MATCH_REQ		= 31208;	// 查询匹配
 	S2S_QUERY_MATCH_TO_GAME_ACK			= 31209;	// 查询匹配
+	// 匹配集群, 游戏集群 房间集群的消息 end
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +114,23 @@ message S2SHeartBeatToRoomReq
 	uint64 serverid = 2;
 }
 
+// 战斗服请求结算玩家数据
+// S2S_PLAYER_BALANCE_TO_ROOM_REQ
+message S2SPlayerBalanceToRoomReq
+{
+	uint64 roomid = 1;				// 房间id
+	uint64 playerid = 2;			// 玩家id
+	uint32 ranking = 3;				// 排名
+	PBBattleBalance balance = 4;	// 结算列表
+}
+
+// 结算玩家数据回应
+// S2S_PLAYER_BALANCE_TO_BATTLE_ACK
+message S2SPlayerBalanceToBattleAck
+{
+	uint64 roomid = 1;
+	uint64 playerid = 2;
+}
 
 // 战斗服和房间集群的消息 end
 ///////////////////////////////////////////////////////////////////////////////////

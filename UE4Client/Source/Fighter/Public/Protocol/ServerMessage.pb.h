@@ -46,7 +46,7 @@ namespace protobuf_ServerMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[19];
+  static const ::google::protobuf::internal::ParseTable schema[21];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -87,6 +87,12 @@ LIBPROTOC_EXPORT extern S2SOpenRoomToBattleReqDefaultTypeInternal _S2SOpenRoomTo
 class S2SOpenRoomToRoomAck;
 class S2SOpenRoomToRoomAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SOpenRoomToRoomAckDefaultTypeInternal _S2SOpenRoomToRoomAck_default_instance_;
+class S2SPlayerBalanceToBattleAck;
+class S2SPlayerBalanceToBattleAckDefaultTypeInternal;
+LIBPROTOC_EXPORT extern S2SPlayerBalanceToBattleAckDefaultTypeInternal _S2SPlayerBalanceToBattleAck_default_instance_;
+class S2SPlayerBalanceToRoomReq;
+class S2SPlayerBalanceToRoomReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern S2SPlayerBalanceToRoomReqDefaultTypeInternal _S2SPlayerBalanceToRoomReq_default_instance_;
 class S2SQueryMatchToGameAck;
 class S2SQueryMatchToGameAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SQueryMatchToGameAckDefaultTypeInternal _S2SQueryMatchToGameAck_default_instance_;
@@ -125,6 +131,8 @@ template<> LIBPROTOC_EXPORT ::KFMsg::S2SInformBattleToGameReq* Arena::CreateMayb
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SInformBattleToRoomAck* Arena::CreateMaybeMessage<::KFMsg::S2SInformBattleToRoomAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SOpenRoomToBattleReq* Arena::CreateMaybeMessage<::KFMsg::S2SOpenRoomToBattleReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SOpenRoomToRoomAck* Arena::CreateMaybeMessage<::KFMsg::S2SOpenRoomToRoomAck>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::S2SPlayerBalanceToBattleAck* Arena::CreateMaybeMessage<::KFMsg::S2SPlayerBalanceToBattleAck>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::S2SPlayerBalanceToRoomReq* Arena::CreateMaybeMessage<::KFMsg::S2SPlayerBalanceToRoomReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SQueryMatchToGameAck* Arena::CreateMaybeMessage<::KFMsg::S2SQueryMatchToGameAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SQueryMatchToMatchReq* Arena::CreateMaybeMessage<::KFMsg::S2SQueryMatchToMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SQueryRoomToGameAck* Arena::CreateMaybeMessage<::KFMsg::S2SQueryRoomToGameAck>(Arena*);
@@ -149,6 +157,8 @@ enum ServerProtocol {
   S2S_FINISH_ROOM_TO_ROOM_REQ = 31105,
   S2S_FINISH_ROOM_TO_BATTLE_ACK = 31106,
   S2S_HEART_BEAT_TO_ROOM_REQ = 31107,
+  S2S_PLAYER_BALANCE_TO_ROOM_REQ = 31108,
+  S2S_PLAYER_BALANCE_TO_BATTLE_ACK = 31109,
   S2S_CREATE_ROOM_TO_ROOM_REQ = 31201,
   S2S_CREATE_ROOM_TO_MATCH_ACK = 31202,
   S2S_INFORM_BATTLE_TO_GAME_REQ = 31203,
@@ -977,6 +987,246 @@ class LIBPROTOC_EXPORT S2SHeartBeatToRoomReq : public ::google::protobuf::Messag
 };
 // -------------------------------------------------------------------
 
+class LIBPROTOC_EXPORT S2SPlayerBalanceToRoomReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SPlayerBalanceToRoomReq) */ {
+ public:
+  S2SPlayerBalanceToRoomReq();
+  virtual ~S2SPlayerBalanceToRoomReq();
+
+  S2SPlayerBalanceToRoomReq(const S2SPlayerBalanceToRoomReq& from);
+
+  inline S2SPlayerBalanceToRoomReq& operator=(const S2SPlayerBalanceToRoomReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  S2SPlayerBalanceToRoomReq(S2SPlayerBalanceToRoomReq&& from) noexcept
+    : S2SPlayerBalanceToRoomReq() {
+    *this = ::std::move(from);
+  }
+
+  inline S2SPlayerBalanceToRoomReq& operator=(S2SPlayerBalanceToRoomReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2SPlayerBalanceToRoomReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const S2SPlayerBalanceToRoomReq* internal_default_instance() {
+    return reinterpret_cast<const S2SPlayerBalanceToRoomReq*>(
+               &_S2SPlayerBalanceToRoomReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(S2SPlayerBalanceToRoomReq* other);
+  friend void swap(S2SPlayerBalanceToRoomReq& a, S2SPlayerBalanceToRoomReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline S2SPlayerBalanceToRoomReq* New() const final {
+    return CreateMaybeMessage<S2SPlayerBalanceToRoomReq>(NULL);
+  }
+
+  S2SPlayerBalanceToRoomReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<S2SPlayerBalanceToRoomReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const S2SPlayerBalanceToRoomReq& from);
+  void MergeFrom(const S2SPlayerBalanceToRoomReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(S2SPlayerBalanceToRoomReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .KFMsg.PBBattleBalance balance = 4;
+  bool has_balance() const;
+  void clear_balance();
+  static const int kBalanceFieldNumber = 4;
+  private:
+  const ::KFMsg::PBBattleBalance& _internal_balance() const;
+  public:
+  const ::KFMsg::PBBattleBalance& balance() const;
+  ::KFMsg::PBBattleBalance* release_balance();
+  ::KFMsg::PBBattleBalance* mutable_balance();
+  void set_allocated_balance(::KFMsg::PBBattleBalance* balance);
+
+  // uint64 roomid = 1;
+  void clear_roomid();
+  static const int kRoomidFieldNumber = 1;
+  ::google::protobuf::uint64 roomid() const;
+  void set_roomid(::google::protobuf::uint64 value);
+
+  // uint64 playerid = 2;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 2;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // uint32 ranking = 3;
+  void clear_ranking();
+  static const int kRankingFieldNumber = 3;
+  ::google::protobuf::uint32 ranking() const;
+  void set_ranking(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.S2SPlayerBalanceToRoomReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::KFMsg::PBBattleBalance* balance_;
+  ::google::protobuf::uint64 roomid_;
+  ::google::protobuf::uint64 playerid_;
+  ::google::protobuf::uint32 ranking_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT S2SPlayerBalanceToBattleAck : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SPlayerBalanceToBattleAck) */ {
+ public:
+  S2SPlayerBalanceToBattleAck();
+  virtual ~S2SPlayerBalanceToBattleAck();
+
+  S2SPlayerBalanceToBattleAck(const S2SPlayerBalanceToBattleAck& from);
+
+  inline S2SPlayerBalanceToBattleAck& operator=(const S2SPlayerBalanceToBattleAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  S2SPlayerBalanceToBattleAck(S2SPlayerBalanceToBattleAck&& from) noexcept
+    : S2SPlayerBalanceToBattleAck() {
+    *this = ::std::move(from);
+  }
+
+  inline S2SPlayerBalanceToBattleAck& operator=(S2SPlayerBalanceToBattleAck&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2SPlayerBalanceToBattleAck& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const S2SPlayerBalanceToBattleAck* internal_default_instance() {
+    return reinterpret_cast<const S2SPlayerBalanceToBattleAck*>(
+               &_S2SPlayerBalanceToBattleAck_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(S2SPlayerBalanceToBattleAck* other);
+  friend void swap(S2SPlayerBalanceToBattleAck& a, S2SPlayerBalanceToBattleAck& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline S2SPlayerBalanceToBattleAck* New() const final {
+    return CreateMaybeMessage<S2SPlayerBalanceToBattleAck>(NULL);
+  }
+
+  S2SPlayerBalanceToBattleAck* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<S2SPlayerBalanceToBattleAck>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const S2SPlayerBalanceToBattleAck& from);
+  void MergeFrom(const S2SPlayerBalanceToBattleAck& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(S2SPlayerBalanceToBattleAck* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 roomid = 1;
+  void clear_roomid();
+  static const int kRoomidFieldNumber = 1;
+  ::google::protobuf::uint64 roomid() const;
+  void set_roomid(::google::protobuf::uint64 value);
+
+  // uint64 playerid = 2;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 2;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.S2SPlayerBalanceToBattleAck)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 roomid_;
+  ::google::protobuf::uint64 playerid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class LIBPROTOC_EXPORT S2SStartMatchToShardReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SStartMatchToShardReq) */ {
  public:
   S2SStartMatchToShardReq();
@@ -1012,7 +1262,7 @@ class LIBPROTOC_EXPORT S2SStartMatchToShardReq : public ::google::protobuf::Mess
                &_S2SStartMatchToShardReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   void Swap(S2SStartMatchToShardReq* other);
   friend void swap(S2SStartMatchToShardReq& a, S2SStartMatchToShardReq& b) {
@@ -1150,7 +1400,7 @@ class LIBPROTOC_EXPORT S2SStartMatchToGameAck : public ::google::protobuf::Messa
                &_S2SStartMatchToGameAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   void Swap(S2SStartMatchToGameAck* other);
   friend void swap(S2SStartMatchToGameAck& a, S2SStartMatchToGameAck& b) {
@@ -1274,7 +1524,7 @@ class LIBPROTOC_EXPORT S2SCancelMatchToShardReq : public ::google::protobuf::Mes
                &_S2SCancelMatchToShardReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   void Swap(S2SCancelMatchToShardReq* other);
   friend void swap(S2SCancelMatchToShardReq& a, S2SCancelMatchToShardReq& b) {
@@ -1384,7 +1634,7 @@ class LIBPROTOC_EXPORT S2SCreateRoomToRoomReq : public ::google::protobuf::Messa
                &_S2SCreateRoomToRoomReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   void Swap(S2SCreateRoomToRoomReq* other);
   friend void swap(S2SCreateRoomToRoomReq& a, S2SCreateRoomToRoomReq& b) {
@@ -1529,7 +1779,7 @@ class LIBPROTOC_EXPORT S2SCreateRoomToMatchAck : public ::google::protobuf::Mess
                &_S2SCreateRoomToMatchAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   void Swap(S2SCreateRoomToMatchAck* other);
   friend void swap(S2SCreateRoomToMatchAck& a, S2SCreateRoomToMatchAck& b) {
@@ -1632,7 +1882,7 @@ class LIBPROTOC_EXPORT S2SInformBattleToGameReq : public ::google::protobuf::Mes
                &_S2SInformBattleToGameReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   void Swap(S2SInformBattleToGameReq* other);
   friend void swap(S2SInformBattleToGameReq& a, S2SInformBattleToGameReq& b) {
@@ -1771,7 +2021,7 @@ class LIBPROTOC_EXPORT S2SInformBattleToRoomAck : public ::google::protobuf::Mes
                &_S2SInformBattleToRoomAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   void Swap(S2SInformBattleToRoomAck* other);
   friend void swap(S2SInformBattleToRoomAck& a, S2SInformBattleToRoomAck& b) {
@@ -1881,7 +2131,7 @@ class LIBPROTOC_EXPORT S2SQueryRoomToRoomReq : public ::google::protobuf::Messag
                &_S2SQueryRoomToRoomReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   void Swap(S2SQueryRoomToRoomReq* other);
   friend void swap(S2SQueryRoomToRoomReq& a, S2SQueryRoomToRoomReq& b) {
@@ -1991,7 +2241,7 @@ class LIBPROTOC_EXPORT S2SQueryRoomToGameAck : public ::google::protobuf::Messag
                &_S2SQueryRoomToGameAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   void Swap(S2SQueryRoomToGameAck* other);
   friend void swap(S2SQueryRoomToGameAck& a, S2SQueryRoomToGameAck& b) {
@@ -2094,7 +2344,7 @@ class LIBPROTOC_EXPORT S2SFinishRoomToGameReq : public ::google::protobuf::Messa
                &_S2SFinishRoomToGameReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   void Swap(S2SFinishRoomToGameReq* other);
   friend void swap(S2SFinishRoomToGameReq& a, S2SFinishRoomToGameReq& b) {
@@ -2204,7 +2454,7 @@ class LIBPROTOC_EXPORT S2SQueryMatchToMatchReq : public ::google::protobuf::Mess
                &_S2SQueryMatchToMatchReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   void Swap(S2SQueryMatchToMatchReq* other);
   friend void swap(S2SQueryMatchToMatchReq& a, S2SQueryMatchToMatchReq& b) {
@@ -2314,7 +2564,7 @@ class LIBPROTOC_EXPORT S2SQueryMatchToGameAck : public ::google::protobuf::Messa
                &_S2SQueryMatchToGameAck_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   void Swap(S2SQueryMatchToGameAck* other);
   friend void swap(S2SQueryMatchToGameAck& a, S2SQueryMatchToGameAck& b) {
@@ -2714,6 +2964,132 @@ inline void S2SHeartBeatToRoomReq::set_serverid(::google::protobuf::uint64 value
   
   serverid_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.S2SHeartBeatToRoomReq.serverid)
+}
+
+// -------------------------------------------------------------------
+
+// S2SPlayerBalanceToRoomReq
+
+// uint64 roomid = 1;
+inline void S2SPlayerBalanceToRoomReq::clear_roomid() {
+  roomid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 S2SPlayerBalanceToRoomReq::roomid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToRoomReq.roomid)
+  return roomid_;
+}
+inline void S2SPlayerBalanceToRoomReq::set_roomid(::google::protobuf::uint64 value) {
+  
+  roomid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToRoomReq.roomid)
+}
+
+// uint64 playerid = 2;
+inline void S2SPlayerBalanceToRoomReq::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 S2SPlayerBalanceToRoomReq::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToRoomReq.playerid)
+  return playerid_;
+}
+inline void S2SPlayerBalanceToRoomReq::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToRoomReq.playerid)
+}
+
+// uint32 ranking = 3;
+inline void S2SPlayerBalanceToRoomReq::clear_ranking() {
+  ranking_ = 0u;
+}
+inline ::google::protobuf::uint32 S2SPlayerBalanceToRoomReq::ranking() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToRoomReq.ranking)
+  return ranking_;
+}
+inline void S2SPlayerBalanceToRoomReq::set_ranking(::google::protobuf::uint32 value) {
+  
+  ranking_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToRoomReq.ranking)
+}
+
+// .KFMsg.PBBattleBalance balance = 4;
+inline bool S2SPlayerBalanceToRoomReq::has_balance() const {
+  return this != internal_default_instance() && balance_ != NULL;
+}
+inline const ::KFMsg::PBBattleBalance& S2SPlayerBalanceToRoomReq::_internal_balance() const {
+  return *balance_;
+}
+inline const ::KFMsg::PBBattleBalance& S2SPlayerBalanceToRoomReq::balance() const {
+  const ::KFMsg::PBBattleBalance* p = balance_;
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToRoomReq.balance)
+  return p != NULL ? *p : *reinterpret_cast<const ::KFMsg::PBBattleBalance*>(
+      &::KFMsg::_PBBattleBalance_default_instance_);
+}
+inline ::KFMsg::PBBattleBalance* S2SPlayerBalanceToRoomReq::release_balance() {
+  // @@protoc_insertion_point(field_release:KFMsg.S2SPlayerBalanceToRoomReq.balance)
+  
+  ::KFMsg::PBBattleBalance* temp = balance_;
+  balance_ = NULL;
+  return temp;
+}
+inline ::KFMsg::PBBattleBalance* S2SPlayerBalanceToRoomReq::mutable_balance() {
+  
+  if (balance_ == NULL) {
+    auto* p = CreateMaybeMessage<::KFMsg::PBBattleBalance>(GetArenaNoVirtual());
+    balance_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:KFMsg.S2SPlayerBalanceToRoomReq.balance)
+  return balance_;
+}
+inline void S2SPlayerBalanceToRoomReq::set_allocated_balance(::KFMsg::PBBattleBalance* balance) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(balance_);
+  }
+  if (balance) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      balance = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, balance, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  balance_ = balance;
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SPlayerBalanceToRoomReq.balance)
+}
+
+// -------------------------------------------------------------------
+
+// S2SPlayerBalanceToBattleAck
+
+// uint64 roomid = 1;
+inline void S2SPlayerBalanceToBattleAck::clear_roomid() {
+  roomid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 S2SPlayerBalanceToBattleAck::roomid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToBattleAck.roomid)
+  return roomid_;
+}
+inline void S2SPlayerBalanceToBattleAck::set_roomid(::google::protobuf::uint64 value) {
+  
+  roomid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToBattleAck.roomid)
+}
+
+// uint64 playerid = 2;
+inline void S2SPlayerBalanceToBattleAck::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 S2SPlayerBalanceToBattleAck::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToBattleAck.playerid)
+  return playerid_;
+}
+inline void S2SPlayerBalanceToBattleAck::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToBattleAck.playerid)
 }
 
 // -------------------------------------------------------------------
@@ -3365,6 +3741,10 @@ inline void S2SQueryMatchToGameAck::set_playerid(::google::protobuf::uint64 valu
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

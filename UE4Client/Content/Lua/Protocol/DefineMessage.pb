@@ -1,5 +1,5 @@
 
-Ø
+Ð
 DefineMessage.protoKFMsgFrameDefineMessage.proto"—
 PBMatchPlayer
 id (Rid
@@ -7,4 +7,9 @@
 serverid (Rserverid
 isrobot (Risrobot
 heroid (Rheroid
-grade (Rgradebproto3
+grade (Rgrade"9
+PBBalanceData
+name (	Rname
+value (Rvalue";
+PBBattleBalance(
+data (2.KFMsg.PBBalanceDataRdatabproto3
