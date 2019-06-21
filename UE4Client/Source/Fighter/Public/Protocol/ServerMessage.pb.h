@@ -1074,10 +1074,10 @@ class LIBPROTOC_EXPORT S2SPlayerBalanceToRoomReq : public ::google::protobuf::Me
 
   // accessors -------------------------------------------------------
 
-  // .KFMsg.PBBattleBalance balance = 4;
+  // .KFMsg.PBBattleBalance balance = 3;
   bool has_balance() const;
   void clear_balance();
-  static const int kBalanceFieldNumber = 4;
+  static const int kBalanceFieldNumber = 3;
   private:
   const ::KFMsg::PBBattleBalance& _internal_balance() const;
   public:
@@ -1098,12 +1098,6 @@ class LIBPROTOC_EXPORT S2SPlayerBalanceToRoomReq : public ::google::protobuf::Me
   ::google::protobuf::uint64 playerid() const;
   void set_playerid(::google::protobuf::uint64 value);
 
-  // uint32 ranking = 3;
-  void clear_ranking();
-  static const int kRankingFieldNumber = 3;
-  ::google::protobuf::uint32 ranking() const;
-  void set_ranking(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:KFMsg.S2SPlayerBalanceToRoomReq)
  private:
 
@@ -1111,7 +1105,6 @@ class LIBPROTOC_EXPORT S2SPlayerBalanceToRoomReq : public ::google::protobuf::Me
   ::KFMsg::PBBattleBalance* balance_;
   ::google::protobuf::uint64 roomid_;
   ::google::protobuf::uint64 playerid_;
-  ::google::protobuf::uint32 ranking_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
 };
@@ -2998,21 +2991,7 @@ inline void S2SPlayerBalanceToRoomReq::set_playerid(::google::protobuf::uint64 v
   // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToRoomReq.playerid)
 }
 
-// uint32 ranking = 3;
-inline void S2SPlayerBalanceToRoomReq::clear_ranking() {
-  ranking_ = 0u;
-}
-inline ::google::protobuf::uint32 S2SPlayerBalanceToRoomReq::ranking() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SPlayerBalanceToRoomReq.ranking)
-  return ranking_;
-}
-inline void S2SPlayerBalanceToRoomReq::set_ranking(::google::protobuf::uint32 value) {
-  
-  ranking_ = value;
-  // @@protoc_insertion_point(field_set:KFMsg.S2SPlayerBalanceToRoomReq.ranking)
-}
-
-// .KFMsg.PBBattleBalance balance = 4;
+// .KFMsg.PBBattleBalance balance = 3;
 inline bool S2SPlayerBalanceToRoomReq::has_balance() const {
   return this != internal_default_instance() && balance_ != NULL;
 }

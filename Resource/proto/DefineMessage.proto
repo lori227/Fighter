@@ -37,6 +37,9 @@ message PBBalanceData
 
 message PBBattleBalance
 {
+    // 排名
+	uint32 ranking = 1;				
+
     // 结算列表
-    repeated PBBalanceData data = 1;
+    repeated PBBalanceData data = 2;
 }

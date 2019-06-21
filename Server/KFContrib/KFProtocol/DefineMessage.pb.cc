@@ -123,6 +123,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBBattleBalance, ranking_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBBattleBalance, data_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -163,11 +164,12 @@ void AddDescriptorsImpl() {
       "\001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\017\n\007i"
       "srobot\030\004 \001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n\005grade\030\006 "
       "\001(\r\",\n\rPBBalanceData\022\014\n\004name\030\001 \001(\t\022\r\n\005va"
-      "lue\030\002 \001(\021\"5\n\017PBBattleBalance\022\"\n\004data\030\001 \003"
-      "(\0132\024.KFMsg.PBBalanceDatab\006proto3"
+      "lue\030\002 \001(\021\"F\n\017PBBattleBalance\022\017\n\007ranking\030"
+      "\001 \001(\r\022\"\n\004data\030\002 \003(\0132\024.KFMsg.PBBalanceDat"
+      "ab\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 272);
+      descriptor, 289);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DefineMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -889,6 +891,7 @@ void PBBalanceData::InternalSwap(PBBalanceData* other) {
 void PBBattleBalance::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PBBattleBalance::kRankingFieldNumber;
 const int PBBattleBalance::kDataFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -904,10 +907,12 @@ PBBattleBalance::PBBattleBalance(const PBBattleBalance& from)
       _internal_metadata_(NULL),
       data_(from.data_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ranking_ = from.ranking_;
   // @@protoc_insertion_point(copy_constructor:KFMsg.PBBattleBalance)
 }
 
 void PBBattleBalance::SharedCtor() {
+  ranking_ = 0u;
 }
 
 PBBattleBalance::~PBBattleBalance() {
@@ -939,6 +944,7 @@ void PBBattleBalance::Clear() {
   (void) cached_has_bits;
 
   data_.Clear();
+  ranking_ = 0u;
   _internal_metadata_.Clear();
 }
 
@@ -952,10 +958,24 @@ bool PBBattleBalance::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .KFMsg.PBBalanceData data = 1;
+      // uint32 ranking = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &ranking_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .KFMsg.PBBalanceData data = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                 input, add_data()));
         } else {
@@ -990,11 +1010,16 @@ void PBBattleBalance::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .KFMsg.PBBalanceData data = 1;
+  // uint32 ranking = 1;
+  if (this->ranking() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->ranking(), output);
+  }
+
+  // repeated .KFMsg.PBBalanceData data = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->data_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1,
+      2,
       this->data(static_cast<int>(i)),
       output);
   }
@@ -1013,12 +1038,17 @@ void PBBattleBalance::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .KFMsg.PBBalanceData data = 1;
+  // uint32 ranking = 1;
+  if (this->ranking() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->ranking(), target);
+  }
+
+  // repeated .KFMsg.PBBalanceData data = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->data_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->data(static_cast<int>(i)), deterministic, target);
+        2, this->data(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1038,7 +1068,7 @@ size_t PBBattleBalance::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .KFMsg.PBBalanceData data = 1;
+  // repeated .KFMsg.PBBalanceData data = 2;
   {
     unsigned int count = static_cast<unsigned int>(this->data_size());
     total_size += 1UL * count;
@@ -1047,6 +1077,13 @@ size_t PBBattleBalance::ByteSizeLong() const {
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           this->data(static_cast<int>(i)));
     }
+  }
+
+  // uint32 ranking = 1;
+  if (this->ranking() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->ranking());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1077,6 +1114,9 @@ void PBBattleBalance::MergeFrom(const PBBattleBalance& from) {
   (void) cached_has_bits;
 
   data_.MergeFrom(from.data_);
+  if (from.ranking() != 0) {
+    set_ranking(from.ranking());
+  }
 }
 
 void PBBattleBalance::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1104,6 +1144,7 @@ void PBBattleBalance::Swap(PBBattleBalance* other) {
 void PBBattleBalance::InternalSwap(PBBattleBalance* other) {
   using std::swap;
   CastToBase(&data_)->InternalSwap(CastToBase(&other->data_));
+  swap(ranking_, other->ranking_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

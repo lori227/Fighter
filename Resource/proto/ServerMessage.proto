@@ -120,8 +120,7 @@ message S2SPlayerBalanceToRoomReq
 {
 	uint64 roomid = 1;				// 房间id
 	uint64 playerid = 2;			// 玩家id
-	uint32 ranking = 3;				// 排名
-	PBBattleBalance balance = 4;	// 结算列表
+	PBBattleBalance balance = 3;	// 结算列表
 }
 
 // 结算玩家数据回应

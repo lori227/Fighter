@@ -424,10 +424,10 @@ class LIBPROTOC_EXPORT PBBattleBalance : public ::google::protobuf::Message /* @
 
   // accessors -------------------------------------------------------
 
-  // repeated .KFMsg.PBBalanceData data = 1;
+  // repeated .KFMsg.PBBalanceData data = 2;
   int data_size() const;
   void clear_data();
-  static const int kDataFieldNumber = 1;
+  static const int kDataFieldNumber = 2;
   ::KFMsg::PBBalanceData* mutable_data(int index);
   ::google::protobuf::RepeatedPtrField< ::KFMsg::PBBalanceData >*
       mutable_data();
@@ -436,11 +436,18 @@ class LIBPROTOC_EXPORT PBBattleBalance : public ::google::protobuf::Message /* @
   const ::google::protobuf::RepeatedPtrField< ::KFMsg::PBBalanceData >&
       data() const;
 
+  // uint32 ranking = 1;
+  void clear_ranking();
+  static const int kRankingFieldNumber = 1;
+  ::google::protobuf::uint32 ranking() const;
+  void set_ranking(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.PBBattleBalance)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::KFMsg::PBBalanceData > data_;
+  ::google::protobuf::uint32 ranking_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_DefineMessage_2eproto::TableStruct;
 };
@@ -653,7 +660,21 @@ inline void PBBalanceData::set_value(::google::protobuf::int32 value) {
 
 // PBBattleBalance
 
-// repeated .KFMsg.PBBalanceData data = 1;
+// uint32 ranking = 1;
+inline void PBBattleBalance::clear_ranking() {
+  ranking_ = 0u;
+}
+inline ::google::protobuf::uint32 PBBattleBalance::ranking() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBBattleBalance.ranking)
+  return ranking_;
+}
+inline void PBBattleBalance::set_ranking(::google::protobuf::uint32 value) {
+  
+  ranking_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBBattleBalance.ranking)
+}
+
+// repeated .KFMsg.PBBalanceData data = 2;
 inline int PBBattleBalance::data_size() const {
   return data_.size();
 }

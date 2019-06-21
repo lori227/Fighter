@@ -522,7 +522,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SPlayerBalanceToRoomReq, roomid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SPlayerBalanceToRoomReq, playerid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SPlayerBalanceToRoomReq, ranking_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SPlayerBalanceToRoomReq, balance_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::S2SPlayerBalanceToBattleAck, _internal_metadata_),
@@ -632,19 +631,19 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 37, -1, sizeof(::KFMsg::S2SFinishRoomToBattleAck)},
   { 43, -1, sizeof(::KFMsg::S2SHeartBeatToRoomReq)},
   { 50, -1, sizeof(::KFMsg::S2SPlayerBalanceToRoomReq)},
-  { 59, -1, sizeof(::KFMsg::S2SPlayerBalanceToBattleAck)},
-  { 66, -1, sizeof(::KFMsg::S2SStartMatchToShardReq)},
-  { 75, -1, sizeof(::KFMsg::S2SStartMatchToGameAck)},
-  { 84, -1, sizeof(::KFMsg::S2SCancelMatchToShardReq)},
-  { 91, -1, sizeof(::KFMsg::S2SCreateRoomToRoomReq)},
-  { 101, -1, sizeof(::KFMsg::S2SCreateRoomToMatchAck)},
-  { 107, -1, sizeof(::KFMsg::S2SInformBattleToGameReq)},
-  { 117, -1, sizeof(::KFMsg::S2SInformBattleToRoomAck)},
-  { 124, -1, sizeof(::KFMsg::S2SQueryRoomToRoomReq)},
-  { 131, -1, sizeof(::KFMsg::S2SQueryRoomToGameAck)},
-  { 137, -1, sizeof(::KFMsg::S2SFinishRoomToGameReq)},
-  { 144, -1, sizeof(::KFMsg::S2SQueryMatchToMatchReq)},
-  { 151, -1, sizeof(::KFMsg::S2SQueryMatchToGameAck)},
+  { 58, -1, sizeof(::KFMsg::S2SPlayerBalanceToBattleAck)},
+  { 65, -1, sizeof(::KFMsg::S2SStartMatchToShardReq)},
+  { 74, -1, sizeof(::KFMsg::S2SStartMatchToGameAck)},
+  { 83, -1, sizeof(::KFMsg::S2SCancelMatchToShardReq)},
+  { 90, -1, sizeof(::KFMsg::S2SCreateRoomToRoomReq)},
+  { 100, -1, sizeof(::KFMsg::S2SCreateRoomToMatchAck)},
+  { 106, -1, sizeof(::KFMsg::S2SInformBattleToGameReq)},
+  { 116, -1, sizeof(::KFMsg::S2SInformBattleToRoomAck)},
+  { 123, -1, sizeof(::KFMsg::S2SQueryRoomToRoomReq)},
+  { 130, -1, sizeof(::KFMsg::S2SQueryRoomToGameAck)},
+  { 136, -1, sizeof(::KFMsg::S2SFinishRoomToGameReq)},
+  { 143, -1, sizeof(::KFMsg::S2SQueryMatchToMatchReq)},
+  { 150, -1, sizeof(::KFMsg::S2SQueryMatchToGameAck)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -705,57 +704,57 @@ void AddDescriptorsImpl() {
       "nishRoomToRoomReq\022\016\n\006roomid\030\001 \001(\004\"*\n\030S2S"
       "FinishRoomToBattleAck\022\016\n\006roomid\030\001 \001(\004\"9\n"
       "\025S2SHeartBeatToRoomReq\022\016\n\006roomid\030\001 \001(\004\022\020"
-      "\n\010serverid\030\002 \001(\004\"w\n\031S2SPlayerBalanceToRo"
+      "\n\010serverid\030\002 \001(\004\"f\n\031S2SPlayerBalanceToRo"
       "omReq\022\016\n\006roomid\030\001 \001(\004\022\020\n\010playerid\030\002 \001(\004\022"
-      "\017\n\007ranking\030\003 \001(\r\022\'\n\007balance\030\004 \001(\0132\026.KFMs"
-      "g.PBBattleBalance\"\?\n\033S2SPlayerBalanceToB"
-      "attleAck\022\016\n\006roomid\030\001 \001(\004\022\020\n\010playerid\030\002 \001"
-      "(\004\"u\n\027S2SStartMatchToShardReq\022\017\n\007version"
-      "\030\001 \001(\014\022\017\n\007matchid\030\002 \001(\r\022\020\n\010serverid\030\003 \001("
-      "\004\022&\n\010pbplayer\030\004 \001(\0132\024.KFMsg.PBMatchPlaye"
-      "r\"]\n\026S2SStartMatchToGameAck\022\016\n\006result\030\001 "
-      "\001(\r\022\017\n\007matchid\030\002 \001(\r\022\020\n\010playerid\030\003 \001(\004\022\020"
-      "\n\010serverid\030\004 \001(\004\"=\n\030S2SCancelMatchToShar"
-      "dReq\022\017\n\007matchid\030\001 \001(\r\022\020\n\010playerid\030\002 \001(\004\""
-      "\204\001\n\026S2SCreateRoomToRoomReq\022\017\n\007matchid\030\001 "
-      "\001(\r\022\016\n\006roomid\030\002 \001(\004\022\017\n\007version\030\003 \001(\014\022\020\n\010"
-      "serverid\030\004 \001(\004\022&\n\010pbplayer\030\005 \003(\0132\024.KFMsg"
-      ".PBMatchPlayer\")\n\027S2SCreateRoomToMatchAc"
-      "k\022\016\n\006roomid\030\001 \001(\004\"h\n\030S2SInformBattleToGa"
-      "meReq\022\020\n\010playerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\022"
-      "\020\n\010battleid\030\003 \001(\004\022\n\n\002ip\030\004 \001(\014\022\014\n\004port\030\005 "
-      "\001(\r\"<\n\030S2SInformBattleToRoomAck\022\020\n\010playe"
-      "rid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\"9\n\025S2SQueryRoo"
-      "mToRoomReq\022\020\n\010playerid\030\001 \001(\004\022\016\n\006roomid\030\002"
-      " \001(\004\")\n\025S2SQueryRoomToGameAck\022\020\n\010playeri"
-      "d\030\001 \001(\004\":\n\026S2SFinishRoomToGameReq\022\020\n\010pla"
-      "yerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\"<\n\027S2SQueryM"
-      "atchToMatchReq\022\020\n\010playerid\030\001 \001(\004\022\017\n\007matc"
-      "hid\030\002 \001(\r\"*\n\026S2SQueryMatchToGameAck\022\020\n\010p"
-      "layerid\030\001 \001(\004*\246\006\n\016ServerProtocol\022\035\n\031S2S_"
-      "SERVER_PROTOCOL_BEGIN\020\000\022\"\n\034S2S_START_MAT"
-      "CH_TO_SHARD_REQ\020\231\362\001\022!\n\033S2S_START_MATCH_T"
-      "O_GAME_ACK\020\232\362\001\022#\n\035S2S_CANCEL_MATCH_TO_SH"
-      "ARD_REQ\020\233\362\001\022%\n\037S2S_REGISTER_BATTLE_TO_RO"
-      "OM_REQ\020\375\362\001\022\'\n!S2S_REGISTER_BATTLE_TO_BAT"
-      "TLE_ACK\020\376\362\001\022!\n\033S2S_OPEN_ROOM_TO_BATTLE_R"
-      "EQ\020\377\362\001\022\037\n\031S2S_OPEN_ROOM_TO_ROOM_ACK\020\200\363\001\022"
-      "!\n\033S2S_FINISH_ROOM_TO_ROOM_REQ\020\201\363\001\022#\n\035S2"
-      "S_FINISH_ROOM_TO_BATTLE_ACK\020\202\363\001\022 \n\032S2S_H"
-      "EART_BEAT_TO_ROOM_REQ\020\203\363\001\022$\n\036S2S_PLAYER_"
-      "BALANCE_TO_ROOM_REQ\020\204\363\001\022&\n S2S_PLAYER_BA"
-      "LANCE_TO_BATTLE_ACK\020\205\363\001\022!\n\033S2S_CREATE_RO"
-      "OM_TO_ROOM_REQ\020\341\363\001\022\"\n\034S2S_CREATE_ROOM_TO"
-      "_MATCH_ACK\020\342\363\001\022#\n\035S2S_INFORM_BATTLE_TO_G"
-      "AME_REQ\020\343\363\001\022#\n\035S2S_INFORM_BATTLE_TO_ROOM"
-      "_ACK\020\344\363\001\022 \n\032S2S_QUERY_ROOM_TO_ROOM_REQ\020\345"
-      "\363\001\022 \n\032S2S_QUERY_ROOM_TO_GAME_ACK\020\346\363\001\022!\n\033"
-      "S2S_FINISH_ROOM_TO_GAME_REQ\020\347\363\001\022\"\n\034S2S_Q"
-      "UERY_MATCH_TO_MATCH_REQ\020\350\363\001\022!\n\033S2S_QUERY"
-      "_MATCH_TO_GAME_ACK\020\351\363\001b\006proto3"
+      "\'\n\007balance\030\003 \001(\0132\026.KFMsg.PBBattleBalance"
+      "\"\?\n\033S2SPlayerBalanceToBattleAck\022\016\n\006roomi"
+      "d\030\001 \001(\004\022\020\n\010playerid\030\002 \001(\004\"u\n\027S2SStartMat"
+      "chToShardReq\022\017\n\007version\030\001 \001(\014\022\017\n\007matchid"
+      "\030\002 \001(\r\022\020\n\010serverid\030\003 \001(\004\022&\n\010pbplayer\030\004 \001"
+      "(\0132\024.KFMsg.PBMatchPlayer\"]\n\026S2SStartMatc"
+      "hToGameAck\022\016\n\006result\030\001 \001(\r\022\017\n\007matchid\030\002 "
+      "\001(\r\022\020\n\010playerid\030\003 \001(\004\022\020\n\010serverid\030\004 \001(\004\""
+      "=\n\030S2SCancelMatchToShardReq\022\017\n\007matchid\030\001"
+      " \001(\r\022\020\n\010playerid\030\002 \001(\004\"\204\001\n\026S2SCreateRoom"
+      "ToRoomReq\022\017\n\007matchid\030\001 \001(\r\022\016\n\006roomid\030\002 \001"
+      "(\004\022\017\n\007version\030\003 \001(\014\022\020\n\010serverid\030\004 \001(\004\022&\n"
+      "\010pbplayer\030\005 \003(\0132\024.KFMsg.PBMatchPlayer\")\n"
+      "\027S2SCreateRoomToMatchAck\022\016\n\006roomid\030\001 \001(\004"
+      "\"h\n\030S2SInformBattleToGameReq\022\020\n\010playerid"
+      "\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\022\020\n\010battleid\030\003 \001(\004"
+      "\022\n\n\002ip\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\"<\n\030S2SInformB"
+      "attleToRoomAck\022\020\n\010playerid\030\001 \001(\004\022\016\n\006room"
+      "id\030\002 \001(\004\"9\n\025S2SQueryRoomToRoomReq\022\020\n\010pla"
+      "yerid\030\001 \001(\004\022\016\n\006roomid\030\002 \001(\004\")\n\025S2SQueryR"
+      "oomToGameAck\022\020\n\010playerid\030\001 \001(\004\":\n\026S2SFin"
+      "ishRoomToGameReq\022\020\n\010playerid\030\001 \001(\004\022\016\n\006ro"
+      "omid\030\002 \001(\004\"<\n\027S2SQueryMatchToMatchReq\022\020\n"
+      "\010playerid\030\001 \001(\004\022\017\n\007matchid\030\002 \001(\r\"*\n\026S2SQ"
+      "ueryMatchToGameAck\022\020\n\010playerid\030\001 \001(\004*\246\006\n"
+      "\016ServerProtocol\022\035\n\031S2S_SERVER_PROTOCOL_B"
+      "EGIN\020\000\022\"\n\034S2S_START_MATCH_TO_SHARD_REQ\020\231"
+      "\362\001\022!\n\033S2S_START_MATCH_TO_GAME_ACK\020\232\362\001\022#\n"
+      "\035S2S_CANCEL_MATCH_TO_SHARD_REQ\020\233\362\001\022%\n\037S2"
+      "S_REGISTER_BATTLE_TO_ROOM_REQ\020\375\362\001\022\'\n!S2S"
+      "_REGISTER_BATTLE_TO_BATTLE_ACK\020\376\362\001\022!\n\033S2"
+      "S_OPEN_ROOM_TO_BATTLE_REQ\020\377\362\001\022\037\n\031S2S_OPE"
+      "N_ROOM_TO_ROOM_ACK\020\200\363\001\022!\n\033S2S_FINISH_ROO"
+      "M_TO_ROOM_REQ\020\201\363\001\022#\n\035S2S_FINISH_ROOM_TO_"
+      "BATTLE_ACK\020\202\363\001\022 \n\032S2S_HEART_BEAT_TO_ROOM"
+      "_REQ\020\203\363\001\022$\n\036S2S_PLAYER_BALANCE_TO_ROOM_R"
+      "EQ\020\204\363\001\022&\n S2S_PLAYER_BALANCE_TO_BATTLE_A"
+      "CK\020\205\363\001\022!\n\033S2S_CREATE_ROOM_TO_ROOM_REQ\020\341\363"
+      "\001\022\"\n\034S2S_CREATE_ROOM_TO_MATCH_ACK\020\342\363\001\022#\n"
+      "\035S2S_INFORM_BATTLE_TO_GAME_REQ\020\343\363\001\022#\n\035S2"
+      "S_INFORM_BATTLE_TO_ROOM_ACK\020\344\363\001\022 \n\032S2S_Q"
+      "UERY_ROOM_TO_ROOM_REQ\020\345\363\001\022 \n\032S2S_QUERY_R"
+      "OOM_TO_GAME_ACK\020\346\363\001\022!\n\033S2S_FINISH_ROOM_T"
+      "O_GAME_REQ\020\347\363\001\022\"\n\034S2S_QUERY_MATCH_TO_MAT"
+      "CH_REQ\020\350\363\001\022!\n\033S2S_QUERY_MATCH_TO_GAME_AC"
+      "K\020\351\363\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2430);
+      descriptor, 2413);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_DefineMessage_2eproto::AddDescriptors();
@@ -2725,7 +2724,6 @@ void S2SPlayerBalanceToRoomReq::clear_balance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int S2SPlayerBalanceToRoomReq::kRoomidFieldNumber;
 const int S2SPlayerBalanceToRoomReq::kPlayeridFieldNumber;
-const int S2SPlayerBalanceToRoomReq::kRankingFieldNumber;
 const int S2SPlayerBalanceToRoomReq::kBalanceFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2746,15 +2744,15 @@ S2SPlayerBalanceToRoomReq::S2SPlayerBalanceToRoomReq(const S2SPlayerBalanceToRoo
     balance_ = NULL;
   }
   ::memcpy(&roomid_, &from.roomid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ranking_) -
-    reinterpret_cast<char*>(&roomid_)) + sizeof(ranking_));
+    static_cast<size_t>(reinterpret_cast<char*>(&playerid_) -
+    reinterpret_cast<char*>(&roomid_)) + sizeof(playerid_));
   // @@protoc_insertion_point(copy_constructor:KFMsg.S2SPlayerBalanceToRoomReq)
 }
 
 void S2SPlayerBalanceToRoomReq::SharedCtor() {
   ::memset(&balance_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&ranking_) -
-      reinterpret_cast<char*>(&balance_)) + sizeof(ranking_));
+      reinterpret_cast<char*>(&playerid_) -
+      reinterpret_cast<char*>(&balance_)) + sizeof(playerid_));
 }
 
 S2SPlayerBalanceToRoomReq::~S2SPlayerBalanceToRoomReq() {
@@ -2791,8 +2789,8 @@ void S2SPlayerBalanceToRoomReq::Clear() {
   }
   balance_ = NULL;
   ::memset(&roomid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&ranking_) -
-      reinterpret_cast<char*>(&roomid_)) + sizeof(ranking_));
+      reinterpret_cast<char*>(&playerid_) -
+      reinterpret_cast<char*>(&roomid_)) + sizeof(playerid_));
   _internal_metadata_.Clear();
 }
 
@@ -2834,24 +2832,10 @@ bool S2SPlayerBalanceToRoomReq::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 ranking = 3;
+      // .KFMsg.PBBattleBalance balance = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &ranking_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .KFMsg.PBBattleBalance balance = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_balance()));
         } else {
@@ -2896,15 +2880,10 @@ void S2SPlayerBalanceToRoomReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->playerid(), output);
   }
 
-  // uint32 ranking = 3;
-  if (this->ranking() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->ranking(), output);
-  }
-
-  // .KFMsg.PBBattleBalance balance = 4;
+  // .KFMsg.PBBattleBalance balance = 3;
   if (this->has_balance()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->_internal_balance(), output);
+      3, this->_internal_balance(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2931,16 +2910,11 @@ void S2SPlayerBalanceToRoomReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->playerid(), target);
   }
 
-  // uint32 ranking = 3;
-  if (this->ranking() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->ranking(), target);
-  }
-
-  // .KFMsg.PBBattleBalance balance = 4;
+  // .KFMsg.PBBattleBalance balance = 3;
   if (this->has_balance()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, this->_internal_balance(), deterministic, target);
+        3, this->_internal_balance(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2960,7 +2934,7 @@ size_t S2SPlayerBalanceToRoomReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .KFMsg.PBBattleBalance balance = 4;
+  // .KFMsg.PBBattleBalance balance = 3;
   if (this->has_balance()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -2979,13 +2953,6 @@ size_t S2SPlayerBalanceToRoomReq::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->playerid());
-  }
-
-  // uint32 ranking = 3;
-  if (this->ranking() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->ranking());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -3024,9 +2991,6 @@ void S2SPlayerBalanceToRoomReq::MergeFrom(const S2SPlayerBalanceToRoomReq& from)
   if (from.playerid() != 0) {
     set_playerid(from.playerid());
   }
-  if (from.ranking() != 0) {
-    set_ranking(from.ranking());
-  }
 }
 
 void S2SPlayerBalanceToRoomReq::CopyFrom(const ::google::protobuf::Message& from) {
@@ -3056,7 +3020,6 @@ void S2SPlayerBalanceToRoomReq::InternalSwap(S2SPlayerBalanceToRoomReq* other) {
   swap(balance_, other->balance_);
   swap(roomid_, other->roomid_);
   swap(playerid_, other->playerid_);
-  swap(ranking_, other->ranking_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

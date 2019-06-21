@@ -1,5 +1,5 @@
 
-Ð
+ê
 DefineMessage.protoKFMsgFrameDefineMessage.proto"—
 PBMatchPlayer
 id (Rid
@@ -10,6 +10,7 @@
 grade (Rgrade"9
 PBBalanceData
 name (	Rname
-value (Rvalue";
-PBBattleBalance(
-data (2.KFMsg.PBBalanceDataRdatabproto3
+value (Rvalue"U
+PBBattleBalance
+ranking (Rranking(
+data (2.KFMsg.PBBalanceDataRdatabproto3
