@@ -45,6 +45,9 @@ namespace KFrame
         // 房间结束
         __KF_MESSAGE_FUNCTION__( HandleFinishRoomToGameReq );
 
+        // 结算请求
+        __KF_MESSAGE_FUNCTION__( HandleBalanceToGameReq );
+
     protected:
         // 设置房间信息
         void SetRoomData( KFEntity* player, uint64 roomid, uint64 roomserverid );

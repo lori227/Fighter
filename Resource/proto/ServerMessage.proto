@@ -37,6 +37,9 @@ enum ServerProtocol
 	S2S_FINISH_ROOM_TO_GAME_REQ			= 31207;	// 结束房间
 	S2S_QUERY_MATCH_TO_MATCH_REQ		= 31208;	// 查询匹配
 	S2S_QUERY_MATCH_TO_GAME_ACK			= 31209;	// 查询匹配
+	S2S_PLAYER_BALANCE_TO_GAME_REQ		= 31210;	// 玩家结算
+	S2S_PLAYER_BALANCE_TO_ROOM_RESULT	= 31211;	// 玩家结算
+	S2S_QUERY_BALANCE_TO_ROOM_REQ		= 31212;	// 玩家结算
 	// 匹配集群, 游戏集群 房间集群的消息 end
 }
 
@@ -235,4 +238,28 @@ message S2SQueryMatchToMatchReq
 message S2SQueryMatchToGameAck
 {
 	uint64 playerid = 1;
+}
+
+// 战斗结算到游戏服务器
+// S2S_PLAYER_BALANCE_TO_GAME_REQ
+message S2SPlayerBalanceToGameReq
+{
+	uint64 roomid = 1;				// 房间id
+	uint64 playerid = 2;			// 玩家id
+	PBBattleBalance balance = 3;	// 结算列表
+}
+
+// 结算结果到房间服务器
+// S2S_PLAYER_BALANCE_TO_ROOM_RESULT
+message S2SPlayerBalanceToRoomResult
+{
+	uint64 roomid = 1;				// 房间id
+	uint64 playerid = 2;			// 玩家id
+}
+
+// 上线查询结算
+// S2S_QUERY_BALANCE_TO_ROOM_REQ
+message S2SQueryBalanceToRoomReq
+{
+	uint64 playerid = 1;		// 玩家id
 }

@@ -17,6 +17,9 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_ROOM_TO_ROOM_REQ, &KFRoomShardModule::HandleQueryRoomToRoomReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_ROOM_REQ, &KFRoomShardModule::HandleFinishRoomToRoomReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_HEART_BEAT_TO_ROOM_REQ, &KFRoomShardModule::HandleHeartBeatToRoomReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_REQ, &KFRoomShardModule::HandlePlayerBalanceToRoomReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_RESULT, &KFRoomShardModule::HandlePlayerBalanceToRoomResult );
+        __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, &KFRoomShardModule::HandleQueryBalanceToRoomReq );
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
     }
@@ -31,6 +34,9 @@ namespace KFrame
         __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_ROOM_TO_ROOM_REQ );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_ROOM_REQ );
         __UNREGISTER_MESSAGE__( KFMsg::S2S_HEART_BEAT_TO_ROOM_REQ );
+        __UNREGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_REQ );
+        __UNREGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_RESULT );
+        __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ );
     }
 
     void KFRoomShardModule::OnceRun()
@@ -197,6 +203,82 @@ namespace KFrame
         else
         {
             _battle_allot->UpdateBattle( kfmsg.serverid() );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandlePlayerBalanceToRoomReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SPlayerBalanceToRoomReq );
+        __LOG_DEBUG__( "room=[{}] player=[{}] balance req!", kfmsg.roomid(), kfmsg.playerid() );
+
+        auto kfroom = _room_list.Find( kfmsg.roomid() );
+        if ( kfroom == nullptr )
+        {
+            return __LOG_ERROR__( "room=[{}] not exist!", kfmsg.roomid() );
+        }
+
+        auto kfplayer = kfroom->_player_list.Find( kfmsg.playerid() );
+        if ( kfplayer == nullptr )
+        {
+            return __LOG_ERROR__( "player=[{}] not in room!", kfmsg.playerid() );
+        }
+
+        if ( !kfplayer->_is_balance )
+        {
+            // 先保存到数据库
+            auto pbbalance = &kfmsg.balance();
+            auto strdata = KFProto::Serialize( pbbalance, KFCompressEnum::Compress );
+            auto kfresult = _room_redis->Execute( "hset {}:{} {} {}", __KF_STRING__( balance ), kfmsg.playerid(), kfmsg.roomid(), strdata );
+            if ( !kfresult->IsOk() )
+            {
+                return __LOG_ERROR__( "player=[{}] balance save failed!", kfmsg.playerid() );
+            }
+
+            kfplayer->_is_balance = true;
+
+            // 发送到游戏服务器
+            SendPlayerBalanceToGame( kfplayer->_pb_player.serverid(), kfmsg.playerid(), kfmsg.roomid(), pbbalance );
+        }
+
+        KFMsg::S2SPlayerBalanceToBattleAck ack;
+        ack.set_roomid( kfmsg.roomid() );
+        ack.set_playerid( kfmsg.playerid() );
+        _kf_route->SendToRoute( route, KFMsg::S2S_PLAYER_BALANCE_TO_BATTLE_ACK, &ack );
+    }
+
+    void KFRoomShardModule::SendPlayerBalanceToGame( uint64 serverid, uint64 playerid, uint64 roomid, const KFMsg::PBBattleBalance* pbbalance )
+    {
+        KFMsg::S2SPlayerBalanceToGameReq req;
+        req.set_roomid( roomid );
+        req.set_playerid( playerid );
+        req.mutable_balance()->CopyFrom( *pbbalance );
+        _kf_route->SendToServer( serverid, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req, true );
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandlePlayerBalanceToRoomResult )
+    {
+        __PROTO_PARSE__( KFMsg::S2SPlayerBalanceToRoomResult );
+        __LOG_DEBUG__( "room=[{}] player=[{}] balance ok!", kfmsg.roomid(), kfmsg.playerid() );
+
+        auto kfresult = _room_redis->Execute( "hdel {}:{} {}", __KF_STRING__( balance ), kfmsg.playerid(), kfmsg.roomid() );
+        if ( !kfresult->IsOk() )
+        {
+            return __LOG_ERROR__( "player=[{}] balance failed!", kfmsg.playerid() );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandleQueryBalanceToRoomReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SQueryBalanceToRoomReq );
+
+        auto kfresult = _room_redis->QueryMap( "hgetall {}:{}", __KF_STRING__( balance ), kfmsg.playerid() );
+        for ( auto& iter : kfresult->_value )
+        {
+            KFMsg::PBBattleBalance pbbalance;
+            KFProto::Parse( &pbbalance, iter.second, KFCompressEnum::Compress );
+
+            auto roomid = KFUtility::ToValue< uint64 >( iter.first );
+            SendPlayerBalanceToGame( __ROUTE_SERVER_ID__, kfmsg.playerid(), roomid, &pbbalance );
         }
     }
 }

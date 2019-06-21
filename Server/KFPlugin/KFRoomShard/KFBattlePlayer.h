@@ -22,6 +22,9 @@ namespace KFrame
         // 玩家id
         uint64 _id = 0u;
 
+        // 是否已经结算
+        bool _is_balance = false;
+
         // 游戏玩家数据
         KFMsg::PBMatchPlayer _pb_player;
     };

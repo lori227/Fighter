@@ -63,12 +63,24 @@ namespace KFrame
         // 房间心跳
         __KF_MESSAGE_FUNCTION__( HandleHeartBeatToRoomReq );
 
+        // 玩家结算
+        __KF_MESSAGE_FUNCTION__( HandlePlayerBalanceToRoomReq );
+
+        // 玩家结算结果
+        __KF_MESSAGE_FUNCTION__( HandlePlayerBalanceToRoomResult );
+
+        // 查询结算
+        __KF_MESSAGE_FUNCTION__( HandleQueryBalanceToRoomReq );
+
     protected:
         // 创建战场房间
         KFBattleRoom* CreateBattleRoom( uint64 roomid );
 
         // 删除战场房间
         void RemoveBattleRoom( uint64 roomid );
+
+        // 发送结算消息到服务器
+        void SendPlayerBalanceToGame( uint64 serverid, uint64 playerid, uint64 roomid, const KFMsg::PBBattleBalance* pbbalance );
 
     private:
         // 房间列表
