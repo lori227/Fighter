@@ -53,7 +53,7 @@ namespace KFrame
             return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
-        kfhero = _kf_kernel->CreateObject( kfparent->GetDataSetting() );
+        kfhero = _kf_kernel->CreateObject( kfparent->_data_setting );
         player->SetElementToData( kfelementobject, kfhero, multiple );
 
         player->AddData( kfparent, kfelementobject->_config_id, kfhero );
