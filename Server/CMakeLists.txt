@@ -34,6 +34,7 @@ include_directories(
     ${ROOT_DIR}/KFLibrary/poco/Data/ODBC/include
     ${ROOT_DIR}/KFLibrary/poco/Data/SQLite/include
     ${ROOT_DIR}/KFLibrary/poco/Data/include
+    ${ROOT_DIR}/KFLibrary/poco/MongoDB/include
 )
 
 set(3RD_LIB_DIR ${ROOT_DIR}/_lib/linux/3rd)

@@ -1,7 +1,8 @@
 echo "generate version..."
 
 if not exist ..\config ( mkdir ..\config )
-xcopy /S /y ..\..\..\Resource\config\* ..\config\
+xcopy /y ..\..\..\Resource\config\*.xml ..\config\
+xcopy /y ..\..\..\Resource\config\server\*.xml ..\config\
 
 if not exist ..\script ( mkdir ..\script )
 xcopy /S /y ..\..\..\Resource\script\* ..\script\
