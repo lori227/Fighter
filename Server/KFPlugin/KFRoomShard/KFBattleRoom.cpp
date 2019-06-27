@@ -101,7 +101,10 @@ namespace KFrame
                 for ( auto& iter : _player_list._objects )
                 {
                     auto kfplayer = iter.second;
-                    _kf_display->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, KFMsg::RoomAllotBattle );
+                    if ( !kfplayer->_pb_player.isrobot() )
+                    {
+                        _kf_display->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, KFMsg::RoomAllotBattle );
+                    }
                 }
             }
             else
