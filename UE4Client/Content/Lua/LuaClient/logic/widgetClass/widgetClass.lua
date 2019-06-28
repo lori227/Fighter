@@ -1,1 +1,0 @@
-CHireWidget = require "logic/widgetClass/CHireWidget"

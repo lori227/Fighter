@@ -1,6 +1,0 @@
-CLoginMediator = require "logic/login/CLoginMediator"
-CLoginProxy = require "logic/login/CLoginProxy"
-CLoginRequestLoginCommand = require "logic/login/CLoginRequestLoginCommand"
-CLoginRequestSetDataCommand = require "logic/login/CLoginRequestSetDataCommand"
-CLoginResponseLoginCommand = require "logic/login/CLoginResponseLoginCommand"
-CLoginResponseUpdataDataCommand = require "logic/login/CLoginResponseUpdataDataCommand"
