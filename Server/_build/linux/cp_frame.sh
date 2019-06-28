@@ -29,6 +29,7 @@ cp -f $framebinpath/KFStartup$filename $binpath/
 cp -f $framebinpath/KFConfig$filename.so $binpath/
 cp -f $framebinpath/KFMySQL$filename.so $binpath/
 cp -f $framebinpath/KFRedis$filename.so $binpath/
+cp -f $framebinpath/KFMongo$filename.so $binpath/
 cp -f $framebinpath/KFDeployClient$filename.so $binpath/
 cp -f $framebinpath/KFClusterClient$filename.so $binpath/
 cp -f $framebinpath/KFClusterMaster$filename.so $binpath/
@@ -67,5 +68,6 @@ cp -f $framebinpath/KFCommand$filename.so $binpath/
 cp -f $framebinpath/KFEnter$filename.so $binpath/
 cp -f $framebinpath/KFLeave$filename.so $binpath/
 cp -f $framebinpath/KFReset$filename.so $binpath/
+cp -f $framebinpath/KFLua$filename.so $binpath/
 cp -f $framebinpath/KFPublicClient$filename.so $binpath/
 cp -f $framebinpath/KFPublicShard$filename.so $binpath/
