@@ -1,0 +1,10 @@
+require "logic/common/define"
+require "logic/common/notifierEnum"
+require "logic/common/proxyEnum"
+require "logic/common/protobufEnum"
+require "logic/common/refreshRecruitEnum"
+require "logic/common/tipsEnum"
+require "logic/common/netPlayerDataEnum"
+require "logic/common/uiViewZOrderEnum"
+
+CConfig = require "logic/common/CConfig"

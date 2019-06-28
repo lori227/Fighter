@@ -1,0 +1,1 @@
+CTeamManagementMediator = require "logic/teamManagement/CTeamManagementMediator"
