@@ -148,7 +148,7 @@ namespace KFrame
 
     bool KFMatchRoom::AddRobot()
     {
-        if ( _next_add_robot_time < KFGlobal::Instance()->_game_time )
+        if ( _next_add_robot_time > KFGlobal::Instance()->_game_time )
         {
             return false;
         }
