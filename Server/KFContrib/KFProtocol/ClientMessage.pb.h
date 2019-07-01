@@ -45,7 +45,7 @@ namespace protobuf_ClientMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[6];
+  static const ::google::protobuf::internal::ParseTable schema[7];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -71,6 +71,9 @@ LIBPROTOC_EXPORT extern MsgInformBattleReqDefaultTypeInternal _MsgInformBattleRe
 class MsgStartMatchReq;
 class MsgStartMatchReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgStartMatchReqDefaultTypeInternal _MsgStartMatchReq_default_instance_;
+class MsgTellMatchCount;
+class MsgTellMatchCountDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgTellMatchCountDefaultTypeInternal _MsgTellMatchCount_default_instance_;
 }  // namespace KFMsg
 namespace google {
 namespace protobuf {
@@ -80,6 +83,7 @@ template<> LIBPROTOC_EXPORT ::KFMsg::MsgFinishRoomReq* Arena::CreateMaybeMessage
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgInformBattleAck* Arena::CreateMaybeMessage<::KFMsg::MsgInformBattleAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgInformBattleReq* Arena::CreateMaybeMessage<::KFMsg::MsgInformBattleReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgStartMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgStartMatchReq>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgTellMatchCount* Arena::CreateMaybeMessage<::KFMsg::MsgTellMatchCount>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace KFMsg {
@@ -92,12 +96,13 @@ enum ClientProtocol {
   MSG_INFORM_BATTLE_REQ = 3103,
   MSG_INFORM_BATTLE_ACK = 3104,
   MSG_FINISH_ROOM_REQ = 3105,
+  MSG_TELL_MATCH_COUNT = 3106,
   ClientProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 LIBPROTOC_EXPORT bool ClientProtocol_IsValid(int value);
 const ClientProtocol ClientProtocol_MIN = MSG_CLIENT_BEGIN;
-const ClientProtocol ClientProtocol_MAX = MSG_FINISH_ROOM_REQ;
+const ClientProtocol ClientProtocol_MAX = MSG_TELL_MATCH_COUNT;
 const int ClientProtocol_ARRAYSIZE = ClientProtocol_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* ClientProtocol_descriptor();
@@ -772,6 +777,109 @@ class LIBPROTOC_EXPORT MsgFinishRoomReq : public ::google::protobuf::Message /* 
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgTellMatchCount : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgTellMatchCount) */ {
+ public:
+  MsgTellMatchCount();
+  virtual ~MsgTellMatchCount();
+
+  MsgTellMatchCount(const MsgTellMatchCount& from);
+
+  inline MsgTellMatchCount& operator=(const MsgTellMatchCount& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgTellMatchCount(MsgTellMatchCount&& from) noexcept
+    : MsgTellMatchCount() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgTellMatchCount& operator=(MsgTellMatchCount&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgTellMatchCount& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgTellMatchCount* internal_default_instance() {
+    return reinterpret_cast<const MsgTellMatchCount*>(
+               &_MsgTellMatchCount_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  void Swap(MsgTellMatchCount* other);
+  friend void swap(MsgTellMatchCount& a, MsgTellMatchCount& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgTellMatchCount* New() const final {
+    return CreateMaybeMessage<MsgTellMatchCount>(NULL);
+  }
+
+  MsgTellMatchCount* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgTellMatchCount>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgTellMatchCount& from);
+  void MergeFrom(const MsgTellMatchCount& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgTellMatchCount* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 count = 1;
+  void clear_count();
+  static const int kCountFieldNumber = 1;
+  ::google::protobuf::uint32 count() const;
+  void set_count(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgTellMatchCount)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 count_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -1021,9 +1129,29 @@ inline void MsgFinishRoomReq::set_roomid(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:KFMsg.MsgFinishRoomReq.roomid)
 }
 
+// -------------------------------------------------------------------
+
+// MsgTellMatchCount
+
+// uint32 count = 1;
+inline void MsgTellMatchCount::clear_count() {
+  count_ = 0u;
+}
+inline ::google::protobuf::uint32 MsgTellMatchCount::count() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgTellMatchCount.count)
+  return count_;
+}
+inline void MsgTellMatchCount::set_count(::google::protobuf::uint32 value) {
+  
+  count_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgTellMatchCount.count)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

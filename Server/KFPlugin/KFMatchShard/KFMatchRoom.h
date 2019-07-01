@@ -32,14 +32,8 @@ namespace KFrame
         // 添加机器人,
         bool AddRobot();
 
-        // 玩家确认
-        void PlayerAffirm( uint64 playerid );
-
         // 确认创建
         void AffirmCreate();
-
-        // 玩家查询
-        void QueryRoom( KFMatchPlayer* kfplayer );
 
         // 取消匹配
         void CancelMatch( KFMatchPlayer* kfplayer );
@@ -56,14 +50,14 @@ namespace KFrame
         // 创建机器人
         KFMatchPlayer* CreateMatchRobot();
 
-        // 发送确认消息
-        void AffirmToPlayer();
-
-        // 确认超时
-        void AffirmTimeout();
-
         // 创建房间
         void CreateRoom();
+
+        // 发送匹配玩家数量
+        void SentMatchCountToClient();
+
+        // 发送消息
+        void SendToRoom( uint32 msgid, google::protobuf::Message* message );
 
     public:
         // 房间id

@@ -33,6 +33,7 @@ namespace KFrame
         _player_list.Insert( kfplayer->_id, kfplayer );
         __LOG_DEBUG__( "room=[{}] add player=[{}] count=[{}]!", _id, kfplayer->_id, _player_list.Size() );
 
+        SentMatchCountToClient();
         return CheckFull();
     }
 
@@ -163,6 +164,7 @@ namespace KFrame
             __LOG_DEBUG__( "room=[{}] add robot=[{}] count=[{}]!", _id, kfrobot->_id, _player_list.Size() );
 
         } while ( ( --addcount ) > 0 );
+        SentMatchCountToClient();
 
         return CheckFull();
     }
@@ -186,5 +188,24 @@ namespace KFrame
         kfrobot->_pb_player.set_heroid( heroid );
 
         return kfrobot;
+    }
+
+    void KFMatchRoom::SentMatchCountToClient()
+    {
+        KFMsg::MsgTellMatchCount tell;
+        tell.set_count( _player_list.Size() );
+        SendToRoom( KFMsg::MSG_TELL_MATCH_COUNT, &tell );
+    }
+
+    void KFMatchRoom::SendToRoom( uint32 msgid, google::protobuf::Message* message )
+    {
+        for ( auto& iter : _player_list._objects )
+        {
+            auto kfplayer = iter.second;
+            if ( !kfplayer->_pb_player.isrobot() )
+            {
+                _kf_route->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message, false );
+            }
+        }
     }
 }

@@ -9,8 +9,8 @@ set clientprivatepath=..\..\UE4Client\Source\Fighter\Private\Protocol
 set currentpath=%cd%
 
 xcopy *.pb.* %serverprotopath%\ /y
-xcopy *.pb.h %clientpublicpath%\ /y
-xcopy *.pb.cc %clientprivatepath%\ /y
+rem xcopy *.pb.h %clientpublicpath%\ /y
+rem xcopy *.pb.cc %clientprivatepath%\ /y
 
 call 7.luapb.bat
 del *.pb*

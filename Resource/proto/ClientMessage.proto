@@ -17,6 +17,7 @@ enum ClientProtocol
 	MSG_INFORM_BATTLE_REQ		= 3103;	// 服务器通知战场信息
 	MSG_INFORM_BATTLE_ACK		= 3104;	// 客户端确认战场信息
 	MSG_FINISH_ROOM_REQ			= 3105;	// 服务器通知战场房间结束
+	MSG_TELL_MATCH_COUNT		= 3106;	// 通知匹配玩家数量
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -67,4 +68,11 @@ message MsgInformBattleAck
 message MsgFinishRoomReq
 {
 	uint64 roomid = 1;			// 房间id
+}
+
+// 通知匹配玩家数量
+// MSG_TELL_MATCH_COUNT
+message MsgTellMatchCount
+{
+	uint32 count = 1;
 }
