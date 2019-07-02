@@ -131,7 +131,7 @@ namespace KFrame
 
         auto kfobject = player->GetData();
         auto roomid = kfobject->GetValue< uint64 >( __KF_STRING__( roomid ) );
-        if ( roomid = kfmsg.roomid() )
+        if ( roomid == kfmsg.roomid() )
         {
             SetRoomData( player, _invalid_int, _invalid_int );
         }
