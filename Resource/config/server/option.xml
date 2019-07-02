@@ -1,5 +1,6 @@
 <root version="00000">
-	<item Channel="0" Service="0" Name="disconnettime" Key="" Value="1000"/>
-	<item Channel="0" Service="0" Name="payquerycount" Key="" Value="10"/>
-	<item Channel="0" Service="0" Name="payquerytime" Key="" Value="10000"/>
+	<item Name="disconnettime" Key="" Channel="0" Service="0" Value="1000"/>
+	<item Name="payquerycount" Key="" Channel="0" Service="0" Value="10"/>
+	<item Name="payquerytime" Key="" Channel="0" Service="0" Value="10000"/>
+	<item Name="playernamelength" Key="" Channel="0" Service="0" Value="14"/>
 </root>
