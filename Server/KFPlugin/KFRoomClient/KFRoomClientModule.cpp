@@ -129,13 +129,19 @@ namespace KFrame
         __SERVER_PROTO_PARSE__( KFMsg::S2SPlayerBalanceToGameReq );
         __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg.playerid(), kfmsg.roomid() );
 
+        auto kfobject = player->GetData();
+        auto roomid = kfobject->GetValue< uint64 >( __KF_STRING__( roomid ) );
+        if ( roomid = kfmsg.roomid() )
+        {
+            SetRoomData( player, _invalid_int, _invalid_int );
+        }
+
         // 开始结算
         auto pbbalance = &kfmsg.balance();
 
         // 排名ranking
 
         // 结算奖励
-        auto kfobject = player->GetData();
         for ( auto i = 0; i < pbbalance->data_size(); ++i )
         {
             auto pbdata = &pbbalance->data( i );
