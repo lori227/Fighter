@@ -40,13 +40,13 @@ namespace KFrame
 
             Mask_Public = 1 << 20,		// 公共属性
             Mask_Relation = 1 << 21,	// 关系属性
-            Mask_Group = 1 << 22,		// 队伍属性
+            Mask_Team = 1 << 22,		// 队伍属性
             Mask_Guild = 1 << 23,		// 帮派属性
             Mask_Rank = 1 << 24,		// 排行榜属性
             ////////////////////////////////////////////////////////////////////////////
             Data_Delete_None  = 0,		// 需要保存
-            Data_Delete_Remove = 1,		// 删除数据库
-            Data_Delete_Save = 2,		// 删除保存数据库
+            Data_Delete_Save = 1,		// 保存数据库
+            Data_Delete_Remove = 2,		// 删除数据库
             ////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////
             Show_None = 1,					// 不显示
@@ -138,6 +138,9 @@ namespace KFrame
 
         // 最大值
         uint32 _max_value = 0u;
+
+        // 逻辑值
+        uint32 _logic_value = 0u;
 
         // 属性标记
         uint32 _data_mask = 0u;

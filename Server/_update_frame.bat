@@ -293,8 +293,8 @@ call :CopyInterface KFClusterProxy
 call :CopyInterface KFClusterShard
 call :CopyInterface KFLogClient
 call :CopyInterface KFLogShard
-call :CopyInterface KFKernel 1000-ÊôĞÔÅäÖÃ.xlsx
-call :CopyInterface KFFilter 1010-ÆÁ±Î×Ö·û.xlsx
+call :CopyInterface KFKernel 1000-å±æ€§é…ç½®.xlsx
+call :CopyInterface KFFilter 1010-å±è”½å­—ç¬¦.xlsx
 call :CopyInterface KFPlayer
 call :CopyInterface KFHttpClient
 call :CopyInterface KFHttpServer
@@ -304,7 +304,7 @@ call :CopyInterface KFTcpServer
 call :CopyInterface KFTcpClient
 call :CopyInterface KFTcpDiscover
 call :CopyInterface KFIpAddress
-call :CopyInterface KFOption 1020-È«¾ÖÅäÖÃ.xlsx
+call :CopyInterface KFOption 1020-å…¨å±€é…ç½®.xlsx
 call :CopyInterface KFRouteClient
 call :CopyInterface KFRouteProxy
 call :CopyInterface KFRouteShard
@@ -313,7 +313,7 @@ call :CopyInterface KFTimer
 
 rem auth
 call :CopyInterface KFAuth
-call :CopyInterface KFChannel
+call :CopyInterface KFChannel 1001-æ¸ é“é…ç½®.xlsx
 
 rem data
 call :CopyInterface KFDataClient
@@ -353,9 +353,9 @@ call :CopyInterface KFZone
 
 rem player
 call :CopyInterface KFCommand
-call :CopyInterface KFEnter 1101-½øÈëÓÎÏ·.xlsx
-call :CopyInterface KFLeave 1102-ÊôĞÔÖØÖÃ.xlsx
-call :CopyInterface KFReset 1103-Àë¿ªÓÎÏ·.xlsx
+call :CopyInterface KFEnter 1101-è¿›å…¥æ¸¸æˆ.xlsx
+call :CopyInterface KFLeave 1102-å±æ€§é‡ç½®.xlsx
+call :CopyInterface KFReset 1103-ç¦»å¼€æ¸¸æˆ.xlsx
 
 rem robot
 call :CopyInterface KFRobot

@@ -12,7 +12,7 @@ xcopy *.pb.* %serverprotopath%\ /y
 rem xcopy *.pb.h %clientpublicpath%\ /y
 rem xcopy *.pb.cc %clientprivatepath%\ /y
 
-call 7.luapb.bat
+rem call 7.luapb.bat
 del *.pb*
 
 
