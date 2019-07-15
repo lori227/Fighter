@@ -160,7 +160,6 @@ namespace KFrame
         __STRING_DEFINE__( adddata );
         __STRING_DEFINE__( setdata );
         __STRING_DEFINE__( decdata );
-        __STRING_DEFINE__( item );
         __STRING_DEFINE__( playernamelength );
         __STRING_DEFINE__( sex );
         __STRING_DEFINE__( achieve );
@@ -232,6 +231,9 @@ namespace KFrame
         __STRING_DEFINE__( querypay );
         __STRING_DEFINE__( finishpay );
         __STRING_DEFINE__( internalpay );
+        __STRING_DEFINE__( item );
+        __STRING_DEFINE__( storage );
+        __STRING_DEFINE__( usecount );
 
     }
 }

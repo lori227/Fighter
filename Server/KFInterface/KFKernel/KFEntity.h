@@ -11,6 +11,8 @@ namespace KFrame
     class KFEntity
     {
     public:
+        KFEntity() = default;
+        virtual ~KFEntity() = default;
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // id
         virtual void SetKeyID( uint64 id ) = 0;
@@ -36,7 +38,6 @@ namespace KFrame
         virtual KFData* CreateData( const std::string& dataname, uint64 key ) = 0;
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         // 添加属性
         virtual bool AddData( KFData* kfparent, KFData* kfdata ) = 0;
         virtual bool AddData( KFData* kfparent, uint64 key, KFData* kfdata ) = 0;
@@ -84,11 +85,12 @@ namespace KFrame
         virtual uint64 UpdateData( KFData* kfparent, const std::string& dataname, uint32 operate, uint64 value ) = 0;
 
         // 更新array属性kfdata的index值
+        virtual uint64 UpdateData( KFData* kfdata, uint64 index, uint32 operate, uint64 value ) = 0;
         virtual uint64 UpdateData( uint64 key, KFData* kfdata, uint64 index, uint32 operate, uint64 value ) = 0;
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 判断是否能够添加元数据
-        virtual const std::string& CheckAddElement( const KFElements* kfelements ) = 0;
+        virtual const std::string& CheckAddElement( const KFElements* kfelements, const char* function, uint32 line, float multiple = 1.0f ) = 0;
 
         // 添加元数据
         virtual void AddElement( const KFElements* kfelements, bool showclient, const char* function, uint32 line, float multiple = 1.0f ) = 0;

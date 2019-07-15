@@ -53,7 +53,7 @@ namespace KFrame
         }
 
         // 检查名字的有效性
-        auto result = CheckNameValid( kfmsg.name(), kfname->_data_setting->_logic_value );
+        auto result = CheckNameValid( kfmsg.name(), kfname->_data_setting->_int_max_value );
         if ( result != KFMsg::Ok )
         {
             return _kf_display->SendToClient( player, result );

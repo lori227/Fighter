@@ -16,16 +16,20 @@ namespace KFrame
         template< class T > T InvalidValue();
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         template< class T = uint64 > T GetValue();
+        template< class T = uint64 > T GetValue( uint64 key );
         template< class T = uint64 > T GetValue( const std::string& dataname );
         template< class T = uint64 > T GetValue( const std::string& parentname, const std::string& dataname );
         template< class T = uint64 > T GetValue( uint64 key, const std::string& dataname );
+        template< class T = uint64 > T GetValue( const std::string& dataname, uint64 key );
         template< class T = uint64 > T GetValue( const std::string& parentname, uint64 key, const std::string& dataname );
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         template< class T = uint64 > T SetValue( T value );
+        template< class T = uint64 > T SetValue( uint64 key, T value );
         template< class T = uint64 > T SetValue( const std::string& dataname, T value );
         template< class T = uint64 > T SetValue( const std::string& parentname, const std::string& dataname, T value );
         template< class T = uint64 > T SetValue( uint64 key, const std::string& dataname, T value );
+        template< class T = uint64 > T SetValue( const std::string& dataname, uint64 key, T value );
         template< class T = uint64 > T SetValue( const std::string& parentname, uint64 key, const std::string& dataname, T value );
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,18 +53,15 @@ namespace KFrame
         // 是否达到了最大值
         virtual bool IsFull();
 
-        // 名字
-        virtual const std::string& GetName() const;
-
-        // 类型
-        virtual uint32 GetType() const;
-
         // keyid
         virtual uint64 GetKeyID();
         virtual void SetKeyID( uint64 id );
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         // 初始化
         virtual void Initialize( const KFClassSetting* classsetting, const KFDataSetting* datasetting );
+
+        // 初始化数值
+        virtual void InitData();
 
         // 属性标识
         bool HaveMask( uint32 mask ) const;
@@ -139,7 +140,7 @@ namespace KFrame
         virtual bool RemoveData( uint64 key );
         virtual bool RemoveData( uint64 key, const std::string& dataname );
 
-        virtual void FindData( const std::string& dataname, uint64 value, std::list< KFData* >& findlist );
+        virtual void FindData( const std::string& dataname, uint64 value, std::list< KFData* >& findlist, bool findall );
         virtual bool CheckData( const std::string& dataname, uint64 value, const std::string& checkname, uint64 checkvalue );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////////
