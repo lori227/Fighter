@@ -12,7 +12,7 @@ namespace KFrame
 
     void KFRoomShardPlugin::UnInstall()
     {
-        __UNREGISTER_MODULE__( KFRoomShard );
+        __UN_MODULE__( KFRoomShard );
     }
 
     void KFRoomShardPlugin::LoadModule()

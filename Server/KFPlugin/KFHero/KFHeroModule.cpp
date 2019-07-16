@@ -21,7 +21,7 @@ namespace KFrame
         __KF_REMOVE_CONFIG__( _kf_hero_config );
         _kf_component->UnRegisterAddElementFunction( __KF_STRING__( hero ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __UNREGISTER_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
+        __UN_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddHeroElement )

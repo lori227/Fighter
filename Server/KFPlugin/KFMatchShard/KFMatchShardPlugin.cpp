@@ -12,7 +12,7 @@ namespace KFrame
 
     void KFMatchShardPlugin::UnInstall()
     {
-        __UNREGISTER_MODULE__( KFMatchShard );
+        __UN_MODULE__( KFMatchShard );
     }
 
     void KFMatchShardPlugin::LoadModule()

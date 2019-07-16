@@ -8,8 +8,8 @@ namespace KFrame
 
     void KFMatchClientModule::BeforeRun()
     {
-        _kf_player->RegisterEnterFunction( this, &KFMatchClientModule::OnEnterQueryMatch );
-        _kf_player->RegisterLeaveFunction( this, &KFMatchClientModule::OnLeaveCancelMatch );
+        __REGISTER_ENTER_PLAYER__( &KFMatchClientModule::OnEnterQueryMatch );
+        __REGISTER_LEAVE_PLAYER__( &KFMatchClientModule::OnLeaveCancelMatch );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_START_MATCH_REQ, &KFMatchClientModule::HandleStartMatchReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleStartMatchToGameAck );
@@ -20,17 +20,17 @@ namespace KFrame
 
     void KFMatchClientModule::BeforeShut()
     {
-        _kf_player->UnRegisterEnterFunction( this );
-        _kf_player->UnRegisterLeaveFunction( this );
+        __UN_ENTER_PLAYER__();
+        __UN_LEAVE_PLAYER__();
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __UNREGISTER_MESSAGE__( KFMsg::MSG_START_MATCH_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK );
-        __UNREGISTER_MESSAGE__( KFMsg::MSG_CANCEL_MATCH_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK );
+        __UN_MESSAGE__( KFMsg::MSG_START_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK );
+        __UN_MESSAGE__( KFMsg::MSG_CANCEL_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK );
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    void KFMatchClientModule::OnEnterQueryMatch( KFEntity* player )
+    __KF_ENTER_PLAYER_FUNCTION__( KFMatchClientModule::OnEnterQueryMatch )
     {
         auto kfobject = player->GetData();
 
@@ -62,7 +62,7 @@ namespace KFrame
         __LOG_DEBUG__( "player=[{}] query no match", player->GetKeyID() );
     }
 
-    void KFMatchClientModule::OnLeaveCancelMatch( KFEntity* player )
+    __KF_LEAVE_PLAYER_FUNCTION__( KFMatchClientModule::OnLeaveCancelMatch )
     {
         auto kfobject = player->GetData();
         auto matchid = kfobject->GetValue( __KF_STRING__( matchid ) );

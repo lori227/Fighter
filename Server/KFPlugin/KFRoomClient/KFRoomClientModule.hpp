@@ -49,11 +49,11 @@ namespace KFrame
         __KF_MESSAGE_FUNCTION__( HandleBalanceToGameReq );
 
     protected:
+        // 上线查新
+        __KF_ENTER_PLAYER_FUNCTION__( OnEnterQueryRoom );
+
         // 设置房间信息
         void SetRoomData( KFEntity* player, uint64 roomid, uint64 roomserverid );
-
-        // 上线查新
-        void OnEnterQueryRoom( KFEntity* player );
     };
 }
 

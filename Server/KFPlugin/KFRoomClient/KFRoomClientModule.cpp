@@ -10,18 +10,18 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, &KFRoomClientModule::HandleFinishRoomToGameReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &KFRoomClientModule::HandleBalanceToGameReq );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        _kf_player->RegisterEnterFunction( this, &KFRoomClientModule::OnEnterQueryRoom );
+        __REGISTER_ENTER_PLAYER__( &KFRoomClientModule::OnEnterQueryRoom );
     }
 
     void KFRoomClientModule::BeforeShut()
     {
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::MSG_INFORM_BATTLE_ACK );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_ROOM_TO_GAME_ACK );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ );
+        __UN_MESSAGE__( KFMsg::MSG_INFORM_BATTLE_ACK );
+        __UN_MESSAGE__( KFMsg::S2S_QUERY_ROOM_TO_GAME_ACK );
+        __UN_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        _kf_player->UnRegisterEnterFunction( this );
+        __UN_ENTER_PLAYER__();
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleToGameReq )
@@ -61,7 +61,7 @@ namespace KFrame
         _kf_route->SendToServer( roomserverid, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, &ack, false );
     }
 
-    void KFRoomClientModule::OnEnterQueryRoom( KFEntity* player )
+    __KF_ENTER_PLAYER_FUNCTION__( KFRoomClientModule::OnEnterQueryRoom )
     {
         // 查询结算数据
         {

@@ -12,7 +12,7 @@ namespace KFrame
 
     void KFMatchClientPlugin::UnInstall()
     {
-        __UNREGISTER_MODULE__( KFMatchClient );
+        __UN_MODULE__( KFMatchClient );
     }
 
     void KFMatchClientPlugin::LoadModule()

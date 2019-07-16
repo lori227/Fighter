@@ -27,10 +27,10 @@ namespace KFrame
         __KF_REMOVE_CONFIG__( _kf_match_name_config );
         __KF_REMOVE_CONFIG__( _kf_match_hero_config );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_SHARD_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK );
-        __UNREGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_START_MATCH_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK );
+        __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ );
     }
 
     void KFMatchShardModule::OnceRun()
