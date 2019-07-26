@@ -34,9 +34,13 @@ if  [ "$build" = "1" ] ;then
 fi
 
 # make version
-svnversion=`svn info |awk 'NR==6{print $2}'`
-if [ "$svnversion" = "" ];then
- svnversion=`git log -1 --pretty=format:"%h"`
+if  [ ! -n "$5" ] ;then
+	svnversion=`svn info |awk 'NR==6{print $2}'`
+	if [ "$svnversion" = "" ];then
+ 	svnversion=`git log -1 --pretty=format:"%h"`
+	fi
+else
+	svnversion=$5
 fi
 
 # resource
@@ -44,20 +48,21 @@ cd ../../
 days=$(((($(date +%s ) - $(date +%s -d '20190401'))/86400) + 1));
 defineversion=`cat ../Resource/proto/6.version.txt | cut -d "." -f 1`
 clientversion=`cat ../Resource/proto/6.version.txt | cut -d "." -f 2`
-version=$defineversion.$clientversion.$days.$svnversion
-echo $version
+projectversion=$defineversion.$clientversion.$days.$svnversion
+echo $projectversion
 
 # config
 mkdir -p _bin/config
 cp -f ../Resource/config/*.xml _bin/config/
 cp -f ../Resource/config/server/*.xml _bin/config/
 
-# script
+#script
 mkdir -p _bin/script
 cp -rf ../Resource/script/ _bin/
 
 cd _bin/_gcm/builder/
 chmod 777 gcm_build
-./gcm_build -p "fighter" -s $svnversion -b $2 -c $1 -m $3 -v $version -n 1.2 -t $uptype
+./gcm_build -p "fighter" -s $svnversion -b $2 -c $1 -m $3 -v $projectversion -n 1.2 -t $uptype
 
 cd ../../../../../
+echo $projectversion > /tmp/projectversion

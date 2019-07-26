@@ -63,7 +63,6 @@ cp -f $framebinpath/KFGame$filename.so $binpath/
 cp -f $framebinpath/KFGate$filename.so $binpath/
 cp -f $framebinpath/KFLogin$filename.so $binpath/
 cp -f $framebinpath/KFWorld$filename.so $binpath/
-cp -f $framebinpath/KFZone$filename.so $binpath/
 cp -f $framebinpath/KFCommand$filename.so $binpath/
 cp -f $framebinpath/KFEnter$filename.so $binpath/
 cp -f $framebinpath/KFLeave$filename.so $binpath/
@@ -71,3 +70,4 @@ cp -f $framebinpath/KFReset$filename.so $binpath/
 cp -f $framebinpath/KFLua$filename.so $binpath/
 cp -f $framebinpath/KFPublicClient$filename.so $binpath/
 cp -f $framebinpath/KFPublicShard$filename.so $binpath/
+cp -f $framebinpath/KFDrop$filename.so $binpath/
