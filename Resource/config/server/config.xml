@@ -32,4 +32,5 @@
 	<item Id="weight" FileName="./config/weightpool.xml" Reload="1" ClearData="1"/>
 	<item Id="hero" FileName="./config/hero.xml" Reload="1" ClearData="1"/>
 	<item Id="name" FileName="./config/name.xml" Reload="1" ClearData="1"/>
+	<item Id="match" FileName="./config/match.xml" Reload="1" ClearData="1"/>
 </root>
