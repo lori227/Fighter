@@ -32,3 +32,4 @@ endmacro()
 #################################################################################
 
 add_subdirectory(KFProtocol)
+add_subdirectory(KFZConfig)

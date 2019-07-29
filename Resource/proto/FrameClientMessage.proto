@@ -16,7 +16,8 @@ enum FrameClientProtocol
 	MSG_LOGIN_REQ 						= 100;	// 客户端登录验证请求
 	MSG_LOGIN_ACK 						= 101;	// 客户端登录验证结果
 	MSG_LOGOUT_REQ 						= 102;	// 客户端请求登出游戏
-	MSG_TELL_BE_KICK 					= 103;	// 被踢下线了
+	MSG_LOGOUT_ACK 						= 103;	// 客户端请求登出游戏
+	MSG_TELL_BE_KICK 					= 104;	// 被踢下线了
 
 	// data
  	MSG_SYNC_UPDATE_DATA 				= 201;	// 同步更新属性
@@ -45,6 +46,7 @@ enum FrameClientProtocol
 	MSG_MERGE_ITEM_REQ					= 402;	// 合并道具( 把2个堆叠物品合并成一个 )
 	MSG_USE_ITEM_REQ					= 403;	// 使用道具
 	MSG_MOVE_ITEM_REQ					= 404;	// 移动物品(从背包到仓库 或者从仓库到背包)
+	MSG_EXCHANGE_ITEM_REQ				= 405;	// 交换物品(从背包到仓库 或者从仓库到背包)
 	
 
 	// mail
@@ -117,6 +119,13 @@ message MsgLoginAck
 // 登出游戏
 // MSG_LOGOUT_REQ
 message MsgLogoutReq
+{
+
+}
+
+// 登出游戏
+// MSG_LOGOUT_ACK
+message MsgLogoutAck
 {
 
 }
@@ -277,6 +286,7 @@ message MsgSplitItemReq
 	uint64 sourceuuid = 2;	// 道具uuid
 	uint32 sourcecount = 3;	// 移动数量
 	bytes targetname = 4;	// 目标背包名字
+	uint32 targetindex = 5;	// 目标背包位置( 0 表示服务器自己找空位置 )
 }
 
 // MSG_MERGE_ITEM_REQ
@@ -295,7 +305,18 @@ message MsgMoveItemReq
 {
 	bytes sourcename = 1;	// 源背包名字
 	uint64 sourceuuid = 2;	// 道具uuid
-	bytes targetname = 4;	// 目标背包名字
+	bytes targetname = 3;	// 目标背包名字
+	uint32 targetindex = 4;	// 目标背包位置( 0 表示服务器自己找空位置 )
+}
+
+// MSG_EXCHANGE_ITEM_REQ
+// 交换物品(从背包到仓库 或者从仓库到背包)
+message MsgExchangeItemReq
+{
+	bytes sourcename = 1;	// 源背包名字
+	uint64 sourceuuid = 2;	// 道具uuid
+	bytes targetname = 3;	// 目标背包名字
+	uint64 targetuuid = 4;	// 目标uuid
 }
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////

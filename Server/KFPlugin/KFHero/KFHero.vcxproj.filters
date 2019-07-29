@@ -4,12 +4,10 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="KFHeroModule.cpp" />
     <ClCompile Include="KFHeroPlugin.cpp" />
-    <ClCompile Include="KFHeroConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KFHeroInterface.h" />
     <ClInclude Include="KFHeroModule.hpp" />
     <ClInclude Include="KFHeroPlugin.hpp" />
-    <ClInclude Include="KFHeroConfig.hpp" />
   </ItemGroup>
 </Project>

@@ -1,16 +1,16 @@
-﻿#include "KFMatchNameConfig.hpp"
+﻿#include "KFNameConfig.hpp"
 
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////
-    void KFMatchNameConfig::ReadSetting( KFNode& xmlnode, KFMatchNameSetting* kfsetting )
+    void KFNameConfig::ReadSetting( KFNode& xmlnode, KFNameSetting* kfsetting )
     {
         auto name = xmlnode.GetString( "Name" );
         kfsetting->_name_list.push_back( name );
     }
 
     /////////////////////////////////////////////////////////////////////////////////
-    const std::string& KFMatchNameConfig::RandName() const
+    const std::string& KFNameConfig::RandName() const
     {
         static std::string _name = "";
         _name.clear();

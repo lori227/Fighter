@@ -1,15 +1,15 @@
 ﻿#include "KFMatchShardModule.hpp"
-#include "KFMatchShardConfig.hpp"
-#include "KFMatchNameConfig.hpp"
-#include "KFMatchHeroConfig.hpp"
+#include "KFZConfig/KFMatchConfig.hpp"
+#include "KFZConfig/KFNameConfig.hpp"
+#include "KFZConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
     void KFMatchShardModule::InitModule()
     {
-        __KF_ADD_CONFIG__( _kf_match_shard_config, true );
-        __KF_ADD_CONFIG__( _kf_match_name_config, true );
-        __KF_ADD_CONFIG__( _kf_match_hero_config, true );
+        __KF_ADD_CONFIG__( KFMatchConfig );
+        __KF_ADD_CONFIG__( KFHeroConfig );
+        __KF_ADD_CONFIG__( KFNameConfig );
     }
 
     void KFMatchShardModule::BeforeRun()
@@ -23,9 +23,6 @@ namespace KFrame
 
     void KFMatchShardModule::BeforeShut()
     {
-        __KF_REMOVE_CONFIG__( _kf_match_shard_config );
-        __KF_REMOVE_CONFIG__( _kf_match_name_config );
-        __KF_REMOVE_CONFIG__( _kf_match_hero_config );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::S2S_START_MATCH_TO_SHARD_REQ );
         __UN_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ );
@@ -37,7 +34,7 @@ namespace KFrame
     {
         // 添加匹配模式
         RouteObjectList matchlist;
-        for ( auto iter : _kf_match_shard_config->_settings._objects )
+        for ( auto iter : KFMatchConfig::Instance()->_settings._objects )
         {
             auto kfsetting = iter.second;
             matchlist.insert( kfsetting->_id );
@@ -82,7 +79,7 @@ namespace KFrame
     //////////////////////////////////////////////////////////////////////////////////////////////////
     KFMatchQueue* KFMatchShardModule::FindMatchQueue( uint32 matchid )
     {
-        auto kfsetting = _kf_match_shard_config->FindSetting( matchid );
+        auto kfsetting = KFMatchConfig::Instance()->FindSetting( matchid );
         if ( kfsetting == nullptr )
         {
             __LOG_ERROR__( "can't find match=[{}] setting!", matchid );

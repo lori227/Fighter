@@ -92,6 +92,8 @@ rd /s /q %localpath%\%libpath%
 if not exist %localpath%\%libpath% ( mkdir %localpath%\%libpath% )
 if not exist %localpath%\%libpath%\win64 ( mkdir %localpath%\%libpath%\win64 )
 xcopy /y /S %framepath%\%libpath%\win64\* %localpath%\%libpath%\win64 
+del /F /S /Q %localpath%\%libpath%\win64\debug\KFZConfigd.lib
+del /F /S /Q %localpath%\%libpath%\win64\release\KFZConfig.lib
 echo "update _lib path end"
 rem ===========================================================================
 rem ===========================================================================
@@ -179,6 +181,22 @@ if not exist %localpath%\%contribpath%\%subcontribpath% (
     xcopy /y %framepath%\%contribpath%\%subcontribpath%\* %localpath%\%contribpath%\%subcontribpath%\
 )
 
+set subcontribpath=KFZConfig
+if not exist %localpath%\%contribpath%\%subcontribpath% (
+    mkdir %localpath%\%contribpath%\%subcontribpath%
+    xcopy /y %framepath%\%contribpath%\%subcontribpath%\* %localpath%\%contribpath%\%subcontribpath%\
+)
+xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.h %localpath%\%contribpath%\%subcontribpath%\
+
+rem ===========================================================================
+rem ===========================================================================
+rem ===========================================================================
+set currpath=%cd%
+cd %localpath%\%contribpath%\%subcontribpath%\
+"%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Debug|X64"  /project KFZConfig
+"%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Release|X64" /project KFZConfig
+cd %currpath%
+
 echo "update KFContrib path end"
 
 rem ===========================================================================
@@ -208,7 +226,6 @@ if not exist %localpath%\%librarypath%\%sublibrarypath%\tilde ( mkdir %localpath
 xcopy /y /S %framepath%\%librarypath%\%sublibrarypath%\*.h %localpath%\%librarypath%\%sublibrarypath%\
 xcopy /y /S %framepath%\%librarypath%\%sublibrarypath%\*.inl %localpath%\%librarypath%\%sublibrarypath%\
 
-
 echo "update KFLibrary path end"
 
 rem ===========================================================================
@@ -234,8 +251,8 @@ if not exist %localpath%\%resourcepath% ( mkdir %resourcepath% )
 
 rem config=================================
 if not exist %resourcepath%\config ( mkdir %resourcepath%\config )
-if not exist %resourcepath%\config\rank.config ( 
-    copy /y %framepath%\_resource\config\rank.config %resourcepath%\config\
+if not exist %resourcepath%\config\rank.xml ( 
+    copy /y %framepath%\_resource\config\rank.xml %resourcepath%\config\
 )
 
 rem tool=================================
@@ -244,7 +261,7 @@ rem xcopy /y %framepath%\_resource\tool\* %resourcepath%\tool
 
 rem excel=================================
 if not exist %resourcepath%\excel ( mkdir %resourcepath%\excel )
-copy /y %framepath%\_resource\excel\_parse.exe %resourcepath%\excel\
+copy /y %framepath%\_resource\excel\_zparse.exe %resourcepath%\excel\
 if not exist %resourcepath%\excel\_build.bat ( 
     copy /y %framepath%\_resource\excel\_build.bat %resourcepath%\excel\
 )
@@ -284,6 +301,7 @@ rem frame
 call :CopyInterface KFConfig
 call :CopyInterface KFMySQL
 call :CopyInterface KFRedis
+call :CopyInterface KFMongo
 call :CopyInterface KFDeployAgent
 call :CopyInterface KFDeployClient
 call :CopyInterface KFDeployServer
@@ -293,8 +311,8 @@ call :CopyInterface KFClusterProxy
 call :CopyInterface KFClusterShard
 call :CopyInterface KFLogClient
 call :CopyInterface KFLogShard
-call :CopyInterface KFKernel 1000-属性配置.xlsx
-call :CopyInterface KFFilter 1010-屏蔽字符.xlsx
+call :CopyInterface KFKernel 2000-玩家-属性定义.xlsx
+call :CopyInterface KFFilter 1000-框架-屏蔽字符.xlsx
 call :CopyInterface KFPlayer
 call :CopyInterface KFHttpClient
 call :CopyInterface KFHttpServer
@@ -304,7 +322,7 @@ call :CopyInterface KFTcpServer
 call :CopyInterface KFTcpClient
 call :CopyInterface KFTcpDiscover
 call :CopyInterface KFIpAddress
-call :CopyInterface KFOption 1020-全局配置.xlsx
+call :CopyInterface KFOption 1010-常量-全局配置.xlsx
 call :CopyInterface KFRouteClient
 call :CopyInterface KFRouteProxy
 call :CopyInterface KFRouteShard
@@ -313,7 +331,7 @@ call :CopyInterface KFTimer
 
 rem auth
 call :CopyInterface KFAuth
-call :CopyInterface KFChannel 1001-渠道配置.xlsx
+call :CopyInterface KFChannel 1000-框架-渠道配置.xlsx
 
 rem data
 call :CopyInterface KFDataClient
@@ -323,7 +341,7 @@ rem display
 call :CopyInterface KFDisplay
 
 rem lua
-rem call :CopyInterface KFLua
+call :CopyInterface KFLua
 
 rem mail
 call :CopyInterface KFMailClient
@@ -348,18 +366,17 @@ call :CopyInterface KFGame
 call :CopyInterface KFGate
 call :CopyInterface KFLogin
 call :CopyInterface KFWorld
-call :CopyInterface KFZone
 
 
 rem player
 call :CopyInterface KFCommand
-call :CopyInterface KFEnter 1101-进入游戏.xlsx
-call :CopyInterface KFLeave 1102-属性重置.xlsx
-call :CopyInterface KFReset 1103-离开游戏.xlsx
+call :CopyInterface KFEnter 2001-玩家-进入游戏.xlsx
+call :CopyInterface KFReset 2002-玩家-属性重置.xlsx
+call :CopyInterface KFLeave 2003-玩家-离开游戏.xlsx
+call :CopyInterface KFDrop 1001-玩家-掉落重置.xlsx
 
-rem robot
+rem Robot
 call :CopyInterface KFRobot
-
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================

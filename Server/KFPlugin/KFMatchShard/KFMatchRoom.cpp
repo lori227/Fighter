@@ -1,8 +1,8 @@
 ﻿#include "KFMatchRoom.h"
 #include "KFMatchQueue.h"
-#include "KFMatchNameConfig.hpp"
-#include "KFMatchHeroConfig.hpp"
-#include "KFMatchShardConfig.hpp"
+#include "KFZConfig/KFNameConfig.hpp"
+#include "KFZConfig/KFHeroConfig.hpp"
+#include "KFZConfig/KFMatchConfig.hpp"
 #include "KFRouteClient/KFRouteClientInterface.h"
 
 namespace KFrame
@@ -180,11 +180,11 @@ namespace KFrame
         kfrobot->_pb_player.set_isrobot( true );
 
         // 机器人名字
-        auto name = _kf_match_name_config->RandName();
+        auto name = KFNameConfig::Instance()->RandName();
         kfrobot->_pb_player.set_name( name );
 
         // 英雄id
-        auto heroid = _kf_match_hero_config->RandHero();
+        auto heroid = RandHeroId();
         kfrobot->_pb_player.set_heroid( heroid );
 
         return kfrobot;
@@ -207,5 +207,19 @@ namespace KFrame
                 _kf_route->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message, false );
             }
         }
+    }
+
+    uint32 KFMatchRoom::RandHeroId()
+    {
+        auto size = KFHeroConfig::Instance()->_settings.Size();
+        if ( size == 0u )
+        {
+            return _invalid_int;
+        }
+
+        auto index = KFGlobal::Instance()->RandRatio( size );
+        auto begin = KFHeroConfig::Instance()->_settings._objects.begin();
+        std::advance( begin, index );
+        return ( uint32 )begin->second->_id;
     }
 }

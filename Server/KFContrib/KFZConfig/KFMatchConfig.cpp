@@ -1,9 +1,9 @@
-﻿#include "KFMatchShardConfig.hpp"
+﻿#include "KFMatchConfig.hpp"
 
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////
-    void KFMatchShardConfig::ReadSetting( KFNode& xmlnode, KFMatchSetting* kfsetting )
+    void KFMatchConfig::ReadSetting( KFNode& xmlnode, KFMatchSetting* kfsetting )
     {
         kfsetting->_max_count = xmlnode.GetUInt32( "MaxCount" );
         kfsetting->_upper_grade = xmlnode.GetUInt32( "UpperGrade" );

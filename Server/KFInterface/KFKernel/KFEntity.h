@@ -2,7 +2,6 @@
 #define __KF_ENTITY_H__
 
 #include "KFCore/KFElement.h"
-#include "KFCore/KFDataSetting.h"
 
 namespace KFrame
 {
@@ -54,8 +53,8 @@ namespace KFrame
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 移动属性
-        virtual bool MoveData( const std::string& sourcename, uint64 key, const std::string& targetname ) = 0;
-        virtual bool MoveData( KFData* sourcedata, uint64 key, KFData* targetdata ) = 0;
+        virtual KFData* MoveData( const std::string& sourcename, uint64 key, const std::string& targetname ) = 0;
+        virtual KFData* MoveData( KFData* sourcedata, uint64 key, KFData* targetdata ) = 0;
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -85,6 +84,7 @@ namespace KFrame
         virtual uint64 UpdateData( KFData* kfparent, const std::string& dataname, uint32 operate, uint64 value ) = 0;
 
         // 更新array属性kfdata的index值
+        virtual uint64 UpdateData( const std::string& dataname, uint64 index, uint32 operate, uint64 value ) = 0;
         virtual uint64 UpdateData( KFData* kfdata, uint64 index, uint32 operate, uint64 value ) = 0;
         virtual uint64 UpdateData( uint64 key, KFData* kfdata, uint64 index, uint32 operate, uint64 value ) = 0;
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////

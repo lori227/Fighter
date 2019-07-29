@@ -1,7 +1,8 @@
-﻿#ifndef __KF_MATCH_SHARD_CONFIG_H__
-#define __KF_MATCH_SHARD_CONFIG_H__
+﻿#ifndef __KF_MATCH_CONFIG_H__
+#define __KF_MATCH_CONFIG_H__
 
 #include "KFrame.h"
+#include "KFZConfig/KFConfig.h"
 
 namespace KFrame
 {
@@ -25,22 +26,18 @@ namespace KFrame
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFMatchShardConfig : public KFIntConfigT< KFMatchSetting >, public KFSingleton< KFMatchShardConfig >
+    class KFMatchConfig : public KFIntConfigT< KFMatchSetting >, public KFInstance< KFMatchConfig >
     {
     public:
-        KFMatchShardConfig( const std::string& file, bool isclear )
-            : KFIntConfigT< KFMatchSetting >( file, isclear )
+        KFMatchConfig()
         {
+            _file_name = "match";
         }
 
     protected:
         // 读取配置
         void ReadSetting( KFNode& xmlnode, KFMatchSetting* kfsetting );
     };
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    static auto _kf_match_shard_config = KFMatchShardConfig::Instance( "match.xml", true );
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
 #endif

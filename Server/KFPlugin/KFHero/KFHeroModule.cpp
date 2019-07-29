@@ -1,11 +1,11 @@
 ﻿#include "KFHeroModule.hpp"
-#include "KFHeroConfig.hpp"
+#include "KFZConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
     void KFHeroModule::InitModule()
     {
-        __KF_ADD_CONFIG__( _kf_hero_config, true );
+        __KF_ADD_CONFIG__( KFHeroConfig );
     }
 
     void KFHeroModule::BeforeRun()
@@ -18,7 +18,6 @@ namespace KFrame
 
     void KFHeroModule::BeforeShut()
     {
-        __KF_REMOVE_CONFIG__( _kf_hero_config );
         _kf_component->UnRegisterAddElementFunction( __KF_STRING__( hero ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
@@ -39,7 +38,7 @@ namespace KFrame
             return std::make_tuple( KFDataDefine::Show_None, nullptr );
         }
 
-        auto kfsetting = _kf_hero_config->FindSetting( kfelementobject->_config_id );
+        auto kfsetting = KFHeroConfig::Instance()->FindSetting( kfelementobject->_config_id );
         if ( kfsetting == nullptr )
         {
             __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );

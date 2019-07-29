@@ -56,6 +56,9 @@ namespace KFrame
         // 发送匹配玩家数量
         void SentMatchCountToClient();
 
+        // 随机机器人英雄id
+        uint32 RandHeroId();
+
         // 发送消息
         void SendToRoom( uint32 msgid, google::protobuf::Message* message );
 
