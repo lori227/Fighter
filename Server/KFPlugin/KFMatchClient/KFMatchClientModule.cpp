@@ -145,14 +145,15 @@ namespace KFrame
     void KFMatchClientModule::FormatMatchPlayerData( KFEntity* player, KFMsg::PBMatchPlayer* pbplayer )
     {
         auto kfobject = player->GetData();
+        auto kfbasic = kfobject->FindData( __KF_STRING__( basic ) );
 
         pbplayer->set_id( kfobject->GetKeyID() );
-        pbplayer->set_name( kfobject->GetValue< std::string >( __KF_STRING__( name ) ) );
+        pbplayer->set_name( kfbasic->GetValue< std::string >( __KF_STRING__( name ) ) );
         pbplayer->set_serverid( KFGlobal::Instance()->_app_id->GetId() );
 
         pbplayer->set_isrobot( false );
         pbplayer->set_heroid( kfobject->GetValue<uint32>( __KF_STRING__( heroid ) ) );
-        pbplayer->set_grade( kfobject->GetValue<uint32>( __KF_STRING__( basic ), __KF_STRING__( grade ) ) );
+        pbplayer->set_grade( kfbasic->GetValue<uint32>( __KF_STRING__( grade ) ) );
     }
 
     void KFMatchClientModule::SetMatchData( KFEntity* player, uint32 matchid, uint64 serverid )
