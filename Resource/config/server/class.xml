@@ -25,7 +25,7 @@
 	<item Id="BasicPlayer" Name="sex" Type="uint32" Create="1" Save="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
 	<item Id="BasicPlayer" Name="status" Type="uint32" Create="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
 	<item Id="BasicPlayer" Name="statustime" Type="uint64" Create="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
-	<item Id="BasicPlayer" Name="serverid" Type="uint64" Create="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
+	<item Id="BasicPlayer" Name="serverid" Type="uint64" Create="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
 	<item Id="BasicPlayer" Name="grade" Type="uint32" Create="1" Save="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
 	<item Id="KeyValue" Name="id" Type="uint32" Create="1" Save="1"/>
 	<item Id="KeyValue" Name="value" Type="uint64" Create="1" Save="1"/>
