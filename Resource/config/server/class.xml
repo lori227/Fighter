@@ -11,6 +11,7 @@
 	<item Id="Player" Name="onlinetime" Type="uint64" Create="1" Save="1"/>
 	<item Id="Player" Name="offlinetime" Type="uint64" Create="1"/>
 	<item Id="Player" Name="totaltime" Type="uint64" Create="1" Save="1"/>
+	<item Id="Player" Name="resettime" Type="uint64" Create="1"/>
 	<item Id="Player" Name="note" Type="record" ContainClass="KeyValue" KeyName="id" ConfigKeyName="id" Create="1" Save="1"/>
 	<item Id="Player" Name="money" Type="uint32" Element="金币" Create="1" Show="1" Save="1" Sync="1"/>
 	<item Id="Player" Name="exp" Type="uint32" Element="经验" Create="1" Show="1" Save="1" Sync="1"/>
