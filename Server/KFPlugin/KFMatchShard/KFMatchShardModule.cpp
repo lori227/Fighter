@@ -124,7 +124,8 @@ namespace KFrame
         __PROTO_PARSE__( KFMsg::S2SStartMatchToShardReq );
 
         auto pbplayer = &kfmsg.pbplayer();
-        __LOG_DEBUG__( "player=[{}] match=[{}] req!", pbplayer->id(), kfmsg.matchid() );
+        __LOG_DEBUG__( "player=[{}] match=[{}] grade=[{}] version=[{}] server=[{}] req!",
+                       pbplayer->id(), kfmsg.matchid(), pbplayer->grade(), kfmsg.version(), KFAppId::ToString( kfmsg.serverid() ) );
 
         // 处理匹配
         auto result = StartMatch( pbplayer, kfmsg.matchid(), kfmsg.version(), kfmsg.serverid() );
