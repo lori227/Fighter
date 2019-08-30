@@ -44,3 +44,4 @@ Server/_bin/config/
 Server/_bin/script/
 Resource/excel/_zdata.xml
 Resource/version.txt
+~*.xlsx
