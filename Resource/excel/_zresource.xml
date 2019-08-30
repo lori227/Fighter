@@ -6,17 +6,17 @@
 		<Server Id="1" Name="测试服" Ip="180.169.238.146" Url="http://180.169.238.146:9999/deploy"/>
 	</Servers>
 	<Files>
-		<File Name="1000-框架-屏蔽字符.xlsx" Type="3" TimeClient="0" TimeServer="1560516606"/>
 		<File Name="2003-玩家-离开游戏.xlsx" Type="3" TimeClient="0" TimeServer="1560747816"/>
-		<File Name="1000-框架-渠道配置.xlsx" Type="3" TimeClient="0" TimeServer="1564379208"/>
+		<File Name="1000-框架-屏蔽字符.xlsx" Type="3" TimeClient="0" TimeServer="1560516606"/>
 		<File Name="3000-英雄-名字随机.xlsx" Type="3" TimeClient="0" TimeServer="1561010310"/>
 		<File Name="2002-玩家-属性重置.xlsx" Type="3" TimeClient="0" TimeServer="1566814616"/>
+		<File Name="1000-框架-渠道配置.xlsx" Type="3" TimeClient="0" TimeServer="1564379208"/>
 		<File Name="1000-框架-配置列表.xlsx" Type="3" TimeClient="0" TimeServer="1564381986"/>
-		<File Name="1010-框架-全局配置.xlsx" Type="3" TimeClient="0" TimeServer="1564379319"/>
 		<File Name="2000-玩家-属性定义.xlsx" Type="3" TimeClient="0" TimeServer="1567148901"/>
+		<File Name="1010-框架-全局配置.xlsx" Type="3" TimeClient="0" TimeServer="1564379319"/>
 		<File Name="1020-框架-随机权重.xlsx" Type="3" TimeClient="0" TimeServer="1564381024"/>
-		<File Name="2001-玩家-进入游戏.xlsx" Type="3" TimeClient="0" TimeServer="1560747808"/>
 		<File Name="3000-英雄-英雄配置.xlsx" Type="3" TimeClient="0" TimeServer="1560516389"/>
+		<File Name="2001-玩家-进入游戏.xlsx" Type="3" TimeClient="0" TimeServer="1560747808"/>
 		<File Name="2004-玩家-掉落配置.xlsx" Type="3" TimeClient="0" TimeServer="1563875708"/>
 		<File Name="3010-匹配-匹配设置.xlsx" Type="3" TimeClient="0" TimeServer="1567144406"/>
 	</Files>
