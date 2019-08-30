@@ -12,12 +12,12 @@
 #include "KFMatchClientInterface.h"
 #include "KFProtocol/KFProtocol.h"
 #include "KFOption/KFOptionInterface.h"
-#include "KFConfig/KFConfigInterface.h"
 #include "KFKernel/KFKernelInterface.h"
 #include "KFPlayer/KFPlayerInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFRouteClient/KFRouteClientInterface.h"
+#include "KFZConfig/KFMatchConfig.hpp"
 
 namespace KFrame
 {
@@ -26,9 +26,6 @@ namespace KFrame
     public:
         KFMatchClientModule() = default;
         ~KFMatchClientModule() = default;
-
-        // 初始化
-        virtual void InitModule();
 
         // 逻辑
         virtual void BeforeRun();

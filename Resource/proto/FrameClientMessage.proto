@@ -9,8 +9,9 @@ enum FrameClientProtocol
 	MSG_FRAME_CLIENT_BEGIN 				= 0;	// pb3 需要0
 
 	// display
-	MSG_RESULT_DISPLAY 					= 1;	// 提示显示
+	MSG_RESULT_DISPLAY 					= 1;	// 错误码显示
 	MSG_COMMAND_REQ 					= 2;	// 客户端发送GM指令请求
+	MSG_TELL_NOTICE						= 3;	// 小红点提示
 
 	// login
 	MSG_LOGIN_REQ 						= 100;	// 客户端登录验证请求
@@ -47,7 +48,12 @@ enum FrameClientProtocol
 	MSG_USE_ITEM_REQ					= 403;	// 使用道具
 	MSG_MOVE_ITEM_REQ					= 404;	// 移动物品(从背包到仓库 或者从仓库到背包)
 	MSG_EXCHANGE_ITEM_REQ				= 405;	// 交换物品(从背包到仓库 或者从仓库到背包)
-	
+	MSG_CLEAN_ITEM_REQ					= 406;	// 移动某个包裹
+	MSG_SORT_ITEM_REQ					= 407;	// 整理背包
+	MSG_REMOVE_ITEM_REQ					= 408;	// 删除道具
+	MSG_MOVE_ALL_ITEM_REQ				= 409;	// 移动所有道具
+
+	MSG_USE_ITEM_TO_HERO_REQ			= 451;	// 对英雄使用道具
 
 	// mail
 	MSG_VIEW_MAIL_REQ 					= 501;	// 查看邮件
@@ -82,12 +88,19 @@ enum FrameClientProtocol
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 结果提示
+// 错误码提示
 // MSG_RESULT_DISPLAY
 message MsgResultDisplay
 {
 	uint32 result = 1;
 	repeated bytes param = 2;
+}
+
+// 小红点提示
+// MSG_TELL_NOTICE
+message MsgTellNotice
+{
+	repeated PBNotice notice = 1;
 }
 
 // 客户端发送GM指令请求
@@ -270,16 +283,8 @@ message MsgSevenSignInRewardReq
 }
 
 ////////////////////////////////////////////////////////////////////
-// 使用道具
-// MSG_USE_ITEM_REQ
-message MsgUseItemReq
-{
-	bytes name = 1;	// 背包名字
-	uint64 uuid = 2;
-}
-
-// MSG_SPLIT_ITEM_REQ
 // 拆分道具( 把一堆堆叠物品拆分成2个 )
+// MSG_SPLIT_ITEM_REQ
 message MsgSplitItemReq
 {
 	bytes sourcename = 1;	// 源背包名字
@@ -289,8 +294,8 @@ message MsgSplitItemReq
 	uint32 targetindex = 5;	// 目标背包位置( 0 表示服务器自己找空位置 )
 }
 
-// MSG_MERGE_ITEM_REQ
 // 合并道具( 把2个堆叠物品合并成一个 )
+// MSG_MERGE_ITEM_REQ
 message MsgMergeItemReq
 {
 	bytes sourcename = 1;	// 源背包名字
@@ -299,8 +304,8 @@ message MsgMergeItemReq
 	uint64 targetuuid = 4;	// 合并的目标道具
 }
 
-// MSG_MOVE_ITEM_REQ
 // 移动物品(从背包到仓库 或者从仓库到背包)
+// MSG_MOVE_ITEM_REQ
 message MsgMoveItemReq
 {
 	bytes sourcename = 1;	// 源背包名字
@@ -309,14 +314,61 @@ message MsgMoveItemReq
 	uint32 targetindex = 4;	// 目标背包位置( 0 表示服务器自己找空位置 )
 }
 
-// MSG_EXCHANGE_ITEM_REQ
 // 交换物品(从背包到仓库 或者从仓库到背包)
+// MSG_EXCHANGE_ITEM_REQ
 message MsgExchangeItemReq
 {
 	bytes sourcename = 1;	// 源背包名字
 	uint64 sourceuuid = 2;	// 道具uuid
 	bytes targetname = 3;	// 目标背包名字
 	uint64 targetuuid = 4;	// 目标uuid
+}
+
+// 清空某个包裹
+// MSG_CLEAN_ITEM_REQ
+message MsgCleanItemReq
+{
+	bytes sourcename = 1;	// 源背包名字
+}
+
+// 移动所有道具到包裹
+// MSG_MOVE_ALL_ITEM_REQ
+message MsgMoveAllItemReq
+{
+	bytes sourcename = 1;	// 源背包名字
+	bytes targetname = 2;	// 目标背包名字
+}
+
+// 整理背包
+// MSG_SORT_ITEM_REQ
+message MsgSortItemReq
+{
+	bytes sourcename = 1;	// 源背包名字
+}
+
+// 删除道具
+// MSG_REMOVE_ITEM_REQ
+message MsgRemoveItemReq
+{
+	bytes sourcename = 1;	// 源背包名字
+	uint64 uuid = 2;		// 道具uuid( 为0时候, 删除背包所有道具 )
+}
+
+// 使用道具
+// MSG_USE_ITEM_REQ
+message MsgUseItemReq
+{
+	bytes name = 1;	// 背包名字
+	uint64 uuid = 2;
+}
+
+// 对英雄使用道具
+// MSG_USE_ITEM_TO_HERO_REQ
+message MsgUseItemToHeroReq
+{
+	bytes name = 1;		// 背包名字
+	uint64 itemuuid = 2; 	// 道具uuid
+	uint64 herouuid = 3;	// 英雄uuid
 }
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////

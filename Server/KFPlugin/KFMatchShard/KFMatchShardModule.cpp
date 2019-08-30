@@ -1,17 +1,7 @@
 ﻿#include "KFMatchShardModule.hpp"
-#include "KFZConfig/KFMatchConfig.hpp"
-#include "KFZConfig/KFNameConfig.hpp"
-#include "KFZConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
-    void KFMatchShardModule::InitModule()
-    {
-        __KF_ADD_CONFIG__( KFMatchConfig );
-        __KF_ADD_CONFIG__( KFHeroConfig );
-        __KF_ADD_CONFIG__( KFNameConfig );
-    }
-
     void KFMatchShardModule::BeforeRun()
     {
         //////////////////////////////////////////////////////////////////////////////////////////////////

@@ -25,9 +25,6 @@ namespace KFrame
         KFRoomShardModule() = default;
         ~KFRoomShardModule() = default;
 
-        // 初始化
-        virtual void InitModule();
-
         // 逻辑
         virtual void BeforeRun();
         virtual void OnceRun();

@@ -2,10 +2,6 @@
 
 namespace KFrame
 {
-    void KFMatchClientModule::InitModule()
-    {
-    }
-
     void KFMatchClientModule::BeforeRun()
     {
         __REGISTER_ENTER_PLAYER__( &KFMatchClientModule::OnEnterQueryMatch );

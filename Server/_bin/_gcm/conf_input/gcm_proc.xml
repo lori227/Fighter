@@ -21,7 +21,7 @@
 
 		<!-- cluster data -->
 		<Proc ID="31" Name="data" Type="shard" seq="0"/>
-		<Proc ID="32" Name="public" Type="shard" seq="0"/>
+		<Proc ID="32" Name="logic" Type="shard" seq="0"/>
 
 		<!-- cluster match -->
 		<Proc ID="38" Name="match" Type="shard" seq="0"/>

@@ -20,6 +20,8 @@ namespace KFrame
         // 加载完配置
         virtual void LoadComplete() {}
 
+        // 所有配置加载完
+        virtual void LoadAllComplete() {}
     public:
         // 默认配置文件名
         std::string _file_name;
@@ -36,11 +38,11 @@ namespace KFrame
         // 加载配置
         void LoadConfig( const std::string& file, uint32 loadmask )
         {
-            CheckClearSetting( loadmask );
-
             KFXml kfxml( file );
             auto config = kfxml.RootNode();
             _version = config.GetString( "version" );
+
+            CheckClearSetting( loadmask );
 
             auto xmlnode = config.FindNode( "item" );
             while ( xmlnode.IsValid() )
@@ -99,11 +101,11 @@ namespace KFrame
         // 加载配置
         void LoadConfig( const std::string& file, uint32 loadmask )
         {
-            CheckClearSetting( loadmask );
-
             KFXml kfxml( file );
             auto config = kfxml.RootNode();
             _version = config.GetString( "version" );
+
+            CheckClearSetting( loadmask );
 
             auto xmlnode = config.FindNode( "item" );
             while ( xmlnode.IsValid() )

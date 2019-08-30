@@ -339,6 +339,7 @@ call :CopyInterface KFDataShard
 
 rem display
 call :CopyInterface KFDisplay
+call :CopyInterface KFNotice
 
 rem lua
 call :CopyInterface KFLua

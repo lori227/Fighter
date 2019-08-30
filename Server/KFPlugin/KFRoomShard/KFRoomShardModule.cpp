@@ -3,11 +3,6 @@
 
 namespace KFrame
 {
-    void KFRoomShardModule::InitModule()
-    {
-
-    }
-
     void KFRoomShardModule::BeforeRun()
     {
         __REGISTER_MESSAGE__( KFMsg::S2S_REGISTER_BATTLE_TO_ROOM_REQ, &KFRoomShardModule::HandleRegisterBattleToRoomReq );

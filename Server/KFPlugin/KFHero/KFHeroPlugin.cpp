@@ -1,6 +1,6 @@
 ﻿#include "KFHeroPlugin.hpp"
 #include "KFHeroModule.hpp"
-
+#include "KFConfig/KFConfigInterface.h"
 //////////////////////////////////////////////////////////////////////////
 
 namespace KFrame
@@ -22,5 +22,10 @@ namespace KFrame
         __FIND_MODULE__( _kf_player, KFPlayerInterface );
         __FIND_MODULE__( _kf_display, KFDisplayInterface );
         __FIND_MODULE__( _kf_message, KFMessageInterface );
+    }
+
+    void KFHeroPlugin::AddConfig()
+    {
+        __KF_ADD_CONFIG__( KFHeroConfig );
     }
 }

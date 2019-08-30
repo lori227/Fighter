@@ -12,9 +12,11 @@
 #include "KFMatchQueue.h"
 #include "KFMatchShardInterface.h"
 #include "KFProtocol/KFProtocol.h"
-#include "KFConfig/KFConfigInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFRouteClient/KFRouteClientInterface.h"
+#include "KFZConfig/KFMatchConfig.hpp"
+#include "KFZConfig/KFNameConfig.hpp"
+#include "KFZConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
@@ -23,9 +25,6 @@ namespace KFrame
     public:
         KFMatchShardModule() = default;
         ~KFMatchShardModule() = default;
-
-        // 初始化
-        virtual void InitModule();
 
         // 逻辑
         virtual void BeforeRun();

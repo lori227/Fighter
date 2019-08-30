@@ -1,13 +1,7 @@
 ﻿#include "KFHeroModule.hpp"
-#include "KFZConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
-    void KFHeroModule::InitModule()
-    {
-        __KF_ADD_CONFIG__( KFHeroConfig );
-    }
-
     void KFHeroModule::BeforeRun()
     {
         _kf_component = _kf_kernel->FindComponent( __KF_STRING__( player ) );
