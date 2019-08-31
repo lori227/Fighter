@@ -22,8 +22,6 @@
 		<Plugin Name="KFMatchClient" Config=""/>	
 		<Plugin Name="KFRoomClient" Config=""/>	
 		<Plugin Name="KFPublicClient" Config=""/>	
-		<Plugin Name="KFEnter" Config="./config/enter.xml"/>
-		<Plugin Name="KFLeave" Config="./config/leave.xml"/>
 		<Plugin Name="KFReset" Config="./config/reset.xml"/>
 		<Plugin Name="KFHero" Config="./config/hero.xml"/>		
 	</Plugins>
