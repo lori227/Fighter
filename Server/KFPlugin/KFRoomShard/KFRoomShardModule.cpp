@@ -34,7 +34,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ );
     }
 
-    void KFRoomShardModule::OnceRun()
+    void KFRoomShardModule::PrepareRun()
     {
         _room_redis = _kf_redis->Create( __KF_STRING__( logic ) );
         _battle_allot->Initialize( _room_redis );
