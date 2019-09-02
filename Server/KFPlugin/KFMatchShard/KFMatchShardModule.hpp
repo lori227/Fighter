@@ -28,7 +28,7 @@ namespace KFrame
 
         // 逻辑
         virtual void BeforeRun();
-        virtual void OnceRun();
+        virtual void PrepareRun();
         virtual void Run();
 
         // 关闭

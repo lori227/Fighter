@@ -20,7 +20,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ );
     }
 
-    void KFMatchShardModule::OnceRun()
+    void KFMatchShardModule::PrepareRun()
     {
         // 添加匹配模式
         RouteObjectList matchlist;
