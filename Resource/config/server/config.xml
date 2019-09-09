@@ -1,4 +1,4 @@
-<root version="4b4d840">
+<root version="18b0c41">
 	<item Id="redis" FileName="./setting/{}_{}_redis.xml"/>
 	<item Id="mongo" FileName="./setting/{}_{}_mongo.xml"/>
 	<item Id="mysql" FileName="./setting/{}_{}_mysql.xml"/>
@@ -26,6 +26,7 @@
 	<item Id="achieve" FileName="./config/achieve.xml" Reload="1" ClearData="1"/>
 	<item Id="option" FileName="./config/option.xml" Reload="1"/>
 	<item Id="drop" FileName="./config/drop.xml" Reload="1"/>
+	<item Id="element" FileName="./config/element.xml" Reload="1"/>
 	<item Id="item" FileName="./config/itemcommon.xml" Reload="1" ClearData="1"/>
 	<item Id="item" FileName="./config/itemgift.xml" Reload="1" ClearData="1"/>
 	<item Id="item" FileName="./config/itemequip.xml" Reload="1" ClearData="1"/>
