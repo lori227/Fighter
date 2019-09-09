@@ -13,7 +13,7 @@ namespace KFrame
         _version = version;
         _match_queue = kfqueue;
         _battle_server_id = battleserverid;
-        _id = KFGlobal::Instance()->MakeUUID();
+        _id = KFGlobal::Instance()->STMakeUUID();
 
         _state = MatchState;
         _next_add_robot_time = KFGlobal::Instance()->_game_time + _match_queue->_match_setting->_add_robot_time;
@@ -172,7 +172,7 @@ namespace KFrame
     KFMatchPlayer* KFMatchRoom::CreateMatchRobot()
     {
         auto kfrobot = __KF_NEW__( KFMatchPlayer );
-        kfrobot->_id = KFGlobal::Instance()->MakeUUID();
+        kfrobot->_id = KFGlobal::Instance()->STMakeUUID();
         kfrobot->_version = _version;
         kfrobot->_battle_server_id = _battle_server_id;
         kfrobot->_pb_player.set_id( kfrobot->_id );
