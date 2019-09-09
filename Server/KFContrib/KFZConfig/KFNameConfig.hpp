@@ -14,7 +14,7 @@ namespace KFrame
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFNameConfig : public KFIntConfigT< KFNameSetting >, public KFInstance< KFNameConfig >
+    class KFNameConfig : public KFConfigT< KFNameSetting >, public KFInstance< KFNameConfig >
     {
     public:
         KFNameConfig()

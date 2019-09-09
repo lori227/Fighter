@@ -26,7 +26,7 @@ namespace KFrame
     };
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFMatchConfig : public KFIntConfigT< KFMatchSetting >, public KFInstance< KFMatchConfig >
+    class KFMatchConfig : public KFConfigT< KFMatchSetting >, public KFInstance< KFMatchConfig >
     {
     public:
         KFMatchConfig()

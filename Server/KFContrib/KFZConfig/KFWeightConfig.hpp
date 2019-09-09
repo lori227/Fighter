@@ -13,7 +13,7 @@ namespace KFrame
     };
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////
-    class KFWeightConfig : public KFIntConfigT< KFWeightSetting >, public KFInstance< KFWeightConfig >
+    class KFWeightConfig : public KFConfigT< KFWeightSetting >, public KFInstance< KFWeightConfig >
     {
     public:
         KFWeightConfig()
