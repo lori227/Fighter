@@ -1,4 +1,4 @@
-<root version="0">
+<root version="4472706">
 	<item Id="redis" FileName="./setting/{}_{}_redis.xml"/>
 	<item Id="mongo" FileName="./setting/{}_{}_mongo.xml"/>
 	<item Id="mysql" FileName="./setting/{}_{}_mysql.xml"/>
@@ -16,6 +16,7 @@
 	<item Id="rank" FileName="./config/rank.xml" Reload="1" ClearData="1"/>
 	<item Id="compound" FileName="./config/compound.xml" Reload="1" ClearData="1"/>
 	<item Id="pay" FileName="./config/pay.xml" Reload="1" ClearData="1"/>
+	<item Id="player" FileName="./config/player.xml" Reload="1" ClearData="1"/>
 	<item Id="enter" FileName="./config/enter.xml" Reload="1" ClearData="1"/>
 	<item Id="leave" FileName="./config/leave.xml" Reload="1" ClearData="1"/>
 	<item Id="reset" FileName="./config/reset.xml" Reload="1" ClearData="1"/>

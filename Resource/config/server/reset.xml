@@ -1,4 +1,4 @@
-<root version="0">
+<root version="4472706">
 	<item TimeType="3" TimeValue="1" TimeHour="6" ParentName="signin" DataName="sevenday" Operate="3"/>
 	<item TimeType="3" TimeValue="1" TimeHour="6" ParentName="signin" DataName="sevenreward" Operate="3"/>
 	<item TimeType="3" TimeValue="1" TimeHour="6" DataName="weeklystore" Operate="1"/>

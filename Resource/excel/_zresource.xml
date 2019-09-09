@@ -6,18 +6,19 @@
 		<Server Id="1" Name="测试服" Ip="180.169.238.146" Url="http://180.169.238.146:9999/deploy"/>
 	</Servers>
 	<Files>
-		<File Name="2003-玩家-离开游戏.xlsx" Type="3" TimeClient="0" TimeServer="1560747816"/>
-		<File Name="1000-框架-屏蔽字符.xlsx" Type="3" TimeClient="0" TimeServer="1560516606"/>
-		<File Name="3000-英雄-名字随机.xlsx" Type="3" TimeClient="0" TimeServer="1561010310"/>
-		<File Name="2002-玩家-属性重置.xlsx" Type="3" TimeClient="0" TimeServer="1566814616"/>
-		<File Name="1000-框架-渠道配置.xlsx" Type="3" TimeClient="0" TimeServer="1564379208"/>
-		<File Name="1000-框架-配置列表.xlsx" Type="3" TimeClient="0" TimeServer="1564381986"/>
-		<File Name="2000-玩家-属性定义.xlsx" Type="3" TimeClient="0" TimeServer="1567148901"/>
-		<File Name="1010-框架-全局配置.xlsx" Type="3" TimeClient="0" TimeServer="1564379319"/>
-		<File Name="1020-框架-随机权重.xlsx" Type="3" TimeClient="0" TimeServer="1564381024"/>
-		<File Name="3000-英雄-英雄配置.xlsx" Type="3" TimeClient="0" TimeServer="1560516389"/>
-		<File Name="2001-玩家-进入游戏.xlsx" Type="3" TimeClient="0" TimeServer="1560747808"/>
-		<File Name="2004-玩家-掉落配置.xlsx" Type="3" TimeClient="0" TimeServer="1563875708"/>
-		<File Name="3010-匹配-匹配设置.xlsx" Type="3" TimeClient="0" TimeServer="1567144406"/>
+		<File Name="1000-框架-屏蔽字符.xlsx" Type="3" MD5Client="" MD5Server="386c724eb5cf375d31185a22ba7601d8"/>
+		<File Name="2003-玩家-离开游戏.xlsx" Type="1" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
+		<File Name="1000-框架-渠道配置.xlsx" Type="1" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
+		<File Name="3000-英雄-名字随机.xlsx" Type="3" MD5Client="" MD5Server="67ed17c952cbc2a4581230aebbe6485f"/>
+		<File Name="2002-玩家-属性重置.xlsx" Type="1" MD5Client="" MD5Server="cbda7cdba06192f65c90753f2377cd58"/>
+		<File Name="1000-框架-配置列表.xlsx" Type="1" MD5Client="" MD5Server="2b16563f8b14045bfb9fa7adf8c3adae"/>
+		<File Name="1010-框架-全局配置.xlsx" Type="3" MD5Client="" MD5Server="5ddfb8e6d96c98ca15575d250e33c6df"/>
+		<File Name="2000-玩家-属性定义.xlsx" Type="3" MD5Client="" MD5Server="ab0fcce5be346d452c1a8cbae3322639"/>
+		<File Name="1020-框架-随机权重.xlsx" Type="1" MD5Client="" MD5Server="1ccbf93857526284e98047594a4d9013"/>
+		<File Name="2001-玩家-进入游戏.xlsx" Type="1" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
+		<File Name="3000-英雄-英雄配置.xlsx" Type="3" MD5Client="" MD5Server="d7c64c13088c95c1b94e0abe9720cdb2"/>
+		<File Name="2004-玩家-掉落配置.xlsx" Type="1" MD5Client="" MD5Server="577ff2315d8faa88092e865903ae2dbd"/>
+		<File Name="3010-匹配-匹配设置.xlsx" Type="3" MD5Client="" MD5Server="8aff622bc21b150c08fa6e53ba5cd667"/>
+		<File Name="2001-玩家-新建角色.xlsx" Type="1" MD5Client="" MD5Server="d07a097da5839dd5c6605db3aeb21ec8"/>
 	</Files>
 </Config>
