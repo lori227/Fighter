@@ -1,4 +1,4 @@
-<root version="4472706">
+<root version="4b4d840">
 	<item Id="Global" Name="basic" Type="object" ContainClass="BasicPlayer" KeyName="id" Create="1" SaveTime="60000" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
 	<item Id="Global" Name="player" Type="object" ContainClass="Player" KeyName="id" Create="1" Show="1" SaveTime="60000" DeleteType="1" Save="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
 	<item Id="Player" Name="id" Type="uint64" Create="1" Save="1" Sync="1" View="1" Public="1" Relation="1" Group="1" Guild="1" Rank="1"/>
