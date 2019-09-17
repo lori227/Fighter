@@ -42,7 +42,7 @@ namespace KFrame
         auto ok = ( _player_list.Size() >= _match_queue->_match_setting->_max_count );
         if ( ok )
         {
-            ChangeState( CreateState, 5000 );
+            ChangeState( CreateState, 1 );
         }
 
         return ok;
