@@ -374,6 +374,8 @@ call :CopyInterface KFReset 2001-玩家-进入游戏.xlsx
 call :CopyInterface KFReset 2002-玩家-属性重置.xlsx
 call :CopyInterface KFReset 2003-玩家-离开游戏.xlsx
 call :CopyInterface KFDrop 1001-玩家-掉落重置.xlsx
+call :CopyInterface KFItem
+
 
 rem Robot
 call :CopyInterface KFRobot
