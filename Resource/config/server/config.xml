@@ -1,4 +1,4 @@
-<root version="e5c049c">
+<root version="52a6542">
 	<item Id="redis" FileName="./setting/{}_{}_redis.xml"/>
 	<item Id="mongo" FileName="./setting/{}_{}_mongo.xml"/>
 	<item Id="mysql" FileName="./setting/{}_{}_mysql.xml"/>
@@ -31,8 +31,6 @@
 	<item Id="itemtype" FileName="./config/itemtype.xml" Reload="1" ClearData="1"/>
 	<item Id="item" FileName="./config/itemcommon.xml" Reload="1" ClearData="1"/>
 	<item Id="item" FileName="./config/itemgift.xml" Reload="1"/>
-	<item Id="item" FileName="./config/itemequip.xml" Reload="1"/>
-	<item Id="item" FileName="./config/itemmedicine.xml" Reload="1"/>
 	<item Id="weight" FileName="./config/weightpool.xml" Reload="1"/>
 	<item Id="hero" FileName="./config/hero.xml" Reload="1" ClearData="1"/>
 	<item Id="name" FileName="./config/name.xml" Reload="1" ClearData="1"/>

@@ -4,8 +4,6 @@ namespace KFrame
 {
     void KFSignInConfig::ReadSetting( KFNode& xmlnode, KFSignInSetting* kfsetting )
     {
-        kfsetting->_type = xmlnode.GetUInt32( "Type" );
-        kfsetting->_day = xmlnode.GetUInt32( "Day" );
         kfsetting->_probability = xmlnode.GetUInt32( "Probability" );
 
         auto strreward = xmlnode.GetString( "Reward" );
