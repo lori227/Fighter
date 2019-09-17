@@ -24,5 +24,6 @@
 		<Plugin Name="KFPublicClient" Config=""/>	
 		<Plugin Name="KFReset" Config="./config/reset.xml"/>
 		<Plugin Name="KFHero" Config="./config/hero.xml"/>		
+		<Plugin Name="KFSignIn" Config=""/>		
 	</Plugins>
 </Setting>

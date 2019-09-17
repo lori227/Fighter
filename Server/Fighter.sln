@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KFContrib", "KFContrib", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KFZConfig", "KFContrib\KFZConfig\KFZConfig.vcxproj", "{F45E974D-4858-4C72-AACD-E2FDEACC01C5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KFSignIn", "KFPlugin\KFSignIn\KFSignIn.vcxproj", "{A6417992-C5CF-42A8-98B9-D434921586F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,6 +77,12 @@ Global
 		{F45E974D-4858-4C72-AACD-E2FDEACC01C5}.Release|x64.ActiveCfg = Release|x64
 		{F45E974D-4858-4C72-AACD-E2FDEACC01C5}.Release|x64.Build.0 = Release|x64
 		{F45E974D-4858-4C72-AACD-E2FDEACC01C5}.Release|x86.ActiveCfg = Release|x64
+		{A6417992-C5CF-42A8-98B9-D434921586F2}.Debug|x64.ActiveCfg = Debug|x64
+		{A6417992-C5CF-42A8-98B9-D434921586F2}.Debug|x64.Build.0 = Debug|x64
+		{A6417992-C5CF-42A8-98B9-D434921586F2}.Debug|x86.ActiveCfg = Debug|x64
+		{A6417992-C5CF-42A8-98B9-D434921586F2}.Release|x64.ActiveCfg = Release|x64
+		{A6417992-C5CF-42A8-98B9-D434921586F2}.Release|x64.Build.0 = Release|x64
+		{A6417992-C5CF-42A8-98B9-D434921586F2}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,9 +97,10 @@ Global
 		{68295A3A-BDA3-4B84-BC14-74977AC113FA} = {687B1417-5063-43F8-B4D1-6E8C66531121}
 		{AFAB1443-A0C2-4D82-A89F-283BE46250D1} = {687B1417-5063-43F8-B4D1-6E8C66531121}
 		{F45E974D-4858-4C72-AACD-E2FDEACC01C5} = {0BAC37D0-D1FE-47D2-8302-54A0D243356D}
+		{A6417992-C5CF-42A8-98B9-D434921586F2} = {D087F76E-E4AE-48E3-A57D-718F5E59B4C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0F58A6B8-C040-4A92-9898-1E6968E55CF1}
 		Qt5Version = msvc2015_86
+		SolutionGuid = {0F58A6B8-C040-4A92-9898-1E6968E55CF1}
 	EndGlobalSection
 EndGlobal
