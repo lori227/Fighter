@@ -26,5 +26,6 @@
 		<Plugin Name="KFHero" Config="./config/hero.xml"/>		
 		<Plugin Name="KFSignIn" Config=""/>		
 		<Plugin Name="KFItem" Config=""/>		
+		<Plugin Name="KFDrop" Config=""/>		
 	</Plugins>
 </Setting>
