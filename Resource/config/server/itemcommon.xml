@@ -1,4 +1,4 @@
-<root version="3fd620a">
+<root version="e5c049c">
 	<item Id="501" Type="5" Quality="1" OverlayType="1" OverlayCount="999" Sell="[{&quot;money&quot;:&quot;1&quot;}]"/>
 	<item Id="1000000" Type="1" Quality="1" OverlayType="1" OverlayCount="20" Sell="[{&quot;money&quot;:&quot;1&quot;}]"/>
 	<item Id="1000001" Type="1" Quality="2" OverlayType="1" OverlayCount="100" Sell="[{&quot;money&quot;:&quot;1&quot;}]"/>

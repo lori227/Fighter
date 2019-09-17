@@ -1,4 +1,4 @@
-<root version="da76b44">
+<root version="e5c049c">
 	<item Id="redis" FileName="./setting/{}_{}_redis.xml"/>
 	<item Id="mongo" FileName="./setting/{}_{}_mongo.xml"/>
 	<item Id="mysql" FileName="./setting/{}_{}_mysql.xml"/>
@@ -25,13 +25,15 @@
 	<item Id="task" FileName="./config/task.xml" Reload="1" ClearData="1"/>
 	<item Id="achieve" FileName="./config/achieve.xml" Reload="1" ClearData="1"/>
 	<item Id="option" FileName="./config/option.xml" Reload="1"/>
-	<item Id="drop" FileName="./config/drop.xml" Reload="1"/>
+	<item Id="dropgroup" FileName="./config/dropgroup.xml" Reload="1"/>
+	<item Id="dropdata" FileName="./config/dropdata.xml" Reload="1"/>
 	<item Id="element" FileName="./config/element.xml" Reload="1"/>
+	<item Id="itemtype" FileName="./config/itemtype.xml" Reload="1" ClearData="1"/>
 	<item Id="item" FileName="./config/itemcommon.xml" Reload="1" ClearData="1"/>
-	<item Id="item" FileName="./config/itemgift.xml" Reload="1" ClearData="1"/>
-	<item Id="item" FileName="./config/itemequip.xml" Reload="1" ClearData="1"/>
-	<item Id="item" FileName="./config/itemmedicine.xml" Reload="1" ClearData="1"/>
-	<item Id="weight" FileName="./config/weightpool.xml" Reload="1" ClearData="1"/>
+	<item Id="item" FileName="./config/itemgift.xml" Reload="1"/>
+	<item Id="item" FileName="./config/itemequip.xml" Reload="1"/>
+	<item Id="item" FileName="./config/itemmedicine.xml" Reload="1"/>
+	<item Id="weight" FileName="./config/weightpool.xml" Reload="1"/>
 	<item Id="hero" FileName="./config/hero.xml" Reload="1" ClearData="1"/>
 	<item Id="name" FileName="./config/name.xml" Reload="1" ClearData="1"/>
 	<item Id="match" FileName="./config/match.xml" Reload="1" ClearData="1"/>
