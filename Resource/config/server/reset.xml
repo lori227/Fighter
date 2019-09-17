@@ -1,7 +1,7 @@
-<root version="e5c049c">
-	<item TimeType="3" TimeValue="1" TimeHour="6" ParentName="signin" DataName="sevenday" Operate="3"/>
-	<item TimeType="3" TimeValue="1" TimeHour="6" ParentName="signin" DataName="sevenreward" Operate="3"/>
-	<item TimeType="3" TimeValue="1" TimeHour="6" DataName="weeklystore" Operate="1"/>
-	<item TimeType="2" TimeHour="6" ParentName="signin" DataName="sevenday" Operate="1" Value="1"/>
-	<item TimeType="2" TimeHour="6" DataName="dailystore" Operate="1"/>
+<root version="e22ca4a">
+	<item TimeType="3" TimeValue="1" DataName="sevenday" Operate="3"/>
+	<item TimeType="3" TimeValue="1" DataName="sevenreward" Operate="3"/>
+	<item TimeType="3" TimeValue="1" DataName="weeklystore" Operate="1"/>
+	<item TimeType="2" DataName="sevenday" Operate="1" Value="1"/>
+	<item TimeType="2" DataName="dailystore" Operate="1"/>
 </root>
