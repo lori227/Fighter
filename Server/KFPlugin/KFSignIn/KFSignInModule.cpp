@@ -67,12 +67,8 @@ namespace KFrame
         auto kfobject = player->GetData();
         auto kfsignintime = kfobject->FindData( __KF_STRING__( signintime ) );
 
-        auto lastresettime = kfsignintime->GetValue();
-
-        // 更新本次签到
-        player->UpdateData( kfsignintime, KFEnum::Set, nowtime );
-
         // 判断连续签到
+        auto lastresettime = kfsignintime->GetValue();
         auto lastresettimedata = KFDate::CalcTimeData( &_time_data, lastresettime, 1 );
         auto calcresettimedata = KFDate::CalcTimeData( &_time_data, nowtime );
         if ( lastresettimedata == calcresettimedata )
@@ -83,5 +79,8 @@ namespace KFrame
         {
             player->UpdateData( __KF_STRING__( continuoussignin ), KFEnum::Set, 1u );
         }
+
+        // 更新本次签到
+        player->UpdateData( kfsignintime, KFEnum::Set, nowtime );
     }
 }
