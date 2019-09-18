@@ -1,4 +1,4 @@
-<root version="0334568">
+<root version="690dec1">
 	<item UseType="1" Id="1" ParentName="player" DataName="money" TriggerType="2" UseOperate="1" DoneType="11" DoneValue="30" Rewards="[{&quot;hero&quot;:{&quot;id&quot;:&quot;1&quot;}}]"/>
 	<item UseType="1" Id="2" ParentName="player" DataName="diamond" TriggerType="2" UseOperate="1" DoneType="11" DoneValue="30" Rewards="[{&quot;hero&quot;:{&quot;id&quot;:&quot;2&quot;}}]"/>
 	<item UseType="2" Id="3" ParentName="basic" DataName="grade" TriggerType="1" UseOperate="1" DoneType="11" DoneValue="1000" Rewards="[{&quot;hero&quot;:{&quot;id&quot;:&quot;3&quot;}}]"/>
