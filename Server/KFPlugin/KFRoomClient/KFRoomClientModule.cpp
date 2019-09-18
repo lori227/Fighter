@@ -59,6 +59,9 @@ namespace KFrame
         ack.set_playerid( playerid );
         ack.set_roomid( roomid );
         _kf_route->SendToServer( roomserverid, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, &ack, false );
+
+        // 更新下排名信息, 否则如果相同不会回调
+        player->UpdateData( __KF_STRING__( ranking ), KFEnum::Set, 0u );
     }
 
     __KF_ENTER_PLAYER_FUNCTION__( KFRoomClientModule::OnEnterQueryRoom )
@@ -140,6 +143,7 @@ namespace KFrame
         auto pbbalance = &kfmsg.balance();
 
         // 排名ranking
+        player->UpdateData( __KF_STRING__( ranking ), KFEnum::Set, pbbalance->ranking() );
 
         // 结算奖励
         for ( auto i = 0; i < pbbalance->data_size(); ++i )

@@ -27,5 +27,6 @@
 		<Plugin Name="KFSignIn" Config=""/>		
 		<Plugin Name="KFItem" Config=""/>		
 		<Plugin Name="KFDrop" Config=""/>		
+		<Plugin Name="KFAchieve" Config=""/>		
 	</Plugins>
 </Setting>

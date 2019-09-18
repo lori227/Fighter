@@ -18,6 +18,7 @@ namespace KFrame
     void KFSignInPlugin::LoadModule()
     {
         __FIND_MODULE__( _kf_game, KFGameInterface );
+        __FIND_MODULE__( _kf_reset, KFResetInterface );
         __FIND_MODULE__( _kf_config, KFConfigInterface );
         __FIND_MODULE__( _kf_player, KFPlayerInterface );
         __FIND_MODULE__( _kf_display, KFDisplayInterface );

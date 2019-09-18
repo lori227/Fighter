@@ -9,11 +9,13 @@
 //    @Date             :    2018-7-28
 ************************************************************************/
 
+#include "KFrameEx.h"
 #include "KFSignInInterface.h"
 #include "KFGame/KFGameInterface.h"
 #include "KFPlayer/KFPlayerInterface.h"
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
+#include "KFReset/KFResetInterface.h"
 #include "KFSignInConfig.hpp"
 
 namespace KFrame
@@ -31,6 +33,12 @@ namespace KFrame
     protected:
         // 领取7天签到奖励
         __KF_MESSAGE_FUNCTION__( HandleReceiveSevenRewardReq );
+
+        // 连续签到逻辑
+        __KF_RESET_FUNCTION__( OnResetContinuousSignin );
+
+    private:
+        KFTimeData _time_data;
     };
 }
 

@@ -27,6 +27,10 @@ namespace KFrame
         __STRING_DEFINE__( heroid );
         __STRING_DEFINE__( grade );
         __STRING_DEFINE__( balance );
+        __STRING_DEFINE__( ranking );
+        __STRING_DEFINE__( herocount );
+        __STRING_DEFINE__( signintime );
+        __STRING_DEFINE__( continuoussignin );
 
     }
 }

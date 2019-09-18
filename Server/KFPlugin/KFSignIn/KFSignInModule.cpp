@@ -5,11 +5,17 @@ namespace KFrame
 {
     void KFSignInModule::BeforeRun()
     {
+        _time_data._hour = 0u;
+        _time_data._type = KFTimeEnum::Day;
+        __REGISTER_RESET__( _time_data, &KFSignInModule::OnResetContinuousSignin );
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_SEVEN_SIGNIN_REWARD_REQ, &KFSignInModule::HandleReceiveSevenRewardReq );
     }
 
     void KFSignInModule::ShutDown()
     {
+        __UN_RESET__();
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_SEVEN_SIGNIN_REWARD_REQ );
     }
 
@@ -54,5 +60,28 @@ namespace KFrame
         }
 
         _kf_display->SendToClient( player, KFMsg::SignInRewardOk );
+    }
+
+    __KF_RESET_FUNCTION__( KFSignInModule::OnResetContinuousSignin )
+    {
+        auto kfobject = player->GetData();
+        auto kfsignintime = kfobject->FindData( __KF_STRING__( signintime ) );
+
+        auto lastresettime = kfsignintime->GetValue();
+
+        // 更新本次签到
+        player->UpdateData( kfsignintime, KFEnum::Set, nowtime );
+
+        // 判断连续签到
+        auto lastresettimedata = KFDate::CalcTimeData( &_time_data, lastresettime, 1 );
+        auto calcresettimedata = KFDate::CalcTimeData( &_time_data, nowtime );
+        if ( lastresettimedata == calcresettimedata )
+        {
+            player->UpdateData( __KF_STRING__( continuoussignin ), KFEnum::Add, 1u );
+        }
+        else
+        {
+            player->UpdateData( __KF_STRING__( continuoussignin ), KFEnum::Set, 1u );
+        }
     }
 }

@@ -5,14 +5,17 @@ namespace KFrame
     void KFHeroModule::BeforeRun()
     {
         _kf_component = _kf_kernel->FindComponent( __KF_STRING__( player ) );
-        _kf_component->RegisterAddElementFunction( __KF_STRING__( hero ), this, &KFHeroModule::AddHeroElement );
+
+        __REGISTER_ADD_ELEMENT__( __KF_STRING__( hero ), &KFHeroModule::AddHeroElement );
+        __REGISTER_ADD_DATA__( __KF_STRING__( hero ), &KFHeroModule::OnAddHero );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ, &KFHeroModule::HandleFighterHeroReq );
     }
 
     void KFHeroModule::BeforeShut()
     {
-        _kf_component->UnRegisterAddElementFunction( __KF_STRING__( hero ) );
+        __UN_ADD_DATA__( __KF_STRING__( hero ) );
+        __UN_ADD_ELEMENT__( __KF_STRING__( hero ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
     }
@@ -51,6 +54,12 @@ namespace KFrame
 
         player->AddData( kfparent, kfelementobject->_config_id, kfhero );
         return std::make_tuple( KFDataDefine::Show_Element, kfhero );
+    }
+
+    __KF_ADD_DATA_FUNCTION__( KFHeroModule::OnAddHero )
+    {
+        auto herocount = kfparent->Size();
+        player->UpdateData( __KF_STRING__( herocount ), KFEnum::Set, herocount );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
