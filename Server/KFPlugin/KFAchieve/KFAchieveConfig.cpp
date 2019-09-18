@@ -12,20 +12,20 @@ namespace KFrame
     {
         kfsetting->_parent_name = xmlnode.GetString( "ParentName" );
         kfsetting->_data_name = xmlnode.GetString( "DataName" );
-        kfsetting->_data_key = xmlnode.GetUInt32( "DataKey" );
+        kfsetting->_data_key = xmlnode.GetUInt32( "DataKey", true );
 
         kfsetting->_trigger_type = xmlnode.GetUInt32( "TriggerType" );
-        kfsetting->_trigger_check = xmlnode.GetUInt32( "TriggerCheck" );
-        kfsetting->_trigger_value = xmlnode.GetUInt32( "TriggerValue" );
+        kfsetting->_trigger_check = xmlnode.GetUInt32( "TriggerCheck", true );
+        kfsetting->_trigger_value = xmlnode.GetUInt32( "TriggerValue", true );
 
         kfsetting->_use_type = xmlnode.GetUInt32( "UseType" );
-        kfsetting->_use_value = xmlnode.GetUInt32( "UseValue" );
+        kfsetting->_use_value = xmlnode.GetUInt32( "UseValue", true );
         kfsetting->_use_operate = xmlnode.GetUInt32( "UseOperate" );
 
         kfsetting->_done_value = xmlnode.GetUInt32( "DoneValue" );
         kfsetting->_done_type = xmlnode.GetUInt32( "DoneType" );
 
-        auto strlimit = xmlnode.GetString( "Limits" );
+        auto strlimit = xmlnode.GetString( "Limits", true );
         if ( !strlimit.empty() )
         {
             kfsetting->_limits.Parse( strlimit, __FUNC_LINE__ );

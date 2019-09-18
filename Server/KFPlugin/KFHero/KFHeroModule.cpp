@@ -7,14 +7,14 @@ namespace KFrame
         _kf_component = _kf_kernel->FindComponent( __KF_STRING__( player ) );
 
         __REGISTER_ADD_ELEMENT__( __KF_STRING__( hero ), &KFHeroModule::AddHeroElement );
-        __REGISTER_ADD_DATA__( __KF_STRING__( hero ), &KFHeroModule::OnAddHero );
+        __REGISTER_ADD_DATA_1__( __KF_STRING__( hero ), &KFHeroModule::OnAddHero );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ, &KFHeroModule::HandleFighterHeroReq );
     }
 
     void KFHeroModule::BeforeShut()
     {
-        __UN_ADD_DATA__( __KF_STRING__( hero ) );
+        __UN_ADD_DATA_1__( __KF_STRING__( hero ) );
         __UN_ADD_ELEMENT__( __KF_STRING__( hero ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
