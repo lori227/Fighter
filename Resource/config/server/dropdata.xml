@@ -1,4 +1,4 @@
-<root version="53aabdb">
+<root version="c2721d3">
 	<item Id="1" DropName="money" DropValue="100" Weight="100"/>
 	<item Id="2" DropName="money" DropValue="200" Weight="100"/>
 	<item Id="3" DropName="money" DropValue="100-200" Weight="100"/>

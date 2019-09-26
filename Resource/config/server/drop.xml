@@ -1,4 +1,4 @@
-<root version="53aabdb">
+<root version="c2721d3">
 	<item Id="1" Type="1" Probability="10000" DropData="[{&quot;money&quot;:&quot;10000&quot;}]"/>
 	<item Id="1" Type="1" Probability="500" DropData="[{&quot;diamond&quot;:&quot;200&quot;}]"/>
 	<item Id="2" Type="2" Probability="100" DropData="[{&quot;money&quot;:&quot;10000&quot;}]"/>

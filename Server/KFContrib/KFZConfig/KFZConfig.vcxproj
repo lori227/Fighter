@@ -20,6 +20,7 @@
     <ClInclude Include="KFNameConfig.hpp" />
     <ClInclude Include="KFOptionSetting.h" />
     <ClInclude Include="KFSetting.h" />
+    <ClInclude Include="KFTimeConfig.hpp" />
     <ClInclude Include="KFWeightConfig.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +29,7 @@
     <ClCompile Include="KFItemSetting.cpp" />
     <ClCompile Include="KFMatchConfig.cpp" />
     <ClCompile Include="KFNameConfig.cpp" />
+    <ClCompile Include="KFTimeConfig.cpp" />
     <ClCompile Include="KFWeightConfig.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

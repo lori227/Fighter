@@ -27,6 +27,9 @@
     <ClInclude Include="KFNameConfig.hpp">
       <Filter>Match</Filter>
     </ClInclude>
+    <ClInclude Include="KFTimeConfig.hpp">
+      <Filter>Time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">
@@ -47,6 +50,9 @@
     <Filter Include="Match">
       <UniqueIdentifier>{ba7c181b-0023-4660-be31-2b2a445d6e14}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{03e37135-50bd-4ee4-a9cb-ebbcc852d347}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KFItemConfig.cpp">
@@ -66,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="KFNameConfig.cpp">
       <Filter>Match</Filter>
+    </ClCompile>
+    <ClCompile Include="KFTimeConfig.cpp">
+      <Filter>Time</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
