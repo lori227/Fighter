@@ -30,6 +30,9 @@
     <ClInclude Include="KFTimeConfig.hpp">
       <Filter>Time</Filter>
     </ClInclude>
+    <ClInclude Include="KFItemTypeConfig.hpp">
+      <Filter>Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">
@@ -75,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="KFTimeConfig.cpp">
       <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="KFItemTypeConfig.cpp">
+      <Filter>Item</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

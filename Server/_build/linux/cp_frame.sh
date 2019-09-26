@@ -69,4 +69,3 @@ cp -f $framebinpath/KFLua$filename.so $binpath/
 cp -f $framebinpath/KFPublicClient$filename.so $binpath/
 cp -f $framebinpath/KFPublicShard$filename.so $binpath/
 cp -f $framebinpath/KFDrop$filename.so $binpath/
-cp -f $framebinpath/KFItem$filename.so $binpath/
