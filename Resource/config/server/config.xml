@@ -1,4 +1,4 @@
-<root version="12e6592">
+<root version="3afa21c">
 	<item Id="redis" FileName="./setting/{}_{}_redis.xml"/>
 	<item Id="mongo" FileName="./setting/{}_{}_mongo.xml"/>
 	<item Id="mysql" FileName="./setting/{}_{}_mysql.xml"/>
