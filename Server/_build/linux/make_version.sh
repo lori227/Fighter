@@ -46,9 +46,9 @@ fi
 # resource
 cd ../../
 days=$(((($(date +%s ) - $(date +%s -d '20190401'))/86400) + 1));
-defineversion=`cat ../Resource/proto/6.version.txt | cut -d "." -f 1`
-clientversion=`cat ../Resource/proto/6.version.txt | cut -d "." -f 2`
-projectversion=$defineversion.$clientversion.$days.$svnversion
+#defineversion=`cat ../Resource/proto/6.version.txt | cut -d "." -f 1`
+#clientversion=`cat ../Resource/proto/6.version.txt | cut -d "." -f 2`
+projectversion=1.1.$days.$svnversion
 echo $projectversion
 
 # config
