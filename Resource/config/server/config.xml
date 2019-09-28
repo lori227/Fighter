@@ -1,40 +1,40 @@
-<root version="3afa21c">
-	<item Id="redis" FileName="./setting/{}_{}_redis.xml"/>
-	<item Id="mongo" FileName="./setting/{}_{}_mongo.xml"/>
-	<item Id="mysql" FileName="./setting/{}_{}_mysql.xml"/>
-	<item Id="ip" FileName="./setting/{}_{}_ip.xml"/>
-	<item Id="zone" FileName="./setting/{}_{}_zone.xml" Reload="1" ClearData="1"/>
-	<item Id="bus" FileName="./setting/bus.xml"/>
-	<item Id="http" FileName="./setting/httpserver.xml"/>
-	<item Id="tcp" FileName="./setting/tcpserver.xml"/>
-	<item Id="datashard" FileName="./setting/datashard.xml"/>
-	<item Id="robot" FileName="./setting/robot.xml"/>
-	<item Id="route" FileName="./config/route.xml" Reload="1" ClearData="1"/>
-	<item Id="channel" FileName="./config/channel.xml" Reload="1" ClearData="1"/>
-	<item Id="filter" FileName="./config/filter.xml" Reload="1" ClearData="1"/>
-	<item Id="class" FileName="./config/class.xml" Reload="1"/>
-	<item Id="relation" FileName="./config/relation.xml" Reload="1" ClearData="1"/>
-	<item Id="rank" FileName="./config/rank.xml" Reload="1" ClearData="1"/>
-	<item Id="compound" FileName="./config/compound.xml" Reload="1" ClearData="1"/>
-	<item Id="pay" FileName="./config/pay.xml" Reload="1" ClearData="1"/>
-	<item Id="player" FileName="./config/player.xml" Reload="1" ClearData="1"/>
-	<item Id="time" FileName="./config/time.xml" Reload="1" ClearData="1"/>
-	<item Id="enter" FileName="./config/enter.xml" Reload="1" ClearData="1"/>
-	<item Id="leave" FileName="./config/leave.xml" Reload="1" ClearData="1"/>
-	<item Id="reset" FileName="./config/reset.xml" Reload="1" ClearData="1"/>
-	<item Id="signin" FileName="./config/signin.xml" Reload="1" ClearData="1"/>
-	<item Id="store" FileName="./config/store.xml" Reload="1" ClearData="1"/>
-	<item Id="task" FileName="./config/task.xml" Reload="1" ClearData="1"/>
-	<item Id="achieve" FileName="./config/achieve.xml" Reload="1" ClearData="1"/>
-	<item Id="option" FileName="./config/option.xml" Reload="1"/>
-	<item Id="dropgroup" FileName="./config/dropgroup.xml" Reload="1"/>
-	<item Id="dropdata" FileName="./config/dropdata.xml" Reload="1"/>
-	<item Id="element" FileName="./config/element.xml" Reload="1"/>
-	<item Id="itemtype" FileName="./config/itemtype.xml" Reload="1" ClearData="1"/>
-	<item Id="item" FileName="./config/itemcommon.xml" Reload="1" ClearData="1"/>
-	<item Id="item" FileName="./config/itemgift.xml" Reload="1"/>
-	<item Id="weight" FileName="./config/weightpool.xml" Reload="1"/>
-	<item Id="hero" FileName="./config/hero.xml" Reload="1" ClearData="1"/>
-	<item Id="name" FileName="./config/name.xml" Reload="1" ClearData="1"/>
-	<item Id="match" FileName="./config/match.xml" Reload="1" ClearData="1"/>
+<root version="67a9f3f">
+	<item Id="redis" Name="redis" FileName="./setting/{}_{}_redis.xml"/>
+	<item Id="mongo" Name="mongo" FileName="./setting/{}_{}_mongo.xml"/>
+	<item Id="mysql" Name="mysql" FileName="./setting/{}_{}_mysql.xml"/>
+	<item Id="ip" Name="ip" FileName="./setting/{}_{}_ip.xml"/>
+	<item Id="zone" Name="zone" FileName="./setting/{}_{}_zone.xml" Reload="1" ClearData="1"/>
+	<item Id="bus" Name="bus" FileName="./setting/bus.xml"/>
+	<item Id="http" Name="httpserver" FileName="./setting/httpserver.xml"/>
+	<item Id="tcp" Name="tcpserver" FileName="./setting/tcpserver.xml"/>
+	<item Id="datashard" Name="datashard" FileName="./setting/datashard.xml"/>
+	<item Id="robot" Name="robot" FileName="./setting/robot.xml"/>
+	<item Id="route" Name="route" FileName="./config/route.xml" Reload="1" ClearData="1"/>
+	<item Id="channel" Name="channel" FileName="./config/channel.xml" Reload="1" ClearData="1"/>
+	<item Id="filter" Name="filter" FileName="./config/filter.xml" Reload="1" ClearData="1"/>
+	<item Id="class" Name="class" FileName="./config/class.xml" Reload="1"/>
+	<item Id="relation" Name="relation" FileName="./config/relation.xml" Reload="1" ClearData="1"/>
+	<item Id="rank" Name="rank" FileName="./config/rank.xml" Reload="1" ClearData="1"/>
+	<item Id="compound" Name="compound" FileName="./config/compound.xml" Reload="1" ClearData="1"/>
+	<item Id="pay" Name="pay" FileName="./config/pay.xml" Reload="1" ClearData="1"/>
+	<item Id="player" Name="player" FileName="./config/player.xml" Reload="1" ClearData="1"/>
+	<item Id="time" Name="time" FileName="./config/time.xml" Reload="1" ClearData="1"/>
+	<item Id="enter" Name="enter" FileName="./config/enter.xml" Reload="1" ClearData="1"/>
+	<item Id="leave" Name="leave" FileName="./config/leave.xml" Reload="1" ClearData="1"/>
+	<item Id="reset" Name="reset" FileName="./config/reset.xml" Reload="1" ClearData="1"/>
+	<item Id="signin" Name="signin" FileName="./config/signin.xml" Reload="1" ClearData="1"/>
+	<item Id="store" Name="store" FileName="./config/store.xml" Reload="1" ClearData="1"/>
+	<item Id="task" Name="task" FileName="./config/task.xml" Reload="1" ClearData="1"/>
+	<item Id="achieve" Name="achieve" FileName="./config/achieve.xml" Reload="1" ClearData="1"/>
+	<item Id="option" Name="option" FileName="./config/option.xml" Reload="1"/>
+	<item Id="dropgroup" Name="dropgroup" FileName="./config/dropgroup.xml" Reload="1" ClearData="1"/>
+	<item Id="dropdata" Name="dropdata" FileName="./config/dropdata.xml" Reload="1" ClearData="1"/>
+	<item Id="element" Name="element" FileName="./config/element.xml" Reload="1" ClearData="1"/>
+	<item Id="itemtype" Name="itemtype" FileName="./config/itemtype.xml" Reload="1" ClearData="1"/>
+	<item Id="item" Name="itemcommon" FileName="./config/itemcommon.xml" Reload="1" ClearData="1"/>
+	<item Id="item" Name="itemgift" FileName="./config/itemgift.xml" Reload="1"/>
+	<item Id="weight" Name="weightpool" FileName="./config/weightpool.xml" Reload="1"/>
+	<item Id="hero" Name="hero" FileName="./config/hero.xml" Reload="1" ClearData="1"/>
+	<item Id="name" Name="name" FileName="./config/name.xml" Reload="1" ClearData="1"/>
+	<item Id="match" Name="match" FileName="./config/match.xml" Reload="1" ClearData="1"/>
 </root>
