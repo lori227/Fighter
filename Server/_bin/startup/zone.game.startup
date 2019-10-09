@@ -28,5 +28,6 @@
 		<Plugin Name="KFItem" Config=""/>		
 		<Plugin Name="KFDrop" Config=""/>		
 		<Plugin Name="KFAchieve" Config=""/>		
+		<Plugin Name="KFStore" Config=""/>		
 	</Plugins>
 </Setting>
