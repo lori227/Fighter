@@ -604,7 +604,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgSplitItemReq );
 
-        auto kfobject = player->GetData();
         auto kfsourcerecord = kfobject->FindData( kfmsg.sourcename() );
         auto kftargetrecord = kfobject->FindData( kfmsg.targetname() );
         if ( kfsourcerecord == nullptr || kftargetrecord == nullptr )
@@ -686,7 +685,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgMergeItemReq );
 
-        auto kfobject = player->GetData();
         auto kfsourcerecord = kfobject->FindData( kfmsg.sourcename() );
         auto kftargetrecord = kfobject->FindData( kfmsg.targetname() );
         if ( kfsourcerecord == nullptr || kftargetrecord == nullptr )
@@ -736,7 +734,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgMoveItemReq );
 
-        auto kfobject = player->GetData();
         auto kfsourcerecord = kfobject->FindData( kfmsg.sourcename() );
         auto kftargetrecord = kfobject->FindData( kfmsg.targetname() );
         if ( kfsourcerecord == nullptr || kftargetrecord == nullptr )
@@ -782,7 +779,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgMoveAllItemReq );
 
-        auto kfobject = player->GetData();
         auto kfsourcerecord = kfobject->FindData( kfmsg.sourcename() );
         auto kftargetrecord = kfobject->FindData( kfmsg.targetname() );
         if ( kfsourcerecord == nullptr || kftargetrecord == nullptr )
@@ -934,7 +930,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgExchangeItemReq );
 
-        auto kfobject = player->GetData();
         auto kfsourcerecord = kfobject->FindData( kfmsg.sourcename() );
         auto kftargetrecord = kfobject->FindData( kfmsg.targetname() );
         if ( kfsourcerecord == nullptr || kftargetrecord == nullptr )

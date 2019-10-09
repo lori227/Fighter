@@ -5,9 +5,8 @@ namespace KFrame
 {
     void KFSignInModule::BeforeRun()
     {
-        _time_data._hour = 0u;
-        _time_data._type = KFTimeEnum::Day;
-        __REGISTER_RESET__( _time_data, &KFSignInModule::OnResetContinuousSignin );
+        auto timeid = _kf_option->GetUInt32( "signinresettime" );
+        __REGISTER_RESET__( timeid, &KFSignInModule::OnResetSigninData );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_SEVEN_SIGNIN_REWARD_REQ, &KFSignInModule::HandleReceiveSevenRewardReq );
     }
@@ -23,7 +22,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgSevenSignInRewardReq );
 
-        auto kfobject = player->GetData();
         auto day = kfobject->GetValue< uint32 >( __KF_STRING__( sevenday ) );
         if ( day < kfmsg.day() )
         {
@@ -62,15 +60,42 @@ namespace KFrame
         _kf_display->SendToClient( player, KFMsg::SignInRewardOk );
     }
 
-    __KF_RESET_FUNCTION__( KFSignInModule::OnResetContinuousSignin )
+    __KF_RESET_FUNCTION__( KFSignInModule::OnResetSigninData )
+    {
+        // 计算签到
+        CalcSignin( player );
+
+        // 计算连续签到
+        CalcContinuousSignin( player, timedata, nowtime );
+    }
+
+    void KFSignInModule::CalcSignin( KFEntity* player )
+    {
+        // 签到逻辑, 只有到前一天奖励领取了, 才算成功签到
+        auto kfobject = player->GetData();
+        auto day = kfobject->GetValue< uint32 >( __KF_STRING__( sevenday ) );
+        if ( day > 0u )
+        {
+            auto sevenflag = kfobject->GetValue< uint32 >( __KF_STRING__( sevenreward ) );
+            auto flag = 1u << day;
+            if ( !KFUtility::HaveBitMask< uint32 >( sevenflag, flag ) )
+            {
+                return;
+            }
+        }
+
+        player->UpdateData( __KF_STRING__( sevenday ), KFEnum::Add, 1u );
+    }
+
+    void KFSignInModule::CalcContinuousSignin( KFEntity* player, const KFTimeData* timedata, uint64 nowtime )
     {
         auto kfobject = player->GetData();
         auto kfsignintime = kfobject->FindData( __KF_STRING__( signintime ) );
 
         // 判断连续签到
         auto lastresettime = kfsignintime->GetValue();
-        auto lastresettimedata = KFDate::CalcTimeData( &_time_data, lastresettime, 1 );
-        auto calcresettimedata = KFDate::CalcTimeData( &_time_data, nowtime );
+        auto lastresettimedata = KFDate::CalcTimeData( timedata, lastresettime, 1 );
+        auto calcresettimedata = KFDate::CalcTimeData( timedata, nowtime );
         if ( lastresettimedata == calcresettimedata )
         {
             player->UpdateData( __KF_STRING__( continuoussignin ), KFEnum::Add, 1u );

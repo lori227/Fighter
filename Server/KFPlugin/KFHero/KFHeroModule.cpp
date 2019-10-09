@@ -68,7 +68,6 @@ namespace KFrame
         __CLIENT_PROTO_PARSE__( KFMsg::MsgFighterHeroReq );
 
         // 判断是否存在英雄
-        auto kfobject = player->GetData();
         auto kfhero = kfobject->FindData( __KF_STRING__( hero ), kfmsg.heroid() );
         if ( kfhero == nullptr )
         {

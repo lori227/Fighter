@@ -47,7 +47,6 @@ namespace KFrame
 
         __LOG_DEBUG__( "player=[{}] affirm battle!", playerid );
 
-        auto kfobject = player->GetData();
         auto roomid = kfobject->GetValue( __KF_STRING__( roomid ) );
         auto roomserverid = kfobject->GetValue( __KF_STRING__( roomserverid ) );
         if ( roomserverid == _invalid_int || roomid == _invalid_int )
@@ -113,7 +112,6 @@ namespace KFrame
 
         __LOG_DEBUG__( "player=[{}] room=[{}] finish!", kfmsg.playerid(), kfmsg.roomid() );
 
-        auto kfobject = player->GetData();
         auto roomid = kfobject->GetValue( __KF_STRING__( roomid ) );
         if ( roomid != kfmsg.roomid() )
         {
@@ -132,7 +130,6 @@ namespace KFrame
         __SERVER_PROTO_PARSE__( KFMsg::S2SPlayerBalanceToGameReq );
         __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg.playerid(), kfmsg.roomid() );
 
-        auto kfobject = player->GetData();
         auto roomid = kfobject->GetValue< uint64 >( __KF_STRING__( roomid ) );
         if ( roomid == kfmsg.roomid() )
         {

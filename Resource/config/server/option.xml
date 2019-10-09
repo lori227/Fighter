@@ -1,4 +1,5 @@
-<root version="67a9f3f">
+<root version="8e2cd14">
 	<item Name="disconnettime" Value="1000"/>
 	<item Name="playernamelength" Value="40"/>
+	<item Name="signinresettime" Value="2"/>
 </root>

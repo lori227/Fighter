@@ -175,7 +175,6 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgCancelMatchReq );
 
-        auto kfobject = player->GetData();
         auto matchid = kfobject->GetValue< uint32 >( __KF_STRING__( matchid ) );
         if ( matchid == _invalid_int )
         {
