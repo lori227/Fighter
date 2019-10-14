@@ -22,7 +22,7 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgSevenSignInRewardReq );
 
-        auto day = kfobject->GetValue< uint32 >( __KF_STRING__( sevenday ) );
+        auto day = player->Get< uint32 >( __KF_STRING__( sevenday ) );
         if ( day < kfmsg.day() )
         {
             return _kf_display->SendToClient( player, KFMsg::SignInNotDay );
@@ -34,7 +34,7 @@ namespace KFrame
             return _kf_display->SendToClient( player, KFMsg::SignInCanNotFind );
         }
 
-        auto sevenflag = kfobject->GetValue< uint32 >( __KF_STRING__( sevenreward ) );
+        auto sevenflag = player->Get< uint32 >( __KF_STRING__( sevenreward ) );
         auto flag = 1u << kfmsg.day();
         if ( KFUtility::HaveBitMask< uint32 >( sevenflag, flag ) )
         {
@@ -72,11 +72,10 @@ namespace KFrame
     void KFSignInModule::CalcSignin( KFEntity* player )
     {
         // 签到逻辑, 只有到前一天奖励领取了, 才算成功签到
-        auto kfobject = player->GetData();
-        auto day = kfobject->GetValue< uint32 >( __KF_STRING__( sevenday ) );
+        auto day = player->Get< uint32 >( __KF_STRING__( sevenday ) );
         if ( day > 0u )
         {
-            auto sevenflag = kfobject->GetValue< uint32 >( __KF_STRING__( sevenreward ) );
+            auto sevenflag = player->Get< uint32 >( __KF_STRING__( sevenreward ) );
             auto flag = 1u << day;
             if ( !KFUtility::HaveBitMask< uint32 >( sevenflag, flag ) )
             {
@@ -89,11 +88,10 @@ namespace KFrame
 
     void KFSignInModule::CalcContinuousSignin( KFEntity* player, const KFTimeData* timedata, uint64 nowtime )
     {
-        auto kfobject = player->GetData();
-        auto kfsignintime = kfobject->FindData( __KF_STRING__( signintime ) );
+        auto kfsignintime = player->Find( __KF_STRING__( signintime ) );
 
         // 判断连续签到
-        auto lastresettime = kfsignintime->GetValue();
+        auto lastresettime = kfsignintime->Get();
         auto lastresettimedata = KFDate::CalcTimeData( timedata, lastresettime, 1 );
         auto calcresettimedata = KFDate::CalcTimeData( timedata, nowtime );
         if ( lastresettimedata == calcresettimedata )

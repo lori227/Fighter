@@ -43,7 +43,7 @@ namespace KFrame
         }
 
         // todo: 临时代码, 不重复添加英雄
-        auto kfhero = kfparent->FindData( kfelementobject->_config_id );
+        auto kfhero = kfparent->Find( kfelementobject->_config_id );
         if ( kfhero != nullptr )
         {
             return std::make_tuple( KFDataDefine::Show_None, nullptr );
@@ -68,7 +68,7 @@ namespace KFrame
         __CLIENT_PROTO_PARSE__( KFMsg::MsgFighterHeroReq );
 
         // 判断是否存在英雄
-        auto kfhero = kfobject->FindData( __KF_STRING__( hero ), kfmsg.heroid() );
+        auto kfhero = player->Find( __KF_STRING__( hero ), kfmsg.heroid() );
         if ( kfhero == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::HeroNotExist );

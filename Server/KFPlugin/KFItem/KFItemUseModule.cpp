@@ -28,13 +28,13 @@ namespace KFrame
         __CLIENT_PROTO_PARSE__( KFMsg::MsgUseItemReq );
 
         // 判断是否有这个道具
-        auto kfitem = player->GetData()->FindData( kfmsg.name(), kfmsg.uuid() );
+        auto kfitem = player->Find( kfmsg.name(), kfmsg.uuid() );
         if ( kfitem == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::ItemDataNotExist );
         }
 
-        auto itemid = kfitem->GetValue<uint32>( kfitem->_data_setting->_config_key_name  );
+        auto itemid = kfitem->Get<uint32>( kfitem->_data_setting->_config_key_name  );
         auto kfsetting = KFItemConfig::Instance()->FindSetting( itemid );
         if ( kfsetting == nullptr )
         {
@@ -58,7 +58,7 @@ namespace KFrame
         }
 
         // 扣除数量
-        auto usecount = kfitem->GetValue<uint32>( __KF_STRING__( usecount ) );
+        auto usecount = kfitem->Get<uint32>( __KF_STRING__( usecount ) );
         if ( usecount + 1u >= kfsetting->_use_count )
         {
             player->UpdateData( kfitem, __KF_STRING__( count ), KFEnum::Dec, 1u );
@@ -127,20 +127,20 @@ namespace KFrame
         __CLIENT_PROTO_PARSE__( KFMsg::MsgUseItemToHeroReq );
 
         // 判断是否有这个道具
-        auto kfitem = player->GetData()->FindData( kfmsg.name(), kfmsg.itemuuid() );
+        auto kfitem = player->Find( kfmsg.name(), kfmsg.itemuuid() );
         if ( kfitem == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::ItemDataNotExist );
         }
 
         // 判断英雄是否存在
-        auto kfhero = player->GetData()->FindData( __KF_STRING__( hero ), kfmsg.herouuid() );
+        auto kfhero = player->Find( __KF_STRING__( hero ), kfmsg.herouuid() );
         if ( kfhero == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::HeroNotExist );
         }
 
-        auto itemid = kfitem->GetValue<uint32>( kfitem->_data_setting->_config_key_name );
+        auto itemid = kfitem->Get<uint32>( kfitem->_data_setting->_config_key_name );
         auto kfsetting = KFItemConfig::Instance()->FindSetting( itemid );
         if ( kfsetting == nullptr )
         {
@@ -165,7 +165,7 @@ namespace KFrame
         }
 
         // 扣除数量
-        auto usecount = kfitem->GetValue<uint32>( __KF_STRING__( usecount ) );
+        auto usecount = kfitem->Get<uint32>( __KF_STRING__( usecount ) );
         if ( usecount + 1u >= kfsetting->_use_count )
         {
             player->UpdateData( kfitem, __KF_STRING__( count ), KFEnum::Dec, 1u );

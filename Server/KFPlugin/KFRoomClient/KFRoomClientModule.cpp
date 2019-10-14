@@ -47,8 +47,8 @@ namespace KFrame
 
         __LOG_DEBUG__( "player=[{}] affirm battle!", playerid );
 
-        auto roomid = kfobject->GetValue( __KF_STRING__( roomid ) );
-        auto roomserverid = kfobject->GetValue( __KF_STRING__( roomserverid ) );
+        auto roomid = player->Get( __KF_STRING__( roomid ) );
+        auto roomserverid = player->Get( __KF_STRING__( roomserverid ) );
         if ( roomserverid == _invalid_int || roomid == _invalid_int )
         {
             return __LOG_ERROR__( "player=[{}] affirm battle failed!", playerid );
@@ -72,14 +72,13 @@ namespace KFrame
             _kf_route->SendToRand( __KF_STRING__( room ), KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, &req, true );
         }
 
-        auto kfobject = player->GetData();
-        auto roomid = kfobject->GetValue( __KF_STRING__( roomid ) );
+        auto roomid = player->Get( __KF_STRING__( roomid ) );
         if ( roomid == _invalid_int )
         {
             return;
         }
 
-        auto roomserverid = kfobject->GetValue( __KF_STRING__( roomserverid ) );
+        auto roomserverid = player->Get( __KF_STRING__( roomserverid ) );
 
         KFMsg::S2SQueryRoomToRoomReq req;
         req.set_roomid( roomid );
@@ -112,7 +111,7 @@ namespace KFrame
 
         __LOG_DEBUG__( "player=[{}] room=[{}] finish!", kfmsg.playerid(), kfmsg.roomid() );
 
-        auto roomid = kfobject->GetValue( __KF_STRING__( roomid ) );
+        auto roomid = player->Get( __KF_STRING__( roomid ) );
         if ( roomid != kfmsg.roomid() )
         {
             return;
@@ -130,7 +129,7 @@ namespace KFrame
         __SERVER_PROTO_PARSE__( KFMsg::S2SPlayerBalanceToGameReq );
         __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg.playerid(), kfmsg.roomid() );
 
-        auto roomid = kfobject->GetValue< uint64 >( __KF_STRING__( roomid ) );
+        auto roomid = player->Get< uint64 >( __KF_STRING__( roomid ) );
         if ( roomid == kfmsg.roomid() )
         {
             SetRoomData( player, _invalid_int, _invalid_int );
@@ -146,10 +145,10 @@ namespace KFrame
         for ( auto i = 0; i < pbbalance->data_size(); ++i )
         {
             auto pbdata = &pbbalance->data( i );
-            auto kfdata = kfobject->FindData( pbdata->name() );
+            auto kfdata = player->Find( pbdata->name() );
             if ( kfdata == nullptr )
             {
-                kfdata = kfobject->FindData( __KF_STRING__( basic ), pbdata->name() );
+                kfdata = player->Find( __KF_STRING__( basic ), pbdata->name() );
                 if ( kfdata == nullptr )
                 {
                     continue;
