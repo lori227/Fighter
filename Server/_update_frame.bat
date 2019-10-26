@@ -88,10 +88,14 @@ rem ===========================================================================
 rem ===========================================================================
 echo "update _lib path begin"
 set libpath=_lib
+move /y %localpath%\%libpath%\win64\debug\KFProtocold.lib %localpath%\
+move /y %localpath%\%libpath%\win64\release\KFProtocold.lib %localpath%\
 rd /s /q %localpath%\%libpath%
 if not exist %localpath%\%libpath% ( mkdir %localpath%\%libpath% )
 if not exist %localpath%\%libpath%\win64 ( mkdir %localpath%\%libpath%\win64 )
 xcopy /y /S %framepath%\%libpath%\win64\* %localpath%\%libpath%\win64 
+move /y %localpath%\KFProtocold.lib %localpath%\%libpath%\win64\debug\
+move /y %localpath%\KFProtocol.lib %localpath%\%libpath%\win64\release\
 del /F /S /Q %localpath%\%libpath%\win64\debug\KFZConfigd.lib
 del /F /S /Q %localpath%\%libpath%\win64\release\KFZConfig.lib
 echo "update _lib path end"
