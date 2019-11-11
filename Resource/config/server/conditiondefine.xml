@@ -1,4 +1,4 @@
-<root version="1f6bf38">
+<root version="bec637a">
 	<item Id="explore" CallType="3" ParentName="balance" DataName="exploreresult" TriggerType="3" UseOperate="1" UseValue="1"/>
 	<item TriggerCheck="13" Id="explorevictory" CallType="3" ParentName="balance" DataName="exploreresult" TriggerType="3" TriggerValue="1" UseOperate="1" UseValue="1"/>
 	<item Id="pve" CallType="3" ParentName="balance" DataName="pveresult" TriggerType="3" UseOperate="1" UseValue="1"/>
