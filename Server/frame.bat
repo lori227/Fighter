@@ -191,8 +191,6 @@ if not exist %localpath%\%contribpath%\%subcontribpath% (
     xcopy /y %framepath%\%contribpath%\%subcontribpath%\* %localpath%\%contribpath%\%subcontribpath%\
 )
 xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.h %localpath%\%contribpath%\%subcontribpath%\
-xcopy /y %framepath%\%contribpath%\%subcontribpath%\KFTimeConfig.hpp %localpath%\%contribpath%\%subcontribpath%\
-xcopy /y %framepath%\%contribpath%\%subcontribpath%\KFTimeConfig.cpp %localpath%\%contribpath%\%subcontribpath%\
 
 rem ===========================================================================
 rem ===========================================================================
