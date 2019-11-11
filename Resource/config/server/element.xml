@@ -1,4 +1,4 @@
-<root version="bec637a">
+<root version="2472fb4">
 	<item Id="default" Type="2" Template="[{{&quot;{}&quot;:&quot;{}&quot;}}]"/>
 	<item Id="var" Type="1" Template="[{{&quot;{}&quot;:{{&quot;value&quot;:&quot;{}&quot;,&quot;id&quot;:&quot;{}&quot;}}}}]"/>
 	<item Id="hero" Type="1" Template="[{{&quot;{}&quot;:{{&quot;count&quot;:&quot;{}&quot;,&quot;id&quot;:&quot;{}&quot;}}}}]"/>
