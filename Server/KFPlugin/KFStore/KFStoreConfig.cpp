@@ -14,7 +14,7 @@ namespace KFrame
 
         // 消耗花费
         auto strcostelement = xmlnode.GetString( "CostElement" );
-        while ( strcostelement.empty() )
+        while ( !strcostelement.empty() )
         {
             auto costelement = KFUtility::SplitString( strcostelement, "|" );
 
@@ -29,7 +29,7 @@ namespace KFrame
 
         // 折扣花费
         auto strdiscountelement = xmlnode.GetString( "CostElement" );
-        while ( strdiscountelement.empty() )
+        while ( !strdiscountelement.empty() )
         {
             auto costelement = KFUtility::SplitString( strdiscountelement, "|" );
 
