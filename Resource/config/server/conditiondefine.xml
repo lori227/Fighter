@@ -1,0 +1,33 @@
+<root version="1f6bf38">
+	<item Id="explore" CallType="3" ParentName="balance" DataName="exploreresult" TriggerType="3" UseOperate="1" UseValue="1"/>
+	<item TriggerCheck="13" Id="explorevictory" CallType="3" ParentName="balance" DataName="exploreresult" TriggerType="3" TriggerValue="1" UseOperate="1" UseValue="1"/>
+	<item Id="pve" CallType="3" ParentName="balance" DataName="pveresult" TriggerType="3" UseOperate="1" UseValue="1"/>
+	<item TriggerCheck="13" Id="pvevictory" CallType="3" ParentName="balance" DataName="pveresult" TriggerType="3" TriggerValue="1" UseOperate="1" UseValue="1"/>
+	<item Id="pveturns" CallType="3" ParentName="balance" DataName="turns" TriggerType="3" UseOperate="3" UseType="2"/>
+	<item Id="exploretime" CallType="3" ParentName="balance" DataName="time" TriggerType="3" UseOperate="3" UseType="2"/>
+	<item Id="fighterteamhero" CallType="3" ParentName="balance" DataName="team" TriggerType="3" UseOperate="3" UseType="2"/>
+	<item Id="fighterdeathhero" CallType="3" ParentName="balance" DataName="death" TriggerType="3" UseOperate="3" UseType="2"/>
+	<item Id="unlockbuildcount" CallType="1" ParentName="build" InitCalc="1" UseOperate="1" UseType="2" UseValue="1"/>
+	<item Id="unlockbuild" CallType="1" ParentName="build" InitCalc="3" UseOperate="3" UseValue="1"/>
+	<item Id="buildlevel" CallType="3" ParentName="build" DataName="level" InitCalc="2" TriggerType="3" UseOperate="3" UseType="2"/>
+	<item Id="buildlevel" CallType="1" ParentName="build" DataName="level" InitCalc="2" UseOperate="3" UseType="2"/>
+	<item Id="ownmoney" CallType="3" ParentName="player" DataName="money" InitCalc="2" UseOperate="3" UseType="2"/>
+	<item Id="addmoney" CallType="3" ParentName="player" DataName="money" TriggerType="1" UseOperate="1" UseType="1"/>
+	<item Id="costmoney" CallType="3" ParentName="player" DataName="money" TriggerType="2" UseOperate="1" UseType="1"/>
+	<item Id="ownsupplies" CallType="3" ParentName="player" DataName="supplies" InitCalc="2" UseOperate="3" UseType="2"/>
+	<item Id="addsupplies" CallType="3" ParentName="player" DataName="supplies" TriggerType="1" UseOperate="1" UseType="1"/>
+	<item Id="costsupplies" CallType="3" ParentName="player" DataName="supplies" TriggerType="2" UseOperate="1" UseType="1"/>
+	<item Id="owndiamond" CallType="3" ParentName="player" DataName="diamond" InitCalc="2" UseOperate="3" UseType="2"/>
+	<item Id="adddiamond" CallType="3" ParentName="player" DataName="diamond" TriggerType="1" UseOperate="1" UseType="1"/>
+	<item Id="costdiamond" CallType="3" ParentName="player" DataName="diamond" TriggerType="2" UseOperate="1" UseType="1"/>
+	<item TriggerCheck="13" Id="finishtask" CallType="2" ParentName="task" DataName="status" TriggerValue="4" UseOperate="3" UseValue="1"/>
+	<item TriggerCheck="13" Id="finishtaskcount" CallType="2" ParentName="task" DataName="status" TriggerValue="4" UseOperate="1" UseValue="1"/>
+	<item Id="additem" CallType="1" ParentName="item" DataName="count" UseOperate="1" UseType="2"/>
+	<item Id="additem" CallType="3" ParentName="item" DataName="count" TriggerType="3" UseOperate="1" UseType="1"/>
+	<item Id="useitem" CallType="3" ParentName="item" DataName="count" TriggerType="2" UseOperate="1" UseType="1"/>
+	<item Id="totalsignin" CallType="3" ParentName="player" DataName="totalsignin" InitCalc="2" UseOperate="3" UseType="2"/>
+	<item Id="continuoussignin" CallType="3" ParentName="player" DataName="continuoussignin" InitCalc="2" UseOperate="3" UseType="2"/>
+	<item Id="ownhero" CallType="1" ParentName="hero" InitCalc="1" UseOperate="1" UseValue="1"/>
+	<item TriggerCheck="13" Id="teamhero" CallType="3" ParentName="hero" DataName="posflag" InitCalc="1" TriggerType="3" TriggerValue="201" UseOperate="1" UseValue="1"/>
+	<item TriggerCheck="16" Id="teamhero" CallType="3" ParentName="hero" DataName="posflag" InitCalc="1" TriggerType="3" TriggerValue="201" UseOperate="2" UseValue="1"/>
+</root>

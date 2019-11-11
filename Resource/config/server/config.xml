@@ -1,4 +1,4 @@
-<root version="8e2cd14">
+<root version="1f6bf38">
 	<item Id="redis" Name="redis" FileName="./setting/{}_{}_redis.xml"/>
 	<item Id="mongo" Name="mongo" FileName="./setting/{}_{}_mongo.xml"/>
 	<item Id="mysql" Name="mysql" FileName="./setting/{}_{}_mysql.xml"/>
@@ -30,6 +30,8 @@
 	<item Id="dropgroup" Name="dropgroup" FileName="./config/dropgroup.xml" Reload="1" ClearData="1"/>
 	<item Id="dropdata" Name="dropdata" FileName="./config/dropdata.xml" Reload="1" ClearData="1"/>
 	<item Id="element" Name="element" FileName="./config/element.xml" Reload="1" ClearData="1"/>
+	<item Id="conditiondefine" Name="conditiondefine" FileName="./config/conditiondefine.xml" Reload="1" ClearData="1"/>
+	<item Id="condition" Name="condition" FileName="./config/condition.xml" Reload="1" ClearData="1"/>
 	<item Id="itemtype" Name="itemtype" FileName="./config/itemtype.xml" Reload="1" ClearData="1"/>
 	<item Id="item" Name="itemcommon" FileName="./config/itemcommon.xml" Reload="1" ClearData="1"/>
 	<item Id="item" Name="itemgift" FileName="./config/itemgift.xml" Reload="1"/>
