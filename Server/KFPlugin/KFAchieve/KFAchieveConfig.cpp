@@ -113,7 +113,7 @@ namespace KFrame
     uint64 KFAchieveSetting::CheckTriggerValue( uint64 operatevalue, uint64 nowvalue ) const
     {
         // 触发值
-        if ( _use_type == KFEnum::UseFinal )
+        if ( _use_type == KFConditionEnum::UseFinal )
         {
             operatevalue = nowvalue;
         }
