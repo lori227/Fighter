@@ -575,7 +575,7 @@ namespace KFrame
 
         if ( kfmsg.uuid() == 0u )
         {
-            player->RemoveData( kfmsg.sourcename() );
+            player->CleanData( kfmsg.sourcename() );
         }
         else
         {
