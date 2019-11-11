@@ -380,6 +380,7 @@ call :CopyInterface KFReset 2001-玩家-进入游戏.xlsx
 call :CopyInterface KFReset 2002-玩家-属性重置.xlsx
 call :CopyInterface KFReset 2003-玩家-离开游戏.xlsx
 call :CopyInterface KFDrop
+call :CopyInterface KFCondition
 call :CopyInterface KFItem
 
 
