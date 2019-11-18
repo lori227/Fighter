@@ -8,27 +8,27 @@
 	<Files>
 		<File Name="1030-框架-条件定义.xlsx" Type="3" MD5Client="" MD5Server="fca1f89bee7cabbcd4808a32c84ca8d6"/>
 		<File Name="1000-框架-屏蔽字符.xlsx" Type="3" MD5Client="" MD5Server="386c724eb5cf375d31185a22ba7601d8"/>
-		<File Name="1000-框架-渠道配置.xlsx" Type="1" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
 		<File Name="3000-英雄-名字随机.xlsx" Type="3" MD5Client="" MD5Server="847ff4fe467a40d77281778fead65186"/>
 		<File Name="2002-玩家-属性重置.xlsx" Type="1" MD5Client="" MD5Server="1a69dcacf399784f364b5dc8c1ac9ab8"/>
+		<File Name="1000-框架-渠道配置.xlsx" Type="1" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
 		<File Name="1000-框架-配置列表.xlsx" Type="1" MD5Client="" MD5Server="2b16563f8b14045bfb9fa7adf8c3adae"/>
+		<File Name="2000-玩家-属性定义.xlsx" Type="3" MD5Client="" MD5Server="3eb7e1dc811fac3b051a43f4c79a9a5d"/>
 		<File Name="1000-框架-元素转换.xlsx" Type="3" MD5Client="" MD5Server="6f1e941d6acaa665e3635723aa194c42"/>
-		<File Name="2000-玩家-属性定义.xlsx" Type="3" MD5Client="" MD5Server="a9b67fe1bdc3e95ebe4dd5c469b1ad25"/>
 		<File Name="1020-框架-随机权重.xlsx" Type="1" MD5Client="" MD5Server="1ccbf93857526284e98047594a4d9013"/>
 		<File Name="2001-玩家-新建角色.xlsx" Type="1" MD5Client="" MD5Server="d07a097da5839dd5c6605db3aeb21ec8"/>
-		<File Name="2001-玩家-进入游戏.xlsx" Type="1" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
 		<File Name="3000-英雄-英雄配置.xlsx" Type="3" MD5Client="" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
-		<File Name="2003-玩家-离开游戏.xlsx" Type="1" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
+		<File Name="2001-玩家-进入游戏.xlsx" Type="1" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
 		<File Name="1000-框架-掉落配置.xlsx" Type="3" MD5Client="" MD5Server="42286aa281059fa439a7069efa3fb439"/>
+		<File Name="2003-玩家-离开游戏.xlsx" Type="1" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
 		<File Name="2004-玩家-掉落配置.xlsx" Type="1" MD5Client="" MD5Server="577ff2315d8faa88092e865903ae2dbd"/>
 		<File Name="3010-匹配-匹配设置.xlsx" Type="3" MD5Client="" MD5Server="8aff622bc21b150c08fa6e53ba5cd667"/>
-		<File Name="2005-玩家-签到配置.xlsx" Type="3" MD5Client="" MD5Server="aebb8154fecd5a5d8bf672fb131dc120"/>
-		<File Name="4010-道具-公共配置.xlsx" Type="3" MD5Client="" MD5Server="b6733c1c1e276cf9f02976f3a01bb70d"/>
 		<File Name="2006-玩家-成就系统.xlsx" Type="3" MD5Client="" MD5Server="ff32e774820e53a121002e5dc2e046ee"/>
+		<File Name="4010-道具-公共配置.xlsx" Type="3" MD5Client="" MD5Server="b6733c1c1e276cf9f02976f3a01bb70d"/>
+		<File Name="2005-玩家-签到配置.xlsx" Type="3" MD5Client="" MD5Server="aebb8154fecd5a5d8bf672fb131dc120"/>
 		<File Name="4010-道具-礼包配置.xlsx" Type="3" MD5Client="" MD5Server="c3a0627d6c2dba829f4fe225dce38c59"/>
 		<File Name="4010-道具-道具类型.xlsx" Type="3" MD5Client="" MD5Server="fca179e1e0e2a250992ee867af08d6f0"/>
-		<File Name="2007-玩家-商城配置.xlsx" Type="3" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
 		<File Name="1000-框架-全局配置.xlsx" Type="3" MD5Client="" MD5Server="5ddfb8e6d96c98ca15575d250e33c6df"/>
+		<File Name="2007-玩家-商城配置.xlsx" Type="3" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
 		<File Name="1000-框架-掉落数据.xlsx" Type="3" MD5Client="" MD5Server="8e69a4b6d5a28c5607eb6f2d9ecef374"/>
 		<File Name="1000-框架-时间配置.xlsx" Type="3" MD5Client="" MD5Server="2064482b93c87aeae6733a8f9c6e149e"/>
 		<File Name="1000-框架-转发配置.xlsx" Type="3" MD5Client="" MD5Server="506984d66ea0e07ff4792f0e78d72a4a"/>
