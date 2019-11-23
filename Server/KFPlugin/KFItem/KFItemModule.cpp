@@ -739,10 +739,10 @@ namespace KFrame
         player->UpdateData( kfsourceitem, __STRING__( count ), KFEnum::Dec, canaddcount );
         player->UpdateData( kftargetitem, __STRING__( count ), KFEnum::Add, canaddcount );
 
-        if ( kfmsg.showclient() )
-        {
-            AddItemDataToShow( player, kfsetting->_id, canaddcount );
-        }
+        //if ( kfmsg.showclient() )
+        //{
+        //    AddItemDataToShow( player, kfsetting->_id, canaddcount );
+        //}
     }
 
     __KF_MESSAGE_FUNCTION__( KFItemModule::HandleMoveItemReq )
@@ -779,10 +779,10 @@ namespace KFrame
         auto result = MoveItem( player, kfsourcerecord, kfsourceitem, kfmsg.sourceuuid(), kftargetrecord, kfmsg.targetindex() );
         if ( result == KFMsg::Ok )
         {
-            if ( kfmsg.showclient() )
-            {
-                AddItemDataToShow( player, kfsetting->_id, itemcount );
-            }
+            //if ( kfmsg.showclient() )
+            //{
+            //	AddItemDataToShow( player, kfsetting->_id, itemcount );
+            //}
         }
         else
         {
@@ -827,10 +827,10 @@ namespace KFrame
             const KFItemSetting* kfsetting = nullptr;
             std::tie( kfsourceitem, kfsetting ) = tupledata;
             auto itemcount = MoveItemData( player, kfsourcerecord, kfsourceitem, kftargetrecord, kfsetting );
-            if ( itemcount != 0u && kfmsg.showclient() )
-            {
-                AddItemDataToShow( player, kfsetting->_id, itemcount );
-            }
+            //if ( itemcount != 0u && kfmsg.showclient() )
+            //{
+            //    AddItemDataToShow( player, kfsetting->_id, itemcount );
+            //}
         }
     }
 
