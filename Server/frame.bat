@@ -198,7 +198,7 @@ rem ===========================================================================
 set currpath=%cd%
 cd %localpath%\%contribpath%\%subcontribpath%\
 "%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Debug|X64"  /project KFZConfig
-"%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Release|X64" /project KFZConfig
+::"%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Release|X64" /project KFZConfig
 cd %currpath%
 
 echo "update KFContrib path end"
@@ -271,26 +271,6 @@ if not exist %resourcepath%\excel\_build.bat (
 )
 
 rem proto=================================
-if not exist %resourcepath%\proto ( mkdir %resourcepath%\proto )
-if not exist %resourcepath%\proto\1.win64.bat (
-    copy /y %framepath%\_resource\proto\1.win64.bat %resourcepath%\proto 
-)
-if not exist %resourcepath%\proto\2.linux.sh (
-    copy /y %framepath%\_resource\proto\2.linux.sh %resourcepath%\proto 
-)
-if not exist %resourcepath%\proto\3.protoc.exe (
-    copy /y %framepath%\_resource\proto\3.protoc.exe %resourcepath%\proto 
-)
-if not exist %resourcepath%\proto\4.protoc (
-    copy /y %framepath%\_resource\proto\4.protoc %resourcepath%\proto 
-)
-if not exist %resourcepath%\proto\5.md5list (
-    copy /y %framepath%\_resource\proto\5.md5list %resourcepath%\proto 
-)
-if not exist %resourcepath%\proto\6.version.txt (
-    copy /y %framepath%\_resource\proto\6.version.txt %resourcepath%\proto 
-)
-
 xcopy /y %framepath%\_resource\proto\*.proto %resourcepath%\proto 
 
 

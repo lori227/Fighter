@@ -189,6 +189,8 @@ namespace KFrame
 
         // 添加物品显示
         void AddItemDataToShow( KFEntity* player, uint64 id, uint64 count );
+        void AddItemDataToShow( KFEntity* player, KFData* kfitem, uint64 id, uint64 count );
+        void AddItemDataToShow( KFEntity* player, uint64 id, uint64 count, const std::string& modulename );
 
         // 整理道具
         void SortItem( KFEntity* player, const std::string& name );

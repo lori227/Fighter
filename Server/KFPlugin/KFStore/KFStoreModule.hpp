@@ -1,6 +1,7 @@
 ﻿#ifndef __KF_STORE_MODULE_H__
 #define __KF_STORE_MODULE_H__
 
+#include "KFrameEx.h"
 #include "KFStoreConfig.hpp"
 #include "KFStoreInterface.h"
 #include "KFMessage/KFMessageInterface.h"

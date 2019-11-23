@@ -47,8 +47,8 @@ namespace KFrame
 
         __LOG_DEBUG__( "player=[{}] affirm battle!", playerid );
 
-        auto roomid = player->Get( __KF_STRING__( roomid ) );
-        auto roomserverid = player->Get( __KF_STRING__( roomserverid ) );
+        auto roomid = player->Get( __STRING__( roomid ) );
+        auto roomserverid = player->Get( __STRING__( roomserverid ) );
         if ( roomserverid == _invalid_int || roomid == _invalid_int )
         {
             return __LOG_ERROR__( "player=[{}] affirm battle failed!", playerid );
@@ -60,7 +60,7 @@ namespace KFrame
         _kf_route->SendToServer( roomserverid, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, &ack, false );
 
         // 更新下排名信息, 否则如果相同不会回调
-        player->UpdateData( __KF_STRING__( ranking ), KFEnum::Set, 0u );
+        player->UpdateData( __STRING__( ranking ), KFEnum::Set, 0u );
     }
 
     __KF_ENTER_PLAYER_FUNCTION__( KFRoomClientModule::OnEnterQueryRoom )
@@ -69,16 +69,16 @@ namespace KFrame
         {
             KFMsg::S2SQueryBalanceToRoomReq req;
             req.set_playerid( player->GetKeyID() );
-            _kf_route->SendToRand( __KF_STRING__( room ), KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, &req, true );
+            _kf_route->SendToRand( __STRING__( room ), KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, &req, true );
         }
 
-        auto roomid = player->Get( __KF_STRING__( roomid ) );
+        auto roomid = player->Get( __STRING__( roomid ) );
         if ( roomid == _invalid_int )
         {
             return;
         }
 
-        auto roomserverid = player->Get( __KF_STRING__( roomserverid ) );
+        auto roomserverid = player->Get( __STRING__( roomserverid ) );
 
         KFMsg::S2SQueryRoomToRoomReq req;
         req.set_roomid( roomid );
@@ -88,13 +88,13 @@ namespace KFrame
 
     void KFRoomClientModule::SetRoomData( KFEntity* player, uint64 roomid, uint64 roomserverid )
     {
-        player->UpdateData( __KF_STRING__( roomid ), KFEnum::Set, roomid );
-        player->UpdateData( __KF_STRING__( roomserverid ), KFEnum::Set, roomserverid );
+        player->UpdateData( __STRING__( roomid ), KFEnum::Set, roomid );
+        player->UpdateData( __STRING__( roomserverid ), KFEnum::Set, roomserverid );
 
         if ( roomid == _invalid_int )
         {
-            player->UpdateData( __KF_STRING__( matchid ), KFEnum::Set, _invalid_int );
-            player->UpdateData( __KF_STRING__( matchserverid ), KFEnum::Set, _invalid_int );
+            player->UpdateData( __STRING__( matchid ), KFEnum::Set, _invalid_int );
+            player->UpdateData( __STRING__( matchserverid ), KFEnum::Set, _invalid_int );
         }
     }
 
@@ -111,7 +111,7 @@ namespace KFrame
 
         __LOG_DEBUG__( "player=[{}] room=[{}] finish!", kfmsg.playerid(), kfmsg.roomid() );
 
-        auto roomid = player->Get( __KF_STRING__( roomid ) );
+        auto roomid = player->Get( __STRING__( roomid ) );
         if ( roomid != kfmsg.roomid() )
         {
             return;
@@ -129,7 +129,7 @@ namespace KFrame
         __SERVER_PROTO_PARSE__( KFMsg::S2SPlayerBalanceToGameReq );
         __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg.playerid(), kfmsg.roomid() );
 
-        auto roomid = player->Get< uint64 >( __KF_STRING__( roomid ) );
+        auto roomid = player->Get< uint64 >( __STRING__( roomid ) );
         if ( roomid == kfmsg.roomid() )
         {
             SetRoomData( player, _invalid_int, _invalid_int );
@@ -139,7 +139,7 @@ namespace KFrame
         auto pbbalance = &kfmsg.balance();
 
         // 排名ranking
-        player->UpdateData( __KF_STRING__( ranking ), KFEnum::Set, pbbalance->ranking() );
+        player->UpdateData( __STRING__( ranking ), KFEnum::Set, pbbalance->ranking() );
 
         // 结算奖励
         for ( auto i = 0; i < pbbalance->data_size(); ++i )
@@ -148,7 +148,7 @@ namespace KFrame
             auto kfdata = player->Find( pbdata->name() );
             if ( kfdata == nullptr )
             {
-                kfdata = player->Find( __KF_STRING__( basic ), pbdata->name() );
+                kfdata = player->Find( __STRING__( basic ), pbdata->name() );
                 if ( kfdata == nullptr )
                 {
                     continue;

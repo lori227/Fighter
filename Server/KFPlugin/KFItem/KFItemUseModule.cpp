@@ -58,14 +58,14 @@ namespace KFrame
         }
 
         // 扣除数量
-        auto usecount = kfitem->Get<uint32>( __KF_STRING__( usecount ) );
+        auto usecount = kfitem->Get<uint32>( __STRING__( usecount ) );
         if ( usecount + 1u >= kfsetting->_use_count )
         {
-            player->UpdateData( kfitem, __KF_STRING__( count ), KFEnum::Dec, 1u );
+            player->UpdateData( kfitem, __STRING__( count ), KFEnum::Dec, 1u );
         }
         else
         {
-            player->UpdateData( kfitem, __KF_STRING__( usecount ), KFEnum::Add, 1u );
+            player->UpdateData( kfitem, __STRING__( usecount ), KFEnum::Add, 1u );
         }
 
         _kf_display->SendToClient( player, KFMsg::ItemUseOk, kfsetting->_id );
@@ -93,12 +93,12 @@ namespace KFrame
         // 判断各类资源是否满了
         if ( kfsetting->_drop_id != 0u )
         {
-            _kf_drop->Drop( player, kfsetting->_drop_id, 1u, true, __FUNC_LINE__ );
+            _kf_drop->Drop( player, kfsetting->_drop_id, 1u, __STRING__( itemuse ), __FUNC_LINE__ );
         }
 
         if ( !kfsetting->_reward.IsEmpty() )
         {
-            player->AddElement( &kfsetting->_reward, true, __FUNC_LINE__ );
+            player->AddElement( &kfsetting->_reward, __STRING__( itemuse ), __FUNC_LINE__ );
         }
 
         return true;
@@ -134,7 +134,7 @@ namespace KFrame
         }
 
         // 判断英雄是否存在
-        auto kfhero = player->Find( __KF_STRING__( hero ), kfmsg.herouuid() );
+        auto kfhero = player->Find( __STRING__( hero ), kfmsg.herouuid() );
         if ( kfhero == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::HeroNotExist );
@@ -165,14 +165,14 @@ namespace KFrame
         }
 
         // 扣除数量
-        auto usecount = kfitem->Get<uint32>( __KF_STRING__( usecount ) );
+        auto usecount = kfitem->Get<uint32>( __STRING__( usecount ) );
         if ( usecount + 1u >= kfsetting->_use_count )
         {
-            player->UpdateData( kfitem, __KF_STRING__( count ), KFEnum::Dec, 1u );
+            player->UpdateData( kfitem, __STRING__( count ), KFEnum::Dec, 1u );
         }
         else
         {
-            player->UpdateData( kfitem, __KF_STRING__( usecount ), KFEnum::Add, 1u );
+            player->UpdateData( kfitem, __STRING__( usecount ), KFEnum::Add, 1u );
         }
 
         _kf_display->SendToClient( player, KFMsg::ItemUseToHeroOk, kfsetting->_id, kfmsg.herouuid() );

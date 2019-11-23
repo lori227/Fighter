@@ -22,7 +22,7 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgSevenSignInRewardReq );
 
-        auto day = player->Get< uint32 >( __KF_STRING__( sevenday ) );
+        auto day = player->Get< uint32 >( __STRING__( sevenday ) );
         if ( day < kfmsg.day() )
         {
             return _kf_display->SendToClient( player, KFMsg::SignInNotDay );
@@ -34,7 +34,7 @@ namespace KFrame
             return _kf_display->SendToClient( player, KFMsg::SignInCanNotFind );
         }
 
-        auto sevenflag = player->Get< uint32 >( __KF_STRING__( sevenreward ) );
+        auto sevenflag = player->Get< uint32 >( __STRING__( sevenreward ) );
         auto flag = 1u << kfmsg.day();
         if ( KFUtility::HaveBitMask< uint32 >( sevenflag, flag ) )
         {
@@ -42,10 +42,10 @@ namespace KFrame
         }
 
         // 设置标记
-        player->UpdateData( __KF_STRING__( sevenreward ), KFEnum::ABit, kfmsg.day() );
+        player->UpdateData( __STRING__( sevenreward ), KFEnum::Or, kfmsg.day() );
 
         // 添加奖励
-        player->AddElement( &kfsetting->_reward, true, __FUNC_LINE__ );
+        player->AddElement( &kfsetting->_reward, __STRING__( signin ), __FUNC_LINE__ );
 
         // 额外的奖励
         if ( kfsetting->_probability > 0u )
@@ -53,7 +53,7 @@ namespace KFrame
             auto rand = KFGlobal::Instance()->RandRatio( KFRandEnum::TenThousand );
             if ( rand < kfsetting->_probability )
             {
-                player->AddElement( &kfsetting->_extend, true, __FUNC_LINE__ );
+                player->AddElement( &kfsetting->_extend, __STRING__( signin ), __FUNC_LINE__ );
             }
         }
 
@@ -72,10 +72,10 @@ namespace KFrame
     void KFSignInModule::CalcSignin( KFEntity* player )
     {
         // 签到逻辑, 只有到前一天奖励领取了, 才算成功签到
-        auto day = player->Get< uint32 >( __KF_STRING__( sevenday ) );
+        auto day = player->Get< uint32 >( __STRING__( sevenday ) );
         if ( day > 0u )
         {
-            auto sevenflag = player->Get< uint32 >( __KF_STRING__( sevenreward ) );
+            auto sevenflag = player->Get< uint32 >( __STRING__( sevenreward ) );
             auto flag = 1u << day;
             if ( !KFUtility::HaveBitMask< uint32 >( sevenflag, flag ) )
             {
@@ -83,12 +83,12 @@ namespace KFrame
             }
         }
 
-        player->UpdateData( __KF_STRING__( sevenday ), KFEnum::Add, 1u );
+        player->UpdateData( __STRING__( sevenday ), KFEnum::Add, 1u );
     }
 
     void KFSignInModule::CalcContinuousSignin( KFEntity* player, const KFTimeData* timedata, uint64 nowtime )
     {
-        auto kfsignintime = player->Find( __KF_STRING__( signintime ) );
+        auto kfsignintime = player->Find( __STRING__( signintime ) );
 
         // 判断连续签到
         auto lastresettime = kfsignintime->Get();
@@ -96,11 +96,11 @@ namespace KFrame
         auto calcresettimedata = KFDate::CalcTimeData( timedata, nowtime );
         if ( lastresettimedata == calcresettimedata )
         {
-            player->UpdateData( __KF_STRING__( continuoussignin ), KFEnum::Add, 1u );
+            player->UpdateData( __STRING__( continuoussignin ), KFEnum::Add, 1u );
         }
         else
         {
-            player->UpdateData( __KF_STRING__( continuoussignin ), KFEnum::Set, 1u );
+            player->UpdateData( __STRING__( continuoussignin ), KFEnum::Set, 1u );
         }
 
         // 更新本次签到

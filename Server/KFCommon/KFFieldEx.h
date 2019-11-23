@@ -31,6 +31,8 @@ namespace KFrame
         __STRING_DEFINE__( herocount );
         __STRING_DEFINE__( signintime );
         __STRING_DEFINE__( continuoussignin );
+        __STRING_DEFINE__( itemuse );
+        __STRING_DEFINE__( store );
 
     }
 }

@@ -4,18 +4,18 @@ namespace KFrame
 {
     void KFHeroModule::BeforeRun()
     {
-        _kf_component = _kf_kernel->FindComponent( __KF_STRING__( player ) );
+        _kf_component = _kf_kernel->FindComponent( __STRING__( player ) );
 
-        __REGISTER_ADD_ELEMENT__( __KF_STRING__( hero ), &KFHeroModule::AddHeroElement );
-        __REGISTER_ADD_DATA_1__( __KF_STRING__( hero ), &KFHeroModule::OnAddHero );
+        __REGISTER_ADD_ELEMENT__( __STRING__( hero ), &KFHeroModule::AddHeroElement );
+        __REGISTER_ADD_DATA_1__( __STRING__( hero ), &KFHeroModule::OnAddHero );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ, &KFHeroModule::HandleFighterHeroReq );
     }
 
     void KFHeroModule::BeforeShut()
     {
-        __UN_ADD_DATA_1__( __KF_STRING__( hero ) );
-        __UN_ADD_ELEMENT__( __KF_STRING__( hero ) );
+        __UN_ADD_DATA_1__( __STRING__( hero ) );
+        __UN_ADD_ELEMENT__( __STRING__( hero ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_FIGHTER_HERO_REQ );
     }
@@ -59,7 +59,7 @@ namespace KFrame
     __KF_ADD_DATA_FUNCTION__( KFHeroModule::OnAddHero )
     {
         auto herocount = kfparent->Size();
-        player->UpdateData( __KF_STRING__( herocount ), KFEnum::Set, herocount );
+        player->UpdateData( __STRING__( herocount ), KFEnum::Set, herocount );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,12 +68,12 @@ namespace KFrame
         __CLIENT_PROTO_PARSE__( KFMsg::MsgFighterHeroReq );
 
         // 判断是否存在英雄
-        auto kfhero = player->Find( __KF_STRING__( hero ), kfmsg.heroid() );
+        auto kfhero = player->Find( __STRING__( hero ), kfmsg.heroid() );
         if ( kfhero == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::HeroNotExist );
         }
 
-        player->UpdateData( __KF_STRING__( heroid ), KFEnum::Set, kfmsg.heroid() );
+        player->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg.heroid() );
     }
 }

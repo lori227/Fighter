@@ -8,7 +8,7 @@
 //    @Mail			    :    lori227@qq.com
 //    @Date             :    2017-1-22
 ************************************************************************/
-
+#include "KFrameEx.h"
 #include "KFItemInterface.h"
 #include "KFLua/KFLuaInterface.h"
 #include "KFKernel/KFKernelInterface.h"
