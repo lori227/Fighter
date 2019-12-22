@@ -3,7 +3,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem ===========================================================================
-set framepath=..\..\KFrame
+set framepath=..\..\..\..\KFrame\trunk
 set localpath=.
 
 rem ===========================================================================
