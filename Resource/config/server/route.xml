@@ -1,4 +1,4 @@
-<root version="aa955d6">
+<root version="00000">
 	<item Id="public" Process="logic"/>
 	<item Id="record" Process="logic"/>
 	<item Id="relation" Process="logic"/>

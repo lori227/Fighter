@@ -1,0 +1,8 @@
+<root version="1">
+	<!-- uuid -->
+	<item Id="projectstarttime" Value="1559318400"/>
+	<item Id="uuidtimerbits" Value="29"/>
+	<item Id="uuidzonebits" Value="8"/>
+	<item Id="uuidworkerbits" Value="10"/>
+	<item Id="uuidseqbits" Value="16"/>
+</root>

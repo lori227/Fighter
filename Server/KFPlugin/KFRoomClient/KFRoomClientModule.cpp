@@ -57,7 +57,7 @@ namespace KFrame
         KFMsg::S2SInformBattleToRoomAck ack;
         ack.set_playerid( playerid );
         ack.set_roomid( roomid );
-        _kf_route->SendToServer( roomserverid, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, &ack, false );
+        _kf_route->SendToServer( roomserverid, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, &ack );
 
         // 更新下排名信息, 否则如果相同不会回调
         player->UpdateData( __STRING__( ranking ), KFEnum::Set, 0u );
@@ -69,7 +69,7 @@ namespace KFrame
         {
             KFMsg::S2SQueryBalanceToRoomReq req;
             req.set_playerid( player->GetKeyID() );
-            _kf_route->SendToRand( __STRING__( room ), KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, &req, true );
+            _kf_route->RepeatToRand( __STRING__( room ), KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, &req );
         }
 
         auto roomid = player->Get( __STRING__( roomid ) );
@@ -83,7 +83,7 @@ namespace KFrame
         KFMsg::S2SQueryRoomToRoomReq req;
         req.set_roomid( roomid );
         req.set_playerid( player->GetKeyID() );
-        _kf_route->SendToServer( roomserverid, KFMsg::S2S_QUERY_ROOM_TO_ROOM_REQ, &req, true );
+        _kf_route->RepeatToServer( roomserverid, KFMsg::S2S_QUERY_ROOM_TO_ROOM_REQ, &req );
     }
 
     void KFRoomClientModule::SetRoomData( KFEntity* player, uint64 roomid, uint64 roomserverid )

@@ -25,7 +25,7 @@ namespace KFrame
         bool Run();
 
         // 发送消息
-        void SendToRoom( uint32 msgid, google::protobuf::Message* message, bool resend );
+        void SendToRoom( uint32 msgid, google::protobuf::Message* message );
 
         // 确认开启战场
         void AffirmOpenBattle( bool ok );

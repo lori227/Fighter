@@ -35,7 +35,6 @@ namespace KFrame
     void KFItemPlugin::AddConfig()
     {
         __KF_ADD_CONFIG__( KFItemConfig );
-        __KF_ADD_CONFIG__( KFItemTypeConfig );
     }
 
 }

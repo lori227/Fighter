@@ -23,7 +23,7 @@ namespace KFrame
                 continue;
             }
 
-            auto index = KFGlobal::Instance()->RandRatio( kfsetting->_name_list.size() );
+            auto index = KFGlobal::Instance()->RandRatio( ( uint32 )kfsetting->_name_list.size() );
             _name += kfsetting->_name_list[ index ];
         }
 

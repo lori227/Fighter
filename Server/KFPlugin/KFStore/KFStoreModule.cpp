@@ -56,12 +56,6 @@ namespace KFrame
             return KFMsg::StoreBuyCountError;
         }
 
-        // 如果有设置拥有限制( 英雄, 皮肤等 ), 则不让购买
-        if ( CheckOwnLimit( player, kfsetting ) )
-        {
-            return KFMsg::StoreOutOfLimitOwm;
-        }
-
         // 判断是否限购
         if ( CheckBuyLimit( player, kfsetting, count ) )
         {
@@ -76,33 +70,18 @@ namespace KFrame
         }
 
         // 检测扣除物品是否足够
-        auto& dataname = player->CheckRemoveElement( kfagents, __FUNC_LINE__, count );
+        auto& dataname = player->RemoveElement( kfagents, count, __STRING__( store ), kfsetting->_id, __FUNC_LINE__ );
         if ( !dataname.empty() )
         {
             return KFMsg::StoreLackCost;
         }
 
-        // 扣除道具
-        player->RemoveElement( kfagents, __FUNC_LINE__, count );
-
         // 发送道具
-        player->AddElement( &kfsetting->_buy_elements, __STRING__( store ), __FUNC_LINE__, count );
+        player->AddElement( &kfsetting->_buy_elements, count, __STRING__( store ), kfsetting->_id, __FUNC_LINE__ );
 
         // 记录购买次数
         SaveBuyLimit( player, kfsetting, count );
         return KFMsg::StoreBuyOK;
-    }
-
-    bool KFStoreModule::CheckOwnLimit( KFEntity* player, const KFStoreSetting* kfsetting )
-    {
-        // 一般情况下, 只有item, hero, skin 等有这个需求
-        if ( kfsetting->_max_own_count == 0 )
-        {
-            return false;
-        }
-
-        // 只判断是否存在, 不判断数量
-        return player->CheckRemoveElement( &kfsetting->_buy_elements, __FUNC_LINE__ ).empty();
     }
 
     bool KFStoreModule::CheckBuyLimit( KFEntity* player, const KFStoreSetting* kfsetting, uint32 count )

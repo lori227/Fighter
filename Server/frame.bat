@@ -3,7 +3,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem ===========================================================================
-set framepath=..\..\..\..\KFrame\trunk
+set framepath=..\..\..\Work\Frame\trunk
 set localpath=.
 
 rem ===========================================================================
@@ -282,6 +282,7 @@ rem ===========================================================================
 rem ===========================================================================
 
 rem frame
+call :CopyInterface KFProject
 call :CopyInterface KFConfig
 call :CopyInterface KFMySQL
 call :CopyInterface KFRedis

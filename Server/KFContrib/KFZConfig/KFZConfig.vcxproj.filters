@@ -27,9 +27,6 @@
     <ClInclude Include="KFNameConfig.hpp">
       <Filter>Match</Filter>
     </ClInclude>
-    <ClInclude Include="KFItemTypeConfig.hpp">
-      <Filter>Item</Filter>
-    </ClInclude>
     <ClInclude Include="KFTimeConfig.h" />
   </ItemGroup>
   <ItemGroup>
@@ -70,9 +67,6 @@
     </ClCompile>
     <ClCompile Include="KFNameConfig.cpp">
       <Filter>Match</Filter>
-    </ClCompile>
-    <ClCompile Include="KFItemTypeConfig.cpp">
-      <Filter>Item</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

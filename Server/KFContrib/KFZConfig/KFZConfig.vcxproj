@@ -16,7 +16,6 @@
     <ClInclude Include="KFHeroConfig.hpp" />
     <ClInclude Include="KFItemConfig.hpp" />
     <ClInclude Include="KFItemSetting.hpp" />
-    <ClInclude Include="KFItemTypeConfig.hpp" />
     <ClInclude Include="KFMatchConfig.hpp" />
     <ClInclude Include="KFNameConfig.hpp" />
     <ClInclude Include="KFOptionSetting.h" />
@@ -28,7 +27,6 @@
     <ClCompile Include="KFHeroConfig.cpp" />
     <ClCompile Include="KFItemConfig.cpp" />
     <ClCompile Include="KFItemSetting.cpp" />
-    <ClCompile Include="KFItemTypeConfig.cpp" />
     <ClCompile Include="KFMatchConfig.cpp" />
     <ClCompile Include="KFNameConfig.cpp" />
     <ClCompile Include="KFWeightConfig.cpp" />

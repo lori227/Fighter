@@ -26,6 +26,7 @@ fi
 
 framebinpath=$framepath/_bin/bin/linux/$1
 cp -f $framebinpath/KFStartup$filename $binpath/
+cp -f $framebinpath/KFProject$filename.so $binpath/
 cp -f $framebinpath/KFConfig$filename.so $binpath/
 cp -f $framebinpath/KFMySQL$filename.so $binpath/
 cp -f $framebinpath/KFRedis$filename.so $binpath/
@@ -70,3 +71,4 @@ cp -f $framebinpath/KFPublicClient$filename.so $binpath/
 cp -f $framebinpath/KFPublicShard$filename.so $binpath/
 cp -f $framebinpath/KFDrop$filename.so $binpath/
 cp -f $framebinpath/KFCondition$filename.so $binpath/
+cp -f $framebinpath/KFExecute$filename.so $binpath/

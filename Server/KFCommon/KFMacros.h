@@ -2,11 +2,8 @@
 #define __KF_MACROS_H__
 
 //Define all macros in this file
-
-#include "KFInclude.h"
-#include "KFSystem.h"
 #include "fmt/fmt.h"
-
+#include "KFSystem.h"
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +32,7 @@
 #endif
 
 #ifndef __NEW_OBJECT__
-    #define __NEW_OBJECT__( name ) new name()
+    #define __NEW_OBJECT__( name, ... ) new name( __VA_ARGS__ )
 #endif // !__NEW_OBJECT__
 
 #ifndef __DELETE_OBJECT__
@@ -47,7 +44,7 @@
 #endif
 
 #ifndef __FORMAT__
-    #define __FORMAT__( myfmt, ... ) fmt::format( fmt(myfmt), ##__VA_ARGS__ )
+    #define __FORMAT__( myfmt, ... ) fmt::format( myfmt, __VA_ARGS__ )
 #endif
 
 #ifndef __PROTO_TO_MAP__

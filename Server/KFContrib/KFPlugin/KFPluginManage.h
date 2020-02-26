@@ -43,11 +43,11 @@
             auto ok = _kf_plugin_manage->Register##function##Function< module >( _sort, kfmodule, &module::function );\
             if ( ok )\
             {\
-                __LOG_INFO__( "module=[{}] sort=[{}] function=[{}] register ok!", #module, _sort, #function );\
+                __LOG_INFO__( "module=[{}] sort=[{}] function=[{}] register ok", #module, _sort, #function );\
             }\
             else\
             {\
-                __LOG_ERROR__( "module=[{}] sort=[{}] function=[{}] register failed!", #module, _sort, #function );\
+                __LOG_ERROR__( "module=[{}] sort=[{}] function=[{}] register failed", #module, _sort, #function );\
             }\
         }\
     }
@@ -64,7 +64,7 @@
 #define __REGISTER_MODULE__( modulename ) \
     {\
         auto kfmodule = new modulename##Module(); \
-        _kf_plugin_manage->RegistModule< modulename##Interface >( typeid( *this ).name(), kfmodule );\
+        _kf_plugin_manage->RegistModule< modulename##Interface >( this, kfmodule );\
         __REGISTER_PLUGIN__( modulename##Module, Run );\
         __REGISTER_PLUGIN__( modulename##Module, AfterRun );\
     }\
@@ -75,7 +75,7 @@
         auto kfmodule = (modulename##Module*)FindModule( typeid( modulename##Interface ).name());\
         __UN_PLUGIN_FUNCTION__( modulename##Module, Run ); \
         __UN_PLUGIN_FUNCTION__( modulename##Module, AfterRun );\
-        _kf_plugin_manage->UnRegistModule< modulename##Module >( typeid( *this ).name(), _save_data );\
+        _kf_plugin_manage->UnRegistModule< modulename##Module >( this, _save_data );\
     }\
 
 #define __FIND_MODULE__( module, classname ) \
@@ -91,11 +91,11 @@ namespace KFrame
     {
     public:
         std::string _command;
-        VectorString  _params;
+        StringVector  _params;
     };
 
     typedef std::function<void()> KFRunFunction;
-    typedef std::function<void( const VectorString& )> KFCmdFunction;
+    typedef std::function<void( const StringVector& )> KFCmdFunction;
     //////////////////////////////////////////////////////////////////////
     class KFAppSetting;
     class KFPluginManage : public KFSingleton< KFPluginManage >
@@ -141,17 +141,15 @@ namespace KFrame
         /////////////////////////////////////////////////////////////////////
         // 注册模块
         template< class InterfaceType >
-        void RegistModule( const std::string& pluginname, InterfaceType* module )
+        void RegistModule( KFPlugin* plugin, InterfaceType* module )
         {
-            auto plugin = FindPlugin( pluginname );
             plugin->BindModule( typeid( InterfaceType ).name(), module );
         }
 
         // 卸载模块
         template< class InterfaceType >
-        void UnRegistModule( const std::string& pluginname, bool savedata )
+        void UnRegistModule( KFPlugin* plugin, bool savedata )
         {
-            auto plugin = FindPlugin( pluginname );
             plugin->UnBindModule( typeid( InterfaceType ).name(), savedata );
         }
 
@@ -171,7 +169,7 @@ namespace KFrame
         }
         /////////////////////////////////////////////////////////////////
         template< class T >
-        void RegisterCommandFunction( const std::string& command, T* object, void ( T::*handle )( const VectorString& ) )
+        void RegisterCommandFunction( const std::string& command, T* object, void ( T::*handle )( const StringVector& ) )
         {
             auto kffunction = _command_functions.Create( command );
             kffunction->_function = std::bind( handle, object, std::placeholders::_1 );
@@ -230,6 +228,9 @@ namespace KFrame
 
         // 初始化模块
         void InitModule();
+
+        // 添加配置
+        void AddConfig();
 
         // 加载配置
         void LoadConfig();

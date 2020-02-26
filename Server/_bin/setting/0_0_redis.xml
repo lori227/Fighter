@@ -8,6 +8,14 @@
 	<!--MinLogicId 最小逻辑id -->
 	<!--MaxLogicId 最大逻辑id -->
 	
+	<!--目录, 充值信息-->
+	<Module Name="dir">
+		<Redis MinLogicId="0" MaxLogicId="0">
+			<Write IP="127.0.0.1" Port="6379" Password="redis@lori227-="/>
+			<Read IP="127.0.0.1" Port="6379" Password="redis@lori227-="/>
+		</Redis>			 
+	</Module>
+
 	<!--登录, 充值信息-->
 	<Module Name="auth">
 		<Redis MinLogicId="0" MaxLogicId="0">
@@ -18,7 +26,7 @@
 
 	<!--保存小区玩家数据信息-->
 	<Module Name="data">
-		<Redis MinLogicId="1" MaxLogicId="10">
+		<Redis MinLogicId="1" MaxLogicId="100">
 			<Write IP="127.0.0.1" Port="6379" Password="redis@lori227-="/>
 			<Read IP="127.0.0.1" Port="6379" Password="redis@lori227-="/>
 		</Redis>			 

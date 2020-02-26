@@ -20,6 +20,7 @@
     <ClInclude Include="KFItemInterface.h" />
     <ClInclude Include="KFItemModule.hpp" />
     <ClInclude Include="KFItemPlugin.hpp" />
+    <ClInclude Include="KFItemUseInterface.h" />
     <ClInclude Include="KFItemUseModule.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -74,12 +74,12 @@ namespace KFrame
         __LOG_DEBUG_FUNCTION__( function, line, "room=[{}] state=[{}] time=[{}]", _id, _state, time );
     }
 
-    void KFBattleRoom::SendToRoom( uint32 msgid, google::protobuf::Message* message, bool resend )
+    void KFBattleRoom::SendToRoom( uint32 msgid, google::protobuf::Message* message )
     {
         for ( auto& iter : _player_list._objects )
         {
             auto kfplayer = iter.second;
-            kfplayer->SendToGame( msgid, message, resend );
+            kfplayer->SendToGame( msgid, message );
         }
     }
 
@@ -144,7 +144,7 @@ namespace KFrame
             auto kfplayer = iter.second;
             kfplayer->SaveTo( req.add_pbplayer() );
         }
-        _kf_route->SendToServer( _allot_id, KFMsg::S2S_OPEN_ROOM_TO_BATTLE_REQ, &req, false );
+        _kf_route->SendToServer( _allot_id, KFMsg::S2S_OPEN_ROOM_TO_BATTLE_REQ, &req );
     }
 
     void KFBattleRoom::AffirmOpenBattle( bool ok )
@@ -213,7 +213,7 @@ namespace KFrame
         req.set_battleid( _allot_id );
         req.set_ip( _allot_ip );
         req.set_port( _allot_port );
-        kfplayer->SendToGame( KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, &req, false );
+        kfplayer->SendToGame( KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, &req );
 
         __LOG_DEBUG__( "inform player=[{}] battle=[{}|{}:{}]", kfplayer->_id, KFAppId::ToString( _allot_id ), _allot_ip, _allot_port );
     }
@@ -262,7 +262,7 @@ namespace KFrame
             KFMsg::S2SFinishRoomToGameReq req;
             req.set_roomid( _id );
             req.set_playerid( kfplayer->_id );
-            kfplayer->SendToGame( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, &req, true );
+            kfplayer->SendToGame( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, &req );
         }
     }
 }

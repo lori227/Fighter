@@ -9,20 +9,22 @@ namespace KFrame
     {
     public:
         // 解析条件列表
-        static uint32 ParseConditionList( std::string strcondition, VectorUInt32& conditionlist )
+        static uint32 ParseConditionList( std::string strcondition, UInt32Vector& conditionlist )
         {
+            conditionlist.clear();
+
             auto conditiontype = KFEnum::Or;
             if ( !strcondition.empty() )
             {
                 if ( strcondition.find( __OR_STRING__ ) != std::string::npos )
                 {
                     conditiontype = KFEnum::Or;
-                    conditionlist = KFUtility::SplitList< VectorUInt32 >( strcondition, __OR_STRING__ );
+                    KFUtility::SplitList( conditionlist, strcondition, __OR_STRING__ );
                 }
                 else if ( strcondition.find( __AND_STRING__ ) != std::string::npos )
                 {
                     conditiontype = KFEnum::And;
-                    conditionlist = KFUtility::SplitList< VectorUInt32 >( strcondition, __AND_STRING__ );
+                    KFUtility::SplitList( conditionlist, strcondition, __AND_STRING__ );
                 }
                 else
                 {
@@ -38,8 +40,8 @@ namespace KFrame
             return conditiontype;
         }
 
-        // 读取MapUInt32
-        static void ParseMapUInt32( std::string strvalue, MapUInt32& values )
+        // 读取UInt32Map
+        static void ParseMapUInt32( std::string strvalue, UInt32Map& values )
         {
             values.clear();
             while ( !strvalue.empty() )
@@ -49,7 +51,7 @@ namespace KFrame
                 {
                     auto key = KFUtility::SplitValue<uint32>( strchild, __DOMAIN_STRING__ );
                     auto value = KFUtility::SplitValue<uint32>( strchild, __DOMAIN_STRING__ );
-                    if ( key != 0u && value != 0u )
+                    if ( key != 0u )
                     {
                         values[ key ] = value;
                     }
@@ -80,7 +82,7 @@ namespace KFrame
                     param->_str_value = strvalue;
                     param->_int_value = KFUtility::ToValue<uint32>( strvalue );
                     ParseMapUInt32( strvalue, param->_map_value );
-                    param->_set_value = KFUtility::SplitSet<SetUInt32>( strvalue, __SPLIT_STRING__ );
+                    KFUtility::SplitList( param->_vector_value, strvalue, __SPLIT_STRING__ );
                 }
             }
         }

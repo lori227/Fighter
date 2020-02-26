@@ -12,7 +12,7 @@ namespace KFrame
         KFRecord();
         virtual ~KFRecord() = default;
 
-        virtual void Reset();
+        virtual void Reset( bool isdelete = true );
 
         // 是否有效
         virtual bool IsValid();
@@ -50,8 +50,8 @@ namespace KFrame
         virtual void FromString( const std::string& value );
 
         // Map的特殊操作
-        virtual void ToMap( MapString& values );
-        virtual void FromMap( const MapString& values );
+        virtual void ToMap( StringMap& values );
+        virtual void FromMap( const StringMap& values );
 
     protected:
         // 列表

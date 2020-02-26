@@ -45,7 +45,7 @@ namespace KFrame
         std::string ToString( const std::string& parentname, uint64 key, const std::string& dataname );
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 重置
-        virtual void Reset();
+        virtual void Reset( bool isdelete = true );
 
         // 是否有效
         virtual bool IsValid();
@@ -67,7 +67,7 @@ namespace KFrame
         virtual void SetKeyID( uint64 id );
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         // 初始化
-        virtual void Initialize( const KFClassSetting* classsetting, const KFDataSetting* datasetting );
+        virtual void Initialize( const KFDataSetting* datasetting );
 
         // 初始化数值
         virtual void InitData();
@@ -101,8 +101,8 @@ namespace KFrame
         virtual void FromString( const std::string& value ) = 0;
 
         // Map的特殊操作
-        virtual void ToMap( MapString& values );
-        virtual void FromMap( const MapString& values );
+        virtual void ToMap( StringMap& values );
+        virtual void FromMap( const StringMap& values );
         //////////////////////////////////////////////////////////////////////////////////////////////////////
         // object
 
@@ -150,7 +150,17 @@ namespace KFrame
         virtual void Find( const std::string& dataname, uint64 value, std::list< KFData* >& findlist, bool findall );
         virtual bool Check( const std::string& dataname, uint64 value, const std::string& checkname, uint64 checkvalue );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // array
+        template< class T > void GetLists( T& outlist );
+        template< class T > void GetLists( const std::string& dataname, T& outlist );
+        template< class T > void GetHashs( T& outlist );
+        template< class T > void GetHashs( const std::string& dataname, T& outlist );
+
+        virtual KFData* Insert( uint64 value );
+        virtual uint32 GetEmpty();
+        virtual uint32 GetIndex( uint64 value );
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////
     protected:
         virtual int32 GetInt32();
         virtual int32 SetInt32( int32 );
@@ -179,10 +189,6 @@ namespace KFrame
 
         // 属性配置
         const KFDataSetting* _data_setting = nullptr;
-
-        // 类配置
-        const KFClassSetting* _class_setting = nullptr;
-
     protected:
         // 运行时标记
         uint32 _run_mask = 0u;

@@ -1,4 +1,4 @@
-<root version="aa955d6">
+<root version="00000">
 	<item Id="1" Reward="[{&quot;money&quot;:&quot;1&quot;}]" Probability="1000" ExtendReward="[{&quot;money&quot;:&quot;10&quot;}]"/>
 	<item Id="2" Reward="[{&quot;money&quot;:&quot;2&quot;}]" Probability="1000" ExtendReward="[{&quot;money&quot;:&quot;20&quot;}]"/>
 	<item Id="3" Reward="[{&quot;money&quot;:&quot;3&quot;}]" Probability="1000" ExtendReward="[{&quot;money&quot;:&quot;30&quot;}]"/>

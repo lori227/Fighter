@@ -15,14 +15,14 @@ namespace KFrame
         pbplayer->CopyFrom( _pb_player );
     }
 
-    bool KFBattlePlayer::SendToGame( uint32 msgid, google::protobuf::Message* message, bool resend )
+    bool KFBattlePlayer::SendToGame( uint32 msgid, google::protobuf::Message* message )
     {
         if ( _pb_player.isrobot() )
         {
             return true;
         }
 
-        return _kf_route->SendToPlayer( _pb_player.serverid(), _id, msgid, message, resend );
+        return _kf_route->SendToPlayer( _pb_player.serverid(), _id, msgid, message );
     }
 
 

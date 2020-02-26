@@ -82,8 +82,7 @@ namespace KFrame
         __STRING_DEFINE__( serverid );
         __STRING_DEFINE__( name );
         __STRING_DEFINE__( online );
-        __STRING_DEFINE__( onlinetime );
-        __STRING_DEFINE__( offlinetime );
+        __STRING_DEFINE__( logintime );
         __STRING_DEFINE__( totaltime );
         __STRING_DEFINE__( birthday );
         __STRING_DEFINE__( clusterkey );
@@ -102,6 +101,7 @@ namespace KFrame
         __STRING_DEFINE__( developreload );
         __STRING_DEFINE__( developupdate );
         __STRING_DEFINE__( dir );
+        __STRING_DEFINE__( icon );
 
 
         __STRING_DEFINE__( zoneregister );
@@ -248,6 +248,17 @@ namespace KFrame
         __STRING_DEFINE__( conditions );
         __STRING_DEFINE__( execute );
         __STRING_DEFINE__( compound );
+        __STRING_DEFINE__( lasttime );
+        __STRING_DEFINE__( heartbeat );
+        __STRING_DEFINE__( wait );
+        __STRING_DEFINE__( copy );
+        __STRING_DEFINE__( remote );
+        __STRING_DEFINE__( project );
+        __STRING_DEFINE__( element );
+        __STRING_DEFINE__( recommendzone );
+        __STRING_DEFINE__( newplayer );
+        __STRING_DEFINE__( newrole );
+        __STRING_DEFINE__( build );
 
     }
 }

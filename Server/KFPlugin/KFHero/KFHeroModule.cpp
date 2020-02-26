@@ -22,38 +22,39 @@ namespace KFrame
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddHeroElement )
     {
+        auto kfelement = kfresult->_element;
         if ( !kfelement->IsObject() )
         {
             __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", kfelement->_data_name );
-            return std::make_tuple( KFDataDefine::Show_None, nullptr );
+            return false;
         }
 
         auto kfelementobject = reinterpret_cast< KFElementObject* >( kfelement );
         if ( kfelementobject->_config_id == _invalid_int )
         {
             __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_data_name );
-            return std::make_tuple( KFDataDefine::Show_None, nullptr );
+            return false;
         }
 
         auto kfsetting = KFHeroConfig::Instance()->FindSetting( kfelementobject->_config_id );
         if ( kfsetting == nullptr )
         {
             __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
-            return std::make_tuple( KFDataDefine::Show_None, nullptr );
+            return false;
         }
 
         // todo: 临时代码, 不重复添加英雄
         auto kfhero = kfparent->Find( kfelementobject->_config_id );
         if ( kfhero != nullptr )
         {
-            return std::make_tuple( KFDataDefine::Show_None, nullptr );
+            return false;
         }
 
-        kfhero = _kf_kernel->CreateObject( kfparent->_data_setting );
-        player->SetElementToData( kfelementobject, kfhero, multiple );
-
+        kfhero = player->CreateData( kfparent );
+        player->SetElementToData( kfhero, kfelementobject, kfresult->_multiple );
         player->AddData( kfparent, kfelementobject->_config_id, kfhero );
-        return std::make_tuple( KFDataDefine::Show_Element, kfhero );
+
+        return kfresult->AddResult( kfelementobject->_config_id, kfhero );
     }
 
     __KF_ADD_DATA_FUNCTION__( KFHeroModule::OnAddHero )

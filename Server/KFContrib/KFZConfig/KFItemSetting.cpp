@@ -1,5 +1,4 @@
 ﻿#include "KFItemSetting.hpp"
-#include "KFItemTypeConfig.hpp"
 
 namespace KFrame
 {

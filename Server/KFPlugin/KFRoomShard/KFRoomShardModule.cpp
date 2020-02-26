@@ -247,7 +247,7 @@ namespace KFrame
         req.set_roomid( roomid );
         req.set_playerid( playerid );
         req.mutable_balance()->CopyFrom( *pbbalance );
-        _kf_route->SendToServer( serverid, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req, true );
+        _kf_route->RepeatToServer( serverid, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandlePlayerBalanceToRoomResult )

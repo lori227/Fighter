@@ -26,6 +26,12 @@ namespace KFrame
         // 所有配置加载完
         virtual void LoadAllComplete() {}
 
+        // 设置版本号
+        void SetVersion( const std::string& file, const std::string& version )
+        {
+            _versions[ file ] = version;
+        }
+
         // 获得版本
         const std::string& GetVersion()
         {
@@ -37,39 +43,16 @@ namespace KFrame
             return _versions.begin()->second;
         }
 
-        // 判断版本
-        bool CheckVersion( const std::string& file, const std::string& version )
-        {
-            if ( version.empty() )
-            {
-                return false;
-            }
-
-            auto iter = _versions.find( file );
-            if ( iter == _versions.end() )
-            {
-                return false;
-            }
-
-            return iter->second == version;
-        }
-
     public:
         // 默认配置文件名
         std::string _file_name;
 
     protected:
+        // 版本列表
+        StringMap _versions;
+
         // 配置文件名
         std::string _setting_file_anme;
-
-        // 版本列表
-        std::unordered_map< std::string, std::string > _versions;
-
-        // 更新版本
-        void UpdateVersion( const std::string& file, const std::string& version )
-        {
-            _versions[ file ] = version;
-        }
     };
     ///////////////////////////////////////////////////////////////
     template< class T >
@@ -77,17 +60,22 @@ namespace KFrame
     {
         typedef typename T::Type KeyType;
     public:
+        KFConfigT()
+        {
+            _key_name = "Id";
+            _row_name = "item";
+        }
+
         // 加载配置
         bool LoadConfig( const std::string& filename, const std::string& filepath, uint32 loadmask )
         {
             KFXml kfxml( filepath );
             auto config = kfxml.RootNode();
-            auto version = config.GetString( "version" );
 
             _setting_file_anme = filename;
             CheckClearSetting( loadmask );
 
-            auto xmlnode = config.FindNode( "item" );
+            auto xmlnode = config.FindNode( _row_name.c_str() );
             while ( xmlnode.IsValid() )
             {
                 auto kfsetting = CreateSetting( xmlnode );
@@ -99,7 +87,6 @@ namespace KFrame
                 xmlnode.NextNode();
             }
 
-            UpdateVersion( filename, version );
             return true;
         }
 
@@ -153,7 +140,7 @@ namespace KFrame
 
         virtual T* CreateSetting( KFNode& xmlnode )
         {
-            auto id = xmlnode.ReadT< KeyType >( "Id" );
+            auto id = xmlnode.ReadT< KeyType >( _key_name.c_str() );
             auto kfsetting = _settings.Create( id );
             kfsetting->_id = id;
 
@@ -162,6 +149,16 @@ namespace KFrame
 
         // 读取配置
         virtual void ReadSetting( KFNode& xmlnode, T* kfsetting ) = 0;
+
+    protected:
+        // 配置表主键字段名
+        std::string _key_name;
+
+        // 每一行字段名
+        std::string _row_name;
+
+        // 版本号字段名
+        std::string _version_name;
     public:
         // 列表
         KFHashMap< KeyType, const KeyType&, T > _settings;

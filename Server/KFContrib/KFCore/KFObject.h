@@ -13,7 +13,7 @@ namespace KFrame
         virtual ~KFObject() = default;
 
         // 重置
-        virtual void Reset();
+        virtual void Reset( bool isdelete = true );
 
         // 是否有效
         virtual bool IsValid();
@@ -56,8 +56,8 @@ namespace KFrame
         virtual void FromString( const std::string& value );
 
         // Map的特殊操作
-        virtual void ToMap( MapString& values );
-        virtual void FromMap( const MapString& values );
+        virtual void ToMap( StringMap& values );
+        virtual void FromMap( const StringMap& values );
 
     protected:
         // key

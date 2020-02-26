@@ -34,9 +34,6 @@ namespace KFrame
         // 购买商品
         uint32 ProcessBuyStore( KFEntity* player, const std::string& buytype, uint32 pid, uint32 count );
 
-        // 判断自己是否拥有此商品
-        bool CheckOwnLimit( KFEntity* player, const KFStoreSetting* kfsetting );
-
         // 判断物品限购次数
         bool CheckBuyLimit( KFEntity* player, const KFStoreSetting* kfsetting, uint32 count );
 

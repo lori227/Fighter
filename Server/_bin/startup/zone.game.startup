@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Setting>
 	<Includes>
+		<Include File="./startup/common/common.startup"/>
 		<Include File="./startup/common/tcpserver.startup"/>
 		<Include File="./startup/common/tcpclient.startup"/>
 		<Include File="./startup/common/remotelog.startup"/>
@@ -9,21 +10,21 @@
 	</Includes>
 
 	<Plugins>	
-		<Plugin Name="KFKernel" Config="./config/class.xml"/>	
-		<Plugin Name="KFOption" Config="./config/option.xml"/>	
-		<Plugin Name="KFFilter" Config="./config/filter.xml"/>		
+		<Plugin Name="KFProject" Config=""/>	
+		<Plugin Name="KFReward" Config=""/>		
+		<Plugin Name="KFKernel" Config=""/>		
+		<Plugin Name="KFFilter" Config=""/>		
 		<Plugin Name="KFLua" Config=""/>	
 		<Plugin Name="KFGame" Config=""/>	
 		<Plugin Name="KFDisplay" Config=""/>	
 		<Plugin Name="KFPlayer" Config=""/>	
-		<Plugin Name="KFAttribute" Config=""/>	
 		<Plugin Name="KFCommand" Config=""/>
 		<Plugin Name="KFDataClient" Config=""/>	
 		<Plugin Name="KFMatchClient" Config=""/>	
 		<Plugin Name="KFRoomClient" Config=""/>	
 		<Plugin Name="KFPublicClient" Config=""/>	
-		<Plugin Name="KFReset" Config="./config/reset.xml"/>
-		<Plugin Name="KFHero" Config="./config/hero.xml"/>		
+		<Plugin Name="KFReset" Config=""/>
+		<Plugin Name="KFHero" Config=""/>		
 		<Plugin Name="KFSignIn" Config=""/>		
 		<Plugin Name="KFItem" Config=""/>		
 		<Plugin Name="KFDrop" Config=""/>		

@@ -9,7 +9,7 @@
 //    @Date             :    2017-1-22
 ************************************************************************/
 #include "KFrameEx.h"
-#include "KFItemInterface.h"
+#include "KFItemUseInterface.h"
 #include "KFLua/KFLuaInterface.h"
 #include "KFKernel/KFKernelInterface.h"
 #include "KFPlayer/KFPlayerInterface.h"
@@ -37,9 +37,6 @@ namespace KFrame
     protected:
         // 使用道具
         __KF_MESSAGE_FUNCTION__( HandleUseItemReq );
-
-        // 给英雄使用道具
-        __KF_MESSAGE_FUNCTION__( HandleUseItemToHeroReq );
 
     protected:
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

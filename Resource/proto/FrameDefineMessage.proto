@@ -72,6 +72,15 @@ message PBLoginData
 	
 	// 渠道数据	
 	map<string, bytes> channeldata = 8;	
+
+	// 是否宕机登录
+	bool loginbycrash = 9;
+
+	// 登录ip
+	bytes ip = 10;
+
+	// 登录小区
+	uint32 zoneid = 11;
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -93,6 +102,7 @@ message PBShowData
 	bytes name = 1;		// 属性名
 	uint64 value = 2;	// 属性值
 	map< string, uint64 > pbuint64 = 3;		// 属性值列表
+	bytes extendname = 4;		// 扩展名
 }
 
 message PBShowElement

@@ -86,7 +86,7 @@ namespace KFrame
             player->SaveTo( req.add_pbplayer() );
         }
 
-        _kf_route->SendToBalance( __STRING__( room ), KFMsg::S2S_CREATE_ROOM_TO_ROOM_REQ, &req, false );
+        _kf_route->SendToBalance( __STRING__( room ), KFMsg::S2S_CREATE_ROOM_TO_ROOM_REQ, &req );
     }
 
     void KFMatchRoom::AffirmCreate()
@@ -204,7 +204,7 @@ namespace KFrame
             auto kfplayer = iter.second;
             if ( !kfplayer->_pb_player.isrobot() )
             {
-                _kf_route->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message, false );
+                _kf_route->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message );
             }
         }
     }
