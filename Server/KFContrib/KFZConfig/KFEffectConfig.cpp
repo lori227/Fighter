@@ -1,0 +1,12 @@
+﻿#include "KFEffectConfig.hpp"
+
+namespace KFrame
+{
+    /////////////////////////////////////////////////////////////////////////////////
+    void KFEffectConfig::ReadSetting( KFNode& xmlnode, KFEffectSetting* kfsetting )
+    {
+        kfsetting->_name = xmlnode.GetString( "Name" );
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+}

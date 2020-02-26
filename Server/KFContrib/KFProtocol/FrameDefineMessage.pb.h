@@ -1000,6 +1000,20 @@ class LIBPROTOC_EXPORT PBLoginData : public ::google::protobuf::Message /* @@pro
   ::std::string* release_account();
   void set_allocated_account(::std::string* account);
 
+  // bytes ip = 10;
+  void clear_ip();
+  static const int kIpFieldNumber = 10;
+  const ::std::string& ip() const;
+  void set_ip(const ::std::string& value);
+  #if LANG_CXX11
+  void set_ip(::std::string&& value);
+  #endif
+  void set_ip(const char* value);
+  void set_ip(const void* value, size_t size);
+  ::std::string* mutable_ip();
+  ::std::string* release_ip();
+  void set_allocated_ip(::std::string* ip);
+
   // uint64 gateid = 2;
   void clear_gateid();
   static const int kGateidFieldNumber = 2;
@@ -1018,17 +1032,29 @@ class LIBPROTOC_EXPORT PBLoginData : public ::google::protobuf::Message /* @@pro
   ::google::protobuf::uint64 accountid() const;
   void set_accountid(::google::protobuf::uint64 value);
 
+  // uint32 channel = 4;
+  void clear_channel();
+  static const int kChannelFieldNumber = 4;
+  ::google::protobuf::uint32 channel() const;
+  void set_channel(::google::protobuf::uint32 value);
+
+  // bool loginbycrash = 9;
+  void clear_loginbycrash();
+  static const int kLoginbycrashFieldNumber = 9;
+  bool loginbycrash() const;
+  void set_loginbycrash(bool value);
+
   // uint64 playerid = 7;
   void clear_playerid();
   static const int kPlayeridFieldNumber = 7;
   ::google::protobuf::uint64 playerid() const;
   void set_playerid(::google::protobuf::uint64 value);
 
-  // uint32 channel = 4;
-  void clear_channel();
-  static const int kChannelFieldNumber = 4;
-  ::google::protobuf::uint32 channel() const;
-  void set_channel(::google::protobuf::uint32 value);
+  // uint32 zoneid = 11;
+  void clear_zoneid();
+  static const int kZoneidFieldNumber = 11;
+  ::google::protobuf::uint32 zoneid() const;
+  void set_zoneid(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:KFMsg.PBLoginData)
  private:
@@ -1042,11 +1068,14 @@ class LIBPROTOC_EXPORT PBLoginData : public ::google::protobuf::Message /* @@pro
       0 > channeldata_;
   ::google::protobuf::internal::ArenaStringPtr token_;
   ::google::protobuf::internal::ArenaStringPtr account_;
+  ::google::protobuf::internal::ArenaStringPtr ip_;
   ::google::protobuf::uint64 gateid_;
   ::google::protobuf::uint64 sessionid_;
   ::google::protobuf::uint64 accountid_;
-  ::google::protobuf::uint64 playerid_;
   ::google::protobuf::uint32 channel_;
+  bool loginbycrash_;
+  ::google::protobuf::uint64 playerid_;
+  ::google::protobuf::uint32 zoneid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_FrameDefineMessage_2eproto::TableStruct;
 };
@@ -1353,6 +1382,20 @@ class LIBPROTOC_EXPORT PBShowData : public ::google::protobuf::Message /* @@prot
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
+  // bytes extendname = 4;
+  void clear_extendname();
+  static const int kExtendnameFieldNumber = 4;
+  const ::std::string& extendname() const;
+  void set_extendname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_extendname(::std::string&& value);
+  #endif
+  void set_extendname(const char* value);
+  void set_extendname(const void* value, size_t size);
+  ::std::string* mutable_extendname();
+  ::std::string* release_extendname();
+  void set_allocated_extendname(::std::string* extendname);
+
   // uint64 value = 2;
   void clear_value();
   static const int kValueFieldNumber = 2;
@@ -1370,6 +1413,7 @@ class LIBPROTOC_EXPORT PBShowData : public ::google::protobuf::Message /* @@prot
       ::google::protobuf::internal::WireFormatLite::TYPE_UINT64,
       0 > pbuint64_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr extendname_;
   ::google::protobuf::uint64 value_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_FrameDefineMessage_2eproto::TableStruct;
@@ -2310,6 +2354,87 @@ PBLoginData::mutable_channeldata() {
   return channeldata_.MutableMap();
 }
 
+// bool loginbycrash = 9;
+inline void PBLoginData::clear_loginbycrash() {
+  loginbycrash_ = false;
+}
+inline bool PBLoginData::loginbycrash() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBLoginData.loginbycrash)
+  return loginbycrash_;
+}
+inline void PBLoginData::set_loginbycrash(bool value) {
+  
+  loginbycrash_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBLoginData.loginbycrash)
+}
+
+// bytes ip = 10;
+inline void PBLoginData::clear_ip() {
+  ip_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PBLoginData::ip() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBLoginData.ip)
+  return ip_.GetNoArena();
+}
+inline void PBLoginData::set_ip(const ::std::string& value) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:KFMsg.PBLoginData.ip)
+}
+#if LANG_CXX11
+inline void PBLoginData::set_ip(::std::string&& value) {
+  
+  ip_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.PBLoginData.ip)
+}
+#endif
+inline void PBLoginData::set_ip(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:KFMsg.PBLoginData.ip)
+}
+inline void PBLoginData::set_ip(const void* value, size_t size) {
+  
+  ip_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.PBLoginData.ip)
+}
+inline ::std::string* PBLoginData::mutable_ip() {
+  
+  // @@protoc_insertion_point(field_mutable:KFMsg.PBLoginData.ip)
+  return ip_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PBLoginData::release_ip() {
+  // @@protoc_insertion_point(field_release:KFMsg.PBLoginData.ip)
+  
+  return ip_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PBLoginData::set_allocated_ip(::std::string* ip) {
+  if (ip != NULL) {
+    
+  } else {
+    
+  }
+  ip_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ip);
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.PBLoginData.ip)
+}
+
+// uint32 zoneid = 11;
+inline void PBLoginData::clear_zoneid() {
+  zoneid_ = 0u;
+}
+inline ::google::protobuf::uint32 PBLoginData::zoneid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBLoginData.zoneid)
+  return zoneid_;
+}
+inline void PBLoginData::set_zoneid(::google::protobuf::uint32 value) {
+  
+  zoneid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBLoginData.zoneid)
+}
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2443,6 +2568,59 @@ inline ::google::protobuf::Map< ::std::string, ::google::protobuf::uint64 >*
 PBShowData::mutable_pbuint64() {
   // @@protoc_insertion_point(field_mutable_map:KFMsg.PBShowData.pbuint64)
   return pbuint64_.MutableMap();
+}
+
+// bytes extendname = 4;
+inline void PBShowData::clear_extendname() {
+  extendname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PBShowData::extendname() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBShowData.extendname)
+  return extendname_.GetNoArena();
+}
+inline void PBShowData::set_extendname(const ::std::string& value) {
+  
+  extendname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:KFMsg.PBShowData.extendname)
+}
+#if LANG_CXX11
+inline void PBShowData::set_extendname(::std::string&& value) {
+  
+  extendname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.PBShowData.extendname)
+}
+#endif
+inline void PBShowData::set_extendname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  extendname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:KFMsg.PBShowData.extendname)
+}
+inline void PBShowData::set_extendname(const void* value, size_t size) {
+  
+  extendname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.PBShowData.extendname)
+}
+inline ::std::string* PBShowData::mutable_extendname() {
+  
+  // @@protoc_insertion_point(field_mutable:KFMsg.PBShowData.extendname)
+  return extendname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PBShowData::release_extendname() {
+  // @@protoc_insertion_point(field_release:KFMsg.PBShowData.extendname)
+  
+  return extendname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PBShowData::set_allocated_extendname(::std::string* extendname) {
+  if (extendname != NULL) {
+    
+  } else {
+    
+  }
+  extendname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), extendname);
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.PBShowData.extendname)
 }
 
 // -------------------------------------------------------------------

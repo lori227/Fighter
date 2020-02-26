@@ -27,5 +27,7 @@ namespace KFrame
     void KFHeroPlugin::AddConfig()
     {
         __KF_ADD_CONFIG__( KFHeroConfig );
+        __KF_ADD_CONFIG__( KFFootConfig );
+        __KF_ADD_CONFIG__( KFEffectConfig );
     }
 }

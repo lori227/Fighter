@@ -111,6 +111,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, isrobot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, heroid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, grade_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, effectid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, footid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBBalanceData, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -128,8 +130,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::KFMsg::PBMatchPlayer)},
-  { 11, -1, sizeof(::KFMsg::PBBalanceData)},
-  { 18, -1, sizeof(::KFMsg::PBBattleBalance)},
+  { 13, -1, sizeof(::KFMsg::PBBalanceData)},
+  { 20, -1, sizeof(::KFMsg::PBBattleBalance)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -160,16 +162,17 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\023DefineMessage.proto\022\005KFMsg\032\030FrameDefin"
-      "eMessage.proto\"k\n\rPBMatchPlayer\022\n\n\002id\030\001 "
-      "\001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\017\n\007i"
-      "srobot\030\004 \001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n\005grade\030\006 "
-      "\001(\r\",\n\rPBBalanceData\022\014\n\004name\030\001 \001(\t\022\r\n\005va"
-      "lue\030\002 \001(\021\"F\n\017PBBattleBalance\022\017\n\007ranking\030"
-      "\001 \001(\r\022\"\n\004data\030\002 \003(\0132\024.KFMsg.PBBalanceDat"
-      "ab\006proto3"
+      "eMessage.proto\"\215\001\n\rPBMatchPlayer\022\n\n\002id\030\001"
+      " \001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\017\n\007"
+      "isrobot\030\004 \001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n\005grade\030\006"
+      " \001(\r\022\020\n\010effectid\030\007 \001(\r\022\016\n\006footid\030\010 \001(\r\","
+      "\n\rPBBalanceData\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002"
+      " \001(\021\"F\n\017PBBattleBalance\022\017\n\007ranking\030\001 \001(\r"
+      "\022\"\n\004data\030\002 \003(\0132\024.KFMsg.PBBalanceDatab\006pr"
+      "oto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 289);
+      descriptor, 324);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DefineMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -199,6 +202,8 @@ const int PBMatchPlayer::kServeridFieldNumber;
 const int PBMatchPlayer::kIsrobotFieldNumber;
 const int PBMatchPlayer::kHeroidFieldNumber;
 const int PBMatchPlayer::kGradeFieldNumber;
+const int PBMatchPlayer::kEffectidFieldNumber;
+const int PBMatchPlayer::kFootidFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PBMatchPlayer::PBMatchPlayer()
@@ -217,16 +222,16 @@ PBMatchPlayer::PBMatchPlayer(const PBMatchPlayer& from)
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&grade_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(grade_));
+    static_cast<size_t>(reinterpret_cast<char*>(&footid_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(footid_));
   // @@protoc_insertion_point(copy_constructor:KFMsg.PBMatchPlayer)
 }
 
 void PBMatchPlayer::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&grade_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(grade_));
+      reinterpret_cast<char*>(&footid_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(footid_));
 }
 
 PBMatchPlayer::~PBMatchPlayer() {
@@ -260,8 +265,8 @@ void PBMatchPlayer::Clear() {
 
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&grade_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(grade_));
+      reinterpret_cast<char*>(&footid_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(footid_));
   _internal_metadata_.Clear();
 }
 
@@ -357,6 +362,34 @@ bool PBMatchPlayer::MergePartialFromCodedStream(
         break;
       }
 
+      // uint32 effectid = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &effectid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 footid = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &footid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -414,6 +447,16 @@ void PBMatchPlayer::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->grade(), output);
   }
 
+  // uint32 effectid = 7;
+  if (this->effectid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->effectid(), output);
+  }
+
+  // uint32 footid = 8;
+  if (this->footid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->footid(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -458,6 +501,16 @@ void PBMatchPlayer::SerializeWithCachedSizes(
   // uint32 grade = 6;
   if (this->grade() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->grade(), target);
+  }
+
+  // uint32 effectid = 7;
+  if (this->effectid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->effectid(), target);
+  }
+
+  // uint32 footid = 8;
+  if (this->footid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->footid(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -517,6 +570,20 @@ size_t PBMatchPlayer::ByteSizeLong() const {
         this->grade());
   }
 
+  // uint32 effectid = 7;
+  if (this->effectid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->effectid());
+  }
+
+  // uint32 footid = 8;
+  if (this->footid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->footid());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -563,6 +630,12 @@ void PBMatchPlayer::MergeFrom(const PBMatchPlayer& from) {
   if (from.grade() != 0) {
     set_grade(from.grade());
   }
+  if (from.effectid() != 0) {
+    set_effectid(from.effectid());
+  }
+  if (from.footid() != 0) {
+    set_footid(from.footid());
+  }
 }
 
 void PBMatchPlayer::CopyFrom(const ::google::protobuf::Message& from) {
@@ -596,6 +669,8 @@ void PBMatchPlayer::InternalSwap(PBMatchPlayer* other) {
   swap(isrobot_, other->isrobot_);
   swap(heroid_, other->heroid_);
   swap(grade_, other->grade_);
+  swap(effectid_, other->effectid_);
+  swap(footid_, other->footid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

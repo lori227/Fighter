@@ -10,6 +10,8 @@ enum ClientProtocol
 
 	// hero
 	MSG_FIGHTER_HERO_REQ 		= 3001;	// 选择出战英雄
+	MSG_EFFECT_USE_REQ 			= 3002;	// 选择使用特效
+	MSG_FOOT_USE_REQ 			= 3003;	// 选择使用脚印
 
 	// match
 	MSG_START_MATCH_REQ  		= 3101;	// 开始匹配 
@@ -27,6 +29,20 @@ enum ClientProtocol
 message MsgFighterHeroReq
 {
 	uint32 heroid = 1;
+}
+
+// 选择使用特效
+// 	MSG_EFFECT_USE_REQ
+message MsgEffectUseReq
+{
+	uint32 effectid = 1;
+}
+
+// 选择使用脚印
+// MSG_FOOT_USE_REQ
+message MsgFootUseReq
+{
+	uint32 footid = 1;
 }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////

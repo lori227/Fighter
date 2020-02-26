@@ -23,6 +23,12 @@ message PBMatchPlayer
 
     // 排位积分
     uint32 grade = 6;
+    
+    // 特效id
+    uint32 effectid = 7;
+
+    // 脚印id
+    uint32 footid = 8;
 }
 
 // 战斗结算数据

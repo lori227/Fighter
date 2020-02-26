@@ -56,6 +56,9 @@ namespace KFMsg {
 enum ProjectCodeEnum {
   LogicError = 0,
   HeroNotExist = 31001,
+  HeroNotFight = 31002,
+  EffectNotExist = 31003,
+  FootNotExist = 31004,
   MatchRequestOk = 32001,
   MatchAlreadyWait = 32002,
   MatchInRoom = 32003,

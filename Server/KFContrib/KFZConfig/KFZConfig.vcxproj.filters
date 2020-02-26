@@ -28,6 +28,12 @@
       <Filter>Match</Filter>
     </ClInclude>
     <ClInclude Include="KFTimeConfig.h" />
+    <ClInclude Include="KFEffectConfig.hpp">
+      <Filter>Hero</Filter>
+    </ClInclude>
+    <ClInclude Include="KFFootConfig.hpp">
+      <Filter>Hero</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Kernel">
@@ -67,6 +73,12 @@
     </ClCompile>
     <ClCompile Include="KFNameConfig.cpp">
       <Filter>Match</Filter>
+    </ClCompile>
+    <ClCompile Include="KFEffectConfig.cpp">
+      <Filter>Hero</Filter>
+    </ClCompile>
+    <ClCompile Include="KFFootConfig.cpp">
+      <Filter>Hero</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

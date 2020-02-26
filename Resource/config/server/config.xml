@@ -40,4 +40,6 @@
 	<item Id="name" Name="name" FileName="./config/name.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="match" Name="match" FileName="./config/match.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="reward" Name="reward" FileName="./config/reward.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
+	<item Id="effect" Name="effect" FileName="./config/effect.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
+	<item Id="foot" Name="foot" FileName="./config/foot.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 </root>

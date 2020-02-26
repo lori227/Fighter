@@ -58,17 +58,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021CodeMessage.proto\022\005KFMsg*\204\002\n\017ProjectCo"
+      "\n\021CodeMessage.proto\022\005KFMsg*\302\002\n\017ProjectCo"
       "deEnum\022\016\n\nLogicError\020\000\022\022\n\014HeroNotExist\020\231"
-      "\362\001\022\024\n\016MatchRequestOk\020\201\372\001\022\026\n\020MatchAlready"
-      "Wait\020\202\372\001\022\021\n\013MatchInRoom\020\203\372\001\022\025\n\017MatchNotI"
-      "nMatch\020\204\372\001\022\023\n\rMatchCancelOk\020\205\372\001\022\030\n\022Match"
-      "AffirmTimeout\020\207\372\001\022\031\n\023MatchNotFighterHero"
-      "\020\210\372\001\022\024\n\016MatchDataError\020\211\372\001\022\025\n\017RoomAllotB"
-      "attle\020\345\372\001b\006proto3"
+      "\362\001\022\022\n\014HeroNotFight\020\232\362\001\022\024\n\016EffectNotExist"
+      "\020\233\362\001\022\022\n\014FootNotExist\020\234\362\001\022\024\n\016MatchRequest"
+      "Ok\020\201\372\001\022\026\n\020MatchAlreadyWait\020\202\372\001\022\021\n\013MatchI"
+      "nRoom\020\203\372\001\022\025\n\017MatchNotInMatch\020\204\372\001\022\023\n\rMatc"
+      "hCancelOk\020\205\372\001\022\030\n\022MatchAffirmTimeout\020\207\372\001\022"
+      "\031\n\023MatchNotFighterHero\020\210\372\001\022\024\n\016MatchDataE"
+      "rror\020\211\372\001\022\025\n\017RoomAllotBattle\020\345\372\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 297);
+      descriptor, 359);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CodeMessage.proto", &protobuf_RegisterTypes);
 }
@@ -93,6 +94,9 @@ bool ProjectCodeEnum_IsValid(int value) {
   switch (value) {
     case 0:
     case 31001:
+    case 31002:
+    case 31003:
+    case 31004:
     case 32001:
     case 32002:
     case 32003:

@@ -13,6 +13,8 @@
   <ItemGroup>
     <ClInclude Include="KFConfig.h" />
     <ClInclude Include="KFDataSetting.h" />
+    <ClInclude Include="KFEffectConfig.hpp" />
+    <ClInclude Include="KFFootConfig.hpp" />
     <ClInclude Include="KFHeroConfig.hpp" />
     <ClInclude Include="KFItemConfig.hpp" />
     <ClInclude Include="KFItemSetting.hpp" />
@@ -24,6 +26,8 @@
     <ClInclude Include="KFWeightConfig.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="KFEffectConfig.cpp" />
+    <ClCompile Include="KFFootConfig.cpp" />
     <ClCompile Include="KFHeroConfig.cpp" />
     <ClCompile Include="KFItemConfig.cpp" />
     <ClCompile Include="KFItemSetting.cpp" />

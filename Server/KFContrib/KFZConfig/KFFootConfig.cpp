@@ -1,0 +1,12 @@
+﻿#include "KFFootConfig.hpp"
+
+namespace KFrame
+{
+    /////////////////////////////////////////////////////////////////////////////////
+    void KFFootConfig::ReadSetting( KFNode& xmlnode, KFFootSetting* kfsetting )
+    {
+        kfsetting->_name = xmlnode.GetString( "Name" );
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+}

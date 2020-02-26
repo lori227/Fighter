@@ -142,8 +142,17 @@ namespace KFrame
         pbplayer->set_serverid( KFGlobal::Instance()->_app_id->GetId() );
 
         pbplayer->set_isrobot( false );
-        pbplayer->set_heroid( player->Get<uint32>( __STRING__( heroid ) ) );
         pbplayer->set_grade( kfbasic->Get<uint32>( __STRING__( grade ) ) );
+
+        auto heroid = player->Get<uint32>( __STRING__( heroid ) );
+        pbplayer->set_heroid( heroid );
+
+        auto kfhero = player->Find( __STRING__( hero ), heroid );
+        if ( kfhero != nullptr )
+        {
+            pbplayer->set_footid( kfhero->Get<uint32>( __STRING__( foot ) ) );
+            pbplayer->set_effectid( kfhero->Get<uint32>( __STRING__( effect ) ) );
+        }
     }
 
     void KFMatchClientModule::SetMatchData( KFEntity* player, uint32 matchid, uint64 serverid )

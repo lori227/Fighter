@@ -16,6 +16,8 @@
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFZConfig/KFHeroConfig.hpp"
+#include "KFZConfig/KFFootConfig.hpp"
+#include "KFZConfig/KFEffectConfig.hpp"
 
 namespace KFrame
 {
@@ -33,14 +35,26 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
     protected:
+        // 添加英雄回调
+        __KF_ADD_DATA_FUNCTION__( OnAddHero );
+
         // 添加英雄
         __KF_ADD_ELEMENT_FUNCTION__( AddHeroElement );
 
-        // 添加英雄回调
-        __KF_ADD_DATA_FUNCTION__( OnAddHero );
+        // 添加特效
+        __KF_ADD_ELEMENT_FUNCTION__( AddEffectElement );
+
+        // 添加脚印
+        __KF_ADD_ELEMENT_FUNCTION__( AddFootElement );
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 选择出战英雄
         __KF_MESSAGE_FUNCTION__( HandleFighterHeroReq );
+
+        // 选择特效
+        __KF_MESSAGE_FUNCTION__( HandleEffectUseReq );
+
+        // 选择脚印
+        __KF_MESSAGE_FUNCTION__( HandleFootUseReq );
     protected:
         KFComponent* _kf_component = nullptr;
     };

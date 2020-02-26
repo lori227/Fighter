@@ -204,6 +204,18 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::uint32 grade() const;
   void set_grade(::google::protobuf::uint32 value);
 
+  // uint32 effectid = 7;
+  void clear_effectid();
+  static const int kEffectidFieldNumber = 7;
+  ::google::protobuf::uint32 effectid() const;
+  void set_effectid(::google::protobuf::uint32 value);
+
+  // uint32 footid = 8;
+  void clear_footid();
+  static const int kFootidFieldNumber = 8;
+  ::google::protobuf::uint32 footid() const;
+  void set_footid(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.PBMatchPlayer)
  private:
 
@@ -214,6 +226,8 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   bool isrobot_;
   ::google::protobuf::uint32 heroid_;
   ::google::protobuf::uint32 grade_;
+  ::google::protobuf::uint32 effectid_;
+  ::google::protobuf::uint32 footid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_DefineMessage_2eproto::TableStruct;
 };
@@ -583,6 +597,34 @@ inline void PBMatchPlayer::set_grade(::google::protobuf::uint32 value) {
   
   grade_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.grade)
+}
+
+// uint32 effectid = 7;
+inline void PBMatchPlayer::clear_effectid() {
+  effectid_ = 0u;
+}
+inline ::google::protobuf::uint32 PBMatchPlayer::effectid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.effectid)
+  return effectid_;
+}
+inline void PBMatchPlayer::set_effectid(::google::protobuf::uint32 value) {
+  
+  effectid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.effectid)
+}
+
+// uint32 footid = 8;
+inline void PBMatchPlayer::clear_footid() {
+  footid_ = 0u;
+}
+inline ::google::protobuf::uint32 PBMatchPlayer::footid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.footid)
+  return footid_;
+}
+inline void PBMatchPlayer::set_footid(::google::protobuf::uint32 value) {
+  
+  footid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.footid)
 }
 
 // -------------------------------------------------------------------
