@@ -35,6 +35,8 @@ namespace KFrame
         __STRING_DEFINE__( store );
         __STRING_DEFINE__( effect );
         __STRING_DEFINE__( foot );
+        __STRING_DEFINE__( footid );
+        __STRING_DEFINE__( effectid );
     }
 }
 

@@ -164,32 +164,18 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgEffectUseReq );
 
-        auto heroid = player->Get<uint32>( __STRING__( heroid ) );
-        auto kfhero = player->Find( __STRING__( hero ), heroid );
-        if ( kfhero == nullptr )
-        {
-            return _kf_display->SendToClient( player, KFMsg::HeroNotFight );
-        }
-
         auto kfeffect = player->Find( __STRING__( effect ), kfmsg.effectid() );
         if ( kfeffect == nullptr )
         {
             return _kf_display->SendToClient( player, KFMsg::EffectNotExist );
         }
 
-        player->UpdateData( kfhero, __STRING__( effect ),  KFEnum::Set, kfmsg.effectid() );
+        player->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg.effectid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFootUseReq )
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgFootUseReq );
-
-        auto heroid = player->Get<uint32>( __STRING__( heroid ) );
-        auto kfhero = player->Find( __STRING__( hero ), heroid );
-        if ( kfhero == nullptr )
-        {
-            return _kf_display->SendToClient( player, KFMsg::HeroNotFight );
-        }
 
         auto kffoot = player->Find( __STRING__( foot ), kfmsg.footid() );
         if ( kffoot == nullptr )
@@ -197,6 +183,6 @@ namespace KFrame
             return _kf_display->SendToClient( player, KFMsg::FootNotExist );
         }
 
-        player->UpdateData( kfhero, __STRING__( foot ), KFEnum::Set, kfmsg.footid() );
+        player->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg.footid() );
     }
 }
