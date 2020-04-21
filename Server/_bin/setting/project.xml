@@ -1,8 +1,36 @@
-<root version="1">
+<?xml version='1.0' encoding='utf-8' ?>
+<Config>
+	<!-- 项目开始时间 -->
+	<Project Time="1559318400"/>
+
+	<!-- 断线保留时间 -->
+	<Disconnet Time="10"/>
+
+	<!-- 数据库类型 1:redis 2:mongo 3:mysql(暂不支持)-->
+	<Databases>
+		<!-- Auth 认证数据 -->
+		<Database Name="authdatabase" Type="1"/>
+		<!-- Dir 目录数据 -->
+		<Database Name="dirdatabase" Type="1"/>
+		<!-- Pay 充值数据 -->
+		<Database Name="paydatabase" Type="1"/>
+		<!-- Basic 玩家基础数据 -->
+		<Database Name="basicdatabase" Type="1"/>
+		<!-- Relation 关系数据 -->
+		<Database Name="relationdatabase" Type="1"/>
+		<!-- Mail 邮件数据 -->
+		<Database Name="maildatabase" Type="1"/>
+		<!-- Guild 工会/军团/帮派数据 -->
+		<Database Name="guilddatabase" Type="1"/>
+	</Databases>
+
 	<!-- uuid -->
-	<item Id="projectstarttime" Value="1559318400"/>
-	<item Id="uuidtimerbits" Value="29"/>
-	<item Id="uuidzonebits" Value="8"/>
-	<item Id="uuidworkerbits" Value="10"/>
-	<item Id="uuidseqbits" Value="16"/>
-</root>
+	<Uuids>
+		<Uuid Name="normal" Time="32" Zone="0" Worker="10" Seq="21"/>
+		<Uuid Name="account" Time="31" Zone="0" Worker="10" Seq="20"/>
+		<Uuid Name="player" Time="29" Zone="8" Worker="10" Seq="16"/>
+		<Uuid Name="item" Time="29" Zone="8" Worker="10" Seq="16"/>
+		<Uuid Name="hero" Time="29" Zone="8" Worker="10" Seq="16"/>
+	</Uuids>
+
+</Config>
