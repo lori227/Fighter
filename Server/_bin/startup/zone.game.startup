@@ -9,10 +9,11 @@
 		<Include File="./startup/common/deployclient.startup"/>
 	</Includes>
 
-	<Plugins>	
-		<Plugin Name="KFProject" Config=""/>	
-		<Plugin Name="KFReward" Config=""/>		
-		<Plugin Name="KFKernel" Config=""/>		
+	<Plugins>
+		<Plugin Name="KFReward" Config=""/>	
+		<Plugin Name="KFKernel" Config=""/>	
+		<Plugin Name="KFCondition" Config=""/>	
+		<Plugin Name="KFDrop" Config=""/>		
 		<Plugin Name="KFFilter" Config=""/>		
 		<Plugin Name="KFLua" Config=""/>	
 		<Plugin Name="KFGame" Config=""/>	
@@ -28,8 +29,6 @@
 		<Plugin Name="KFHero" Config=""/>		
 		<Plugin Name="KFSignIn" Config=""/>		
 		<Plugin Name="KFItem" Config=""/>		
-		<Plugin Name="KFDrop" Config=""/>		
-		<Plugin Name="KFCondition" Config=""/>		
 		<Plugin Name="KFAchieve" Config=""/>		
 		<Plugin Name="KFStore" Config=""/>		
 	</Plugins>

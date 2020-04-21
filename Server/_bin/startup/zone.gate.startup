@@ -8,9 +8,9 @@
 		<Include File="./startup/common/deployclient.startup"/>
 	</Includes>
 
-	<Plugins>
-		<Plugin Name="KFDeployClient" Config=""/>	
+	<Plugins>	
 		<Plugin Name="KFDisplay" Config=""/>	
 		<Plugin Name="KFGate" Config=""/>	
+		<Plugin Name="KFDirClient" Config=""/>	
 	</Plugins>
 </Setting>
