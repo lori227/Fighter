@@ -12,6 +12,7 @@ namespace KFrame
         __STRING_DEFINE__( sign );
         __STRING_DEFINE__( app );
         __STRING_DEFINE__( id );
+        __STRING_DEFINE__( uuid );
         __STRING_DEFINE__( master );
         __STRING_DEFINE__( proxy );
         __STRING_DEFINE__( shard );
@@ -41,7 +42,8 @@ namespace KFrame
         __STRING_DEFINE__( value );
         __STRING_DEFINE__( zone );
         __STRING_DEFINE__( zoneid );
-        __STRING_DEFINE__( logiczoneid );
+        __STRING_DEFINE__( loginzoneid );
+        __STRING_DEFINE__( datazoneid );
         __STRING_DEFINE__( zonebalance );
         __STRING_DEFINE__( logurl );
         __STRING_DEFINE__( scheduletime );
@@ -102,6 +104,10 @@ namespace KFrame
         __STRING_DEFINE__( developupdate );
         __STRING_DEFINE__( dir );
         __STRING_DEFINE__( icon );
+        __STRING_DEFINE__( updatemasterip );
+        __STRING_DEFINE__( querymasterip );
+        __STRING_DEFINE__( querymasterlist );
+        __STRING_DEFINE__( masterlist );
 
 
         __STRING_DEFINE__( zoneregister );
@@ -255,11 +261,30 @@ namespace KFrame
         __STRING_DEFINE__( remote );
         __STRING_DEFINE__( project );
         __STRING_DEFINE__( element );
-        __STRING_DEFINE__( recommendzone );
+        __STRING_DEFINE__( recommend );
+        __STRING_DEFINE__( zonerecommend );
         __STRING_DEFINE__( newplayer );
         __STRING_DEFINE__( newrole );
         __STRING_DEFINE__( build );
-
+        __STRING_DEFINE__( normal );
+        __STRING_DEFINE__( disconnecttime );
+        __STRING_DEFINE__( authdatabase );
+        __STRING_DEFINE__( dirdatabase );
+        __STRING_DEFINE__( paydatabase );
+        __STRING_DEFINE__( basicdatabase );
+        __STRING_DEFINE__( relationdatabase );
+        __STRING_DEFINE__( maildatabase );
+        __STRING_DEFINE__( zonetoken );
+        __STRING_DEFINE__( store );
+        __STRING_DEFINE__( storeid );
+        __STRING_DEFINE__( storeunlock );
+        __STRING_DEFINE__( storeindex );
+        __STRING_DEFINE__( sort );
+        __STRING_DEFINE__( goods );
+        __STRING_DEFINE__( refresh );
+        __STRING_DEFINE__( playername );
+        __STRING_DEFINE__( refuse );
+        __STRING_DEFINE__( rewardtype );
     }
 }
 

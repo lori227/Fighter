@@ -33,7 +33,7 @@ extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameClientMessage_2eproto ::google::pr
 namespace protobuf_FrameDefineMessage_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PBNotice;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_PBRankDatas;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_PBShowElement;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_PBShowElements;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_FrameDefineMessage_2eproto ::google::protobuf::internal::SCCInfo<7> scc_info_PBObject;
 }  // namespace protobuf_FrameDefineMessage_2eproto
 namespace KFMsg {
@@ -252,21 +252,16 @@ class MsgMailRewardReqDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<MsgMailRewardReq>
       _instance;
 } _MsgMailRewardReq_default_instance_;
-class MsgBuyStoreReqDefaultTypeInternal {
+class MsgStoreBuyGoodsReqDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MsgBuyStoreReq>
+  ::google::protobuf::internal::ExplicitlyConstructed<MsgStoreBuyGoodsReq>
       _instance;
-} _MsgBuyStoreReq_default_instance_;
-class MsgQueryStoreReqDefaultTypeInternal {
+} _MsgStoreBuyGoodsReq_default_instance_;
+class MsgStoreRefreshReqDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MsgQueryStoreReq>
+  ::google::protobuf::internal::ExplicitlyConstructed<MsgStoreRefreshReq>
       _instance;
-} _MsgQueryStoreReq_default_instance_;
-class MsgQueryStoreAckDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<MsgQueryStoreAck>
-      _instance;
-} _MsgQueryStoreAck_default_instance_;
+} _MsgStoreRefreshReq_default_instance_;
 class MsgApplyPayOrderReqDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<MsgApplyPayOrderReq>
@@ -342,6 +337,11 @@ class MsgTaskRemoveReqDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<MsgTaskRemoveReq>
       _instance;
 } _MsgTaskRemoveReq_default_instance_;
+class MsgTaskAddReqDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MsgTaskAddReq>
+      _instance;
+} _MsgTaskAddReq_default_instance_;
 }  // namespace KFMsg
 namespace protobuf_FrameClientMessage_2eproto {
 static void InitDefaultsMsgResultDisplay() {
@@ -559,7 +559,7 @@ static void InitDefaultsMsgShowElement() {
 
 LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_MsgShowElement =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsMsgShowElement}, {
-      &protobuf_FrameDefineMessage_2eproto::scc_info_PBShowElement.base,}};
+      &protobuf_FrameDefineMessage_2eproto::scc_info_PBShowElements.base,}};
 
 static void InitDefaultsMsgRemoveDataReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -955,47 +955,33 @@ static void InitDefaultsMsgMailRewardReq() {
 LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgMailRewardReq =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgMailRewardReq}, {}};
 
-static void InitDefaultsMsgBuyStoreReq() {
+static void InitDefaultsMsgStoreBuyGoodsReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::KFMsg::_MsgBuyStoreReq_default_instance_;
-    new (ptr) ::KFMsg::MsgBuyStoreReq();
+    void* ptr = &::KFMsg::_MsgStoreBuyGoodsReq_default_instance_;
+    new (ptr) ::KFMsg::MsgStoreBuyGoodsReq();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::KFMsg::MsgBuyStoreReq::InitAsDefaultInstance();
+  ::KFMsg::MsgStoreBuyGoodsReq::InitAsDefaultInstance();
 }
 
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgBuyStoreReq =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgBuyStoreReq}, {}};
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgStoreBuyGoodsReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgStoreBuyGoodsReq}, {}};
 
-static void InitDefaultsMsgQueryStoreReq() {
+static void InitDefaultsMsgStoreRefreshReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::KFMsg::_MsgQueryStoreReq_default_instance_;
-    new (ptr) ::KFMsg::MsgQueryStoreReq();
+    void* ptr = &::KFMsg::_MsgStoreRefreshReq_default_instance_;
+    new (ptr) ::KFMsg::MsgStoreRefreshReq();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::KFMsg::MsgQueryStoreReq::InitAsDefaultInstance();
+  ::KFMsg::MsgStoreRefreshReq::InitAsDefaultInstance();
 }
 
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgQueryStoreReq =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgQueryStoreReq}, {}};
-
-static void InitDefaultsMsgQueryStoreAck() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::KFMsg::_MsgQueryStoreAck_default_instance_;
-    new (ptr) ::KFMsg::MsgQueryStoreAck();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::KFMsg::MsgQueryStoreAck::InitAsDefaultInstance();
-}
-
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgQueryStoreAck =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgQueryStoreAck}, {}};
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgStoreRefreshReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgStoreRefreshReq}, {}};
 
 static void InitDefaultsMsgApplyPayOrderReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -1209,6 +1195,20 @@ static void InitDefaultsMsgTaskRemoveReq() {
 LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgTaskRemoveReq =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgTaskRemoveReq}, {}};
 
+static void InitDefaultsMsgTaskAddReq() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::KFMsg::_MsgTaskAddReq_default_instance_;
+    new (ptr) ::KFMsg::MsgTaskAddReq();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::KFMsg::MsgTaskAddReq::InitAsDefaultInstance();
+}
+
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgTaskAddReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgTaskAddReq}, {}};
+
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_MsgResultDisplay.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgTellNotice.base);
@@ -1253,9 +1253,8 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_MsgDeleteMailReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgQueryMailReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgMailRewardReq.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_MsgBuyStoreReq.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_MsgQueryStoreReq.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_MsgQueryStoreAck.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MsgStoreBuyGoodsReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MsgStoreRefreshReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgApplyPayOrderReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgApplyPayOrderAck.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgPayResultReq.base);
@@ -1271,6 +1270,7 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_MsgTaskReceiveReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgTaskRewardReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgTaskRemoveReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MsgTaskAddReq.base);
 }
 
 ::google::protobuf::Metadata file_level_metadata[61];
@@ -1374,7 +1374,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgShowElement, element_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgShowElement, elements_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgRemoveDataReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1483,6 +1483,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgMoveItemReq, sourceuuid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgMoveItemReq, targetname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgMoveItemReq, targetindex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgMoveItemReq, tabname_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgMoveAllItemReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1510,7 +1511,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgSortItemReq, sourcename_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgSortItemReq, bagname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgSortItemReq, tabname_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgRemoveItemReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1564,27 +1566,20 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgMailRewardReq, id_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgBuyStoreReq, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreBuyGoodsReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgBuyStoreReq, version_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgBuyStoreReq, buytype_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgBuyStoreReq, id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgBuyStoreReq, count_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreBuyGoodsReq, storeid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreBuyGoodsReq, goodsid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreBuyGoodsReq, buycount_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgQueryStoreReq, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreRefreshReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgQueryStoreReq, version_),
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgQueryStoreAck, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgQueryStoreAck, version_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgQueryStoreAck, data_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreRefreshReq, storeid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgStoreRefreshReq, refreshtype_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgApplyPayOrderReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1642,7 +1637,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgAddRelationReq, dataname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgAddRelationReq, relationname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgAddRelationReq, playername_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgAddRelationReq, playerid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgAddRelationReq, message_),
@@ -1651,14 +1646,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgDelRelationReq, dataname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgDelRelationReq, relationname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgDelRelationReq, playerid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgReplyRelationInviteReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgReplyRelationInviteReq, dataname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgReplyRelationInviteReq, relationname_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgReplyRelationInviteReq, playerid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgReplyRelationInviteReq, operate_),
   ~0u,  // no _has_bits_
@@ -1666,7 +1661,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgSetRefuseRelationInviteReq, dataname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgSetRefuseRelationInviteReq, refusename_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgSetRefuseRelationInviteReq, refuse_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTaskReceiveReq, _internal_metadata_),
@@ -1686,6 +1681,12 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTaskRemoveReq, id_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTaskAddReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTaskAddReq, id_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::KFMsg::MsgResultDisplay)},
@@ -1719,36 +1720,36 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 178, -1, sizeof(::KFMsg::MsgSplitItemReq)},
   { 188, -1, sizeof(::KFMsg::MsgMergeItemReq)},
   { 197, -1, sizeof(::KFMsg::MsgMoveItemReq)},
-  { 206, -1, sizeof(::KFMsg::MsgMoveAllItemReq)},
-  { 213, -1, sizeof(::KFMsg::MsgExchangeItemReq)},
-  { 222, -1, sizeof(::KFMsg::MsgCleanItemReq)},
-  { 228, -1, sizeof(::KFMsg::MsgSortItemReq)},
-  { 234, -1, sizeof(::KFMsg::MsgRemoveItemReq)},
-  { 241, -1, sizeof(::KFMsg::MsgRemoveItemCountReq)},
-  { 248, -1, sizeof(::KFMsg::MsgUseItemReq)},
-  { 255, -1, sizeof(::KFMsg::MsgUseItemToHeroReq)},
-  { 263, -1, sizeof(::KFMsg::MsgViewMailReq)},
-  { 269, -1, sizeof(::KFMsg::MsgDeleteMailReq)},
-  { 275, -1, sizeof(::KFMsg::MsgQueryMailReq)},
-  { 280, -1, sizeof(::KFMsg::MsgMailRewardReq)},
-  { 286, -1, sizeof(::KFMsg::MsgBuyStoreReq)},
-  { 295, -1, sizeof(::KFMsg::MsgQueryStoreReq)},
-  { 301, -1, sizeof(::KFMsg::MsgQueryStoreAck)},
-  { 308, -1, sizeof(::KFMsg::MsgApplyPayOrderReq)},
-  { 314, -1, sizeof(::KFMsg::MsgApplyPayOrderAck)},
-  { 321, -1, sizeof(::KFMsg::MsgPayResultReq)},
-  { 329, -1, sizeof(::KFMsg::MsgQueryPayReq)},
-  { 334, -1, sizeof(::KFMsg::MsgQueryRankListReq)},
-  { 340, -1, sizeof(::KFMsg::MsgQueryRankListAck)},
-  { 347, -1, sizeof(::KFMsg::MsgQueryFriendRankListReq)},
-  { 353, -1, sizeof(::KFMsg::MsgQueryFriendRankListAck)},
-  { 360, -1, sizeof(::KFMsg::MsgAddRelationReq)},
-  { 369, -1, sizeof(::KFMsg::MsgDelRelationReq)},
-  { 376, -1, sizeof(::KFMsg::MsgReplyRelationInviteReq)},
-  { 384, -1, sizeof(::KFMsg::MsgSetRefuseRelationInviteReq)},
-  { 391, -1, sizeof(::KFMsg::MsgTaskReceiveReq)},
-  { 397, -1, sizeof(::KFMsg::MsgTaskRewardReq)},
-  { 403, -1, sizeof(::KFMsg::MsgTaskRemoveReq)},
+  { 207, -1, sizeof(::KFMsg::MsgMoveAllItemReq)},
+  { 214, -1, sizeof(::KFMsg::MsgExchangeItemReq)},
+  { 223, -1, sizeof(::KFMsg::MsgCleanItemReq)},
+  { 229, -1, sizeof(::KFMsg::MsgSortItemReq)},
+  { 236, -1, sizeof(::KFMsg::MsgRemoveItemReq)},
+  { 243, -1, sizeof(::KFMsg::MsgRemoveItemCountReq)},
+  { 250, -1, sizeof(::KFMsg::MsgUseItemReq)},
+  { 257, -1, sizeof(::KFMsg::MsgUseItemToHeroReq)},
+  { 265, -1, sizeof(::KFMsg::MsgViewMailReq)},
+  { 271, -1, sizeof(::KFMsg::MsgDeleteMailReq)},
+  { 277, -1, sizeof(::KFMsg::MsgQueryMailReq)},
+  { 282, -1, sizeof(::KFMsg::MsgMailRewardReq)},
+  { 288, -1, sizeof(::KFMsg::MsgStoreBuyGoodsReq)},
+  { 296, -1, sizeof(::KFMsg::MsgStoreRefreshReq)},
+  { 303, -1, sizeof(::KFMsg::MsgApplyPayOrderReq)},
+  { 309, -1, sizeof(::KFMsg::MsgApplyPayOrderAck)},
+  { 316, -1, sizeof(::KFMsg::MsgPayResultReq)},
+  { 324, -1, sizeof(::KFMsg::MsgQueryPayReq)},
+  { 329, -1, sizeof(::KFMsg::MsgQueryRankListReq)},
+  { 335, -1, sizeof(::KFMsg::MsgQueryRankListAck)},
+  { 342, -1, sizeof(::KFMsg::MsgQueryFriendRankListReq)},
+  { 348, -1, sizeof(::KFMsg::MsgQueryFriendRankListAck)},
+  { 355, -1, sizeof(::KFMsg::MsgAddRelationReq)},
+  { 364, -1, sizeof(::KFMsg::MsgDelRelationReq)},
+  { 371, -1, sizeof(::KFMsg::MsgReplyRelationInviteReq)},
+  { 379, -1, sizeof(::KFMsg::MsgSetRefuseRelationInviteReq)},
+  { 386, -1, sizeof(::KFMsg::MsgTaskReceiveReq)},
+  { 392, -1, sizeof(::KFMsg::MsgTaskRewardReq)},
+  { 398, -1, sizeof(::KFMsg::MsgTaskRemoveReq)},
+  { 404, -1, sizeof(::KFMsg::MsgTaskAddReq)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1795,9 +1796,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgDeleteMailReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgQueryMailReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgMailRewardReq_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgBuyStoreReq_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgQueryStoreReq_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgQueryStoreAck_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgStoreBuyGoodsReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgStoreRefreshReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgApplyPayOrderReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgApplyPayOrderAck_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgPayResultReq_default_instance_),
@@ -1813,6 +1813,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTaskReceiveReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTaskRewardReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTaskRemoveReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTaskAddReq_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -1855,113 +1856,114 @@ void AddDescriptorsImpl() {
       "eData\022\037\n\006pbdata\030\001 \001(\0132\017.KFMsg.PBObject\"1"
       "\n\016MsgSyncAddData\022\037\n\006pbdata\030\001 \001(\0132\017.KFMsg"
       ".PBObject\"4\n\021MsgSyncRemoveData\022\037\n\006pbdata"
-      "\030\001 \001(\0132\017.KFMsg.PBObject\"7\n\016MsgShowElemen"
-      "t\022%\n\007element\030\001 \001(\0132\024.KFMsg.PBShowElement"
-      "\"1\n\020MsgRemoveDataReq\022\020\n\010dataname\030\001 \001(\014\022\013"
-      "\n\003key\030\002 \001(\004\"%\n\021MsgRequestSyncReq\022\020\n\010data"
-      "name\030\001 \001(\014\"$\n\020MsgCancelSyncReq\022\020\n\010datana"
-      "me\030\001 \001(\014\" \n\020MsgQueryBasicReq\022\014\n\004name\030\001 \001"
-      "(\014\"3\n\020MsgQueryBasicAck\022\037\n\006player\030\001 \001(\0132\017"
-      ".KFMsg.PBObject\"%\n\021MsgQueryPlayerReq\022\020\n\010"
-      "playerid\030\001 \001(\004\"4\n\021MsgQueryPlayerAck\022\037\n\006p"
-      "layer\030\001 \001(\0132\017.KFMsg.PBObject\"\035\n\rMsgSetNa"
-      "meReq\022\014\n\004name\030\001 \001(\014\"\033\n\014MsgSetSexReq\022\013\n\003s"
-      "ex\030\001 \001(\r\"\034\n\016MsgCompoundReq\022\n\n\002id\030\001 \001(\r\"!"
-      "\n\023MsgAchieveRewardReq\022\n\n\002id\030\001 \001(\r\"0\n\024Msg"
-      "ActivityRewardReq\022\014\n\004type\030\001 \001(\r\022\n\n\002id\030\002 "
-      "\001(\r\"&\n\027MsgSevenSignInRewardReq\022\013\n\003day\030\001 "
-      "\001(\r\"w\n\017MsgSplitItemReq\022\022\n\nsourcename\030\001 \001"
-      "(\014\022\022\n\nsourceuuid\030\002 \001(\004\022\023\n\013sourcecount\030\003 "
-      "\001(\r\022\022\n\ntargetname\030\004 \001(\014\022\023\n\013targetindex\030\005"
-      " \001(\r\"a\n\017MsgMergeItemReq\022\022\n\nsourcename\030\001 "
-      "\001(\014\022\022\n\nsourceuuid\030\002 \001(\004\022\022\n\ntargetname\030\003 "
-      "\001(\014\022\022\n\ntargetuuid\030\004 \001(\004\"a\n\016MsgMoveItemRe"
-      "q\022\022\n\nsourcename\030\001 \001(\014\022\022\n\nsourceuuid\030\002 \001("
-      "\004\022\022\n\ntargetname\030\003 \001(\014\022\023\n\013targetindex\030\004 \001"
-      "(\r\";\n\021MsgMoveAllItemReq\022\022\n\nsourcename\030\001 "
-      "\001(\014\022\022\n\ntargetname\030\002 \001(\014\"d\n\022MsgExchangeIt"
-      "emReq\022\022\n\nsourcename\030\001 \001(\014\022\022\n\nsourceuuid\030"
-      "\002 \001(\004\022\022\n\ntargetname\030\003 \001(\014\022\022\n\ntargetuuid\030"
-      "\004 \001(\004\"%\n\017MsgCleanItemReq\022\022\n\nsourcename\030\001"
-      " \001(\014\"$\n\016MsgSortItemReq\022\022\n\nsourcename\030\001 \003"
-      "(\014\"4\n\020MsgRemoveItemReq\022\022\n\nsourcename\030\001 \001"
-      "(\014\022\014\n\004uuid\030\002 \001(\004\"6\n\025MsgRemoveItemCountRe"
-      "q\022\016\n\006itemid\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\"+\n\rMsgU"
-      "seItemReq\022\014\n\004name\030\001 \001(\014\022\014\n\004uuid\030\002 \001(\004\"G\n"
-      "\023MsgUseItemToHeroReq\022\014\n\004name\030\001 \001(\014\022\020\n\010it"
-      "emuuid\030\002 \001(\004\022\020\n\010herouuid\030\003 \001(\004\"\034\n\016MsgVie"
-      "wMailReq\022\n\n\002id\030\001 \001(\004\"\036\n\020MsgDeleteMailReq"
-      "\022\n\n\002id\030\001 \001(\004\"\021\n\017MsgQueryMailReq\"\036\n\020MsgMa"
-      "ilRewardReq\022\n\n\002id\030\001 \001(\004\"M\n\016MsgBuyStoreRe"
-      "q\022\017\n\007version\030\001 \001(\014\022\017\n\007buytype\030\002 \001(\014\022\n\n\002i"
-      "d\030\003 \001(\r\022\r\n\005count\030\004 \001(\r\"#\n\020MsgQueryStoreR"
-      "eq\022\017\n\007version\030\001 \001(\014\"1\n\020MsgQueryStoreAck\022"
-      "\017\n\007version\030\001 \001(\014\022\014\n\004data\030\002 \001(\014\"$\n\023MsgApp"
-      "lyPayOrderReq\022\r\n\005payid\030\001 \001(\t\"3\n\023MsgApply"
-      "PayOrderAck\022\r\n\005payid\030\001 \001(\t\022\r\n\005order\030\002 \001("
-      "\t\"\?\n\017MsgPayResultReq\022\r\n\005payid\030\001 \001(\t\022\r\n\005o"
-      "rder\030\002 \001(\t\022\016\n\006result\030\003 \001(\010\"\020\n\016MsgQueryPa"
-      "yReq\"%\n\023MsgQueryRankListReq\022\016\n\006rankid\030\001 "
-      "\001(\r\"L\n\023MsgQueryRankListAck\022\016\n\006rankid\030\001 \001"
-      "(\r\022%\n\trankdatas\030\002 \001(\0132\022.KFMsg.PBRankData"
-      "s\"+\n\031MsgQueryFriendRankListReq\022\016\n\006rankid"
-      "\030\001 \001(\r\"R\n\031MsgQueryFriendRankListAck\022\016\n\006r"
-      "ankid\030\001 \001(\r\022%\n\trankdatas\030\002 \001(\0132\022.KFMsg.P"
-      "BRankDatas\"\\\n\021MsgAddRelationReq\022\020\n\010datan"
-      "ame\030\001 \001(\014\022\022\n\nplayername\030\002 \001(\014\022\020\n\010playeri"
-      "d\030\003 \001(\004\022\017\n\007message\030\004 \001(\014\"7\n\021MsgDelRelati"
-      "onReq\022\020\n\010dataname\030\001 \001(\014\022\020\n\010playerid\030\002 \001("
-      "\004\"P\n\031MsgReplyRelationInviteReq\022\020\n\010datana"
-      "me\030\001 \001(\014\022\020\n\010playerid\030\002 \001(\004\022\017\n\007operate\030\003 "
-      "\001(\r\"A\n\035MsgSetRefuseRelationInviteReq\022\020\n\010"
-      "dataname\030\001 \001(\014\022\016\n\006refuse\030\002 \001(\r\"\037\n\021MsgTas"
-      "kReceiveReq\022\n\n\002id\030\001 \001(\r\"\036\n\020MsgTaskReward"
-      "Req\022\n\n\002id\030\001 \001(\r\"\036\n\020MsgTaskRemoveReq\022\n\n\002i"
-      "d\030\001 \001(\r*\337\014\n\023FrameClientProtocol\022\032\n\026MSG_F"
-      "RAME_CLIENT_BEGIN\020\000\022\026\n\022MSG_RESULT_DISPLA"
-      "Y\020\001\022\023\n\017MSG_COMMAND_REQ\020\002\022\023\n\017MSG_TELL_NOT"
-      "ICE\020\003\022\027\n\023MSG_DEBUG_SHOW_DROP\020c\022\021\n\rMSG_LO"
-      "GIN_REQ\020d\022\021\n\rMSG_LOGIN_ACK\020e\022\022\n\016MSG_LOGO"
-      "UT_REQ\020f\022\022\n\016MSG_LOGOUT_ACK\020g\022\024\n\020MSG_TELL"
-      "_BE_KICK\020h\022\025\n\021MSG_TELL_SHUTDOWN\020i\022\031\n\024MSG"
-      "_SYNC_UPDATE_DATA\020\311\001\022\026\n\021MSG_SYNC_ADD_DAT"
-      "A\020\312\001\022\031\n\024MSG_SYNC_REMOVE_DATA\020\313\001\022\030\n\023MSG_R"
-      "EMOVE_DATA_REQ\020\314\001\022\031\n\024MSG_QUERY_PLAYER_RE"
-      "Q\020\315\001\022\031\n\024MSG_QUERY_PLAYER_ACK\020\316\001\022\030\n\023MSG_Q"
-      "UERY_BASIC_REQ\020\317\001\022\030\n\023MSG_QUERY_BASIC_ACK"
-      "\020\320\001\022\025\n\020MSG_SHOW_ELEMENT\020\321\001\022\031\n\024MSG_REQUES"
-      "T_SYNC_REQ\020\322\001\022\030\n\023MSG_CANCEL_SYNC_REQ\020\323\001\022"
-      "\025\n\020MSG_SET_NAME_REQ\020\254\002\022\024\n\017MSG_SET_SEX_RE"
-      "Q\020\255\002\022\033\n\026MSG_ACHIEVE_REWARD_REQ\020\256\002\022\034\n\027MSG"
-      "_ACTIVITY_REWARD_REQ\020\260\002\022\025\n\020MSG_COMPOUND_"
-      "REQ\020\261\002\022 \n\033MSG_SEVEN_SIGNIN_REWARD_REQ\020\263\002"
-      "\022\027\n\022MSG_SPLIT_ITEM_REQ\020\221\003\022\027\n\022MSG_MERGE_I"
-      "TEM_REQ\020\222\003\022\025\n\020MSG_USE_ITEM_REQ\020\223\003\022\026\n\021MSG"
-      "_MOVE_ITEM_REQ\020\224\003\022\032\n\025MSG_EXCHANGE_ITEM_R"
-      "EQ\020\225\003\022\027\n\022MSG_CLEAN_ITEM_REQ\020\226\003\022\026\n\021MSG_SO"
-      "RT_ITEM_REQ\020\227\003\022\030\n\023MSG_REMOVE_ITEM_REQ\020\230\003"
-      "\022\032\n\025MSG_MOVE_ALL_ITEM_REQ\020\231\003\022\036\n\031MSG_REMO"
-      "VE_ITEM_COUNT_REQ\020\232\003\022\035\n\030MSG_USE_ITEM_TO_"
-      "HERO_REQ\020\303\003\022\026\n\021MSG_VIEW_MAIL_REQ\020\365\003\022\030\n\023M"
-      "SG_DELETE_MAIL_REQ\020\366\003\022\027\n\022MSG_QUERY_MAIL_"
-      "REQ\020\367\003\022\030\n\023MSG_MAIL_REWARD_REQ\020\370\003\022\026\n\021MSG_"
-      "BUY_STORE_REQ\020\377\003\022\030\n\023MSG_QUERY_STORE_REQ\020"
-      "\200\004\022\030\n\023MSG_QUERY_STORE_ACK\020\201\004\022\034\n\027MSG_APPL"
-      "Y_PAY_ORDER_REQ\020\223\004\022\034\n\027MSG_APPLY_PAY_ORDE"
-      "R_ACK\020\224\004\022\027\n\022MSG_PAY_RESULT_REQ\020\225\004\022\026\n\021MSG"
-      "_QUERY_PAY_REQ\020\226\004\022\031\n\024MSG_ADD_RELATION_RE"
-      "Q\020\247\004\022\031\n\024MSG_DEL_RELATION_REQ\020\250\004\022\"\n\035MSG_R"
-      "EPLY_RELATION_INVITE_REQ\020\251\004\022\'\n\"MSG_SET_R"
-      "EFUSE_RELATION_INVITE_REQ\020\252\004\022\034\n\027MSG_QUER"
-      "Y_RANK_LIST_REQ\020\273\004\022\034\n\027MSG_QUERY_RANK_LIS"
-      "T_ACK\020\274\004\022#\n\036MSG_QUERY_FRIEND_RANK_LIST_R"
-      "EQ\020\275\004\022#\n\036MSG_QUERY_FRIEND_RANK_LIST_ACK\020"
-      "\276\004\022\031\n\024MSG_TASK_RECEIVE_REQ\020\330\004\022\030\n\023MSG_TAS"
-      "K_REWARD_REQ\020\331\004\022\030\n\023MSG_TASK_REMOVE_REQ\020\332"
-      "\004b\006proto3"
+      "\030\001 \001(\0132\017.KFMsg.PBObject\"9\n\016MsgShowElemen"
+      "t\022\'\n\010elements\030\001 \001(\0132\025.KFMsg.PBShowElemen"
+      "ts\"1\n\020MsgRemoveDataReq\022\020\n\010dataname\030\001 \001(\014"
+      "\022\013\n\003key\030\002 \001(\004\"%\n\021MsgRequestSyncReq\022\020\n\010da"
+      "taname\030\001 \001(\014\"$\n\020MsgCancelSyncReq\022\020\n\010data"
+      "name\030\001 \001(\014\" \n\020MsgQueryBasicReq\022\014\n\004name\030\001"
+      " \001(\014\"3\n\020MsgQueryBasicAck\022\037\n\006player\030\001 \001(\013"
+      "2\017.KFMsg.PBObject\"%\n\021MsgQueryPlayerReq\022\020"
+      "\n\010playerid\030\001 \001(\004\"4\n\021MsgQueryPlayerAck\022\037\n"
+      "\006player\030\001 \001(\0132\017.KFMsg.PBObject\"\035\n\rMsgSet"
+      "NameReq\022\014\n\004name\030\001 \001(\014\"\033\n\014MsgSetSexReq\022\013\n"
+      "\003sex\030\001 \001(\r\"\034\n\016MsgCompoundReq\022\n\n\002id\030\001 \001(\r"
+      "\"!\n\023MsgAchieveRewardReq\022\n\n\002id\030\001 \001(\r\"0\n\024M"
+      "sgActivityRewardReq\022\014\n\004type\030\001 \001(\r\022\n\n\002id\030"
+      "\002 \001(\r\"&\n\027MsgSevenSignInRewardReq\022\013\n\003day\030"
+      "\001 \001(\r\"w\n\017MsgSplitItemReq\022\022\n\nsourcename\030\001"
+      " \001(\014\022\022\n\nsourceuuid\030\002 \001(\004\022\023\n\013sourcecount\030"
+      "\003 \001(\r\022\022\n\ntargetname\030\004 \001(\014\022\023\n\013targetindex"
+      "\030\005 \001(\r\"a\n\017MsgMergeItemReq\022\022\n\nsourcename\030"
+      "\001 \001(\014\022\022\n\nsourceuuid\030\002 \001(\004\022\022\n\ntargetname\030"
+      "\003 \001(\014\022\022\n\ntargetuuid\030\004 \001(\004\"r\n\016MsgMoveItem"
+      "Req\022\022\n\nsourcename\030\001 \001(\014\022\022\n\nsourceuuid\030\002 "
+      "\001(\004\022\022\n\ntargetname\030\003 \001(\014\022\023\n\013targetindex\030\004"
+      " \001(\r\022\017\n\007tabname\030\005 \001(\014\";\n\021MsgMoveAllItemR"
+      "eq\022\022\n\nsourcename\030\001 \001(\014\022\022\n\ntargetname\030\002 \001"
+      "(\014\"d\n\022MsgExchangeItemReq\022\022\n\nsourcename\030\001"
+      " \001(\014\022\022\n\nsourceuuid\030\002 \001(\004\022\022\n\ntargetname\030\003"
+      " \001(\014\022\022\n\ntargetuuid\030\004 \001(\004\"%\n\017MsgCleanItem"
+      "Req\022\022\n\nsourcename\030\001 \001(\014\"2\n\016MsgSortItemRe"
+      "q\022\017\n\007bagname\030\001 \001(\014\022\017\n\007tabname\030\002 \001(\014\"4\n\020M"
+      "sgRemoveItemReq\022\022\n\nsourcename\030\001 \001(\014\022\014\n\004u"
+      "uid\030\002 \001(\004\"6\n\025MsgRemoveItemCountReq\022\016\n\006it"
+      "emid\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\"+\n\rMsgUseItemR"
+      "eq\022\014\n\004name\030\001 \001(\014\022\014\n\004uuid\030\002 \001(\004\"G\n\023MsgUse"
+      "ItemToHeroReq\022\014\n\004name\030\001 \001(\014\022\020\n\010itemuuid\030"
+      "\002 \001(\004\022\020\n\010herouuid\030\003 \001(\004\"\034\n\016MsgViewMailRe"
+      "q\022\n\n\002id\030\001 \001(\004\"\036\n\020MsgDeleteMailReq\022\n\n\002id\030"
+      "\001 \001(\004\"\021\n\017MsgQueryMailReq\"\036\n\020MsgMailRewar"
+      "dReq\022\n\n\002id\030\001 \001(\004\"I\n\023MsgStoreBuyGoodsReq\022"
+      "\017\n\007storeid\030\001 \001(\r\022\017\n\007goodsid\030\002 \001(\r\022\020\n\010buy"
+      "count\030\003 \001(\r\":\n\022MsgStoreRefreshReq\022\017\n\007sto"
+      "reid\030\001 \001(\r\022\023\n\013refreshtype\030\002 \001(\r\"$\n\023MsgAp"
+      "plyPayOrderReq\022\r\n\005payid\030\001 \001(\t\"3\n\023MsgAppl"
+      "yPayOrderAck\022\r\n\005payid\030\001 \001(\t\022\r\n\005order\030\002 \001"
+      "(\t\"\?\n\017MsgPayResultReq\022\r\n\005payid\030\001 \001(\t\022\r\n\005"
+      "order\030\002 \001(\t\022\016\n\006result\030\003 \001(\010\"\020\n\016MsgQueryP"
+      "ayReq\"%\n\023MsgQueryRankListReq\022\016\n\006rankid\030\001"
+      " \001(\r\"L\n\023MsgQueryRankListAck\022\016\n\006rankid\030\001 "
+      "\001(\r\022%\n\trankdatas\030\002 \001(\0132\022.KFMsg.PBRankDat"
+      "as\"+\n\031MsgQueryFriendRankListReq\022\016\n\006ranki"
+      "d\030\001 \001(\r\"R\n\031MsgQueryFriendRankListAck\022\016\n\006"
+      "rankid\030\001 \001(\r\022%\n\trankdatas\030\002 \001(\0132\022.KFMsg."
+      "PBRankDatas\"`\n\021MsgAddRelationReq\022\024\n\014rela"
+      "tionname\030\001 \001(\014\022\022\n\nplayername\030\002 \001(\014\022\020\n\010pl"
+      "ayerid\030\003 \001(\004\022\017\n\007message\030\004 \001(\014\";\n\021MsgDelR"
+      "elationReq\022\024\n\014relationname\030\001 \001(\014\022\020\n\010play"
+      "erid\030\002 \001(\004\"T\n\031MsgReplyRelationInviteReq\022"
+      "\024\n\014relationname\030\001 \001(\014\022\020\n\010playerid\030\002 \001(\004\022"
+      "\017\n\007operate\030\003 \001(\r\"C\n\035MsgSetRefuseRelation"
+      "InviteReq\022\022\n\nrefusename\030\001 \001(\014\022\016\n\006refuse\030"
+      "\002 \001(\r\"\037\n\021MsgTaskReceiveReq\022\n\n\002id\030\001 \001(\r\"\036"
+      "\n\020MsgTaskRewardReq\022\n\n\002id\030\001 \001(\r\"\036\n\020MsgTas"
+      "kRemoveReq\022\n\n\002id\030\001 \001(\r\"\033\n\rMsgTaskAddReq\022"
+      "\n\n\002id\030\001 \001(\r*\344\014\n\023FrameClientProtocol\022\032\n\026M"
+      "SG_FRAME_CLIENT_BEGIN\020\000\022\026\n\022MSG_RESULT_DI"
+      "SPLAY\020\001\022\023\n\017MSG_COMMAND_REQ\020\002\022\023\n\017MSG_TELL"
+      "_NOTICE\020\003\022\027\n\023MSG_DEBUG_SHOW_DROP\020c\022\021\n\rMS"
+      "G_LOGIN_REQ\020d\022\021\n\rMSG_LOGIN_ACK\020e\022\022\n\016MSG_"
+      "LOGOUT_REQ\020f\022\022\n\016MSG_LOGOUT_ACK\020g\022\024\n\020MSG_"
+      "TELL_BE_KICK\020h\022\025\n\021MSG_TELL_SHUTDOWN\020i\022\031\n"
+      "\024MSG_SYNC_UPDATE_DATA\020\311\001\022\026\n\021MSG_SYNC_ADD"
+      "_DATA\020\312\001\022\031\n\024MSG_SYNC_REMOVE_DATA\020\313\001\022\030\n\023M"
+      "SG_REMOVE_DATA_REQ\020\314\001\022\031\n\024MSG_QUERY_PLAYE"
+      "R_REQ\020\315\001\022\031\n\024MSG_QUERY_PLAYER_ACK\020\316\001\022\030\n\023M"
+      "SG_QUERY_BASIC_REQ\020\317\001\022\030\n\023MSG_QUERY_BASIC"
+      "_ACK\020\320\001\022\025\n\020MSG_SHOW_ELEMENT\020\321\001\022\031\n\024MSG_RE"
+      "QUEST_SYNC_REQ\020\322\001\022\030\n\023MSG_CANCEL_SYNC_REQ"
+      "\020\323\001\022\025\n\020MSG_SET_NAME_REQ\020\254\002\022\024\n\017MSG_SET_SE"
+      "X_REQ\020\255\002\022\033\n\026MSG_ACHIEVE_REWARD_REQ\020\256\002\022\034\n"
+      "\027MSG_ACTIVITY_REWARD_REQ\020\260\002\022\025\n\020MSG_COMPO"
+      "UND_REQ\020\261\002\022 \n\033MSG_SEVEN_SIGNIN_REWARD_RE"
+      "Q\020\263\002\022\027\n\022MSG_SPLIT_ITEM_REQ\020\221\003\022\027\n\022MSG_MER"
+      "GE_ITEM_REQ\020\222\003\022\025\n\020MSG_USE_ITEM_REQ\020\223\003\022\026\n"
+      "\021MSG_MOVE_ITEM_REQ\020\224\003\022\032\n\025MSG_EXCHANGE_IT"
+      "EM_REQ\020\225\003\022\027\n\022MSG_CLEAN_ITEM_REQ\020\226\003\022\026\n\021MS"
+      "G_SORT_ITEM_REQ\020\227\003\022\030\n\023MSG_REMOVE_ITEM_RE"
+      "Q\020\230\003\022\032\n\025MSG_MOVE_ALL_ITEM_REQ\020\231\003\022\036\n\031MSG_"
+      "REMOVE_ITEM_COUNT_REQ\020\232\003\022\035\n\030MSG_USE_ITEM"
+      "_TO_HERO_REQ\020\303\003\022\026\n\021MSG_VIEW_MAIL_REQ\020\365\003\022"
+      "\030\n\023MSG_DELETE_MAIL_REQ\020\366\003\022\027\n\022MSG_QUERY_M"
+      "AIL_REQ\020\367\003\022\030\n\023MSG_MAIL_REWARD_REQ\020\370\003\022\034\n\027"
+      "MSG_STORE_BUY_GOODS_REQ\020\377\003\022\032\n\025MSG_STORE_"
+      "REFRESH_REQ\020\200\004\022\034\n\027MSG_APPLY_PAY_ORDER_RE"
+      "Q\020\223\004\022\034\n\027MSG_APPLY_PAY_ORDER_ACK\020\224\004\022\027\n\022MS"
+      "G_PAY_RESULT_REQ\020\225\004\022\026\n\021MSG_QUERY_PAY_REQ"
+      "\020\226\004\022\031\n\024MSG_ADD_RELATION_REQ\020\247\004\022\031\n\024MSG_DE"
+      "L_RELATION_REQ\020\250\004\022\"\n\035MSG_REPLY_RELATION_"
+      "INVITE_REQ\020\251\004\022\'\n\"MSG_SET_REFUSE_RELATION"
+      "_INVITE_REQ\020\252\004\022\034\n\027MSG_QUERY_RANK_LIST_RE"
+      "Q\020\273\004\022\034\n\027MSG_QUERY_RANK_LIST_ACK\020\274\004\022#\n\036MS"
+      "G_QUERY_FRIEND_RANK_LIST_REQ\020\275\004\022#\n\036MSG_Q"
+      "UERY_FRIEND_RANK_LIST_ACK\020\276\004\022\031\n\024MSG_TASK"
+      "_RECEIVE_REQ\020\330\004\022\030\n\023MSG_TASK_REWARD_REQ\020\331"
+      "\004\022\030\n\023MSG_TASK_REMOVE_REQ\020\332\004\022\025\n\020MSG_TASK_"
+      "ADD_REQ\020\333\004b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 4889);
+      descriptor, 4938);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "FrameClientMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -2030,7 +2032,6 @@ bool FrameClientProtocol_IsValid(int value) {
     case 504:
     case 511:
     case 512:
-    case 513:
     case 531:
     case 532:
     case 533:
@@ -2046,6 +2047,7 @@ bool FrameClientProtocol_IsValid(int value) {
     case 600:
     case 601:
     case 602:
+    case 603:
       return true;
     default:
       return false;
@@ -5597,17 +5599,17 @@ void MsgSyncRemoveData::InternalSwap(MsgSyncRemoveData* other) {
 // ===================================================================
 
 void MsgShowElement::InitAsDefaultInstance() {
-  ::KFMsg::_MsgShowElement_default_instance_._instance.get_mutable()->element_ = const_cast< ::KFMsg::PBShowElement*>(
-      ::KFMsg::PBShowElement::internal_default_instance());
+  ::KFMsg::_MsgShowElement_default_instance_._instance.get_mutable()->elements_ = const_cast< ::KFMsg::PBShowElements*>(
+      ::KFMsg::PBShowElements::internal_default_instance());
 }
-void MsgShowElement::clear_element() {
-  if (GetArenaNoVirtual() == NULL && element_ != NULL) {
-    delete element_;
+void MsgShowElement::clear_elements() {
+  if (GetArenaNoVirtual() == NULL && elements_ != NULL) {
+    delete elements_;
   }
-  element_ = NULL;
+  elements_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgShowElement::kElementFieldNumber;
+const int MsgShowElement::kElementsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MsgShowElement::MsgShowElement()
@@ -5621,16 +5623,16 @@ MsgShowElement::MsgShowElement(const MsgShowElement& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_element()) {
-    element_ = new ::KFMsg::PBShowElement(*from.element_);
+  if (from.has_elements()) {
+    elements_ = new ::KFMsg::PBShowElements(*from.elements_);
   } else {
-    element_ = NULL;
+    elements_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:KFMsg.MsgShowElement)
 }
 
 void MsgShowElement::SharedCtor() {
-  element_ = NULL;
+  elements_ = NULL;
 }
 
 MsgShowElement::~MsgShowElement() {
@@ -5639,7 +5641,7 @@ MsgShowElement::~MsgShowElement() {
 }
 
 void MsgShowElement::SharedDtor() {
-  if (this != internal_default_instance()) delete element_;
+  if (this != internal_default_instance()) delete elements_;
 }
 
 void MsgShowElement::SetCachedSize(int size) const {
@@ -5662,10 +5664,10 @@ void MsgShowElement::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == NULL && element_ != NULL) {
-    delete element_;
+  if (GetArenaNoVirtual() == NULL && elements_ != NULL) {
+    delete elements_;
   }
-  element_ = NULL;
+  elements_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -5679,12 +5681,12 @@ bool MsgShowElement::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .KFMsg.PBShowElement element = 1;
+      // .KFMsg.PBShowElements elements = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_element()));
+               input, mutable_elements()));
         } else {
           goto handle_unusual;
         }
@@ -5717,10 +5719,10 @@ void MsgShowElement::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .KFMsg.PBShowElement element = 1;
-  if (this->has_element()) {
+  // .KFMsg.PBShowElements elements = 1;
+  if (this->has_elements()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->_internal_element(), output);
+      1, this->_internal_elements(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5737,11 +5739,11 @@ void MsgShowElement::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .KFMsg.PBShowElement element = 1;
-  if (this->has_element()) {
+  // .KFMsg.PBShowElements elements = 1;
+  if (this->has_elements()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->_internal_element(), deterministic, target);
+        1, this->_internal_elements(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5761,11 +5763,11 @@ size_t MsgShowElement::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .KFMsg.PBShowElement element = 1;
-  if (this->has_element()) {
+  // .KFMsg.PBShowElements elements = 1;
+  if (this->has_elements()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *element_);
+        *elements_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -5795,8 +5797,8 @@ void MsgShowElement::MergeFrom(const MsgShowElement& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_element()) {
-    mutable_element()->::KFMsg::PBShowElement::MergeFrom(from.element());
+  if (from.has_elements()) {
+    mutable_elements()->::KFMsg::PBShowElements::MergeFrom(from.elements());
   }
 }
 
@@ -5824,7 +5826,7 @@ void MsgShowElement::Swap(MsgShowElement* other) {
 }
 void MsgShowElement::InternalSwap(MsgShowElement* other) {
   using std::swap;
-  swap(element_, other->element_);
+  swap(elements_, other->elements_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -9642,6 +9644,7 @@ const int MsgMoveItemReq::kSourcenameFieldNumber;
 const int MsgMoveItemReq::kSourceuuidFieldNumber;
 const int MsgMoveItemReq::kTargetnameFieldNumber;
 const int MsgMoveItemReq::kTargetindexFieldNumber;
+const int MsgMoveItemReq::kTabnameFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MsgMoveItemReq::MsgMoveItemReq()
@@ -9663,6 +9666,10 @@ MsgMoveItemReq::MsgMoveItemReq(const MsgMoveItemReq& from)
   if (from.targetname().size() > 0) {
     targetname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.targetname_);
   }
+  tabname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.tabname().size() > 0) {
+    tabname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tabname_);
+  }
   ::memcpy(&sourceuuid_, &from.sourceuuid_,
     static_cast<size_t>(reinterpret_cast<char*>(&targetindex_) -
     reinterpret_cast<char*>(&sourceuuid_)) + sizeof(targetindex_));
@@ -9672,6 +9679,7 @@ MsgMoveItemReq::MsgMoveItemReq(const MsgMoveItemReq& from)
 void MsgMoveItemReq::SharedCtor() {
   sourcename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   targetname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tabname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&sourceuuid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&targetindex_) -
       reinterpret_cast<char*>(&sourceuuid_)) + sizeof(targetindex_));
@@ -9685,6 +9693,7 @@ MsgMoveItemReq::~MsgMoveItemReq() {
 void MsgMoveItemReq::SharedDtor() {
   sourcename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   targetname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tabname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MsgMoveItemReq::SetCachedSize(int size) const {
@@ -9709,6 +9718,7 @@ void MsgMoveItemReq::Clear() {
 
   sourcename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   targetname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tabname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&sourceuuid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&targetindex_) -
       reinterpret_cast<char*>(&sourceuuid_)) + sizeof(targetindex_));
@@ -9777,6 +9787,18 @@ bool MsgMoveItemReq::MergePartialFromCodedStream(
         break;
       }
 
+      // bytes tabname = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_tabname()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -9825,6 +9847,12 @@ void MsgMoveItemReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->targetindex(), output);
   }
 
+  // bytes tabname = 5;
+  if (this->tabname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      5, this->tabname(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -9863,6 +9891,13 @@ void MsgMoveItemReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->targetindex(), target);
   }
 
+  // bytes tabname = 5;
+  if (this->tabname().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        5, this->tabname(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -9892,6 +9927,13 @@ size_t MsgMoveItemReq::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->targetname());
+  }
+
+  // bytes tabname = 5;
+  if (this->tabname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->tabname());
   }
 
   // uint64 sourceuuid = 2;
@@ -9943,6 +9985,10 @@ void MsgMoveItemReq::MergeFrom(const MsgMoveItemReq& from) {
 
     targetname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.targetname_);
   }
+  if (from.tabname().size() > 0) {
+
+    tabname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tabname_);
+  }
   if (from.sourceuuid() != 0) {
     set_sourceuuid(from.sourceuuid());
   }
@@ -9978,6 +10024,8 @@ void MsgMoveItemReq::InternalSwap(MsgMoveItemReq* other) {
   sourcename_.Swap(&other->sourcename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   targetname_.Swap(&other->targetname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  tabname_.Swap(&other->tabname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(sourceuuid_, other->sourceuuid_);
   swap(targetindex_, other->targetindex_);
@@ -10858,7 +10906,8 @@ void MsgCleanItemReq::InternalSwap(MsgCleanItemReq* other) {
 void MsgSortItemReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgSortItemReq::kSourcenameFieldNumber;
+const int MsgSortItemReq::kBagnameFieldNumber;
+const int MsgSortItemReq::kTabnameFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 MsgSortItemReq::MsgSortItemReq()
@@ -10870,13 +10919,22 @@ MsgSortItemReq::MsgSortItemReq()
 }
 MsgSortItemReq::MsgSortItemReq(const MsgSortItemReq& from)
   : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      sourcename_(from.sourcename_) {
+      _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  bagname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.bagname().size() > 0) {
+    bagname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bagname_);
+  }
+  tabname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.tabname().size() > 0) {
+    tabname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tabname_);
+  }
   // @@protoc_insertion_point(copy_constructor:KFMsg.MsgSortItemReq)
 }
 
 void MsgSortItemReq::SharedCtor() {
+  bagname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tabname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 MsgSortItemReq::~MsgSortItemReq() {
@@ -10885,6 +10943,8 @@ MsgSortItemReq::~MsgSortItemReq() {
 }
 
 void MsgSortItemReq::SharedDtor() {
+  bagname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tabname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MsgSortItemReq::SetCachedSize(int size) const {
@@ -10907,7 +10967,8 @@ void MsgSortItemReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  sourcename_.Clear();
+  bagname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  tabname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -10921,12 +10982,24 @@ bool MsgSortItemReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated bytes sourcename = 1;
+      // bytes bagname = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->add_sourcename()));
+                input, this->mutable_bagname()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes tabname = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_tabname()));
         } else {
           goto handle_unusual;
         }
@@ -10959,10 +11032,16 @@ void MsgSortItemReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated bytes sourcename = 1;
-  for (int i = 0, n = this->sourcename_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      1, this->sourcename(i), output);
+  // bytes bagname = 1;
+  if (this->bagname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->bagname(), output);
+  }
+
+  // bytes tabname = 2;
+  if (this->tabname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->tabname(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -10979,10 +11058,18 @@ void MsgSortItemReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated bytes sourcename = 1;
-  for (int i = 0, n = this->sourcename_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteBytesToArray(1, this->sourcename(i), target);
+  // bytes bagname = 1;
+  if (this->bagname().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->bagname(), target);
+  }
+
+  // bytes tabname = 2;
+  if (this->tabname().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->tabname(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -11002,12 +11089,18 @@ size_t MsgSortItemReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated bytes sourcename = 1;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->sourcename_size());
-  for (int i = 0, n = this->sourcename_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
-      this->sourcename(i));
+  // bytes bagname = 1;
+  if (this->bagname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->bagname());
+  }
+
+  // bytes tabname = 2;
+  if (this->tabname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->tabname());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -11037,7 +11130,14 @@ void MsgSortItemReq::MergeFrom(const MsgSortItemReq& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  sourcename_.MergeFrom(from.sourcename_);
+  if (from.bagname().size() > 0) {
+
+    bagname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.bagname_);
+  }
+  if (from.tabname().size() > 0) {
+
+    tabname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.tabname_);
+  }
 }
 
 void MsgSortItemReq::CopyFrom(const ::google::protobuf::Message& from) {
@@ -11064,7 +11164,10 @@ void MsgSortItemReq::Swap(MsgSortItemReq* other) {
 }
 void MsgSortItemReq::InternalSwap(MsgSortItemReq* other) {
   using std::swap;
-  sourcename_.InternalSwap(CastToBase(&other->sourcename_));
+  bagname_.Swap(&other->bagname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  tabname_.Swap(&other->tabname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -13038,690 +13141,403 @@ void MsgMailRewardReq::InternalSwap(MsgMailRewardReq* other) {
 
 // ===================================================================
 
-void MsgBuyStoreReq::InitAsDefaultInstance() {
+void MsgStoreBuyGoodsReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgBuyStoreReq::kVersionFieldNumber;
-const int MsgBuyStoreReq::kBuytypeFieldNumber;
-const int MsgBuyStoreReq::kIdFieldNumber;
-const int MsgBuyStoreReq::kCountFieldNumber;
+const int MsgStoreBuyGoodsReq::kStoreidFieldNumber;
+const int MsgStoreBuyGoodsReq::kGoodsidFieldNumber;
+const int MsgStoreBuyGoodsReq::kBuycountFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-MsgBuyStoreReq::MsgBuyStoreReq()
+MsgStoreBuyGoodsReq::MsgStoreBuyGoodsReq()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_FrameClientMessage_2eproto::scc_info_MsgBuyStoreReq.base);
+      &protobuf_FrameClientMessage_2eproto::scc_info_MsgStoreBuyGoodsReq.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:KFMsg.MsgBuyStoreReq)
+  // @@protoc_insertion_point(constructor:KFMsg.MsgStoreBuyGoodsReq)
 }
-MsgBuyStoreReq::MsgBuyStoreReq(const MsgBuyStoreReq& from)
+MsgStoreBuyGoodsReq::MsgStoreBuyGoodsReq(const MsgStoreBuyGoodsReq& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.version().size() > 0) {
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-  buytype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.buytype().size() > 0) {
-    buytype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.buytype_);
-  }
-  ::memcpy(&id_, &from.id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&count_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(count_));
-  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgBuyStoreReq)
+  ::memcpy(&storeid_, &from.storeid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&buycount_) -
+    reinterpret_cast<char*>(&storeid_)) + sizeof(buycount_));
+  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgStoreBuyGoodsReq)
 }
 
-void MsgBuyStoreReq::SharedCtor() {
-  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  buytype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&count_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(count_));
+void MsgStoreBuyGoodsReq::SharedCtor() {
+  ::memset(&storeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&buycount_) -
+      reinterpret_cast<char*>(&storeid_)) + sizeof(buycount_));
 }
 
-MsgBuyStoreReq::~MsgBuyStoreReq() {
-  // @@protoc_insertion_point(destructor:KFMsg.MsgBuyStoreReq)
+MsgStoreBuyGoodsReq::~MsgStoreBuyGoodsReq() {
+  // @@protoc_insertion_point(destructor:KFMsg.MsgStoreBuyGoodsReq)
   SharedDtor();
 }
 
-void MsgBuyStoreReq::SharedDtor() {
-  version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  buytype_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void MsgStoreBuyGoodsReq::SharedDtor() {
 }
 
-void MsgBuyStoreReq::SetCachedSize(int size) const {
+void MsgStoreBuyGoodsReq::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* MsgBuyStoreReq::descriptor() {
+const ::google::protobuf::Descriptor* MsgStoreBuyGoodsReq::descriptor() {
   ::protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const MsgBuyStoreReq& MsgBuyStoreReq::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_FrameClientMessage_2eproto::scc_info_MsgBuyStoreReq.base);
+const MsgStoreBuyGoodsReq& MsgStoreBuyGoodsReq::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_FrameClientMessage_2eproto::scc_info_MsgStoreBuyGoodsReq.base);
   return *internal_default_instance();
 }
 
 
-void MsgBuyStoreReq::Clear() {
-// @@protoc_insertion_point(message_clear_start:KFMsg.MsgBuyStoreReq)
+void MsgStoreBuyGoodsReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:KFMsg.MsgStoreBuyGoodsReq)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  buytype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&count_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(count_));
+  ::memset(&storeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&buycount_) -
+      reinterpret_cast<char*>(&storeid_)) + sizeof(buycount_));
   _internal_metadata_.Clear();
 }
 
-bool MsgBuyStoreReq::MergePartialFromCodedStream(
+bool MsgStoreBuyGoodsReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:KFMsg.MsgBuyStoreReq)
+  // @@protoc_insertion_point(parse_start:KFMsg.MsgStoreBuyGoodsReq)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes version = 1;
+      // uint32 storeid = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_version()));
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &storeid_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // bytes buytype = 2;
+      // uint32 goodsid = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_buytype()));
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &goodsid_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // uint32 id = 3;
+      // uint32 buycount = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &id_)));
+                 input, &buycount_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // uint32 count = 4;
-      case 4: {
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:KFMsg.MsgStoreBuyGoodsReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:KFMsg.MsgStoreBuyGoodsReq)
+  return false;
+#undef DO_
+}
+
+void MsgStoreBuyGoodsReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:KFMsg.MsgStoreBuyGoodsReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 storeid = 1;
+  if (this->storeid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->storeid(), output);
+  }
+
+  // uint32 goodsid = 2;
+  if (this->goodsid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->goodsid(), output);
+  }
+
+  // uint32 buycount = 3;
+  if (this->buycount() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->buycount(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:KFMsg.MsgStoreBuyGoodsReq)
+}
+
+::google::protobuf::uint8* MsgStoreBuyGoodsReq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgStoreBuyGoodsReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 storeid = 1;
+  if (this->storeid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->storeid(), target);
+  }
+
+  // uint32 goodsid = 2;
+  if (this->goodsid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->goodsid(), target);
+  }
+
+  // uint32 buycount = 3;
+  if (this->buycount() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->buycount(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgStoreBuyGoodsReq)
+  return target;
+}
+
+size_t MsgStoreBuyGoodsReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgStoreBuyGoodsReq)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 storeid = 1;
+  if (this->storeid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->storeid());
+  }
+
+  // uint32 goodsid = 2;
+  if (this->goodsid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->goodsid());
+  }
+
+  // uint32 buycount = 3;
+  if (this->buycount() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->buycount());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MsgStoreBuyGoodsReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgStoreBuyGoodsReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MsgStoreBuyGoodsReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MsgStoreBuyGoodsReq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgStoreBuyGoodsReq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgStoreBuyGoodsReq)
+    MergeFrom(*source);
+  }
+}
+
+void MsgStoreBuyGoodsReq::MergeFrom(const MsgStoreBuyGoodsReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgStoreBuyGoodsReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.storeid() != 0) {
+    set_storeid(from.storeid());
+  }
+  if (from.goodsid() != 0) {
+    set_goodsid(from.goodsid());
+  }
+  if (from.buycount() != 0) {
+    set_buycount(from.buycount());
+  }
+}
+
+void MsgStoreBuyGoodsReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgStoreBuyGoodsReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgStoreBuyGoodsReq::CopyFrom(const MsgStoreBuyGoodsReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgStoreBuyGoodsReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgStoreBuyGoodsReq::IsInitialized() const {
+  return true;
+}
+
+void MsgStoreBuyGoodsReq::Swap(MsgStoreBuyGoodsReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgStoreBuyGoodsReq::InternalSwap(MsgStoreBuyGoodsReq* other) {
+  using std::swap;
+  swap(storeid_, other->storeid_);
+  swap(goodsid_, other->goodsid_);
+  swap(buycount_, other->buycount_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MsgStoreBuyGoodsReq::GetMetadata() const {
+  protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MsgStoreRefreshReq::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MsgStoreRefreshReq::kStoreidFieldNumber;
+const int MsgStoreRefreshReq::kRefreshtypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MsgStoreRefreshReq::MsgStoreRefreshReq()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_FrameClientMessage_2eproto::scc_info_MsgStoreRefreshReq.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:KFMsg.MsgStoreRefreshReq)
+}
+MsgStoreRefreshReq::MsgStoreRefreshReq(const MsgStoreRefreshReq& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&storeid_, &from.storeid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&refreshtype_) -
+    reinterpret_cast<char*>(&storeid_)) + sizeof(refreshtype_));
+  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgStoreRefreshReq)
+}
+
+void MsgStoreRefreshReq::SharedCtor() {
+  ::memset(&storeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&refreshtype_) -
+      reinterpret_cast<char*>(&storeid_)) + sizeof(refreshtype_));
+}
+
+MsgStoreRefreshReq::~MsgStoreRefreshReq() {
+  // @@protoc_insertion_point(destructor:KFMsg.MsgStoreRefreshReq)
+  SharedDtor();
+}
+
+void MsgStoreRefreshReq::SharedDtor() {
+}
+
+void MsgStoreRefreshReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MsgStoreRefreshReq::descriptor() {
+  ::protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MsgStoreRefreshReq& MsgStoreRefreshReq::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_FrameClientMessage_2eproto::scc_info_MsgStoreRefreshReq.base);
+  return *internal_default_instance();
+}
+
+
+void MsgStoreRefreshReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:KFMsg.MsgStoreRefreshReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&storeid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&refreshtype_) -
+      reinterpret_cast<char*>(&storeid_)) + sizeof(refreshtype_));
+  _internal_metadata_.Clear();
+}
+
+bool MsgStoreRefreshReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:KFMsg.MsgStoreRefreshReq)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 storeid = 1;
+      case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &count_)));
+                 input, &storeid_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:KFMsg.MsgBuyStoreReq)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:KFMsg.MsgBuyStoreReq)
-  return false;
-#undef DO_
-}
-
-void MsgBuyStoreReq::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KFMsg.MsgBuyStoreReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->version(), output);
-  }
-
-  // bytes buytype = 2;
-  if (this->buytype().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->buytype(), output);
-  }
-
-  // uint32 id = 3;
-  if (this->id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->id(), output);
-  }
-
-  // uint32 count = 4;
-  if (this->count() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->count(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:KFMsg.MsgBuyStoreReq)
-}
-
-::google::protobuf::uint8* MsgBuyStoreReq::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgBuyStoreReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->version(), target);
-  }
-
-  // bytes buytype = 2;
-  if (this->buytype().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->buytype(), target);
-  }
-
-  // uint32 id = 3;
-  if (this->id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->id(), target);
-  }
-
-  // uint32 count = 4;
-  if (this->count() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->count(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgBuyStoreReq)
-  return target;
-}
-
-size_t MsgBuyStoreReq::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgBuyStoreReq)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->version());
-  }
-
-  // bytes buytype = 2;
-  if (this->buytype().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->buytype());
-  }
-
-  // uint32 id = 3;
-  if (this->id() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->id());
-  }
-
-  // uint32 count = 4;
-  if (this->count() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->count());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void MsgBuyStoreReq::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgBuyStoreReq)
-  GOOGLE_DCHECK_NE(&from, this);
-  const MsgBuyStoreReq* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MsgBuyStoreReq>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgBuyStoreReq)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgBuyStoreReq)
-    MergeFrom(*source);
-  }
-}
-
-void MsgBuyStoreReq::MergeFrom(const MsgBuyStoreReq& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgBuyStoreReq)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.version().size() > 0) {
-
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-  if (from.buytype().size() > 0) {
-
-    buytype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.buytype_);
-  }
-  if (from.id() != 0) {
-    set_id(from.id());
-  }
-  if (from.count() != 0) {
-    set_count(from.count());
-  }
-}
-
-void MsgBuyStoreReq::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgBuyStoreReq)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void MsgBuyStoreReq::CopyFrom(const MsgBuyStoreReq& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgBuyStoreReq)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool MsgBuyStoreReq::IsInitialized() const {
-  return true;
-}
-
-void MsgBuyStoreReq::Swap(MsgBuyStoreReq* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void MsgBuyStoreReq::InternalSwap(MsgBuyStoreReq* other) {
-  using std::swap;
-  version_.Swap(&other->version_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  buytype_.Swap(&other->buytype_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(id_, other->id_);
-  swap(count_, other->count_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata MsgBuyStoreReq::GetMetadata() const {
-  protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void MsgQueryStoreReq::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgQueryStoreReq::kVersionFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-MsgQueryStoreReq::MsgQueryStoreReq()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_FrameClientMessage_2eproto::scc_info_MsgQueryStoreReq.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:KFMsg.MsgQueryStoreReq)
-}
-MsgQueryStoreReq::MsgQueryStoreReq(const MsgQueryStoreReq& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.version().size() > 0) {
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgQueryStoreReq)
-}
-
-void MsgQueryStoreReq::SharedCtor() {
-  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-MsgQueryStoreReq::~MsgQueryStoreReq() {
-  // @@protoc_insertion_point(destructor:KFMsg.MsgQueryStoreReq)
-  SharedDtor();
-}
-
-void MsgQueryStoreReq::SharedDtor() {
-  version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void MsgQueryStoreReq::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* MsgQueryStoreReq::descriptor() {
-  ::protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const MsgQueryStoreReq& MsgQueryStoreReq::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_FrameClientMessage_2eproto::scc_info_MsgQueryStoreReq.base);
-  return *internal_default_instance();
-}
-
-
-void MsgQueryStoreReq::Clear() {
-// @@protoc_insertion_point(message_clear_start:KFMsg.MsgQueryStoreReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-bool MsgQueryStoreReq::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:KFMsg.MsgQueryStoreReq)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes version = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_version()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:KFMsg.MsgQueryStoreReq)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:KFMsg.MsgQueryStoreReq)
-  return false;
-#undef DO_
-}
-
-void MsgQueryStoreReq::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KFMsg.MsgQueryStoreReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->version(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:KFMsg.MsgQueryStoreReq)
-}
-
-::google::protobuf::uint8* MsgQueryStoreReq::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgQueryStoreReq)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->version(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgQueryStoreReq)
-  return target;
-}
-
-size_t MsgQueryStoreReq::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgQueryStoreReq)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->version());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void MsgQueryStoreReq::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgQueryStoreReq)
-  GOOGLE_DCHECK_NE(&from, this);
-  const MsgQueryStoreReq* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MsgQueryStoreReq>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgQueryStoreReq)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgQueryStoreReq)
-    MergeFrom(*source);
-  }
-}
-
-void MsgQueryStoreReq::MergeFrom(const MsgQueryStoreReq& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgQueryStoreReq)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.version().size() > 0) {
-
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-}
-
-void MsgQueryStoreReq::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgQueryStoreReq)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void MsgQueryStoreReq::CopyFrom(const MsgQueryStoreReq& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgQueryStoreReq)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool MsgQueryStoreReq::IsInitialized() const {
-  return true;
-}
-
-void MsgQueryStoreReq::Swap(MsgQueryStoreReq* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void MsgQueryStoreReq::InternalSwap(MsgQueryStoreReq* other) {
-  using std::swap;
-  version_.Swap(&other->version_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata MsgQueryStoreReq::GetMetadata() const {
-  protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void MsgQueryStoreAck::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgQueryStoreAck::kVersionFieldNumber;
-const int MsgQueryStoreAck::kDataFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-MsgQueryStoreAck::MsgQueryStoreAck()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_FrameClientMessage_2eproto::scc_info_MsgQueryStoreAck.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:KFMsg.MsgQueryStoreAck)
-}
-MsgQueryStoreAck::MsgQueryStoreAck(const MsgQueryStoreAck& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.version().size() > 0) {
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.data().size() > 0) {
-    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
-  }
-  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgQueryStoreAck)
-}
-
-void MsgQueryStoreAck::SharedCtor() {
-  version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-MsgQueryStoreAck::~MsgQueryStoreAck() {
-  // @@protoc_insertion_point(destructor:KFMsg.MsgQueryStoreAck)
-  SharedDtor();
-}
-
-void MsgQueryStoreAck::SharedDtor() {
-  version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void MsgQueryStoreAck::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* MsgQueryStoreAck::descriptor() {
-  ::protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const MsgQueryStoreAck& MsgQueryStoreAck::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_FrameClientMessage_2eproto::scc_info_MsgQueryStoreAck.base);
-  return *internal_default_instance();
-}
-
-
-void MsgQueryStoreAck::Clear() {
-// @@protoc_insertion_point(message_clear_start:KFMsg.MsgQueryStoreAck)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-bool MsgQueryStoreAck::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:KFMsg.MsgQueryStoreAck)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes version = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_version()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // bytes data = 2;
+      // uint32 refreshtype = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_data()));
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &refreshtype_)));
         } else {
           goto handle_unusual;
         }
@@ -13740,70 +13556,64 @@ bool MsgQueryStoreAck::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(parse_success:KFMsg.MsgStoreRefreshReq)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(parse_failure:KFMsg.MsgStoreRefreshReq)
   return false;
 #undef DO_
 }
 
-void MsgQueryStoreAck::SerializeWithCachedSizes(
+void MsgStoreRefreshReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(serialize_start:KFMsg.MsgStoreRefreshReq)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->version(), output);
+  // uint32 storeid = 1;
+  if (this->storeid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->storeid(), output);
   }
 
-  // bytes data = 2;
-  if (this->data().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      2, this->data(), output);
+  // uint32 refreshtype = 2;
+  if (this->refreshtype() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->refreshtype(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(serialize_end:KFMsg.MsgStoreRefreshReq)
 }
 
-::google::protobuf::uint8* MsgQueryStoreAck::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgStoreRefreshReq::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgStoreRefreshReq)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes version = 1;
-  if (this->version().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->version(), target);
+  // uint32 storeid = 1;
+  if (this->storeid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->storeid(), target);
   }
 
-  // bytes data = 2;
-  if (this->data().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        2, this->data(), target);
+  // uint32 refreshtype = 2;
+  if (this->refreshtype() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->refreshtype(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgStoreRefreshReq)
   return target;
 }
 
-size_t MsgQueryStoreAck::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgQueryStoreAck)
+size_t MsgStoreRefreshReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgStoreRefreshReq)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -13811,18 +13621,18 @@ size_t MsgQueryStoreAck::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes version = 1;
-  if (this->version().size() > 0) {
+  // uint32 storeid = 1;
+  if (this->storeid() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->version());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->storeid());
   }
 
-  // bytes data = 2;
-  if (this->data().size() > 0) {
+  // uint32 refreshtype = 2;
+  if (this->refreshtype() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->data());
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->refreshtype());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -13830,70 +13640,66 @@ size_t MsgQueryStoreAck::ByteSizeLong() const {
   return total_size;
 }
 
-void MsgQueryStoreAck::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgQueryStoreAck)
+void MsgStoreRefreshReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgStoreRefreshReq)
   GOOGLE_DCHECK_NE(&from, this);
-  const MsgQueryStoreAck* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MsgQueryStoreAck>(
+  const MsgStoreRefreshReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MsgStoreRefreshReq>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgStoreRefreshReq)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgQueryStoreAck)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgStoreRefreshReq)
     MergeFrom(*source);
   }
 }
 
-void MsgQueryStoreAck::MergeFrom(const MsgQueryStoreAck& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgQueryStoreAck)
+void MsgStoreRefreshReq::MergeFrom(const MsgStoreRefreshReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgStoreRefreshReq)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.version().size() > 0) {
-
-    version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
+  if (from.storeid() != 0) {
+    set_storeid(from.storeid());
   }
-  if (from.data().size() > 0) {
-
-    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  if (from.refreshtype() != 0) {
+    set_refreshtype(from.refreshtype());
   }
 }
 
-void MsgQueryStoreAck::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgQueryStoreAck)
+void MsgStoreRefreshReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgStoreRefreshReq)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgQueryStoreAck::CopyFrom(const MsgQueryStoreAck& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgQueryStoreAck)
+void MsgStoreRefreshReq::CopyFrom(const MsgStoreRefreshReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgStoreRefreshReq)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgQueryStoreAck::IsInitialized() const {
+bool MsgStoreRefreshReq::IsInitialized() const {
   return true;
 }
 
-void MsgQueryStoreAck::Swap(MsgQueryStoreAck* other) {
+void MsgStoreRefreshReq::Swap(MsgStoreRefreshReq* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgQueryStoreAck::InternalSwap(MsgQueryStoreAck* other) {
+void MsgStoreRefreshReq::InternalSwap(MsgStoreRefreshReq* other) {
   using std::swap;
-  version_.Swap(&other->version_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
+  swap(storeid_, other->storeid_);
+  swap(refreshtype_, other->refreshtype_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata MsgQueryStoreAck::GetMetadata() const {
+::google::protobuf::Metadata MsgStoreRefreshReq::GetMetadata() const {
   protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -15968,7 +15774,7 @@ void MsgQueryFriendRankListAck::InternalSwap(MsgQueryFriendRankListAck* other) {
 void MsgAddRelationReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgAddRelationReq::kDatanameFieldNumber;
+const int MsgAddRelationReq::kRelationnameFieldNumber;
 const int MsgAddRelationReq::kPlayernameFieldNumber;
 const int MsgAddRelationReq::kPlayeridFieldNumber;
 const int MsgAddRelationReq::kMessageFieldNumber;
@@ -15985,9 +15791,9 @@ MsgAddRelationReq::MsgAddRelationReq(const MsgAddRelationReq& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.dataname().size() > 0) {
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+  relationname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.relationname().size() > 0) {
+    relationname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.relationname_);
   }
   playername_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.playername().size() > 0) {
@@ -16002,7 +15808,7 @@ MsgAddRelationReq::MsgAddRelationReq(const MsgAddRelationReq& from)
 }
 
 void MsgAddRelationReq::SharedCtor() {
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playername_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playerid_ = GOOGLE_ULONGLONG(0);
@@ -16014,7 +15820,7 @@ MsgAddRelationReq::~MsgAddRelationReq() {
 }
 
 void MsgAddRelationReq::SharedDtor() {
-  dataname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playername_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -16039,7 +15845,7 @@ void MsgAddRelationReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  dataname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playername_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playerid_ = GOOGLE_ULONGLONG(0);
@@ -16056,12 +15862,12 @@ bool MsgAddRelationReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes dataname = 1;
+      // bytes relationname = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_dataname()));
+                input, this->mutable_relationname()));
         } else {
           goto handle_unusual;
         }
@@ -16132,10 +15938,10 @@ void MsgAddRelationReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->dataname(), output);
+      1, this->relationname(), output);
   }
 
   // bytes playername = 2;
@@ -16169,11 +15975,11 @@ void MsgAddRelationReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->dataname(), target);
+        1, this->relationname(), target);
   }
 
   // bytes playername = 2;
@@ -16212,11 +16018,11 @@ size_t MsgAddRelationReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->dataname());
+        this->relationname());
   }
 
   // bytes playername = 2;
@@ -16267,9 +16073,9 @@ void MsgAddRelationReq::MergeFrom(const MsgAddRelationReq& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.dataname().size() > 0) {
+  if (from.relationname().size() > 0) {
 
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+    relationname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.relationname_);
   }
   if (from.playername().size() > 0) {
 
@@ -16308,7 +16114,7 @@ void MsgAddRelationReq::Swap(MsgAddRelationReq* other) {
 }
 void MsgAddRelationReq::InternalSwap(MsgAddRelationReq* other) {
   using std::swap;
-  dataname_.Swap(&other->dataname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  relationname_.Swap(&other->relationname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   playername_.Swap(&other->playername_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -16329,7 +16135,7 @@ void MsgAddRelationReq::InternalSwap(MsgAddRelationReq* other) {
 void MsgDelRelationReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgDelRelationReq::kDatanameFieldNumber;
+const int MsgDelRelationReq::kRelationnameFieldNumber;
 const int MsgDelRelationReq::kPlayeridFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -16344,16 +16150,16 @@ MsgDelRelationReq::MsgDelRelationReq(const MsgDelRelationReq& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.dataname().size() > 0) {
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+  relationname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.relationname().size() > 0) {
+    relationname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.relationname_);
   }
   playerid_ = from.playerid_;
   // @@protoc_insertion_point(copy_constructor:KFMsg.MsgDelRelationReq)
 }
 
 void MsgDelRelationReq::SharedCtor() {
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playerid_ = GOOGLE_ULONGLONG(0);
 }
 
@@ -16363,7 +16169,7 @@ MsgDelRelationReq::~MsgDelRelationReq() {
 }
 
 void MsgDelRelationReq::SharedDtor() {
-  dataname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MsgDelRelationReq::SetCachedSize(int size) const {
@@ -16386,7 +16192,7 @@ void MsgDelRelationReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  dataname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   playerid_ = GOOGLE_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
@@ -16401,12 +16207,12 @@ bool MsgDelRelationReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes dataname = 1;
+      // bytes relationname = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_dataname()));
+                input, this->mutable_relationname()));
         } else {
           goto handle_unusual;
         }
@@ -16453,10 +16259,10 @@ void MsgDelRelationReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->dataname(), output);
+      1, this->relationname(), output);
   }
 
   // uint64 playerid = 2;
@@ -16478,11 +16284,11 @@ void MsgDelRelationReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->dataname(), target);
+        1, this->relationname(), target);
   }
 
   // uint64 playerid = 2;
@@ -16507,11 +16313,11 @@ size_t MsgDelRelationReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->dataname());
+        this->relationname());
   }
 
   // uint64 playerid = 2;
@@ -16548,9 +16354,9 @@ void MsgDelRelationReq::MergeFrom(const MsgDelRelationReq& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.dataname().size() > 0) {
+  if (from.relationname().size() > 0) {
 
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+    relationname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.relationname_);
   }
   if (from.playerid() != 0) {
     set_playerid(from.playerid());
@@ -16581,7 +16387,7 @@ void MsgDelRelationReq::Swap(MsgDelRelationReq* other) {
 }
 void MsgDelRelationReq::InternalSwap(MsgDelRelationReq* other) {
   using std::swap;
-  dataname_.Swap(&other->dataname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  relationname_.Swap(&other->relationname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(playerid_, other->playerid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -16598,7 +16404,7 @@ void MsgDelRelationReq::InternalSwap(MsgDelRelationReq* other) {
 void MsgReplyRelationInviteReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgReplyRelationInviteReq::kDatanameFieldNumber;
+const int MsgReplyRelationInviteReq::kRelationnameFieldNumber;
 const int MsgReplyRelationInviteReq::kPlayeridFieldNumber;
 const int MsgReplyRelationInviteReq::kOperateFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -16614,9 +16420,9 @@ MsgReplyRelationInviteReq::MsgReplyRelationInviteReq(const MsgReplyRelationInvit
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.dataname().size() > 0) {
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+  relationname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.relationname().size() > 0) {
+    relationname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.relationname_);
   }
   ::memcpy(&playerid_, &from.playerid_,
     static_cast<size_t>(reinterpret_cast<char*>(&operate_) -
@@ -16625,7 +16431,7 @@ MsgReplyRelationInviteReq::MsgReplyRelationInviteReq(const MsgReplyRelationInvit
 }
 
 void MsgReplyRelationInviteReq::SharedCtor() {
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&playerid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&operate_) -
       reinterpret_cast<char*>(&playerid_)) + sizeof(operate_));
@@ -16637,7 +16443,7 @@ MsgReplyRelationInviteReq::~MsgReplyRelationInviteReq() {
 }
 
 void MsgReplyRelationInviteReq::SharedDtor() {
-  dataname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MsgReplyRelationInviteReq::SetCachedSize(int size) const {
@@ -16660,7 +16466,7 @@ void MsgReplyRelationInviteReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  dataname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  relationname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&playerid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&operate_) -
       reinterpret_cast<char*>(&playerid_)) + sizeof(operate_));
@@ -16677,12 +16483,12 @@ bool MsgReplyRelationInviteReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes dataname = 1;
+      // bytes relationname = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_dataname()));
+                input, this->mutable_relationname()));
         } else {
           goto handle_unusual;
         }
@@ -16743,10 +16549,10 @@ void MsgReplyRelationInviteReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->dataname(), output);
+      1, this->relationname(), output);
   }
 
   // uint64 playerid = 2;
@@ -16773,11 +16579,11 @@ void MsgReplyRelationInviteReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->dataname(), target);
+        1, this->relationname(), target);
   }
 
   // uint64 playerid = 2;
@@ -16807,11 +16613,11 @@ size_t MsgReplyRelationInviteReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes relationname = 1;
+  if (this->relationname().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->dataname());
+        this->relationname());
   }
 
   // uint64 playerid = 2;
@@ -16855,9 +16661,9 @@ void MsgReplyRelationInviteReq::MergeFrom(const MsgReplyRelationInviteReq& from)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.dataname().size() > 0) {
+  if (from.relationname().size() > 0) {
 
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+    relationname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.relationname_);
   }
   if (from.playerid() != 0) {
     set_playerid(from.playerid());
@@ -16891,7 +16697,7 @@ void MsgReplyRelationInviteReq::Swap(MsgReplyRelationInviteReq* other) {
 }
 void MsgReplyRelationInviteReq::InternalSwap(MsgReplyRelationInviteReq* other) {
   using std::swap;
-  dataname_.Swap(&other->dataname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  relationname_.Swap(&other->relationname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(playerid_, other->playerid_);
   swap(operate_, other->operate_);
@@ -16909,7 +16715,7 @@ void MsgReplyRelationInviteReq::InternalSwap(MsgReplyRelationInviteReq* other) {
 void MsgSetRefuseRelationInviteReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgSetRefuseRelationInviteReq::kDatanameFieldNumber;
+const int MsgSetRefuseRelationInviteReq::kRefusenameFieldNumber;
 const int MsgSetRefuseRelationInviteReq::kRefuseFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -16924,16 +16730,16 @@ MsgSetRefuseRelationInviteReq::MsgSetRefuseRelationInviteReq(const MsgSetRefuseR
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.dataname().size() > 0) {
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+  refusename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.refusename().size() > 0) {
+    refusename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.refusename_);
   }
   refuse_ = from.refuse_;
   // @@protoc_insertion_point(copy_constructor:KFMsg.MsgSetRefuseRelationInviteReq)
 }
 
 void MsgSetRefuseRelationInviteReq::SharedCtor() {
-  dataname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  refusename_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   refuse_ = 0u;
 }
 
@@ -16943,7 +16749,7 @@ MsgSetRefuseRelationInviteReq::~MsgSetRefuseRelationInviteReq() {
 }
 
 void MsgSetRefuseRelationInviteReq::SharedDtor() {
-  dataname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  refusename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void MsgSetRefuseRelationInviteReq::SetCachedSize(int size) const {
@@ -16966,7 +16772,7 @@ void MsgSetRefuseRelationInviteReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  dataname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  refusename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   refuse_ = 0u;
   _internal_metadata_.Clear();
 }
@@ -16981,12 +16787,12 @@ bool MsgSetRefuseRelationInviteReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bytes dataname = 1;
+      // bytes refusename = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_dataname()));
+                input, this->mutable_refusename()));
         } else {
           goto handle_unusual;
         }
@@ -17033,10 +16839,10 @@ void MsgSetRefuseRelationInviteReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes refusename = 1;
+  if (this->refusename().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      1, this->dataname(), output);
+      1, this->refusename(), output);
   }
 
   // uint32 refuse = 2;
@@ -17058,11 +16864,11 @@ void MsgSetRefuseRelationInviteReq::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes refusename = 1;
+  if (this->refusename().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        1, this->dataname(), target);
+        1, this->refusename(), target);
   }
 
   // uint32 refuse = 2;
@@ -17087,11 +16893,11 @@ size_t MsgSetRefuseRelationInviteReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // bytes dataname = 1;
-  if (this->dataname().size() > 0) {
+  // bytes refusename = 1;
+  if (this->refusename().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->dataname());
+        this->refusename());
   }
 
   // uint32 refuse = 2;
@@ -17128,9 +16934,9 @@ void MsgSetRefuseRelationInviteReq::MergeFrom(const MsgSetRefuseRelationInviteRe
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.dataname().size() > 0) {
+  if (from.refusename().size() > 0) {
 
-    dataname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dataname_);
+    refusename_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.refusename_);
   }
   if (from.refuse() != 0) {
     set_refuse(from.refuse());
@@ -17161,7 +16967,7 @@ void MsgSetRefuseRelationInviteReq::Swap(MsgSetRefuseRelationInviteReq* other) {
 }
 void MsgSetRefuseRelationInviteReq::InternalSwap(MsgSetRefuseRelationInviteReq* other) {
   using std::swap;
-  dataname_.Swap(&other->dataname_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  refusename_.Swap(&other->refusename_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(refuse_, other->refuse_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -17842,6 +17648,229 @@ void MsgTaskRemoveReq::InternalSwap(MsgTaskRemoveReq* other) {
 }
 
 
+// ===================================================================
+
+void MsgTaskAddReq::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MsgTaskAddReq::kIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MsgTaskAddReq::MsgTaskAddReq()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_FrameClientMessage_2eproto::scc_info_MsgTaskAddReq.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:KFMsg.MsgTaskAddReq)
+}
+MsgTaskAddReq::MsgTaskAddReq(const MsgTaskAddReq& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_ = from.id_;
+  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgTaskAddReq)
+}
+
+void MsgTaskAddReq::SharedCtor() {
+  id_ = 0u;
+}
+
+MsgTaskAddReq::~MsgTaskAddReq() {
+  // @@protoc_insertion_point(destructor:KFMsg.MsgTaskAddReq)
+  SharedDtor();
+}
+
+void MsgTaskAddReq::SharedDtor() {
+}
+
+void MsgTaskAddReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MsgTaskAddReq::descriptor() {
+  ::protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MsgTaskAddReq& MsgTaskAddReq::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_FrameClientMessage_2eproto::scc_info_MsgTaskAddReq.base);
+  return *internal_default_instance();
+}
+
+
+void MsgTaskAddReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:KFMsg.MsgTaskAddReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_ = 0u;
+  _internal_metadata_.Clear();
+}
+
+bool MsgTaskAddReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:KFMsg.MsgTaskAddReq)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:KFMsg.MsgTaskAddReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:KFMsg.MsgTaskAddReq)
+  return false;
+#undef DO_
+}
+
+void MsgTaskAddReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:KFMsg.MsgTaskAddReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:KFMsg.MsgTaskAddReq)
+}
+
+::google::protobuf::uint8* MsgTaskAddReq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgTaskAddReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgTaskAddReq)
+  return target;
+}
+
+size_t MsgTaskAddReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgTaskAddReq)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 id = 1;
+  if (this->id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->id());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MsgTaskAddReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgTaskAddReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MsgTaskAddReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MsgTaskAddReq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgTaskAddReq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgTaskAddReq)
+    MergeFrom(*source);
+  }
+}
+
+void MsgTaskAddReq::MergeFrom(const MsgTaskAddReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgTaskAddReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.id() != 0) {
+    set_id(from.id());
+  }
+}
+
+void MsgTaskAddReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgTaskAddReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgTaskAddReq::CopyFrom(const MsgTaskAddReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgTaskAddReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgTaskAddReq::IsInitialized() const {
+  return true;
+}
+
+void MsgTaskAddReq::Swap(MsgTaskAddReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgTaskAddReq::InternalSwap(MsgTaskAddReq* other) {
+  using std::swap;
+  swap(id_, other->id_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MsgTaskAddReq::GetMetadata() const {
+  protobuf_FrameClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_FrameClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace KFMsg
 namespace google {
@@ -17975,14 +18004,11 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgQueryMailReq* Arena::C
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgMailRewardReq* Arena::CreateMaybeMessage< ::KFMsg::MsgMailRewardReq >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::MsgMailRewardReq >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgBuyStoreReq* Arena::CreateMaybeMessage< ::KFMsg::MsgBuyStoreReq >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::MsgBuyStoreReq >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgStoreBuyGoodsReq* Arena::CreateMaybeMessage< ::KFMsg::MsgStoreBuyGoodsReq >(Arena* arena) {
+  return Arena::CreateInternal< ::KFMsg::MsgStoreBuyGoodsReq >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgQueryStoreReq* Arena::CreateMaybeMessage< ::KFMsg::MsgQueryStoreReq >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::MsgQueryStoreReq >(arena);
-}
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgQueryStoreAck* Arena::CreateMaybeMessage< ::KFMsg::MsgQueryStoreAck >(Arena* arena) {
-  return Arena::CreateInternal< ::KFMsg::MsgQueryStoreAck >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgStoreRefreshReq* Arena::CreateMaybeMessage< ::KFMsg::MsgStoreRefreshReq >(Arena* arena) {
+  return Arena::CreateInternal< ::KFMsg::MsgStoreRefreshReq >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgApplyPayOrderReq* Arena::CreateMaybeMessage< ::KFMsg::MsgApplyPayOrderReq >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::MsgApplyPayOrderReq >(arena);
@@ -18028,6 +18054,9 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgTaskRewardReq* Arena::
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgTaskRemoveReq* Arena::CreateMaybeMessage< ::KFMsg::MsgTaskRemoveReq >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::MsgTaskRemoveReq >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgTaskAddReq* Arena::CreateMaybeMessage< ::KFMsg::MsgTaskAddReq >(Arena* arena) {
+  return Arena::CreateInternal< ::KFMsg::MsgTaskAddReq >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

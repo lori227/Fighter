@@ -49,7 +49,6 @@ cp -f $framebinpath/KFTcpServer$filename.so $binpath/
 cp -f $framebinpath/KFTcpClient$filename.so $binpath/
 cp -f $framebinpath/KFTcpDiscover$filename.so $binpath/
 cp -f $framebinpath/KFIpAddress$filename.so $binpath/
-cp -f $framebinpath/KFOption$filename.so $binpath/
 cp -f $framebinpath/KFRouteClient$filename.so $binpath/
 cp -f $framebinpath/KFRouteProxy$filename.so $binpath/
 cp -f $framebinpath/KFRouteShard$filename.so $binpath/
@@ -71,8 +70,13 @@ cp -f $framebinpath/KFBasicClient$filename.so $binpath/
 cp -f $framebinpath/KFBasicShard$filename.so $binpath/
 cp -f $framebinpath/KFBasicAttribute$filename.so $binpath/
 cp -f $framebinpath/KFDrop$filename.so $binpath/
+cp -f $framebinpath/KFUnlock$filename.so $binpath/
 cp -f $framebinpath/KFCondition$filename.so $binpath/
 cp -f $framebinpath/KFExecute$filename.so $binpath/
+cp -f $framebinpath/KFAccount$filename.so $binpath/
+cp -f $framebinpath/KFDirClient$filename.so $binpath/
+cp -f $framebinpath/KFDirShard$filename.so $binpath/
+cp -f $framebinpath/KFDirAttribute$filename.so $binpath/
 cp -f $framebinpath/KFRelationClient$filename.so $binpath/
 cp -f $framebinpath/KFRelationShard$filename.so $binpath/
 cp -f $framebinpath/KFRelationAttribute$filename.so $binpath/

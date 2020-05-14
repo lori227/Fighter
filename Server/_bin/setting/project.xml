@@ -3,6 +3,10 @@
 	<!-- 项目开始时间 -->
 	<Project Time="1559318400"/>
 
+	<!-- core array起始索引 -->
+	<!-- 客户端为lua设置为1, 其他设置为0 -->
+	<ArrayIndex Value="1"/>
+
 	<!-- 断线保留时间 -->
 	<Disconnet Time="10"/>
 
@@ -33,4 +37,7 @@
 		<Uuid Name="hero" Time="29" Zone="8" Worker="10" Seq="16"/>
 	</Uuids>
 
+	<!-- 奖励字串类型 -->
+	<!-- 1: 默认字串, 2:简化的类型和编号字串-->
+	<RewardType Value="1"/>
 </Config>

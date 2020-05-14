@@ -310,7 +310,7 @@ namespace KFrame
         }
 
         // uuid
-        auto uuid = KFGlobal::Instance()->STMakeUUID( __STRING__( item ) );
+        auto uuid = KFGlobal::Instance()->STMakeUuid( __STRING__( item ) );
 
         // 添加新的物品
         count -= addcount;

@@ -147,7 +147,7 @@ namespace KFrame
     public:
         void AddReturn( const std::string& value, int32 ordertype = MongoKeyword::_asc )
         {
-            _returns[ value] = ordertype;
+            _returns[ value ] = ordertype;
         }
 
         void AddLimitReturn( const std::string& value )
@@ -169,7 +169,7 @@ namespace KFrame
         std::map< std::string, int32 > _returns;
 
         // 不返回的字段
-        std::set<std::string> _limit_returns;
+        StringSet _limit_returns;
     };
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

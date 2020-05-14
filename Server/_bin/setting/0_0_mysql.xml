@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <Config>
-	<!--Redis数据库配置 -->
 	<!--Id 配置id -->
 	<!--Database 数据库名字 -->
 	<!--Ip 数据库地址 -->

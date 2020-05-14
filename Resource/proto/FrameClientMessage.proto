@@ -66,9 +66,8 @@ enum FrameClientProtocol
 	MSG_MAIL_REWARD_REQ 				= 504;	// 领取邮件奖励
 
 	// store
-	MSG_BUY_STORE_REQ 					= 511;	// 购买商品请求
-	MSG_QUERY_STORE_REQ 				= 512;	// 请求商城信息
-	MSG_QUERY_STORE_ACK 				= 513;	// 请求商城信息反馈
+	MSG_STORE_BUY_GOODS_REQ 			= 511;	// 购买商品请求
+	MSG_STORE_REFRESH_REQ				= 512;	// 商店刷新请求
 
 	// pay
 	MSG_APPLY_PAY_ORDER_REQ 			= 531;	// 请求订单
@@ -91,8 +90,9 @@ enum FrameClientProtocol
 
 	// task
 	MSG_TASK_RECEIVE_REQ 				= 600;	// 接取任务
-	MSG_TASK_REWARD_REQ 				= 601;	// 领取任务奖励
+	MSG_TASK_REWARD_REQ 				= 601;	// 领取奖励
 	MSG_TASK_REMOVE_REQ					= 602;	// 放弃任务
+	MSG_TASK_ADD_REQ 					= 603;	// 添加任务
  }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -119,6 +119,7 @@ message MsgCommandReq
 	bytes command = 1;				// 命令
 	repeated bytes params = 2;		// 参数列表
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 登录请求
 // MSG_LOGIN_REQ
@@ -208,7 +209,7 @@ message MsgSyncRemoveData
 // MSG_SHOW_ELEMENT
 message MsgShowElement
 {
-	PBShowElement element = 1;	// 奖励数据
+	PBShowElements elements = 1;	// 奖励数据
 }
 
 // 删除属性
@@ -337,6 +338,7 @@ message MsgMoveItemReq
 	uint64 sourceuuid = 2;	// 道具uuid
 	bytes targetname = 3;	// 目标背包名字
 	uint32 targetindex = 4;	// 目标背包位置( 0 表示服务器自己找空位置 )
+	bytes tabname = 5;		// 页签名字	
 }
 
 // 移动所有道具到包裹
@@ -368,7 +370,8 @@ message MsgCleanItemReq
 // MSG_SORT_ITEM_REQ
 message MsgSortItemReq
 {
-	repeated bytes sourcename = 1;	// 源背包名字
+	bytes bagname = 1;	// 背包名字
+	bytes tabname = 2;	// 页签名字
 }
 
 // 删除道具
@@ -378,7 +381,6 @@ message MsgRemoveItemReq
 	bytes sourcename = 1;	// 源背包名字
 	uint64 uuid = 2;		// 道具uuid( 为0时候, 删除背包所有道具 )
 }
-
 
 // 删除道具数量
 // MSG_REMOVE_ITEM_COUNT_REQ
@@ -436,28 +438,20 @@ message MsgMailRewardReq
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 // 客户端请求购买物品
-//	MSG_BUY_STORE_REQ;
-message MsgBuyStoreReq
+//	MSG_STORE_BUY_GOODS_REQ;
+message MsgStoreBuyGoodsReq
 {
-	bytes version = 1;		// 版本号
-	bytes buytype = 2;		// 使用什么购买
-	uint32 id = 3;			// 商品id
-	uint32 count = 4;		// 购买数量
+	uint32 storeid = 1;		// 商城id
+	uint32 goodsid = 2;		// 商品id
+	uint32 buycount = 3;	// 购买数量
 }
 
-// 请求商城信息
-// MSG_QUERY_STORE_REQ
-message MsgQueryStoreReq
+// 客户端请求刷新商店
+// MSG_STORE_REFRESH_REQ
+message MsgStoreRefreshReq
 {
-	bytes version = 1;		// 版本号
-}
-
-// 请求商城信息反馈
-// MSG_QUERY_STORE_ACK
-message MsgQueryStoreAck
-{
-	bytes version = 1;		// 版本号
-	bytes data = 2;			// 商城数据( 保存成xml, 然后自己解析文件 )
+	uint32 storeid = 1;		// 商城id
+	uint32 refreshtype = 2;	// 刷新类型 ( 对应RefreshEnum RefreshByFree/RefreshByCost )
 }
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
@@ -528,35 +522,35 @@ message MsgQueryFriendRankListAck
 // MSG_ADD_RELATION_REQ
 message MsgAddRelationReq
 {
-	bytes dataname = 1;		// 属性名
-	bytes playername = 2;	// 玩家名字
-	uint64 playerid = 3;	// 玩家id
-	bytes message = 4;		// 留言
+	bytes relationname = 1;		// 关系名称
+	bytes playername = 2;		// 玩家名字
+	uint64 playerid = 3;		// 玩家id
+	bytes message = 4;			// 留言
 }
 
 // 删除关系
 // MSG_DEL_RELATION_REQ
 message MsgDelRelationReq
 {
-	bytes dataname = 1;		// 属性名
-	uint64 playerid = 2;	// 玩家id
+	bytes relationname = 1;		// 关系名称
+	uint64 playerid = 2;		// 玩家id
 }
 
 // 回复添加好友请求
 // MSG_REPLY_RELATION_INVITE_REQ
 message MsgReplyRelationInviteReq
 {
-	bytes dataname = 1;		// 申请列表属性名
-	uint64 playerid = 2;	// 玩家id 0 表示所有
-	uint32 operate = 3;		// 1=同意 2=拒绝 3=直接删除请求 
+	bytes relationname = 1;		// 关系名称
+	uint64 playerid = 2;		// 玩家id 0 表示所有
+	uint32 operate = 3;			// 1=同意 2=拒绝 3=直接删除请求 
 }
 
 // 设置拒绝添加好友
 // MSG_SET_REFUSE_RELATION_INVITE_REQ
 message MsgSetRefuseRelationInviteReq
 {
-	bytes dataname = 1;		// 申请列表属性名
-	uint32 refuse = 2;	 // 1=拒绝申请 0=同意接受
+	bytes refusename = 1;		// 拒绝属性名
+	uint32 refuse = 2;	 		// 1=拒绝申请 0=同意接受
 }
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
@@ -577,6 +571,13 @@ message MsgTaskRewardReq
 // 放弃任务
 // MSG_TASK_REMOVE_REQ
 message MsgTaskRemoveReq
+{
+	uint32 id = 1;
+}
+
+// 添加任务
+// MSG_TASK_ADD_REQ
+message MsgTaskAddReq
 {
 	uint32 id = 1;
 }

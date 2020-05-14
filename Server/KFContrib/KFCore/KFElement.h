@@ -71,8 +71,7 @@ namespace KFrame
         virtual uint64 GetUseValue() const;
 
     private:
-        uint64 _min_value = _invalid_int;
-        uint64 _max_value = _invalid_int;
+        KFRange<uint64> _range;
         uint64 _use_value = _invalid_int;
     };
     //////////////////////////////////////////////////////////////////
@@ -216,14 +215,21 @@ namespace KFrame
         // 计算返回元素
         const std::string& CalcElement( double multiple ) const;
 
+        // 获得解析的元素数据
+        const std::string& GetElement() const;
+
         // non-copy
     private:
         KFElements( const KFElements& other ) = delete;
         KFElements& operator=( const KFElements& other ) = delete;
 
-    public:
-        // 原始数据
+    protected:
+        // 解析的元素数据
         std::string _str_element;
+
+    public:
+        // 配置表原始数据
+        std::string _str_parse;
 
         // 元素列表
         std::vector< KFElement* > _element_list;

@@ -78,6 +78,11 @@ enum FrameCodeEnum
 	AchieveAlreadyReceived		= 12203;	// 已经领取成就
 	AchieveReceiveOk  			= 12204;	// 领取成就奖励成功
 
+	// frame
+	ConditionSettingError		= 12250;	// 条件配置%s不存在
+	DropSettingError			= 12251;	// 掉落配置(%s)不存在
+	DropValueError				= 12252;	// 掉落数据(%s)数值为0
+
 	// task
 	TaskCanNotFind				= 12300;	// 找不到任务配置
 	TaskCanNotFindData			= 12301;	// 没有任务数据
@@ -89,6 +94,7 @@ enum FrameCodeEnum
 	TaskNotPreCondition			= 12307;	// 任务不满足接取条件
 	TaskReceiveFailed			= 12308;	// 任务接取失败
 	TaskReceiveOk				= 12309;	// 任务接取成功
+	TaskAreaError				= 12310;	// 任务区域不正确
 
 
 	//activity
@@ -121,6 +127,9 @@ enum FrameCodeEnum
 	ItemUseToHeroOk				= 12615;	// 对英雄使用道具成功
 	ItemSortOk					= 12616;	// 整理背包成功
 	ItemBagIsFull				= 12617;	// 背包物品已满
+	ItemBagCanNotMove			= 12618;	// 背包不支持移动
+	ItemBagCanNotClean			= 12619;	// 背包不支持清空
+	ItemTabNotExist				= 12620;	// 仓库页签不存在
 
 	// signin
 	SignInNotDay				= 12700;	// 没有签到数据
@@ -136,13 +145,21 @@ enum FrameCodeEnum
 	MailNotHaveReward			= 12804;	// 邮件没有附件
 
 	// store
-	StoreNotFind				= 12900;	// 找不到商品配置
+	StoreGoodsSettingError		= 12900;	// 找不到商品配置
 	StoreBuyCountError			= 12901;	// 购买数量错误
-	StoreOutOfLimitOwm			= 12902;	// 商品拥有购买限制
-	StoreOutOfLimits			= 12903;	// 购买次数限制
+	StoreGoodsBuyTimeError		= 12902;	// 商品还未上架不能购买
+	StoreOutOfLimits			= 12903;	// 超过购买限制数量
 	StoreLackCost				= 12904;	// 没有足够的资源购买
-	StoreBuyTypeError			= 12905;	// 购买类型错误
+	StoreSettingError			= 12905;	// 商店(%s)配置不存在
 	StoreBuyOK					= 12906;	// 购买成功
+	StoreNotHaveGoods			= 12907;	// 商店没有商品(%s)
+	StoreNotRefresh				= 12908;	// 商店(%s)没有刷新商品
+	StoreStockLack				= 12909;	// 商品库存不足
+	StoreNotRefreshManual		= 12910;	// 商店不能手动刷新
+	StoreRefreshTimeError		= 12911;	// 商店刷新时间未到
+	StoreRefreshOk				= 12912;	// 商店刷新成功
+	StoreRefreshTypeError		= 12913;	// 错误的刷新类型
+	StoreRefreshCostEmpty		= 12914;	// 没有配置刷新花费
 
 	// pay
 	PayIdError					= 13000;	// 充值信息错误
@@ -172,4 +189,5 @@ enum FrameCodeEnum
 	RelationSettingError		= 13314;	// 找不到关系配置
 	RelationDataError			= 13315;	// 找不到关系数据
 	FriendLinessAdd				= 13316;	// 与<Text>%s</Text>情义小涨<Text>%s</Text>
+
 }

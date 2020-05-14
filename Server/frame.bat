@@ -3,7 +3,7 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem ===========================================================================
-set framepath=..\..\..\Work\Frame\trunk
+set framepath=..\..\..\..\Frame\trunk
 set localpath=.
 
 rem ===========================================================================
@@ -86,6 +86,15 @@ rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
+echo "update common path begin"
+set commonpath=KFCommon
+if not exist %localpath%\%commonpath% ( mkdir %localpath%\%commonpath% )
+xcopy /y /S %framepath%\%commonpath%\* %localpath%\%commonpath% 
+echo "update common path end"
+rem ===========================================================================
+rem ===========================================================================
+rem ===========================================================================
+rem ===========================================================================
 echo "update _lib path begin"
 set libpath=_lib
 move /y %localpath%\%libpath%\win64\debug\KFProtocold.lib %localpath%\
@@ -99,15 +108,7 @@ move /y %localpath%\KFProtocol.lib %localpath%\%libpath%\win64\release\
 del /F /S /Q %localpath%\%libpath%\win64\debug\KFZConfigd.lib
 del /F /S /Q %localpath%\%libpath%\win64\release\KFZConfig.lib
 echo "update _lib path end"
-rem ===========================================================================
-rem ===========================================================================
-rem ===========================================================================
-rem ===========================================================================
-echo "update common path begin"
-set commonpath=KFCommon
-if not exist %localpath%\%commonpath% ( mkdir %localpath%\%commonpath% )
-xcopy /y /S %framepath%\%commonpath%\* %localpath%\%commonpath% 
-echo "update common path end"
+
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
@@ -271,6 +272,7 @@ if not exist %resourcepath%\excel\_build.bat (
 )
 
 rem proto=================================
+if not exist %resourcepath%\proto ( mkdir %resourcepath%\proto )
 xcopy /y %framepath%\_resource\proto\*.proto %resourcepath%\proto 
 
 
@@ -296,7 +298,8 @@ call :CopyInterface KFClusterProxy
 call :CopyInterface KFClusterShard
 call :CopyInterface KFLogClient
 call :CopyInterface KFLogShard
-call :CopyInterface KFKernel 2000-玩家-属性定义.xlsx
+call :CopyInterface KFKernel 1001-玩家-属性定义.xlsx
+call :CopyInterface KFCondition 
 call :CopyInterface KFFilter 1000-框架-屏蔽字符.xlsx
 call :CopyInterface KFPlayer
 call :CopyInterface KFHttpClient
@@ -307,7 +310,6 @@ call :CopyInterface KFTcpServer
 call :CopyInterface KFTcpClient
 call :CopyInterface KFTcpDiscover
 call :CopyInterface KFIpAddress
-call :CopyInterface KFOption 1010-常量-全局配置.xlsx
 call :CopyInterface KFRouteClient
 call :CopyInterface KFRouteProxy
 call :CopyInterface KFRouteShard
@@ -317,6 +319,10 @@ call :CopyInterface KFTimer
 rem auth
 call :CopyInterface KFAuth
 call :CopyInterface KFChannel 1000-框架-渠道配置.xlsx
+call :CopyInterface KFAccount
+call :CopyInterface KFDirClient
+call :CopyInterface KFDirShard
+call :CopyInterface KFDirAttribute
 
 rem data
 call :CopyInterface KFDataClient
@@ -357,23 +363,22 @@ call :CopyInterface KFWorld
 
 rem player
 call :CopyInterface KFCommand
-call :CopyInterface KFReset 2001-玩家-进入游戏.xlsx
-call :CopyInterface KFReset 2002-玩家-属性重置.xlsx
-call :CopyInterface KFReset 2003-玩家-离开游戏.xlsx
-call :CopyInterface KFDrop
-call :CopyInterface KFCondition
-call :CopyInterface KFItem
-
+call :CopyInterface KFDrop 1001-框架-掉落配置.xlsx
+call :CopyInterface KFReset 1001-玩家-进入游戏.xlsx
+call :CopyInterface KFReset 1001-玩家-属性重置.xlsx
+call :CopyInterface KFReset 1001-玩家-离开游戏.xlsx
+call :CopyInterface KFUnlock
+call :CopyInterface KFExecute
 
 rem Robot
-call :CopyInterface KFRobot
+rem call :CopyInterface KFRobot
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
 rem Attribute
-call :CopyPlugin KFAttribute
+call :CopyPlugin KFRole
 
 rem ===========================================================================
 rem ===========================================================================
