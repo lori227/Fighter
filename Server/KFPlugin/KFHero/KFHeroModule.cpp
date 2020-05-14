@@ -6,7 +6,6 @@ namespace KFrame
     {
         _kf_component = _kf_kernel->FindComponent( __STRING__( player ) );
 
-        __REGISTER_ADD_DATA_1__( __STRING__( hero ), &KFHeroModule::OnAddHero );
         __REGISTER_ADD_ELEMENT__( __STRING__( hero ), &KFHeroModule::AddHeroElement );
         __REGISTER_ADD_ELEMENT__( __STRING__( effect ), &KFHeroModule::AddEffectElement );
         __REGISTER_ADD_ELEMENT__( __STRING__( foot ), &KFHeroModule::AddFootElement );
@@ -18,7 +17,6 @@ namespace KFrame
 
     void KFHeroModule::BeforeShut()
     {
-        __UN_ADD_DATA_1__( __STRING__( hero ) );
         __UN_ADD_ELEMENT__( __STRING__( hero ) );
         __UN_ADD_ELEMENT__( __STRING__( effect ) );
         __UN_ADD_ELEMENT__( __STRING__( foot ) );
@@ -63,12 +61,6 @@ namespace KFrame
         player->AddData( kfparent, kfelementobject->_config_id, kfhero );
 
         return kfresult->AddResult( kfelementobject->_config_id, kfhero );
-    }
-
-    __KF_ADD_DATA_FUNCTION__( KFHeroModule::OnAddHero )
-    {
-        auto herocount = kfparent->Size();
-        player->UpdateData( __STRING__( herocount ), KFEnum::Set, herocount );
     }
 
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddEffectElement )
