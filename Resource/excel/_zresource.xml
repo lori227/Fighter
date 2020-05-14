@@ -17,7 +17,7 @@
 		<File Name="框架-屏蔽字符.xlsx" Type="3" XmlName="filter" MD5Client="" MD5Server="386c724eb5cf375d31185a22ba7601d8"/>
 		<File Name="玩家-新建角色.xlsx" Type="3" XmlName="player" MD5Client="" MD5Server="1eebbc1c3c11cc2f81789b9fcbd9eff7"/>
 		<File Name="框架-时间配置.xlsx" Type="3" XmlName="time" MD5Client="" MD5Server="2064482b93c87aeae6733a8f9c6e149e"/>
-		<File Name="框架-条件配置.xlsx" Type="3" XmlName="taskcondition" MD5Client="" MD5Server="ffa3e4b2bb941b96f8b1b38108ee6e89"/>
+		<File Name="框架-条件配置.xlsx" Type="3" XmlName="condition" MD5Client="" MD5Server="ffa3e4b2bb941b96f8b1b38108ee6e89"/>
 		<File Name="框架-渠道配置.xlsx" Type="3" XmlName="channel" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
 		<File Name="玩家-成就系统.xlsx" Type="3" XmlName="achieve" MD5Client="" MD5Server="dd8506edd175459461542f72113bea84"/>
 		<File Name="框架-配置列表.xlsx" Type="3" XmlName="config" MD5Client="" MD5Server="2b16563f8b14045bfb9fa7adf8c3adae"/>
