@@ -9,7 +9,7 @@
 		<File Name="框架-掉落配置.xlsx" Type="3" XmlName="dropgroup" MD5Client="" MD5Server="42286aa281059fa439a7069efa3fb439"/>
 		<File Name="匹配-匹配设置.xlsx" Type="3" XmlName="match" MD5Client="" MD5Server="8aff622bc21b150c08fa6e53ba5cd667"/>
 		<File Name="常量-全局常量.xlsx" Type="3" XmlName="constant" MD5Client="" MD5Server="e44f8d23482a2ceb2626a7d2f77f416f"/>
-		<File Name="框架-条件定义.xlsx" Type="3" XmlName="conditiondefine" MD5Client="" MD5Server="8824dbd92630b51bf58241ebed9c539f"/>
+		<File Name="框架-条件定义.xlsx" Type="3" XmlName="conditiondefine" MD5Client="" MD5Server="8008de470e3d93ae019a6b9d0bcb5f45"/>
 		<File Name="商城-商店配置.xlsx" Type="3" XmlName="store" MD5Client="" MD5Server="68661a6d4149c196b60d47de0944c129"/>
 		<File Name="商城-商品配置.xlsx" Type="3" XmlName="goods" MD5Client="" MD5Server="5636bbe1cd096cca0132d826f9547feb"/>
 		<File Name="框架-掉落数据.xlsx" Type="3" XmlName="dropdata" MD5Client="" MD5Server="cfe8facdea232d1f3c8f6846337a8753"/>
