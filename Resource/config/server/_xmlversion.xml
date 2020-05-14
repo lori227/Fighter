@@ -1,21 +1,21 @@
 <root version="0000">
-	<item name="match" version="8aff622bc21b150c08fa6e53ba5cd667" />
 	<item name="dropgroup" version="42286aa281059fa439a7069efa3fb439" />
-	<item name="goods" version="5636bbe1cd096cca0132d826f9547feb" />
-	<item name="conditiondefine" version="dcc29a349ccc73f3f68023d811e8fe96" />
-	<item name="store" version="68661a6d4149c196b60d47de0944c129" />
+	<item name="match" version="8aff622bc21b150c08fa6e53ba5cd667" />
 	<item name="constant" version="e44f8d23482a2ceb2626a7d2f77f416f" />
+	<item name="conditiondefine" version="8824dbd92630b51bf58241ebed9c539f" />
+	<item name="store" version="68661a6d4149c196b60d47de0944c129" />
+	<item name="goods" version="5636bbe1cd096cca0132d826f9547feb" />
 	<item name="dropdata" version="cfe8facdea232d1f3c8f6846337a8753" />
 	<item name="reward" version="bd223fa2bfa074d4eac09e89f54062db" />
 	<item name="filter" version="386c724eb5cf375d31185a22ba7601d8" />
-	<item name="time" version="2064482b93c87aeae6733a8f9c6e149e" />
 	<item name="player" version="1eebbc1c3c11cc2f81789b9fcbd9eff7" />
-	<item name="condition" version="ffa3e4b2bb941b96f8b1b38108ee6e89" />
+	<item name="time" version="2064482b93c87aeae6733a8f9c6e149e" />
+	<item name="taskcondition" version="ffa3e4b2bb941b96f8b1b38108ee6e89" />
 	<item name="channel" version="f8dfc55a04359339c933a81e67f4a5d5" />
+	<item name="achieve" version="35a2051a1dee00da283ae228053c80d1" />
 	<item name="config" version="2b16563f8b14045bfb9fa7adf8c3adae" />
-	<item name="achieve" version="06a923a962ca830d9dd6e7bd63dbf852" />
 	<item name="weightpool" version="1ccbf93857526284e98047594a4d9013" />
-	<item name="class" version="2ea25a13502e4fc46243febf2ec38c79" />
+	<item name="class" version="95ccd1b2cdf6c2a575a73cea65fd6bc1" />
 	<item name="reset" version="1a69dcacf399784f364b5dc8c1ac9ab8" />
 	<item name="drop" version="577ff2315d8faa88092e865903ae2dbd" />
 	<item name="leave" version="2142355dfc7a593b9d4a18b9b6ebc230" />
@@ -23,8 +23,8 @@
 	<item name="enter" version="6afc3a64dc2e283e3f65a491f1c0e781" />
 	<item name="relation" version="e3b55b7a61d632f8a1842057144cecaa" />
 	<item name="name" version="847ff4fe467a40d77281778fead65186" />
-	<item name="effect" version="afc3b0b7279298b4e2db3726cb54f814" />
 	<item name="storeunlock" version="24a3b084fb1f60cfd9a9ac306e4e48ab" />
+	<item name="effect" version="afc3b0b7279298b4e2db3726cb54f814" />
 	<item name="foot" version="e9461a5629406486c6be3b3afbd5c262" />
 	<item name="hero" version="f80e5209391a72a8a154c6031f91fc22" />
 	<item name="itemcommon" version="b6733c1c1e276cf9f02976f3a01bb70d" />
