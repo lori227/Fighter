@@ -1,2 +1,11 @@
 <root version="00000">
+	<item TriggerType="2" Id="costmoney" ParentName="player" DataName="money" CallType="3" InitCalc="" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="1" UseType="1" UseValue="0"/>
+	<item TriggerType="2" Id="costdiamond" ParentName="player" DataName="diamond" CallType="3" InitCalc="" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="1" UseType="1" UseValue="0"/>
+	<item TriggerType="0" Id="totalsignin" ParentName="player" DataName="totalsignin" CallType="3" InitCalc="2" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="3" UseType="2" UseValue="0"/>
+	<item TriggerType="0" Id="continuoussignin" ParentName="player" DataName="continuoussignin" CallType="3" InitCalc="2" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="3" UseType="2" UseValue="0"/>
+	<item TriggerType="3" Id="victory" ParentName="player" DataName="ranking" CallType="3" InitCalc="" SaveUUid="0" TriggerCheck="13" TriggerUse="2" TriggerValue="1" UseOperate="1" UseType="0" UseValue="1"/>
+	<item TriggerType="1" Id="killcount" ParentName="player" DataName="kill" CallType="3" InitCalc="" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="1" UseType="1" UseValue="0"/>
+	<item TriggerType="0" Id="ownhero" ParentName="hero" DataName="" CallType="1" InitCalc="1" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="1" UseType="0" UseValue="1"/>
+	<item TriggerType="0" Id="ownexp" ParentName="player" DataName="exp" CallType="3" InitCalc="2" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="3" UseType="2" UseValue="0"/>
+	<item TriggerType="0" Id="owngrade" ParentName="basic" DataName="grade" CallType="3" InitCalc="2" SaveUUid="0" TriggerCheck="0" TriggerUse="0" TriggerValue="0" UseOperate="3" UseType="2" UseValue="0"/>
 </root>
