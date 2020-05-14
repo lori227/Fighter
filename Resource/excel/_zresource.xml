@@ -19,7 +19,7 @@
 		<File Name="框架-时间配置.xlsx" Type="3" XmlName="time" MD5Client="" MD5Server="2064482b93c87aeae6733a8f9c6e149e"/>
 		<File Name="框架-条件配置.xlsx" Type="3" XmlName="taskcondition" MD5Client="" MD5Server="ffa3e4b2bb941b96f8b1b38108ee6e89"/>
 		<File Name="框架-渠道配置.xlsx" Type="3" XmlName="channel" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
-		<File Name="玩家-成就系统.xlsx" Type="3" XmlName="achieve" MD5Client="" MD5Server="35a2051a1dee00da283ae228053c80d1"/>
+		<File Name="玩家-成就系统.xlsx" Type="3" XmlName="achieve" MD5Client="" MD5Server="dd8506edd175459461542f72113bea84"/>
 		<File Name="框架-配置列表.xlsx" Type="3" XmlName="config" MD5Client="" MD5Server="2b16563f8b14045bfb9fa7adf8c3adae"/>
 		<File Name="框架-随机权重.xlsx" Type="3" XmlName="weightpool" MD5Client="" MD5Server="1ccbf93857526284e98047594a4d9013"/>
 		<File Name="玩家-属性定义.xlsx" Type="3" XmlName="class" MD5Client="" MD5Server="95ccd1b2cdf6c2a575a73cea65fd6bc1"/>
