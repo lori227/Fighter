@@ -277,6 +277,11 @@ namespace KFrame
     __KF_RESET_FUNCTION__( KFStoreModule::OnResetRefreshStoreCount )
     {
         auto kfstorerecord = player->Find( __STRING__( store ) );
+        if ( kfstorerecord == nullptr )
+        {
+            return;
+        }
+
         for ( auto kfstore = kfstorerecord->First(); kfstore != nullptr; kfstore = kfstorerecord->Next() )
         {
             auto refreshcount = kfstore->Get<uint32>( __STRING__( refresh ) );
