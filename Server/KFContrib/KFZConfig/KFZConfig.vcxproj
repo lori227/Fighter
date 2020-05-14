@@ -20,7 +20,6 @@
     <ClInclude Include="KFItemSetting.hpp" />
     <ClInclude Include="KFMatchConfig.hpp" />
     <ClInclude Include="KFNameConfig.hpp" />
-    <ClInclude Include="KFOptionSetting.h" />
     <ClInclude Include="KFSetting.h" />
     <ClInclude Include="KFTimeConfig.h" />
     <ClInclude Include="KFWeightConfig.hpp" />

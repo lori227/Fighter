@@ -6,9 +6,6 @@
     <ClInclude Include="KFDataSetting.h">
       <Filter>Kernel</Filter>
     </ClInclude>
-    <ClInclude Include="KFOptionSetting.h">
-      <Filter>Option</Filter>
-    </ClInclude>
     <ClInclude Include="KFItemConfig.hpp">
       <Filter>Item</Filter>
     </ClInclude>
@@ -38,9 +35,6 @@
   <ItemGroup>
     <Filter Include="Kernel">
       <UniqueIdentifier>{035b270c-ac51-4ffd-8a66-3a3b1d32faba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Option">
-      <UniqueIdentifier>{af6d59bd-3be2-4bb2-b1a7-d2e2feceabb4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Item">
       <UniqueIdentifier>{31a1e7ac-2b36-41a0-b16a-34062e5df8cf}</UniqueIdentifier>
