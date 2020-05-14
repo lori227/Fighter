@@ -211,6 +211,11 @@ namespace KFrame
     __KF_ENTER_PLAYER_FUNCTION__( KFStoreModule::OnEnterStoreModule )
     {
         auto kfstorerecord = player->Find( __STRING__( store ) );
+        if ( kfstorerecord == nullptr )
+        {
+            return;
+        }
+
         for ( auto& iter : KFStoreConfig::Instance()->_settings._objects )
         {
             auto kfsetting = iter.second;
