@@ -22,7 +22,7 @@
 		<File Name="玩家-成就系统.xlsx" Type="3" XmlName="achieve" MD5Client="" MD5Server="dd8506edd175459461542f72113bea84"/>
 		<File Name="框架-配置列表.xlsx" Type="3" XmlName="config" MD5Client="" MD5Server="2b16563f8b14045bfb9fa7adf8c3adae"/>
 		<File Name="框架-随机权重.xlsx" Type="3" XmlName="weightpool" MD5Client="" MD5Server="1ccbf93857526284e98047594a4d9013"/>
-		<File Name="玩家-属性定义.xlsx" Type="3" XmlName="class" MD5Client="" MD5Server="95ccd1b2cdf6c2a575a73cea65fd6bc1"/>
+		<File Name="玩家-属性定义.xlsx" Type="3" XmlName="class" MD5Client="" MD5Server="913e2cc864cdf254576302429d95cafe"/>
 		<File Name="玩家-属性重置.xlsx" Type="3" XmlName="reset" MD5Client="" MD5Server="1a69dcacf399784f364b5dc8c1ac9ab8"/>
 		<File Name="玩家-掉落配置.xlsx" Type="3" XmlName="drop" MD5Client="" MD5Server="577ff2315d8faa88092e865903ae2dbd"/>
 		<File Name="玩家-离开游戏.xlsx" Type="3" XmlName="leave" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
