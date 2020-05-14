@@ -80,3 +80,4 @@ cp -f $framebinpath/KFDirAttribute$filename.so $binpath/
 cp -f $framebinpath/KFRelationClient$filename.so $binpath/
 cp -f $framebinpath/KFRelationShard$filename.so $binpath/
 cp -f $framebinpath/KFRelationAttribute$filename.so $binpath/
+cp -f $framebinpath/KFAchieve$filename.so $binpath/
