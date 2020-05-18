@@ -1,4 +1,4 @@
 <root version="00000">
 	<item Id="1" CompleteCondition="1" Reward="[{&quot;money&quot;:&quot;100&quot;}]"/>
-	<item Id="2" CompleteCondition="2" Reward=""/>
+	<item Id="2" CompleteCondition="2" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;11002&quot;}}]"/>
 </root>
