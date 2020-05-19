@@ -222,7 +222,7 @@ namespace KFrame
         {
             // 先保存到数据库
             auto pbbalance = &kfmsg.balance();
-            auto strdata = KFProto::Serialize( pbbalance, KFCompressEnum::Compress );
+            auto strdata = KFProto::Serialize( pbbalance, KFCompressEnum::ZSTD, 5u, true );
             auto kfresult = _room_redis->Execute( "hset {}:{} {} {}", __STRING__( balance ), kfmsg.playerid(), kfmsg.roomid(), strdata );
             if ( !kfresult->IsOk() )
             {
@@ -270,7 +270,7 @@ namespace KFrame
         for ( auto& iter : kfresult->_value )
         {
             KFMsg::PBBattleBalance pbbalance;
-            KFProto::Parse( &pbbalance, iter.second, KFCompressEnum::Compress );
+            KFProto::Parse( &pbbalance, iter.second, KFCompressEnum::ZSTD, true );
 
             auto roomid = KFUtility::ToValue< uint64 >( iter.first );
             SendPlayerBalanceToGame( __ROUTE_SERVER_ID__, kfmsg.playerid(), roomid, &pbbalance );
