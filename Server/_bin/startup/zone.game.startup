@@ -30,5 +30,6 @@
 		<Plugin Name="KFItem" Config=""/>		
 		<Plugin Name="KFAchieve" Config=""/>		
 		<Plugin Name="KFStore" Config=""/>		
+		<Plugin Name="KFChat" Config=""/>		
 	</Plugins>
 </Setting>
