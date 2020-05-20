@@ -37,6 +37,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "DefineMessage.pb.h"
+#include "FrameDefineMessage.pb.h"
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_ClientMessage_2eproto LIBPROTOC_EXPORT
 
@@ -45,7 +46,7 @@ namespace protobuf_ClientMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[9];
+  static const ::google::protobuf::internal::ParseTable schema[11];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -68,12 +69,18 @@ LIBPROTOC_EXPORT extern MsgFinishRoomReqDefaultTypeInternal _MsgFinishRoomReq_de
 class MsgFootUseReq;
 class MsgFootUseReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgFootUseReqDefaultTypeInternal _MsgFootUseReq_default_instance_;
+class MsgFriendChatReq;
+class MsgFriendChatReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgFriendChatReqDefaultTypeInternal _MsgFriendChatReq_default_instance_;
 class MsgInformBattleAck;
 class MsgInformBattleAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgInformBattleAckDefaultTypeInternal _MsgInformBattleAck_default_instance_;
 class MsgInformBattleReq;
 class MsgInformBattleReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgInformBattleReqDefaultTypeInternal _MsgInformBattleReq_default_instance_;
+class MsgServerChatReq;
+class MsgServerChatReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgServerChatReqDefaultTypeInternal _MsgServerChatReq_default_instance_;
 class MsgStartMatchReq;
 class MsgStartMatchReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgStartMatchReqDefaultTypeInternal _MsgStartMatchReq_default_instance_;
@@ -88,8 +95,10 @@ template<> LIBPROTOC_EXPORT ::KFMsg::MsgEffectUseReq* Arena::CreateMaybeMessage<
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgFighterHeroReq* Arena::CreateMaybeMessage<::KFMsg::MsgFighterHeroReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgFinishRoomReq* Arena::CreateMaybeMessage<::KFMsg::MsgFinishRoomReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgFootUseReq* Arena::CreateMaybeMessage<::KFMsg::MsgFootUseReq>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgFriendChatReq* Arena::CreateMaybeMessage<::KFMsg::MsgFriendChatReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgInformBattleAck* Arena::CreateMaybeMessage<::KFMsg::MsgInformBattleAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgInformBattleReq* Arena::CreateMaybeMessage<::KFMsg::MsgInformBattleReq>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgServerChatReq* Arena::CreateMaybeMessage<::KFMsg::MsgServerChatReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgStartMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgStartMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgTellMatchCount* Arena::CreateMaybeMessage<::KFMsg::MsgTellMatchCount>(Arena*);
 }  // namespace protobuf
@@ -107,12 +116,14 @@ enum ClientProtocol {
   MSG_INFORM_BATTLE_ACK = 3104,
   MSG_FINISH_ROOM_REQ = 3105,
   MSG_TELL_MATCH_COUNT = 3106,
+  MSG_FRIEND_CHAT_REQ = 3150,
+  MSG_SERVER_CHAT_REQ = 3151,
   ClientProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 LIBPROTOC_EXPORT bool ClientProtocol_IsValid(int value);
 const ClientProtocol ClientProtocol_MIN = MSG_CLIENT_BEGIN;
-const ClientProtocol ClientProtocol_MAX = MSG_TELL_MATCH_COUNT;
+const ClientProtocol ClientProtocol_MAX = MSG_SERVER_CHAT_REQ;
 const int ClientProtocol_ARRAYSIZE = ClientProtocol_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* ClientProtocol_descriptor();
@@ -1096,6 +1107,248 @@ class LIBPROTOC_EXPORT MsgTellMatchCount : public ::google::protobuf::Message /*
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgFriendChatReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgFriendChatReq) */ {
+ public:
+  MsgFriendChatReq();
+  virtual ~MsgFriendChatReq();
+
+  MsgFriendChatReq(const MsgFriendChatReq& from);
+
+  inline MsgFriendChatReq& operator=(const MsgFriendChatReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgFriendChatReq(MsgFriendChatReq&& from) noexcept
+    : MsgFriendChatReq() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgFriendChatReq& operator=(MsgFriendChatReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgFriendChatReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgFriendChatReq* internal_default_instance() {
+    return reinterpret_cast<const MsgFriendChatReq*>(
+               &_MsgFriendChatReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  void Swap(MsgFriendChatReq* other);
+  friend void swap(MsgFriendChatReq& a, MsgFriendChatReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgFriendChatReq* New() const final {
+    return CreateMaybeMessage<MsgFriendChatReq>(NULL);
+  }
+
+  MsgFriendChatReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgFriendChatReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgFriendChatReq& from);
+  void MergeFrom(const MsgFriendChatReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgFriendChatReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes content = 2;
+  void clear_content();
+  static const int kContentFieldNumber = 2;
+  const ::std::string& content() const;
+  void set_content(const ::std::string& value);
+  #if LANG_CXX11
+  void set_content(::std::string&& value);
+  #endif
+  void set_content(const char* value);
+  void set_content(const void* value, size_t size);
+  ::std::string* mutable_content();
+  ::std::string* release_content();
+  void set_allocated_content(::std::string* content);
+
+  // uint64 playerid = 1;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 1;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgFriendChatReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr content_;
+  ::google::protobuf::uint64 playerid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgServerChatReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgServerChatReq) */ {
+ public:
+  MsgServerChatReq();
+  virtual ~MsgServerChatReq();
+
+  MsgServerChatReq(const MsgServerChatReq& from);
+
+  inline MsgServerChatReq& operator=(const MsgServerChatReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgServerChatReq(MsgServerChatReq&& from) noexcept
+    : MsgServerChatReq() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgServerChatReq& operator=(MsgServerChatReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgServerChatReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgServerChatReq* internal_default_instance() {
+    return reinterpret_cast<const MsgServerChatReq*>(
+               &_MsgServerChatReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  void Swap(MsgServerChatReq* other);
+  friend void swap(MsgServerChatReq& a, MsgServerChatReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgServerChatReq* New() const final {
+    return CreateMaybeMessage<MsgServerChatReq>(NULL);
+  }
+
+  MsgServerChatReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgServerChatReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgServerChatReq& from);
+  void MergeFrom(const MsgServerChatReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgServerChatReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes content = 2;
+  void clear_content();
+  static const int kContentFieldNumber = 2;
+  const ::std::string& content() const;
+  void set_content(const ::std::string& value);
+  #if LANG_CXX11
+  void set_content(::std::string&& value);
+  #endif
+  void set_content(const char* value);
+  void set_content(const void* value, size_t size);
+  ::std::string* mutable_content();
+  ::std::string* release_content();
+  void set_allocated_content(::std::string* content);
+
+  // .KFMsg.PBObject player = 1;
+  bool has_player() const;
+  void clear_player();
+  static const int kPlayerFieldNumber = 1;
+  private:
+  const ::KFMsg::PBObject& _internal_player() const;
+  public:
+  const ::KFMsg::PBObject& player() const;
+  ::KFMsg::PBObject* release_player();
+  ::KFMsg::PBObject* mutable_player();
+  void set_allocated_player(::KFMsg::PBObject* player);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgServerChatReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr content_;
+  ::KFMsg::PBObject* player_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -1399,9 +1652,189 @@ inline void MsgTellMatchCount::set_count(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:KFMsg.MsgTellMatchCount.count)
 }
 
+// -------------------------------------------------------------------
+
+// MsgFriendChatReq
+
+// uint64 playerid = 1;
+inline void MsgFriendChatReq::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 MsgFriendChatReq::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgFriendChatReq.playerid)
+  return playerid_;
+}
+inline void MsgFriendChatReq::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgFriendChatReq.playerid)
+}
+
+// bytes content = 2;
+inline void MsgFriendChatReq::clear_content() {
+  content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MsgFriendChatReq::content() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgFriendChatReq.content)
+  return content_.GetNoArena();
+}
+inline void MsgFriendChatReq::set_content(const ::std::string& value) {
+  
+  content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:KFMsg.MsgFriendChatReq.content)
+}
+#if LANG_CXX11
+inline void MsgFriendChatReq::set_content(::std::string&& value) {
+  
+  content_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.MsgFriendChatReq.content)
+}
+#endif
+inline void MsgFriendChatReq::set_content(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:KFMsg.MsgFriendChatReq.content)
+}
+inline void MsgFriendChatReq::set_content(const void* value, size_t size) {
+  
+  content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.MsgFriendChatReq.content)
+}
+inline ::std::string* MsgFriendChatReq::mutable_content() {
+  
+  // @@protoc_insertion_point(field_mutable:KFMsg.MsgFriendChatReq.content)
+  return content_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgFriendChatReq::release_content() {
+  // @@protoc_insertion_point(field_release:KFMsg.MsgFriendChatReq.content)
+  
+  return content_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgFriendChatReq::set_allocated_content(::std::string* content) {
+  if (content != NULL) {
+    
+  } else {
+    
+  }
+  content_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content);
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.MsgFriendChatReq.content)
+}
+
+// -------------------------------------------------------------------
+
+// MsgServerChatReq
+
+// .KFMsg.PBObject player = 1;
+inline bool MsgServerChatReq::has_player() const {
+  return this != internal_default_instance() && player_ != NULL;
+}
+inline const ::KFMsg::PBObject& MsgServerChatReq::_internal_player() const {
+  return *player_;
+}
+inline const ::KFMsg::PBObject& MsgServerChatReq::player() const {
+  const ::KFMsg::PBObject* p = player_;
+  // @@protoc_insertion_point(field_get:KFMsg.MsgServerChatReq.player)
+  return p != NULL ? *p : *reinterpret_cast<const ::KFMsg::PBObject*>(
+      &::KFMsg::_PBObject_default_instance_);
+}
+inline ::KFMsg::PBObject* MsgServerChatReq::release_player() {
+  // @@protoc_insertion_point(field_release:KFMsg.MsgServerChatReq.player)
+  
+  ::KFMsg::PBObject* temp = player_;
+  player_ = NULL;
+  return temp;
+}
+inline ::KFMsg::PBObject* MsgServerChatReq::mutable_player() {
+  
+  if (player_ == NULL) {
+    auto* p = CreateMaybeMessage<::KFMsg::PBObject>(GetArenaNoVirtual());
+    player_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:KFMsg.MsgServerChatReq.player)
+  return player_;
+}
+inline void MsgServerChatReq::set_allocated_player(::KFMsg::PBObject* player) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(player_);
+  }
+  if (player) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      player = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, player, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  player_ = player;
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.MsgServerChatReq.player)
+}
+
+// bytes content = 2;
+inline void MsgServerChatReq::clear_content() {
+  content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MsgServerChatReq::content() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgServerChatReq.content)
+  return content_.GetNoArena();
+}
+inline void MsgServerChatReq::set_content(const ::std::string& value) {
+  
+  content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:KFMsg.MsgServerChatReq.content)
+}
+#if LANG_CXX11
+inline void MsgServerChatReq::set_content(::std::string&& value) {
+  
+  content_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.MsgServerChatReq.content)
+}
+#endif
+inline void MsgServerChatReq::set_content(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:KFMsg.MsgServerChatReq.content)
+}
+inline void MsgServerChatReq::set_content(const void* value, size_t size) {
+  
+  content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.MsgServerChatReq.content)
+}
+inline ::std::string* MsgServerChatReq::mutable_content() {
+  
+  // @@protoc_insertion_point(field_mutable:KFMsg.MsgServerChatReq.content)
+  return content_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgServerChatReq::release_content() {
+  // @@protoc_insertion_point(field_release:KFMsg.MsgServerChatReq.content)
+  
+  return content_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgServerChatReq::set_allocated_content(::std::string* content) {
+  if (content != NULL) {
+    
+  } else {
+    
+  }
+  content_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), content);
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.MsgServerChatReq.content)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
