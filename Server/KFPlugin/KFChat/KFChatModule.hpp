@@ -15,6 +15,8 @@
 #include "KFPlayer/KFPlayerInterface.h"
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
+#include "KFGame/KFGameInterface.h"
+#include "KFFilter/KFFilterInterface.h"
 
 namespace KFrame
 {
@@ -32,6 +34,11 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
     protected:
+        // 好友私聊
+        __KF_MESSAGE_FUNCTION__( HandleFriendChatReq );
+
+        // 本服务器(进程)的公屏聊天
+        __KF_MESSAGE_FUNCTION__( HandleServerChatReq );
     };
 }
 

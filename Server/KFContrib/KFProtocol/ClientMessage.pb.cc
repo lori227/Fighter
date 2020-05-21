@@ -81,11 +81,21 @@ class MsgFriendChatReqDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<MsgFriendChatReq>
       _instance;
 } _MsgFriendChatReq_default_instance_;
+class MsgTellFriendChatDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MsgTellFriendChat>
+      _instance;
+} _MsgTellFriendChat_default_instance_;
 class MsgServerChatReqDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<MsgServerChatReq>
       _instance;
 } _MsgServerChatReq_default_instance_;
+class MsgTellServerChatDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<MsgTellServerChat>
+      _instance;
+} _MsgTellServerChat_default_instance_;
 }  // namespace KFMsg
 namespace protobuf_ClientMessage_2eproto {
 static void InitDefaultsMsgFighterHeroReq() {
@@ -228,6 +238,20 @@ static void InitDefaultsMsgFriendChatReq() {
 LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgFriendChatReq =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgFriendChatReq}, {}};
 
+static void InitDefaultsMsgTellFriendChat() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::KFMsg::_MsgTellFriendChat_default_instance_;
+    new (ptr) ::KFMsg::MsgTellFriendChat();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::KFMsg::MsgTellFriendChat::InitAsDefaultInstance();
+}
+
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgTellFriendChat =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgTellFriendChat}, {}};
+
 static void InitDefaultsMsgServerChatReq() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -239,8 +263,22 @@ static void InitDefaultsMsgServerChatReq() {
   ::KFMsg::MsgServerChatReq::InitAsDefaultInstance();
 }
 
-LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_MsgServerChatReq =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsMsgServerChatReq}, {
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<0> scc_info_MsgServerChatReq =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMsgServerChatReq}, {}};
+
+static void InitDefaultsMsgTellServerChat() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::KFMsg::_MsgTellServerChat_default_instance_;
+    new (ptr) ::KFMsg::MsgTellServerChat();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::KFMsg::MsgTellServerChat::InitAsDefaultInstance();
+}
+
+LIBPROTOC_EXPORT ::google::protobuf::internal::SCCInfo<1> scc_info_MsgTellServerChat =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsMsgTellServerChat}, {
       &protobuf_FrameDefineMessage_2eproto::scc_info_PBObject.base,}};
 
 void InitDefaults() {
@@ -254,10 +292,12 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_MsgFinishRoomReq.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgTellMatchCount.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgFriendChatReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MsgTellFriendChat.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MsgServerChatReq.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_MsgTellServerChat.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[11];
+::google::protobuf::Metadata file_level_metadata[13];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -327,12 +367,25 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgFriendChatReq, playerid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgFriendChatReq, content_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTellFriendChat, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTellFriendChat, playerid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTellFriendChat, content_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgServerChatReq, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgServerChatReq, player_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgServerChatReq, content_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTellServerChat, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTellServerChat, player_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::MsgTellServerChat, content_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::KFMsg::MsgFighterHeroReq)},
@@ -345,7 +398,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 46, -1, sizeof(::KFMsg::MsgFinishRoomReq)},
   { 52, -1, sizeof(::KFMsg::MsgTellMatchCount)},
   { 58, -1, sizeof(::KFMsg::MsgFriendChatReq)},
-  { 65, -1, sizeof(::KFMsg::MsgServerChatReq)},
+  { 65, -1, sizeof(::KFMsg::MsgTellFriendChat)},
+  { 72, -1, sizeof(::KFMsg::MsgServerChatReq)},
+  { 78, -1, sizeof(::KFMsg::MsgTellServerChat)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -359,7 +414,9 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgFinishRoomReq_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTellMatchCount_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgFriendChatReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTellFriendChat_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgServerChatReq_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::KFMsg::_MsgTellServerChat_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -377,7 +434,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 11);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 13);
 }
 
 void AddDescriptorsImpl() {
@@ -396,20 +453,23 @@ void AddDescriptorsImpl() {
       "MsgFinishRoomReq\022\016\n\006roomid\030\001 \001(\004\"\"\n\021MsgT"
       "ellMatchCount\022\r\n\005count\030\001 \001(\r\"5\n\020MsgFrien"
       "dChatReq\022\020\n\010playerid\030\001 \001(\004\022\017\n\007content\030\002 "
-      "\001(\014\"D\n\020MsgServerChatReq\022\037\n\006player\030\001 \001(\0132"
-      "\017.KFMsg.PBObject\022\017\n\007content\030\002 \001(\014*\307\002\n\016Cl"
-      "ientProtocol\022\024\n\020MSG_CLIENT_BEGIN\020\000\022\031\n\024MS"
-      "G_FIGHTER_HERO_REQ\020\271\027\022\027\n\022MSG_EFFECT_USE_"
-      "REQ\020\272\027\022\025\n\020MSG_FOOT_USE_REQ\020\273\027\022\030\n\023MSG_STA"
-      "RT_MATCH_REQ\020\235\030\022\031\n\024MSG_CANCEL_MATCH_REQ\020"
-      "\236\030\022\032\n\025MSG_INFORM_BATTLE_REQ\020\237\030\022\032\n\025MSG_IN"
-      "FORM_BATTLE_ACK\020\240\030\022\030\n\023MSG_FINISH_ROOM_RE"
-      "Q\020\241\030\022\031\n\024MSG_TELL_MATCH_COUNT\020\242\030\022\030\n\023MSG_F"
-      "RIEND_CHAT_REQ\020\316\030\022\030\n\023MSG_SERVER_CHAT_REQ"
-      "\020\317\030b\006proto3"
+      "\001(\014\"6\n\021MsgTellFriendChat\022\020\n\010playerid\030\001 \001"
+      "(\004\022\017\n\007content\030\002 \001(\014\"#\n\020MsgServerChatReq\022"
+      "\017\n\007content\030\001 \001(\014\"E\n\021MsgTellServerChat\022\037\n"
+      "\006player\030\001 \001(\0132\017.KFMsg.PBObject\022\017\n\007conten"
+      "t\030\002 \001(\014*\375\002\n\016ClientProtocol\022\024\n\020MSG_CLIENT"
+      "_BEGIN\020\000\022\031\n\024MSG_FIGHTER_HERO_REQ\020\271\027\022\027\n\022M"
+      "SG_EFFECT_USE_REQ\020\272\027\022\025\n\020MSG_FOOT_USE_REQ"
+      "\020\273\027\022\030\n\023MSG_START_MATCH_REQ\020\235\030\022\031\n\024MSG_CAN"
+      "CEL_MATCH_REQ\020\236\030\022\032\n\025MSG_INFORM_BATTLE_RE"
+      "Q\020\237\030\022\032\n\025MSG_INFORM_BATTLE_ACK\020\240\030\022\030\n\023MSG_"
+      "FINISH_ROOM_REQ\020\241\030\022\031\n\024MSG_TELL_MATCH_COU"
+      "NT\020\242\030\022\030\n\023MSG_FRIEND_CHAT_REQ\020\316\030\022\031\n\024MSG_T"
+      "ELL_FRIEND_CHAT\020\317\030\022\030\n\023MSG_SERVER_CHAT_RE"
+      "Q\020\320\030\022\031\n\024MSG_TELL_SERVER_CHAT\020\321\030b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 931);
+      descriptor, 1079);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ClientMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_DefineMessage_2eproto::AddDescriptors();
@@ -446,6 +506,8 @@ bool ClientProtocol_IsValid(int value) {
     case 3106:
     case 3150:
     case 3151:
+    case 3152:
+    case 3153:
       return true;
     default:
       return false;
@@ -2899,18 +2961,278 @@ void MsgFriendChatReq::InternalSwap(MsgFriendChatReq* other) {
 
 // ===================================================================
 
-void MsgServerChatReq::InitAsDefaultInstance() {
-  ::KFMsg::_MsgServerChatReq_default_instance_._instance.get_mutable()->player_ = const_cast< ::KFMsg::PBObject*>(
-      ::KFMsg::PBObject::internal_default_instance());
-}
-void MsgServerChatReq::clear_player() {
-  if (GetArenaNoVirtual() == NULL && player_ != NULL) {
-    delete player_;
-  }
-  player_ = NULL;
+void MsgTellFriendChat::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int MsgServerChatReq::kPlayerFieldNumber;
+const int MsgTellFriendChat::kPlayeridFieldNumber;
+const int MsgTellFriendChat::kContentFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MsgTellFriendChat::MsgTellFriendChat()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_ClientMessage_2eproto::scc_info_MsgTellFriendChat.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:KFMsg.MsgTellFriendChat)
+}
+MsgTellFriendChat::MsgTellFriendChat(const MsgTellFriendChat& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  content_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.content().size() > 0) {
+    content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
+  }
+  playerid_ = from.playerid_;
+  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgTellFriendChat)
+}
+
+void MsgTellFriendChat::SharedCtor() {
+  content_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+
+MsgTellFriendChat::~MsgTellFriendChat() {
+  // @@protoc_insertion_point(destructor:KFMsg.MsgTellFriendChat)
+  SharedDtor();
+}
+
+void MsgTellFriendChat::SharedDtor() {
+  content_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void MsgTellFriendChat::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MsgTellFriendChat::descriptor() {
+  ::protobuf_ClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_ClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MsgTellFriendChat& MsgTellFriendChat::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_ClientMessage_2eproto::scc_info_MsgTellFriendChat.base);
+  return *internal_default_instance();
+}
+
+
+void MsgTellFriendChat::Clear() {
+// @@protoc_insertion_point(message_clear_start:KFMsg.MsgTellFriendChat)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  playerid_ = GOOGLE_ULONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+bool MsgTellFriendChat::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:KFMsg.MsgTellFriendChat)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint64 playerid = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &playerid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes content = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_content()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:KFMsg.MsgTellFriendChat)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:KFMsg.MsgTellFriendChat)
+  return false;
+#undef DO_
+}
+
+void MsgTellFriendChat::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:KFMsg.MsgTellFriendChat)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 playerid = 1;
+  if (this->playerid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->playerid(), output);
+  }
+
+  // bytes content = 2;
+  if (this->content().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->content(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:KFMsg.MsgTellFriendChat)
+}
+
+::google::protobuf::uint8* MsgTellFriendChat::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgTellFriendChat)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 playerid = 1;
+  if (this->playerid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->playerid(), target);
+  }
+
+  // bytes content = 2;
+  if (this->content().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->content(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgTellFriendChat)
+  return target;
+}
+
+size_t MsgTellFriendChat::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgTellFriendChat)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // bytes content = 2;
+  if (this->content().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->content());
+  }
+
+  // uint64 playerid = 1;
+  if (this->playerid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->playerid());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MsgTellFriendChat::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgTellFriendChat)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MsgTellFriendChat* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MsgTellFriendChat>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgTellFriendChat)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgTellFriendChat)
+    MergeFrom(*source);
+  }
+}
+
+void MsgTellFriendChat::MergeFrom(const MsgTellFriendChat& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgTellFriendChat)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.content().size() > 0) {
+
+    content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
+  }
+  if (from.playerid() != 0) {
+    set_playerid(from.playerid());
+  }
+}
+
+void MsgTellFriendChat::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgTellFriendChat)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgTellFriendChat::CopyFrom(const MsgTellFriendChat& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgTellFriendChat)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgTellFriendChat::IsInitialized() const {
+  return true;
+}
+
+void MsgTellFriendChat::Swap(MsgTellFriendChat* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgTellFriendChat::InternalSwap(MsgTellFriendChat* other) {
+  using std::swap;
+  content_.Swap(&other->content_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(playerid_, other->playerid_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MsgTellFriendChat::GetMetadata() const {
+  protobuf_ClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_ClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MsgServerChatReq::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int MsgServerChatReq::kContentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2929,17 +3251,11 @@ MsgServerChatReq::MsgServerChatReq(const MsgServerChatReq& from)
   if (from.content().size() > 0) {
     content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
   }
-  if (from.has_player()) {
-    player_ = new ::KFMsg::PBObject(*from.player_);
-  } else {
-    player_ = NULL;
-  }
   // @@protoc_insertion_point(copy_constructor:KFMsg.MsgServerChatReq)
 }
 
 void MsgServerChatReq::SharedCtor() {
   content_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  player_ = NULL;
 }
 
 MsgServerChatReq::~MsgServerChatReq() {
@@ -2949,7 +3265,6 @@ MsgServerChatReq::~MsgServerChatReq() {
 
 void MsgServerChatReq::SharedDtor() {
   content_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete player_;
 }
 
 void MsgServerChatReq::SetCachedSize(int size) const {
@@ -2973,10 +3288,6 @@ void MsgServerChatReq::Clear() {
   (void) cached_has_bits;
 
   content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == NULL && player_ != NULL) {
-    delete player_;
-  }
-  player_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -2985,6 +3296,256 @@ bool MsgServerChatReq::MergePartialFromCodedStream(
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:KFMsg.MsgServerChatReq)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // bytes content = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_content()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:KFMsg.MsgServerChatReq)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:KFMsg.MsgServerChatReq)
+  return false;
+#undef DO_
+}
+
+void MsgServerChatReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:KFMsg.MsgServerChatReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes content = 1;
+  if (this->content().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->content(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:KFMsg.MsgServerChatReq)
+}
+
+::google::protobuf::uint8* MsgServerChatReq::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgServerChatReq)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bytes content = 1;
+  if (this->content().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->content(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgServerChatReq)
+  return target;
+}
+
+size_t MsgServerChatReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgServerChatReq)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // bytes content = 1;
+  if (this->content().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->content());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void MsgServerChatReq::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgServerChatReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const MsgServerChatReq* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MsgServerChatReq>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgServerChatReq)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgServerChatReq)
+    MergeFrom(*source);
+  }
+}
+
+void MsgServerChatReq::MergeFrom(const MsgServerChatReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgServerChatReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.content().size() > 0) {
+
+    content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
+  }
+}
+
+void MsgServerChatReq::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgServerChatReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MsgServerChatReq::CopyFrom(const MsgServerChatReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgServerChatReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MsgServerChatReq::IsInitialized() const {
+  return true;
+}
+
+void MsgServerChatReq::Swap(MsgServerChatReq* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void MsgServerChatReq::InternalSwap(MsgServerChatReq* other) {
+  using std::swap;
+  content_.Swap(&other->content_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata MsgServerChatReq::GetMetadata() const {
+  protobuf_ClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_ClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void MsgTellServerChat::InitAsDefaultInstance() {
+  ::KFMsg::_MsgTellServerChat_default_instance_._instance.get_mutable()->player_ = const_cast< ::KFMsg::PBObject*>(
+      ::KFMsg::PBObject::internal_default_instance());
+}
+void MsgTellServerChat::clear_player() {
+  if (GetArenaNoVirtual() == NULL && player_ != NULL) {
+    delete player_;
+  }
+  player_ = NULL;
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int MsgTellServerChat::kPlayerFieldNumber;
+const int MsgTellServerChat::kContentFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+MsgTellServerChat::MsgTellServerChat()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_ClientMessage_2eproto::scc_info_MsgTellServerChat.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:KFMsg.MsgTellServerChat)
+}
+MsgTellServerChat::MsgTellServerChat(const MsgTellServerChat& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  content_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.content().size() > 0) {
+    content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
+  }
+  if (from.has_player()) {
+    player_ = new ::KFMsg::PBObject(*from.player_);
+  } else {
+    player_ = NULL;
+  }
+  // @@protoc_insertion_point(copy_constructor:KFMsg.MsgTellServerChat)
+}
+
+void MsgTellServerChat::SharedCtor() {
+  content_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  player_ = NULL;
+}
+
+MsgTellServerChat::~MsgTellServerChat() {
+  // @@protoc_insertion_point(destructor:KFMsg.MsgTellServerChat)
+  SharedDtor();
+}
+
+void MsgTellServerChat::SharedDtor() {
+  content_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete player_;
+}
+
+void MsgTellServerChat::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* MsgTellServerChat::descriptor() {
+  ::protobuf_ClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_ClientMessage_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const MsgTellServerChat& MsgTellServerChat::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_ClientMessage_2eproto::scc_info_MsgTellServerChat.base);
+  return *internal_default_instance();
+}
+
+
+void MsgTellServerChat::Clear() {
+// @@protoc_insertion_point(message_clear_start:KFMsg.MsgTellServerChat)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && player_ != NULL) {
+    delete player_;
+  }
+  player_ = NULL;
+  _internal_metadata_.Clear();
+}
+
+bool MsgTellServerChat::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:KFMsg.MsgTellServerChat)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -3026,17 +3587,17 @@ bool MsgServerChatReq::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(parse_success:KFMsg.MsgTellServerChat)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(parse_failure:KFMsg.MsgTellServerChat)
   return false;
 #undef DO_
 }
 
-void MsgServerChatReq::SerializeWithCachedSizes(
+void MsgTellServerChat::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(serialize_start:KFMsg.MsgTellServerChat)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -3056,13 +3617,13 @@ void MsgServerChatReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(serialize_end:KFMsg.MsgTellServerChat)
 }
 
-::google::protobuf::uint8* MsgServerChatReq::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MsgTellServerChat::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(serialize_to_array_start:KFMsg.MsgTellServerChat)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -3084,12 +3645,12 @@ void MsgServerChatReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(serialize_to_array_end:KFMsg.MsgTellServerChat)
   return target;
 }
 
-size_t MsgServerChatReq::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgServerChatReq)
+size_t MsgTellServerChat::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:KFMsg.MsgTellServerChat)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -3116,23 +3677,23 @@ size_t MsgServerChatReq::ByteSizeLong() const {
   return total_size;
 }
 
-void MsgServerChatReq::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgServerChatReq)
+void MsgTellServerChat::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:KFMsg.MsgTellServerChat)
   GOOGLE_DCHECK_NE(&from, this);
-  const MsgServerChatReq* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const MsgServerChatReq>(
+  const MsgTellServerChat* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const MsgTellServerChat>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:KFMsg.MsgTellServerChat)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgServerChatReq)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:KFMsg.MsgTellServerChat)
     MergeFrom(*source);
   }
 }
 
-void MsgServerChatReq::MergeFrom(const MsgServerChatReq& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgServerChatReq)
+void MsgTellServerChat::MergeFrom(const MsgTellServerChat& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:KFMsg.MsgTellServerChat)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -3147,29 +3708,29 @@ void MsgServerChatReq::MergeFrom(const MsgServerChatReq& from) {
   }
 }
 
-void MsgServerChatReq::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgServerChatReq)
+void MsgTellServerChat::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:KFMsg.MsgTellServerChat)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MsgServerChatReq::CopyFrom(const MsgServerChatReq& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgServerChatReq)
+void MsgTellServerChat::CopyFrom(const MsgTellServerChat& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:KFMsg.MsgTellServerChat)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MsgServerChatReq::IsInitialized() const {
+bool MsgTellServerChat::IsInitialized() const {
   return true;
 }
 
-void MsgServerChatReq::Swap(MsgServerChatReq* other) {
+void MsgTellServerChat::Swap(MsgTellServerChat* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void MsgServerChatReq::InternalSwap(MsgServerChatReq* other) {
+void MsgTellServerChat::InternalSwap(MsgTellServerChat* other) {
   using std::swap;
   content_.Swap(&other->content_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -3177,7 +3738,7 @@ void MsgServerChatReq::InternalSwap(MsgServerChatReq* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata MsgServerChatReq::GetMetadata() const {
+::google::protobuf::Metadata MsgTellServerChat::GetMetadata() const {
   protobuf_ClientMessage_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_ClientMessage_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -3217,8 +3778,14 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgTellMatchCount* Arena:
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgFriendChatReq* Arena::CreateMaybeMessage< ::KFMsg::MsgFriendChatReq >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::MsgFriendChatReq >(arena);
 }
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgTellFriendChat* Arena::CreateMaybeMessage< ::KFMsg::MsgTellFriendChat >(Arena* arena) {
+  return Arena::CreateInternal< ::KFMsg::MsgTellFriendChat >(arena);
+}
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgServerChatReq* Arena::CreateMaybeMessage< ::KFMsg::MsgServerChatReq >(Arena* arena) {
   return Arena::CreateInternal< ::KFMsg::MsgServerChatReq >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::KFMsg::MsgTellServerChat* Arena::CreateMaybeMessage< ::KFMsg::MsgTellServerChat >(Arena* arena) {
+  return Arena::CreateInternal< ::KFMsg::MsgTellServerChat >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

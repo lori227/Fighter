@@ -58,7 +58,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021CodeMessage.proto\022\005KFMsg*\302\002\n\017ProjectCo"
+      "\n\021CodeMessage.proto\022\005KFMsg*\362\002\n\017ProjectCo"
       "deEnum\022\016\n\nLogicError\020\000\022\022\n\014HeroNotExist\020\231"
       "\362\001\022\022\n\014HeroNotFight\020\232\362\001\022\024\n\016EffectNotExist"
       "\020\233\362\001\022\022\n\014FootNotExist\020\234\362\001\022\024\n\016MatchRequest"
@@ -66,10 +66,12 @@ void AddDescriptorsImpl() {
       "nRoom\020\203\372\001\022\025\n\017MatchNotInMatch\020\204\372\001\022\023\n\rMatc"
       "hCancelOk\020\205\372\001\022\030\n\022MatchAffirmTimeout\020\207\372\001\022"
       "\031\n\023MatchNotFighterHero\020\210\372\001\022\024\n\016MatchDataE"
-      "rror\020\211\372\001\022\025\n\017RoomAllotBattle\020\345\372\001b\006proto3"
+      "rror\020\211\372\001\022\025\n\017RoomAllotBattle\020\345\372\001\022\023\n\rChatN"
+      "otFriend\020\311\373\001\022\031\n\023ChatFriendNotOnline\020\346\372\001b"
+      "\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 359);
+      descriptor, 407);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CodeMessage.proto", &protobuf_RegisterTypes);
 }
@@ -106,6 +108,8 @@ bool ProjectCodeEnum_IsValid(int value) {
     case 32008:
     case 32009:
     case 32101:
+    case 32102:
+    case 32201:
       return true;
     default:
       return false;
