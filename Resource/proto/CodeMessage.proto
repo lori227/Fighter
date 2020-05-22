@@ -26,8 +26,5 @@ enum ProjectCodeEnum
 	// room
 	RoomAllotBattle			= 32101;	// 正在分配战场服务器, 请等待
 
-	// chat 
-	ChatNotFriend			= 32201;	// 不是好友, 不能私聊
-	ChatFriendNotOnline		= 32102;	// 好友不在线, 发送私聊失败
 	
 }

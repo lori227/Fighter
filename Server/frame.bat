@@ -370,6 +370,10 @@ call :CopyInterface KFReset 1001-玩家-离开游戏.xlsx
 call :CopyInterface KFUnlock
 call :CopyInterface KFExecute
 
+
+rem logic
+call :CopyInterface KFChat
+
 rem Robot
 rem call :CopyInterface KFRobot
 rem ===========================================================================
