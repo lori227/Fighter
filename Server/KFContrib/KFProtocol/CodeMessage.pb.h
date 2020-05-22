@@ -68,14 +68,12 @@ enum ProjectCodeEnum {
   MatchNotFighterHero = 32008,
   MatchDataError = 32009,
   RoomAllotBattle = 32101,
-  ChatNotFriend = 32201,
-  ChatFriendNotOnline = 32102,
   ProjectCodeEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ProjectCodeEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 LIBPROTOC_EXPORT bool ProjectCodeEnum_IsValid(int value);
 const ProjectCodeEnum ProjectCodeEnum_MIN = LogicError;
-const ProjectCodeEnum ProjectCodeEnum_MAX = ChatNotFriend;
+const ProjectCodeEnum ProjectCodeEnum_MAX = RoomAllotBattle;
 const int ProjectCodeEnum_ARRAYSIZE = ProjectCodeEnum_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* ProjectCodeEnum_descriptor();
