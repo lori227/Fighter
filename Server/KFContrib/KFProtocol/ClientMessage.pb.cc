@@ -322,30 +322,31 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\023ClientMessage.proto\022\005KFMsg\032\023DefineMess"
-      "age.proto\"#\n\021MsgFighterHeroReq\022\016\n\006heroid"
-      "\030\001 \001(\r\"#\n\017MsgEffectUseReq\022\020\n\010effectid\030\001 "
-      "\001(\r\"\037\n\rMsgFootUseReq\022\016\n\006footid\030\001 \001(\r\"F\n\020"
-      "MsgStartMatchReq\022\017\n\007version\030\001 \001(\014\022\017\n\007mat"
-      "chid\030\002 \001(\r\022\020\n\010serverid\030\003 \001(\004\"$\n\021MsgCance"
-      "lMatchReq\022\017\n\007matchid\030\001 \001(\r\"P\n\022MsgInformB"
-      "attleReq\022\016\n\006roomid\030\001 \001(\004\022\020\n\010battleid\030\002 \001"
-      "(\004\022\n\n\002ip\030\003 \001(\014\022\014\n\004port\030\004 \001(\r\"\024\n\022MsgInfor"
-      "mBattleAck\"\"\n\020MsgFinishRoomReq\022\016\n\006roomid"
-      "\030\001 \001(\004\"\"\n\021MsgTellMatchCount\022\r\n\005count\030\001 \001"
-      "(\r*\223\002\n\016ClientProtocol\022\024\n\020MSG_CLIENT_BEGI"
-      "N\020\000\022\031\n\024MSG_FIGHTER_HERO_REQ\020\271\027\022\027\n\022MSG_EF"
-      "FECT_USE_REQ\020\272\027\022\025\n\020MSG_FOOT_USE_REQ\020\273\027\022\030"
-      "\n\023MSG_START_MATCH_REQ\020\235\030\022\031\n\024MSG_CANCEL_M"
-      "ATCH_REQ\020\236\030\022\032\n\025MSG_INFORM_BATTLE_REQ\020\237\030\022"
-      "\032\n\025MSG_INFORM_BATTLE_ACK\020\240\030\022\030\n\023MSG_FINIS"
-      "H_ROOM_REQ\020\241\030\022\031\n\024MSG_TELL_MATCH_COUNT\020\242\030"
-      "b\006proto3"
+      "age.proto\032\030FrameDefineMessage.proto\"#\n\021M"
+      "sgFighterHeroReq\022\016\n\006heroid\030\001 \001(\r\"#\n\017MsgE"
+      "ffectUseReq\022\020\n\010effectid\030\001 \001(\r\"\037\n\rMsgFoot"
+      "UseReq\022\016\n\006footid\030\001 \001(\r\"F\n\020MsgStartMatchR"
+      "eq\022\017\n\007version\030\001 \001(\014\022\017\n\007matchid\030\002 \001(\r\022\020\n\010"
+      "serverid\030\003 \001(\004\"$\n\021MsgCancelMatchReq\022\017\n\007m"
+      "atchid\030\001 \001(\r\"P\n\022MsgInformBattleReq\022\016\n\006ro"
+      "omid\030\001 \001(\004\022\020\n\010battleid\030\002 \001(\004\022\n\n\002ip\030\003 \001(\014"
+      "\022\014\n\004port\030\004 \001(\r\"\024\n\022MsgInformBattleAck\"\"\n\020"
+      "MsgFinishRoomReq\022\016\n\006roomid\030\001 \001(\004\"\"\n\021MsgT"
+      "ellMatchCount\022\r\n\005count\030\001 \001(\r*\223\002\n\016ClientP"
+      "rotocol\022\024\n\020MSG_CLIENT_BEGIN\020\000\022\031\n\024MSG_FIG"
+      "HTER_HERO_REQ\020\271\027\022\027\n\022MSG_EFFECT_USE_REQ\020\272"
+      "\027\022\025\n\020MSG_FOOT_USE_REQ\020\273\027\022\030\n\023MSG_START_MA"
+      "TCH_REQ\020\235\030\022\031\n\024MSG_CANCEL_MATCH_REQ\020\236\030\022\032\n"
+      "\025MSG_INFORM_BATTLE_REQ\020\237\030\022\032\n\025MSG_INFORM_"
+      "BATTLE_ACK\020\240\030\022\030\n\023MSG_FINISH_ROOM_REQ\020\241\030\022"
+      "\031\n\024MSG_TELL_MATCH_COUNT\020\242\030b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 728);
+      descriptor, 754);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ClientMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_DefineMessage_2eproto::AddDescriptors();
+  ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
 }
 
 void AddDescriptors() {

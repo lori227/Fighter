@@ -1,5 +1,5 @@
 <root version="00000">
 	<item Channel="0" Service="0" Type="1" Elements="[{&quot;hero&quot;:{&quot;id&quot;:&quot;1&quot;}}]"/>
 	<item Channel="0" Service="0" Type="1" Elements="[{&quot;effect&quot;:{&quot;id&quot;:&quot;1&quot;}}]"/>
-	<item Channel="0" Service="0" Type="1" Elements="[{&quot;foot&quot;:{&quot;id&quot;:&quot;1&quot;}}}]"/>
+	<item Channel="0" Service="0" Type="1" Elements="[{&quot;foot&quot;:{&quot;id&quot;:&quot;1&quot;}}]"/>
 </root>

@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "DefineMessage.proto";
+import "FrameDefineMessage.proto";
 
 package KFMsg;
 
@@ -20,6 +21,8 @@ enum ClientProtocol
 	MSG_INFORM_BATTLE_ACK		= 3104;	// 客户端确认战场信息
 	MSG_FINISH_ROOM_REQ			= 3105;	// 服务器通知战场房间结束
 	MSG_TELL_MATCH_COUNT		= 3106;	// 通知匹配玩家数量
+
+
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////

@@ -5,24 +5,26 @@ package KFMsg;
 // 20000-30000
 enum ProjectCodeEnum
 {
-	LogicError			= 0;		// 失败	
+	LogicError				= 0;		// 失败	
 	
 	// hero
-	HeroNotExist		= 31001;	// 英雄不存在
-	HeroNotFight		= 31002;	// 没有出战英雄
-	EffectNotExist		= 31003;	// 特效不存在
-	FootNotExist		= 31004;	// 特效不存在
+	HeroNotExist			= 31001;	// 英雄不存在
+	HeroNotFight			= 31002;	// 没有出战英雄
+	EffectNotExist			= 31003;	// 特效不存在
+	FootNotExist			= 31004;	// 特效不存在
 
-	// battle
-	MatchRequestOk 		= 32001;	// 请求匹配成功, 请等待...
-	MatchAlreadyWait	= 32002;	// 正在匹配中, 不要重复请求
-	MatchInRoom			= 32003;	// 已经在匹配房间中, 请等待...
-	MatchNotInMatch     = 32004;	// 不在匹配中, 不需要取消
-	MatchCancelOk	    = 32005;	// 取消匹配成功
-	MatchAffirmTimeout  = 32007;	// 确认匹配超时
-	MatchNotFighterHero = 32008;	// 没有匹配英雄
-	MatchDataError		= 32009;	// 匹配数据错误
+	// match
+	MatchRequestOk 			= 32001;	// 请求匹配成功, 请等待...
+	MatchAlreadyWait		= 32002;	// 正在匹配中, 不要重复请求
+	MatchInRoom				= 32003;	// 已经在匹配房间中, 请等待...
+	MatchNotInMatch     	= 32004;	// 不在匹配中, 不需要取消
+	MatchCancelOk	    	= 32005;	// 取消匹配成功
+	MatchAffirmTimeout  	= 32007;	// 确认匹配超时
+	MatchNotFighterHero 	= 32008;	// 没有匹配英雄
+	MatchDataError			= 32009;	// 匹配数据错误
 
-	RoomAllotBattle		= 32101;	// 正在分配战场服务器, 请等待
+	// room
+	RoomAllotBattle			= 32101;	// 正在分配战场服务器, 请等待
+
 	
 }
