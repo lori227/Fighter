@@ -1,4 +1,6 @@
 <root version="00000">
 	<item Limits="" Id="1" Condition="costmoney" DoneType=">=" DoneValue="100" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
-	<item Limits="" Id="2" Condition="owngrade" DoneType=">=" DoneValue="10" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="2" Condition="owngrade" DoneType=">=" DoneValue="1" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="3" Condition="owngrade" DoneType=">=" DoneValue="160" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="4" Condition="costmoney" DoneType=">=" DoneValue="100" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
 </root>
