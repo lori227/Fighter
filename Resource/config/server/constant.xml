@@ -2,4 +2,5 @@
 	<item Name="disconnettime" Key="" Value="1000" Channel="" Service=""/>
 	<item Name="playernamelength" Key="" Value="40" Channel="" Service=""/>
 	<item Name="signinresettime" Key="" Value="2" Channel="" Service=""/>
+	<item Name="chatintervaltime" Key="" Value="2000" Channel="" Service=""/>
 </root>
