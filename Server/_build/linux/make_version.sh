@@ -53,7 +53,7 @@ echo $projectversion
 
 # config
 mkdir -p _bin/config
-cp -f ../Resource/config/*.xml _bin/config/
+cp -f ../Resource/config/server/*.xml _bin/config/
 
 #script
 mkdir -p _bin/script
