@@ -256,9 +256,6 @@ if not exist %localpath%\%resourcepath% ( mkdir %resourcepath% )
 
 rem config=================================
 if not exist %resourcepath%\config ( mkdir %resourcepath%\config )
-if not exist %resourcepath%\config\rank.xml ( 
-    copy /y %framepath%\_resource\config\rank.xml %resourcepath%\config\
-)
 
 rem tool=================================
 rem if not exist %resourcepath%\tool ( mkdir %resourcepath%\tool )
