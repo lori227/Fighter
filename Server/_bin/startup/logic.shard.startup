@@ -16,5 +16,6 @@
 		<Plugin Name="KFBasicAttribute" Config=""/>	
 		<Plugin Name="KFRelationShard" Config=""/>	
 		<Plugin Name="KFRelationAttribute" Config=""/>	
+		<Plugin Name="KFRankShard" Config=""/>	
 	</Plugins>
 </Setting>

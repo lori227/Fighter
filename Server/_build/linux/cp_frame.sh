@@ -82,3 +82,5 @@ cp -f $framebinpath/KFRelationShard$filename.so $binpath/
 cp -f $framebinpath/KFRelationAttribute$filename.so $binpath/
 cp -f $framebinpath/KFAchieve$filename.so $binpath/
 cp -f $framebinpath/KFChat$filename.so $binpath/
+cp -f $framebinpath/KFRankClient$filename.so $binpath/
+cp -f $framebinpath/KFRankShard$filename.so $binpath/

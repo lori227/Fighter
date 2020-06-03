@@ -31,5 +31,6 @@
 		<Plugin Name="KFAchieve" Config=""/>		
 		<Plugin Name="KFStore" Config=""/>		
 		<Plugin Name="KFChat" Config=""/>		
+		<Plugin Name="KFRankClient" Config=""/>		
 	</Plugins>
 </Setting>

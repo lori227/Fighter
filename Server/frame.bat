@@ -339,10 +339,8 @@ call :CopyInterface KFMailClient
 call :CopyInterface KFMailShard
 
 rem rank
-rem call :CopyInterface KFRankClient
-rem call :CopyInterface KFRankMaster
-rem call :CopyInterface KFRankShard
-copy /y %framepath%\%binpath%\config\rank.xml ..\Resource\config\
+call :CopyInterface KFRankClient
+call :CopyInterface KFRankShard
 
 rem public
 call :CopyInterface KFBasicClient
