@@ -11,6 +11,8 @@
 		<Route Source="record" Target="logic"/>
 		<!-- 关系系统 -->		
 		<Route Source="relation" Target="logic"/>
+		<!-- 排行榜 -->
+		<Route Source="rank" Target="logic"/>
 		<!-- 邮件系统 -->		
 		<Route Source="mail" Target="logic"/>
 		<!-- 帮派/军团/工会系统 -->		
