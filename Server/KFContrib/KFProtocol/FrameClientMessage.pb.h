@@ -5697,6 +5697,12 @@ class LIBPROTOC_EXPORT MsgStoreBuyGoodsReq : public ::google::protobuf::Message 
   ::google::protobuf::uint32 buycount() const;
   void set_buycount(::google::protobuf::uint32 value);
 
+  // uint32 index = 4;
+  void clear_index();
+  static const int kIndexFieldNumber = 4;
+  ::google::protobuf::uint32 index() const;
+  void set_index(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.MsgStoreBuyGoodsReq)
  private:
 
@@ -5704,6 +5710,7 @@ class LIBPROTOC_EXPORT MsgStoreBuyGoodsReq : public ::google::protobuf::Message 
   ::google::protobuf::uint32 storeid_;
   ::google::protobuf::uint32 goodsid_;
   ::google::protobuf::uint32 buycount_;
+  ::google::protobuf::uint32 index_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_FrameClientMessage_2eproto::TableStruct;
 };
@@ -10926,6 +10933,20 @@ inline void MsgStoreBuyGoodsReq::set_buycount(::google::protobuf::uint32 value) 
   
   buycount_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.MsgStoreBuyGoodsReq.buycount)
+}
+
+// uint32 index = 4;
+inline void MsgStoreBuyGoodsReq::clear_index() {
+  index_ = 0u;
+}
+inline ::google::protobuf::uint32 MsgStoreBuyGoodsReq::index() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgStoreBuyGoodsReq.index)
+  return index_;
+}
+inline void MsgStoreBuyGoodsReq::set_index(::google::protobuf::uint32 value) {
+  
+  index_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgStoreBuyGoodsReq.index)
 }
 
 // -------------------------------------------------------------------
