@@ -1,9 +1,9 @@
 <root version="00000">
-	<item Id="1" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;11001&quot;,&quot;count&quot;:&quot;1&quot;}}]" Probability="0" ExtendReward=""/>
-	<item Id="2" Reward="[{&quot;money&quot;:&quot;100&quot;}]" Probability="0" ExtendReward=""/>
-	<item Id="3" Reward="[{&quot;money&quot;:&quot;300&quot;}]" Probability="0" ExtendReward=""/>
-	<item Id="4" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;10001&quot;,&quot;count&quot;:&quot;1&quot;}}]" Probability="0" ExtendReward=""/>
-	<item Id="5" Reward="[{&quot;money&quot;:&quot;500&quot;}]" Probability="0" ExtendReward=""/>
-	<item Id="6" Reward="[{&quot;money&quot;:&quot;1000&quot;}]" Probability="0" ExtendReward=""/>
-	<item Id="7" Reward="[{&quot;hero&quot;:{&quot;id&quot;:&quot;2&quot;}}]" Probability="0" ExtendReward=""/>
+	<item Id="1" Reward="[{&quot;money&quot;:&quot;90&quot;}]" Probability="0" ExtendReward="[{&quot;item&quot;:{&quot;id&quot;:&quot;11001&quot;,&quot;count&quot;:&quot;1&quot;}}]"/>
+	<item Id="2" Reward="[{&quot;money&quot;:&quot;100&quot;}]" Probability="0" ExtendReward="[{&quot;money&quot;:&quot;0&quot;}]"/>
+	<item Id="3" Reward="[{&quot;money&quot;:&quot;120&quot;}]" Probability="0" ExtendReward="[{&quot;money&quot;:&quot;0&quot;}]"/>
+	<item Id="4" Reward="[{&quot;money&quot;:&quot;160&quot;}]" Probability="0" ExtendReward="[{&quot;item&quot;:{&quot;id&quot;:&quot;10001&quot;,&quot;count&quot;:&quot;1&quot;}}]"/>
+	<item Id="5" Reward="[{&quot;money&quot;:&quot;230&quot;}]" Probability="0" ExtendReward="[{&quot;money&quot;:&quot;0&quot;}]"/>
+	<item Id="6" Reward="[{&quot;money&quot;:&quot;340&quot;}]" Probability="0" ExtendReward="[{&quot;money&quot;:&quot;0&quot;}]"/>
+	<item Id="7" Reward="[{&quot;money&quot;:&quot;500&quot;}]" Probability="0" ExtendReward="[{&quot;item&quot;:{&quot;id&quot;:&quot;20001&quot;,&quot;count&quot;:&quot;1&quot;}}]"/>
 </root>

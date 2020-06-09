@@ -1,6 +1,6 @@
 <root version="00000">
-	<item Id="1" CompleteCondition="1" Reward="[{&quot;hero&quot;:{&quot;id&quot;:&quot;2&quot;}}]"/>
-	<item Id="2" CompleteCondition="2" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;12002&quot;}}]"/>
-	<item Id="3" CompleteCondition="3" Reward="[{&quot;foot&quot;:{&quot;id&quot;:&quot;2&quot;}}]"/>
-	<item Id="4" CompleteCondition="4" Reward="[{&quot;effect&quot;:{&quot;id&quot;:&quot;2&quot;}}]"/>
+	<item Id="1" CompleteCondition="6" Reward="[{&quot;hero&quot;:{&quot;id&quot;:&quot;2&quot;}}]"/>
+	<item Id="2" CompleteCondition="2" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;11001&quot;}}]"/>
+	<item Id="3" CompleteCondition="3" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;10001&quot;}}]"/>
+	<item Id="4" CompleteCondition="4" Reward="[{&quot;item&quot;:{&quot;id&quot;:&quot;12001&quot;}}]"/>
 </root>
