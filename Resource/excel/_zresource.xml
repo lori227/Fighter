@@ -33,7 +33,7 @@
 		<File Name="商城-商店解锁.xlsx" Type="3" XmlName="storeunlock" MD5Client="24a3b084fb1f60cfd9a9ac306e4e48ab" MD5Server="24a3b084fb1f60cfd9a9ac306e4e48ab"/>
 		<File Name="英雄-特效配置.xlsx" Type="3" XmlName="effect" MD5Client="afc3b0b7279298b4e2db3726cb54f814" MD5Server="afc3b0b7279298b4e2db3726cb54f814"/>
 		<File Name="英雄-脚印配置.xlsx" Type="3" XmlName="foot" MD5Client="e9461a5629406486c6be3b3afbd5c262" MD5Server="e9461a5629406486c6be3b3afbd5c262"/>
-		<File Name="英雄-英雄配置.xlsx" Type="3" XmlName="hero" MD5Client="f80e5209391a72a8a154c6031f91fc22" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
+		<File Name="英雄-英雄配置.xlsx" Type="3" XmlName="hero" MD5Client="f80e5209391a72a8a154c6031f91fc22" MD5Server="59661e44bfe7d17c3fd478eb04c6c3b9"/>
 		<File Name="排行-排行配置.xlsx" Type="3" XmlName="rank" MD5Client="d2a7809125bbe04a61e0224497dbb722" MD5Server="d2a7809125bbe04a61e0224497dbb722"/>
 		<File Name="道具-公共配置.xlsx" Type="3" XmlName="itemcommon" MD5Client="2d8fd353ebdffe4844a95f51c3524b15" MD5Server="2d8fd353ebdffe4844a95f51c3524b15"/>
 		<File Name="道具-礼包配置.xlsx" Type="3" XmlName="itemgift" MD5Client="c3a0627d6c2dba829f4fe225dce38c59" MD5Server="c3a0627d6c2dba829f4fe225dce38c59"/>
