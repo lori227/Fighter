@@ -1,9 +1,9 @@
 <root version="00000">
 	<item Limits="" Id="1" Condition="costmoney" DoneType=">=" DoneValue="100" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
-	<item Limits="" Id="2" Condition="owngrade" DoneType=">=" DoneValue="1" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
-	<item Limits="" Id="3" Condition="owngrade" DoneType=">=" DoneValue="85" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
-	<item Limits="" Id="4" Condition="costmoney" DoneType=">=" DoneValue="100" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="2" Condition="owngrade" DoneType=">=" DoneValue="85" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="3" Condition="owngrade" DoneType=">=" DoneValue="510" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="4" Condition="costmoney" DoneType=">=" DoneValue="2000" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
 	<item Limits="" Id="5" Condition="totalsignin" DoneType=">=" DoneValue="1" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
 	<item Limits="" Id="6" Condition="totalsignin" DoneType=">=" DoneValue="4" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
-	<item Limits="" Id="7" Condition="totalsignin" DoneType=">=" DoneValue="5" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="7" Condition="totalsignin" DoneType=">=" DoneValue="7" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
 </root>
