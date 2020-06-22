@@ -3,6 +3,19 @@ import "FrameDefineMessage.proto";
 package KFMsg;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 匹配房间
+message PBMatchRoom
+{
+    uint32 matchid = 1;			// 匹配模式
+	uint64 roomid = 2;			// 匹配房间id
+    bytes title = 3;			// 房间标题
+    bytes version = 4;		    // 客户端版本号
+    uint32 maxplayer = 5;       // 最大人数
+    uint32 nowplayer = 6;       // 当前人数
+    bytes master = 7;           // 开房者名字
+	repeated PBMatchPlayer player = 10;	// 玩家列表
+}
+
 // 匹配玩家
 message PBMatchPlayer
 {
