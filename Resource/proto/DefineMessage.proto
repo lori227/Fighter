@@ -12,7 +12,8 @@ message PBMatchRoom
     bytes version = 4;		    // 客户端版本号
     uint32 maxplayer = 5;       // 最大人数
     uint32 nowplayer = 6;       // 当前人数
-    bytes master = 7;           // 开房者名字
+    bytes masterid = 7;         // 开房者id
+    bytes mastername = 8;       // 开房者名字
 	repeated PBMatchPlayer player = 10;	// 玩家列表
 }
 
