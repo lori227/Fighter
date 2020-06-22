@@ -8,3 +8,10 @@ enum CampEnum
 	RedCamp 	= 1;		// 红色阵营
 	BlueCamp 	= 2;		// 蓝色阵营
 }
+
+enum LeaveEnum
+{
+	UnknowLeave = 0;	// 无效
+	Leave 		= 1;	// 主动离开
+	Kick 		= 2;	// 被踢了
+}

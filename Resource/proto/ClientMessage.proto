@@ -26,11 +26,10 @@ enum ClientProtocol
 	MSG_JOIN_MATCH_REQ			= 3109;	// 加入匹配房间
 	MSG_JOIN_MATCH_ACK			= 3110;	// 加入匹配房间
 	MSG_ADD_MATCH_MEMBER_ACK	= 3111;	// 匹配房间加入新成员
-	MSG_REMOVE_MATCH_MEMBER_ACK = 3112;	// 匹配房间删除成员
 	MSG_QUERY_MATCH_LIST_REQ	= 3113; // 查询匹配房间列表
 	MSG_QUERY_MATCH_LIST_ACK	= 3114; // 查询匹配房间列表
 	MSG_KICK_MATCH_REQ			= 3115;	// 踢出匹配房间
-	MSG_KICK_MATCH_ACK			= 3116;	// 踢出匹配房间
+	MSG_LEAVE_MATCH_ACK			= 3116;	// 离开匹配房间
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -144,13 +143,6 @@ message MsgAddMatchMemberAck
 	PBMatchPlayer player = 1;	// 玩家列表
 }
 
-// 匹配房间删除成员
-// MSG_REMOVE_MATCH_MEMBER_ACK
-message MsgRemoveMatchMemberAck
-{
-	uint64 playerid = 1;	// 玩家id
-}
-
 // 查询匹配房间列表
 // MSG_QUERY_MATCH_LIST_REQ
 message MSG_QUERY_MATCH_LIST_REQ
@@ -174,9 +166,10 @@ message MsgKickMatchReq
 	uint64 playerid = 1;	// 玩家id
 }
 
-// 踢出匹配房间
-// MSG_KICK_MATCH_ACK
-message MsgKickMatchAck
+// 离开匹配房间
+// MSG_LEAVE_MATCH_ACK
+message MsgLeaveMatchAck
 {
-	
+	uint64 playerid = 1;	// 玩家id
+	uint32 type = 2;		// 类型( LeaveEnum )
 }
