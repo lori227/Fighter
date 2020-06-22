@@ -21,7 +21,14 @@ enum ClientProtocol
 	MSG_INFORM_BATTLE_ACK		= 3104;	// 客户端确认战场信息
 	MSG_FINISH_ROOM_REQ			= 3105;	// 服务器通知战场房间结束
 	MSG_TELL_MATCH_COUNT		= 3106;	// 通知匹配玩家数量
-
+	MSG_CREATE_MATCH_REQ		= 3107;	// 创建匹配房间
+	MSG_CREATE_MATCH_ACK		= 3108;	// 创建匹配房间
+	MSG_JOIN_MATCH_REQ			= 3109;	// 加入匹配房间
+	MSG_JOIN_MATCH_ACK			= 3110;	// 加入匹配房间
+	MSG_ADD_MATCH_MEMBER_ACK	= 3111;	// 匹配房间加入新成员
+	MSG_REMOVE_MATCH_MEMBER_ACK = 3112;	// 匹配房间删除成员
+	MSG_QUERY_MATCH_LIST_REQ	= 3113; // 查询匹配房间列表
+	MSG_QUERY_MATCH_LIST_ACK	= 3114; // 查询匹配房间列表
 
  }
 //////////////////////////////////////////////////////////////////////////
