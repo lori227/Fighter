@@ -29,7 +29,8 @@ enum ClientProtocol
 	MSG_REMOVE_MATCH_MEMBER_ACK = 3112;	// 匹配房间删除成员
 	MSG_QUERY_MATCH_LIST_REQ	= 3113; // 查询匹配房间列表
 	MSG_QUERY_MATCH_LIST_ACK	= 3114; // 查询匹配房间列表
-
+	MSG_KICK_MATCH_REQ			= 3115;	// 踢出匹配房间
+	MSG_KICK_MATCH_ACK			= 3116;	// 踢出匹配房间
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -111,6 +112,7 @@ message MsgCreateMatchReq
 	uint32 matchid = 2;		// 匹配模式
 	uint64 serverid = 3;	// 指定的battle服务器id
 	bytes title = 4;		// 房间标题
+	bytes password = 5;		// 房间密码
 }
 
 // 创建匹配房间
@@ -163,4 +165,18 @@ message MSG_QUERY_MATCH_LIST_REQ
 message MsgQueryMatchListAck
 {
 	repeated PBMatchRoom pbroom = 1;
+}
+
+// 踢出匹配房间
+// MSG_KICK_MATCH_REQ
+message MsgKickMatchReq
+{
+	uint64 playerid = 1;	// 玩家id
+}
+
+// 踢出匹配房间
+// MSG_KICK_MATCH_ACK
+message MsgKickMatchAck
+{
+	
 }
