@@ -26,7 +26,6 @@ namespace KFrame
     {
         kfplayer->_match_room = this;
         _player_list.Insert( kfplayer->_id, kfplayer );
-        __LOG_DEBUG__( "room=[{}] add player=[{}] count=[{}]!", _id, kfplayer->_id, _player_list.Size() );
         return CheckFull();
     }
 

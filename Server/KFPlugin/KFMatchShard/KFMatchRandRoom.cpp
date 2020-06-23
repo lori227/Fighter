@@ -12,6 +12,7 @@ namespace KFrame
     bool KFMatchRandRoom::AddPlayer( KFMatchPlayer* kfplayer )
     {
         KFMatchRoom::AddPlayer( kfplayer );
+        __LOG_DEBUG__( "room=[{}] add player=[{}] count=[{}]!", _id, kfplayer->_id, _player_list.Size() );
 
         // 更新匹配玩家数量
         SentMatchCountToClient();
