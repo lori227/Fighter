@@ -75,6 +75,28 @@ inline bool CampEnum_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<CampEnum>(
     CampEnum_descriptor(), name, value);
 }
+enum LeaveEnum {
+  UnknowLeave = 0,
+  Leave = 1,
+  Kick = 2,
+  LeaveEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  LeaveEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+LIBPROTOC_EXPORT bool LeaveEnum_IsValid(int value);
+const LeaveEnum LeaveEnum_MIN = UnknowLeave;
+const LeaveEnum LeaveEnum_MAX = Kick;
+const int LeaveEnum_ARRAYSIZE = LeaveEnum_MAX + 1;
+
+LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* LeaveEnum_descriptor();
+inline const ::std::string& LeaveEnum_Name(LeaveEnum value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LeaveEnum_descriptor(), value);
+}
+inline bool LeaveEnum_Parse(
+    const ::std::string& name, LeaveEnum* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LeaveEnum>(
+    LeaveEnum_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -102,6 +124,11 @@ template <> struct is_proto_enum< ::KFMsg::CampEnum> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::KFMsg::CampEnum>() {
   return ::KFMsg::CampEnum_descriptor();
+}
+template <> struct is_proto_enum< ::KFMsg::LeaveEnum> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::KFMsg::LeaveEnum>() {
+  return ::KFMsg::LeaveEnum_descriptor();
 }
 
 }  // namespace protobuf

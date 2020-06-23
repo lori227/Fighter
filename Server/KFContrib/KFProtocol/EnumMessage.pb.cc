@@ -33,7 +33,7 @@ namespace protobuf_EnumMessage_2eproto {
 void InitDefaults() {
 }
 
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 const ::google::protobuf::uint32 TableStruct::offsets[1] = {};
 static const ::google::protobuf::internal::MigrationSchema* schemas = NULL;
 static const ::google::protobuf::Message* const* file_default_instances = NULL;
@@ -60,10 +60,11 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\021EnumMessage.proto\022\005KFMsg*5\n\010CampEnum\022\016"
       "\n\nUnknowCamp\020\000\022\013\n\007RedCamp\020\001\022\014\n\010BlueCamp\020"
-      "\002b\006proto3"
+      "\002*1\n\tLeaveEnum\022\017\n\013UnknowLeave\020\000\022\t\n\005Leave"
+      "\020\001\022\010\n\004Kick\020\002b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 89);
+      descriptor, 140);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "EnumMessage.proto", &protobuf_RegisterTypes);
 }
@@ -85,6 +86,21 @@ const ::google::protobuf::EnumDescriptor* CampEnum_descriptor() {
   return protobuf_EnumMessage_2eproto::file_level_enum_descriptors[0];
 }
 bool CampEnum_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* LeaveEnum_descriptor() {
+  protobuf_EnumMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_EnumMessage_2eproto::file_level_enum_descriptors[1];
+}
+bool LeaveEnum_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
