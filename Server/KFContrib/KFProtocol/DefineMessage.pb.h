@@ -164,17 +164,17 @@ class LIBPROTOC_EXPORT PBMatchRoom : public ::google::protobuf::Message /* @@pro
 
   // accessors -------------------------------------------------------
 
-  // repeated .KFMsg.PBMatchPlayer player = 20;
-  int player_size() const;
-  void clear_player();
-  static const int kPlayerFieldNumber = 20;
-  ::KFMsg::PBMatchPlayer* mutable_player(int index);
+  // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
+  int pbplayer_size() const;
+  void clear_pbplayer();
+  static const int kPbplayerFieldNumber = 20;
+  ::KFMsg::PBMatchPlayer* mutable_pbplayer(int index);
   ::google::protobuf::RepeatedPtrField< ::KFMsg::PBMatchPlayer >*
-      mutable_player();
-  const ::KFMsg::PBMatchPlayer& player(int index) const;
-  ::KFMsg::PBMatchPlayer* add_player();
+      mutable_pbplayer();
+  const ::KFMsg::PBMatchPlayer& pbplayer(int index) const;
+  ::KFMsg::PBMatchPlayer* add_pbplayer();
   const ::google::protobuf::RepeatedPtrField< ::KFMsg::PBMatchPlayer >&
-      player() const;
+      pbplayer() const;
 
   // bytes title = 3;
   void clear_title();
@@ -203,20 +203,6 @@ class LIBPROTOC_EXPORT PBMatchRoom : public ::google::protobuf::Message /* @@pro
   ::std::string* mutable_version();
   ::std::string* release_version();
   void set_allocated_version(::std::string* version);
-
-  // bytes masterid = 7;
-  void clear_masterid();
-  static const int kMasteridFieldNumber = 7;
-  const ::std::string& masterid() const;
-  void set_masterid(const ::std::string& value);
-  #if LANG_CXX11
-  void set_masterid(::std::string&& value);
-  #endif
-  void set_masterid(const char* value);
-  void set_masterid(const void* value, size_t size);
-  ::std::string* mutable_masterid();
-  ::std::string* release_masterid();
-  void set_allocated_masterid(::std::string* masterid);
 
   // bytes mastername = 8;
   void clear_mastername();
@@ -264,26 +250,39 @@ class LIBPROTOC_EXPORT PBMatchRoom : public ::google::protobuf::Message /* @@pro
   ::google::protobuf::uint32 maxplayer() const;
   void set_maxplayer(::google::protobuf::uint32 value);
 
+  // uint64 masterid = 7;
+  void clear_masterid();
+  static const int kMasteridFieldNumber = 7;
+  ::google::protobuf::uint64 masterid() const;
+  void set_masterid(::google::protobuf::uint64 value);
+
   // uint32 nowplayer = 6;
   void clear_nowplayer();
   static const int kNowplayerFieldNumber = 6;
   ::google::protobuf::uint32 nowplayer() const;
   void set_nowplayer(::google::protobuf::uint32 value);
 
+  // uint32 grade = 10;
+  void clear_grade();
+  static const int kGradeFieldNumber = 10;
+  ::google::protobuf::uint32 grade() const;
+  void set_grade(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.PBMatchRoom)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::KFMsg::PBMatchPlayer > player_;
+  ::google::protobuf::RepeatedPtrField< ::KFMsg::PBMatchPlayer > pbplayer_;
   ::google::protobuf::internal::ArenaStringPtr title_;
   ::google::protobuf::internal::ArenaStringPtr version_;
-  ::google::protobuf::internal::ArenaStringPtr masterid_;
   ::google::protobuf::internal::ArenaStringPtr mastername_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::uint64 roomid_;
   ::google::protobuf::uint32 matchid_;
   ::google::protobuf::uint32 maxplayer_;
+  ::google::protobuf::uint64 masterid_;
   ::google::protobuf::uint32 nowplayer_;
+  ::google::protobuf::uint32 grade_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_DefineMessage_2eproto::TableStruct;
 };
@@ -854,57 +853,18 @@ inline void PBMatchRoom::set_nowplayer(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchRoom.nowplayer)
 }
 
-// bytes masterid = 7;
+// uint64 masterid = 7;
 inline void PBMatchRoom::clear_masterid() {
-  masterid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  masterid_ = GOOGLE_ULONGLONG(0);
 }
-inline const ::std::string& PBMatchRoom::masterid() const {
+inline ::google::protobuf::uint64 PBMatchRoom::masterid() const {
   // @@protoc_insertion_point(field_get:KFMsg.PBMatchRoom.masterid)
-  return masterid_.GetNoArena();
+  return masterid_;
 }
-inline void PBMatchRoom::set_masterid(const ::std::string& value) {
+inline void PBMatchRoom::set_masterid(::google::protobuf::uint64 value) {
   
-  masterid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  masterid_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchRoom.masterid)
-}
-#if LANG_CXX11
-inline void PBMatchRoom::set_masterid(::std::string&& value) {
-  
-  masterid_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:KFMsg.PBMatchRoom.masterid)
-}
-#endif
-inline void PBMatchRoom::set_masterid(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  masterid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:KFMsg.PBMatchRoom.masterid)
-}
-inline void PBMatchRoom::set_masterid(const void* value, size_t size) {
-  
-  masterid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:KFMsg.PBMatchRoom.masterid)
-}
-inline ::std::string* PBMatchRoom::mutable_masterid() {
-  
-  // @@protoc_insertion_point(field_mutable:KFMsg.PBMatchRoom.masterid)
-  return masterid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* PBMatchRoom::release_masterid() {
-  // @@protoc_insertion_point(field_release:KFMsg.PBMatchRoom.masterid)
-  
-  return masterid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void PBMatchRoom::set_allocated_masterid(::std::string* masterid) {
-  if (masterid != NULL) {
-    
-  } else {
-    
-  }
-  masterid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), masterid);
-  // @@protoc_insertion_point(field_set_allocated:KFMsg.PBMatchRoom.masterid)
 }
 
 // bytes mastername = 8;
@@ -1013,34 +973,48 @@ inline void PBMatchRoom::set_allocated_password(::std::string* password) {
   // @@protoc_insertion_point(field_set_allocated:KFMsg.PBMatchRoom.password)
 }
 
-// repeated .KFMsg.PBMatchPlayer player = 20;
-inline int PBMatchRoom::player_size() const {
-  return player_.size();
+// uint32 grade = 10;
+inline void PBMatchRoom::clear_grade() {
+  grade_ = 0u;
 }
-inline void PBMatchRoom::clear_player() {
-  player_.Clear();
+inline ::google::protobuf::uint32 PBMatchRoom::grade() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchRoom.grade)
+  return grade_;
 }
-inline ::KFMsg::PBMatchPlayer* PBMatchRoom::mutable_player(int index) {
-  // @@protoc_insertion_point(field_mutable:KFMsg.PBMatchRoom.player)
-  return player_.Mutable(index);
+inline void PBMatchRoom::set_grade(::google::protobuf::uint32 value) {
+  
+  grade_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchRoom.grade)
+}
+
+// repeated .KFMsg.PBMatchPlayer pbplayer = 20;
+inline int PBMatchRoom::pbplayer_size() const {
+  return pbplayer_.size();
+}
+inline void PBMatchRoom::clear_pbplayer() {
+  pbplayer_.Clear();
+}
+inline ::KFMsg::PBMatchPlayer* PBMatchRoom::mutable_pbplayer(int index) {
+  // @@protoc_insertion_point(field_mutable:KFMsg.PBMatchRoom.pbplayer)
+  return pbplayer_.Mutable(index);
 }
 inline ::google::protobuf::RepeatedPtrField< ::KFMsg::PBMatchPlayer >*
-PBMatchRoom::mutable_player() {
-  // @@protoc_insertion_point(field_mutable_list:KFMsg.PBMatchRoom.player)
-  return &player_;
+PBMatchRoom::mutable_pbplayer() {
+  // @@protoc_insertion_point(field_mutable_list:KFMsg.PBMatchRoom.pbplayer)
+  return &pbplayer_;
 }
-inline const ::KFMsg::PBMatchPlayer& PBMatchRoom::player(int index) const {
-  // @@protoc_insertion_point(field_get:KFMsg.PBMatchRoom.player)
-  return player_.Get(index);
+inline const ::KFMsg::PBMatchPlayer& PBMatchRoom::pbplayer(int index) const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchRoom.pbplayer)
+  return pbplayer_.Get(index);
 }
-inline ::KFMsg::PBMatchPlayer* PBMatchRoom::add_player() {
-  // @@protoc_insertion_point(field_add:KFMsg.PBMatchRoom.player)
-  return player_.Add();
+inline ::KFMsg::PBMatchPlayer* PBMatchRoom::add_pbplayer() {
+  // @@protoc_insertion_point(field_add:KFMsg.PBMatchRoom.pbplayer)
+  return pbplayer_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::KFMsg::PBMatchPlayer >&
-PBMatchRoom::player() const {
-  // @@protoc_insertion_point(field_list:KFMsg.PBMatchRoom.player)
-  return player_;
+PBMatchRoom::pbplayer() const {
+  // @@protoc_insertion_point(field_list:KFMsg.PBMatchRoom.pbplayer)
+  return pbplayer_;
 }
 
 // -------------------------------------------------------------------

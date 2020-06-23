@@ -126,7 +126,7 @@ namespace KFrame
         req.set_matchid( matchid );
         req.set_serverid( serverid );
         FormatMatchPlayerData( player, req.mutable_pbplayer() );
-        auto ok = _kf_route->RepeatToObject( __STRING__( match ), matchid, KFMsg::S2S_START_MATCH_TO_SHARD_REQ, &req );
+        auto ok = _kf_route->RepeatToObject( player->GetKeyID(), __STRING__( match ), matchid, KFMsg::S2S_START_MATCH_TO_SHARD_REQ, &req );
         if ( !ok )
         {
             return KFMsg::MatchServerBusy;
@@ -160,13 +160,9 @@ namespace KFrame
     {
         __SERVER_PROTO_PARSE__( KFMsg::S2SStartMatchToGameAck );
 
-        if ( kfmsg.result() == KFMsg::MatchRequestOk )
-        {
-            SetMatchData( player, kfmsg.matchid(), kfmsg.serverid() );
-            __LOG_DEBUG__( "player=[{}] match=[{}|{}] ok!", kfmsg.playerid(), kfmsg.matchid(), KFAppId::ToString( kfmsg.serverid() ) );
-        }
-
-        _kf_display->SendToClient( player, kfmsg.result() );
+        _kf_display->SendToClient( player, KFMsg::MatchRequestOk );
+        SetMatchData( player, kfmsg.matchid(), kfmsg.serverid() );
+        __LOG_DEBUG__( "player=[{}] match=[{}|{}] ok!", kfmsg.playerid(), kfmsg.matchid(), KFAppId::ToString( kfmsg.serverid() ) );
     }
 
     __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleCancelMatchReq )
@@ -240,7 +236,7 @@ namespace KFrame
         req.set_title( title );
         req.set_password( password );
         FormatMatchPlayerData( player, req.mutable_pbplayer() );
-        auto ok = _kf_route->RepeatToObject( __STRING__( match ), matchid, KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &req );
+        auto ok = _kf_route->RepeatToObject( player->GetKeyID(), __STRING__( match ), matchid, KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &req );
         if ( !ok )
         {
             return KFMsg::MatchServerBusy;

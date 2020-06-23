@@ -9,7 +9,10 @@ namespace KFrame
     {
     public:
         // 初始化
-        virtual void InitRoom( KFMatchQueue* kfqueue, uint32 grade, const std::string& version, uint64 battleserverid );
+        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
+
+        // 保存房间信息
+        virtual void SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist );
 
         // 是否匹配
         virtual bool IsMatched( KFMatchPlayer* kfplayer );

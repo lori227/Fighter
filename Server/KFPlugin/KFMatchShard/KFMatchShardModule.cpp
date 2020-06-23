@@ -9,6 +9,7 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleCancelMatchToShardReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK, &KFMatchShardModule::HandleCreateRoomToMatchAck );
         __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ, &KFMatchShardModule::HandleQueryMatchToMatchReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleCreateMatchToShardReq );
     }
 
     void KFMatchShardModule::BeforeShut()
@@ -18,6 +19,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ );
         __UN_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK );
         __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ );
     }
 
     void KFMatchShardModule::PrepareRun()
@@ -88,27 +90,6 @@ namespace KFrame
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    uint32 KFMatchShardModule::StartMatch( const KFMsg::PBMatchPlayer* pbplayer, uint32 matchid, const std::string& version, uint64 battleserverid )
-    {
-        // 先判断是否在匹配中
-        auto kfplayer = _match_player_manage->Find( pbplayer->id() );
-        if ( kfplayer != nullptr )
-        {
-            return KFMsg::MatchInRoom;
-        }
-
-        // 判断版本
-
-        auto kfqueue = FindMatchQueue( matchid );
-        if ( kfqueue == nullptr )
-        {
-            return KFMsg::MatchDataError;
-        }
-
-        kfqueue->StartMatch( pbplayer, version, battleserverid );
-        return KFMsg::MatchRequestOk;
-    }
-
     __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleStartMatchToShardReq )
     {
         __PROTO_PARSE__( KFMsg::S2SStartMatchToShardReq );
@@ -117,16 +98,26 @@ namespace KFrame
         __LOG_DEBUG__( "player=[{}] match=[{}] grade=[{}] version=[{}] server=[{}] req!",
                        pbplayer->id(), kfmsg.matchid(), pbplayer->grade(), kfmsg.version(), KFAppId::ToString( kfmsg.serverid() ) );
 
-        // 处理匹配
-        auto result = StartMatch( pbplayer, kfmsg.matchid(), kfmsg.version(), kfmsg.serverid() );
-        if ( result != KFMsg::MatchRequestOk )
+        // 先判断是否在匹配中
+        auto kfplayer = _match_player_manage->Find( pbplayer->id() );
+        if ( kfplayer != nullptr )
         {
-            __LOG_ERROR__( "player=[{}] match failed=[{}]!", pbplayer->id(), result );
+            return _kf_display->SendToPlayer( route, KFMsg::MatchInRoom );
         }
+
+        // 判断版本
+
+        auto kfqueue = FindMatchQueue( kfmsg.matchid() );
+        if ( kfqueue == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchDataError );
+        }
+
+        // 处理匹配
+        kfqueue->StartMatch( pbplayer, kfmsg.version(), kfmsg.serverid() );
 
         // 发送给玩家
         KFMsg::S2SStartMatchToGameAck ack;
-        ack.set_result( result );
         ack.set_matchid( kfmsg.matchid() );
         ack.set_playerid( pbplayer->id() );
         ack.set_serverid( KFGlobal::Instance()->_app_id->GetId() );
@@ -134,6 +125,41 @@ namespace KFrame
         if ( !ok )
         {
             __LOG_ERROR__( "player=[{}] send match ack failed!", pbplayer->id() );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleCreateMatchToShardReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SCreateMatchToShardReq );
+
+        auto pbplayer = &kfmsg.pbplayer();
+        __LOG_DEBUG__( "player=[{}] match=[{}] version=[{}] server=[{}] req!",
+                       pbplayer->id(), kfmsg.matchid(), kfmsg.version(), KFAppId::ToString( kfmsg.serverid() ) );
+
+        // 先判断是否在匹配中
+        auto kfplayer = _match_player_manage->Find( pbplayer->id() );
+        if ( kfplayer != nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchInRoom );
+        }
+
+        // 判断版本
+
+        auto kfqueue = FindMatchQueue( kfmsg.matchid() );
+        if ( kfqueue == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchDataError );
+        }
+
+        // 创建匹配
+        auto kfroom = kfqueue->CreateMatch( pbplayer, kfmsg.version(), kfmsg.serverid(), kfmsg.title(), kfmsg.password() );
+
+        KFMsg::S2SCreateMatchToGameAck ack;
+        kfroom->SaveTo( ack.mutable_pbroom(), true );
+        auto ok = _kf_route->SendToRoute( route, KFMsg::S2S_CREATE_MATCH_TO_GAME_ACK, &ack );
+        if ( !ok )
+        {
+            __LOG_ERROR__( "player=[{}] create match ack failed!", pbplayer->id() );
         }
     }
 

@@ -24,6 +24,9 @@ namespace KFrame
         // 开始匹配
         void StartMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid );
 
+        // 创建匹配房间
+        KFMatchRoom* CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password );
+
         // 取消匹配
         bool CancelMatch( uint64 playerid );
 

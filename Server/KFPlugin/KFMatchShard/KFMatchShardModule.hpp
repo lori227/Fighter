@@ -6,13 +6,14 @@
 //    @Author           :    __凌_痕__
 //    @QQ				:    7969936
 //    @Mail			    :    lori227@qq.com
-//    @Date             :    2019-3-21
+//    @Date             :    2019-3-21s
 ************************************************************************/
 #include "KFrameEx.h"
 #include "KFMatchQueue.h"
 #include "KFMatchShardInterface.h"
 #include "KFProtocol/KFProtocol.h"
 #include "KFMessage/KFMessageInterface.h"
+#include "KFDisplay/KFDisplayInterface.h"
 #include "KFRouteClient/KFRouteClientInterface.h"
 #include "KFZConfig/KFMatchConfig.hpp"
 #include "KFZConfig/KFNameConfig.hpp"
@@ -51,12 +52,13 @@ namespace KFrame
         // 查询匹配
         __KF_MESSAGE_FUNCTION__( HandleQueryMatchToMatchReq );
 
+        // 创建匹配房间
+        __KF_MESSAGE_FUNCTION__( HandleCreateMatchToShardReq );
+
     protected:
         // 查找匹配模式
         KFMatchQueue* FindMatchQueue( uint32 matchid );
 
-        // 开始匹配
-        uint32 StartMatch( const KFMsg::PBMatchPlayer* pbplayer, uint32 matchid, const std::string& version, uint64 battleserverid );
     private:
         // 版本列表
         std::set< std::string > _battle_version_list;

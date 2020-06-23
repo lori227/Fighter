@@ -5,14 +5,33 @@
 
 namespace KFrame
 {
-    void KFMatchRoom::InitRoom( KFMatchQueue* kfqueue, uint32 grade, const std::string& version, uint64 battleserverid )
+    void KFMatchRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
     {
-        _grade = grade;
-        _version = version;
         _match_queue = kfqueue;
-        _battle_server_id = battleserverid;
+        _state = KFMatchEnum::MatchState;
+        _grade = kfplayer->_pb_player.grade();
+        _version = kfplayer->_version;
+        _battle_server_id = kfplayer->_battle_server_id;
         _id = KFGlobal::Instance()->STMakeUuid();
-        _state = MatchState;
+    }
+
+    void KFMatchRoom::SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist )
+    {
+        pbroom->set_matchid( _match_queue->_match_setting->_id );
+        pbroom->set_roomid( _id );
+        pbroom->set_version( _version );
+        pbroom->set_maxplayer( _match_queue->_match_setting->_max_count );
+        pbroom->set_nowplayer( _player_list.Size() );
+        pbroom->set_grade( _grade );
+
+        if ( isplayerlist )
+        {
+            for ( auto& iter : _player_list._objects )
+            {
+                auto player = iter.second;
+                player->SaveTo( pbroom->add_pbplayer() );
+            }
+        }
     }
 
     void KFMatchRoom::ChangeState( uint32 state, uint32 time )
@@ -34,7 +53,7 @@ namespace KFrame
         auto ok = ( _player_list.Size() >= _match_queue->_match_setting->_max_count );
         if ( ok )
         {
-            ChangeState( CreateState, 1 );
+            ChangeState( KFMatchEnum::CreateState, 1 );
         }
 
         return ok;
@@ -42,7 +61,7 @@ namespace KFrame
 
     bool KFMatchRoom::IsValid()
     {
-        return _state != DestroyState;
+        return _state != KFMatchEnum::DestroyState;
     }
 
     bool KFMatchRoom::Run()
@@ -51,7 +70,7 @@ namespace KFrame
         {
             switch ( _state )
             {
-            case CreateState:
+            case KFMatchEnum::CreateState:
                 CreateRoom();
                 break;
             default:
@@ -64,7 +83,7 @@ namespace KFrame
 
     void KFMatchRoom::CreateRoom()
     {
-        ChangeState( CreateState, 5000 );
+        ChangeState( KFMatchEnum::CreateState, 5000 );
 
         KFMsg::S2SCreateRoomToRoomReq req;
         req.set_roomid( _id );
@@ -83,14 +102,14 @@ namespace KFrame
 
     void KFMatchRoom::AffirmCreate()
     {
-        ChangeState( DestroyState, 100 );
+        ChangeState( KFMatchEnum::DestroyState, 100 );
     }
 
     uint32 KFMatchRoom::CancelMatch( KFMatchPlayer* kfplayer )
     {
-        if ( _state != MatchState )
+        if ( _state != KFMatchEnum::MatchState )
         {
-            return CancelFailed;
+            return KFMatchEnum::CancelFailed;
         }
 
         // 删除玩家
@@ -102,13 +121,13 @@ namespace KFrame
             auto kfplayer = iter.second;
             if ( !kfplayer->_pb_player.isrobot() )
             {
-                return CancelOk;
+                return KFMatchEnum::CancelOk;
             }
         }
 
         // 如果没有真是玩家, 房间销毁
         _match_queue->RemoveRoom( this );
-        return CancelDestory;
+        return KFMatchEnum::CancelDestory;
     }
 
     bool KFMatchRoom::IsMatched( KFMatchPlayer* kfplayer )
@@ -150,7 +169,6 @@ namespace KFrame
         // 英雄id
         auto heroid = RandHeroId();
         kfrobot->_pb_player.set_heroid( heroid );
-
         return kfrobot;
     }
 

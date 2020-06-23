@@ -58,7 +58,7 @@ namespace KFrame
 
         // 创建一个新的房间
         auto kfroom = __KF_NEW__( KFMatchRandRoom );
-        kfroom->InitRoom( this, kfplayer->_pb_player.grade(), kfplayer->_version, kfplayer->_battle_server_id );
+        kfroom->InitRoom( this, kfplayer, _invalid_string, _invalid_string );
         _room_list.Insert( kfroom->_id, kfroom );
         return kfroom;
     }
@@ -97,6 +97,21 @@ namespace KFrame
                 ++iter;
             }
         }
+    }
+
+    KFMatchRoom* KFMatchQueue::CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password )
+    {
+        // 添加玩家
+        auto kfplayer = __KF_NEW__( KFMatchPlayer );
+        kfplayer->_version = version;
+        kfplayer->_battle_server_id = battleserverid;
+        kfplayer->CopyFrom( pbplayer );
+
+        // 创建一个新的房间
+        auto kfroom = __KF_NEW__( KFMatchJoinRoom );
+        kfroom->InitRoom( this, kfplayer, title, password );
+        _room_list.Insert( kfroom->_id, kfroom );
+        return kfroom;
     }
 
 }

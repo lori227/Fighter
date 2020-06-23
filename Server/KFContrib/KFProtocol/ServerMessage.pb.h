@@ -46,7 +46,7 @@ namespace protobuf_ServerMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[25];
+  static const ::google::protobuf::internal::ParseTable schema[26];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -57,15 +57,18 @@ namespace KFMsg {
 class S2SCancelMatchToShardReq;
 class S2SCancelMatchToShardReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SCancelMatchToShardReqDefaultTypeInternal _S2SCancelMatchToShardReq_default_instance_;
+class S2SCreateMatchToGameAck;
+class S2SCreateMatchToGameAckDefaultTypeInternal;
+LIBPROTOC_EXPORT extern S2SCreateMatchToGameAckDefaultTypeInternal _S2SCreateMatchToGameAck_default_instance_;
+class S2SCreateMatchToShardReq;
+class S2SCreateMatchToShardReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern S2SCreateMatchToShardReqDefaultTypeInternal _S2SCreateMatchToShardReq_default_instance_;
 class S2SCreateRoomToMatchAck;
 class S2SCreateRoomToMatchAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SCreateRoomToMatchAckDefaultTypeInternal _S2SCreateRoomToMatchAck_default_instance_;
 class S2SCreateRoomToRoomReq;
 class S2SCreateRoomToRoomReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SCreateRoomToRoomReqDefaultTypeInternal _S2SCreateRoomToRoomReq_default_instance_;
-class S2SCreatesMatchToShardReq;
-class S2SCreatesMatchToShardReqDefaultTypeInternal;
-LIBPROTOC_EXPORT extern S2SCreatesMatchToShardReqDefaultTypeInternal _S2SCreatesMatchToShardReq_default_instance_;
 class S2SFinishRoomToBattleAck;
 class S2SFinishRoomToBattleAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SFinishRoomToBattleAckDefaultTypeInternal _S2SFinishRoomToBattleAck_default_instance_;
@@ -133,9 +136,10 @@ LIBPROTOC_EXPORT extern S2SStartMatchToShardReqDefaultTypeInternal _S2SStartMatc
 namespace google {
 namespace protobuf {
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SCancelMatchToShardReq* Arena::CreateMaybeMessage<::KFMsg::S2SCancelMatchToShardReq>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::S2SCreateMatchToGameAck* Arena::CreateMaybeMessage<::KFMsg::S2SCreateMatchToGameAck>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::S2SCreateMatchToShardReq* Arena::CreateMaybeMessage<::KFMsg::S2SCreateMatchToShardReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SCreateRoomToMatchAck* Arena::CreateMaybeMessage<::KFMsg::S2SCreateRoomToMatchAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SCreateRoomToRoomReq* Arena::CreateMaybeMessage<::KFMsg::S2SCreateRoomToRoomReq>(Arena*);
-template<> LIBPROTOC_EXPORT ::KFMsg::S2SCreatesMatchToShardReq* Arena::CreateMaybeMessage<::KFMsg::S2SCreatesMatchToShardReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SFinishRoomToBattleAck* Arena::CreateMaybeMessage<::KFMsg::S2SFinishRoomToBattleAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SFinishRoomToGameReq* Arena::CreateMaybeMessage<::KFMsg::S2SFinishRoomToGameReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SFinishRoomToRoomReq* Arena::CreateMaybeMessage<::KFMsg::S2SFinishRoomToRoomReq>(Arena*);
@@ -167,6 +171,7 @@ enum ServerProtocol {
   S2S_START_MATCH_TO_GAME_ACK = 31002,
   S2S_CANCEL_MATCH_TO_SHARD_REQ = 31003,
   S2S_CREATE_MATCH_TO_SHARD_REQ = 31004,
+  S2S_CREATE_MATCH_TO_GAME_ACK = 31005,
   S2S_REGISTER_BATTLE_TO_ROOM_REQ = 31101,
   S2S_REGISTER_BATTLE_TO_BATTLE_ACK = 31102,
   S2S_OPEN_ROOM_TO_BATTLE_REQ = 31103,
@@ -1465,38 +1470,31 @@ class LIBPROTOC_EXPORT S2SStartMatchToGameAck : public ::google::protobuf::Messa
 
   // accessors -------------------------------------------------------
 
-  // uint32 result = 1;
-  void clear_result();
-  static const int kResultFieldNumber = 1;
-  ::google::protobuf::uint32 result() const;
-  void set_result(::google::protobuf::uint32 value);
-
-  // uint32 matchid = 2;
-  void clear_matchid();
-  static const int kMatchidFieldNumber = 2;
-  ::google::protobuf::uint32 matchid() const;
-  void set_matchid(::google::protobuf::uint32 value);
-
-  // uint64 playerid = 3;
+  // uint64 playerid = 2;
   void clear_playerid();
-  static const int kPlayeridFieldNumber = 3;
+  static const int kPlayeridFieldNumber = 2;
   ::google::protobuf::uint64 playerid() const;
   void set_playerid(::google::protobuf::uint64 value);
 
-  // uint64 serverid = 4;
+  // uint64 serverid = 3;
   void clear_serverid();
-  static const int kServeridFieldNumber = 4;
+  static const int kServeridFieldNumber = 3;
   ::google::protobuf::uint64 serverid() const;
   void set_serverid(::google::protobuf::uint64 value);
+
+  // uint32 matchid = 1;
+  void clear_matchid();
+  static const int kMatchidFieldNumber = 1;
+  ::google::protobuf::uint32 matchid() const;
+  void set_matchid(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:KFMsg.S2SStartMatchToGameAck)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 result_;
-  ::google::protobuf::uint32 matchid_;
   ::google::protobuf::uint64 playerid_;
   ::google::protobuf::uint64 serverid_;
+  ::google::protobuf::uint32 matchid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
 };
@@ -2981,24 +2979,24 @@ class LIBPROTOC_EXPORT S2SQueryBalanceToRoomReq : public ::google::protobuf::Mes
 };
 // -------------------------------------------------------------------
 
-class LIBPROTOC_EXPORT S2SCreatesMatchToShardReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SCreatesMatchToShardReq) */ {
+class LIBPROTOC_EXPORT S2SCreateMatchToShardReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SCreateMatchToShardReq) */ {
  public:
-  S2SCreatesMatchToShardReq();
-  virtual ~S2SCreatesMatchToShardReq();
+  S2SCreateMatchToShardReq();
+  virtual ~S2SCreateMatchToShardReq();
 
-  S2SCreatesMatchToShardReq(const S2SCreatesMatchToShardReq& from);
+  S2SCreateMatchToShardReq(const S2SCreateMatchToShardReq& from);
 
-  inline S2SCreatesMatchToShardReq& operator=(const S2SCreatesMatchToShardReq& from) {
+  inline S2SCreateMatchToShardReq& operator=(const S2SCreateMatchToShardReq& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  S2SCreatesMatchToShardReq(S2SCreatesMatchToShardReq&& from) noexcept
-    : S2SCreatesMatchToShardReq() {
+  S2SCreateMatchToShardReq(S2SCreateMatchToShardReq&& from) noexcept
+    : S2SCreateMatchToShardReq() {
     *this = ::std::move(from);
   }
 
-  inline S2SCreatesMatchToShardReq& operator=(S2SCreatesMatchToShardReq&& from) noexcept {
+  inline S2SCreateMatchToShardReq& operator=(S2SCreateMatchToShardReq&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -3008,34 +3006,34 @@ class LIBPROTOC_EXPORT S2SCreatesMatchToShardReq : public ::google::protobuf::Me
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const S2SCreatesMatchToShardReq& default_instance();
+  static const S2SCreateMatchToShardReq& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const S2SCreatesMatchToShardReq* internal_default_instance() {
-    return reinterpret_cast<const S2SCreatesMatchToShardReq*>(
-               &_S2SCreatesMatchToShardReq_default_instance_);
+  static inline const S2SCreateMatchToShardReq* internal_default_instance() {
+    return reinterpret_cast<const S2SCreateMatchToShardReq*>(
+               &_S2SCreateMatchToShardReq_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     24;
 
-  void Swap(S2SCreatesMatchToShardReq* other);
-  friend void swap(S2SCreatesMatchToShardReq& a, S2SCreatesMatchToShardReq& b) {
+  void Swap(S2SCreateMatchToShardReq* other);
+  friend void swap(S2SCreateMatchToShardReq& a, S2SCreateMatchToShardReq& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline S2SCreatesMatchToShardReq* New() const final {
-    return CreateMaybeMessage<S2SCreatesMatchToShardReq>(NULL);
+  inline S2SCreateMatchToShardReq* New() const final {
+    return CreateMaybeMessage<S2SCreateMatchToShardReq>(NULL);
   }
 
-  S2SCreatesMatchToShardReq* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<S2SCreatesMatchToShardReq>(arena);
+  S2SCreateMatchToShardReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<S2SCreateMatchToShardReq>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const S2SCreatesMatchToShardReq& from);
-  void MergeFrom(const S2SCreatesMatchToShardReq& from);
+  void CopyFrom(const S2SCreateMatchToShardReq& from);
+  void MergeFrom(const S2SCreateMatchToShardReq& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -3052,7 +3050,7 @@ class LIBPROTOC_EXPORT S2SCreatesMatchToShardReq : public ::google::protobuf::Me
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(S2SCreatesMatchToShardReq* other);
+  void InternalSwap(S2SCreateMatchToShardReq* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -3134,7 +3132,7 @@ class LIBPROTOC_EXPORT S2SCreatesMatchToShardReq : public ::google::protobuf::Me
   ::google::protobuf::uint32 matchid() const;
   void set_matchid(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:KFMsg.S2SCreatesMatchToShardReq)
+  // @@protoc_insertion_point(class_scope:KFMsg.S2SCreateMatchToShardReq)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -3144,6 +3142,115 @@ class LIBPROTOC_EXPORT S2SCreatesMatchToShardReq : public ::google::protobuf::Me
   ::KFMsg::PBMatchPlayer* pbplayer_;
   ::google::protobuf::uint64 serverid_;
   ::google::protobuf::uint32 matchid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT S2SCreateMatchToGameAck : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SCreateMatchToGameAck) */ {
+ public:
+  S2SCreateMatchToGameAck();
+  virtual ~S2SCreateMatchToGameAck();
+
+  S2SCreateMatchToGameAck(const S2SCreateMatchToGameAck& from);
+
+  inline S2SCreateMatchToGameAck& operator=(const S2SCreateMatchToGameAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  S2SCreateMatchToGameAck(S2SCreateMatchToGameAck&& from) noexcept
+    : S2SCreateMatchToGameAck() {
+    *this = ::std::move(from);
+  }
+
+  inline S2SCreateMatchToGameAck& operator=(S2SCreateMatchToGameAck&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2SCreateMatchToGameAck& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const S2SCreateMatchToGameAck* internal_default_instance() {
+    return reinterpret_cast<const S2SCreateMatchToGameAck*>(
+               &_S2SCreateMatchToGameAck_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  void Swap(S2SCreateMatchToGameAck* other);
+  friend void swap(S2SCreateMatchToGameAck& a, S2SCreateMatchToGameAck& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline S2SCreateMatchToGameAck* New() const final {
+    return CreateMaybeMessage<S2SCreateMatchToGameAck>(NULL);
+  }
+
+  S2SCreateMatchToGameAck* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<S2SCreateMatchToGameAck>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const S2SCreateMatchToGameAck& from);
+  void MergeFrom(const S2SCreateMatchToGameAck& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(S2SCreateMatchToGameAck* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .KFMsg.PBMatchRoom pbroom = 1;
+  bool has_pbroom() const;
+  void clear_pbroom();
+  static const int kPbroomFieldNumber = 1;
+  private:
+  const ::KFMsg::PBMatchRoom& _internal_pbroom() const;
+  public:
+  const ::KFMsg::PBMatchRoom& pbroom() const;
+  ::KFMsg::PBMatchRoom* release_pbroom();
+  ::KFMsg::PBMatchRoom* mutable_pbroom();
+  void set_allocated_pbroom(::KFMsg::PBMatchRoom* pbroom);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.S2SCreateMatchToGameAck)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::KFMsg::PBMatchRoom* pbroom_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
 };
@@ -3732,21 +3839,7 @@ inline void S2SStartMatchToShardReq::set_allocated_pbplayer(::KFMsg::PBMatchPlay
 
 // S2SStartMatchToGameAck
 
-// uint32 result = 1;
-inline void S2SStartMatchToGameAck::clear_result() {
-  result_ = 0u;
-}
-inline ::google::protobuf::uint32 S2SStartMatchToGameAck::result() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SStartMatchToGameAck.result)
-  return result_;
-}
-inline void S2SStartMatchToGameAck::set_result(::google::protobuf::uint32 value) {
-  
-  result_ = value;
-  // @@protoc_insertion_point(field_set:KFMsg.S2SStartMatchToGameAck.result)
-}
-
-// uint32 matchid = 2;
+// uint32 matchid = 1;
 inline void S2SStartMatchToGameAck::clear_matchid() {
   matchid_ = 0u;
 }
@@ -3760,7 +3853,7 @@ inline void S2SStartMatchToGameAck::set_matchid(::google::protobuf::uint32 value
   // @@protoc_insertion_point(field_set:KFMsg.S2SStartMatchToGameAck.matchid)
 }
 
-// uint64 playerid = 3;
+// uint64 playerid = 2;
 inline void S2SStartMatchToGameAck::clear_playerid() {
   playerid_ = GOOGLE_ULONGLONG(0);
 }
@@ -3774,7 +3867,7 @@ inline void S2SStartMatchToGameAck::set_playerid(::google::protobuf::uint64 valu
   // @@protoc_insertion_point(field_set:KFMsg.S2SStartMatchToGameAck.playerid)
 }
 
-// uint64 serverid = 4;
+// uint64 serverid = 3;
 inline void S2SStartMatchToGameAck::clear_serverid() {
   serverid_ = GOOGLE_ULONGLONG(0);
 }
@@ -4373,225 +4466,225 @@ inline void S2SQueryBalanceToRoomReq::set_playerid(::google::protobuf::uint64 va
 
 // -------------------------------------------------------------------
 
-// S2SCreatesMatchToShardReq
+// S2SCreateMatchToShardReq
 
 // bytes version = 1;
-inline void S2SCreatesMatchToShardReq::clear_version() {
+inline void S2SCreateMatchToShardReq::clear_version() {
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& S2SCreatesMatchToShardReq::version() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SCreatesMatchToShardReq.version)
+inline const ::std::string& S2SCreateMatchToShardReq::version() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToShardReq.version)
   return version_.GetNoArena();
 }
-inline void S2SCreatesMatchToShardReq::set_version(const ::std::string& value) {
+inline void S2SCreateMatchToShardReq::set_version(const ::std::string& value) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:KFMsg.S2SCreatesMatchToShardReq.version)
+  // @@protoc_insertion_point(field_set:KFMsg.S2SCreateMatchToShardReq.version)
 }
 #if LANG_CXX11
-inline void S2SCreatesMatchToShardReq::set_version(::std::string&& value) {
+inline void S2SCreateMatchToShardReq::set_version(::std::string&& value) {
   
   version_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:KFMsg.S2SCreatesMatchToShardReq.version)
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.S2SCreateMatchToShardReq.version)
 }
 #endif
-inline void S2SCreatesMatchToShardReq::set_version(const char* value) {
+inline void S2SCreateMatchToShardReq::set_version(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:KFMsg.S2SCreatesMatchToShardReq.version)
+  // @@protoc_insertion_point(field_set_char:KFMsg.S2SCreateMatchToShardReq.version)
 }
-inline void S2SCreatesMatchToShardReq::set_version(const void* value, size_t size) {
+inline void S2SCreateMatchToShardReq::set_version(const void* value, size_t size) {
   
   version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:KFMsg.S2SCreatesMatchToShardReq.version)
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.S2SCreateMatchToShardReq.version)
 }
-inline ::std::string* S2SCreatesMatchToShardReq::mutable_version() {
+inline ::std::string* S2SCreateMatchToShardReq::mutable_version() {
   
-  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreatesMatchToShardReq.version)
+  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreateMatchToShardReq.version)
   return version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* S2SCreatesMatchToShardReq::release_version() {
-  // @@protoc_insertion_point(field_release:KFMsg.S2SCreatesMatchToShardReq.version)
+inline ::std::string* S2SCreateMatchToShardReq::release_version() {
+  // @@protoc_insertion_point(field_release:KFMsg.S2SCreateMatchToShardReq.version)
   
   return version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void S2SCreatesMatchToShardReq::set_allocated_version(::std::string* version) {
+inline void S2SCreateMatchToShardReq::set_allocated_version(::std::string* version) {
   if (version != NULL) {
     
   } else {
     
   }
   version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), version);
-  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreatesMatchToShardReq.version)
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreateMatchToShardReq.version)
 }
 
 // uint32 matchid = 2;
-inline void S2SCreatesMatchToShardReq::clear_matchid() {
+inline void S2SCreateMatchToShardReq::clear_matchid() {
   matchid_ = 0u;
 }
-inline ::google::protobuf::uint32 S2SCreatesMatchToShardReq::matchid() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SCreatesMatchToShardReq.matchid)
+inline ::google::protobuf::uint32 S2SCreateMatchToShardReq::matchid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToShardReq.matchid)
   return matchid_;
 }
-inline void S2SCreatesMatchToShardReq::set_matchid(::google::protobuf::uint32 value) {
+inline void S2SCreateMatchToShardReq::set_matchid(::google::protobuf::uint32 value) {
   
   matchid_ = value;
-  // @@protoc_insertion_point(field_set:KFMsg.S2SCreatesMatchToShardReq.matchid)
+  // @@protoc_insertion_point(field_set:KFMsg.S2SCreateMatchToShardReq.matchid)
 }
 
 // uint64 serverid = 3;
-inline void S2SCreatesMatchToShardReq::clear_serverid() {
+inline void S2SCreateMatchToShardReq::clear_serverid() {
   serverid_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 S2SCreatesMatchToShardReq::serverid() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SCreatesMatchToShardReq.serverid)
+inline ::google::protobuf::uint64 S2SCreateMatchToShardReq::serverid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToShardReq.serverid)
   return serverid_;
 }
-inline void S2SCreatesMatchToShardReq::set_serverid(::google::protobuf::uint64 value) {
+inline void S2SCreateMatchToShardReq::set_serverid(::google::protobuf::uint64 value) {
   
   serverid_ = value;
-  // @@protoc_insertion_point(field_set:KFMsg.S2SCreatesMatchToShardReq.serverid)
+  // @@protoc_insertion_point(field_set:KFMsg.S2SCreateMatchToShardReq.serverid)
 }
 
 // bytes title = 4;
-inline void S2SCreatesMatchToShardReq::clear_title() {
+inline void S2SCreateMatchToShardReq::clear_title() {
   title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& S2SCreatesMatchToShardReq::title() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SCreatesMatchToShardReq.title)
+inline const ::std::string& S2SCreateMatchToShardReq::title() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToShardReq.title)
   return title_.GetNoArena();
 }
-inline void S2SCreatesMatchToShardReq::set_title(const ::std::string& value) {
+inline void S2SCreateMatchToShardReq::set_title(const ::std::string& value) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:KFMsg.S2SCreatesMatchToShardReq.title)
+  // @@protoc_insertion_point(field_set:KFMsg.S2SCreateMatchToShardReq.title)
 }
 #if LANG_CXX11
-inline void S2SCreatesMatchToShardReq::set_title(::std::string&& value) {
+inline void S2SCreateMatchToShardReq::set_title(::std::string&& value) {
   
   title_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:KFMsg.S2SCreatesMatchToShardReq.title)
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.S2SCreateMatchToShardReq.title)
 }
 #endif
-inline void S2SCreatesMatchToShardReq::set_title(const char* value) {
+inline void S2SCreateMatchToShardReq::set_title(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:KFMsg.S2SCreatesMatchToShardReq.title)
+  // @@protoc_insertion_point(field_set_char:KFMsg.S2SCreateMatchToShardReq.title)
 }
-inline void S2SCreatesMatchToShardReq::set_title(const void* value, size_t size) {
+inline void S2SCreateMatchToShardReq::set_title(const void* value, size_t size) {
   
   title_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:KFMsg.S2SCreatesMatchToShardReq.title)
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.S2SCreateMatchToShardReq.title)
 }
-inline ::std::string* S2SCreatesMatchToShardReq::mutable_title() {
+inline ::std::string* S2SCreateMatchToShardReq::mutable_title() {
   
-  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreatesMatchToShardReq.title)
+  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreateMatchToShardReq.title)
   return title_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* S2SCreatesMatchToShardReq::release_title() {
-  // @@protoc_insertion_point(field_release:KFMsg.S2SCreatesMatchToShardReq.title)
+inline ::std::string* S2SCreateMatchToShardReq::release_title() {
+  // @@protoc_insertion_point(field_release:KFMsg.S2SCreateMatchToShardReq.title)
   
   return title_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void S2SCreatesMatchToShardReq::set_allocated_title(::std::string* title) {
+inline void S2SCreateMatchToShardReq::set_allocated_title(::std::string* title) {
   if (title != NULL) {
     
   } else {
     
   }
   title_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), title);
-  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreatesMatchToShardReq.title)
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreateMatchToShardReq.title)
 }
 
 // bytes password = 5;
-inline void S2SCreatesMatchToShardReq::clear_password() {
+inline void S2SCreateMatchToShardReq::clear_password() {
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& S2SCreatesMatchToShardReq::password() const {
-  // @@protoc_insertion_point(field_get:KFMsg.S2SCreatesMatchToShardReq.password)
+inline const ::std::string& S2SCreateMatchToShardReq::password() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToShardReq.password)
   return password_.GetNoArena();
 }
-inline void S2SCreatesMatchToShardReq::set_password(const ::std::string& value) {
+inline void S2SCreateMatchToShardReq::set_password(const ::std::string& value) {
   
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:KFMsg.S2SCreatesMatchToShardReq.password)
+  // @@protoc_insertion_point(field_set:KFMsg.S2SCreateMatchToShardReq.password)
 }
 #if LANG_CXX11
-inline void S2SCreatesMatchToShardReq::set_password(::std::string&& value) {
+inline void S2SCreateMatchToShardReq::set_password(::std::string&& value) {
   
   password_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:KFMsg.S2SCreatesMatchToShardReq.password)
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.S2SCreateMatchToShardReq.password)
 }
 #endif
-inline void S2SCreatesMatchToShardReq::set_password(const char* value) {
+inline void S2SCreateMatchToShardReq::set_password(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:KFMsg.S2SCreatesMatchToShardReq.password)
+  // @@protoc_insertion_point(field_set_char:KFMsg.S2SCreateMatchToShardReq.password)
 }
-inline void S2SCreatesMatchToShardReq::set_password(const void* value, size_t size) {
+inline void S2SCreateMatchToShardReq::set_password(const void* value, size_t size) {
   
   password_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:KFMsg.S2SCreatesMatchToShardReq.password)
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.S2SCreateMatchToShardReq.password)
 }
-inline ::std::string* S2SCreatesMatchToShardReq::mutable_password() {
+inline ::std::string* S2SCreateMatchToShardReq::mutable_password() {
   
-  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreatesMatchToShardReq.password)
+  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreateMatchToShardReq.password)
   return password_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* S2SCreatesMatchToShardReq::release_password() {
-  // @@protoc_insertion_point(field_release:KFMsg.S2SCreatesMatchToShardReq.password)
+inline ::std::string* S2SCreateMatchToShardReq::release_password() {
+  // @@protoc_insertion_point(field_release:KFMsg.S2SCreateMatchToShardReq.password)
   
   return password_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void S2SCreatesMatchToShardReq::set_allocated_password(::std::string* password) {
+inline void S2SCreateMatchToShardReq::set_allocated_password(::std::string* password) {
   if (password != NULL) {
     
   } else {
     
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
-  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreatesMatchToShardReq.password)
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreateMatchToShardReq.password)
 }
 
 // .KFMsg.PBMatchPlayer pbplayer = 6;
-inline bool S2SCreatesMatchToShardReq::has_pbplayer() const {
+inline bool S2SCreateMatchToShardReq::has_pbplayer() const {
   return this != internal_default_instance() && pbplayer_ != NULL;
 }
-inline const ::KFMsg::PBMatchPlayer& S2SCreatesMatchToShardReq::_internal_pbplayer() const {
+inline const ::KFMsg::PBMatchPlayer& S2SCreateMatchToShardReq::_internal_pbplayer() const {
   return *pbplayer_;
 }
-inline const ::KFMsg::PBMatchPlayer& S2SCreatesMatchToShardReq::pbplayer() const {
+inline const ::KFMsg::PBMatchPlayer& S2SCreateMatchToShardReq::pbplayer() const {
   const ::KFMsg::PBMatchPlayer* p = pbplayer_;
-  // @@protoc_insertion_point(field_get:KFMsg.S2SCreatesMatchToShardReq.pbplayer)
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToShardReq.pbplayer)
   return p != NULL ? *p : *reinterpret_cast<const ::KFMsg::PBMatchPlayer*>(
       &::KFMsg::_PBMatchPlayer_default_instance_);
 }
-inline ::KFMsg::PBMatchPlayer* S2SCreatesMatchToShardReq::release_pbplayer() {
-  // @@protoc_insertion_point(field_release:KFMsg.S2SCreatesMatchToShardReq.pbplayer)
+inline ::KFMsg::PBMatchPlayer* S2SCreateMatchToShardReq::release_pbplayer() {
+  // @@protoc_insertion_point(field_release:KFMsg.S2SCreateMatchToShardReq.pbplayer)
   
   ::KFMsg::PBMatchPlayer* temp = pbplayer_;
   pbplayer_ = NULL;
   return temp;
 }
-inline ::KFMsg::PBMatchPlayer* S2SCreatesMatchToShardReq::mutable_pbplayer() {
+inline ::KFMsg::PBMatchPlayer* S2SCreateMatchToShardReq::mutable_pbplayer() {
   
   if (pbplayer_ == NULL) {
     auto* p = CreateMaybeMessage<::KFMsg::PBMatchPlayer>(GetArenaNoVirtual());
     pbplayer_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreatesMatchToShardReq.pbplayer)
+  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreateMatchToShardReq.pbplayer)
   return pbplayer_;
 }
-inline void S2SCreatesMatchToShardReq::set_allocated_pbplayer(::KFMsg::PBMatchPlayer* pbplayer) {
+inline void S2SCreateMatchToShardReq::set_allocated_pbplayer(::KFMsg::PBMatchPlayer* pbplayer) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete reinterpret_cast< ::google::protobuf::MessageLite*>(pbplayer_);
@@ -4607,12 +4700,66 @@ inline void S2SCreatesMatchToShardReq::set_allocated_pbplayer(::KFMsg::PBMatchPl
     
   }
   pbplayer_ = pbplayer;
-  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreatesMatchToShardReq.pbplayer)
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreateMatchToShardReq.pbplayer)
+}
+
+// -------------------------------------------------------------------
+
+// S2SCreateMatchToGameAck
+
+// .KFMsg.PBMatchRoom pbroom = 1;
+inline bool S2SCreateMatchToGameAck::has_pbroom() const {
+  return this != internal_default_instance() && pbroom_ != NULL;
+}
+inline const ::KFMsg::PBMatchRoom& S2SCreateMatchToGameAck::_internal_pbroom() const {
+  return *pbroom_;
+}
+inline const ::KFMsg::PBMatchRoom& S2SCreateMatchToGameAck::pbroom() const {
+  const ::KFMsg::PBMatchRoom* p = pbroom_;
+  // @@protoc_insertion_point(field_get:KFMsg.S2SCreateMatchToGameAck.pbroom)
+  return p != NULL ? *p : *reinterpret_cast<const ::KFMsg::PBMatchRoom*>(
+      &::KFMsg::_PBMatchRoom_default_instance_);
+}
+inline ::KFMsg::PBMatchRoom* S2SCreateMatchToGameAck::release_pbroom() {
+  // @@protoc_insertion_point(field_release:KFMsg.S2SCreateMatchToGameAck.pbroom)
+  
+  ::KFMsg::PBMatchRoom* temp = pbroom_;
+  pbroom_ = NULL;
+  return temp;
+}
+inline ::KFMsg::PBMatchRoom* S2SCreateMatchToGameAck::mutable_pbroom() {
+  
+  if (pbroom_ == NULL) {
+    auto* p = CreateMaybeMessage<::KFMsg::PBMatchRoom>(GetArenaNoVirtual());
+    pbroom_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:KFMsg.S2SCreateMatchToGameAck.pbroom)
+  return pbroom_;
+}
+inline void S2SCreateMatchToGameAck::set_allocated_pbroom(::KFMsg::PBMatchRoom* pbroom) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(pbroom_);
+  }
+  if (pbroom) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      pbroom = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, pbroom, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  pbroom_ = pbroom;
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.S2SCreateMatchToGameAck.pbroom)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

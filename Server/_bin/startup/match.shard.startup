@@ -10,5 +10,6 @@
 
 	<Plugins>
 		<Plugin Name="KFMatchShard" Config=""/>	
+		<Plugin Name="KFDisplay" Config=""/>	
 	</Plugins>
 </Setting>

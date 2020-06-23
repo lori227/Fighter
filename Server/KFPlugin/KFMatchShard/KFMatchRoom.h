@@ -7,10 +7,8 @@
 
 namespace KFrame
 {
-    class KFMatchQueue;
-    class KFMatchRoom
+    namespace KFMatchEnum
     {
-    protected:
         enum MyEnum
         {
             MatchState = 0,		// 初始
@@ -20,11 +18,23 @@ namespace KFrame
             CancelFailed = 0,	// 取消失败
             CancelOk = 1,		// 取消成功
             CancelDestory = 2,	// 取消销毁
+            ///////////////////////////////////////
+            RandRoom = 1,		// 随机匹配房间
+            CreateRoom = 2,		// 创建匹配房间
         };
+    }
+
+    class KFMatchQueue;
+    class KFMatchRoom
+    {
+    protected:
 
     public:
         // 初始化
-        virtual void InitRoom( KFMatchQueue* kfqueue, uint32 grade, const std::string& version, uint64 battleserverid );
+        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
+
+        // 保存房间信息
+        virtual void SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist );
 
         // 逻辑
         virtual bool Run();

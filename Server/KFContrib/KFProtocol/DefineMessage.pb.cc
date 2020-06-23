@@ -136,7 +136,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, masterid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, mastername_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, password_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, player_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, grade_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, pbplayer_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -167,9 +168,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::KFMsg::PBMatchRoom)},
-  { 15, -1, sizeof(::KFMsg::PBMatchPlayer)},
-  { 28, -1, sizeof(::KFMsg::PBBalanceData)},
-  { 35, -1, sizeof(::KFMsg::PBBattleBalance)},
+  { 16, -1, sizeof(::KFMsg::PBMatchPlayer)},
+  { 29, -1, sizeof(::KFMsg::PBBalanceData)},
+  { 36, -1, sizeof(::KFMsg::PBBattleBalance)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -201,22 +202,22 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\023DefineMessage.proto\022\005KFMsg\032\030FrameDefin"
-      "eMessage.proto\"\322\001\n\013PBMatchRoom\022\017\n\007matchi"
+      "eMessage.proto\"\343\001\n\013PBMatchRoom\022\017\n\007matchi"
       "d\030\001 \001(\r\022\016\n\006roomid\030\002 \001(\004\022\r\n\005title\030\003 \001(\014\022\017"
       "\n\007version\030\004 \001(\014\022\021\n\tmaxplayer\030\005 \001(\r\022\021\n\tno"
-      "wplayer\030\006 \001(\r\022\020\n\010masterid\030\007 \001(\014\022\022\n\nmaste"
-      "rname\030\010 \001(\014\022\020\n\010password\030\t \001(\014\022$\n\006player\030"
-      "\024 \003(\0132\024.KFMsg.PBMatchPlayer\"\215\001\n\rPBMatchP"
-      "layer\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serve"
-      "rid\030\003 \001(\004\022\017\n\007isrobot\030\004 \001(\010\022\016\n\006heroid\030\005 \001"
-      "(\r\022\r\n\005grade\030\006 \001(\r\022\020\n\010effectid\030\007 \001(\r\022\016\n\006f"
-      "ootid\030\010 \001(\r\",\n\rPBBalanceData\022\014\n\004name\030\001 \001"
-      "(\t\022\r\n\005value\030\002 \001(\021\"F\n\017PBBattleBalance\022\017\n\007"
-      "ranking\030\001 \001(\r\022\"\n\004data\030\002 \003(\0132\024.KFMsg.PBBa"
-      "lanceDatab\006proto3"
+      "wplayer\030\006 \001(\r\022\020\n\010masterid\030\007 \001(\004\022\022\n\nmaste"
+      "rname\030\010 \001(\014\022\020\n\010password\030\t \001(\014\022\r\n\005grade\030\n"
+      " \001(\r\022&\n\010pbplayer\030\024 \003(\0132\024.KFMsg.PBMatchPl"
+      "ayer\"\215\001\n\rPBMatchPlayer\022\n\n\002id\030\001 \001(\004\022\014\n\004na"
+      "me\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\017\n\007isrobot\030\004 "
+      "\001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n\005grade\030\006 \001(\r\022\020\n\010ef"
+      "fectid\030\007 \001(\r\022\016\n\006footid\030\010 \001(\r\",\n\rPBBalanc"
+      "eData\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\021\"F\n\017PB"
+      "BattleBalance\022\017\n\007ranking\030\001 \001(\r\022\"\n\004data\030\002"
+      " \003(\0132\024.KFMsg.PBBalanceDatab\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 537);
+      descriptor, 554);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DefineMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -249,7 +250,8 @@ const int PBMatchRoom::kNowplayerFieldNumber;
 const int PBMatchRoom::kMasteridFieldNumber;
 const int PBMatchRoom::kMasternameFieldNumber;
 const int PBMatchRoom::kPasswordFieldNumber;
-const int PBMatchRoom::kPlayerFieldNumber;
+const int PBMatchRoom::kGradeFieldNumber;
+const int PBMatchRoom::kPbplayerFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PBMatchRoom::PBMatchRoom()
@@ -262,7 +264,7 @@ PBMatchRoom::PBMatchRoom()
 PBMatchRoom::PBMatchRoom(const PBMatchRoom& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      player_(from.player_) {
+      pbplayer_(from.pbplayer_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.title().size() > 0) {
@@ -271,10 +273,6 @@ PBMatchRoom::PBMatchRoom(const PBMatchRoom& from)
   version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.version().size() > 0) {
     version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-  masterid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.masterid().size() > 0) {
-    masterid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.masterid_);
   }
   mastername_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.mastername().size() > 0) {
@@ -285,20 +283,19 @@ PBMatchRoom::PBMatchRoom(const PBMatchRoom& from)
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
   ::memcpy(&roomid_, &from.roomid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&nowplayer_) -
-    reinterpret_cast<char*>(&roomid_)) + sizeof(nowplayer_));
+    static_cast<size_t>(reinterpret_cast<char*>(&grade_) -
+    reinterpret_cast<char*>(&roomid_)) + sizeof(grade_));
   // @@protoc_insertion_point(copy_constructor:KFMsg.PBMatchRoom)
 }
 
 void PBMatchRoom::SharedCtor() {
   title_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  masterid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mastername_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&roomid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nowplayer_) -
-      reinterpret_cast<char*>(&roomid_)) + sizeof(nowplayer_));
+      reinterpret_cast<char*>(&grade_) -
+      reinterpret_cast<char*>(&roomid_)) + sizeof(grade_));
 }
 
 PBMatchRoom::~PBMatchRoom() {
@@ -309,7 +306,6 @@ PBMatchRoom::~PBMatchRoom() {
 void PBMatchRoom::SharedDtor() {
   title_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  masterid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mastername_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -334,15 +330,14 @@ void PBMatchRoom::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  player_.Clear();
+  pbplayer_.Clear();
   title_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  masterid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   mastername_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&roomid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&nowplayer_) -
-      reinterpret_cast<char*>(&roomid_)) + sizeof(nowplayer_));
+      reinterpret_cast<char*>(&grade_) -
+      reinterpret_cast<char*>(&roomid_)) + sizeof(grade_));
   _internal_metadata_.Clear();
 }
 
@@ -436,12 +431,14 @@ bool PBMatchRoom::MergePartialFromCodedStream(
         break;
       }
 
-      // bytes masterid = 7;
+      // uint64 masterid = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_masterid()));
+            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &masterid_)));
         } else {
           goto handle_unusual;
         }
@@ -472,12 +469,26 @@ bool PBMatchRoom::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .KFMsg.PBMatchPlayer player = 20;
+      // uint32 grade = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &grade_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
       case 20: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(162u /* 162 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-                input, add_player()));
+                input, add_pbplayer()));
         } else {
           goto handle_unusual;
         }
@@ -542,10 +553,9 @@ void PBMatchRoom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->nowplayer(), output);
   }
 
-  // bytes masterid = 7;
-  if (this->masterid().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      7, this->masterid(), output);
+  // uint64 masterid = 7;
+  if (this->masterid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->masterid(), output);
   }
 
   // bytes mastername = 8;
@@ -560,12 +570,17 @@ void PBMatchRoom::SerializeWithCachedSizes(
       9, this->password(), output);
   }
 
-  // repeated .KFMsg.PBMatchPlayer player = 20;
+  // uint32 grade = 10;
+  if (this->grade() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->grade(), output);
+  }
+
+  // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->player_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->pbplayer_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       20,
-      this->player(static_cast<int>(i)),
+      this->pbplayer(static_cast<int>(i)),
       output);
   }
 
@@ -617,11 +632,9 @@ void PBMatchRoom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->nowplayer(), target);
   }
 
-  // bytes masterid = 7;
-  if (this->masterid().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        7, this->masterid(), target);
+  // uint64 masterid = 7;
+  if (this->masterid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->masterid(), target);
   }
 
   // bytes mastername = 8;
@@ -638,12 +651,17 @@ void PBMatchRoom::SerializeWithCachedSizes(
         9, this->password(), target);
   }
 
-  // repeated .KFMsg.PBMatchPlayer player = 20;
+  // uint32 grade = 10;
+  if (this->grade() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->grade(), target);
+  }
+
+  // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->player_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->pbplayer_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        20, this->player(static_cast<int>(i)), deterministic, target);
+        20, this->pbplayer(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -663,14 +681,14 @@ size_t PBMatchRoom::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .KFMsg.PBMatchPlayer player = 20;
+  // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
   {
-    unsigned int count = static_cast<unsigned int>(this->player_size());
+    unsigned int count = static_cast<unsigned int>(this->pbplayer_size());
     total_size += 2UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->player(static_cast<int>(i)));
+          this->pbplayer(static_cast<int>(i)));
     }
   }
 
@@ -686,13 +704,6 @@ size_t PBMatchRoom::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->version());
-  }
-
-  // bytes masterid = 7;
-  if (this->masterid().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->masterid());
   }
 
   // bytes mastername = 8;
@@ -730,11 +741,25 @@ size_t PBMatchRoom::ByteSizeLong() const {
         this->maxplayer());
   }
 
+  // uint64 masterid = 7;
+  if (this->masterid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->masterid());
+  }
+
   // uint32 nowplayer = 6;
   if (this->nowplayer() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->nowplayer());
+  }
+
+  // uint32 grade = 10;
+  if (this->grade() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->grade());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -764,7 +789,7 @@ void PBMatchRoom::MergeFrom(const PBMatchRoom& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  player_.MergeFrom(from.player_);
+  pbplayer_.MergeFrom(from.pbplayer_);
   if (from.title().size() > 0) {
 
     title_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.title_);
@@ -772,10 +797,6 @@ void PBMatchRoom::MergeFrom(const PBMatchRoom& from) {
   if (from.version().size() > 0) {
 
     version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.version_);
-  }
-  if (from.masterid().size() > 0) {
-
-    masterid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.masterid_);
   }
   if (from.mastername().size() > 0) {
 
@@ -794,8 +815,14 @@ void PBMatchRoom::MergeFrom(const PBMatchRoom& from) {
   if (from.maxplayer() != 0) {
     set_maxplayer(from.maxplayer());
   }
+  if (from.masterid() != 0) {
+    set_masterid(from.masterid());
+  }
   if (from.nowplayer() != 0) {
     set_nowplayer(from.nowplayer());
+  }
+  if (from.grade() != 0) {
+    set_grade(from.grade());
   }
 }
 
@@ -823,12 +850,10 @@ void PBMatchRoom::Swap(PBMatchRoom* other) {
 }
 void PBMatchRoom::InternalSwap(PBMatchRoom* other) {
   using std::swap;
-  CastToBase(&player_)->InternalSwap(CastToBase(&other->player_));
+  CastToBase(&pbplayer_)->InternalSwap(CastToBase(&other->pbplayer_));
   title_.Swap(&other->title_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   version_.Swap(&other->version_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  masterid_.Swap(&other->masterid_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   mastername_.Swap(&other->mastername_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
@@ -837,7 +862,9 @@ void PBMatchRoom::InternalSwap(PBMatchRoom* other) {
   swap(roomid_, other->roomid_);
   swap(matchid_, other->matchid_);
   swap(maxplayer_, other->maxplayer_);
+  swap(masterid_, other->masterid_);
   swap(nowplayer_, other->nowplayer_);
+  swap(grade_, other->grade_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

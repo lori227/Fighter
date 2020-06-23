@@ -3,10 +3,15 @@
 
 namespace KFrame
 {
-    void KFMatchRandRoom::InitRoom( KFMatchQueue* kfqueue, uint32 grade, const std::string& version, uint64 battleserverid )
+    void KFMatchRandRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
     {
-        KFMatchRoom::InitRoom( kfqueue, grade, version, battleserverid );
+        KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password );
         _next_add_robot_time = KFGlobal::Instance()->_game_time + kfqueue->_match_setting->_add_robot_time;
+    }
+
+    void KFMatchRandRoom::SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist )
+    {
+        KFMatchRoom::SaveTo( pbroom, isplayerlist );
     }
 
     bool KFMatchRandRoom::AddPlayer( KFMatchPlayer* kfplayer )
