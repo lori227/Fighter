@@ -88,19 +88,20 @@ namespace KFrame
 
     void KFMatchQueue::RunMatchRoom()
     {
-        for ( auto iter = _room_list._objects.begin(); iter != _room_list._objects.end(); )
+        std::list< KFMatchRoom* > finishlist;
+        for ( auto iter = _room_list._objects.begin(); iter != _room_list._objects.end(); ++iter )
         {
             auto kfroom = iter->second;
             bool ok = kfroom->AddRobot();
             if ( ok )
             {
-                iter = _room_list._objects.erase( iter );
-                _match_module->AddRoom( kfroom );
+                finishlist.push_back( kfroom );
             }
-            else
-            {
-                ++iter;
-            }
+        }
+
+        for ( auto kfroom : finishlist )
+        {
+            RoomMatchFinish( kfroom );
         }
     }
 
