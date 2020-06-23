@@ -57,7 +57,7 @@ namespace KFrame
         }
 
         // 创建一个新的房间
-        auto kfroom = __KF_NEW__( KFMatchRoom );
+        auto kfroom = __KF_NEW__( KFMatchRandRoom );
         kfroom->InitRoom( this, kfplayer->_pb_player.grade(), kfplayer->_version, kfplayer->_battle_server_id );
         _room_list.Insert( kfroom->_id, kfroom );
         return kfroom;

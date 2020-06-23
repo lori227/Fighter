@@ -12,15 +12,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="KFMatchJoinRoom.cpp" />
     <ClCompile Include="KFMatchPlayer.cpp" />
     <ClCompile Include="KFMatchQueue.cpp" />
+    <ClCompile Include="KFMatchRandRoom.cpp" />
     <ClCompile Include="KFMatchRoom.cpp" />
     <ClCompile Include="KFMatchShardModule.cpp" />
     <ClCompile Include="KFMatchShardPlugin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="KFMatchJoinRoom.h" />
     <ClInclude Include="KFMatchPlayer.h" />
     <ClInclude Include="KFMatchQueue.h" />
+    <ClInclude Include="KFMatchRandRoom.h" />
     <ClInclude Include="KFMatchRoom.h" />
     <ClInclude Include="KFMatchShardInterface.h" />
     <ClInclude Include="KFMatchShardModule.hpp" />

@@ -13,6 +13,12 @@
     <ClCompile Include="KFMatchRoom.cpp">
       <Filter>KFMatch</Filter>
     </ClCompile>
+    <ClCompile Include="KFMatchRandRoom.cpp">
+      <Filter>KFMatch</Filter>
+    </ClCompile>
+    <ClCompile Include="KFMatchJoinRoom.cpp">
+      <Filter>KFMatch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KFMatchShardInterface.h" />
@@ -25,6 +31,12 @@
       <Filter>KFMatch</Filter>
     </ClInclude>
     <ClInclude Include="KFMatchRoom.h">
+      <Filter>KFMatch</Filter>
+    </ClInclude>
+    <ClInclude Include="KFMatchRandRoom.h">
+      <Filter>KFMatch</Filter>
+    </ClInclude>
+    <ClInclude Include="KFMatchJoinRoom.h">
       <Filter>KFMatch</Filter>
     </ClInclude>
   </ItemGroup>

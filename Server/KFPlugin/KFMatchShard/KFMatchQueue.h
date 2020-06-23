@@ -1,7 +1,8 @@
 ﻿#ifndef __KF_MATCH_QUEUE_H__
 #define __KF_MATCH_QUEUE_H__
 
-#include "KFMatchRoom.h"
+#include "KFMatchRandRoom.h"
+#include "KFMatchJoinRoom.h"
 
 namespace KFrame
 {
