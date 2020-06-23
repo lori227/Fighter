@@ -155,7 +155,7 @@ namespace KFrame
             return KFMsg::MatchRoomFightMaster;
         }
 
-        ChangeState( KFMatchEnum::CreateState, 5000 );
+        ChangeState( KFMatchEnum::CreateState, 100 );
         _match_queue->RoomMatchFinish( this );
         return KFMsg::Ok;
     }
