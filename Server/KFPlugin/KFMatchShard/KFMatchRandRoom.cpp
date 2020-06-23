@@ -3,6 +3,11 @@
 
 namespace KFrame
 {
+    KFMatchRandRoom::KFMatchRandRoom()
+    {
+        _type = KFMatchEnum::RandRoom;
+    }
+
     void KFMatchRandRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
     {
         KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password );

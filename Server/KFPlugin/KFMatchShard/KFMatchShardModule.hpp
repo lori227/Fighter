@@ -55,6 +55,18 @@ namespace KFrame
         // 创建匹配房间
         __KF_MESSAGE_FUNCTION__( HandleCreateMatchToShardReq );
 
+        // 申请加入匹配房间
+        __KF_MESSAGE_FUNCTION__( HandleJoinMatchToShardReq );
+
+        // 查询房间列表
+        __KF_MESSAGE_FUNCTION__( HandleQueryMatchListToShardReq );
+
+        // 剔除玩家
+        __KF_MESSAGE_FUNCTION__( HandleKickMatchToShardReq );
+
+        // 开始匹配战斗
+        __KF_MESSAGE_FUNCTION__( HandleFightMatchToShardReq );
+
     protected:
         // 查找匹配模式
         KFMatchQueue* FindMatchQueue( uint32 matchid );

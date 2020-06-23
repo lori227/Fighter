@@ -12,6 +12,13 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::MSG_CANCEL_MATCH_REQ, &KFMatchClientModule::HandleCancelMatchReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleQueryMatchToGameAck );
         __REGISTER_MESSAGE__( KFMsg::MSG_CREATE_MATCH_REQ, &KFMatchClientModule::HandleCreateMatchReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleJoinMatchToGameAck );
+        __REGISTER_MESSAGE__( KFMsg::MSG_JOIN_MATCH_REQ, &KFMatchClientModule::HandleJoinMatchReq );
+        __REGISTER_MESSAGE__( KFMsg::MSG_QUERY_MATCH_LIST_REQ, &KFMatchClientModule::HandleQueryMatchListReq );
+        __REGISTER_MESSAGE__( KFMsg::MSG_KICK_MATCH_REQ, &KFMatchClientModule::HandleKickMatchReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleKickMatchToGameAck );
+        __REGISTER_MESSAGE__( KFMsg::MSG_FIGHT_MATCH_REQ, &KFMatchClientModule::HandleFightMatchReq );
+
 
     }
 
@@ -25,6 +32,12 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::MSG_CANCEL_MATCH_REQ );
         __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK );
         __UN_MESSAGE__( KFMsg::MSG_CREATE_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK );
+        __UN_MESSAGE__( KFMsg::MSG_JOIN_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::MSG_QUERY_MATCH_LIST_REQ );
+        __UN_MESSAGE__( KFMsg::MSG_KICK_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_GAME_ACK );
+        __UN_MESSAGE__( KFMsg::MSG_FIGHT_MATCH_REQ );
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -83,56 +96,55 @@ namespace KFrame
         player->Set( __STRING__( matchserverid ), _invalid_int );
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleStartMatchReq )
-    {
-        __CLIENT_PROTO_PARSE__( KFMsg::MsgStartMatchReq );
-
-        // 开始匹配
-        auto result = StartMatch( player, kfmsg.version(), kfmsg.matchid(), kfmsg.serverid() );
-        if ( result != KFMsg::MatchRequestOk )
-        {
-            _kf_display->SendToClient( player, result );
-        }
-    }
-
-    uint32 KFMatchClientModule::StartMatch( KFEntity* player, const std::string& version, uint32 matchid, uint64 serverid )
+    bool KFMatchClientModule::CheckCanMatch( KFEntity* player, uint32 matchid )
     {
         // 正在房间中
         auto roomid = player->Get( __STRING__( roomid ) );
         if ( roomid != _invalid_int )
         {
-            __LOG_ERROR__( "player=[{}] already in battle[{}]", player->GetKeyID(), roomid );
-            return KFMsg::MatchRequestOk;
+            _kf_display->SendToClient( player, KFMsg::MatchInRoom );
+            return false;
         }
 
         // 是否正在匹配中
         auto waitmatchid = player->Get( __STRING__( matchid ) );
         if ( waitmatchid != _invalid_int )
         {
-            __LOG_ERROR__( "player=[{}] already in match[{}] ", player->GetKeyID(), waitmatchid );
-            return KFMsg::MatchAlreadyWait;
+            _kf_display->SendToClient( player, KFMsg::MatchAlreadyWait );
+            return false;
         }
 
         // 出战英雄
         auto heroid = player->Get< uint32 >( __STRING__( heroid ) );
         if ( heroid == _invalid_int )
         {
-            return KFMsg::MatchNotFighterHero;
+            _kf_display->SendToClient( player, KFMsg::MatchNotFighterHero );
+            return false;
+        }
+
+        return true;
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleStartMatchReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgStartMatchReq );
+
+        if ( !CheckCanMatch( player, kfmsg.matchid() ) )
+        {
+            return;
         }
 
         // 发送给匹配集群， 进行匹配
         KFMsg::S2SStartMatchToShardReq req;
-        req.set_version( version );
-        req.set_matchid( matchid );
-        req.set_serverid( serverid );
+        req.set_version( kfmsg.version() );
+        req.set_matchid( kfmsg.matchid() );
+        req.set_serverid( kfmsg.serverid() );
         FormatMatchPlayerData( player, req.mutable_pbplayer() );
-        auto ok = _kf_route->RepeatToObject( player->GetKeyID(), __STRING__( match ), matchid, KFMsg::S2S_START_MATCH_TO_SHARD_REQ, &req );
+        auto ok = _kf_route->RepeatToObject( player->GetKeyID(), __STRING__( match ), kfmsg.matchid(), KFMsg::S2S_START_MATCH_TO_SHARD_REQ, &req );
         if ( !ok )
         {
-            return KFMsg::MatchServerBusy;
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
         }
-
-        return KFMsg::MatchRequestOk;
     }
 
     void KFMatchClientModule::FormatMatchPlayerData( KFEntity* player, KFMsg::PBMatchPlayer* pbplayer )
@@ -195,53 +207,145 @@ namespace KFrame
     {
         __CLIENT_PROTO_PARSE__( KFMsg::MsgCreateMatchReq );
 
-        // 创建匹配房间
-        auto result = CreateMatch( player, kfmsg.version(), kfmsg.matchid(), kfmsg.serverid(), kfmsg.title(), kfmsg.password() );
-        if ( result != KFMsg::MatchRequestOk )
+        if ( !CheckCanMatch( player, kfmsg.matchid() ) )
         {
-            _kf_display->SendToClient( player, result );
+            return;
+        }
+
+        // 发送给匹配集群，创建房间
+        KFMsg::S2SCreateMatchToShardReq req;
+        req.set_version( kfmsg.version() );
+        req.set_matchid( kfmsg.matchid() );
+        req.set_serverid( kfmsg.serverid() );
+        req.set_title( kfmsg.title() );
+        req.set_password( kfmsg.password() );
+        FormatMatchPlayerData( player, req.mutable_pbplayer() );
+        auto ok = _kf_route->SendToObject( player->GetKeyID(), __STRING__( match ), kfmsg.matchid(), KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &req );
+        if ( !ok )
+        {
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
         }
     }
 
-    uint32 KFMatchClientModule::CreateMatch( KFEntity* player, const std::string& version, uint32 matchid, uint64 serverid, const std::string& title, const std::string& password )
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleJoinMatchReq )
     {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgJoinMatchReq );
+
+        if ( !CheckCanMatch( player, kfmsg.matchid() ) )
+        {
+            return;
+        }
+
+        // 发送给匹配集群， 加入房间
+        KFMsg::S2SJoinMatchToShardReq req;
+        req.set_version( kfmsg.version() );
+        req.set_matchid( kfmsg.matchid() );
+        req.set_password( kfmsg.password() );
+        req.set_matchid( kfmsg.matchid() );
+        FormatMatchPlayerData( player, req.mutable_pbplayer() );
+        auto ok = _kf_route->SendToObject( player->GetKeyID(), __STRING__( match ), kfmsg.matchid(), KFMsg::S2S_JOIN_MATCH_TO_SHARD_REQ, &req );
+        if ( !ok )
+        {
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleJoinMatchToGameAck )
+    {
+        __ROUTE_PROTO_PARSE__( KFMsg::S2SJoinMatchToGameAck );
+
+        auto pbroom = &kfmsg.pbroom();
+        SetMatchData( player, pbroom->matchid(), __ROUTE_SERVER_ID__ );
+
+        KFMsg::MsgJoinMatchAck ack;
+        ack.mutable_pbroom()->CopyFrom( *pbroom );
+        _kf_player->SendToClient( player, KFMsg::MSG_JOIN_MATCH_ACK, &ack );
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleQueryMatchListReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgQueryMatchListReq );
+
+        // 发送给匹配集群，查询房间列表
+        KFMsg::S2SQueryMatchListToShardReq req;
+        req.set_version( kfmsg.version() );
+        req.set_matchid( kfmsg.matchid() );
+        req.set_roomid( kfmsg.roomid() );
+        auto ok = _kf_route->SendToObject( player->GetKeyID(), __STRING__( match ), kfmsg.matchid(), KFMsg::S2S_QUERY_MATCH_LIST_TO_SHARD_REQ, &req );
+        if ( !ok )
+        {
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleKickMatchReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgKickMatchReq );
+
+        if ( playerid == kfmsg.playerid() )
+        {
+            return;
+        }
+
         // 正在房间中
         auto roomid = player->Get( __STRING__( roomid ) );
         if ( roomid != _invalid_int )
         {
-            __LOG_ERROR__( "player=[{}] already in battle[{}]", player->GetKeyID(), roomid );
-            return KFMsg::MatchRequestOk;
+            return _kf_display->SendToClient( player, KFMsg::MatchInRoom );
         }
 
         // 是否正在匹配中
         auto waitmatchid = player->Get( __STRING__( matchid ) );
-        if ( waitmatchid != _invalid_int )
+        if ( waitmatchid == _invalid_int )
         {
-            __LOG_ERROR__( "player=[{}] already in match[{}] ", player->GetKeyID(), waitmatchid );
-            return KFMsg::MatchAlreadyWait;
+            return _kf_display->SendToClient( player, KFMsg::MatchNotInMatch );
         }
 
-        // 出战英雄
-        auto heroid = player->Get< uint32 >( __STRING__( heroid ) );
-        if ( heroid == _invalid_int )
-        {
-            return KFMsg::MatchNotFighterHero;
-        }
+        auto matchserverid = player->Get( __STRING__( matchserverid ) );
 
-        // 发送给匹配集群， 进行匹配
-        KFMsg::S2SCreatesMatchToShardReq req;
-        req.set_version( version );
-        req.set_matchid( matchid );
-        req.set_serverid( serverid );
-        req.set_title( title );
-        req.set_password( password );
-        FormatMatchPlayerData( player, req.mutable_pbplayer() );
-        auto ok = _kf_route->RepeatToObject( player->GetKeyID(), __STRING__( match ), matchid, KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &req );
+        KFMsg::S2SKickMatchToShardReq req;
+        req.set_matchid( waitmatchid );
+        req.set_playerid( playerid );
+        auto ok = _kf_route->SendToServer( player->GetKeyID(), matchserverid, KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ, &req );
         if ( !ok )
         {
-            return KFMsg::MatchServerBusy;
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleKickMatchToGameAck )
+    {
+        __SERVER_PROTO_PARSE__( KFMsg::S2SKickMatchToGameAck );
+
+        SetMatchData( player, _invalid_int, _invalid_int );
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleFightMatchReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgFightMatchReq );
+
+        // 正在房间中
+        auto roomid = player->Get( __STRING__( roomid ) );
+        if ( roomid != _invalid_int )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchInRoom );
         }
 
-        return KFMsg::MatchRequestOk;
+        // 是否正在匹配中
+        auto waitmatchid = player->Get( __STRING__( matchid ) );
+        if ( waitmatchid == _invalid_int )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchNotInMatch );
+        }
+
+        auto matchserverid = player->Get( __STRING__( matchserverid ) );
+
+        KFMsg::S2SFightMatchToShardReq req;
+        req.set_playerid( playerid );
+        auto ok = _kf_route->SendToServer( player->GetKeyID(), matchserverid, KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ, &req );
+        if ( !ok )
+        {
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
+        }
     }
 }

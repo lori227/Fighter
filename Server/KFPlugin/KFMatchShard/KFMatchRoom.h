@@ -27,9 +27,10 @@ namespace KFrame
     class KFMatchQueue;
     class KFMatchRoom
     {
-    protected:
-
     public:
+        KFMatchRoom() = default;
+        virtual ~KFMatchRoom() = default;
+
         // 初始化
         virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
 
@@ -52,7 +53,19 @@ namespace KFrame
         virtual void AffirmCreate();
 
         // 取消匹配
-        virtual uint32 CancelMatch( KFMatchPlayer* kfplayer );
+        virtual uint32 CancelMatch( uint64 playerid );
+
+        // 加入房间
+        virtual void SendJoinRoomToPlayer( uint64 playerid, uint64 serverid );
+
+        // 加入玩家
+        virtual uint32 JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password );
+
+        // 踢掉玩家
+        virtual uint32 KickPlayer( uint64 masterid, uint64 playerid );
+
+        // 开始战斗
+        virtual uint32 FightMatch( uint64 playerid );
     protected:
         // 是否有效
         bool IsValid();
@@ -75,7 +88,13 @@ namespace KFrame
         // 发送消息
         void SendToRoom( uint32 msgid, google::protobuf::Message* message );
 
+        // 发送离开消息
+        void SendLeaveToRoom( uint64 playerid, uint32 type );
+
     public:
+        // 类型
+        uint32 _type = _invalid_int;
+
         // 房间id
         uint64 _id = _invalid_int;
 

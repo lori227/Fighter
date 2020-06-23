@@ -27,12 +27,20 @@ namespace KFrame
         // 创建匹配房间
         KFMatchRoom* CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password );
 
+        // 加入匹配房间
+        uint32 JoinMatch( const KFMsg::PBMatchPlayer* pbplayer, uint64 roomid, const std::string& version, const std::string& password );
+
         // 取消匹配
         bool CancelMatch( uint64 playerid );
 
         // 逻辑
         void RunMatch();
 
+        // 查询房间列表
+        void QueryMatch( uint64 playerid, uint64 serverid, uint64 roomid, const std::string& version );
+
+        // 匹配完成
+        void RoomMatchFinish( KFMatchRoom* kfroom );
     protected:
         // 匹配两个玩家
         void RunMatchPlayer();

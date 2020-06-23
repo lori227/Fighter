@@ -25,11 +25,13 @@ enum ClientProtocol
 	MSG_CREATE_MATCH_ACK		= 3108;	// 创建匹配房间
 	MSG_JOIN_MATCH_REQ			= 3109;	// 加入匹配房间
 	MSG_JOIN_MATCH_ACK			= 3110;	// 加入匹配房间
-	MSG_ADD_MATCH_MEMBER_ACK	= 3111;	// 匹配房间加入新成员
+	MSG_ADD_MATCH_PLAYER_ACK	= 3111;	// 匹配房间加入新成员
 	MSG_QUERY_MATCH_LIST_REQ	= 3113; // 查询匹配房间列表
 	MSG_QUERY_MATCH_LIST_ACK	= 3114; // 查询匹配房间列表
 	MSG_KICK_MATCH_REQ			= 3115;	// 踢出匹配房间
 	MSG_LEAVE_MATCH_ACK			= 3116;	// 离开匹配房间
+	MSG_CHANGE_MATCH_MASTER_ACK	= 3117;	// 更新房主信息
+	MSG_FIGHT_MATCH_REQ			= 3118;	// 开始匹配战斗
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -114,19 +116,14 @@ message MsgCreateMatchReq
 	bytes password = 5;		// 房间密码
 }
 
-// 创建匹配房间
-// MSG_CREATE_MATCH_ACK
-message MsgCreateMatchAck
-{
-	PBMatchRoom pbroom = 1;
-}
-
 // 加入匹配房间
 // MSG_JOIN_MATCH_REQ
 message MsgJoinMatchReq
 {
 	bytes version = 1;		// 客户端版本号
 	uint64 roomid = 2;		// 匹配房间id
+	bytes password = 3;		// 房间密码
+	uint32 matchid = 4;		// 匹配模式
 }
 
 // 加入匹配房间
@@ -137,10 +134,10 @@ message MsgJoinMatchAck
 }
 
 // 匹配房间加入新成员
-// MSG_ADD_MATCH_MEMBER_ACK
-message MsgAddMatchMemberAck
+// MSG_ADD_MATCH_PLAYER_ACK
+message MsgAddMatchPlayerAck
 {
-	PBMatchPlayer player = 1;	// 玩家列表
+	PBMatchPlayer pbplayer = 1;	// 玩家列表
 }
 
 // 查询匹配房间列表
@@ -172,4 +169,19 @@ message MsgLeaveMatchAck
 {
 	uint64 playerid = 1;	// 玩家id
 	uint32 type = 2;		// 类型( LeaveEnum )
+}
+
+// 更新房主信息
+// MSG_CHANGE_MATCH_MASTER_ACK
+message MsgChangeMatchMasterAck
+{
+	uint64 playerid = 1;
+	bytes name = 2;
+}
+
+// 开始战斗
+// MSG_FIGHT_MATCH_REQ
+message MsgFightMatchReq
+{
+
 }

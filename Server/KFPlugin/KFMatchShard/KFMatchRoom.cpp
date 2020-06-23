@@ -105,7 +105,7 @@ namespace KFrame
         ChangeState( KFMatchEnum::DestroyState, 100 );
     }
 
-    uint32 KFMatchRoom::CancelMatch( KFMatchPlayer* kfplayer )
+    uint32 KFMatchRoom::CancelMatch( uint64 playerid )
     {
         if ( _state != KFMatchEnum::MatchState )
         {
@@ -113,7 +113,7 @@ namespace KFrame
         }
 
         // 删除玩家
-        _player_list.Remove( kfplayer->_id );
+        _player_list.Remove( playerid );
 
         // 判断是否全是机器人
         for ( auto iter : _player_list._objects )
@@ -149,7 +149,7 @@ namespace KFrame
 
     bool KFMatchRoom::AddRobot()
     {
-        return CheckFull();
+        return false;
     }
 
     KFMatchPlayer* KFMatchRoom::CreateMatchRobot()
@@ -196,5 +196,40 @@ namespace KFrame
         auto begin = KFHeroConfig::Instance()->_settings._objects.begin();
         std::advance( begin, index );
         return ( uint32 )begin->second->_id;
+    }
+
+    void KFMatchRoom::SendJoinRoomToPlayer( uint64 playerid, uint64 serverid )
+    {
+        KFMsg::S2SJoinMatchToGameAck ack;
+        SaveTo( ack.mutable_pbroom(), true );
+        auto ok = _kf_route->SendToPlayer( playerid, serverid, playerid, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
+        if ( !ok )
+        {
+            __LOG_ERROR__( "player=[{}] send join match ack failed!", playerid );
+        }
+    }
+
+    // 加入玩家
+    uint32 KFMatchRoom::JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password )
+    {
+        return KFMsg::MatchRoomIdError;
+    }
+
+    uint32 KFMatchRoom::KickPlayer( uint64 masterid, uint64 playerid )
+    {
+        return KFMsg::MatchRoomKickTypeError;
+    }
+
+    void KFMatchRoom::SendLeaveToRoom( uint64 playerid, uint32 type )
+    {
+        KFMsg::MsgLeaveMatchAck ack;
+        ack.set_playerid( playerid );
+        ack.set_type( type );
+        SendToRoom( KFMsg::MSG_LEAVE_MATCH_ACK, &ack );
+    }
+
+    uint32 KFMatchRoom::FightMatch( uint64 playerid )
+    {
+        return KFMsg::MatchRoomKickTypeError;
     }
 }

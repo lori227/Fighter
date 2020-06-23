@@ -10,6 +10,10 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK, &KFMatchShardModule::HandleCreateRoomToMatchAck );
         __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ, &KFMatchShardModule::HandleQueryMatchToMatchReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleCreateMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_JOIN_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleJoinMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_MATCH_LIST_TO_SHARD_REQ, &KFMatchShardModule::HandleQueryMatchListToShardReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleKickMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleFightMatchToShardReq );
     }
 
     void KFMatchShardModule::BeforeShut()
@@ -20,6 +24,10 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK );
         __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ );
         __UN_MESSAGE__( KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_JOIN_MATCH_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_QUERY_MATCH_LIST_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ );
     }
 
     void KFMatchShardModule::PrepareRun()
@@ -152,15 +160,7 @@ namespace KFrame
         }
 
         // 创建匹配
-        auto kfroom = kfqueue->CreateMatch( pbplayer, kfmsg.version(), kfmsg.serverid(), kfmsg.title(), kfmsg.password() );
-
-        KFMsg::S2SCreateMatchToGameAck ack;
-        kfroom->SaveTo( ack.mutable_pbroom(), true );
-        auto ok = _kf_route->SendToRoute( route, KFMsg::S2S_CREATE_MATCH_TO_GAME_ACK, &ack );
-        if ( !ok )
-        {
-            __LOG_ERROR__( "player=[{}] create match ack failed!", pbplayer->id() );
-        }
+        kfqueue->CreateMatch( pbplayer, kfmsg.version(), kfmsg.serverid(), kfmsg.title(), kfmsg.password() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleCancelMatchToShardReq )
@@ -177,7 +177,7 @@ namespace KFrame
 
         if ( kfplayer->_match_room != nullptr )
         {
-            kfplayer->_match_room->CancelMatch( kfplayer );
+            kfplayer->_match_room->CancelMatch( kfmsg.playerid() );
         }
         else
         {
@@ -220,5 +220,73 @@ namespace KFrame
         KFMsg::S2SQueryMatchToGameAck ack;
         ack.set_playerid( kfmsg.playerid() );
         _kf_route->SendToRoute( route, KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK, &ack );
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleJoinMatchToShardReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SJoinMatchToShardReq );
+
+        auto pbplayer = &kfmsg.pbplayer();
+        auto kfqueue = FindMatchQueue( kfmsg.matchid() );
+        if ( kfqueue == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchDataError );
+        }
+
+        // 创建匹配
+        auto result = kfqueue->JoinMatch( pbplayer, kfmsg.roomid(), kfmsg.version(), kfmsg.password() );
+        if ( result != KFMsg::Ok )
+        {
+            _kf_display->SendToPlayer( route, result );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleQueryMatchListToShardReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SQueryMatchListToShardReq );
+
+        auto kfqueue = FindMatchQueue( kfmsg.matchid() );
+        if ( kfqueue == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchDataError );
+        }
+
+        // 查询匹配列表
+        kfqueue->QueryMatch( __ROUTE_SEND_ID__, __ROUTE_SERVER_ID__, kfmsg.roomid(), kfmsg.version() );
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleKickMatchToShardReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SKickMatchToShardReq );
+
+        // 先判断是否在匹配中
+        auto kfplayer = _match_player_manage->Find( __ROUTE_SEND_ID__ );
+        if ( kfplayer == nullptr || kfplayer->_match_room == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchNotInMatch );
+        }
+
+        auto result = kfplayer->_match_room->KickPlayer( kfplayer->_id, kfmsg.playerid() );
+        if ( result != KFMsg::Ok )
+        {
+            _kf_display->SendToPlayer( route, result );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleFightMatchToShardReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SFightMatchToShardReq );
+
+        auto kfplayer = _match_player_manage->Find( kfmsg.playerid() );
+        if ( kfplayer == nullptr || kfplayer->_match_room == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchNotInMatch );
+        }
+
+        auto result = kfplayer->_match_room->FightMatch( kfplayer->_id );
+        if ( result != KFMsg::Ok )
+        {
+            _kf_display->SendToPlayer( route, result );
+        }
     }
 }

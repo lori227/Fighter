@@ -5,23 +5,34 @@ package KFMsg;
 // 20000-30000
 enum ProjectCodeEnum
 {
-	LogicError				= 0;		// 失败	
+	LogicError				 = 0;		// 失败	
 	
 	// hero
-	HeroNotExist			= 31001;	// 英雄不存在
-	HeroNotFight			= 31002;	// 没有出战英雄
-	EffectNotExist			= 31003;	// 特效不存在
-	FootNotExist			= 31004;	// 特效不存在
+	HeroNotExist			 = 31001;	// 英雄不存在
+	HeroNotFight			 = 31002;	// 没有出战英雄
+	EffectNotExist			 = 31003;	// 特效不存在
+	FootNotExist			 = 31004;	// 特效不存在
 
 	// match
-	MatchRequestOk 			= 32001;	// 请求匹配成功, 请等待...
-	MatchAlreadyWait		= 32002;	// 正在匹配中, 不要重复请求
-	MatchInRoom				= 32003;	// 已经在匹配房间中, 请等待...
-	MatchNotInMatch     	= 32004;	// 不在匹配中, 不需要取消
-	MatchCancelOk	    	= 32005;	// 取消匹配成功
-	MatchAffirmTimeout  	= 32007;	// 确认匹配超时
-	MatchNotFighterHero 	= 32008;	// 没有匹配英雄
-	MatchDataError			= 32009;	// 匹配数据错误
+	MatchRequestOk 			 = 32001;	// 请求匹配成功, 请等待...
+	MatchAlreadyWait		 = 32002;	// 正在匹配中, 不要重复请求
+	MatchInRoom				 = 32003;	// 已经在匹配房间中, 请等待...
+	MatchNotInMatch     	 = 32004;	// 不在匹配中, 不需要取消
+	MatchCancelOk	    	 = 32005;	// 取消匹配成功
+	MatchAffirmTimeout       = 32007;	// 确认匹配超时
+	MatchNotFighterHero 	 = 32008;	// 没有匹配英雄
+	MatchDataError			 = 32009;	// 匹配数据错误
+	MatchRoomNotExist		 = 32010;	// 匹配房间不存在或者已经开始了
+	MatchRoomIsFull			 = 32011;	// 匹配房间已经满了
+	MatchRoomPasswordError	 = 32012;	// 匹配房间密码错误
+	MatchRoomIdError		 = 32013;	// 匹配房间错误, 不能加入
+	MatchRoomVersionError    = 32014;	// 匹配房间版本不匹配
+	MatchRoomJoinAlready 	 = 32015;	// 已经加入匹配房间
+	MatchRoomKickTypeError   = 32016;	// 当前方面不支持踢人
+	MatchRoomKickMaster		 = 32017;	// 只有房主财可以踢人
+	MatchRoomPlayerNoInRoom  = 32018;	// 匹配房间没有此玩家
+	MatchRoomStartCanNotKick = 32019;	// 匹配开始以后不能踢人
+	MatchRoomFightMaster	 = 32020;	// 只有房主才可以开始战斗
 
 	// room
 	RoomAllotBattle			= 32101;	// 正在分配战场服务器, 请等待

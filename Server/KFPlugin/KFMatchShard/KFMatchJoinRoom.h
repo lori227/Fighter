@@ -8,6 +8,8 @@ namespace KFrame
     class KFMatchJoinRoom : public KFMatchRoom
     {
     public:
+        KFMatchJoinRoom();
+
         // 初始化
         virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
 
@@ -21,7 +23,20 @@ namespace KFrame
         virtual bool AddPlayer( KFMatchPlayer* kfplayer );
 
         // 取消匹配
-        virtual uint32 CancelMatch( KFMatchPlayer* kfplayer );
+        virtual uint32 CancelMatch( uint64 playerid );
+
+        // 加入玩家
+        virtual uint32 JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password );
+
+        // 踢掉玩家
+        virtual uint32 KickPlayer( uint64 masterid, uint64 playerid );
+
+        // 开始战斗
+        virtual uint32 FightMatch( uint64 playerid );
+    protected:
+        // 更新房主信息
+        void ChangeMasterPlayer( uint64 playerid );
+
     protected:
         // 标题
         std::string _title;

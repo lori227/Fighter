@@ -8,6 +8,8 @@ namespace KFrame
     class KFMatchRandRoom : public KFMatchRoom
     {
     public:
+        KFMatchRandRoom();
+
         // 初始化
         virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
 

@@ -63,6 +63,12 @@ namespace KFrame
         return kfroom;
     }
 
+    void KFMatchQueue::RoomMatchFinish( KFMatchRoom* kfroom )
+    {
+        _match_module->AddRoom( kfroom );
+        _room_list.Remove( kfroom->_id, false );
+    }
+
     void KFMatchQueue::RunMatchPlayer()
     {
         for ( auto iter = _player_list._objects.begin(); iter != _player_list._objects.end(); ++iter )
@@ -73,8 +79,7 @@ namespace KFrame
             auto ok = kfroom->AddPlayer( kfplayer );
             if ( ok )
             {
-                _match_module->AddRoom( kfroom );
-                _room_list.Remove( kfroom->_id, false );
+                RoomMatchFinish( kfroom );
             }
         }
 
@@ -111,7 +116,45 @@ namespace KFrame
         auto kfroom = __KF_NEW__( KFMatchJoinRoom );
         kfroom->InitRoom( this, kfplayer, title, password );
         _room_list.Insert( kfroom->_id, kfroom );
+
+        // 通知玩家加入房间
+        kfroom->SendJoinRoomToPlayer( pbplayer->id(), pbplayer->serverid() );
         return kfroom;
     }
 
+    uint32 KFMatchQueue::JoinMatch( const KFMsg::PBMatchPlayer* pbplayer, uint64 roomid, const std::string& version, const std::string& password )
+    {
+        auto kfroom = _room_list.Find( roomid );
+        if ( kfroom == nullptr )
+        {
+            return KFMsg::MatchRoomNotExist;
+        }
+
+        return kfroom->JoinPlayer( pbplayer, version, password );
+    }
+
+    void KFMatchQueue::QueryMatch( uint64 playerid, uint64 serverid, uint64 roomid, const std::string& version )
+    {
+        KFMsg::MsgQueryMatchListAck ack;
+        if ( roomid != 0u )
+        {
+            auto kfroom = _room_list.Find( roomid );
+            if ( kfroom != nullptr )
+            {
+                kfroom->SaveTo( ack.add_pbroom(), false );
+            }
+        }
+        else
+        {
+            for ( auto& iter : _room_list._objects )
+            {
+                auto kfroom = iter.second;
+                if ( kfroom->_type == KFMatchEnum::CreateRoom )
+                {
+                    kfroom->SaveTo( ack.add_pbroom(), false );
+                }
+            }
+        }
+        _kf_route->SendToPlayer( playerid, serverid, playerid, KFMsg::MSG_QUERY_MATCH_LIST_ACK, &ack );
+    }
 }

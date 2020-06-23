@@ -3,6 +3,11 @@
 
 namespace KFrame
 {
+    KFMatchJoinRoom::KFMatchJoinRoom()
+    {
+        _type = KFMatchEnum::CreateRoom;
+    }
+
     void KFMatchJoinRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
     {
         KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password );
@@ -28,9 +33,13 @@ namespace KFrame
 
     bool KFMatchJoinRoom::AddPlayer( KFMatchPlayer* kfplayer )
     {
+        // 先通知有玩家加入
+        KFMsg::MsgAddMatchPlayerAck ack;
+        kfplayer->SaveTo( ack.mutable_pbplayer() );
+        SendToRoom( KFMsg::MSG_ADD_MATCH_PLAYER_ACK, &ack );
+
+        // 加入玩家列表
         KFMatchRoom::AddPlayer( kfplayer );
-
-
         return false;
     }
 
@@ -39,10 +48,115 @@ namespace KFrame
         return false;
     }
 
-    uint32 KFMatchJoinRoom::CancelMatch( KFMatchPlayer* kfplayer )
+    uint32 KFMatchJoinRoom::CancelMatch( uint64 playerid )
     {
-        auto result = KFMatchRoom::CancelMatch( kfplayer );
+        auto result = KFMatchRoom::CancelMatch( playerid );
+        if ( result == KFMatchEnum::CancelOk )
+        {
+            ChangeMasterPlayer( playerid );
+            SendLeaveToRoom( playerid, KFMsg::Leave );
+        }
 
         return result;
+    }
+
+    void KFMatchJoinRoom::ChangeMasterPlayer( uint64 playerid )
+    {
+        if ( playerid != _master_player_id )
+        {
+            return;
+        }
+
+        for ( auto& iter : _player_list._objects )
+        {
+            auto kfplayer = iter.second;
+            if ( !kfplayer->_pb_player.isrobot() )
+            {
+                _master_player_id = kfplayer->_id;
+                _master_player_name = kfplayer->_pb_player.name();
+
+                // 更新给客户端
+                KFMsg::MsgChangeMatchMasterAck ack;
+                ack.set_playerid( _master_player_id );
+                ack.set_name( _master_player_name );
+                return SendToRoom( KFMsg::MSG_CHANGE_MATCH_MASTER_ACK, &ack );
+            }
+        }
+    }
+
+    // 加入玩家
+    uint32 KFMatchJoinRoom::JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password )
+    {
+        if ( _version != version )
+        {
+            return KFMsg::MatchRoomVersionError;
+        }
+
+        if ( _password != password )
+        {
+            return KFMsg::MatchRoomPasswordError;
+        }
+
+        if ( _player_list.Size() >= _match_queue->_match_setting->_max_count )
+        {
+            return KFMsg::MatchRoomIsFull;
+        }
+
+        if ( _player_list.Find( pbplayer->id() ) != nullptr )
+        {
+            return KFMsg::MatchRoomJoinAlready;
+        }
+
+        // 加入玩家
+        auto kfplayer = __KF_NEW__( KFMatchPlayer );
+        kfplayer->CopyFrom( pbplayer );
+        AddPlayer( kfplayer );
+
+        // 通知新加入的玩家
+        SendJoinRoomToPlayer( pbplayer->id(), pbplayer->serverid() );
+        return KFMsg::Ok;
+    }
+
+    uint32 KFMatchJoinRoom::KickPlayer( uint64 masterid, uint64 playerid )
+    {
+        if ( _master_player_id != masterid )
+        {
+            return KFMsg::MatchRoomKickMaster;
+        }
+
+        if ( _state != KFMatchEnum::MatchState )
+        {
+            return KFMsg::MatchRoomStartCanNotKick;
+        }
+
+        auto kfplayer = _player_list.Find( playerid );
+        if ( kfplayer == nullptr )
+        {
+            return KFMsg::MatchRoomPlayerNoInRoom;
+        }
+
+        // 通知玩家被踢了
+        KFMsg::S2SKickMatchToGameAck ack;
+        ack.set_playerid( playerid );
+        _kf_route->RepeatToPlayer( kfplayer->_pb_player.serverid(), playerid, KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &ack );
+
+        // 发送离开消息
+        SendLeaveToRoom( playerid, KFMsg::Kick );
+
+        // 删除玩家
+        _player_list.Remove( playerid );
+        return KFMsg::Ok;
+    }
+
+    uint32 KFMatchJoinRoom::FightMatch( uint64 playerid )
+    {
+        if ( _master_player_id != playerid )
+        {
+            return KFMsg::MatchRoomFightMaster;
+        }
+
+        ChangeState( KFMatchEnum::CreateState, 5000 );
+        _match_queue->RoomMatchFinish( this );
+        return KFMsg::Ok;
     }
 }

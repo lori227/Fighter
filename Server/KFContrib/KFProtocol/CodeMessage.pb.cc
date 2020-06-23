@@ -58,7 +58,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021CodeMessage.proto\022\005KFMsg*\302\002\n\017ProjectCo"
+      "\n\021CodeMessage.proto\022\005KFMsg*\365\004\n\017ProjectCo"
       "deEnum\022\016\n\nLogicError\020\000\022\022\n\014HeroNotExist\020\231"
       "\362\001\022\022\n\014HeroNotFight\020\232\362\001\022\024\n\016EffectNotExist"
       "\020\233\362\001\022\022\n\014FootNotExist\020\234\362\001\022\024\n\016MatchRequest"
@@ -66,10 +66,18 @@ void AddDescriptorsImpl() {
       "nRoom\020\203\372\001\022\025\n\017MatchNotInMatch\020\204\372\001\022\023\n\rMatc"
       "hCancelOk\020\205\372\001\022\030\n\022MatchAffirmTimeout\020\207\372\001\022"
       "\031\n\023MatchNotFighterHero\020\210\372\001\022\024\n\016MatchDataE"
-      "rror\020\211\372\001\022\025\n\017RoomAllotBattle\020\345\372\001b\006proto3"
+      "rror\020\211\372\001\022\027\n\021MatchRoomNotExist\020\212\372\001\022\025\n\017Mat"
+      "chRoomIsFull\020\213\372\001\022\034\n\026MatchRoomPasswordErr"
+      "or\020\214\372\001\022\026\n\020MatchRoomIdError\020\215\372\001\022\033\n\025MatchR"
+      "oomVersionError\020\216\372\001\022\032\n\024MatchRoomJoinAlre"
+      "ady\020\217\372\001\022\034\n\026MatchRoomKickTypeError\020\220\372\001\022\031\n"
+      "\023MatchRoomKickMaster\020\221\372\001\022\035\n\027MatchRoomPla"
+      "yerNoInRoom\020\222\372\001\022\036\n\030MatchRoomStartCanNotK"
+      "ick\020\223\372\001\022\032\n\024MatchRoomFightMaster\020\224\372\001\022\025\n\017R"
+      "oomAllotBattle\020\345\372\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 359);
+      descriptor, 666);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CodeMessage.proto", &protobuf_RegisterTypes);
 }
@@ -105,6 +113,17 @@ bool ProjectCodeEnum_IsValid(int value) {
     case 32007:
     case 32008:
     case 32009:
+    case 32010:
+    case 32011:
+    case 32012:
+    case 32013:
+    case 32014:
+    case 32015:
+    case 32016:
+    case 32017:
+    case 32018:
+    case 32019:
+    case 32020:
     case 32101:
       return true;
     default:

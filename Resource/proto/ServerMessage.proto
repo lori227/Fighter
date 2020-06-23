@@ -15,7 +15,12 @@ enum ServerProtocol
 	S2S_START_MATCH_TO_GAME_ACK 		= 31002;	// 匹配反馈	
 	S2S_CANCEL_MATCH_TO_SHARD_REQ		= 31003;	// 取消匹配
 	S2S_CREATE_MATCH_TO_SHARD_REQ		= 31004;	// 创建匹配房间
-	S2S_CREATE_MATCH_TO_GAME_ACK		= 31005;	// 创建匹配房间
+	S2S_JOIN_MATCH_TO_GAME_ACK			= 31005;	// 加入匹配房间
+	S2S_JOIN_MATCH_TO_SHARD_REQ			= 31006;	// 加入匹配房间
+	S2S_QUERY_MATCH_LIST_TO_SHARD_REQ	= 31007;	// 查询房间列表
+	S2S_KICK_MATCH_TO_SHARD_REQ			= 31008;	// 剔除玩家
+	S2S_KICK_MATCH_TO_GAME_ACK			= 31009;	// 通知玩家被踢了
+	S2S_FIGHT_MATCH_TO_SHARD_REQ		= 31010;	// 开始匹配战斗
 
 	// 战斗服和房间集群的消息 begin
 	S2S_REGISTER_BATTLE_TO_ROOM_REQ		= 31101;	// 注册战场
@@ -277,9 +282,51 @@ message S2SCreateMatchToShardReq
 	PBMatchPlayer pbplayer = 6;	// 玩家数据
 }
 
-// 创建匹配房间
-// S2S_CREATE_MATCH_TO_GAME_ACK
-message S2SCreateMatchToGameAck
+// 加入匹配房间
+// S2S_JOIN_MATCH_TO_GAME_ACK
+message S2SJoinMatchToGameAck
 {
 	PBMatchRoom pbroom = 1;		// 房间信息
+}
+
+// 加入匹配房间
+// S2S_JOIN_MATCH_TO_SHARD_REQ
+message S2SJoinMatchToShardReq
+{
+	bytes version = 1;		// 客户端版本号
+	uint64 roomid = 2;		// 匹配房间id
+	bytes password = 3;		// 房间密码
+	uint32 matchid = 4;		// 匹配模式
+	PBMatchPlayer pbplayer = 5;	// 玩家数据
+}
+
+// 查询匹配房间列表
+// S2S_QUERY_MATCH_LIST_TO_SHARD_REQ
+message S2SQueryMatchListToShardReq
+{
+	uint32 matchid = 1;		// 匹配模式
+	bytes version = 2;		// 客户端版本号
+	uint64 roomid = 3;		// 匹配房间id
+}
+
+// 踢出匹配房间
+// S2S_KICK_MATCH_TO_SHARD_REQ
+message S2SKickMatchToShardReq
+{
+	uint32 matchid = 1;		// 匹配模式
+	uint64 playerid = 2;	// 玩家id
+}
+
+// 通知玩家被踢了
+// S2S_KICK_MATCH_TO_GAME_ACK
+message S2SKickMatchToGameAck
+{
+	uint64 playerid = 1;	// 玩家id
+}
+
+// 开始匹配战斗
+// S2S_FIGHT_MATCH_TO_SHARD_REQ
+message S2SFightMatchToShardReq
+{
+	uint64 playerid = 1;	// 玩家id
 }
