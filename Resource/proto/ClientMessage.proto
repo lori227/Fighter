@@ -145,7 +145,7 @@ message MsgAddMatchMemberAck
 
 // 查询匹配房间列表
 // MSG_QUERY_MATCH_LIST_REQ
-message MSG_QUERY_MATCH_LIST_REQ
+message MsgQueryMatchListReq
 {
 	uint32 matchid = 1;		// 匹配模式
 	bytes version = 2;		// 客户端版本号

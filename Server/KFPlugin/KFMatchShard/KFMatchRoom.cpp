@@ -26,7 +26,7 @@ namespace KFrame
     {
         kfplayer->_match_room = this;
         _player_list.Insert( kfplayer->_id, kfplayer );
-        return CheckFull();
+        return false;
     }
 
     bool KFMatchRoom::CheckFull()

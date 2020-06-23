@@ -46,6 +46,9 @@ namespace KFrame
         // 查询匹配
         __KF_MESSAGE_FUNCTION__( HandleQueryMatchToGameAck );
 
+        // 创建匹配房间
+        __KF_MESSAGE_FUNCTION__( HandleCreateMatchReq );
+
     protected:
         // 上线查询匹配
         __KF_ENTER_PLAYER_FUNCTION__( OnEnterQueryMatch );
@@ -54,7 +57,8 @@ namespace KFrame
         __KF_LEAVE_PLAYER_FUNCTION__( OnLeaveCancelMatch );
     protected:
         // 处理匹配请求
-        uint32 ProcessStartMatch( KFEntity* player, const std::string& version, uint32 matchid, uint64 serverid );
+        uint32 StartMatch( KFEntity* player, const std::string& version, uint32 matchid, uint64 serverid );
+        uint32 CreateMatch( KFEntity* player, const std::string& version, uint32 matchid, uint64 serverid, const std::string& title, const std::string& password );
 
         // 初始化玩家
         void FormatMatchPlayerData( KFEntity* player, KFMsg::PBMatchPlayer* pbplayer );
