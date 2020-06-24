@@ -155,6 +155,9 @@ namespace KFrame
             return KFMsg::MatchRoomFightMaster;
         }
 
+        // 如果需要补满机器人
+
+
         ChangeState( KFMatchEnum::CreateState, 10 );
         _match_queue->RoomMatchFinish( this );
         return KFMsg::Ok;
