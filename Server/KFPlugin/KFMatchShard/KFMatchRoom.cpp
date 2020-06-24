@@ -202,7 +202,7 @@ namespace KFrame
     {
         KFMsg::S2SJoinMatchToGameAck ack;
         SaveTo( ack.mutable_pbroom(), true );
-        auto ok = _kf_route->SendToPlayer( playerid, serverid, playerid, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
+        auto ok = _kf_route->SendToPlayer( serverid, playerid, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
         if ( !ok )
         {
             __LOG_ERROR__( "player=[{}] send join match ack failed!", playerid );
