@@ -150,7 +150,8 @@ namespace KFrame
             for ( auto& iter : _room_list._objects )
             {
                 auto kfroom = iter.second;
-                if ( kfroom->_type == KFMatchEnum::CreateRoom )
+                if ( kfroom->_type == KFMatchEnum::CreateRoom &&
+                        kfroom->_version == version )
                 {
                     kfroom->SaveTo( ack.add_pbroom(), false );
                 }

@@ -101,10 +101,9 @@ namespace KFrame
         // 玩家的列表
         KFHashMap< uint64, uint64, KFMatchPlayer > _player_list;
 
-    protected:
         // 版本号
         std::string _version;
-
+    protected:
         // 房间id
         uint64 _battle_server_id = _invalid_int;
 
