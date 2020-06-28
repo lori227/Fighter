@@ -241,7 +241,7 @@ namespace KFrame
         // 发送给匹配集群， 加入房间
         KFMsg::S2SJoinMatchToShardReq req;
         req.set_version( kfmsg.version() );
-        req.set_matchid( kfmsg.matchid() );
+        req.set_roomid( kfmsg.roomid() );
         req.set_password( kfmsg.password() );
         req.set_matchid( kfmsg.matchid() );
         FormatMatchPlayerData( player, req.mutable_pbplayer() );
