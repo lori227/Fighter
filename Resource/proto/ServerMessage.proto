@@ -21,6 +21,7 @@ enum ServerProtocol
 	S2S_KICK_MATCH_TO_SHARD_REQ			= 31008;	// 剔除玩家
 	S2S_KICK_MATCH_TO_GAME_ACK			= 31009;	// 通知玩家被踢了
 	S2S_FIGHT_MATCH_TO_SHARD_REQ		= 31010;	// 开始匹配战斗
+	S2S_PREPARE_MATCH_TO_SHARD_REQ		= 31011;	// 准备匹配房间
 
 	// 战斗服和房间集群的消息 begin
 	S2S_REGISTER_BATTLE_TO_ROOM_REQ		= 31101;	// 注册战场
@@ -329,4 +330,12 @@ message S2SKickMatchToGameAck
 message S2SFightMatchToShardReq
 {
 	uint64 playerid = 1;	// 玩家id
+}
+
+// 准备匹配房间
+// S2S_PREPARE_MATCH_TO_SHARD_REQ
+message S2SPrepareMatchToShardReq
+{
+	uint64 playerid = 1;	// 玩家id
+	bool prepare = 2;		// 准备装备
 }

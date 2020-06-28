@@ -78,6 +78,9 @@ enum ProjectCodeEnum {
   MatchRoomPlayerNoInRoom = 32018,
   MatchRoomStartCanNotKick = 32019,
   MatchRoomFightMaster = 32020,
+  MatchRoomNotPrepare = 32021,
+  MatchRoomPrepareTypeError = 32022,
+  MatchRoomCanNotPrepare = 32023,
   RoomAllotBattle = 32101,
   ProjectCodeEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ProjectCodeEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max

@@ -155,11 +155,60 @@ namespace KFrame
             return KFMsg::MatchRoomFightMaster;
         }
 
+        // 需要全部准备完成
+        if ( !CheckAllPrepare() )
+        {
+            return KFMsg::MatchRoomNotPrepare;
+        }
+
         // 如果需要补满机器人
 
 
         ChangeState( KFMatchEnum::CreateState, 10 );
         _match_queue->RoomMatchFinish( this );
         return KFMsg::Ok;
+    }
+
+    uint32 KFMatchJoinRoom::PrepareMatch( uint64 playerid, bool prepare )
+    {
+        if ( _state != KFMatchEnum::MatchState )
+        {
+            return KFMsg::MatchRoomCanNotPrepare;
+        }
+
+        auto kfplayer = _player_list.Find( playerid );
+        if ( kfplayer == nullptr )
+        {
+            return KFMsg::MatchRoomPlayerNoInRoom;
+        }
+
+        kfplayer->_pb_player.set_prepare( prepare );
+
+        // 通知房间其他人
+        KFMsg::MsgPrePareMatchAck ack;
+        ack.set_playerid( playerid );
+        ack.set_prepare( prepare );
+        SendToRoom( KFMsg::MSG_PREPATE_MATCH_ACK, &ack );
+
+        return KFMsg::Ok;
+    }
+
+    bool KFMatchJoinRoom::CheckAllPrepare()
+    {
+        for ( auto& iter : _player_list._objects )
+        {
+            auto kfplayer = iter.second;
+            if ( kfplayer->_id == _master_player_id )
+            {
+                continue;
+            }
+
+            if ( !kfplayer->_pb_player.prepare() )
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

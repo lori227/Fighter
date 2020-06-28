@@ -18,6 +18,7 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::MSG_KICK_MATCH_REQ, &KFMatchClientModule::HandleKickMatchReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleKickMatchToGameAck );
         __REGISTER_MESSAGE__( KFMsg::MSG_FIGHT_MATCH_REQ, &KFMatchClientModule::HandleFightMatchReq );
+        __REGISTER_MESSAGE__( KFMsg::MSG_PREPARE_MATCH_REQ, &KFMatchClientModule::HandlePrepareMatchReq );
 
 
     }
@@ -38,6 +39,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::MSG_KICK_MATCH_REQ );
         __UN_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_GAME_ACK );
         __UN_MESSAGE__( KFMsg::MSG_FIGHT_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::MSG_PREPARE_MATCH_REQ );
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -347,5 +349,36 @@ namespace KFrame
         {
             _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
         }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandlePrepareMatchReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgPrePareMatchReq );
+
+        // 正在房间中
+        auto roomid = player->Get( __STRING__( roomid ) );
+        if ( roomid != _invalid_int )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchInRoom );
+        }
+
+        // 是否正在匹配中
+        auto waitmatchid = player->Get( __STRING__( matchid ) );
+        if ( waitmatchid == _invalid_int )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchNotInMatch );
+        }
+
+        auto matchserverid = player->Get( __STRING__( matchserverid ) );
+
+        KFMsg::S2SPrepareMatchToShardReq req;
+        req.set_playerid( playerid );
+        req.set_prepare( kfmsg.prepare() );
+        auto ok = _kf_route->SendToServer( player->GetKeyID(), matchserverid, KFMsg::S2S_PREPARE_MATCH_TO_SHARD_REQ, &req );
+        if ( !ok )
+        {
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
+        }
+
     }
 }

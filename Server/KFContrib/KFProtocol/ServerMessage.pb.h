@@ -46,7 +46,7 @@ namespace protobuf_ServerMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[31];
+  static const ::google::protobuf::internal::ParseTable schema[32];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -117,6 +117,9 @@ LIBPROTOC_EXPORT extern S2SPlayerBalanceToRoomReqDefaultTypeInternal _S2SPlayerB
 class S2SPlayerBalanceToRoomResult;
 class S2SPlayerBalanceToRoomResultDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SPlayerBalanceToRoomResultDefaultTypeInternal _S2SPlayerBalanceToRoomResult_default_instance_;
+class S2SPrepareMatchToShardReq;
+class S2SPrepareMatchToShardReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern S2SPrepareMatchToShardReqDefaultTypeInternal _S2SPrepareMatchToShardReq_default_instance_;
 class S2SQueryBalanceToRoomReq;
 class S2SQueryBalanceToRoomReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern S2SQueryBalanceToRoomReqDefaultTypeInternal _S2SQueryBalanceToRoomReq_default_instance_;
@@ -171,6 +174,7 @@ template<> LIBPROTOC_EXPORT ::KFMsg::S2SPlayerBalanceToBattleAck* Arena::CreateM
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SPlayerBalanceToGameReq* Arena::CreateMaybeMessage<::KFMsg::S2SPlayerBalanceToGameReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SPlayerBalanceToRoomReq* Arena::CreateMaybeMessage<::KFMsg::S2SPlayerBalanceToRoomReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SPlayerBalanceToRoomResult* Arena::CreateMaybeMessage<::KFMsg::S2SPlayerBalanceToRoomResult>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::S2SPrepareMatchToShardReq* Arena::CreateMaybeMessage<::KFMsg::S2SPrepareMatchToShardReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SQueryBalanceToRoomReq* Arena::CreateMaybeMessage<::KFMsg::S2SQueryBalanceToRoomReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SQueryMatchListToShardReq* Arena::CreateMaybeMessage<::KFMsg::S2SQueryMatchListToShardReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::S2SQueryMatchToGameAck* Arena::CreateMaybeMessage<::KFMsg::S2SQueryMatchToGameAck>(Arena*);
@@ -197,6 +201,7 @@ enum ServerProtocol {
   S2S_KICK_MATCH_TO_SHARD_REQ = 31008,
   S2S_KICK_MATCH_TO_GAME_ACK = 31009,
   S2S_FIGHT_MATCH_TO_SHARD_REQ = 31010,
+  S2S_PREPARE_MATCH_TO_SHARD_REQ = 31011,
   S2S_REGISTER_BATTLE_TO_ROOM_REQ = 31101,
   S2S_REGISTER_BATTLE_TO_BATTLE_ACK = 31102,
   S2S_OPEN_ROOM_TO_BATTLE_REQ = 31103,
@@ -3873,6 +3878,116 @@ class LIBPROTOC_EXPORT S2SFightMatchToShardReq : public ::google::protobuf::Mess
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT S2SPrepareMatchToShardReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.S2SPrepareMatchToShardReq) */ {
+ public:
+  S2SPrepareMatchToShardReq();
+  virtual ~S2SPrepareMatchToShardReq();
+
+  S2SPrepareMatchToShardReq(const S2SPrepareMatchToShardReq& from);
+
+  inline S2SPrepareMatchToShardReq& operator=(const S2SPrepareMatchToShardReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  S2SPrepareMatchToShardReq(S2SPrepareMatchToShardReq&& from) noexcept
+    : S2SPrepareMatchToShardReq() {
+    *this = ::std::move(from);
+  }
+
+  inline S2SPrepareMatchToShardReq& operator=(S2SPrepareMatchToShardReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const S2SPrepareMatchToShardReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const S2SPrepareMatchToShardReq* internal_default_instance() {
+    return reinterpret_cast<const S2SPrepareMatchToShardReq*>(
+               &_S2SPrepareMatchToShardReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  void Swap(S2SPrepareMatchToShardReq* other);
+  friend void swap(S2SPrepareMatchToShardReq& a, S2SPrepareMatchToShardReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline S2SPrepareMatchToShardReq* New() const final {
+    return CreateMaybeMessage<S2SPrepareMatchToShardReq>(NULL);
+  }
+
+  S2SPrepareMatchToShardReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<S2SPrepareMatchToShardReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const S2SPrepareMatchToShardReq& from);
+  void MergeFrom(const S2SPrepareMatchToShardReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(S2SPrepareMatchToShardReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 playerid = 1;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 1;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // bool prepare = 2;
+  void clear_prepare();
+  static const int kPrepareFieldNumber = 2;
+  bool prepare() const;
+  void set_prepare(bool value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.S2SPrepareMatchToShardReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 playerid_;
+  bool prepare_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ServerMessage_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -5713,9 +5828,43 @@ inline void S2SFightMatchToShardReq::set_playerid(::google::protobuf::uint64 val
   // @@protoc_insertion_point(field_set:KFMsg.S2SFightMatchToShardReq.playerid)
 }
 
+// -------------------------------------------------------------------
+
+// S2SPrepareMatchToShardReq
+
+// uint64 playerid = 1;
+inline void S2SPrepareMatchToShardReq::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 S2SPrepareMatchToShardReq::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPrepareMatchToShardReq.playerid)
+  return playerid_;
+}
+inline void S2SPrepareMatchToShardReq::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPrepareMatchToShardReq.playerid)
+}
+
+// bool prepare = 2;
+inline void S2SPrepareMatchToShardReq::clear_prepare() {
+  prepare_ = false;
+}
+inline bool S2SPrepareMatchToShardReq::prepare() const {
+  // @@protoc_insertion_point(field_get:KFMsg.S2SPrepareMatchToShardReq.prepare)
+  return prepare_;
+}
+inline void S2SPrepareMatchToShardReq::set_prepare(bool value) {
+  
+  prepare_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.S2SPrepareMatchToShardReq.prepare)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

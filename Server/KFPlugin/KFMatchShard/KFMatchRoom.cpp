@@ -232,4 +232,9 @@ namespace KFrame
     {
         return KFMsg::MatchRoomKickTypeError;
     }
+
+    uint32 KFMatchRoom::PrepareMatch( uint64 playerid, bool prepare )
+    {
+        return KFMsg::MatchRoomPrepareTypeError;
+    }
 }

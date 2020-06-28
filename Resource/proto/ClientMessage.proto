@@ -32,6 +32,8 @@ enum ClientProtocol
 	MSG_LEAVE_MATCH_ACK			= 3116;	// 离开匹配房间
 	MSG_CHANGE_MATCH_MASTER_ACK	= 3117;	// 更新房主信息
 	MSG_FIGHT_MATCH_REQ			= 3118;	// 开始匹配战斗
+	MSG_PREPARE_MATCH_REQ		= 3119;	// 准备匹配房间
+	MSG_PREPATE_MATCH_ACK		= 3120;	// 准备匹配房间
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -184,4 +186,19 @@ message MsgChangeMatchMasterAck
 message MsgFightMatchReq
 {
 
+}
+
+// 准备匹配房间
+// MSG_PREPARE_MATCH_REQ
+message MsgPrePareMatchReq
+{
+	bool prepare = 1;
+}
+
+// 通知准备匹配房间
+// MSG_PREPATE_MATCH_ACK
+message MsgPrePareMatchAck
+{
+	uint64 playerid = 1;
+	bool prepare = 2;
 }

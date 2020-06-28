@@ -58,7 +58,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021CodeMessage.proto\022\005KFMsg*\365\004\n\017ProjectCo"
+      "\n\021CodeMessage.proto\022\005KFMsg*\317\005\n\017ProjectCo"
       "deEnum\022\016\n\nLogicError\020\000\022\022\n\014HeroNotExist\020\231"
       "\362\001\022\022\n\014HeroNotFight\020\232\362\001\022\024\n\016EffectNotExist"
       "\020\233\362\001\022\022\n\014FootNotExist\020\234\362\001\022\024\n\016MatchRequest"
@@ -73,11 +73,13 @@ void AddDescriptorsImpl() {
       "ady\020\217\372\001\022\034\n\026MatchRoomKickTypeError\020\220\372\001\022\031\n"
       "\023MatchRoomKickMaster\020\221\372\001\022\035\n\027MatchRoomPla"
       "yerNoInRoom\020\222\372\001\022\036\n\030MatchRoomStartCanNotK"
-      "ick\020\223\372\001\022\032\n\024MatchRoomFightMaster\020\224\372\001\022\025\n\017R"
-      "oomAllotBattle\020\345\372\001b\006proto3"
+      "ick\020\223\372\001\022\032\n\024MatchRoomFightMaster\020\224\372\001\022\031\n\023M"
+      "atchRoomNotPrepare\020\225\372\001\022\037\n\031MatchRoomPrepa"
+      "reTypeError\020\226\372\001\022\034\n\026MatchRoomCanNotPrepar"
+      "e\020\227\372\001\022\025\n\017RoomAllotBattle\020\345\372\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 666);
+      descriptor, 756);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CodeMessage.proto", &protobuf_RegisterTypes);
 }
@@ -124,6 +126,9 @@ bool ProjectCodeEnum_IsValid(int value) {
     case 32018:
     case 32019:
     case 32020:
+    case 32021:
+    case 32022:
+    case 32023:
     case 32101:
       return true;
     default:

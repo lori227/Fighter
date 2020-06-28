@@ -45,6 +45,9 @@ message PBMatchPlayer
 
     // 脚印id
     uint32 footid = 8;
+
+    // 是否准备
+    bool prepare = 9;          
 }
 
 // 战斗结算数据

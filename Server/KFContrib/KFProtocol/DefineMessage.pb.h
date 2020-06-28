@@ -401,12 +401,6 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::uint64 serverid() const;
   void set_serverid(::google::protobuf::uint64 value);
 
-  // bool isrobot = 4;
-  void clear_isrobot();
-  static const int kIsrobotFieldNumber = 4;
-  bool isrobot() const;
-  void set_isrobot(bool value);
-
   // uint32 heroid = 5;
   void clear_heroid();
   static const int kHeroidFieldNumber = 5;
@@ -418,6 +412,18 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   static const int kGradeFieldNumber = 6;
   ::google::protobuf::uint32 grade() const;
   void set_grade(::google::protobuf::uint32 value);
+
+  // bool isrobot = 4;
+  void clear_isrobot();
+  static const int kIsrobotFieldNumber = 4;
+  bool isrobot() const;
+  void set_isrobot(bool value);
+
+  // bool prepare = 9;
+  void clear_prepare();
+  static const int kPrepareFieldNumber = 9;
+  bool prepare() const;
+  void set_prepare(bool value);
 
   // uint32 effectid = 7;
   void clear_effectid();
@@ -438,9 +444,10 @@ class LIBPROTOC_EXPORT PBMatchPlayer : public ::google::protobuf::Message /* @@p
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::uint64 id_;
   ::google::protobuf::uint64 serverid_;
-  bool isrobot_;
   ::google::protobuf::uint32 heroid_;
   ::google::protobuf::uint32 grade_;
+  bool isrobot_;
+  bool prepare_;
   ::google::protobuf::uint32 effectid_;
   ::google::protobuf::uint32 footid_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1170,6 +1177,20 @@ inline void PBMatchPlayer::set_footid(::google::protobuf::uint32 value) {
   
   footid_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.footid)
+}
+
+// bool prepare = 9;
+inline void PBMatchPlayer::clear_prepare() {
+  prepare_ = false;
+}
+inline bool PBMatchPlayer::prepare() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchPlayer.prepare)
+  return prepare_;
+}
+inline void PBMatchPlayer::set_prepare(bool value) {
+  
+  prepare_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchPlayer.prepare)
 }
 
 // -------------------------------------------------------------------

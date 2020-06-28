@@ -46,7 +46,7 @@ namespace protobuf_ClientMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[19];
+  static const ::google::protobuf::internal::ParseTable schema[21];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -99,6 +99,12 @@ LIBPROTOC_EXPORT extern MsgKickMatchReqDefaultTypeInternal _MsgKickMatchReq_defa
 class MsgLeaveMatchAck;
 class MsgLeaveMatchAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgLeaveMatchAckDefaultTypeInternal _MsgLeaveMatchAck_default_instance_;
+class MsgPrePareMatchAck;
+class MsgPrePareMatchAckDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgPrePareMatchAckDefaultTypeInternal _MsgPrePareMatchAck_default_instance_;
+class MsgPrePareMatchReq;
+class MsgPrePareMatchReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgPrePareMatchReqDefaultTypeInternal _MsgPrePareMatchReq_default_instance_;
 class MsgQueryMatchListAck;
 class MsgQueryMatchListAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgQueryMatchListAckDefaultTypeInternal _MsgQueryMatchListAck_default_instance_;
@@ -129,6 +135,8 @@ template<> LIBPROTOC_EXPORT ::KFMsg::MsgJoinMatchAck* Arena::CreateMaybeMessage<
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgJoinMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgJoinMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgKickMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgKickMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgLeaveMatchAck* Arena::CreateMaybeMessage<::KFMsg::MsgLeaveMatchAck>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgPrePareMatchAck* Arena::CreateMaybeMessage<::KFMsg::MsgPrePareMatchAck>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgPrePareMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgPrePareMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgQueryMatchListAck* Arena::CreateMaybeMessage<::KFMsg::MsgQueryMatchListAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgQueryMatchListReq* Arena::CreateMaybeMessage<::KFMsg::MsgQueryMatchListReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgStartMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgStartMatchReq>(Arena*);
@@ -159,12 +167,14 @@ enum ClientProtocol {
   MSG_LEAVE_MATCH_ACK = 3116,
   MSG_CHANGE_MATCH_MASTER_ACK = 3117,
   MSG_FIGHT_MATCH_REQ = 3118,
+  MSG_PREPARE_MATCH_REQ = 3119,
+  MSG_PREPATE_MATCH_ACK = 3120,
   ClientProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 LIBPROTOC_EXPORT bool ClientProtocol_IsValid(int value);
 const ClientProtocol ClientProtocol_MIN = MSG_CLIENT_BEGIN;
-const ClientProtocol ClientProtocol_MAX = MSG_FIGHT_MATCH_REQ;
+const ClientProtocol ClientProtocol_MAX = MSG_PREPATE_MATCH_ACK;
 const int ClientProtocol_ARRAYSIZE = ClientProtocol_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* ClientProtocol_descriptor();
@@ -2322,6 +2332,219 @@ class LIBPROTOC_EXPORT MsgFightMatchReq : public ::google::protobuf::Message /* 
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgPrePareMatchReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgPrePareMatchReq) */ {
+ public:
+  MsgPrePareMatchReq();
+  virtual ~MsgPrePareMatchReq();
+
+  MsgPrePareMatchReq(const MsgPrePareMatchReq& from);
+
+  inline MsgPrePareMatchReq& operator=(const MsgPrePareMatchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgPrePareMatchReq(MsgPrePareMatchReq&& from) noexcept
+    : MsgPrePareMatchReq() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgPrePareMatchReq& operator=(MsgPrePareMatchReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgPrePareMatchReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgPrePareMatchReq* internal_default_instance() {
+    return reinterpret_cast<const MsgPrePareMatchReq*>(
+               &_MsgPrePareMatchReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  void Swap(MsgPrePareMatchReq* other);
+  friend void swap(MsgPrePareMatchReq& a, MsgPrePareMatchReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgPrePareMatchReq* New() const final {
+    return CreateMaybeMessage<MsgPrePareMatchReq>(NULL);
+  }
+
+  MsgPrePareMatchReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgPrePareMatchReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgPrePareMatchReq& from);
+  void MergeFrom(const MsgPrePareMatchReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgPrePareMatchReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bool prepare = 1;
+  void clear_prepare();
+  static const int kPrepareFieldNumber = 1;
+  bool prepare() const;
+  void set_prepare(bool value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgPrePareMatchReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool prepare_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgPrePareMatchAck : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgPrePareMatchAck) */ {
+ public:
+  MsgPrePareMatchAck();
+  virtual ~MsgPrePareMatchAck();
+
+  MsgPrePareMatchAck(const MsgPrePareMatchAck& from);
+
+  inline MsgPrePareMatchAck& operator=(const MsgPrePareMatchAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgPrePareMatchAck(MsgPrePareMatchAck&& from) noexcept
+    : MsgPrePareMatchAck() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgPrePareMatchAck& operator=(MsgPrePareMatchAck&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgPrePareMatchAck& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgPrePareMatchAck* internal_default_instance() {
+    return reinterpret_cast<const MsgPrePareMatchAck*>(
+               &_MsgPrePareMatchAck_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  void Swap(MsgPrePareMatchAck* other);
+  friend void swap(MsgPrePareMatchAck& a, MsgPrePareMatchAck& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgPrePareMatchAck* New() const final {
+    return CreateMaybeMessage<MsgPrePareMatchAck>(NULL);
+  }
+
+  MsgPrePareMatchAck* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgPrePareMatchAck>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgPrePareMatchAck& from);
+  void MergeFrom(const MsgPrePareMatchAck& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgPrePareMatchAck* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 playerid = 1;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 1;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // bool prepare = 2;
+  void clear_prepare();
+  static const int kPrepareFieldNumber = 2;
+  bool prepare() const;
+  void set_prepare(bool value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgPrePareMatchAck)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 playerid_;
+  bool prepare_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -3299,9 +3522,63 @@ inline void MsgChangeMatchMasterAck::set_allocated_name(::std::string* name) {
 
 // MsgFightMatchReq
 
+// -------------------------------------------------------------------
+
+// MsgPrePareMatchReq
+
+// bool prepare = 1;
+inline void MsgPrePareMatchReq::clear_prepare() {
+  prepare_ = false;
+}
+inline bool MsgPrePareMatchReq::prepare() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgPrePareMatchReq.prepare)
+  return prepare_;
+}
+inline void MsgPrePareMatchReq::set_prepare(bool value) {
+  
+  prepare_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgPrePareMatchReq.prepare)
+}
+
+// -------------------------------------------------------------------
+
+// MsgPrePareMatchAck
+
+// uint64 playerid = 1;
+inline void MsgPrePareMatchAck::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 MsgPrePareMatchAck::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgPrePareMatchAck.playerid)
+  return playerid_;
+}
+inline void MsgPrePareMatchAck::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgPrePareMatchAck.playerid)
+}
+
+// bool prepare = 2;
+inline void MsgPrePareMatchAck::clear_prepare() {
+  prepare_ = false;
+}
+inline bool MsgPrePareMatchAck::prepare() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgPrePareMatchAck.prepare)
+  return prepare_;
+}
+inline void MsgPrePareMatchAck::set_prepare(bool value) {
+  
+  prepare_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgPrePareMatchAck.prepare)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

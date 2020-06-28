@@ -33,9 +33,15 @@ namespace KFrame
 
         // 开始战斗
         virtual uint32 FightMatch( uint64 playerid );
+
+        // 准备匹配
+        virtual uint32 PrepareMatch( uint64 playerid, bool prepare );
     protected:
         // 更新房主信息
         void ChangeMasterPlayer( uint64 playerid );
+
+        // 判断是否都准备
+        bool CheckAllPrepare();
 
     protected:
         // 标题

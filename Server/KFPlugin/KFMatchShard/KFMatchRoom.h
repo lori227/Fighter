@@ -66,6 +66,9 @@ namespace KFrame
 
         // 开始战斗
         virtual uint32 FightMatch( uint64 playerid );
+
+        // 准备匹配
+        virtual uint32 PrepareMatch( uint64 playerid, bool prepare );
     protected:
         // 是否有效
         bool IsValid();
