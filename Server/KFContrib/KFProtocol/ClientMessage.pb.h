@@ -46,7 +46,7 @@ namespace protobuf_ClientMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[21];
+  static const ::google::protobuf::internal::ParseTable schema[23];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -87,6 +87,12 @@ LIBPROTOC_EXPORT extern MsgInformBattleAckDefaultTypeInternal _MsgInformBattleAc
 class MsgInformBattleReq;
 class MsgInformBattleReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgInformBattleReqDefaultTypeInternal _MsgInformBattleReq_default_instance_;
+class MsgInviteMatchAck;
+class MsgInviteMatchAckDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgInviteMatchAckDefaultTypeInternal _MsgInviteMatchAck_default_instance_;
+class MsgInviteMatchReq;
+class MsgInviteMatchReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgInviteMatchReqDefaultTypeInternal _MsgInviteMatchReq_default_instance_;
 class MsgJoinMatchAck;
 class MsgJoinMatchAckDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgJoinMatchAckDefaultTypeInternal _MsgJoinMatchAck_default_instance_;
@@ -131,6 +137,8 @@ template<> LIBPROTOC_EXPORT ::KFMsg::MsgFinishRoomReq* Arena::CreateMaybeMessage
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgFootUseReq* Arena::CreateMaybeMessage<::KFMsg::MsgFootUseReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgInformBattleAck* Arena::CreateMaybeMessage<::KFMsg::MsgInformBattleAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgInformBattleReq* Arena::CreateMaybeMessage<::KFMsg::MsgInformBattleReq>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgInviteMatchAck* Arena::CreateMaybeMessage<::KFMsg::MsgInviteMatchAck>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgInviteMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgInviteMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgJoinMatchAck* Arena::CreateMaybeMessage<::KFMsg::MsgJoinMatchAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgJoinMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgJoinMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgKickMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgKickMatchReq>(Arena*);
@@ -169,12 +177,14 @@ enum ClientProtocol {
   MSG_FIGHT_MATCH_REQ = 3118,
   MSG_PREPARE_MATCH_REQ = 3119,
   MSG_PREPATE_MATCH_ACK = 3120,
+  MSG_INVITE_MATCH_REQ = 3121,
+  MSG_INVITE_MATCH_ACK = 3122,
   ClientProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 LIBPROTOC_EXPORT bool ClientProtocol_IsValid(int value);
 const ClientProtocol ClientProtocol_MIN = MSG_CLIENT_BEGIN;
-const ClientProtocol ClientProtocol_MAX = MSG_PREPATE_MATCH_ACK;
+const ClientProtocol ClientProtocol_MAX = MSG_INVITE_MATCH_ACK;
 const int ClientProtocol_ARRAYSIZE = ClientProtocol_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* ClientProtocol_descriptor();
@@ -1301,6 +1311,12 @@ class LIBPROTOC_EXPORT MsgCreateMatchReq : public ::google::protobuf::Message /*
   ::google::protobuf::uint32 matchid() const;
   void set_matchid(::google::protobuf::uint32 value);
 
+  // bool addrobot = 6;
+  void clear_addrobot();
+  static const int kAddrobotFieldNumber = 6;
+  bool addrobot() const;
+  void set_addrobot(bool value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.MsgCreateMatchReq)
  private:
 
@@ -1310,6 +1326,7 @@ class LIBPROTOC_EXPORT MsgCreateMatchReq : public ::google::protobuf::Message /*
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::uint64 serverid_;
   ::google::protobuf::uint32 matchid_;
+  bool addrobot_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
 };
@@ -2545,6 +2562,240 @@ class LIBPROTOC_EXPORT MsgPrePareMatchAck : public ::google::protobuf::Message /
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgInviteMatchReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgInviteMatchReq) */ {
+ public:
+  MsgInviteMatchReq();
+  virtual ~MsgInviteMatchReq();
+
+  MsgInviteMatchReq(const MsgInviteMatchReq& from);
+
+  inline MsgInviteMatchReq& operator=(const MsgInviteMatchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgInviteMatchReq(MsgInviteMatchReq&& from) noexcept
+    : MsgInviteMatchReq() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgInviteMatchReq& operator=(MsgInviteMatchReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgInviteMatchReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgInviteMatchReq* internal_default_instance() {
+    return reinterpret_cast<const MsgInviteMatchReq*>(
+               &_MsgInviteMatchReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  void Swap(MsgInviteMatchReq* other);
+  friend void swap(MsgInviteMatchReq& a, MsgInviteMatchReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgInviteMatchReq* New() const final {
+    return CreateMaybeMessage<MsgInviteMatchReq>(NULL);
+  }
+
+  MsgInviteMatchReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgInviteMatchReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgInviteMatchReq& from);
+  void MergeFrom(const MsgInviteMatchReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgInviteMatchReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes relationname = 1;
+  void clear_relationname();
+  static const int kRelationnameFieldNumber = 1;
+  const ::std::string& relationname() const;
+  void set_relationname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_relationname(::std::string&& value);
+  #endif
+  void set_relationname(const char* value);
+  void set_relationname(const void* value, size_t size);
+  ::std::string* mutable_relationname();
+  ::std::string* release_relationname();
+  void set_allocated_relationname(::std::string* relationname);
+
+  // uint64 playerid = 2;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 2;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgInviteMatchReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr relationname_;
+  ::google::protobuf::uint64 playerid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgInviteMatchAck : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgInviteMatchAck) */ {
+ public:
+  MsgInviteMatchAck();
+  virtual ~MsgInviteMatchAck();
+
+  MsgInviteMatchAck(const MsgInviteMatchAck& from);
+
+  inline MsgInviteMatchAck& operator=(const MsgInviteMatchAck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgInviteMatchAck(MsgInviteMatchAck&& from) noexcept
+    : MsgInviteMatchAck() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgInviteMatchAck& operator=(MsgInviteMatchAck&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgInviteMatchAck& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgInviteMatchAck* internal_default_instance() {
+    return reinterpret_cast<const MsgInviteMatchAck*>(
+               &_MsgInviteMatchAck_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  void Swap(MsgInviteMatchAck* other);
+  friend void swap(MsgInviteMatchAck& a, MsgInviteMatchAck& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgInviteMatchAck* New() const final {
+    return CreateMaybeMessage<MsgInviteMatchAck>(NULL);
+  }
+
+  MsgInviteMatchAck* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgInviteMatchAck>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgInviteMatchAck& from);
+  void MergeFrom(const MsgInviteMatchAck& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgInviteMatchAck* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .KFMsg.PBMatchRoom pbroom = 2;
+  bool has_pbroom() const;
+  void clear_pbroom();
+  static const int kPbroomFieldNumber = 2;
+  private:
+  const ::KFMsg::PBMatchRoom& _internal_pbroom() const;
+  public:
+  const ::KFMsg::PBMatchRoom& pbroom() const;
+  ::KFMsg::PBMatchRoom* release_pbroom();
+  ::KFMsg::PBMatchRoom* mutable_pbroom();
+  void set_allocated_pbroom(::KFMsg::PBMatchRoom* pbroom);
+
+  // uint64 playerid = 1;
+  void clear_playerid();
+  static const int kPlayeridFieldNumber = 1;
+  ::google::protobuf::uint64 playerid() const;
+  void set_playerid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgInviteMatchAck)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::KFMsg::PBMatchRoom* pbroom_;
+  ::google::protobuf::uint64 playerid_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -3037,6 +3288,20 @@ inline void MsgCreateMatchReq::set_allocated_password(::std::string* password) {
   }
   password_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), password);
   // @@protoc_insertion_point(field_set_allocated:KFMsg.MsgCreateMatchReq.password)
+}
+
+// bool addrobot = 6;
+inline void MsgCreateMatchReq::clear_addrobot() {
+  addrobot_ = false;
+}
+inline bool MsgCreateMatchReq::addrobot() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgCreateMatchReq.addrobot)
+  return addrobot_;
+}
+inline void MsgCreateMatchReq::set_addrobot(bool value) {
+  
+  addrobot_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgCreateMatchReq.addrobot)
 }
 
 // -------------------------------------------------------------------
@@ -3572,9 +3837,150 @@ inline void MsgPrePareMatchAck::set_prepare(bool value) {
   // @@protoc_insertion_point(field_set:KFMsg.MsgPrePareMatchAck.prepare)
 }
 
+// -------------------------------------------------------------------
+
+// MsgInviteMatchReq
+
+// bytes relationname = 1;
+inline void MsgInviteMatchReq::clear_relationname() {
+  relationname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& MsgInviteMatchReq::relationname() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgInviteMatchReq.relationname)
+  return relationname_.GetNoArena();
+}
+inline void MsgInviteMatchReq::set_relationname(const ::std::string& value) {
+  
+  relationname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:KFMsg.MsgInviteMatchReq.relationname)
+}
+#if LANG_CXX11
+inline void MsgInviteMatchReq::set_relationname(::std::string&& value) {
+  
+  relationname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:KFMsg.MsgInviteMatchReq.relationname)
+}
+#endif
+inline void MsgInviteMatchReq::set_relationname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  relationname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:KFMsg.MsgInviteMatchReq.relationname)
+}
+inline void MsgInviteMatchReq::set_relationname(const void* value, size_t size) {
+  
+  relationname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:KFMsg.MsgInviteMatchReq.relationname)
+}
+inline ::std::string* MsgInviteMatchReq::mutable_relationname() {
+  
+  // @@protoc_insertion_point(field_mutable:KFMsg.MsgInviteMatchReq.relationname)
+  return relationname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgInviteMatchReq::release_relationname() {
+  // @@protoc_insertion_point(field_release:KFMsg.MsgInviteMatchReq.relationname)
+  
+  return relationname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgInviteMatchReq::set_allocated_relationname(::std::string* relationname) {
+  if (relationname != NULL) {
+    
+  } else {
+    
+  }
+  relationname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), relationname);
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.MsgInviteMatchReq.relationname)
+}
+
+// uint64 playerid = 2;
+inline void MsgInviteMatchReq::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 MsgInviteMatchReq::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgInviteMatchReq.playerid)
+  return playerid_;
+}
+inline void MsgInviteMatchReq::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgInviteMatchReq.playerid)
+}
+
+// -------------------------------------------------------------------
+
+// MsgInviteMatchAck
+
+// uint64 playerid = 1;
+inline void MsgInviteMatchAck::clear_playerid() {
+  playerid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 MsgInviteMatchAck::playerid() const {
+  // @@protoc_insertion_point(field_get:KFMsg.MsgInviteMatchAck.playerid)
+  return playerid_;
+}
+inline void MsgInviteMatchAck::set_playerid(::google::protobuf::uint64 value) {
+  
+  playerid_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.MsgInviteMatchAck.playerid)
+}
+
+// .KFMsg.PBMatchRoom pbroom = 2;
+inline bool MsgInviteMatchAck::has_pbroom() const {
+  return this != internal_default_instance() && pbroom_ != NULL;
+}
+inline const ::KFMsg::PBMatchRoom& MsgInviteMatchAck::_internal_pbroom() const {
+  return *pbroom_;
+}
+inline const ::KFMsg::PBMatchRoom& MsgInviteMatchAck::pbroom() const {
+  const ::KFMsg::PBMatchRoom* p = pbroom_;
+  // @@protoc_insertion_point(field_get:KFMsg.MsgInviteMatchAck.pbroom)
+  return p != NULL ? *p : *reinterpret_cast<const ::KFMsg::PBMatchRoom*>(
+      &::KFMsg::_PBMatchRoom_default_instance_);
+}
+inline ::KFMsg::PBMatchRoom* MsgInviteMatchAck::release_pbroom() {
+  // @@protoc_insertion_point(field_release:KFMsg.MsgInviteMatchAck.pbroom)
+  
+  ::KFMsg::PBMatchRoom* temp = pbroom_;
+  pbroom_ = NULL;
+  return temp;
+}
+inline ::KFMsg::PBMatchRoom* MsgInviteMatchAck::mutable_pbroom() {
+  
+  if (pbroom_ == NULL) {
+    auto* p = CreateMaybeMessage<::KFMsg::PBMatchRoom>(GetArenaNoVirtual());
+    pbroom_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:KFMsg.MsgInviteMatchAck.pbroom)
+  return pbroom_;
+}
+inline void MsgInviteMatchAck::set_allocated_pbroom(::KFMsg::PBMatchRoom* pbroom) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(pbroom_);
+  }
+  if (pbroom) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      pbroom = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, pbroom, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  pbroom_ = pbroom;
+  // @@protoc_insertion_point(field_set_allocated:KFMsg.MsgInviteMatchAck.pbroom)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

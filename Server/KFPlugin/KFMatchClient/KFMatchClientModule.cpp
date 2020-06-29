@@ -19,6 +19,7 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleKickMatchToGameAck );
         __REGISTER_MESSAGE__( KFMsg::MSG_FIGHT_MATCH_REQ, &KFMatchClientModule::HandleFightMatchReq );
         __REGISTER_MESSAGE__( KFMsg::MSG_PREPARE_MATCH_REQ, &KFMatchClientModule::HandlePrepareMatchReq );
+        __REGISTER_MESSAGE__( KFMsg::MSG_INVITE_MATCH_REQ, &KFMatchClientModule::HandleInviteMatchReq );
 
 
     }
@@ -40,6 +41,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_GAME_ACK );
         __UN_MESSAGE__( KFMsg::MSG_FIGHT_MATCH_REQ );
         __UN_MESSAGE__( KFMsg::MSG_PREPARE_MATCH_REQ );
+        __UN_MESSAGE__( KFMsg::MSG_INVITE_MATCH_REQ );
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -221,6 +223,7 @@ namespace KFrame
         req.set_serverid( kfmsg.serverid() );
         req.set_title( kfmsg.title() );
         req.set_password( kfmsg.password() );
+        req.set_addrobot( kfmsg.addrobot() );
         FormatMatchPlayerData( player, req.mutable_pbplayer() );
         auto ok = _kf_route->SendToObject( player->GetKeyID(), __STRING__( match ), kfmsg.matchid(), KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, &req );
         if ( !ok )
@@ -307,7 +310,7 @@ namespace KFrame
 
         KFMsg::S2SKickMatchToShardReq req;
         req.set_matchid( waitmatchid );
-        req.set_playerid( playerid );
+        req.set_playerid( kfmsg.playerid() );
         auto ok = _kf_route->SendToServer( player->GetKeyID(), matchserverid, KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ, &req );
         if ( !ok )
         {
@@ -380,5 +383,47 @@ namespace KFrame
             _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
         }
 
+    }
+    __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleInviteMatchReq )
+    {
+        __CLIENT_PROTO_PARSE__( KFMsg::MsgInviteMatchReq );
+
+        // 正在房间中
+        auto roomid = player->Get( __STRING__( roomid ) );
+        if ( roomid != _invalid_int )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchInRoom );
+        }
+
+        // 是否正在匹配中
+        auto waitmatchid = player->Get( __STRING__( matchid ) );
+        if ( waitmatchid == _invalid_int )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchNotInMatch );
+        }
+        auto matchserverid = player->Get( __STRING__( matchserverid ) );
+
+        // 判断是否是关系
+        auto kfrelation = player->Find( kfmsg.relationname(), kfmsg.playerid() );
+        if ( kfrelation == nullptr )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchInviteNotRelation );
+        }
+
+        auto serverid = kfrelation->Get( __STRING__( basic ), __STRING__( serverid ) );
+        if ( serverid == 0u )
+        {
+            return _kf_display->SendToClient( player, KFMsg::MatchInviteNotOnline );
+        }
+
+        KFMsg::S2SInviteMatchToShardReq req;
+        req.set_playerid( playerid );
+        req.set_targetid( kfmsg.playerid() );
+        req.set_serverid( serverid );
+        auto ok = _kf_route->SendToServer( player->GetKeyID(), matchserverid, KFMsg::S2S_INVITE_MATCH_TO_SHARD_REQ, &req );
+        if ( !ok )
+        {
+            _kf_display->SendToClient( player, KFMsg::MatchServerBusy );
+        }
     }
 }

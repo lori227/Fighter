@@ -8,9 +8,9 @@ namespace KFrame
         _type = KFMatchEnum::CreateRoom;
     }
 
-    void KFMatchJoinRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
+    void KFMatchJoinRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot )
     {
-        KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password );
+        KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password, addrobot );
         _title = title;
         _password = password;
 
@@ -162,7 +162,14 @@ namespace KFrame
         }
 
         // 如果需要补满机器人
-
+        if ( _is_add_robot )
+        {
+            while ( _player_list.Size() < _match_queue->_match_setting->_max_count )
+            {
+                auto kfrobot = CreateMatchRobot();
+                _player_list.Insert( kfrobot->_id, kfrobot );
+            }
+        }
 
         ChangeState( KFMatchEnum::CreateState, 10 );
         _match_queue->RoomMatchFinish( this );
@@ -210,5 +217,20 @@ namespace KFrame
         }
 
         return true;
+    }
+
+
+    uint32 KFMatchJoinRoom::InviteMatch( uint64 inviteid, uint64 playerid, uint64 serverid )
+    {
+        if ( _player_list.Size() >= _match_queue->_match_setting->_max_count )
+        {
+            return KFMsg::MatchInviteMaxCount;
+        }
+
+        KFMsg::MsgInviteMatchAck ack;
+        ack.set_playerid( inviteid );
+        SaveTo( ack.mutable_pbroom(), false );
+        _kf_route->SendToPlayer( serverid, playerid, KFMsg::MSG_INVITE_MATCH_ACK, &ack );
+        return KFMsg::Ok;
     }
 }

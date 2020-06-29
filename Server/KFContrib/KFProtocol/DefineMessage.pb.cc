@@ -137,6 +137,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, mastername_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, password_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, grade_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, addrobot_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchRoom, pbplayer_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::KFMsg::PBMatchPlayer, _internal_metadata_),
@@ -169,9 +170,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::KFMsg::PBMatchRoom)},
-  { 16, -1, sizeof(::KFMsg::PBMatchPlayer)},
-  { 30, -1, sizeof(::KFMsg::PBBalanceData)},
-  { 37, -1, sizeof(::KFMsg::PBBattleBalance)},
+  { 17, -1, sizeof(::KFMsg::PBMatchPlayer)},
+  { 31, -1, sizeof(::KFMsg::PBBalanceData)},
+  { 38, -1, sizeof(::KFMsg::PBBattleBalance)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -203,23 +204,23 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\023DefineMessage.proto\022\005KFMsg\032\030FrameDefin"
-      "eMessage.proto\"\343\001\n\013PBMatchRoom\022\017\n\007matchi"
+      "eMessage.proto\"\365\001\n\013PBMatchRoom\022\017\n\007matchi"
       "d\030\001 \001(\r\022\016\n\006roomid\030\002 \001(\004\022\r\n\005title\030\003 \001(\014\022\017"
       "\n\007version\030\004 \001(\014\022\021\n\tmaxplayer\030\005 \001(\r\022\021\n\tno"
       "wplayer\030\006 \001(\r\022\020\n\010masterid\030\007 \001(\004\022\022\n\nmaste"
       "rname\030\010 \001(\014\022\020\n\010password\030\t \001(\014\022\r\n\005grade\030\n"
-      " \001(\r\022&\n\010pbplayer\030\024 \003(\0132\024.KFMsg.PBMatchPl"
-      "ayer\"\236\001\n\rPBMatchPlayer\022\n\n\002id\030\001 \001(\004\022\014\n\004na"
-      "me\030\002 \001(\014\022\020\n\010serverid\030\003 \001(\004\022\017\n\007isrobot\030\004 "
-      "\001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n\005grade\030\006 \001(\r\022\020\n\010ef"
-      "fectid\030\007 \001(\r\022\016\n\006footid\030\010 \001(\r\022\017\n\007prepare\030"
-      "\t \001(\010\",\n\rPBBalanceData\022\014\n\004name\030\001 \001(\t\022\r\n\005"
-      "value\030\002 \001(\021\"F\n\017PBBattleBalance\022\017\n\007rankin"
-      "g\030\001 \001(\r\022\"\n\004data\030\002 \003(\0132\024.KFMsg.PBBalanceD"
-      "atab\006proto3"
+      " \001(\r\022\020\n\010addrobot\030\013 \001(\010\022&\n\010pbplayer\030\024 \003(\013"
+      "2\024.KFMsg.PBMatchPlayer\"\236\001\n\rPBMatchPlayer"
+      "\022\n\n\002id\030\001 \001(\004\022\014\n\004name\030\002 \001(\014\022\020\n\010serverid\030\003"
+      " \001(\004\022\017\n\007isrobot\030\004 \001(\010\022\016\n\006heroid\030\005 \001(\r\022\r\n"
+      "\005grade\030\006 \001(\r\022\020\n\010effectid\030\007 \001(\r\022\016\n\006footid"
+      "\030\010 \001(\r\022\017\n\007prepare\030\t \001(\010\",\n\rPBBalanceData"
+      "\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\021\"F\n\017PBBattl"
+      "eBalance\022\017\n\007ranking\030\001 \001(\r\022\"\n\004data\030\002 \003(\0132"
+      "\024.KFMsg.PBBalanceDatab\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 571);
+      descriptor, 589);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DefineMessage.proto", &protobuf_RegisterTypes);
   ::protobuf_FrameDefineMessage_2eproto::AddDescriptors();
@@ -253,6 +254,7 @@ const int PBMatchRoom::kMasteridFieldNumber;
 const int PBMatchRoom::kMasternameFieldNumber;
 const int PBMatchRoom::kPasswordFieldNumber;
 const int PBMatchRoom::kGradeFieldNumber;
+const int PBMatchRoom::kAddrobotFieldNumber;
 const int PBMatchRoom::kPbplayerFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -285,8 +287,8 @@ PBMatchRoom::PBMatchRoom(const PBMatchRoom& from)
     password_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.password_);
   }
   ::memcpy(&roomid_, &from.roomid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&grade_) -
-    reinterpret_cast<char*>(&roomid_)) + sizeof(grade_));
+    static_cast<size_t>(reinterpret_cast<char*>(&addrobot_) -
+    reinterpret_cast<char*>(&roomid_)) + sizeof(addrobot_));
   // @@protoc_insertion_point(copy_constructor:KFMsg.PBMatchRoom)
 }
 
@@ -296,8 +298,8 @@ void PBMatchRoom::SharedCtor() {
   mastername_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&roomid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&grade_) -
-      reinterpret_cast<char*>(&roomid_)) + sizeof(grade_));
+      reinterpret_cast<char*>(&addrobot_) -
+      reinterpret_cast<char*>(&roomid_)) + sizeof(addrobot_));
 }
 
 PBMatchRoom::~PBMatchRoom() {
@@ -338,8 +340,8 @@ void PBMatchRoom::Clear() {
   mastername_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&roomid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&grade_) -
-      reinterpret_cast<char*>(&roomid_)) + sizeof(grade_));
+      reinterpret_cast<char*>(&addrobot_) -
+      reinterpret_cast<char*>(&roomid_)) + sizeof(addrobot_));
   _internal_metadata_.Clear();
 }
 
@@ -485,6 +487,20 @@ bool PBMatchRoom::MergePartialFromCodedStream(
         break;
       }
 
+      // bool addrobot = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &addrobot_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
       case 20: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
@@ -577,6 +593,11 @@ void PBMatchRoom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->grade(), output);
   }
 
+  // bool addrobot = 11;
+  if (this->addrobot() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->addrobot(), output);
+  }
+
   // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->pbplayer_size()); i < n; i++) {
@@ -656,6 +677,11 @@ void PBMatchRoom::SerializeWithCachedSizes(
   // uint32 grade = 10;
   if (this->grade() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->grade(), target);
+  }
+
+  // bool addrobot = 11;
+  if (this->addrobot() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->addrobot(), target);
   }
 
   // repeated .KFMsg.PBMatchPlayer pbplayer = 20;
@@ -764,6 +790,11 @@ size_t PBMatchRoom::ByteSizeLong() const {
         this->grade());
   }
 
+  // bool addrobot = 11;
+  if (this->addrobot() != 0) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
   return total_size;
@@ -826,6 +857,9 @@ void PBMatchRoom::MergeFrom(const PBMatchRoom& from) {
   if (from.grade() != 0) {
     set_grade(from.grade());
   }
+  if (from.addrobot() != 0) {
+    set_addrobot(from.addrobot());
+  }
 }
 
 void PBMatchRoom::CopyFrom(const ::google::protobuf::Message& from) {
@@ -867,6 +901,7 @@ void PBMatchRoom::InternalSwap(PBMatchRoom* other) {
   swap(masterid_, other->masterid_);
   swap(nowplayer_, other->nowplayer_);
   swap(grade_, other->grade_);
+  swap(addrobot_, other->addrobot_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

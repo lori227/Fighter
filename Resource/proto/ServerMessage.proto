@@ -22,6 +22,7 @@ enum ServerProtocol
 	S2S_KICK_MATCH_TO_GAME_ACK			= 31009;	// 通知玩家被踢了
 	S2S_FIGHT_MATCH_TO_SHARD_REQ		= 31010;	// 开始匹配战斗
 	S2S_PREPARE_MATCH_TO_SHARD_REQ		= 31011;	// 准备匹配房间
+	S2S_INVITE_MATCH_TO_SHARD_REQ		= 31012;	// 邀请玩家加入匹配
 
 	// 战斗服和房间集群的消息 begin
 	S2S_REGISTER_BATTLE_TO_ROOM_REQ		= 31101;	// 注册战场
@@ -280,7 +281,8 @@ message S2SCreateMatchToShardReq
 	uint64 serverid = 3;		// 指定的battle服务器id
 	bytes title = 4;			// 房间标题
 	bytes password = 5;			// 房间密码
-	PBMatchPlayer pbplayer = 6;	// 玩家数据
+	bool addrobot = 6;			// 添加机器人
+	PBMatchPlayer pbplayer = 7;	// 玩家数据
 }
 
 // 加入匹配房间
@@ -338,4 +340,13 @@ message S2SPrepareMatchToShardReq
 {
 	uint64 playerid = 1;	// 玩家id
 	bool prepare = 2;		// 准备装备
+}
+
+// 邀请加入匹配
+// S2S_INVITE_MATCH_TO_SHARD_REQ
+message S2SInviteMatchToShardReq
+{
+	uint64 playerid = 1;	// 玩家id
+	uint64 targetid = 2;	// 目标玩家
+	uint64 serverid = 3;	// 目标玩家服务器id
 }

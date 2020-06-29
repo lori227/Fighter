@@ -11,7 +11,7 @@ namespace KFrame
         KFMatchRandRoom();
 
         // 初始化
-        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
+        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot );
 
         // 保存房间信息
         virtual void SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist );

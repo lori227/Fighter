@@ -32,7 +32,7 @@ namespace KFrame
         virtual ~KFMatchRoom() = default;
 
         // 初始化
-        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password );
+        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot );
 
         // 保存房间信息
         virtual void SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist );
@@ -69,6 +69,9 @@ namespace KFrame
 
         // 准备匹配
         virtual uint32 PrepareMatch( uint64 playerid, bool prepare );
+
+        // 邀请匹配
+        virtual uint32 InviteMatch( uint64 inviteid, uint64 playerid, uint64 serverid );
     protected:
         // 是否有效
         bool IsValid();
@@ -106,9 +109,13 @@ namespace KFrame
 
         // 版本号
         std::string _version;
+
     protected:
         // 房间id
         uint64 _battle_server_id = _invalid_int;
+
+        // 是否添加机器人
+        bool _is_add_robot = false;
 
         // 状态
         uint32 _state = _invalid_int;

@@ -81,6 +81,10 @@ enum ProjectCodeEnum {
   MatchRoomNotPrepare = 32021,
   MatchRoomPrepareTypeError = 32022,
   MatchRoomCanNotPrepare = 32023,
+  MatchInviteNotRelation = 32024,
+  MatchInviteNotOnline = 32025,
+  MatchInviteTypeError = 32026,
+  MatchInviteMaxCount = 32027,
   RoomAllotBattle = 32101,
   ProjectCodeEnum_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ProjectCodeEnum_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max

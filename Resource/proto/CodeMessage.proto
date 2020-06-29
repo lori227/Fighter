@@ -36,6 +36,10 @@ enum ProjectCodeEnum
 	MatchRoomNotPrepare		 	= 32021;	// 只有全部准备了才能开始
 	MatchRoomPrepareTypeError   = 32022;	// 只有创建房间才可以准备
 	MatchRoomCanNotPrepare      = 32023; 	// 只有准备状态才能修改准备
+	MatchInviteNotRelation		= 32024;	// 找不到关系属性, 邀请失败
+	MatchInviteNotOnline		= 32025;	// 不在线不能邀请
+	MatchInviteTypeError		= 32026;	// 匹配房间才可以邀请
+	MatchInviteMaxCount			= 32027;	// 匹配房间满了, 邀请失败
 
 	// room
 	RoomAllotBattle			  	= 32101;	// 正在分配战场服务器, 请等待

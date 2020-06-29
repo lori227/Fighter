@@ -5,9 +5,10 @@
 
 namespace KFrame
 {
-    void KFMatchRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
+    void KFMatchRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot )
     {
         _match_queue = kfqueue;
+        _is_add_robot = addrobot;
         _state = KFMatchEnum::MatchState;
         _grade = kfplayer->_pb_player.grade();
         _version = kfplayer->_version;
@@ -23,6 +24,7 @@ namespace KFrame
         pbroom->set_maxplayer( _match_queue->_match_setting->_max_count );
         pbroom->set_nowplayer( _player_list.Size() );
         pbroom->set_grade( _grade );
+        pbroom->set_addrobot( _is_add_robot );
 
         if ( isplayerlist )
         {
@@ -236,5 +238,10 @@ namespace KFrame
     uint32 KFMatchRoom::PrepareMatch( uint64 playerid, bool prepare )
     {
         return KFMsg::MatchRoomPrepareTypeError;
+    }
+
+    uint32 KFMatchRoom::InviteMatch( uint64 inviteid, uint64 playerid, uint64 serverid )
+    {
+        return KFMsg::MatchInviteTypeError;
     }
 }

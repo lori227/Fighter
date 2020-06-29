@@ -15,6 +15,7 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleKickMatchToShardReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleFightMatchToShardReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_PREPARE_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandlePrepareMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMsg::S2S_INVITE_MATCH_TO_SHARD_REQ, &KFMatchShardModule::HandleInviteMatchToShardReq );
     }
 
     void KFMatchShardModule::BeforeShut()
@@ -30,6 +31,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ );
         __UN_MESSAGE__( KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ );
         __UN_MESSAGE__( KFMsg::S2S_PREPARE_MATCH_TO_SHARD_REQ );
+        __UN_MESSAGE__( KFMsg::S2S_INVITE_MATCH_TO_SHARD_REQ );
     }
 
     void KFMatchShardModule::PrepareRun()
@@ -162,7 +164,7 @@ namespace KFrame
         }
 
         // 创建匹配
-        kfqueue->CreateMatch( pbplayer, kfmsg.version(), kfmsg.serverid(), kfmsg.title(), kfmsg.password() );
+        kfqueue->CreateMatch( pbplayer, kfmsg.version(), kfmsg.serverid(), kfmsg.title(), kfmsg.password(), kfmsg.addrobot() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleCancelMatchToShardReq )
@@ -303,6 +305,23 @@ namespace KFrame
         }
 
         auto result = kfplayer->_match_room->PrepareMatch( kfplayer->_id, kfmsg.prepare() );
+        if ( result != KFMsg::Ok )
+        {
+            _kf_display->SendToPlayer( route, result );
+        }
+    }
+
+    __KF_MESSAGE_FUNCTION__( KFMatchShardModule::HandleInviteMatchToShardReq )
+    {
+        __PROTO_PARSE__( KFMsg::S2SInviteMatchToShardReq );
+
+        auto kfplayer = _match_player_manage->Find( kfmsg.playerid() );
+        if ( kfplayer == nullptr || kfplayer->_match_room == nullptr )
+        {
+            return _kf_display->SendToPlayer( route, KFMsg::MatchNotInMatch );
+        }
+
+        auto result = kfplayer->_match_room->InviteMatch( kfmsg.playerid(), kfmsg.targetid(), kfmsg.serverid() );
         if ( result != KFMsg::Ok )
         {
             _kf_display->SendToPlayer( route, result );

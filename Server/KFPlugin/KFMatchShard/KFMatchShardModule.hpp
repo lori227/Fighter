@@ -70,6 +70,9 @@ namespace KFrame
         // 准备匹配房间
         __KF_MESSAGE_FUNCTION__( HandlePrepareMatchToShardReq );
 
+        // 邀请参加匹配
+        __KF_MESSAGE_FUNCTION__( HandleInviteMatchToShardReq );
+
     protected:
         // 查找匹配模式
         KFMatchQueue* FindMatchQueue( uint32 matchid );

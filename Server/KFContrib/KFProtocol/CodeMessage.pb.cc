@@ -58,7 +58,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\021CodeMessage.proto\022\005KFMsg*\317\005\n\017ProjectCo"
+      "\n\021CodeMessage.proto\022\005KFMsg*\300\006\n\017ProjectCo"
       "deEnum\022\016\n\nLogicError\020\000\022\022\n\014HeroNotExist\020\231"
       "\362\001\022\022\n\014HeroNotFight\020\232\362\001\022\024\n\016EffectNotExist"
       "\020\233\362\001\022\022\n\014FootNotExist\020\234\362\001\022\024\n\016MatchRequest"
@@ -76,10 +76,13 @@ void AddDescriptorsImpl() {
       "ick\020\223\372\001\022\032\n\024MatchRoomFightMaster\020\224\372\001\022\031\n\023M"
       "atchRoomNotPrepare\020\225\372\001\022\037\n\031MatchRoomPrepa"
       "reTypeError\020\226\372\001\022\034\n\026MatchRoomCanNotPrepar"
-      "e\020\227\372\001\022\025\n\017RoomAllotBattle\020\345\372\001b\006proto3"
+      "e\020\227\372\001\022\034\n\026MatchInviteNotRelation\020\230\372\001\022\032\n\024M"
+      "atchInviteNotOnline\020\231\372\001\022\032\n\024MatchInviteTy"
+      "peError\020\232\372\001\022\031\n\023MatchInviteMaxCount\020\233\372\001\022\025"
+      "\n\017RoomAllotBattle\020\345\372\001b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 756);
+      descriptor, 869);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CodeMessage.proto", &protobuf_RegisterTypes);
 }
@@ -129,6 +132,10 @@ bool ProjectCodeEnum_IsValid(int value) {
     case 32021:
     case 32022:
     case 32023:
+    case 32024:
+    case 32025:
+    case 32026:
+    case 32027:
     case 32101:
       return true;
     default:

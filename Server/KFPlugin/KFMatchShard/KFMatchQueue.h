@@ -25,7 +25,7 @@ namespace KFrame
         void StartMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid );
 
         // 创建匹配房间
-        KFMatchRoom* CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password );
+        KFMatchRoom* CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password, bool addrobot );
 
         // 加入匹配房间
         uint32 JoinMatch( const KFMsg::PBMatchPlayer* pbplayer, uint64 roomid, const std::string& version, const std::string& password );

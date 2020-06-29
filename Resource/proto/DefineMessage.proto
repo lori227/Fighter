@@ -16,6 +16,7 @@ message PBMatchRoom
     bytes mastername = 8;       // 开房者名字
     bytes password = 9;		    // 房间密码
     uint32 grade = 10;          // 积分
+    bool addrobot = 11;         // 队员不满时是否添加机器人
 	repeated PBMatchPlayer pbplayer = 20;	// 玩家列表
 }
 

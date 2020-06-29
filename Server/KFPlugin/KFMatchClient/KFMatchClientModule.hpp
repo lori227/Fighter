@@ -69,6 +69,9 @@ namespace KFrame
 
         // 准备匹配
         __KF_MESSAGE_FUNCTION__( HandlePrepareMatchReq );
+
+        // 邀请匹配
+        __KF_MESSAGE_FUNCTION__( HandleInviteMatchReq );
     protected:
         // 上线查询匹配
         __KF_ENTER_PLAYER_FUNCTION__( OnEnterQueryMatch );

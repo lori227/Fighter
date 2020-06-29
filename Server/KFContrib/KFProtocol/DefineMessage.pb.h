@@ -268,6 +268,12 @@ class LIBPROTOC_EXPORT PBMatchRoom : public ::google::protobuf::Message /* @@pro
   ::google::protobuf::uint32 grade() const;
   void set_grade(::google::protobuf::uint32 value);
 
+  // bool addrobot = 11;
+  void clear_addrobot();
+  static const int kAddrobotFieldNumber = 11;
+  bool addrobot() const;
+  void set_addrobot(bool value);
+
   // @@protoc_insertion_point(class_scope:KFMsg.PBMatchRoom)
  private:
 
@@ -283,6 +289,7 @@ class LIBPROTOC_EXPORT PBMatchRoom : public ::google::protobuf::Message /* @@pro
   ::google::protobuf::uint64 masterid_;
   ::google::protobuf::uint32 nowplayer_;
   ::google::protobuf::uint32 grade_;
+  bool addrobot_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_DefineMessage_2eproto::TableStruct;
 };
@@ -992,6 +999,20 @@ inline void PBMatchRoom::set_grade(::google::protobuf::uint32 value) {
   
   grade_ = value;
   // @@protoc_insertion_point(field_set:KFMsg.PBMatchRoom.grade)
+}
+
+// bool addrobot = 11;
+inline void PBMatchRoom::clear_addrobot() {
+  addrobot_ = false;
+}
+inline bool PBMatchRoom::addrobot() const {
+  // @@protoc_insertion_point(field_get:KFMsg.PBMatchRoom.addrobot)
+  return addrobot_;
+}
+inline void PBMatchRoom::set_addrobot(bool value) {
+  
+  addrobot_ = value;
+  // @@protoc_insertion_point(field_set:KFMsg.PBMatchRoom.addrobot)
 }
 
 // repeated .KFMsg.PBMatchPlayer pbplayer = 20;

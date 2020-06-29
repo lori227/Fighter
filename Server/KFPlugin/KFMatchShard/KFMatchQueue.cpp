@@ -58,7 +58,7 @@ namespace KFrame
 
         // 创建一个新的房间
         auto kfroom = __KF_NEW__( KFMatchRandRoom );
-        kfroom->InitRoom( this, kfplayer, _invalid_string, _invalid_string );
+        kfroom->InitRoom( this, kfplayer, _invalid_string, _invalid_string, true );
         _room_list.Insert( kfroom->_id, kfroom );
         return kfroom;
     }
@@ -105,7 +105,7 @@ namespace KFrame
         }
     }
 
-    KFMatchRoom* KFMatchQueue::CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password )
+    KFMatchRoom* KFMatchQueue::CreateMatch( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, uint64 battleserverid, const std::string& title, const std::string& password, bool addrobot )
     {
         // 添加玩家
         auto kfplayer = __KF_NEW__( KFMatchPlayer );
@@ -115,7 +115,7 @@ namespace KFrame
 
         // 创建一个新的房间
         auto kfroom = __KF_NEW__( KFMatchJoinRoom );
-        kfroom->InitRoom( this, kfplayer, title, password );
+        kfroom->InitRoom( this, kfplayer, title, password, addrobot );
         _room_list.Insert( kfroom->_id, kfroom );
 
         // 通知玩家加入房间

@@ -8,9 +8,9 @@ namespace KFrame
         _type = KFMatchEnum::RandRoom;
     }
 
-    void KFMatchRandRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password )
+    void KFMatchRandRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot )
     {
-        KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password );
+        KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password, addrobot );
         _next_add_robot_time = KFGlobal::Instance()->_game_time + kfqueue->_match_setting->_add_robot_time;
     }
 
