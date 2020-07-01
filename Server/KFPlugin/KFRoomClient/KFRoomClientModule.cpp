@@ -93,8 +93,14 @@ namespace KFrame
 
         if ( roomid == _invalid_int )
         {
+            player->SetStatus( KFMsg::OnlineStatus );
+
             player->UpdateData( __STRING__( matchid ), KFEnum::Set, _invalid_int );
             player->UpdateData( __STRING__( matchserverid ), KFEnum::Set, _invalid_int );
+        }
+        else
+        {
+            player->SetStatus( KFMsg::RoomStatus );
         }
     }
 

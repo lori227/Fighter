@@ -33,7 +33,7 @@ namespace protobuf_EnumMessage_2eproto {
 void InitDefaults() {
 }
 
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 const ::google::protobuf::uint32 TableStruct::offsets[1] = {};
 static const ::google::protobuf::internal::MigrationSchema* schemas = NULL;
 static const ::google::protobuf::Message* const* file_default_instances = NULL;
@@ -61,10 +61,12 @@ void AddDescriptorsImpl() {
       "\n\021EnumMessage.proto\022\005KFMsg*5\n\010CampEnum\022\016"
       "\n\nUnknowCamp\020\000\022\013\n\007RedCamp\020\001\022\014\n\010BlueCamp\020"
       "\002*1\n\tLeaveEnum\022\017\n\013UnknowLeave\020\000\022\t\n\005Leave"
-      "\020\001\022\010\n\004Kick\020\002b\006proto3"
+      "\020\001\022\010\n\004Kick\020\002*M\n\022PlayerStatusEnumEx\022\026\n\022Un"
+      "knowPlayerStatus\020\000\022\017\n\013MatchStatus\020e\022\016\n\nR"
+      "oomStatus\020fb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 140);
+      descriptor, 219);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "EnumMessage.proto", &protobuf_RegisterTypes);
 }
@@ -105,6 +107,21 @@ bool LeaveEnum_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* PlayerStatusEnumEx_descriptor() {
+  protobuf_EnumMessage_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_EnumMessage_2eproto::file_level_enum_descriptors[2];
+}
+bool PlayerStatusEnumEx_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 101:
+    case 102:
       return true;
     default:
       return false;

@@ -97,6 +97,28 @@ inline bool LeaveEnum_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<LeaveEnum>(
     LeaveEnum_descriptor(), name, value);
 }
+enum PlayerStatusEnumEx {
+  UnknowPlayerStatus = 0,
+  MatchStatus = 101,
+  RoomStatus = 102,
+  PlayerStatusEnumEx_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  PlayerStatusEnumEx_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+LIBPROTOC_EXPORT bool PlayerStatusEnumEx_IsValid(int value);
+const PlayerStatusEnumEx PlayerStatusEnumEx_MIN = UnknowPlayerStatus;
+const PlayerStatusEnumEx PlayerStatusEnumEx_MAX = RoomStatus;
+const int PlayerStatusEnumEx_ARRAYSIZE = PlayerStatusEnumEx_MAX + 1;
+
+LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* PlayerStatusEnumEx_descriptor();
+inline const ::std::string& PlayerStatusEnumEx_Name(PlayerStatusEnumEx value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    PlayerStatusEnumEx_descriptor(), value);
+}
+inline bool PlayerStatusEnumEx_Parse(
+    const ::std::string& name, PlayerStatusEnumEx* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PlayerStatusEnumEx>(
+    PlayerStatusEnumEx_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -129,6 +151,11 @@ template <> struct is_proto_enum< ::KFMsg::LeaveEnum> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::KFMsg::LeaveEnum>() {
   return ::KFMsg::LeaveEnum_descriptor();
+}
+template <> struct is_proto_enum< ::KFMsg::PlayerStatusEnumEx> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::KFMsg::PlayerStatusEnumEx>() {
+  return ::KFMsg::PlayerStatusEnumEx_descriptor();
 }
 
 }  // namespace protobuf

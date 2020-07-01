@@ -170,6 +170,15 @@ namespace KFrame
     {
         player->UpdateData( __STRING__( matchid ), KFEnum::Set, matchid );
         player->UpdateData( __STRING__( matchserverid ), KFEnum::Set, serverid );
+
+        if ( matchid != 0u )
+        {
+            player->SetStatus( KFMsg::MatchStatus );
+        }
+        else
+        {
+            player->SetStatus( KFMsg::FrameOnlineStatus );
+        }
     }
 
     __KF_MESSAGE_FUNCTION__( KFMatchClientModule::HandleStartMatchToGameAck )

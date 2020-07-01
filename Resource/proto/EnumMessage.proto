@@ -16,3 +16,11 @@ enum LeaveEnum
 	Leave 		= 1;	// 主动离开
 	Kick 		= 2;	// 被踢了
 }
+
+// 游戏状态
+enum PlayerStatusEnumEx
+{
+	UnknowPlayerStatus= 0;	// 无效
+	MatchStatus = 101;		// 匹配状态
+	RoomStatus = 102;		// 房间战斗状态
+}
