@@ -1,9 +1,10 @@
 syntax = "proto3";
 import "DefineMessage.proto";
 import "FrameDefineMessage.proto";
+//option optimize_for = LITE_RUNTIME;
 
 package KFMsg;
-
+///////////////////////////////////////////////////////////////////////////
 // 协议号区间 : 3000-10000
 enum ClientProtocol
  {
