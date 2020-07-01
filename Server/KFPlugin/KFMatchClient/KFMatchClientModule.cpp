@@ -177,7 +177,7 @@ namespace KFrame
         }
         else
         {
-            player->SetStatus( KFMsg::FrameOnlineStatus );
+            player->SetStatus( KFMsg::OnlineStatus );
         }
     }
 
