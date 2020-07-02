@@ -11,7 +11,7 @@
 	<item Id="datashard" Name="datashard" FileName="./setting/datashard.xml" Reload="0" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="route" Name="route" FileName="./setting/route.xml" Reload="0" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="channel" Name="channel" FileName="./config/channel.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
-	<item Id="filter" Name="filter" FileName="./config/filter.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
+	<item Id="filter" Name="framefilter" FileName="./config/framefilter.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="1"/>
 	<item Id="relation" Name="relation" FileName="./config/relation.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="rank" Name="rank" FileName="./config/rank.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="compound" Name="compound" FileName="./config/compound.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
