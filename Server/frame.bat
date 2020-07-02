@@ -295,9 +295,9 @@ call :CopyInterface KFClusterProxy
 call :CopyInterface KFClusterShard
 call :CopyInterface KFLogClient
 call :CopyInterface KFLogShard
-call :CopyInterface KFKernel 1001-玩家-属性定义.xlsx
+call :CopyInterface KFKernel 
 call :CopyInterface KFCondition 
-call :CopyInterface KFFilter 1000-框架-屏蔽字符.xlsx
+call :CopyInterface KFFilter
 call :CopyInterface KFPlayer
 call :CopyInterface KFHttpClient
 call :CopyInterface KFHttpServer
@@ -315,7 +315,7 @@ call :CopyInterface KFTimer
 
 rem auth
 call :CopyInterface KFAuth
-call :CopyInterface KFChannel 1000-框架-渠道配置.xlsx
+call :CopyInterface KFChannel
 call :CopyInterface KFAccount
 call :CopyInterface KFDirClient
 call :CopyInterface KFDirShard
@@ -358,10 +358,10 @@ call :CopyInterface KFWorld
 
 rem player
 call :CopyInterface KFCommand
-call :CopyInterface KFDrop 1001-框架-掉落配置.xlsx
-call :CopyInterface KFReset 1001-玩家-进入游戏.xlsx
-call :CopyInterface KFReset 1001-玩家-属性重置.xlsx
-call :CopyInterface KFReset 1001-玩家-离开游戏.xlsx
+call :CopyInterface KFDrop
+call :CopyInterface KFReset
+call :CopyInterface KFReset
+call :CopyInterface KFReset
 call :CopyInterface KFUnlock
 call :CopyInterface KFExecute
 
