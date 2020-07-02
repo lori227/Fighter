@@ -6,41 +6,40 @@
 		<Server Id="1" Name="测试服" Ip="180.169.238.146" Url="http://180.169.238.146:9999/deploy"/>
 	</Servers>
 	<Files>
-		<File Name="框架-属性定义-成就属性.xlsx" Type="3" XmlName="achieveclass" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
-		<File Name="框架-掉落配置.xlsx" Type="3" XmlName="dropgroup" MD5Client="42286aa281059fa439a7069efa3fb439" MD5Server="42286aa281059fa439a7069efa3fb439"/>
-		<File Name="匹配-匹配设置.xlsx" Type="3" XmlName="match" MD5Client="8aff622bc21b150c08fa6e53ba5cd667" MD5Server="8aff622bc21b150c08fa6e53ba5cd667"/>
-		<File Name="框架-条件定义.xlsx" Type="3" XmlName="conditiondefine" MD5Client="1bbbd2724afb72cdc58b1112c39a86cf" MD5Server="1bbbd2724afb72cdc58b1112c39a86cf"/>
-		<File Name="商城-商店配置.xlsx" Type="3" XmlName="store" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
-		<File Name="商城-商品配置.xlsx" Type="3" XmlName="goods" MD5Client="5636bbe1cd096cca0132d826f9547feb" MD5Server="5636bbe1cd096cca0132d826f9547feb"/>
-		<File Name="框架-掉落数据.xlsx" Type="3" XmlName="dropdata" MD5Client="cfe8facdea232d1f3c8f6846337a8753" MD5Server="cfe8facdea232d1f3c8f6846337a8753"/>
-		<File Name="框架-屏蔽字符.xlsx" Type="3" XmlName="filter" MD5Client="386c724eb5cf375d31185a22ba7601d8" MD5Server="386c724eb5cf375d31185a22ba7601d8"/>
-		<File Name="玩家-新建角色.xlsx" Type="3" XmlName="player" MD5Client="2e7064d3dc4041854f4667273cc3e128" MD5Server="2e7064d3dc4041854f4667273cc3e128"/>
-		<File Name="框架-时间配置.xlsx" Type="3" XmlName="time" MD5Client="2064482b93c87aeae6733a8f9c6e149e" MD5Server="2064482b93c87aeae6733a8f9c6e149e"/>
-		<File Name="框架-条件配置.xlsx" Type="3" XmlName="condition" MD5Client="ffa3e4b2bb941b96f8b1b38108ee6e89" MD5Server="ffa3e4b2bb941b96f8b1b38108ee6e89"/>
-		<File Name="项目-道具-公共配置.xlsx" Type="3" XmlName="itemcommon" MD5Client="a68ead0399a6a081032fe175444a5e35" MD5Server="a68ead0399a6a081032fe175444a5e35"/>
-		<File Name="框架-渠道配置.xlsx" Type="3" XmlName="channel" MD5Client="f8dfc55a04359339c933a81e67f4a5d5" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
-		<File Name="项目-配置列表.xlsx" Type="3" XmlName="config" MD5Client="f80e5209391a72a8a154c6031f91fc22" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
-		<File Name="玩家-成就系统.xlsx" Type="3" XmlName="achieve" MD5Client="157161f13230b8816e94f0cdac0f618f" MD5Server="157161f13230b8816e94f0cdac0f618f"/>
-		<File Name="框架-配置列表.xlsx" Type="3" XmlName="frameconfig" MD5Client="f80e5209391a72a8a154c6031f91fc22" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
-		<File Name="框架-随机权重.xlsx" Type="3" XmlName="weightpool" MD5Client="1ccbf93857526284e98047594a4d9013" MD5Server="1ccbf93857526284e98047594a4d9013"/>
-		<File Name="玩家-属性重置.xlsx" Type="3" XmlName="reset" MD5Client="1a69dcacf399784f364b5dc8c1ac9ab8" MD5Server="1a69dcacf399784f364b5dc8c1ac9ab8"/>
-		<File Name="玩家-掉落配置.xlsx" Type="3" XmlName="drop" MD5Client="577ff2315d8faa88092e865903ae2dbd" MD5Server="577ff2315d8faa88092e865903ae2dbd"/>
-		<File Name="玩家-离开游戏.xlsx" Type="3" XmlName="leave" MD5Client="2142355dfc7a593b9d4a18b9b6ebc230" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
-		<File Name="玩家-签到配置.xlsx" Type="3" XmlName="signin" MD5Client="aebb8154fecd5a5d8bf672fb131dc120" MD5Server="aebb8154fecd5a5d8bf672fb131dc120"/>
-		<File Name="玩家-进入游戏.xlsx" Type="3" XmlName="enter" MD5Client="6afc3a64dc2e283e3f65a491f1c0e781" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
-		<File Name="框架-属性定义-基础属性.xlsx" Type="3" XmlName="frameclass" MD5Client="b23436e3e9f4daa80e38a6dcab7724c8" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
-		<File Name="项目-道具-礼包配置.xlsx" Type="3" XmlName="itemgift" MD5Client="c3a0627d6c2dba829f4fe225dce38c59" MD5Server="c3a0627d6c2dba829f4fe225dce38c59"/>
-		<File Name="社交-关系配置.xlsx" Type="3" XmlName="relation" MD5Client="853e2e65556d73bc9cd3a3037e64ab30" MD5Server="853e2e65556d73bc9cd3a3037e64ab30"/>
-		<File Name="英雄-名字随机.xlsx" Type="3" XmlName="name" MD5Client="847ff4fe467a40d77281778fead65186" MD5Server="847ff4fe467a40d77281778fead65186"/>
-		<File Name="商城-商店解锁.xlsx" Type="3" XmlName="storeunlock" MD5Client="24a3b084fb1f60cfd9a9ac306e4e48ab" MD5Server="24a3b084fb1f60cfd9a9ac306e4e48ab"/>
-		<File Name="英雄-特效配置.xlsx" Type="3" XmlName="effect" MD5Client="afc3b0b7279298b4e2db3726cb54f814" MD5Server="afc3b0b7279298b4e2db3726cb54f814"/>
-		<File Name="英雄-脚印配置.xlsx" Type="3" XmlName="foot" MD5Client="e9461a5629406486c6be3b3afbd5c262" MD5Server="e9461a5629406486c6be3b3afbd5c262"/>
-		<File Name="英雄-英雄配置.xlsx" Type="3" XmlName="hero" MD5Client="59661e44bfe7d17c3fd478eb04c6c3b9" MD5Server="59661e44bfe7d17c3fd478eb04c6c3b9"/>
-		<File Name="排行-排行配置.xlsx" Type="3" XmlName="rank" MD5Client="d2a7809125bbe04a61e0224497dbb722" MD5Server="d2a7809125bbe04a61e0224497dbb722"/>
-		<File Name="框架-次数花费.xlsx" Type="3" XmlName="countcost" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
-		<File Name="框架-属性定义-关系属性.xlsx" Type="3" XmlName="relationclass" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
-		<File Name="框架-常量-全局常量.xlsx" Type="3" XmlName="constant" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
-		<File Name="框架-奖励格式.xlsx" Type="3" XmlName="reward" MD5Client="bd223fa2bfa074d4eac09e89f54062db" MD5Server="bd223fa2bfa074d4eac09e89f54062db"/>
-		<File Name="项目-属性定义-玩家属性.xlsx" Type="3" XmlName="class" MD5Client="b23436e3e9f4daa80e38a6dcab7724c8" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
+		<File Name="T-特效配置.xlsx" Type="3" XmlName="effect" MD5Client="" MD5Server="afc3b0b7279298b4e2db3726cb54f814"/>
+		<File Name="C-全局常量-(框架使用, 请勿删除).xlsx" Type="3" XmlName="constant" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="C-成就系统.xlsx" Type="3" XmlName="achieve" MD5Client="" MD5Server="157161f13230b8816e94f0cdac0f618f"/>
+		<File Name="C-次数花费.xlsx" Type="3" XmlName="countcost" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="Y-英雄配置.xlsx" Type="3" XmlName="hero" MD5Client="" MD5Server="59661e44bfe7d17c3fd478eb04c6c3b9"/>
+		<File Name="D-掉落数据.xlsx" Type="3" XmlName="dropdata" MD5Client="" MD5Server="cfe8facdea232d1f3c8f6846337a8753"/>
+		<File Name="D-掉落配置.xlsx" Type="3" XmlName="dropgroup" MD5Client="" MD5Server="42286aa281059fa439a7069efa3fb439"/>
+		<File Name="D-道具公共配置.xlsx" Type="3" XmlName="itemcommon" MD5Client="" MD5Server="a68ead0399a6a081032fe175444a5e35"/>
+		<File Name="D-道具礼包配置.xlsx" Type="3" XmlName="itemgift" MD5Client="" MD5Server="c3a0627d6c2dba829f4fe225dce38c59"/>
+		<File Name="G-关系配置.xlsx" Type="3" XmlName="relation" MD5Client="" MD5Server="853e2e65556d73bc9cd3a3037e64ab30"/>
+		<File Name="J-奖励格式-(框架维护, 请勿修改).xlsx" Type="3" XmlName="reward" MD5Client="" MD5Server="bd223fa2bfa074d4eac09e89f54062db"/>
+		<File Name="J-脚印配置.xlsx" Type="3" XmlName="foot" MD5Client="" MD5Server="e9461a5629406486c6be3b3afbd5c262"/>
+		<File Name="P-渠道配置-(后端维护).xlsx" Type="3" XmlName="channel" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
+		<File Name="J-进入游戏.xlsx" Type="3" XmlName="enter" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
+		<File Name="L-离开游戏.xlsx" Type="3" XmlName="leave" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
+		<File Name="S-属性定义-成就属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="achieveclass" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="M-名字随机.xlsx" Type="3" XmlName="name" MD5Client="" MD5Server="847ff4fe467a40d77281778fead65186"/>
+		<File Name="P-匹配设置.xlsx" Type="3" XmlName="match" MD5Client="" MD5Server="8aff622bc21b150c08fa6e53ba5cd667"/>
+		<File Name="P-屏蔽字符.xlsx" Type="3" XmlName="filter" MD5Client="" MD5Server="386c724eb5cf375d31185a22ba7601d8"/>
+		<File Name="P-排行配置.xlsx" Type="3" XmlName="rank" MD5Client="" MD5Server="d2a7809125bbe04a61e0224497dbb722"/>
+		<File Name="P-配置列表-(后端维护).xlsx" Type="3" XmlName="config" MD5Client="" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
+		<File Name="P-配置列表-(框架维护, 请勿修改).xlsx" Type="3" XmlName="frameconfig" MD5Client="" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
+		<File Name="S-随机权重.xlsx" Type="3" XmlName="weightpool" MD5Client="" MD5Server="1ccbf93857526284e98047594a4d9013"/>
+		<File Name="Q-签到配置.xlsx" Type="3" XmlName="signin" MD5Client="" MD5Server="aebb8154fecd5a5d8bf672fb131dc120"/>
+		<File Name="S-商品配置.xlsx" Type="3" XmlName="goods" MD5Client="" MD5Server="5636bbe1cd096cca0132d826f9547feb"/>
+		<File Name="S-商店解锁.xlsx" Type="3" XmlName="storeunlock" MD5Client="" MD5Server="24a3b084fb1f60cfd9a9ac306e4e48ab"/>
+		<File Name="S-商店配置.xlsx" Type="3" XmlName="store" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="S-属性定义-关系属性-(框架维护, 请勿修改).xlsx" Type="3" XmlName="relationclass" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="S-属性定义-基础属性-(框架维护, 请勿修改).xlsx" Type="3" XmlName="frameclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
+		<File Name="S-属性定义-玩家属性-(后端维护).xlsx" Type="3" XmlName="class" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
+		<File Name="S-属性重置.xlsx" Type="3" XmlName="reset" MD5Client="" MD5Server="1a69dcacf399784f364b5dc8c1ac9ab8"/>
+		<File Name="S-时间配置.xlsx" Type="3" XmlName="time" MD5Client="" MD5Server="2064482b93c87aeae6733a8f9c6e149e"/>
+		<File Name="T-条件定义-(后端维护).xlsx" Type="3" XmlName="conditiondefine" MD5Client="" MD5Server="1bbbd2724afb72cdc58b1112c39a86cf"/>
+		<File Name="T-条件配置.xlsx" Type="3" XmlName="condition" MD5Client="" MD5Server="ffa3e4b2bb941b96f8b1b38108ee6e89"/>
+		<File Name="X-新建角色.xlsx" Type="3" XmlName="player" MD5Client="" MD5Server="2e7064d3dc4041854f4667273cc3e128"/>
 	</Files>
 </Config>
