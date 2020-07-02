@@ -16,7 +16,7 @@
 		<File Name="D-道具礼包配置.xlsx" Type="3" XmlName="itemgift" MD5Client="" MD5Server="c3a0627d6c2dba829f4fe225dce38c59"/>
 		<File Name="G-关系配置.xlsx" Type="3" XmlName="relation" MD5Client="" MD5Server="853e2e65556d73bc9cd3a3037e64ab30"/>
 		<File Name="J-脚印配置.xlsx" Type="3" XmlName="foot" MD5Client="" MD5Server="e9461a5629406486c6be3b3afbd5c262"/>
-		<File Name="P-配置列表-(框架维护,请勿修改).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
+		<File Name="P-配置列表-(框架维护,请勿修改).xlsx" Type="3" XmlName="frameconfig" MD5Client="" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
 		<File Name="P-渠道配置-(后端维护).xlsx" Type="3" XmlName="channel" MD5Client="" MD5Server="f8dfc55a04359339c933a81e67f4a5d5"/>
 		<File Name="J-进入游戏.xlsx" Type="3" XmlName="enter" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
 		<File Name="L-离开游戏.xlsx" Type="3" XmlName="leave" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
@@ -25,7 +25,7 @@
 		<File Name="P-匹配设置.xlsx" Type="3" XmlName="match" MD5Client="" MD5Server="8aff622bc21b150c08fa6e53ba5cd667"/>
 		<File Name="P-屏蔽字符.xlsx" Type="3" XmlName="filter" MD5Client="" MD5Server="386c724eb5cf375d31185a22ba7601d8"/>
 		<File Name="P-排行配置.xlsx" Type="3" XmlName="rank" MD5Client="" MD5Server="d2a7809125bbe04a61e0224497dbb722"/>
-		<File Name="S-属性定义-基础属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
+		<File Name="S-属性定义-基础属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="frameclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 		<File Name="P-配置列表-(后端维护).xlsx" Type="3" XmlName="config" MD5Client="" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
 		<File Name="S-随机权重.xlsx" Type="3" XmlName="weightpool" MD5Client="" MD5Server="1ccbf93857526284e98047594a4d9013"/>
 		<File Name="Q-签到配置.xlsx" Type="3" XmlName="signin" MD5Client="" MD5Server="aebb8154fecd5a5d8bf672fb131dc120"/>
@@ -38,8 +38,8 @@
 		<File Name="T-条件定义-(后端维护).xlsx" Type="3" XmlName="conditiondefine" MD5Client="" MD5Server="1bbbd2724afb72cdc58b1112c39a86cf"/>
 		<File Name="T-条件配置.xlsx" Type="3" XmlName="condition" MD5Client="" MD5Server="ffa3e4b2bb941b96f8b1b38108ee6e89"/>
 		<File Name="X-新建角色.xlsx" Type="3" XmlName="player" MD5Client="" MD5Server="2e7064d3dc4041854f4667273cc3e128"/>
-		<File Name="S-属性定义-关系属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
-		<File Name="J-奖励格式-(框架维护,请勿修改).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
-		<File Name="C-全局常量-(框架使用,请勿删除).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
+		<File Name="S-属性定义-关系属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="relationclass" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="J-奖励格式-(框架维护,请勿修改).xlsx" Type="3" XmlName="reward" MD5Client="" MD5Server="bd223fa2bfa074d4eac09e89f54062db"/>
+		<File Name="C-全局常量-(框架使用,请勿删除).xlsx" Type="3" XmlName="constant" MD5Client="" MD5Server="26230a675935caa816f4034dd7755339"/>
 	</Files>
 </Config>
