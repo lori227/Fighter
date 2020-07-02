@@ -1,9 +1,0 @@
-<root version="00000">
-	<item Id="1" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-	<item Id="2" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-	<item Id="3" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-	<item Id="4" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-	<item Id="5" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-	<item Id="6" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-	<item Id="7" Store="item" Explore="item" Move="item" Extend="item" Auto="0" UseLimit=""/>
-</root>

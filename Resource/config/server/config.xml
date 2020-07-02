@@ -1,4 +1,5 @@
 <root version="00000">
+	<item Id="constant" Name="constant" FileName="./config/constant.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="class" FileName="./config/class.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="relationclass" FileName="./config/relationclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="achieveclass" FileName="./config/achieveclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
