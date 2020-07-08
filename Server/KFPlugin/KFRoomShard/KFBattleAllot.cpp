@@ -16,18 +16,20 @@ namespace KFrame
         values[ __STRING__( version ) ] = version;
         values[ __STRING__( port ) ] = __TO_STRING__( port );
 
-        _room_redis->Append( values, "hmset {}:{}", __STRING__( battle ), serverid );
-        _room_redis->Append( "expire {}:{} {}", __STRING__( battle ), serverid, 300 );
-        _room_redis->Append( "sadd {}:{} {}", __STRING__( battlelist ), version, serverid );
-        auto kfresult = _room_redis->Pipeline();
+        _room_redis->WriteMulti();
+        _room_redis->SAdd( __REDIS_KEY_2__( __STRING__( battlelist ), version ), serverid );
+        _room_redis->HMSet( __REDIS_KEY_2__( __STRING__( battle ), serverid ), values );
+        _room_redis->Expire( __REDIS_KEY_2__( __STRING__( battle ), serverid ), 300 );
+        auto kfresult = _room_redis->WriteExec();
         return kfresult->IsOk();
     }
 
     void KFBattleAllot::RemoveBattle( uint64 serverid, const std::string& version )
     {
-        _room_redis->Append( "del {}:{}", __STRING__( battle ), serverid );
-        _room_redis->Append( "srem {}:{} {}", __STRING__( battlelist ), version, serverid );
-        _room_redis->Pipeline();
+        _room_redis->WriteMulti();
+        _room_redis->Del( __REDIS_KEY_2__( __STRING__( battle ), serverid ) );
+        _room_redis->SRem( __REDIS_KEY_2__( __STRING__( battlelist ), version ), serverid );
+        _room_redis->WriteExec();
     }
 
     std::tuple< uint64, std::string, uint32, bool > KFBattleAllot::AllotBattle( uint64 serverid, const std::string& version )
@@ -47,7 +49,7 @@ namespace KFrame
         uint64 allotid = _invalid_int;
         bool isempty = false;
 
-        auto mapresult = _room_redis->QueryMap( "hgetall {}:{}", __STRING__( battle ), serverid );
+        auto mapresult = _room_redis->HGetAll( __REDIS_KEY_2__( __STRING__( battle ), serverid ) );
         if ( mapresult->IsOk() )
         {
             if ( !mapresult->_value.empty() )
@@ -63,7 +65,7 @@ namespace KFrame
 
                 // 删除列表
                 auto version = mapresult->_value[ __STRING__( version ) ];
-                _room_redis->Execute( "srem {}:{} {}", __STRING__( battlelist ), version, allotid );
+                _room_redis->SRem( __REDIS_KEY_2__( __STRING__( battlelist ), version ), allotid );
             }
             else
             {
@@ -85,7 +87,7 @@ namespace KFrame
         do
         {
             // 弹出一个可用的服务器
-            auto kfquery = _room_redis->QueryUInt64( "spop {}:{}", __STRING__( battlelist ), version );
+            auto kfquery = _room_redis->SPopUInt64( __REDIS_KEY_2__( __STRING__( battlelist ), version ) );
             if ( kfquery->_value != _invalid_int )
             {
                 std::tie( allotid, ip, port, isempty ) = AllotSpecificBattle( kfquery->_value );
@@ -106,6 +108,6 @@ namespace KFrame
     void KFBattleAllot::UpdateBattle( uint64 serverid )
     {
         // 保存10分钟
-        _room_redis->Execute( "expire {}:{} {}", __STRING__( battle ), serverid, 300 );
+        _room_redis->Expire( __REDIS_KEY_2__( __STRING__( battle ), serverid ), 300 );
     }
 }
