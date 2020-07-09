@@ -15,7 +15,7 @@ namespace KFrame
         virtual ~KFNetServerEngine();
 
         // 初始化
-        void InitEngine( uint32 maxqueuesize, uint32 messagetype, uint32 compresstype, uint32 compresslevel, uint32 compresslength, const std::string& encryptkey, bool openencrypt );
+        void InitEngine( uint32 maxqueuesize, uint32 handlecount, uint32 messagetype, uint32 compresstype, uint32 compresslevel, uint32 compresslength, const std::string& encryptkey, bool openencrypt );
 
         // 初始化服务
         int32 StartEngine( const std::string& ip, uint32 port );
@@ -85,7 +85,7 @@ namespace KFrame
         void RunRemoveTrusteeHandle();
 
         // 判断托管超时
-        void RunCheckTrusteeTimeout();
+        void RunCheckBindTimeout();
 
         // 需要关闭的连接
         void RunCloseHandle();
@@ -94,10 +94,6 @@ namespace KFrame
         void RunTrusteeMessage( uint64 nowtime );
         void RunHandleMessage( uint64 nowtime );
 
-    public:
-        // 有效连接列表
-        KFHashMap< uint64, uint64, KFNetHandle > _kf_handles;
-
     protected:
         // 服务器服务
         KFNetServerServices* _net_server_services;
@@ -105,18 +101,26 @@ namespace KFrame
         // 等待验证的托管连接
         KFHashMap< uint64, uint64, KFNetHandle > _trustee_handles;
 
+        // 有效连接列表
+        KFHashMap< uint64, uint64, KFNetHandle > _kf_handles;
+
+        // 需要验证超时的连接
+        UInt64Map _bind_timeout_list;
+
         // 已经注册的链接
         UInt64Set _remove_trustees;
 
         // 需要关闭的连接
         UInt64Map _close_handles;
     private:
-
         // 消息函数
         KFMessageFunction _net_function;
 
         // 断开连接事件
         KFNetEventFunction _server_lost_function;
+
+        // 每一帧处理消息个数
+        uint32 _handle_message_count = 10;
     };
 }
 
