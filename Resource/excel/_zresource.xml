@@ -6,8 +6,8 @@
 		<Server Id="1" Name="测试服" Ip="180.169.238.146" Url="http://180.169.238.146:9999/deploy"/>
 	</Servers>
 	<Files>
-		<File Name="G-关系-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="relationclass" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
-		<File Name="C-成就-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="achieveclass" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
+		<File Name="G-关系-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="relationclass" MD5Client="b23436e3e9f4daa80e38a6dcab7724c8" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
+		<File Name="C-成就-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="achieveclass" MD5Client="b23436e3e9f4daa80e38a6dcab7724c8" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 		<File Name="G-关系-关系配置-(框架定义,策划填写).xlsx" Type="3" XmlName="relation" MD5Client="853e2e65556d73bc9cd3a3037e64ab30" MD5Server="853e2e65556d73bc9cd3a3037e64ab30"/>
 		<File Name="C-成就-条件配置-(框架定义,策划填写).xlsx" Type="3" XmlName="achievecondition" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
 		<File Name="C-成就-成就配置-(框架定义,策划填写).xlsx" Type="3" XmlName="achieve" MD5Client="157161f13230b8816e94f0cdac0f618f" MD5Server="157161f13230b8816e94f0cdac0f618f"/>
