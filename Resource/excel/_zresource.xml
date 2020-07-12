@@ -44,5 +44,6 @@
 		<File Name="S-商店-商店解锁-(框架定义,策划填写).xlsx" Type="3" XmlName="storeunlock" MD5Client="24a3b084fb1f60cfd9a9ac306e4e48ab" MD5Server="24a3b084fb1f60cfd9a9ac306e4e48ab"/>
 		<File Name="S-商店-商店配置-(框架定义,策划填写).xlsx" Type="3" XmlName="store" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
 		<File Name="Y-英雄-英雄配置-(后端定义,策划填写).xlsx" Type="3" XmlName="hero" MD5Client="59661e44bfe7d17c3fd478eb04c6c3b9" MD5Server="59661e44bfe7d17c3fd478eb04c6c3b9"/>
+		<File Name="D-掉落-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="dropclass" MD5Client="b23436e3e9f4daa80e38a6dcab7724c8" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 	</Files>
 </Config>
