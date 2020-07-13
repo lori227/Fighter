@@ -35,4 +35,5 @@
 	<item Id="reward" Name="reward" FileName="./config/reward.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="countcost" Name="countcost" FileName="./config/countcost.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="frameclass" FileName="./config/frameclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
+	<item Id="execute" Name="execute" FileName="./config/execute.xml" Reload="1" ClearData="1" ClearFile="1" ChildFile="0"/>
 </root>
