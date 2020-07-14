@@ -244,7 +244,9 @@ if not exist %localpath%\KFPlugin\CMakeLists.txt (
 )
 
 set pluginpath=KFInterface
+rd /s /q %localpath%\%pluginpath%
 if not exist %localpath%\%pluginpath% (mkdir %localpath%\%pluginpath% )
+
 echo "update KFPlugin path end"
 rem ===========================================================================
 rem ===========================================================================
@@ -369,6 +371,7 @@ call :CopyInterface KFExecute
 rem logic
 call :CopyInterface KFChat
 call :CopyInterface KFAchieve
+call :CopyInterface KFStore
 
 rem Robot
 rem call :CopyInterface KFRobot
