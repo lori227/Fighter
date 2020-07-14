@@ -13,7 +13,9 @@
   <ItemGroup>
     <ClInclude Include="KFConfig.h" />
     <ClInclude Include="KFDataSetting.h" />
+    <ClInclude Include="KFDropData.h" />
     <ClInclude Include="KFEffectConfig.hpp" />
+    <ClInclude Include="KFExecuteData.h" />
     <ClInclude Include="KFFootConfig.hpp" />
     <ClInclude Include="KFHeroConfig.hpp" />
     <ClInclude Include="KFItemConfig.hpp" />
@@ -22,7 +24,6 @@
     <ClInclude Include="KFNameConfig.hpp" />
     <ClInclude Include="KFSetting.h" />
     <ClInclude Include="KFTimeConfig.h" />
-    <ClInclude Include="KFWeightConfig.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KFEffectConfig.cpp" />
@@ -32,7 +33,6 @@
     <ClCompile Include="KFItemSetting.cpp" />
     <ClCompile Include="KFMatchConfig.cpp" />
     <ClCompile Include="KFNameConfig.cpp" />
-    <ClCompile Include="KFWeightConfig.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F45E974D-4858-4C72-AACD-E2FDEACC01C5}</ProjectGuid>
