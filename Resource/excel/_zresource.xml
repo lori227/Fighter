@@ -43,9 +43,9 @@
 		<File Name="Y-英雄-英雄配置-(后端定义,策划填写).xlsx" Type="3" XmlName="hero" MD5Client="59661e44bfe7d17c3fd478eb04c6c3b9" MD5Server="59661e44bfe7d17c3fd478eb04c6c3b9"/>
 		<File Name="W-玩家-离开游戏-(框架定义,后端维护).xlsx" Type="3" XmlName="leave" MD5Client="" MD5Server="2142355dfc7a593b9d4a18b9b6ebc230"/>
 		<File Name="D-掉落-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="dropclass" MD5Client="b23436e3e9f4daa80e38a6dcab7724c8" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
-		<File Name="W-玩家-基础属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="frameclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 		<File Name="Y-英雄-玩家属性-(框架定义,后端维护).xlsx" Type="3" XmlName="heroclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 		<File Name="W-玩家-进入游戏-(框架定义,后端维护).xlsx" Type="3" XmlName="enter" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
 		<File Name="S-商店-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="storeclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
+		<File Name="W-玩家-框架属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
 	</Files>
 </Config>
