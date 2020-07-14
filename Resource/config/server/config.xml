@@ -7,6 +7,7 @@
 	<item Id="class" Name="achieveclass" FileName="./config/achieveclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="signinclass" FileName="./config/signinclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="heroclass" FileName="./config/heroclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
+	<item Id="class" Name="storeclass" FileName="./config/storeclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="class" FileName="./config/class.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="item" Name="itemcommon" FileName="./config/itemcommon.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="1"/>
 	<item Id="item" Name="itemgift" FileName="./config/itemgift.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
