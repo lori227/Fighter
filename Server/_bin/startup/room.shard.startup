@@ -9,8 +9,8 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFRedis" Config=""/>	
-		<Plugin Name="KFRoomShard" Config=""/>	
-		<Plugin Name="KFDisplay" Config=""/>	
+		<Plugin Name="KFRedis" Param=""/>	
+		<Plugin Name="KFRoomShard" Param=""/>	
+		<Plugin Name="KFDisplay" Param=""/>	
 	</Plugins>
 </Setting>

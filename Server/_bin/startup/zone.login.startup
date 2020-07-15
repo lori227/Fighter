@@ -9,6 +9,6 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFLogin" Config=""/>	
+		<Plugin Name="KFLogin" Param=""/>	
 	</Plugins>
 </Setting>

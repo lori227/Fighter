@@ -4,13 +4,13 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFTimer" Config=""/>	
-		<Plugin Name="KFConfig" Config=""/>	
-		<Plugin Name="KFHttpClient" Config=""/>	
-		<Plugin Name="KFTcpClient" Config=""/>	
-		<Plugin Name="KFMessage" Config=""/>	
-		<Plugin Name="KFIpAddress" Config="./setting/{}_{}_ip.setting"/>	
-		<Plugin Name="KFRobot" Config="./setting/robot.setting"/>	
-		<Plugin Name="KFKernel" Config="./config/class.xml"/>	
+		<Plugin Name="KFTimer" Param=""/>	
+		<Plugin Name="KFParam" Param=""/>	
+		<Plugin Name="KFHttpClient" Param=""/>	
+		<Plugin Name="KFTcpClient" Param=""/>	
+		<Plugin Name="KFMessage" Param=""/>	
+		<Plugin Name="KFIpAddress" Param="./setting/{}_{}_ip.setting"/>	
+		<Plugin Name="KFRobot" Param="./setting/robot.setting"/>	
+		<Plugin Name="KFKernel" Param="./Param/class.xml"/>	
 	</Plugins>
 </Setting>

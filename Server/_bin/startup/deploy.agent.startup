@@ -7,8 +7,8 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFMySQL" Config=""/>
-		<Plugin Name="KFDeployAgent" Config=""/>
-		<Plugin Name="KFSchedule" Config=""/>
+		<Plugin Name="KFMySQL" Param=""/>
+		<Plugin Name="KFDeployAgent" Param=""/>
+		<Plugin Name="KFSchedule" Param=""/>
 	</Plugins>
 </Setting>

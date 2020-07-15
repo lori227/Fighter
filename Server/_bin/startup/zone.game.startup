@@ -10,27 +10,27 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFKernel" Config=""/>	
-		<Plugin Name="KFCondition" Config=""/>	
-		<Plugin Name="KFDrop" Config=""/>		
-		<Plugin Name="KFFilter" Config=""/>		
-		<Plugin Name="KFLua" Config=""/>	
-		<Plugin Name="KFGame" Config=""/>	
-		<Plugin Name="KFDisplay" Config=""/>	
-		<Plugin Name="KFPlayer" Config=""/>	
-		<Plugin Name="KFCommand" Config=""/>
-		<Plugin Name="KFDataClient" Config=""/>	
-		<Plugin Name="KFBasicClient" Config=""/>	
-		<Plugin Name="KFMatchClient" Config=""/>	
-		<Plugin Name="KFRoomClient" Config=""/>	
-		<Plugin Name="KFRelationClient" Config=""/>	
-		<Plugin Name="KFReset" Config=""/>
-		<Plugin Name="KFHero" Config=""/>		
-		<Plugin Name="KFSignIn" Config=""/>		
-		<Plugin Name="KFItem" Config=""/>		
-		<Plugin Name="KFAchieve" Config=""/>		
-		<Plugin Name="KFStore" Config=""/>		
-		<Plugin Name="KFChat" Config=""/>		
-		<Plugin Name="KFRankClient" Config=""/>		
+		<Plugin Name="KFKernel" Param=""/>	
+		<Plugin Name="KFCondition" Param=""/>	
+		<Plugin Name="KFDrop" Param=""/>		
+		<Plugin Name="KFFilter" Param=""/>		
+		<Plugin Name="KFLua" Param=""/>	
+		<Plugin Name="KFGame" Param=""/>	
+		<Plugin Name="KFDisplay" Param=""/>	
+		<Plugin Name="KFPlayer" Param=""/>	
+		<Plugin Name="KFCommand" Param=""/>
+		<Plugin Name="KFDataClient" Param=""/>	
+		<Plugin Name="KFBasicClient" Param=""/>	
+		<Plugin Name="KFMatchClient" Param=""/>	
+		<Plugin Name="KFRoomClient" Param=""/>	
+		<Plugin Name="KFRelationClient" Param=""/>	
+		<Plugin Name="KFReset" Param=""/>
+		<Plugin Name="KFHero" Param=""/>		
+		<Plugin Name="KFSignIn" Param=""/>		
+		<Plugin Name="KFItem" Param=""/>		
+		<Plugin Name="KFAchieve" Param=""/>		
+		<Plugin Name="KFStore" Param=""/>		
+		<Plugin Name="KFChat" Param=""/>		
+		<Plugin Name="KFRankClient" Param=""/>		
 	</Plugins>
 </Setting>

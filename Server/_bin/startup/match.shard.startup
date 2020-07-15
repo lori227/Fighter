@@ -9,7 +9,7 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFMatchShard" Config=""/>	
-		<Plugin Name="KFDisplay" Config=""/>	
+		<Plugin Name="KFMatchShard" Param=""/>	
+		<Plugin Name="KFDisplay" Param=""/>	
 	</Plugins>
 </Setting>

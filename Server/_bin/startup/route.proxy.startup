@@ -9,7 +9,7 @@
 	</Includes>
 
 	<Plugins>
-		<Plugin Name="KFClusterProxy" Config=""/>	
-		<Plugin Name="KFRouteProxy" Config=""/>	
+		<Plugin Name="KFClusterProxy" Param=""/>	
+		<Plugin Name="KFRouteProxy" Param=""/>	
 	</Plugins>
 </Setting>
