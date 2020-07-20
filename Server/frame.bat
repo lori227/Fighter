@@ -156,11 +156,11 @@ if not exist %localpath%\%contribpath%\%subcontribpath% (mkdir %localpath%\%cont
 xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.h %localpath%\%contribpath%\%subcontribpath%\
 xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.inl %localpath%\%contribpath%\%subcontribpath%\
 
-set subcontribpath=KFNetwork
-rd /s /q %localpath%\%contribpath%\%subcontribpath%
-if not exist %localpath%\%contribpath%\%subcontribpath% (mkdir %localpath%\%contribpath%\%subcontribpath% )
-xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.h %localpath%\%contribpath%\%subcontribpath%\
-xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.inl %localpath%\%contribpath%\%subcontribpath%\
+rem set subcontribpath=KFNetwork
+rem rd /s /q %localpath%\%contribpath%\%subcontribpath%
+rem if not exist %localpath%\%contribpath%\%subcontribpath% (mkdir %localpath%\%contribpath%\%subcontribpath% )
+rem xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.h %localpath%\%contribpath%\%subcontribpath%\
+rem xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.inl %localpath%\%contribpath%\%subcontribpath%\
 
 set subcontribpath=KFPlugin
 rd /s /q %localpath%\%contribpath%\%subcontribpath%
@@ -321,7 +321,7 @@ call :CopyInterface KFChannel
 call :CopyInterface KFAccount
 call :CopyInterface KFDirClient
 call :CopyInterface KFDirShard
-call :CopyInterface KFDirAttribute
+call :CopyInterface KFDirDatabase
 
 rem data
 call :CopyInterface KFDataClient
@@ -344,12 +344,12 @@ call :CopyInterface KFRankShard
 rem public
 call :CopyInterface KFBasicClient
 call :CopyInterface KFBasicShard
-call :CopyInterface KFBasicAttribute
+call :CopyInterface KFBasicDatabase
 
 rem relation
 call :CopyInterface KFRelationClient
 call :CopyInterface KFRelationShard
-call :CopyInterface KFRelationAttribute
+call :CopyInterface KFRelationDatabase
 
 rem zone
 call :CopyInterface KFGame

@@ -13,9 +13,9 @@
 		<Plugin Name="KFMongo" Param=""/>
 		<Plugin Name="KFDisplay" Param=""/>	
 		<Plugin Name="KFBasicShard" Param=""/>	
-		<Plugin Name="KFBasicAttribute" Param=""/>	
+		<Plugin Name="KFBasicDatabase" Param=""/>	
 		<Plugin Name="KFRelationShard" Param=""/>	
-		<Plugin Name="KFRelationAttribute" Param=""/>	
+		<Plugin Name="KFRelationDatabase" Param=""/>	
 		<Plugin Name="KFRankShard" Param=""/>	
 		<Plugin Name="KFSchedule" Param=""/>	
 	</Plugins>

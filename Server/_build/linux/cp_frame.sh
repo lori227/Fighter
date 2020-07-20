@@ -68,7 +68,7 @@ cp -f $framebinpath/KFReset$filename.so $binpath/
 cp -f $framebinpath/KFLua$filename.so $binpath/
 cp -f $framebinpath/KFBasicClient$filename.so $binpath/
 cp -f $framebinpath/KFBasicShard$filename.so $binpath/
-cp -f $framebinpath/KFBasicAttribute$filename.so $binpath/
+cp -f $framebinpath/KFBasicDatabase$filename.so $binpath/
 cp -f $framebinpath/KFDrop$filename.so $binpath/
 cp -f $framebinpath/KFUnlock$filename.so $binpath/
 cp -f $framebinpath/KFCondition$filename.so $binpath/
@@ -76,10 +76,10 @@ cp -f $framebinpath/KFExecute$filename.so $binpath/
 cp -f $framebinpath/KFAccount$filename.so $binpath/
 cp -f $framebinpath/KFDirClient$filename.so $binpath/
 cp -f $framebinpath/KFDirShard$filename.so $binpath/
-cp -f $framebinpath/KFDirAttribute$filename.so $binpath/
+cp -f $framebinpath/KFDirDatabase$filename.so $binpath/
 cp -f $framebinpath/KFRelationClient$filename.so $binpath/
 cp -f $framebinpath/KFRelationShard$filename.so $binpath/
-cp -f $framebinpath/KFRelationAttribute$filename.so $binpath/
+cp -f $framebinpath/KFRelationDatabase$filename.so $binpath/
 cp -f $framebinpath/KFAchieve$filename.so $binpath/
 cp -f $framebinpath/KFChat$filename.so $binpath/
 cp -f $framebinpath/KFStore$filename.so $binpath/

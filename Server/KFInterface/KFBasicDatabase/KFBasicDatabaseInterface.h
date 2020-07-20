@@ -1,11 +1,11 @@
-﻿#ifndef __KF_BASIC_ATTRIBUTE_INTERFACE_H__
-#define __KF_BASIC_ATTRIBUTE_INTERFACE_H__
+﻿#ifndef __KF_BASIC_DATABASE_INTERFACE_H__
+#define __KF_BASIC_DATABASE_INTERFACE_H__
 
 #include "KFrame.h"
 
 namespace KFrame
 {
-    class KFBasicAttributeInterface : public KFModule
+    class KFBasicDatabaseInterface : public KFModule
     {
     public:
         // 更新属性
@@ -34,7 +34,7 @@ namespace KFrame
     };
 
     //////////////////////////////////////////////////////////////////////////////////
-    __KF_INTERFACE__( _kf_basic_attribute, KFBasicAttributeInterface );
+    __KF_INTERFACE__( _kf_basic_database, KFBasicDatabaseInterface );
     //////////////////////////////////////////////////////////////////////////////////
 
 }

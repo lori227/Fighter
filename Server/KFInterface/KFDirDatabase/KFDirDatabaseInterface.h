@@ -1,11 +1,11 @@
-﻿#ifndef __KF_DIR_ATTRIBUTE_INTERFACE_H__
-#define __KF_DIR_ATTRIBUTE_INTERFACE_H__
+﻿#ifndef __KF_DIR_DATABASE_INTERFACE_H__
+#define __KF_DIR_DATABASE_INTERFACE_H__
 
 #include "KFrame.h"
 
 namespace KFrame
 {
-    class KFDirAttributeInterface : public KFModule
+    class KFDirDatabaseInterface : public KFModule
     {
     public:
         // 小区注册
@@ -51,7 +51,7 @@ namespace KFrame
         virtual StringMapList QueryMasterList( KFJson& masterdata ) = 0;
     };
     /////////////////////////////////////////////////////////////////////////////////
-    __KF_INTERFACE__( _kf_dir_attribute, KFDirAttributeInterface );
+    __KF_INTERFACE__( _kf_dir_database, KFDirDatabaseInterface );
     /////////////////////////////////////////////////////////////////////////////////
 }
 

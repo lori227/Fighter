@@ -1,12 +1,12 @@
-﻿#ifndef __KF_RELATION_ATTRIBUTE_INTERFACE_H__
-#define __KF_RELATION_ATTRIBUTE_INTERFACE_H__
+﻿#ifndef __KF_RELATION_DATABASE_INTERFACE_H__
+#define __KF_RELATION_DATABASE_INTERFACE_H__
 
 #include "KFrame.h"
 
 namespace KFrame
 {
     typedef std::map<uint64, StringMap> RelationListType;
-    class KFRelationAttributeInterface : public KFModule
+    class KFRelationDatabaseInterface : public KFModule
     {
     public:
         // 查询关系列表
@@ -38,7 +38,7 @@ namespace KFrame
     };
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    __KF_INTERFACE__( _kf_relation_attribute, KFRelationAttributeInterface );
+    __KF_INTERFACE__( _kf_relation_database, KFRelationDatabaseInterface );
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 #endif
