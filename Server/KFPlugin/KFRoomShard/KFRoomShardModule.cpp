@@ -223,7 +223,7 @@ namespace KFrame
             // 先保存到数据库
             auto pbbalance = &kfmsg.balance();
             auto strdata = KFProto::Serialize( pbbalance, KFCompressEnum::ZSTD, 5u, true );
-            auto kfresult = _room_redis->HSet( __REDIS_KEY_2__( __STRING__( balance ), kfmsg.playerid() ), kfmsg.roomid(), strdata );
+            auto kfresult = _room_redis->HSet( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg.playerid() ), kfmsg.roomid(), strdata );
             if ( !kfresult->IsOk() )
             {
                 return __LOG_ERROR__( "player=[{}] balance save failed!", kfmsg.playerid() );
@@ -255,7 +255,7 @@ namespace KFrame
         __PROTO_PARSE__( KFMsg::S2SPlayerBalanceToRoomResult );
         __LOG_DEBUG__( "room=[{}] player=[{}] balance ok!", kfmsg.roomid(), kfmsg.playerid() );
 
-        auto kfresult = _room_redis->HDel( __REDIS_KEY_2__( __STRING__( balance ), kfmsg.playerid() ), kfmsg.roomid() );
+        auto kfresult = _room_redis->HDel( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg.playerid() ), kfmsg.roomid() );
         if ( !kfresult->IsOk() )
         {
             return __LOG_ERROR__( "player=[{}] balance failed!", kfmsg.playerid() );
@@ -266,7 +266,7 @@ namespace KFrame
     {
         __PROTO_PARSE__( KFMsg::S2SQueryBalanceToRoomReq );
 
-        auto kfresult = _room_redis->HGetAll( __REDIS_KEY_2__( __STRING__( balance ), kfmsg.playerid() ) );
+        auto kfresult = _room_redis->HGetAll( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg.playerid() ) );
         for ( auto& iter : kfresult->_value )
         {
             KFMsg::PBBattleBalance pbbalance;
