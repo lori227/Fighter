@@ -4,8 +4,8 @@ namespace KFrame
 {
     void KFMatchClientModule::BeforeRun()
     {
-        __REGISTER_ENTER_PLAYER__( &KFMatchClientModule::OnEnterQueryMatch );
-        __REGISTER_LEAVE_PLAYER__( &KFMatchClientModule::OnLeaveCancelMatch );
+        __REGISTER_PLAYER_ENTER__( &KFMatchClientModule::OnEnterQueryMatch );
+        __REGISTER_PLAYER_LEAVE__( &KFMatchClientModule::OnLeaveCancelMatch );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_START_MATCH_REQ, &KFMatchClientModule::HandleStartMatchReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleStartMatchToGameAck );
@@ -26,8 +26,8 @@ namespace KFrame
 
     void KFMatchClientModule::BeforeShut()
     {
-        __UN_ENTER_PLAYER__();
-        __UN_LEAVE_PLAYER__();
+        __UN_PLAYER_ENTER__();
+        __UN_PLAYER_LEAVE__();
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_START_MATCH_REQ );
         __UN_MESSAGE__( KFMsg::S2S_START_MATCH_TO_GAME_ACK );
@@ -45,7 +45,7 @@ namespace KFrame
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    __KF_ENTER_PLAYER_FUNCTION__( KFMatchClientModule::OnEnterQueryMatch )
+    __KF_PLAYER_ENTER_FUNCTION__( KFMatchClientModule::OnEnterQueryMatch )
     {
         auto matchid = player->Get( __STRING__( matchid ) );
         if ( matchid == _invalid_int )
@@ -75,7 +75,7 @@ namespace KFrame
         __LOG_DEBUG__( "player=[{}] query no match", player->GetKeyID() );
     }
 
-    __KF_LEAVE_PLAYER_FUNCTION__( KFMatchClientModule::OnLeaveCancelMatch )
+    __KF_PLAYER_LEAVE_FUNCTION__( KFMatchClientModule::OnLeaveCancelMatch )
     {
         auto matchid = player->Get( __STRING__( matchid ) );
         if ( matchid == _invalid_int )

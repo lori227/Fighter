@@ -9,12 +9,8 @@ namespace KFrame
     class KFInterface
     {
     public:
-        KFInterface()
-        {
-            _kf_plugin_manage = nullptr;
-        }
-
-        virtual ~KFInterface() {};
+        KFInterface() = default;
+        virtual ~KFInterface() = default;
 
         // 释放
         virtual void Release() {};
@@ -34,6 +30,7 @@ namespace KFrame
 
         // 执行一次
         virtual void PrepareRun() = 0;
+        virtual void Run() = 0;
 
         // 关闭
         virtual void BeforeShut() = 0;
@@ -48,7 +45,7 @@ namespace KFrame
         std::string _plugin_name;
 
         // 插件管理
-        KFPluginManage* _kf_plugin_manage;
+        KFPluginManage* _kf_plugin_manage = nullptr;
     };
 }
 

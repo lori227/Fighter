@@ -17,8 +17,8 @@ namespace KFrame
         __REGISTER_CHECK_REMOVE_ELEMENT__( __STRING__( item ), &KFItemModule::CheckRemoveItemElement );
         __REGISTER_REMOVE_ELEMENT__( __STRING__( item ), &KFItemModule::RemoveItemElement );
         ///////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_ENTER_PLAYER__( &KFItemModule::OnEnterItemModule );
-        __REGISTER_LEAVE_PLAYER__( &KFItemModule::OnLeaveItemModule );
+        __REGISTER_PLAYER_ENTER__( &KFItemModule::OnEnterItemModule );
+        __REGISTER_PLAYER_LEAVE__( &KFItemModule::OnLeaveItemModule );
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_REMOVE_ITEM_REQ, &KFItemModule::HandleRemoveItemReq );
     }
@@ -38,8 +38,8 @@ namespace KFrame
         __UN_CHECK_REMOVE_ELEMENT__( __STRING__( item ) );
         __UN_REMOVE_ELEMENT__( __STRING__( item ) );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __UN_ENTER_PLAYER__();
-        __UN_LEAVE_PLAYER__();
+        __UN_PLAYER_ENTER__();
+        __UN_PLAYER_LEAVE__();
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_REMOVE_ITEM_REQ );
     }
@@ -466,7 +466,7 @@ namespace KFrame
         }
     }
 
-    __KF_ENTER_PLAYER_FUNCTION__( KFItemModule::OnEnterItemModule )
+    __KF_PLAYER_ENTER_FUNCTION__( KFItemModule::OnEnterItemModule )
     {
         auto kfitemrecord = player->Find( __STRING__( item ) );
         for ( auto kfitem = kfitemrecord->First(); kfitem != nullptr; kfitem = kfitemrecord->Next() )
@@ -479,7 +479,7 @@ namespace KFrame
         }
     }
 
-    __KF_LEAVE_PLAYER_FUNCTION__( KFItemModule::OnLeaveItemModule )
+    __KF_PLAYER_LEAVE_FUNCTION__( KFItemModule::OnLeaveItemModule )
     {
         __UN_TIMER_1__( player->GetKeyID() );
     }

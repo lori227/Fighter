@@ -74,10 +74,10 @@ namespace KFrame
         __KF_TIMER_FUNCTION__( OnTimerRemoveTimeItem );
 
         // 进入游戏
-        __KF_ENTER_PLAYER_FUNCTION__( OnEnterItemModule );
+        __KF_PLAYER_ENTER_FUNCTION__( OnEnterItemModule );
 
         // 离开游戏
-        __KF_LEAVE_PLAYER_FUNCTION__( OnLeaveItemModule );
+        __KF_PLAYER_LEAVE_FUNCTION__( OnLeaveItemModule );
 
     protected:
         //背包是否满了

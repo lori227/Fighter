@@ -10,7 +10,7 @@ namespace KFrame
         __REGISTER_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, &KFRoomClientModule::HandleFinishRoomToGameReq );
         __REGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &KFRoomClientModule::HandleBalanceToGameReq );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_ENTER_PLAYER__( &KFRoomClientModule::OnEnterQueryRoom );
+        __REGISTER_PLAYER_ENTER__( &KFRoomClientModule::OnEnterQueryRoom );
     }
 
     void KFRoomClientModule::BeforeShut()
@@ -21,7 +21,7 @@ namespace KFrame
         __UN_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ );
         __UN_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __UN_ENTER_PLAYER__();
+        __UN_PLAYER_ENTER__();
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleToGameReq )
@@ -63,7 +63,7 @@ namespace KFrame
         player->UpdateData( __STRING__( ranking ), KFEnum::Set, 0u );
     }
 
-    __KF_ENTER_PLAYER_FUNCTION__( KFRoomClientModule::OnEnterQueryRoom )
+    __KF_PLAYER_ENTER_FUNCTION__( KFRoomClientModule::OnEnterQueryRoom )
     {
         // 查询结算数据
         {

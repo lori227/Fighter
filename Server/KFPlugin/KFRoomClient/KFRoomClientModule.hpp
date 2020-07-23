@@ -49,7 +49,7 @@ namespace KFrame
 
     protected:
         // 上线查新
-        __KF_ENTER_PLAYER_FUNCTION__( OnEnterQueryRoom );
+        __KF_PLAYER_ENTER_FUNCTION__( OnEnterQueryRoom );
 
         // 设置房间信息
         void SetRoomData( KFEntity* player, uint64 roomid, uint64 roomserverid );

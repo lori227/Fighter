@@ -74,10 +74,10 @@ namespace KFrame
         __KF_MESSAGE_FUNCTION__( HandleInviteMatchReq );
     protected:
         // 上线查询匹配
-        __KF_ENTER_PLAYER_FUNCTION__( OnEnterQueryMatch );
+        __KF_PLAYER_ENTER_FUNCTION__( OnEnterQueryMatch );
 
         // 下线取消匹配
-        __KF_LEAVE_PLAYER_FUNCTION__( OnLeaveCancelMatch );
+        __KF_PLAYER_LEAVE_FUNCTION__( OnLeaveCancelMatch );
     protected:
         // 判断是否能匹配
         bool CheckCanMatch( KFEntity* player, uint32 matchid );
