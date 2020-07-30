@@ -23,7 +23,7 @@
 		<File Name="K-框架-屏蔽字符-(框架定义,策划填写).xlsx" Type="3" XmlName="filter" MD5Client="f80e5209391a72a8a154c6031f91fc22" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
 		<File Name="K-框架-屏蔽字符-(框架维护,请勿修改).xlsx" Type="3" XmlName="framefilter" MD5Client="f80e5209391a72a8a154c6031f91fc22" MD5Server="f80e5209391a72a8a154c6031f91fc22"/>
 		<File Name="W-玩家-属性重置-(框架定义,策划填写).xlsx" Type="3" XmlName="reset" MD5Client="" MD5Server="1a69dcacf399784f364b5dc8c1ac9ab8"/>
-		<File Name="K-框架-时间配置-(框架定义,策划填写).xlsx" Type="3" XmlName="time" MD5Client="2064482b93c87aeae6733a8f9c6e149e" MD5Server="2064482b93c87aeae6733a8f9c6e149e"/>
+		<File Name="K-框架-时间配置-(框架定义,策划填写).xlsx" Type="3" XmlName="time" MD5Client="2064482b93c87aeae6733a8f9c6e149e" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 		<File Name="K-框架-条件定义-(框架定义,后端维护).xlsx" Type="3" XmlName="conditiondefine" MD5Client="1bbbd2724afb72cdc58b1112c39a86cf" MD5Server="1bbbd2724afb72cdc58b1112c39a86cf"/>
 		<File Name="K-框架-条件配置-(框架定义,策划填写).xlsx" Type="3" XmlName="condition" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
 		<File Name="K-框架-次数花费-(框架定义,策划填写).xlsx" Type="3" XmlName="countcost" MD5Client="26230a675935caa816f4034dd7755339" MD5Server="26230a675935caa816f4034dd7755339"/>
@@ -46,6 +46,6 @@
 		<File Name="Y-英雄-玩家属性-(框架定义,后端维护).xlsx" Type="3" XmlName="heroclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 		<File Name="W-玩家-进入游戏-(框架定义,后端维护).xlsx" Type="3" XmlName="enter" MD5Client="" MD5Server="6afc3a64dc2e283e3f65a491f1c0e781"/>
 		<File Name="S-商店-玩家属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="storeclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
-		<File Name="W-玩家-框架属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="" MD5Client="" MD5Server=""/>
+		<File Name="W-玩家-框架属性-(框架维护,请勿修改).xlsx" Type="3" XmlName="frameclass" MD5Client="" MD5Server="b23436e3e9f4daa80e38a6dcab7724c8"/>
 	</Files>
 </Config>

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Setting>
 	<Includes>
-		<Include File="./startup/common/common.startup"/>
 		<Include File="./startup/common/httpserver.startup"/>
 		<Include File="./startup/common/tcpserver.startup"/>
 	</Includes>
 
 	<Plugins>
+		<Plugin Name="KFDelayed" Param=""/>
 		<Plugin Name="KFMySQL" Param=""/>
-		<Plugin Name="KFSchedule" Param=""/>
 		<Plugin Name="KFDeployServer" Param=""/>
 	</Plugins>
 </Setting>

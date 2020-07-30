@@ -2,6 +2,7 @@
 <Setting>
 	<Plugins>
 		<Plugin Name="KFTimer" Param=""/>
+		<Plugin Name="KFConfig" Param=""/>	
 		<Plugin Name="KFMessage" Param=""/>
 		<Plugin Name="KFTcpClient" Param=""/>
 		<Plugin Name="KFDeployClient" Param=""/>
