@@ -1,0 +1,22 @@
+#ifndef __KF_FIGHT_INTERFACE_H__
+#define __KF_FIGHT_INTERFACE_H__
+
+#include "KFrame.h"
+
+namespace KFrame
+{
+    class KFFightInterface : public KFModule
+    {
+    public:
+
+    };
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    __KF_INTERFACE__( _kf_fight, KFFightInterface );
+    //////////////////////////////////////////////////////////////////////////////////////
+
+}
+
+
+
+#endif

@@ -21,8 +21,7 @@
 		<Plugin Name="KFCommand" Param=""/>
 		<Plugin Name="KFDataClient" Param=""/>	
 		<Plugin Name="KFBasicClient" Param=""/>	
-		<Plugin Name="KFMatchClient" Param=""/>	
-		<Plugin Name="KFRoomClient" Param=""/>	
+		<Plugin Name="KFRankClient" Param=""/>		
 		<Plugin Name="KFRelationClient" Param=""/>	
 		<Plugin Name="KFReset" Param=""/>
 		<Plugin Name="KFHero" Param=""/>		
@@ -31,6 +30,8 @@
 		<Plugin Name="KFAchieve" Param=""/>		
 		<Plugin Name="KFStore" Param=""/>		
 		<Plugin Name="KFChat" Param=""/>		
-		<Plugin Name="KFRankClient" Param=""/>		
+		<Plugin Name="KFFight" Param=""/>	
+		<Plugin Name="KFMatchClient" Param=""/>	
+		<Plugin Name="KFRoomClient" Param=""/>		
 	</Plugins>
 </Setting>

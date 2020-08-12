@@ -36,6 +36,11 @@ namespace KFrame
         __STRING_DEFINE__( foot );
         __STRING_DEFINE__( footid );
         __STRING_DEFINE__( effectid );
+        __STRING_DEFINE__( score );
+        __STRING_DEFINE__( today );
+        __STRING_DEFINE__( yestoday );
+        __STRING_DEFINE__( ever );
+
     }
 }
 
