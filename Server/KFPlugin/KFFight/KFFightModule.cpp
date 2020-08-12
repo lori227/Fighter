@@ -31,7 +31,7 @@ namespace KFrame
             auto todayscore = kfsocre->Get( __STRING__( today ) );
 
             player->UpdateData( kfsocre, __STRING__( today ), KFEnum::Set, 0u );
-            player->UpdateData( kfsocre, __STRING__( yestoday ), KFEnum::Set, todayscore );
+            player->UpdateData( kfsocre, __STRING__( yesterday ), KFEnum::Set, todayscore );
         }
     }
 
