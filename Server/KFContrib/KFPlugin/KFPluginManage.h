@@ -64,7 +64,8 @@
 #define __REGISTER_MODULE__( modulename ) \
     {\
         auto kfmodule = __NEW_OBJECT__( modulename##Module ); \
-        _kf_plugin_manage->RegistModule< modulename##Interface >( this, kfmodule );\
+        kfmodule->_plugin_name = #modulename;\
+        _kf_plugin_manage->RegistModule < modulename##Interface >( this, kfmodule );\
         __REGISTER_PLUGIN__( modulename##Module, Run );\
         __REGISTER_PLUGIN__( modulename##Module, AfterRun );\
     }\
@@ -123,6 +124,12 @@ namespace KFrame
 
         // 加载模块
         void LoadModule();
+
+        // 加载完成
+        void AfterLoad();
+
+        // 设置模块开关
+        void SetModuleOpen( const std::string& modulename, bool isopen );
         /////////////////////////////////////////////////////////////////////////
 
         // 注册插件
@@ -173,10 +180,10 @@ namespace KFrame
         }
         /////////////////////////////////////////////////////////////////
         template< class T >
-        void RegisterCommandFunction( const std::string& command, T* object, void ( T::*handle )( const StringVector& ) )
+        void RegisterCommandFunction( const std::string& command, T* module, void ( T::*handle )( const StringVector& ) )
         {
             auto kffunction = _command_functions.Create( command );
-            kffunction->_function = std::bind( handle, object, std::placeholders::_1 );
+            kffunction->_function = std::bind( handle, module, std::placeholders::_1 );
         }
 
         void UnRegisterCommandFunction( const std::string& command )
@@ -186,7 +193,7 @@ namespace KFrame
 
         /////////////////////////////////////////////////////////////////
         template< class T >
-        bool RegisterRunFunction( uint32 sort, T* object, void ( T::*handle )() )
+        bool RegisterRunFunction( uint32 sort, T* module, void ( T::*handle )() )
         {
             auto kffunction = _run_functions.Find( sort );
             if ( kffunction != nullptr )
@@ -195,7 +202,8 @@ namespace KFrame
             }
 
             kffunction = _run_functions.Create( sort );
-            kffunction->_function = std::bind( handle, object );
+            kffunction->_module = module;
+            kffunction->_function = std::bind( handle, module );
             return true;
         }
 
@@ -206,7 +214,7 @@ namespace KFrame
 
         /////////////////////////////////////////////////////////////////
         template< class T >
-        bool RegisterAfterRunFunction( uint32 sort, T* object, void ( T::*handle )( ) )
+        bool RegisterAfterRunFunction( uint32 sort, T* module, void ( T::*handle )( ) )
         {
             auto kffunction = _after_run_functions.Find( sort );
             if ( kffunction != nullptr )
@@ -215,7 +223,8 @@ namespace KFrame
             }
 
             kffunction = _after_run_functions.Create( sort );
-            kffunction->_function = std::bind( handle, object );
+            kffunction->_module = module;
+            kffunction->_function = std::bind( handle, module );
             return true;
         }
 
@@ -238,10 +247,6 @@ namespace KFrame
 
         // 加载配置
         void LoadConfig();
-
-    public:
-        // 加载完成
-        void AfterLoad();
 
     protected:
         // 准备执行
@@ -273,11 +278,11 @@ namespace KFrame
 
         // 命令列表
         KFQueue< KFDebugCommand > _commands;
-        KFBind< std::string, const std::string&, KFCmdFunction > _command_functions;
+        KFFunctionMap< std::string, const std::string&, KFCmdFunction > _command_functions;
 
         // 注册的Run函数
-        KFBind< uint32, uint32, KFRunFunction > _run_functions;
-        KFBind< uint32, uint32, KFRunFunction > _after_run_functions;
+        KFFunctionMap< uint32, uint32, KFRunFunction > _run_functions;
+        KFFunctionMap< uint32, uint32, KFRunFunction > _after_run_functions;
     };
 }
 

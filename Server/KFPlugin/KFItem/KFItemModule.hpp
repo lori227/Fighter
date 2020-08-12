@@ -108,9 +108,8 @@ namespace KFrame
         // 玩家组件上下文
         KFComponent* _kf_component = nullptr;
 
-
         // 初始化
-        KFBind<uint32, uint32, KFItemFunction > _init_item_function;
+        KFFunctionMap< uint32, uint32, KFItemFunction > _init_item_function;
     };
 }
 

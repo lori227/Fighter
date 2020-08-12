@@ -10,10 +10,10 @@ namespace KFrame
     public:
         // 添加消息函数
         template<typename T>
-        void RegisterFunction( uint32 msgid, T* object, void ( T::*handle )( const Route&, uint32, const char*, uint32 ) )
+        void RegisterFunction( uint32 msgid, T* module, void ( T::*handle )( const Route&, uint32, const char*, uint32 ) )
         {
-            KFMessageFunction function = std::bind( handle, object, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4 );
-            AddFunction( msgid, function );
+            KFMessageFunction function = std::bind( handle, module, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4 );
+            AddFunction( module, msgid, function );
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -22,9 +22,13 @@ namespace KFrame
 
         // 调用函数
         virtual bool CallFunction( const Route& route, uint32 msgid, const char* data, uint32 length ) = 0;
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // 关闭消息处理
+        virtual bool OpenFunction( uint32 msgid, bool open ) = 0;
+
     protected:
         // 添加消息函数
-        virtual void AddFunction( uint32 msgid, KFMessageFunction& function ) = 0;
+        virtual void AddFunction( KFModule* module, uint32 msgid, KFMessageFunction& function ) = 0;
     };
 
 
