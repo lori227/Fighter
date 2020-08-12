@@ -1,4 +1,5 @@
 <root version="00000">
 	<item StartMinute="0" Id="1" Type="1" Flag="4" StartYear="0" StartMonth="0" StartDay="0" StartDayOfWeek="1" StartHour="0" EndYear="0" EndMonth="0" EndDay="0" EndDayOfWeek="0" EndHour="0" EndMinute="0"/>
 	<item StartMinute="0" Id="2" Type="1" Flag="3" StartYear="0" StartMonth="0" StartDay="0" StartDayOfWeek="0" StartHour="0" EndYear="0" EndMonth="0" EndDay="0" EndDayOfWeek="0" EndHour="0" EndMinute="0"/>
+	<item StartMinute="300" Id="101" Type="1" Flag="1" StartYear="0" StartMonth="0" StartDay="0" StartDayOfWeek="0" StartHour="0" EndYear="0" EndMonth="0" EndDay="0" EndDayOfWeek="0" EndHour="0" EndMinute="0"/>
 </root>
