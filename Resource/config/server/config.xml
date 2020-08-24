@@ -1,6 +1,8 @@
 <root version="00000">
 	<item Id="constant" Name="constant" FileName="./config/constant.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="condition" Name="achievecondition" FileName="./config/achievecondition.xml" Reload="1" ClearData="1" ClearFile="1" ChildFile="0"/>
+	<item Id="condition" Name="taskcondition" FileName="./config/taskcondition.xml" Reload="1" ClearData="1" ClearFile="1" ChildFile="0"/>
+	<item Id="execute" Name="taskexecute" FileName="./config/taskexecute.xml" Reload="1" ClearData="1" ClearFile="1" ChildFile="0"/>
 	<item Id="filter" Name="filter" FileName="./config/filter.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="dropclass" FileName="./config/dropclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="relationclass" FileName="./config/relationclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
@@ -9,6 +11,7 @@
 	<item Id="class" Name="heroclass" FileName="./config/heroclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="storeclass" FileName="./config/storeclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="itemclass" FileName="./config/itemclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
+	<item Id="class" Name="taskclass" FileName="./config/taskclass.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="class" Name="class" FileName="./config/class.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="item" Name="itemcommon" FileName="./config/itemcommon.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="1"/>
 	<item Id="item" Name="itemgift" FileName="./config/itemgift.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>

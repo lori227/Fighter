@@ -26,6 +26,8 @@
 	<item Id="store" Name="store" FileName="./config/store.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="storeunlock" Name="storeunlock" FileName="./config/storeunlock.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="task" Name="task" FileName="./config/task.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
+	<item Id="taskchain" Name="taskchain" FileName="./config/taskchain.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
+	<item Id="taskchainrefresh" Name="taskchainrefresh" FileName="./config/taskchainrefresh.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="achieve" Name="achieve" FileName="./config/achieve.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>
 	<item Id="constant" Name="frameconstant" FileName="./config/frameconstant.xml" Reload="1" ClearData="0" ClearFile="0" ChildFile="0"/>
 	<item Id="dropgroup" Name="dropgroup" FileName="./config/dropgroup.xml" Reload="1" ClearData="1" ClearFile="0" ChildFile="0"/>

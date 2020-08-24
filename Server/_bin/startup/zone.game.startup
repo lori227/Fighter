@@ -31,6 +31,7 @@
 		<Plugin Name="KFStore" Param=""/>		
 		<Plugin Name="KFChat" Param=""/>		
 		<Plugin Name="KFFight" Param=""/>	
+		<Plugin Name="KFTask" Param=""/>	
 		<Plugin Name="KFMatchClient" Param=""/>	
 		<Plugin Name="KFRoomClient" Param=""/>		
 	</Plugins>

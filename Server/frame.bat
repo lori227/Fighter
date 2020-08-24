@@ -363,8 +363,6 @@ rem player
 call :CopyInterface KFCommand
 call :CopyInterface KFDrop
 call :CopyInterface KFReset
-call :CopyInterface KFReset
-call :CopyInterface KFReset
 call :CopyInterface KFUnlock
 call :CopyInterface KFExecute
 
@@ -373,6 +371,7 @@ rem logic
 call :CopyInterface KFChat
 call :CopyInterface KFAchieve
 call :CopyInterface KFStore
+call :CopyInterface KFTask
 
 rem Robot
 rem call :CopyInterface KFRobot
