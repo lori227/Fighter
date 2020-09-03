@@ -1,24 +1,24 @@
 <root version="0000">
-	<item name="relationclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
 	<item name="achieveclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
 	<item name="relation" version="853e2e65556d73bc9cd3a3037e64ab30" />
 	<item name="achievecondition" version="26230a675935caa816f4034dd7755339" />
 	<item name="achieve" version="157161f13230b8816e94f0cdac0f618f" />
-	<item name="itemclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
-	<item name="dropdata" version="cfe8facdea232d1f3c8f6846337a8753" />
+	<item name="relationclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
 	<item name="class" version="b23436e3e9f4daa80e38a6dcab7724c8" />
 	<item name="itemcommon" version="a68ead0399a6a081032fe175444a5e35" />
+	<item name="itemclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
+	<item name="dropdata" version="cfe8facdea232d1f3c8f6846337a8753" />
 	<item name="dropgroup" version="42286aa281059fa439a7069efa3fb439" />
 	<item name="itemgift" version="c3a0627d6c2dba829f4fe225dce38c59" />
-	<item name="match" version="8aff622bc21b150c08fa6e53ba5cd667" />
 	<item name="frameconstant" version="26230a675935caa816f4034dd7755339" />
+	<item name="match" version="8aff622bc21b150c08fa6e53ba5cd667" />
 	<item name="constant" version="26230a675935caa816f4034dd7755339" />
-	<item name="reward" version="bd223fa2bfa074d4eac09e89f54062db" />
 	<item name="taskexecute" version="26230a675935caa816f4034dd7755339" />
+	<item name="reward" version="bd223fa2bfa074d4eac09e89f54062db" />
 	<item name="filter" version="f80e5209391a72a8a154c6031f91fc22" />
 	<item name="framefilter" version="f80e5209391a72a8a154c6031f91fc22" />
-	<item name="reset" version="1a69dcacf399784f364b5dc8c1ac9ab8" />
 	<item name="time" version="b23436e3e9f4daa80e38a6dcab7724c8" />
+	<item name="reset" version="1a69dcacf399784f364b5dc8c1ac9ab8" />
 	<item name="conditiondefine" version="1bbbd2724afb72cdc58b1112c39a86cf" />
 	<item name="condition" version="26230a675935caa816f4034dd7755339" />
 	<item name="countcost" version="26230a675935caa816f4034dd7755339" />
@@ -26,20 +26,20 @@
 	<item name="config" version="5413ae5c713b9ca88d2b4cfd4a937866" />
 	<item name="frameconfig" version="5413ae5c713b9ca88d2b4cfd4a937866" />
 	<item name="weightpool" version="1ccbf93857526284e98047594a4d9013" />
-	<item name="name" version="847ff4fe467a40d77281778fead65186" />
 	<item name="task" version="26230a675935caa816f4034dd7755339" />
-	<item name="foot" version="e9461a5629406486c6be3b3afbd5c262" />
+	<item name="name" version="847ff4fe467a40d77281778fead65186" />
 	<item name="rank" version="b23436e3e9f4daa80e38a6dcab7724c8" />
-	<item name="effect" version="afc3b0b7279298b4e2db3726cb54f814" />
-	<item name="signin" version="aebb8154fecd5a5d8bf672fb131dc120" />
+	<item name="foot" version="e9461a5629406486c6be3b3afbd5c262" />
 	<item name="signinclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
+	<item name="signin" version="aebb8154fecd5a5d8bf672fb131dc120" />
+	<item name="effect" version="afc3b0b7279298b4e2db3726cb54f814" />
 	<item name="goods" version="5636bbe1cd096cca0132d826f9547feb" />
-	<item name="player" version="2e7064d3dc4041854f4667273cc3e128" />
 	<item name="store" version="26230a675935caa816f4034dd7755339" />
+	<item name="player" version="2e7064d3dc4041854f4667273cc3e128" />
 	<item name="hero" version="59661e44bfe7d17c3fd478eb04c6c3b9" />
-	<item name="leave" version="2142355dfc7a593b9d4a18b9b6ebc230" />
-	<item name="dropclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
 	<item name="taskchainrefresh" version="b23436e3e9f4daa80e38a6dcab7724c8" />
+	<item name="dropclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
+	<item name="leave" version="2142355dfc7a593b9d4a18b9b6ebc230" />
 	<item name="heroclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
 	<item name="enter" version="6afc3a64dc2e283e3f65a491f1c0e781" />
 	<item name="storeclass" version="b23436e3e9f4daa80e38a6dcab7724c8" />
