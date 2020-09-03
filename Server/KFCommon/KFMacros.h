@@ -182,5 +182,42 @@
     #define __DATABASE_KEY_4__( key1, key2, key3, key4 ) __FORMAT__( "{}:{}:{}:{}", key1, key2, key3, key4 )
 #endif
 //////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef __MAX_LOOP_COUNT__
+    #define __MAX_LOOP_COUNT__ 100000u
+#endif
+
+// 有计数上限的安全的do while循环, 防止死循环
+#ifndef __DO__
+#define __DO__ \
+    auto doloopcount = 0u;do
+#endif
+
+#ifndef __DO_WHILE__
+#define __DO_WHILE__(conditon) \
+    while( (conditon) && (++doloopcount < __MAX_LOOP_COUNT__) );\
+    if ( doloopcount >= __MAX_LOOP_COUNT__ )\
+    {\
+        __LOG_ERROR__( "infinite loop!");\
+    }
+#endif
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// 有计数上限的安全的while循环, 防止死循环
+#ifndef __SAFE_WHILE__
+#define __SAFE_WHILE__(conditon) \
+    auto whileloopcount = 0u;\
+    while( (conditon) && (++whileloopcount < __MAX_LOOP_COUNT__) );
+#endif
+
+#ifndef __SAFE_WHILE_END__
+#define __SAFE_WHILE_END__\
+    if ( whileloopcount >= __MAX_LOOP_COUNT__ )\
+    {\
+        __LOG_ERROR__( "infinite loop!");\
+    }
+#endif
+//////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef __BETWEEN__
+    #define __BETWEEN__(value, min, max) ((value) >= (min) && (value) < (max))
+#endif
 
 #endif //!__KF_MACROS_H__
