@@ -12,6 +12,7 @@
 	<Plugins>
 		<Plugin Name="KFKernel" Param=""/>	
 		<Plugin Name="KFCondition" Param=""/>	
+		<Plugin Name="KFExecute" Param=""/>	
 		<Plugin Name="KFDrop" Param=""/>		
 		<Plugin Name="KFFilter" Param=""/>		
 		<Plugin Name="KFLua" Param=""/>	
