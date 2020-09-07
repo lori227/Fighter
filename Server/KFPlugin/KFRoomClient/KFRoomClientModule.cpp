@@ -100,7 +100,7 @@ namespace KFrame
         }
         else
         {
-            player->SetStatus( KFMsg::RoomStatus );
+            player->SetStatus( KFMsg::PlayingStatus );
         }
     }
 
