@@ -216,7 +216,7 @@ namespace KFrame
         if ( !finditem.empty() )
         {
             kfitem = finditem.front();
-            player->UpdateObjectData( kfitem, __STRING__( time ), KFEnum::Add, count * time );
+            player->UpdateObject( kfitem, __STRING__( time ), KFEnum::Add, count * time );
         }
         else
         {
@@ -246,7 +246,7 @@ namespace KFrame
             }
 
             // 更新数量
-            player->UpdateObjectData( kfitem, __STRING__( count ), KFEnum::Add, addcount );
+            player->UpdateObject( kfitem, __STRING__( count ), KFEnum::Add, addcount );
             count -= addcount;
             totaladdcount += addcount;
             if ( count == 0u )
@@ -314,7 +314,7 @@ namespace KFrame
 
         // 添加新的物品
         count -= addcount;
-        player->AddRecordData( kfparent, uuid, kfitem );
+        player->AddRecord( kfparent, uuid, kfitem );
         return kfitem;
     }
 
@@ -326,7 +326,7 @@ namespace KFrame
         }
 
         // 数量为0, 删除道具
-        player->RemoveRecordData( kfdata->GetParent()->GetParent(), key );
+        player->RemoveRecord( kfdata->GetParent()->GetParent(), key );
     }
 
     bool KFItemModule::CallItemLuaFunction( KFEntity* player, uint32 functiontype, const KFItemSetting* kfsetting, uint32 itemcount )
@@ -431,7 +431,7 @@ namespace KFrame
         for ( auto kfitem : finditem )
         {
             auto removecount = __MIN__( itemcount, kfitem->Get<uint32>( __STRING__( count ) ) );
-            player->UpdateObjectData( kfitem, __STRING__( count ), KFEnum::Dec, removecount );
+            player->UpdateObject( kfitem, __STRING__( count ), KFEnum::Dec, removecount );
             itemcount -= removecount;
             kfresult->AddResult( kfsetting->_id, kfitem->_data_setting->_name, __STRING__( count ), removecount );
             if ( itemcount == _invalid_int )
@@ -505,7 +505,7 @@ namespace KFrame
             return;
         }
 
-        player->RemoveRecordData( __STRING__( item ), subid );
+        player->RemoveRecord( __STRING__( item ), subid );
     }
 
     __KF_MESSAGE_FUNCTION__( KFItemModule::HandleRemoveItemReq )
@@ -516,11 +516,11 @@ namespace KFrame
 
         if ( kfmsg.uuid() == 0u )
         {
-            player->CleanRecordData( __STRING__( item ) );
+            player->ClearRecord( __STRING__( item ) );
         }
         else
         {
-            player->RemoveRecordData( __STRING__( item ), kfmsg.uuid() );
+            player->RemoveRecord( __STRING__( item ), kfmsg.uuid() );
         }
     }
 

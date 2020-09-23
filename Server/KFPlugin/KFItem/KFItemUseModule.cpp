@@ -59,11 +59,11 @@ namespace KFrame
         auto usecount = kfitem->Get<uint32>( __STRING__( usecount ) );
         if ( usecount + 1u >= kfsetting->_use_count )
         {
-            player->UpdateObjectData( kfitem, __STRING__( count ), KFEnum::Dec, 1u );
+            player->UpdateObject( kfitem, __STRING__( count ), KFEnum::Dec, 1u );
         }
         else
         {
-            player->UpdateObjectData( kfitem, __STRING__( usecount ), KFEnum::Add, 1u );
+            player->UpdateObject( kfitem, __STRING__( usecount ), KFEnum::Add, 1u );
         }
 
         _kf_display->SendToClient( player, KFMsg::ItemUseOk, kfsetting->_id );
