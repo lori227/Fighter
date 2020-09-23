@@ -30,8 +30,8 @@ namespace KFrame
         {
             auto todayscore = kfsocre->Get( __STRING__( today ) );
 
-            player->UpdateData( kfsocre, __STRING__( today ), KFEnum::Set, 0u );
-            player->UpdateData( kfsocre, __STRING__( yesterday ), KFEnum::Set, todayscore );
+            player->UpdateObjectData( kfsocre, __STRING__( today ), KFEnum::Set, 0u );
+            player->UpdateObjectData( kfsocre, __STRING__( yesterday ), KFEnum::Set, todayscore );
         }
     }
 
@@ -45,7 +45,7 @@ namespace KFrame
             return;
         }
 
-        player->UpdateData( kfscorerecord, kfmsg.id(), __STRING__( today ), KFEnum::Greater, kfmsg.socre() );
-        player->UpdateData( kfscorerecord, kfmsg.id(), __STRING__( ever ), KFEnum::Greater, kfmsg.socre() );
+        player->UpdateRecordData( kfscorerecord, kfmsg.id(), __STRING__( today ), KFEnum::Greater, kfmsg.socre() );
+        player->UpdateRecordData( kfscorerecord, kfmsg.id(), __STRING__( ever ), KFEnum::Greater, kfmsg.socre() );
     }
 }

@@ -58,7 +58,7 @@ namespace KFrame
 
         kfhero = player->CreateData( kfparent );
         player->SetElementToData( kfhero, kfelementobject, kfresult->_multiple );
-        player->AddData( kfparent, kfelementobject->_config_id, kfhero );
+        player->AddRecordData( kfparent, kfelementobject->_config_id, kfhero );
 
         return kfresult->AddResult( kfelementobject->_config_id, kfhero );
     }
@@ -95,7 +95,7 @@ namespace KFrame
 
         kfeffect = player->CreateData( kfparent );
         player->SetElementToData( kfeffect, kfelementobject, kfresult->_multiple );
-        player->AddData( kfparent, kfelementobject->_config_id, kfeffect );
+        player->AddRecordData( kfparent, kfelementobject->_config_id, kfeffect );
 
         return kfresult->AddResult( kfelementobject->_config_id, kfeffect );
     }
@@ -132,7 +132,7 @@ namespace KFrame
 
         kffoot = player->CreateData( kfparent );
         player->SetElementToData( kffoot, kfelementobject, kfresult->_multiple );
-        player->AddData( kfparent, kfelementobject->_config_id, kffoot );
+        player->AddRecordData( kfparent, kfelementobject->_config_id, kffoot );
 
         return kfresult->AddResult( kfelementobject->_config_id, kffoot );
     }
