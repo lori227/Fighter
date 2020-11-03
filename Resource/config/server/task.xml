@@ -1,2 +1,8 @@
 <root version="00000">
+	<item Id="10001" Type="3" CompleteMode="1" PreCondition="" CompleteCondition="10101" Execute=""/>
+	<item Id="10002" Type="3" CompleteMode="1" PreCondition="" CompleteCondition="10201" Execute=""/>
+	<item Id="10003" Type="3" CompleteMode="1" PreCondition="" CompleteCondition="" Execute=""/>
+	<item Id="10004" Type="3" CompleteMode="1" PreCondition="" CompleteCondition="" Execute=""/>
+	<item Id="10005" Type="3" CompleteMode="1" PreCondition="" CompleteCondition="" Execute=""/>
+	<item Id="10006" Type="3" CompleteMode="1" PreCondition="" CompleteCondition="" Execute=""/>
 </root>
