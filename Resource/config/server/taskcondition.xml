@@ -1,2 +1,5 @@
 <root version="00000">
+	<item Limits="" Id="10101" Condition="fight" DoneType=">=" DoneValue="1" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="10102" Condition="fight" DoneType=">=" DoneValue="5" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
+	<item Limits="" Id="10103" Condition="fight" DoneType=">=" DoneValue="10" Clean="" PlaceLimit="0" Calculate="0" LimitCondition="" Limits1="" Limits2=""/>
 </root>
