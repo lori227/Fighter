@@ -1,8 +1,12 @@
 <root version="00000">
-	<item TimeId="1" ParentName="" Key="0" DataName="sevenday" Operate="3" Value="0"/>
-	<item TimeId="1" ParentName="" Key="0" DataName="sevenreward" Operate="3" Value="0"/>
-	<item TimeId="1" ParentName="" Key="0" DataName="weeklystore" Operate="1" Value="0"/>
-	<item TimeId="2" ParentName="" Key="0" DataName="dailystore" Operate="1" Value="0"/>
-	<item TimeId="2" ParentName="task" Key="10001" DataName="" Operate="0" Value="0"/>
-	<item TimeId="2" ParentName="task" Key="10002" DataName="" Operate="0" Value="0"/>
+	<item TimeId="1" FunctionName="" ParentName="" Key="0" DataName="sevenday" Operate="3" Value="0"/>
+	<item TimeId="1" FunctionName="" ParentName="" Key="0" DataName="sevenreward" Operate="3" Value="0"/>
+	<item TimeId="1" FunctionName="goods" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="1" FunctionName="store" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="goods" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="store" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="score" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="signin" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="task" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="taskchain" ParentName="" Key="" DataName="" Operate="" Value=""/>
 </root>

@@ -5,15 +5,14 @@ namespace KFrame
 {
     void KFSignInModule::BeforeRun()
     {
-        auto timeid = KFGlobal::Instance()->GetUInt32( "signinresettime" );
-        __REGISTER_RESET__( timeid, &KFSignInModule::OnResetSigninData );
+        __REGISTER_RESET__( __STRING__( signin ), &KFSignInModule::OnResetSigninData );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_SEVEN_SIGNIN_REWARD_REQ, &KFSignInModule::HandleReceiveSevenRewardReq );
     }
 
     void KFSignInModule::ShutDown()
     {
-        __UN_RESET__();
+        __UN_RESET__( __STRING__( signin ) );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_SEVEN_SIGNIN_REWARD_REQ );
     }
@@ -62,7 +61,7 @@ namespace KFrame
         CalcSignin( player );
 
         // 计算连续签到
-        CalcContinuousSignin( player, timedata, nowtime );
+        CalcContinuousSignin( player, lastresettime, nowresettime );
     }
 
     void KFSignInModule::CalcSignin( KFEntity* player )
@@ -82,15 +81,13 @@ namespace KFrame
         player->UpdateData( __STRING__( sevenday ), KFEnum::Add, 1u );
     }
 
-    void KFSignInModule::CalcContinuousSignin( KFEntity* player, const KFTimeData* timedata, uint64 nowtime )
+    void KFSignInModule::CalcContinuousSignin( KFEntity* player, uint64 lastresettime, uint64 nowresettime )
     {
         auto kfsignintime = player->Find( __STRING__( signintime ) );
 
         // 判断连续签到
-        auto lastresettime = kfsignintime->Get();
-        auto lastresettimedata = KFDate::CalcTimeData( timedata, lastresettime, 1 );
-        auto calcresettimedata = KFDate::CalcTimeData( timedata, nowtime );
-        if ( lastresettimedata == calcresettimedata )
+        auto lastsignintime = kfsignintime->Get();
+        if ( lastsignintime == lastresettime )
         {
             player->UpdateData( __STRING__( continuoussignin ), KFEnum::Add, 1u );
         }
@@ -100,6 +97,6 @@ namespace KFrame
         }
 
         // 更新本次签到
-        player->UpdateData( kfsignintime, KFEnum::Set, nowtime );
+        player->UpdateData( kfsignintime, KFEnum::Set, nowresettime );
     }
 }

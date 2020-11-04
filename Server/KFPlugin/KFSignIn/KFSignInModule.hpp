@@ -41,7 +41,7 @@ namespace KFrame
         void CalcSignin( KFEntity* player );
 
         // 计算连续签到
-        void CalcContinuousSignin( KFEntity* player, const KFTimeData* timedata, uint64 nowtime );
+        void CalcContinuousSignin( KFEntity* player, uint64 lastresettime, uint64 nowresettime );
     };
 }
 

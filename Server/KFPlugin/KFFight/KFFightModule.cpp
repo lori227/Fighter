@@ -5,15 +5,14 @@ namespace KFrame
 {
     void KFFightModule::BeforeRun()
     {
-        auto timeid = KFGlobal::Instance()->GetUInt32( "scoreresettime" );
-        __REGISTER_RESET__( timeid, &KFFightModule::OnResetFightScore );
+        __REGISTER_RESET__( __STRING__( score ), &KFFightModule::OnResetFightScore );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMsg::MSG_UPDATE_SOCRE_REQ, &KFFightModule::HandleUpdateScoreReq );
     }
 
     void KFFightModule::ShutDown()
     {
-        __UN_RESET__();
+        __UN_RESET__( __STRING__( score ) );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __UN_MESSAGE__( KFMsg::MSG_UPDATE_SOCRE_REQ );
     }
