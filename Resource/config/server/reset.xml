@@ -5,6 +5,5 @@
 	<item TimeId="2" FunctionName="store" ParentName="" Key="" DataName="" Operate="" Value=""/>
 	<item TimeId="2" FunctionName="score" ParentName="" Key="" DataName="" Operate="" Value=""/>
 	<item TimeId="2" FunctionName="signin" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="task" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="taskchain" ParentName="" Key="" DataName="" Operate="" Value=""/>
+	<item TimeId="2" FunctionName="taskrefresh" ParentName="" Key="" DataName="" Operate="" Value=""/>
 </root>
