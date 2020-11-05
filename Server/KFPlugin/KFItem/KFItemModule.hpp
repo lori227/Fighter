@@ -16,7 +16,7 @@
 #include "KFPlayer/KFPlayerInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFDisplay/KFDisplayInterface.h"
-#include "KFZConfig/KFItemConfig.hpp"
+#include "KFXmlReader/KFItemConfig.hpp"
 
 namespace KFrame
 {

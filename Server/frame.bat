@@ -185,25 +185,24 @@ if not exist %localpath%\%contribpath%\%subcontribpath% (
     mkdir %localpath%\%contribpath%\%subcontribpath%
     xcopy /y %framepath%\%contribpath%\%subcontribpath%\* %localpath%\%contribpath%\%subcontribpath%\
 )
-
-set subcontribpath=KFZConfig
-if not exist %localpath%\%contribpath%\%subcontribpath% (
-    mkdir %localpath%\%contribpath%\%subcontribpath%
-    xcopy /y %framepath%\%contribpath%\%subcontribpath%\* %localpath%\%contribpath%\%subcontribpath%\
-)
-xcopy /y %framepath%\%contribpath%\%subcontribpath%\*.h %localpath%\%contribpath%\%subcontribpath%\
-
-rem ===========================================================================
-rem ===========================================================================
-rem ===========================================================================
-set currpath=%cd%
-cd %localpath%\%contribpath%\%subcontribpath%\
-"%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Debug|X64"  /project KFZConfig
-::"%VS150COMNTOOLS%..\IDE\Devenv" KFZConfig.vcxproj /rebuild "Release|X64" /project KFZConfig
-cd %currpath%
-
 echo "update KFContrib path end"
+rem ===========================================================================
+rem ===========================================================================
+rem ===========================================================================
+echo "update KFResource path begin"
+set resroucepath=KFResource
+if not exist %localpath%\%resroucepath% ( mkdir %localpath%\%resroucepath% )
+if not exist %localpath%\%resroucepath%\CMakeLists.txt ( 
+    copy /y %framepath%\%resroucepath%\CMakeLists.txt %localpath%\%resroucepath% 
+)
 
+set subresroucepath=KFXmlReader
+if not exist %localpath%\%resroucepath%\%subresroucepath% (
+    mkdir %localpath%\%resroucepath%\%subresroucepath%
+)
+xcopy /y %framepath%\%resroucepath%\%subresroucepath%\*.h %localpath%\%resroucepath%\%subresroucepath%\
+
+echo "update KFResource path end"
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================

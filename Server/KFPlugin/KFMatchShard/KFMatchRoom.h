@@ -2,7 +2,7 @@
 #define __KF_MATCH_ROOM_H__
 
 #include "KFMatchPlayer.h"
-#include "KFZConfig/KFMatchConfig.hpp"
+#include "KFXmlReader/KFMatchConfig.hpp"
 #include "KFRouteClient/KFRouteClientInterface.h"
 
 namespace KFrame

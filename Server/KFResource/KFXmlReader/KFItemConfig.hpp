@@ -2,7 +2,7 @@
 #define __KF_ITEM_CONFIG_H__
 
 #include "KFItemSetting.hpp"
-#include "KFZConfig/KFConfig.h"
+#include "KFConfig.h"
 
 namespace KFrame
 {
@@ -123,10 +123,16 @@ namespace KFrame
         }
 
         // 读取材料配置
-        void ReadMaterialSetting( KFNode& xmlnode, KFItemSetting* kfsetting );
+        void ReadMaterialSetting( KFNode& xmlnode, KFItemSetting* kfsetting )
+        {
+
+        }
 
         // 读取其他配置
-        void ReadOtherSetting( KFNode& xmlnode, KFItemSetting* kfsetting );
+        void ReadOtherSetting( KFNode& xmlnode, KFItemSetting* kfsetting )
+        {
+
+        }
     };
 }
 

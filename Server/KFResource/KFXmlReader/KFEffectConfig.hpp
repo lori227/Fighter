@@ -1,12 +1,12 @@
-﻿#ifndef __KF_HERO_CONFIG_H__
-#define __KF_HERO_CONFIG_H__
+﻿#ifndef __KF_EFFECT_CONFIG_H__
+#define __KF_EFFECT_CONFIG_H__
 
 #include "KFrame.h"
-#include "KFZConfig/KFConfig.h"
+#include "KFConfig.h"
 
 namespace KFrame
 {
-    class KFHeroSetting : public KFIntSetting
+    class KFEffectSetting : public KFIntSetting
     {
     public:
         // 名字
@@ -15,20 +15,17 @@ namespace KFrame
 
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    class KFHeroConfig : public KFConfigT< KFHeroSetting >, public KFInstance< KFHeroConfig >
+    class KFEffectConfig : public KFConfigT< KFEffectSetting >, public KFInstance< KFEffectConfig >
     {
     public:
-        KFHeroConfig()
+        KFEffectConfig()
         {
-            _file_name = "hero";
+            _file_name = "effect";
         }
-
-        // 随机英雄
-        uint32 RandHeroId();
 
     protected:
         // 读取配资
-        void ReadSetting( KFNode& xmlnode, KFHeroSetting* kfsetting )
+        void ReadSetting( KFNode& xmlnode, KFEffectSetting* kfsetting )
         {
             kfsetting->_name = xmlnode.GetString( "Name" );
         }

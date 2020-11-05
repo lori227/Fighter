@@ -2,7 +2,7 @@
 #define __KF_ITEM_SETTING_H__
 
 #include "KFCore/KFElement.h"
-#include "KFZConfig/KFSetting.h"
+#include "KFSetting.h"
 
 namespace KFrame
 {

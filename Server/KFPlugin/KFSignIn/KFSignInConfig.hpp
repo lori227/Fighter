@@ -1,8 +1,8 @@
 ﻿#ifndef __KF_SIGNIN_CONFIG_H__
 #define __KF_SIGNIN_CONFIG_H__
 
+#include "KFConfig.h"
 #include "KFCore/KFElement.h"
-#include "KFZConfig/KFConfig.h"
 
 namespace KFrame
 {

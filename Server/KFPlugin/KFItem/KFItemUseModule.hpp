@@ -17,7 +17,7 @@
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFDrop/KFDropInterface.h"
 #include "KFHero/KFHeroInterface.h"
-#include "KFZConfig/KFItemConfig.hpp"
+#include "KFXmlReader/KFItemConfig.hpp"
 
 namespace KFrame
 {

@@ -1,7 +1,7 @@
 ﻿#include "KFMatchRoom.h"
 #include "KFMatchQueue.h"
-#include "KFZConfig/KFNameConfig.hpp"
-#include "KFZConfig/KFHeroConfig.hpp"
+#include "KFXmlReader/KFNameConfig.hpp"
+#include "KFXmlReader/KFHeroConfig.hpp"
 
 namespace KFrame
 {
