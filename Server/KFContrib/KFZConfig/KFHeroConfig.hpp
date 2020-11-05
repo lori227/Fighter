@@ -28,7 +28,10 @@ namespace KFrame
 
     protected:
         // 读取配资
-        void ReadSetting( KFNode& xmlnode, KFHeroSetting* kfsetting );
+        void ReadSetting( KFNode& xmlnode, KFHeroSetting* kfsetting )
+        {
+            kfsetting->_name = xmlnode.GetString( "Name" );
+        }
     };
 }
 

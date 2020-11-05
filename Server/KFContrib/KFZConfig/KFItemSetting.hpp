@@ -48,16 +48,43 @@ namespace KFrame
     {
     public:
         // 判断是否能使用
-        bool CheckCanUse() const;
-
-        // 获得lua函数
-        const std::string& GetFunction( uint32 type ) const;
+        bool CheckCanUse() const
+        {
+            return _use_count > 0;
+        }
 
         // 判断是否真正的物品
-        bool IsRealItem() const;
+        bool IsRealItem() const
+        {
+            switch ( _type )
+            {
+            case KFItemEnum::Script:
+                return false;
+                break;
+            default:
+                break;
+            }
+
+            return true;
+        }
 
         // 是否可以叠加
-        bool IsOverlay() const;
+        bool IsOverlay() const
+        {
+            return _overlay_count > 1u;
+        }
+
+        // 获得lua函数
+        const std::string& GetFunction( uint32 type ) const
+        {
+            if ( type >= KFItemEnum::MaxFunction )
+            {
+                return _invalid_string;
+            }
+
+            return _function[ type ];
+        }
+
     public:
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////
