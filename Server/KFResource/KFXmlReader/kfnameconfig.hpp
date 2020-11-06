@@ -2,7 +2,6 @@
 #define __KF_NAME_CONFIG_H__
 
 #include "KFrame.h"
-#include "KFConfig.h"
 
 namespace KFrame
 {
@@ -45,9 +44,9 @@ namespace KFrame
 
     protected:
         // 读取配置
-        void ReadSetting( KFNode& xmlnode, KFNameSetting* kfsetting )
+        void ReadSetting( KFXmlNode& xmlnode, KFNameSetting* kfsetting )
         {
-            auto name = xmlnode.GetString( "Name" );
+            auto name = xmlnode.ReadString( "Name" );
             kfsetting->_name_list.push_back( name );
         }
     };

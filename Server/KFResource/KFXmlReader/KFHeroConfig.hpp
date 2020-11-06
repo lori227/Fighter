@@ -2,7 +2,6 @@
 #define __KF_HERO_CONFIG_H__
 
 #include "KFrame.h"
-#include "KFConfig.h"
 
 namespace KFrame
 {
@@ -28,9 +27,9 @@ namespace KFrame
 
     protected:
         // 读取配资
-        void ReadSetting( KFNode& xmlnode, KFHeroSetting* kfsetting )
+        void ReadSetting( KFXmlNode& xmlnode, KFHeroSetting* kfsetting )
         {
-            kfsetting->_name = xmlnode.GetString( "Name" );
+            kfsetting->_name = xmlnode.ReadString( "Name" );
         }
     };
 }

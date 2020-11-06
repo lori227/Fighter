@@ -1,8 +1,7 @@
 ﻿#ifndef __KF_ITEM_SETTING_H__
 #define __KF_ITEM_SETTING_H__
 
-#include "KFCore/KFElement.h"
-#include "KFSetting.h"
+#include "KFrame.h"
 
 namespace KFrame
 {

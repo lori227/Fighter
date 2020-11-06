@@ -2,7 +2,6 @@
 #define __KF_MATCH_CONFIG_H__
 
 #include "KFrame.h"
-#include "KFConfig.h"
 
 namespace KFrame
 {
@@ -36,13 +35,13 @@ namespace KFrame
 
     protected:
         // 读取配置
-        void ReadSetting( KFNode& xmlnode, KFMatchSetting* kfsetting )
+        void ReadSetting( KFXmlNode& xmlnode, KFMatchSetting* kfsetting )
         {
-            kfsetting->_max_count = xmlnode.GetUInt32( "MaxCount" );
-            kfsetting->_upper_grade = xmlnode.GetUInt32( "UpperGrade" );
-            kfsetting->_lower_grade = xmlnode.GetUInt32( "LowerGrade" );
-            kfsetting->_add_robot_time = xmlnode.GetUInt32( "AddRobotTime" );
-            kfsetting->_add_robot_count = xmlnode.GetUInt32( "AddRobotCount" );
+            kfsetting->_max_count = xmlnode.ReadUInt32( "MaxCount" );
+            kfsetting->_upper_grade = xmlnode.ReadUInt32( "UpperGrade" );
+            kfsetting->_lower_grade = xmlnode.ReadUInt32( "LowerGrade" );
+            kfsetting->_add_robot_time = xmlnode.ReadUInt32( "AddRobotTime" );
+            kfsetting->_add_robot_count = xmlnode.ReadUInt32( "AddRobotCount" );
         }
     };
 }

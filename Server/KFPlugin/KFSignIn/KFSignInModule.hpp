@@ -16,7 +16,7 @@
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFReset/KFResetInterface.h"
-#include "KFSignInConfig.hpp"
+#include "KFXmlReader/KFSignInConfig.hpp"
 
 namespace KFrame
 {
