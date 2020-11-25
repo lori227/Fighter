@@ -353,6 +353,7 @@ call :CopyInterface KFAchieve
 call :CopyInterface KFStore
 call :CopyInterface KFTask
 call :CopyInterface KFItem
+call :CopyInterface KFSign
 
 rem Robot
 rem call :CopyInterface KFRobot

@@ -86,3 +86,4 @@ cp -f $framebinpath/KFStore$filename.so $binpath/
 cp -f $framebinpath/KFRankClient$filename.so $binpath/
 cp -f $framebinpath/KFRankShard$filename.so $binpath/
 cp -f $framebinpath/KFTask$filename.so $binpath/
+cp -f $framebinpath/KFSign$filename.so $binpath/
