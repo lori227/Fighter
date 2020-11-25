@@ -13,7 +13,10 @@ namespace KFrame
         virtual ~KFSetting() = default;
     public:
         // 文件名
-        std::string _file_name;
+        std::string _file_path;
+
+        // 行数
+        uint32 _row = 0u;
     };
     ///////////////////////////////////////////////////////////////
     class KFIntSetting : public KFSetting
@@ -38,6 +41,20 @@ namespace KFrame
         std::string _id;
     };
     ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
+    class KFConditionDefineSetting;
+    class KFConditionDefineOption
+    {
+    public:
+        std::string _str_condition;
+        const KFConditionDefineSetting* _condition_define = nullptr;
+    };
+
+
+
+
 }
 
 #endif

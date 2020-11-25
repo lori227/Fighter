@@ -1,7 +1,7 @@
 ﻿#include "KFMatchRoom.h"
 #include "KFMatchQueue.h"
-#include "KFXmlReader/KFNameConfig.hpp"
-#include "KFXmlReader/KFHeroConfig.hpp"
+#include "KFConfig/KFNameConfig.hpp"
+#include "KFConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
@@ -164,13 +164,10 @@ namespace KFrame
         kfrobot->_pb_player.set_grade( _grade );
         kfrobot->_pb_player.set_isrobot( true );
 
-        // 机器人名字
-        auto name = KFNameConfig::Instance()->RandName();
-        kfrobot->_pb_player.set_name( name );
-
         // 英雄id
-        auto heroid = RandHeroId();
-        kfrobot->_pb_player.set_heroid( heroid );
+        kfrobot->_pb_player.set_heroid( RandRobotHeroId() );
+        // 机器人名字
+        kfrobot->_pb_player.set_name( RandRobotName() );
         return kfrobot;
     }
 
@@ -186,7 +183,7 @@ namespace KFrame
         }
     }
 
-    uint32 KFMatchRoom::RandHeroId()
+    uint32 KFMatchRoom::RandRobotHeroId()
     {
         auto size = KFHeroConfig::Instance()->_settings.Size();
         if ( size == 0u )
@@ -199,6 +196,28 @@ namespace KFrame
         std::advance( begin, index );
         return ( uint32 )begin->second->_id;
     }
+
+    // 随机名字
+    const std::string& KFMatchRoom::RandRobotName()
+    {
+        static std::string _name = "";
+        _name.clear();
+
+        for ( auto iter : KFNameConfig::Instance()->_settings._objects )
+        {
+            auto kfsetting = iter.second;
+            if ( kfsetting->_name.empty() )
+            {
+                continue;
+            }
+
+            auto index = KFGlobal::Instance()->RandRatio( ( uint32 )kfsetting->_name.size() );
+            _name += kfsetting->_name[ index ];
+        }
+
+        return _name;
+    }
+
 
     void KFMatchRoom::SendJoinRoomToPlayer( uint64 playerid, uint64 serverid )
     {

@@ -165,17 +165,6 @@ namespace KFrame
         };
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    namespace KFConfigEnum
-    {
-        enum MyEnum
-        {
-            None = 0x0,				// 无操作
-            CanReload = 0x1,	    // 支持重新加载
-            NeedClearData = 0x2,	// 加载需要清除数据
-            ClearFileData = 0x4,	// 清空文件数据
-            ClearChildFile = 0x8,	// 是否继承的子文件( 道具等 )
-        };
-    }
     //////////////////////////////////////////////////////////////////////////////////////////////////
     enum KFConditionEnum
     {
@@ -206,11 +195,6 @@ namespace KFrame
         CalculateNormal = 0,	// 完成后停止计数
         CalculateContinue = 1,	// 持续计数
         //////////////////////////////////////////////////////////////////
-        // 条件限制类型
-        LimitNull = 0x0,		// 无限制
-        LimitStatus = 0x1,		// 完成后继续计数
-        LimitPlace = 0x2,		// 地点限制
-        LimitStop = 0xFFFF,		// 限制停止
     };
 }
 

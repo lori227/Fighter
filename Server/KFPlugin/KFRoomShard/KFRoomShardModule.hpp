@@ -80,7 +80,7 @@ namespace KFrame
 
     private:
         // 房间列表
-        KFHashMap< uint64, uint64, KFBattleRoom > _room_list;
+        KFHashMap< uint64, KFBattleRoom > _room_list;
 
         // battle redis
         KFRedisDriver* _room_redis = nullptr;

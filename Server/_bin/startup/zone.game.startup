@@ -26,7 +26,7 @@
 		<Plugin Name="KFRelationClient" Param=""/>	
 		<Plugin Name="KFReset" Param=""/>
 		<Plugin Name="KFHero" Param=""/>		
-		<Plugin Name="KFSignIn" Param=""/>		
+		<Plugin Name="KFSign" Param=""/>		
 		<Plugin Name="KFItem" Param=""/>		
 		<Plugin Name="KFAchieve" Param=""/>		
 		<Plugin Name="KFStore" Param=""/>		

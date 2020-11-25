@@ -78,8 +78,6 @@ add_subdirectory(KFMatchClient)
 add_subdirectory(KFMatchShard)
 add_subdirectory(KFRoomClient)
 add_subdirectory(KFRoomShard)
-add_subdirectory(KFSignIn)
 add_subdirectory(KFHero)
-add_subdirectory(KFItem)
 add_subdirectory(KFFight)
 

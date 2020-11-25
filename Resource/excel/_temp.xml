@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'utf-8' ?>
+<config>
+	<serverxml path="D:\KFrame\Project\Fighter\trunk\Server\_bin\config"/>
+	<clientxml path=""/>
+	<cpp path="D:\KFrame\Project\Fighter\trunk\Server\KFPlugin\KFConfig"/>
+	<csharp path=""/>
+	<lua path=""/>
+	<generate type="1" repository="svn" serverid="1"/>
+</config>

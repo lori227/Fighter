@@ -15,9 +15,9 @@
 #include "KFMessage/KFMessageInterface.h"
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFRouteClient/KFRouteClientInterface.h"
-#include "KFXmlReader/KFMatchConfig.hpp"
-#include "KFXmlReader/KFNameConfig.hpp"
-#include "KFXmlReader/KFHeroConfig.hpp"
+#include "KFConfig/KFMatchConfig.hpp"
+#include "KFConfig/KFNameConfig.hpp"
+#include "KFConfig/KFHeroConfig.hpp"
 
 namespace KFrame
 {
@@ -82,10 +82,10 @@ namespace KFrame
         std::set< std::string > _battle_version_list;
 
         // 匹配模式列表
-        KFHashMap< uint32, uint32, KFMatchQueue > _match_queue_list;
+        KFHashMap< uint32, KFMatchQueue > _match_queue_list;
 
         // 匹配的房间
-        KFHashMap< uint64, uint64, KFMatchRoom > _match_room_list;
+        KFHashMap< uint64, KFMatchRoom > _match_room_list;
     };
 }
 

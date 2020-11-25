@@ -81,7 +81,7 @@ namespace KFrame
         uint64 _battle_server_id = _invalid_int;
 
         // 玩家的列表
-        KFHashMap< uint64, uint64, KFBattlePlayer > _player_list;
+        KFHashMap< uint64, KFBattlePlayer > _player_list;
 
         // 有效时间
         uint64 _valid_time = _invalid_int;

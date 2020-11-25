@@ -59,10 +59,10 @@ namespace KFrame
         KFMatchShardModule* _match_module;
 
         // 玩家的列表
-        KFHashMap< uint64, uint64, KFMatchPlayer > _player_list;
+        KFHashMap< uint64, KFMatchPlayer > _player_list;
 
         // 正在等待匹配的房间
-        KFHashMap< uint64, uint64, KFMatchRoom > _room_list;
+        KFHashMap< uint64, KFMatchRoom > _room_list;
     };
 }
 

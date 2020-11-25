@@ -2,15 +2,15 @@
 #define __KF_XML_NODE_H__
 
 #include "KFInclude.h"
+#include "KFExecuteData.h"
+#include "KFStaticCondition.h"
+#include "KFDynamicCondition.h"
 
 namespace KFrame
 {
     /////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////
     class KFXml;
-    class KFConditions;
-    class KFExecuteData;
-    class KFConditionGroup;
     class KFXmlNode
     {
     public:
@@ -63,6 +63,12 @@ namespace KFrame
         // 读取string set
         StringSet& ReadStringSet( const char* key, bool optional = false );
 
+        // 读取string list
+        StringList& ReadStringList( const char* key, bool optional = false );
+
+        // 读取string vector
+        StringVector& ReadStringVector( const char* key, bool optional = false );
+
         // 读取<string,uint64>
         StringUInt64& ReadStringUInt64( const char* key, bool optional = false );
 
@@ -71,21 +77,36 @@ namespace KFrame
 
         // 读取时间
         uint64 ReadDate( const char* key, bool optional = false );
+
+        // 读取操作类型
+        uint32 ReadOperateType( const char* key, bool optional = false );
+
+        // 读取判断类型
+        uint32 ReadCheckType( const char* key, bool optional = false );
+
+        // 读取返回
+        KFRange<uint32> ReadRange( const char* key, bool optional = false );
+
+        // 读取渠道格式化字串({}_{}_xxxx)
+        std::string ReadChannelString( const char* key, bool optional = false );
         /////////////////////////////////////////////////////////////////////////////////////
         // 读取静态条件配置列表( 如:money=100 )
-        bool ReadStaticCondition( KFConditions& conditions, const char* key, bool optional = false );
+        StaticConditionsPtr ReadStaticConditions( const char* key, bool optional = false );
+
+        // 读取静态条件配置列表( 如:money=100 )
+        StaticConditionListPtr ReadStaticConditionList( const char* key, bool optional = false );
 
         // 读取条件id列表
-        const KFConditionGroup& ReadConditionGroup( const char* key, bool optional = false );
+        DynamicConditionGroupPtr ReadDynamicConditionGroup( const char* key, bool optional = false );
 
         // 读取执行列表
-        void ReadExecuteData( KFExecuteData* executedata, const char* key, bool optional = false );
+        ExecuteDataPtr ReadExecuteData( const char* key, bool optional = false );
         /////////////////////////////////////////////////////////////////////////////////////
+    protected:
         void GetKeyList( StringList& outlist );
 
         // 是否有子属性
         bool HaveChild( const char* key );
-
     private:
         friend class KFXml;
         KFXml* _kf_xml;

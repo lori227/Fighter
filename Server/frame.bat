@@ -105,8 +105,6 @@ if not exist %localpath%\%libpath%\win64 ( mkdir %localpath%\%libpath%\win64 )
 xcopy /y /S %framepath%\%libpath%\win64\* %localpath%\%libpath%\win64 
 move /y %localpath%\KFProtocold.lib %localpath%\%libpath%\win64\debug\
 move /y %localpath%\KFProtocol.lib %localpath%\%libpath%\win64\release\
-del /F /S /Q %localpath%\%libpath%\win64\debug\KFZConfigd.lib
-del /F /S /Q %localpath%\%libpath%\win64\release\KFZConfig.lib
 echo "update _lib path end"
 
 rem ===========================================================================
@@ -189,23 +187,6 @@ echo "update KFContrib path end"
 rem ===========================================================================
 rem ===========================================================================
 rem ===========================================================================
-echo "update KFResource path begin"
-set resroucepath=KFResource
-if not exist %localpath%\%resroucepath% ( mkdir %localpath%\%resroucepath% )
-if not exist %localpath%\%resroucepath%\CMakeLists.txt ( 
-    copy /y %framepath%\%resroucepath%\CMakeLists.txt %localpath%\%resroucepath% 
-)
-
-set subresroucepath=KFXmlReader
-if not exist %localpath%\%resroucepath%\%subresroucepath% (
-    mkdir %localpath%\%resroucepath%\%subresroucepath%
-)
-xcopy /y %framepath%\%resroucepath%\%subresroucepath%\*.h %localpath%\%resroucepath%\%subresroucepath%\
-
-echo "update KFResource path end"
-rem ===========================================================================
-rem ===========================================================================
-rem ===========================================================================
 rem ===========================================================================
 echo "release KFLibrary path begin"
 set librarypath=KFLibrary
@@ -241,11 +222,11 @@ if not exist %localpath%\KFPlugin (mkdir %localpath%\KFPlugin )
 if not exist %localpath%\KFPlugin\CMakeLists.txt ( 
     copy /y %framepath%\KFPlugin\CMakeLists.txt %localpath%\KFPlugin\
 )
+if not exist %localpath%\KFPlugin\KFConfig (mkdir %localpath%\KFPlugin\KFConfig )
 
 set pluginpath=KFInterface
 rd /s /q %localpath%\%pluginpath%
 if not exist %localpath%\%pluginpath% (mkdir %localpath%\%pluginpath% )
-
 echo "update KFPlugin path end"
 rem ===========================================================================
 rem ===========================================================================
@@ -283,7 +264,7 @@ rem ===========================================================================
 
 rem frame
 call :CopyInterface KFProject
-call :CopyInterface KFConfig
+call :CopyInterface KFLoader
 call :CopyInterface KFMySQL
 call :CopyInterface KFRedis
 call :CopyInterface KFMongo
@@ -371,6 +352,7 @@ call :CopyInterface KFChat
 call :CopyInterface KFAchieve
 call :CopyInterface KFStore
 call :CopyInterface KFTask
+call :CopyInterface KFItem
 
 rem Robot
 rem call :CopyInterface KFRobot

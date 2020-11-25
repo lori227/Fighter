@@ -46,7 +46,12 @@ namespace KFrame
         __STRING_DEFINE__( datazoneid );
         __STRING_DEFINE__( zonebalance );
         __STRING_DEFINE__( zonestatus );
-
+        __STRING_DEFINE__( row );
+        __STRING_DEFINE__( node );
+        __STRING_DEFINE__( root );
+        __STRING_DEFINE__( config );
+        __STRING_DEFINE__( projecttime );
+        __STRING_DEFINE__( arrayindex );
         __STRING_DEFINE__( logurl );
         __STRING_DEFINE__( scheduletime );
         __STRING_DEFINE__( msg );
@@ -200,7 +205,6 @@ namespace KFrame
         __STRING_DEFINE__( received );
         __STRING_DEFINE__( hero );
         __STRING_DEFINE__( skin );
-        __STRING_DEFINE__( signin );
         __STRING_DEFINE__( sevenday );
         __STRING_DEFINE__( sevenreward );
         __STRING_DEFINE__( note );
@@ -314,7 +318,6 @@ namespace KFrame
         __STRING_DEFINE__( chain );
         __STRING_DEFINE__( taskreceive );
         __STRING_DEFINE__( taskcondition );
-        __STRING_DEFINE__( preconditions );
         __STRING_DEFINE__( messageopen );
         __STRING_DEFINE__( messageclose );
         __STRING_DEFINE__( moduleopen );
@@ -331,6 +334,10 @@ namespace KFrame
         __STRING_DEFINE__( captainid );
         __STRING_DEFINE__( captainname );
         __STRING_DEFINE__( nowcount );
+        __STRING_DEFINE__( signtime );
+        __STRING_DEFINE__( continuoussign );
+
+
 
     }
 }

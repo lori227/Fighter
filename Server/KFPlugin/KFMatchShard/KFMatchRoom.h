@@ -2,7 +2,7 @@
 #define __KF_MATCH_ROOM_H__
 
 #include "KFMatchPlayer.h"
-#include "KFXmlReader/KFMatchConfig.hpp"
+#include "KFConfig/KFMatchConfig.hpp"
 #include "KFRouteClient/KFRouteClientInterface.h"
 
 namespace KFrame
@@ -89,7 +89,10 @@ namespace KFrame
         void CreateRoom();
 
         // 随机机器人英雄id
-        uint32 RandHeroId();
+        uint32 RandRobotHeroId();
+
+        // 随机机器人名字
+        const std::string& RandRobotName();
 
         // 发送消息
         void SendToRoom( uint32 msgid, google::protobuf::Message* message );
@@ -105,7 +108,7 @@ namespace KFrame
         uint64 _id = _invalid_int;
 
         // 玩家的列表
-        KFHashMap< uint64, uint64, KFMatchPlayer > _player_list;
+        KFHashMap< uint64, KFMatchPlayer > _player_list;
 
         // 版本号
         std::string _version;
