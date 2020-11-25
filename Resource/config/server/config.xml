@@ -1,0 +1,18 @@
+<root version="b23436e3e9f4daa80e38a6dcab7724c8">
+	<node row="8" id="class" name="dropclass" path="./config/" canreload="1"/>
+	<node row="9" id="class" name="relationclass" path="./config/" canreload="1"/>
+	<node row="10" id="class" name="achieveclass" path="./config/" canreload="1"/>
+	<node row="11" id="class" name="signinclass" path="./config/" canreload="1"/>
+	<node row="12" id="class" name="heroclass" path="./config/" canreload="1"/>
+	<node row="13" id="class" name="storeclass" path="./config/" canreload="1"/>
+	<node row="14" id="class" name="itemclass" path="./config/" canreload="1"/>
+	<node row="15" id="class" name="taskclass" path="./config/" canreload="1"/>
+	<node row="16" id="class" name="class" path="./config/" canreload="1"/>
+	<node row="17" id="item" name="itemcommon" path="./config/" canreload="1" cleartype="1"/>
+	<node row="18" id="item" name="itemgift" path="./config/" parentname="itemcommon" canreload="1"/>
+	<node row="19" id="hero" name="hero" path="./config/" canreload="1" cleartype="1"/>
+	<node row="20" id="name" name="name" path="./config/" canreload="1" cleartype="1"/>
+	<node row="21" id="match" name="match" path="./config/" canreload="1" cleartype="1"/>
+	<node row="22" id="effect" name="effect" path="./config/" canreload="1" cleartype="1"/>
+	<node row="23" id="foot" name="foot" path="./config/" canreload="1" cleartype="1"/>
+</root>
