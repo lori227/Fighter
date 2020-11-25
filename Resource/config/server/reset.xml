@@ -1,9 +1,0 @@
-<root version="00000">
-	<item TimeId="1" FunctionName="goods" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="1" FunctionName="store" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="goods" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="store" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="score" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="signin" ParentName="" Key="" DataName="" Operate="" Value=""/>
-	<item TimeId="2" FunctionName="taskrefresh" ParentName="" Key="" DataName="" Operate="" Value=""/>
-</root>

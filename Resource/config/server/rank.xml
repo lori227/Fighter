@@ -1,3 +1,0 @@
-<root version="00000">
-	<item ShowData="id,name" Id="1" ZoneType="0" MaxCount="100" RefreshTimeId="101" RefreshReset="0" CalcData="basic:0:grade:1000000,player:0:kill:1000000"/>
-</root>

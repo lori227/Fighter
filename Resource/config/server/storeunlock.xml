@@ -1,5 +1,0 @@
-<root version="00000">
-	<item Id="1" Index="1" Sort="1" StoreId="100101" UnLockCondition=""/>
-	<item Id="2" Index="2" Sort="1" StoreId="100102" UnLockCondition=""/>
-	<item Id="200101" Index="6" Sort="0" StoreId="" UnLockCondition="2:2-3"/>
-</root>

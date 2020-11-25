@@ -1,5 +1,0 @@
-<root version="00000">
-	<item Id="1" LogicName="data" DataName="money" DropValue="100" DropKey="0" Weight="100"/>
-	<item Id="2" LogicName="data" DataName="money" DropValue="200" DropKey="0" Weight="100"/>
-	<item Id="3" LogicName="data" DataName="money" DropValue="100-200" DropKey="0" Weight="100"/>
-</root>

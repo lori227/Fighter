@@ -1,3 +1,0 @@
-<root version="00000">
-	<item InviteDataName="friendinvite" Id="friend" MaxCount="100" BothWay="1" NeedUpdate="1" OnlineLoad="1" InviteListCount="20" InviteKeepTime="0" DataListName="friendlist" InviteListName="friendinvitelist" RefuseName="refusefriend"/>
-</root>

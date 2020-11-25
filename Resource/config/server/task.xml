@@ -1,5 +1,0 @@
-<root version="00000">
-	<item Id="10001" Type="3" Quality="" CompleteMode="1" PreCondition="" CompleteCondition="10101" Execute=""/>
-	<item Id="10002" Type="3" Quality="" CompleteMode="1" PreCondition="" CompleteCondition="10102" Execute=""/>
-	<item Id="10003" Type="3" Quality="" CompleteMode="1" PreCondition="" CompleteCondition="10103" Execute=""/>
-</root>
