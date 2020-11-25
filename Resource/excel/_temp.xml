@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'utf-8' ?>
 <config>
-	<serverxml path="D:\KFrame\Project\Fighter\trunk\Resource\config\server"/>
+	<serverxml path="D:\KFrame\Project\Fighter\trunk\Server\_bin\config"/>
 	<clientxml path=""/>
 	<cpp path="D:\KFrame\Project\Fighter\trunk\Server\KFPlugin\KFConfig"/>
 	<csharp path=""/>
