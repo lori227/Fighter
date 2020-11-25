@@ -45,3 +45,4 @@ Server/_bin/script/
 Resource/excel/_zdata.xml
 Resource/version.txt
 ~*.xlsx
+Resource/excel/_temp.xml
