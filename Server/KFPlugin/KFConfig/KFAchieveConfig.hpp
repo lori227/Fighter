@@ -43,8 +43,8 @@ namespace KFrame
 	protected:
 		virtual void ReadSetting( KFXmlNode& xmlnode, KFAchieveSetting* kfsetting )
 		{
-			kfsetting->_complete_condition = xmlnode.ReadDynamicConditionGroup( "completecondition", true );
-			kfsetting->_reward._str_parse = xmlnode.ReadString( "reward", true );
+			kfsetting->_complete_condition = xmlnode.ReadDynamicConditionGroup( "completecondition", false );
+			kfsetting->_reward._str_parse = xmlnode.ReadString( "reward", false );
 		}
 
 	};
