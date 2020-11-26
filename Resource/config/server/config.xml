@@ -2,7 +2,7 @@
 	<node row="8" id="class" name="dropclass" path="./config/" canreload="1"/>
 	<node row="9" id="class" name="relationclass" path="./config/" canreload="1"/>
 	<node row="10" id="class" name="achieveclass" path="./config/" canreload="1"/>
-	<node row="11" id="class" name="signinclass" path="./config/" canreload="1"/>
+	<node row="11" id="class" name="signclass" path="./config/" canreload="1"/>
 	<node row="12" id="class" name="heroclass" path="./config/" canreload="1"/>
 	<node row="13" id="class" name="storeclass" path="./config/" canreload="1"/>
 	<node row="14" id="class" name="itemclass" path="./config/" canreload="1"/>
