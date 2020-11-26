@@ -10,10 +10,10 @@ namespace KFrame
 	class KFAchieveSetting : public KFIntSetting
 	{
 	public:
-		// Íê³ÉÌõ¼þ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		DynamicConditionGroupPtr _complete_condition;
 
-		// ½±Àø
+		// ï¿½ï¿½ï¿½ï¿½
 		KFElements _reward;
 
 	};
