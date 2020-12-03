@@ -13,6 +13,17 @@
 		<repository type="git" user="lori227@qq.com" password="lori@19840227" path="../../"/>
 		<repository type="svn" user="lori227@qq.com" password="lori@19840227" path="../../"/>
 	</repositorys>
+	
+	<!-- 提交信息 -->
+	<commits merge="配置表生成工具拉取更新Merge提交" push="配置表生成工具自动提交">
+		<commit file="Resource/excel/table/*.xlsx"/>
+		<commit file="Resource/config/server/*.xml"/>
+	</commits>
+
+	<!-- 远程ssh信息 -->
+	<sshs ip="180.169.238.146" port="9222" user="root" password="WR4bEPoqcim6BK4r">
+		<ssh command="sh test.sh"/>
+	</sshs>
 
 	<!-- 类型列表 -->
 	<types>
