@@ -4,11 +4,11 @@ namespace KFrame
 {
     void KFRoomClientModule::BeforeRun()
     {
-        __REGISTER_MESSAGE__( KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, &KFRoomClientModule::HandleInformBattleToGameReq );
-        __REGISTER_MESSAGE__( KFMsg::MSG_INFORM_BATTLE_ACK, &KFRoomClientModule::HandleInformBattleAck );
-        __REGISTER_MESSAGE__( KFMsg::S2S_QUERY_ROOM_TO_GAME_ACK, &KFRoomClientModule::HandleQueryRoomToGameAck );
-        __REGISTER_MESSAGE__( KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, &KFRoomClientModule::HandleFinishRoomToGameReq );
-        __REGISTER_MESSAGE__( KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &KFRoomClientModule::HandleBalanceToGameReq );
+        __REGISTER_MESSAGE__( KFRoomClientModule, KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, KFMsg::S2SInformBattleToGameReq, HandleInformBattleToGameReq );
+        __REGISTER_MESSAGE__( KFRoomClientModule, KFMsg::MSG_INFORM_BATTLE_ACK, KFMsg::MsgInformBattleAck, HandleInformBattleAck );
+        __REGISTER_MESSAGE__( KFRoomClientModule, KFMsg::S2S_QUERY_ROOM_TO_GAME_ACK, KFMsg::S2SQueryRoomToGameAck, HandleQueryRoomToGameAck );
+        __REGISTER_MESSAGE__( KFRoomClientModule, KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, KFMsg::S2SFinishRoomToGameReq, HandleFinishRoomToGameReq );
+        __REGISTER_MESSAGE__( KFRoomClientModule, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, KFMsg::S2SPlayerBalanceToGameReq, HandleBalanceToGameReq );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_PLAYER_ENTER__( &KFRoomClientModule::OnEnterQueryRoom );
     }
@@ -24,27 +24,25 @@ namespace KFrame
         __UN_PLAYER_ENTER__();
     }
 
-    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleToGameReq )
+    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleToGameReq, KFMsg::S2SInformBattleToGameReq )
     {
-        __SERVER_PROTO_PARSE__( KFMsg::S2SInformBattleToGameReq );
+        __SERVER_FIND_PLAYER__;
+        __LOG_DEBUG__( "player=[{}] room=[{}] battle=[{}|{}:{}]", kfmsg->playerid(), kfmsg->roomid(), kfmsg->battleid(), kfmsg->ip(), kfmsg->port() );
 
-        __LOG_DEBUG__( "player=[{}] room=[{}] battle=[{}|{}:{}]", kfmsg.playerid(), kfmsg.roomid(), kfmsg.battleid(), kfmsg.ip(), kfmsg.port() );
-
-        SetRoomData( player, kfmsg.roomid(), __ROUTE_SERVER_ID__ );
+        SetRoomData( player, kfmsg->roomid(), __ROUTE_SERVER_ID__ );
 
         // 通知客户端
         KFMsg::MsgInformBattleReq req;
-        req.set_roomid( kfmsg.roomid() );
-        req.set_battleid( kfmsg.battleid() );
-        req.set_ip( kfmsg.ip() );
-        req.set_port( kfmsg.port() );
+        req.set_roomid( kfmsg->roomid() );
+        req.set_battleid( kfmsg->battleid() );
+        req.set_ip( kfmsg->ip() );
+        req.set_port( kfmsg->port() );
         _kf_player->SendToClient( player, KFMsg::MSG_INFORM_BATTLE_REQ, &req );
     }
 
-    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleAck )
+    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleAck, KFMsg::MsgInformBattleAck )
     {
-        __CLIENT_PROTO_PARSE__( KFMsg::MsgInformBattleAck );
-
+        __ROUTE_FIND_PLAYER__;
         __LOG_DEBUG__( "player=[{}] affirm battle!", playerid );
 
         auto roomid = player->Get( __STRING__( roomid ) );
@@ -104,21 +102,19 @@ namespace KFrame
         }
     }
 
-    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleQueryRoomToGameAck )
+    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleQueryRoomToGameAck, KFMsg::S2SQueryRoomToGameAck )
     {
-        __SERVER_PROTO_PARSE__( KFMsg::S2SQueryRoomToGameAck );
-
+        __SERVER_FIND_PLAYER__;
         SetRoomData( player, _invalid_int, _invalid_int );
     }
 
-    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleFinishRoomToGameReq )
+    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleFinishRoomToGameReq, KFMsg::S2SFinishRoomToGameReq )
     {
-        __SERVER_PROTO_PARSE__( KFMsg::S2SFinishRoomToGameReq );
-
-        __LOG_DEBUG__( "player=[{}] room=[{}] finish!", kfmsg.playerid(), kfmsg.roomid() );
+        __SERVER_FIND_PLAYER__;
+        __LOG_DEBUG__( "player=[{}] room=[{}] finish!", kfmsg->playerid(), kfmsg->roomid() );
 
         auto roomid = player->Get( __STRING__( roomid ) );
-        if ( roomid != kfmsg.roomid() )
+        if ( roomid != kfmsg->roomid() )
         {
             return;
         }
@@ -126,23 +122,23 @@ namespace KFrame
         SetRoomData( player, _invalid_int, _invalid_int );
 
         KFMsg::MsgFinishRoomReq req;
-        req.set_roomid( kfmsg.roomid() );
+        req.set_roomid( kfmsg->roomid() );
         _kf_player->SendToClient( player, KFMsg::MSG_FINISH_ROOM_REQ, &req );
     }
 
-    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleBalanceToGameReq )
+    __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleBalanceToGameReq, KFMsg::S2SPlayerBalanceToGameReq )
     {
-        __SERVER_PROTO_PARSE__( KFMsg::S2SPlayerBalanceToGameReq );
-        __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg.playerid(), kfmsg.roomid() );
+        __SERVER_FIND_PLAYER__;
+        __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg->playerid(), kfmsg->roomid() );
 
         auto roomid = player->Get< uint64 >( __STRING__( roomid ) );
-        if ( roomid == kfmsg.roomid() )
+        if ( roomid == kfmsg->roomid() )
         {
             SetRoomData( player, _invalid_int, _invalid_int );
         }
 
         // 开始结算
-        auto pbbalance = &kfmsg.balance();
+        auto pbbalance = &kfmsg->balance();
 
         // 排名ranking
         player->UpdateData( __STRING__( ranking ), KFEnum::Set, pbbalance->ranking() );
@@ -173,8 +169,8 @@ namespace KFrame
 
         // 返回结果
         KFMsg::S2SPlayerBalanceToRoomResult result;
-        result.set_roomid( kfmsg.roomid() );
-        result.set_playerid( kfmsg.playerid() );
+        result.set_roomid( kfmsg->roomid() );
+        result.set_playerid( kfmsg->playerid() );
         _kf_route->SendToRoute( route, KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_RESULT, &result );
     }
 }

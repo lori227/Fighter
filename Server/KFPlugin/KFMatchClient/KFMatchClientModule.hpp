@@ -35,43 +35,43 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
     protected:
         // 开始匹配
-        __KF_MESSAGE_FUNCTION__( HandleStartMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleStartMatchReq, KFMsg::MsgStartMatchReq );
 
         // 匹配反馈
-        __KF_MESSAGE_FUNCTION__( HandleStartMatchToGameAck );
+        __KF_MESSAGE_FUNCTION__( HandleStartMatchToGameAck, KFMsg::S2SStartMatchToGameAck );
 
         // 取消匹配
-        __KF_MESSAGE_FUNCTION__( HandleCancelMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleCancelMatchReq, KFMsg::MsgCancelMatchReq );
 
         // 查询匹配
-        __KF_MESSAGE_FUNCTION__( HandleQueryMatchToGameAck );
+        __KF_MESSAGE_FUNCTION__( HandleQueryMatchToGameAck, KFMsg::S2SQueryMatchToGameAck );
 
         // 创建匹配房间
-        __KF_MESSAGE_FUNCTION__( HandleCreateMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleCreateMatchReq, KFMsg::MsgCreateMatchReq );
 
         // 创建匹配房间
-        __KF_MESSAGE_FUNCTION__( HandleJoinMatchToGameAck );
+        __KF_MESSAGE_FUNCTION__( HandleJoinMatchToGameAck, KFMsg::S2SJoinMatchToGameAck );
 
         // 加入匹配房间
-        __KF_MESSAGE_FUNCTION__( HandleJoinMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleJoinMatchReq, KFMsg::MsgJoinMatchReq );
 
         // 查询房间列表
-        __KF_MESSAGE_FUNCTION__( HandleQueryMatchListReq );
+        __KF_MESSAGE_FUNCTION__( HandleQueryMatchListReq, KFMsg::MsgQueryMatchListReq );
 
         // 踢人请求
-        __KF_MESSAGE_FUNCTION__( HandleKickMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleKickMatchReq, KFMsg::MsgKickMatchReq );
 
         // 处理被踢了
-        __KF_MESSAGE_FUNCTION__( HandleKickMatchToGameAck );
+        __KF_MESSAGE_FUNCTION__( HandleKickMatchToGameAck, KFMsg::S2SKickMatchToGameAck );
 
         // 开始匹配战斗
-        __KF_MESSAGE_FUNCTION__( HandleFightMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleFightMatchReq, KFMsg::MsgFightMatchReq );
 
         // 准备匹配
-        __KF_MESSAGE_FUNCTION__( HandlePrepareMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandlePrepareMatchReq, KFMsg::MsgPrePareMatchReq );
 
         // 邀请匹配
-        __KF_MESSAGE_FUNCTION__( HandleInviteMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleInviteMatchReq, KFMsg::MsgInviteMatchReq );
     protected:
         // 上线查询匹配
         __KF_PLAYER_ENTER_FUNCTION__( OnEnterQueryMatch );

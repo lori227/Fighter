@@ -36,37 +36,34 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
     protected:
         // 注册战场
-        __KF_MESSAGE_FUNCTION__( HandleRegisterBattleToRoomReq );
-
-        // 同步战场
-        __KF_MESSAGE_FUNCTION__( HandleSyncBattleToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandleRegisterBattleToRoomReq, KFMsg::S2SRegisterBattleToRoomReq );
 
         // 创建房间
-        __KF_MESSAGE_FUNCTION__( HandleCreateRoomToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandleCreateRoomToRoomReq, KFMsg::S2SCreateRoomToRoomReq );
 
         // 开启房间
-        __KF_MESSAGE_FUNCTION__( HandleOpenRoomToRoomAck );
+        __KF_MESSAGE_FUNCTION__( HandleOpenRoomToRoomAck, KFMsg::S2SOpenRoomToRoomAck );
 
         // 通知房间
-        __KF_MESSAGE_FUNCTION__( HandleInformBattleToRoomAck );
+        __KF_MESSAGE_FUNCTION__( HandleInformBattleToRoomAck, KFMsg::S2SInformBattleToRoomAck );
 
         // 查询房间
-        __KF_MESSAGE_FUNCTION__( HandleQueryRoomToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandleQueryRoomToRoomReq, KFMsg::S2SQueryRoomToRoomReq );
 
         // 结束房间
-        __KF_MESSAGE_FUNCTION__( HandleFinishRoomToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandleFinishRoomToRoomReq, KFMsg::S2SFinishRoomToRoomReq );
 
         // 房间心跳
-        __KF_MESSAGE_FUNCTION__( HandleHeartBeatToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandleHeartBeatToRoomReq, KFMsg::S2SHeartBeatToRoomReq );
 
         // 玩家结算
-        __KF_MESSAGE_FUNCTION__( HandlePlayerBalanceToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandlePlayerBalanceToRoomReq, KFMsg::S2SPlayerBalanceToRoomReq );
 
         // 玩家结算结果
-        __KF_MESSAGE_FUNCTION__( HandlePlayerBalanceToRoomResult );
+        __KF_MESSAGE_FUNCTION__( HandlePlayerBalanceToRoomResult, KFMsg::S2SPlayerBalanceToRoomResult );
 
         // 查询结算
-        __KF_MESSAGE_FUNCTION__( HandleQueryBalanceToRoomReq );
+        __KF_MESSAGE_FUNCTION__( HandleQueryBalanceToRoomReq, KFMsg::S2SQueryBalanceToRoomReq );
 
     protected:
         // 创建战场房间

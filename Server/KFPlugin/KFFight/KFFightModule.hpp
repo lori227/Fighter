@@ -34,7 +34,7 @@ namespace KFrame
         __KF_RESET_FUNCTION__( OnResetFightScore );
 
         // 处理积分更新
-        __KF_MESSAGE_FUNCTION__( HandleUpdateScoreReq );
+        __KF_MESSAGE_FUNCTION__( HandleUpdateScoreReq, KFMsg::MsgUpdateScoreReq );
     };
 }
 

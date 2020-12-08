@@ -45,13 +45,13 @@ namespace KFrame
         __KF_ADD_ELEMENT_FUNCTION__( AddFootElement );
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 选择出战英雄
-        __KF_MESSAGE_FUNCTION__( HandleFighterHeroReq );
+        __KF_MESSAGE_FUNCTION__( HandleFighterHeroReq, KFMsg::MsgFighterHeroReq );
 
         // 选择特效
-        __KF_MESSAGE_FUNCTION__( HandleEffectUseReq );
+        __KF_MESSAGE_FUNCTION__( HandleEffectUseReq, KFMsg::MsgEffectUseReq );
 
         // 选择脚印
-        __KF_MESSAGE_FUNCTION__( HandleFootUseReq );
+        __KF_MESSAGE_FUNCTION__( HandleFootUseReq, KFMsg::MsgFootUseReq );
     protected:
         KFComponent* _kf_component = nullptr;
     };

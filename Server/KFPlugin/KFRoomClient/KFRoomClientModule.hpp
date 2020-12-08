@@ -33,19 +33,19 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
     protected:
         // 通知战场服务器请求
-        __KF_MESSAGE_FUNCTION__( HandleInformBattleToGameReq );
+        __KF_MESSAGE_FUNCTION__( HandleInformBattleToGameReq, KFMsg::S2SInformBattleToGameReq );
 
         // 确认战场服务器
-        __KF_MESSAGE_FUNCTION__( HandleInformBattleAck );
+        __KF_MESSAGE_FUNCTION__( HandleInformBattleAck, KFMsg::MsgInformBattleAck );
 
         // 上线查询房间
-        __KF_MESSAGE_FUNCTION__( HandleQueryRoomToGameAck );
+        __KF_MESSAGE_FUNCTION__( HandleQueryRoomToGameAck, KFMsg::S2SQueryRoomToGameAck );
 
         // 房间结束
-        __KF_MESSAGE_FUNCTION__( HandleFinishRoomToGameReq );
+        __KF_MESSAGE_FUNCTION__( HandleFinishRoomToGameReq, KFMsg::S2SFinishRoomToGameReq );
 
         // 结算请求
-        __KF_MESSAGE_FUNCTION__( HandleBalanceToGameReq );
+        __KF_MESSAGE_FUNCTION__( HandleBalanceToGameReq, KFMsg::S2SPlayerBalanceToGameReq );
 
     protected:
         // 上线查新

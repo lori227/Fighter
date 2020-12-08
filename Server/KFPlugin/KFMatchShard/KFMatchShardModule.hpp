@@ -41,37 +41,37 @@ namespace KFrame
 
     protected:
         // 请求开始匹配
-        __KF_MESSAGE_FUNCTION__( HandleStartMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleStartMatchToShardReq, KFMsg::S2SStartMatchToShardReq );
 
         // 请求取消匹配
-        __KF_MESSAGE_FUNCTION__( HandleCancelMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleCancelMatchToShardReq, KFMsg::S2SCancelMatchToShardReq );
 
         // 创建房间
-        __KF_MESSAGE_FUNCTION__( HandleCreateRoomToMatchAck );
+        __KF_MESSAGE_FUNCTION__( HandleCreateRoomToMatchAck, KFMsg::S2SCreateRoomToMatchAck );
 
         // 查询匹配
-        __KF_MESSAGE_FUNCTION__( HandleQueryMatchToMatchReq );
+        __KF_MESSAGE_FUNCTION__( HandleQueryMatchToMatchReq, KFMsg::S2SQueryMatchToMatchReq );
 
         // 创建匹配房间
-        __KF_MESSAGE_FUNCTION__( HandleCreateMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleCreateMatchToShardReq, KFMsg::S2SCreateMatchToShardReq );
 
         // 申请加入匹配房间
-        __KF_MESSAGE_FUNCTION__( HandleJoinMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleJoinMatchToShardReq, KFMsg::S2SJoinMatchToShardReq );
 
         // 查询房间列表
-        __KF_MESSAGE_FUNCTION__( HandleQueryMatchListToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleQueryMatchListToShardReq, KFMsg::S2SQueryMatchListToShardReq );
 
         // 剔除玩家
-        __KF_MESSAGE_FUNCTION__( HandleKickMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleKickMatchToShardReq, KFMsg::S2SKickMatchToShardReq );
 
         // 开始匹配战斗
-        __KF_MESSAGE_FUNCTION__( HandleFightMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleFightMatchToShardReq, KFMsg::S2SFightMatchToShardReq );
 
         // 准备匹配房间
-        __KF_MESSAGE_FUNCTION__( HandlePrepareMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandlePrepareMatchToShardReq, KFMsg::S2SPrepareMatchToShardReq );
 
         // 邀请参加匹配
-        __KF_MESSAGE_FUNCTION__( HandleInviteMatchToShardReq );
+        __KF_MESSAGE_FUNCTION__( HandleInviteMatchToShardReq, KFMsg::S2SInviteMatchToShardReq );
 
     protected:
         // 查找匹配模式

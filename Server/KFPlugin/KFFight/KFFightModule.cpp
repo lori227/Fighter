@@ -7,7 +7,7 @@ namespace KFrame
     {
         __REGISTER_RESET__( __STRING__( score ), &KFFightModule::OnResetFightScore );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFMsg::MSG_UPDATE_SOCRE_REQ, &KFFightModule::HandleUpdateScoreReq );
+        __REGISTER_MESSAGE__( KFFightModule, KFMsg::MSG_UPDATE_SOCRE_REQ, KFMsg::MsgUpdateScoreReq, HandleUpdateScoreReq );
     }
 
     void KFFightModule::ShutDown()
@@ -34,9 +34,9 @@ namespace KFrame
         }
     }
 
-    __KF_MESSAGE_FUNCTION__( KFFightModule::HandleUpdateScoreReq )
+    __KF_MESSAGE_FUNCTION__( KFFightModule::HandleUpdateScoreReq, KFMsg::MsgUpdateScoreReq )
     {
-        __CLIENT_PROTO_PARSE__( KFMsg::MsgUpdateScoreReq );
+        __ROUTE_FIND_PLAYER__;
 
         auto kfscorerecord = player->Find( __STRING__( score ) );
         if ( kfscorerecord == nullptr )
@@ -44,7 +44,7 @@ namespace KFrame
             return;
         }
 
-        player->UpdateRecord( kfscorerecord, kfmsg.id(), __STRING__( today ), KFEnum::Greater, kfmsg.socre() );
-        player->UpdateRecord( kfscorerecord, kfmsg.id(), __STRING__( ever ), KFEnum::Greater, kfmsg.socre() );
+        player->UpdateRecord( kfscorerecord, kfmsg->id(), __STRING__( today ), KFEnum::Greater, kfmsg->socre() );
+        player->UpdateRecord( kfscorerecord, kfmsg->id(), __STRING__( ever ), KFEnum::Greater, kfmsg->socre() );
     }
 }
