@@ -178,7 +178,6 @@ namespace KFrame
 
         // 查找玩家
         virtual KFEntity* FindPlayer( uint64 playerid ) = 0;
-        virtual KFEntity* FindPlayer( uint64 playerid, const char* function, uint32 line ) = 0;
 
         // 删除玩家
         virtual void RemovePlayer() = 0;
@@ -226,24 +225,13 @@ namespace KFrame
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_INTERFACE__( _kf_player, KFPlayerInterface );
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define __ROUTE_FIND_PLAYER__\
-    auto playerid = __ROUTE_RECV_ID__; \
-    auto player = _kf_player->FindPlayer( playerid, __FUNC_LINE__ );\
-    if ( player == nullptr )\
-    {\
-        return;\
-    }\
-
-#define __SERVER_FIND_PLAYER__ \
+#define __FIND_PLAYER_BY_ID__ \
     auto playerid = kfmsg->playerid(); \
-    auto player = _kf_player->FindPlayer( playerid, __FUNC_LINE__ );\
+    auto player = _kf_player->FindPlayer( playerid );\
     if ( player == nullptr )\
     {\
         return;\
     }\
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define __KF_PLAYER_ENTER_FUNCTION__( function ) void function( KFEntity* player )
 #define __REGISTER_PLAYER_ENTER__( function ) _kf_player->RegisterEnterFunction( this, function )

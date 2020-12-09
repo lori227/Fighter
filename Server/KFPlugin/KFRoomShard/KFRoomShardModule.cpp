@@ -5,16 +5,16 @@ namespace KFrame
 {
     void KFRoomShardModule::BeforeRun()
     {
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_REGISTER_BATTLE_TO_ROOM_REQ, KFMsg::S2SRegisterBattleToRoomReq, HandleRegisterBattleToRoomReq );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_CREATE_ROOM_TO_ROOM_REQ, KFMsg::S2SCreateRoomToRoomReq, HandleCreateRoomToRoomReq );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_OPEN_ROOM_TO_ROOM_ACK, KFMsg::S2SOpenRoomToRoomAck, HandleOpenRoomToRoomAck );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, KFMsg::S2SInformBattleToRoomAck, HandleInformBattleToRoomAck );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_QUERY_ROOM_TO_ROOM_REQ, KFMsg::S2SQueryRoomToRoomReq, HandleQueryRoomToRoomReq );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_FINISH_ROOM_TO_ROOM_REQ, KFMsg::S2SFinishRoomToRoomReq, HandleFinishRoomToRoomReq );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_HEART_BEAT_TO_ROOM_REQ, KFMsg::S2SHeartBeatToRoomReq, HandleHeartBeatToRoomReq );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_REQ, KFMsg::S2SPlayerBalanceToRoomReq, HandlePlayerBalanceToRoomReq );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_RESULT, KFMsg::S2SPlayerBalanceToRoomResult, HandlePlayerBalanceToRoomResult );
-        __REGISTER_MESSAGE__( KFRoomShardModule, KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, KFMsg::S2SQueryBalanceToRoomReq, HandleQueryBalanceToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_REGISTER_BATTLE_TO_ROOM_REQ, KFMsg::S2SRegisterBattleToRoomReq, HandleRegisterBattleToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_CREATE_ROOM_TO_ROOM_REQ, KFMsg::S2SCreateRoomToRoomReq, HandleCreateRoomToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_OPEN_ROOM_TO_ROOM_ACK, KFMsg::S2SOpenRoomToRoomAck, HandleOpenRoomToRoomAck );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, KFMsg::S2SInformBattleToRoomAck, HandleInformBattleToRoomAck );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_QUERY_ROOM_TO_ROOM_REQ, KFMsg::S2SQueryRoomToRoomReq, HandleQueryRoomToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_FINISH_ROOM_TO_ROOM_REQ, KFMsg::S2SFinishRoomToRoomReq, HandleFinishRoomToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_HEART_BEAT_TO_ROOM_REQ, KFMsg::S2SHeartBeatToRoomReq, HandleHeartBeatToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_REQ, KFMsg::S2SPlayerBalanceToRoomReq, HandlePlayerBalanceToRoomReq );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_PLAYER_BALANCE_TO_ROOM_RESULT, KFMsg::S2SPlayerBalanceToRoomResult, HandlePlayerBalanceToRoomResult );
+        __REGISTER_MESSAGE__( KFRoomShardModule, KFMessageEnum::Normal, KFMsg::S2S_QUERY_BALANCE_TO_ROOM_REQ, KFMsg::S2SQueryBalanceToRoomReq, HandleQueryBalanceToRoomReq );
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
     }
@@ -239,7 +239,7 @@ namespace KFrame
         req.set_roomid( roomid );
         req.set_playerid( playerid );
         req.mutable_balance()->CopyFrom( *pbbalance );
-        _kf_route->RepeatToServer( serverid, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req );
+        _kf_route->RepeatToPlayer( serverid, playerid, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandlePlayerBalanceToRoomResult, KFMsg::S2SPlayerBalanceToRoomResult )

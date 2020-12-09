@@ -10,9 +10,9 @@ namespace KFrame
         __REGISTER_ADD_ELEMENT__( __STRING__( effect ), &KFHeroModule::AddEffectElement );
         __REGISTER_ADD_ELEMENT__( __STRING__( foot ), &KFHeroModule::AddFootElement );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFHeroModule, KFMsg::MSG_FIGHTER_HERO_REQ, KFMsg::MsgFighterHeroReq, HandleFighterHeroReq );
-        __REGISTER_MESSAGE__( KFHeroModule, KFMsg::MSG_EFFECT_USE_REQ, KFMsg::MsgEffectUseReq, HandleEffectUseReq );
-        __REGISTER_MESSAGE__( KFHeroModule, KFMsg::MSG_FOOT_USE_REQ, KFMsg::MsgFootUseReq, HandleFootUseReq );
+        __REGISTER_MESSAGE__( KFHeroModule, KFMessageEnum::Player, KFMsg::MSG_FIGHTER_HERO_REQ, KFMsg::MsgFighterHeroReq, HandleFighterHeroReq );
+        __REGISTER_MESSAGE__( KFHeroModule, KFMessageEnum::Player, KFMsg::MSG_EFFECT_USE_REQ, KFMsg::MsgEffectUseReq, HandleEffectUseReq );
+        __REGISTER_MESSAGE__( KFHeroModule, KFMessageEnum::Player, KFMsg::MSG_FOOT_USE_REQ, KFMsg::MsgFootUseReq, HandleFootUseReq );
     }
 
     void KFHeroModule::BeforeShut()
@@ -140,41 +140,35 @@ namespace KFrame
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFighterHeroReq, KFMsg::MsgFighterHeroReq )
     {
-        __ROUTE_FIND_PLAYER__;
-
         // 判断是否存在英雄
-        auto kfhero = player->Find( __STRING__( hero ), kfmsg->heroid() );
+        auto kfhero = kfentity->Find( __STRING__( hero ), kfmsg->heroid() );
         if ( kfhero == nullptr )
         {
-            return _kf_display->SendToClient( player, KFMsg::HeroNotExist );
+            return _kf_display->SendToClient( kfentity, KFMsg::HeroNotExist );
         }
 
-        player->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg->heroid() );
+        kfentity->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg->heroid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleEffectUseReq, KFMsg::MsgEffectUseReq )
     {
-        __ROUTE_FIND_PLAYER__;
-
-        auto kfeffect = player->Find( __STRING__( effect ), kfmsg->effectid() );
+        auto kfeffect = kfentity->Find( __STRING__( effect ), kfmsg->effectid() );
         if ( kfeffect == nullptr )
         {
-            return _kf_display->SendToClient( player, KFMsg::EffectNotExist );
+            return _kf_display->SendToClient( kfentity, KFMsg::EffectNotExist );
         }
 
-        player->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg->effectid() );
+        kfentity->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg->effectid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFootUseReq, KFMsg::MsgFootUseReq )
     {
-        __ROUTE_FIND_PLAYER__;
-
-        auto kffoot = player->Find( __STRING__( foot ), kfmsg->footid() );
+        auto kffoot = kfentity->Find( __STRING__( foot ), kfmsg->footid() );
         if ( kffoot == nullptr )
         {
-            return _kf_display->SendToClient( player, KFMsg::FootNotExist );
+            return _kf_display->SendToClient( kfentity, KFMsg::FootNotExist );
         }
 
-        player->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg->footid() );
+        kfentity->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg->footid() );
     }
 }

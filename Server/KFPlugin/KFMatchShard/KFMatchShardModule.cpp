@@ -5,17 +5,17 @@ namespace KFrame
     void KFMatchShardModule::BeforeRun()
     {
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_START_MATCH_TO_SHARD_REQ, KFMsg::S2SStartMatchToShardReq, HandleStartMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ, KFMsg::S2SCancelMatchToShardReq, HandleCancelMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK, KFMsg::S2SCreateRoomToMatchAck, HandleCreateRoomToMatchAck );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ, KFMsg::S2SQueryMatchToMatchReq, HandleQueryMatchToMatchReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, KFMsg::S2SCreateMatchToShardReq, HandleCreateMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_JOIN_MATCH_TO_SHARD_REQ, KFMsg::S2SJoinMatchToShardReq, HandleJoinMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_QUERY_MATCH_LIST_TO_SHARD_REQ, KFMsg::S2SQueryMatchListToShardReq, HandleQueryMatchListToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ, KFMsg::S2SKickMatchToShardReq, HandleKickMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ, KFMsg::S2SFightMatchToShardReq, HandleFightMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_PREPARE_MATCH_TO_SHARD_REQ, KFMsg::S2SPrepareMatchToShardReq, HandlePrepareMatchToShardReq );
-        __REGISTER_MESSAGE__( KFMatchShardModule, KFMsg::S2S_INVITE_MATCH_TO_SHARD_REQ, KFMsg::S2SInviteMatchToShardReq, HandleInviteMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_START_MATCH_TO_SHARD_REQ, KFMsg::S2SStartMatchToShardReq, HandleStartMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ, KFMsg::S2SCancelMatchToShardReq, HandleCancelMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_CREATE_ROOM_TO_MATCH_ACK, KFMsg::S2SCreateRoomToMatchAck, HandleCreateRoomToMatchAck );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_QUERY_MATCH_TO_MATCH_REQ, KFMsg::S2SQueryMatchToMatchReq, HandleQueryMatchToMatchReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_CREATE_MATCH_TO_SHARD_REQ, KFMsg::S2SCreateMatchToShardReq, HandleCreateMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_JOIN_MATCH_TO_SHARD_REQ, KFMsg::S2SJoinMatchToShardReq, HandleJoinMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_QUERY_MATCH_LIST_TO_SHARD_REQ, KFMsg::S2SQueryMatchListToShardReq, HandleQueryMatchListToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_KICK_MATCH_TO_SHARD_REQ, KFMsg::S2SKickMatchToShardReq, HandleKickMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_FIGHT_MATCH_TO_SHARD_REQ, KFMsg::S2SFightMatchToShardReq, HandleFightMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_PREPARE_MATCH_TO_SHARD_REQ, KFMsg::S2SPrepareMatchToShardReq, HandlePrepareMatchToShardReq );
+        __REGISTER_MESSAGE__( KFMatchShardModule, KFMessageEnum::Normal, KFMsg::S2S_INVITE_MATCH_TO_SHARD_REQ, KFMsg::S2SInviteMatchToShardReq, HandleInviteMatchToShardReq );
     }
 
     void KFMatchShardModule::BeforeShut()
