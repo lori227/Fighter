@@ -138,7 +138,7 @@ namespace KFrame
         // 通知玩家被踢了
         KFMsg::S2SKickMatchToGameAck ack;
         ack.set_playerid( playerid );
-        _kf_route->RepeatToPlayer( kfplayer->_pb_player.serverid(), playerid, KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &ack );
+        _kf_route->RepeatToEntity( kfplayer->_pb_player.serverid(), playerid, KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &ack );
 
         // 发送离开消息
         SendLeaveToRoom( playerid, KFMsg::Kick );
@@ -230,7 +230,7 @@ namespace KFrame
         KFMsg::MsgInviteMatchAck ack;
         ack.set_playerid( inviteid );
         SaveTo( ack.mutable_pbroom(), false );
-        _kf_route->SendToPlayer( serverid, playerid, KFMsg::MSG_INVITE_MATCH_ACK, &ack );
+        _kf_route->SendToEntity( serverid, playerid, KFMsg::MSG_INVITE_MATCH_ACK, &ack );
         return KFMsg::Ok;
     }
 }

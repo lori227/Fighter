@@ -22,7 +22,7 @@ namespace KFrame
             return true;
         }
 
-        return _kf_route->SendToPlayer( _pb_player.serverid(), _id, msgid, message );
+        return _kf_route->SendToEntity( _pb_player.serverid(), _id, msgid, message );
     }
 
 

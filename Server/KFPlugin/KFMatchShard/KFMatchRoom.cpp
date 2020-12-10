@@ -178,7 +178,7 @@ namespace KFrame
             auto kfplayer = iter.second;
             if ( !kfplayer->_pb_player.isrobot() )
             {
-                _kf_route->SendToPlayer( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message );
+                _kf_route->SendToEntity( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message );
             }
         }
     }
@@ -223,7 +223,7 @@ namespace KFrame
     {
         KFMsg::S2SJoinMatchToGameAck ack;
         SaveTo( ack.mutable_pbroom(), true );
-        auto ok = _kf_route->SendToPlayer( serverid, playerid, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
+        auto ok = _kf_route->SendToEntity( serverid, playerid, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
         if ( !ok )
         {
             __LOG_ERROR__( "player=[{}] send join match ack failed!", playerid );

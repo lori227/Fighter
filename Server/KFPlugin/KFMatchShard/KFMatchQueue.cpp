@@ -157,6 +157,6 @@ namespace KFrame
                 }
             }
         }
-        _kf_route->SendToPlayer( playerid, serverid, playerid, KFMsg::MSG_QUERY_MATCH_LIST_ACK, &ack );
+        _kf_route->SendToEntity( playerid, serverid, playerid, KFMsg::MSG_QUERY_MATCH_LIST_ACK, &ack );
     }
 }
