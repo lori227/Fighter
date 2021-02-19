@@ -4,11 +4,11 @@ namespace KFrame
 {
     void KFRoomClientModule::BeforeRun()
     {
-        __REGISTER_MESSAGE__( KFRoomClientModule, KFMessageEnum::Player, KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, KFMsg::S2SInformBattleToGameReq, HandleInformBattleToGameReq );
-        __REGISTER_MESSAGE__( KFRoomClientModule, KFMessageEnum::Player, KFMsg::MSG_INFORM_BATTLE_ACK, KFMsg::MsgInformBattleAck, HandleInformBattleAck );
-        __REGISTER_MESSAGE__( KFRoomClientModule, KFMessageEnum::Player, KFMsg::S2S_QUERY_ROOM_TO_GAME_ACK, KFMsg::S2SQueryRoomToGameAck, HandleQueryRoomToGameAck );
-        __REGISTER_MESSAGE__( KFRoomClientModule, KFMessageEnum::Player, KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, KFMsg::S2SFinishRoomToGameReq, HandleFinishRoomToGameReq );
-        __REGISTER_MESSAGE__( KFRoomClientModule, KFMessageEnum::Player, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, KFMsg::S2SPlayerBalanceToGameReq, HandleBalanceToGameReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_INFORM_BATTLE_TO_GAME_REQ, &KFRoomClientModule::HandleInformBattleToGameReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_INFORM_BATTLE_ACK, &KFRoomClientModule::HandleInformBattleAck );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_QUERY_ROOM_TO_GAME_ACK, &KFRoomClientModule::HandleQueryRoomToGameAck );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_FINISH_ROOM_TO_GAME_REQ, &KFRoomClientModule::HandleFinishRoomToGameReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &KFRoomClientModule::HandleBalanceToGameReq );
         //////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_PLAYER_ENTER__( &KFRoomClientModule::OnEnterQueryRoom );
     }

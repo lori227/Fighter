@@ -6,7 +6,7 @@ namespace KFrame
     void KFItemUseModule::BeforeRun()
     {
         ///////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFMsg::MSG_USE_ITEM_REQ, &KFItemUseModule::HandleUseItemReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_USE_ITEM_REQ, &KFItemUseModule::HandleUseItemReq );
     }
 
     void KFItemUseModule::BeforeShut()
@@ -21,10 +21,8 @@ namespace KFrame
         return true;
     }
 
-    __KF_MESSAGE_FUNCTION__( KFItemUseModule::HandleUseItemReq )
+    __KF_MESSAGE_FUNCTION__( KFItemUseModule::HandleUseItemReq, KFMsg::MsgUseItemReq )
     {
-        __CLIENT_PROTO_PARSE__( KFMsg::MsgUseItemReq );
-
         // 判断是否有这个道具
         auto kfitem = player->Find( kfmsg.name(), kfmsg.uuid() );
         if ( kfitem == nullptr )

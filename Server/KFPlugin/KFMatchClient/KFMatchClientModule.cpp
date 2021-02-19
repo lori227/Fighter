@@ -7,19 +7,19 @@ namespace KFrame
         __REGISTER_PLAYER_ENTER__( &KFMatchClientModule::OnEnterQueryMatch );
         __REGISTER_PLAYER_LEAVE__( &KFMatchClientModule::OnLeaveCancelMatch );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_START_MATCH_REQ, KFMsg::MsgStartMatchReq, HandleStartMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::S2S_START_MATCH_TO_GAME_ACK, KFMsg::S2SStartMatchToGameAck, HandleStartMatchToGameAck );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_CANCEL_MATCH_REQ, KFMsg::MsgCancelMatchReq, HandleCancelMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK, KFMsg::S2SQueryMatchToGameAck, HandleQueryMatchToGameAck );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_CREATE_MATCH_REQ, KFMsg::MsgCreateMatchReq, HandleCreateMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, KFMsg::S2SJoinMatchToGameAck, HandleJoinMatchToGameAck );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_JOIN_MATCH_REQ, KFMsg::MsgJoinMatchReq, HandleJoinMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_QUERY_MATCH_LIST_REQ, KFMsg::MsgQueryMatchListReq, HandleQueryMatchListReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_KICK_MATCH_REQ, KFMsg::MsgKickMatchReq, HandleKickMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, KFMsg::S2SKickMatchToGameAck, HandleKickMatchToGameAck );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_FIGHT_MATCH_REQ, KFMsg::MsgFightMatchReq, HandleFightMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_PREPARE_MATCH_REQ, KFMsg::MsgPrePareMatchReq, HandlePrepareMatchReq );
-        __REGISTER_MESSAGE__( KFMatchClientModule, KFMessageEnum::Player, KFMsg::MSG_INVITE_MATCH_REQ, KFMsg::MsgInviteMatchReq, HandleInviteMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_START_MATCH_REQ, &KFMatchClientModule::HandleStartMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_START_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleStartMatchToGameAck );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_CANCEL_MATCH_REQ, &KFMatchClientModule::HandleCancelMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_QUERY_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleQueryMatchToGameAck );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_CREATE_MATCH_REQ, &KFMatchClientModule::HandleCreateMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleJoinMatchToGameAck );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_JOIN_MATCH_REQ, &KFMatchClientModule::HandleJoinMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_QUERY_MATCH_LIST_REQ, &KFMatchClientModule::HandleQueryMatchListReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_KICK_MATCH_REQ, &KFMatchClientModule::HandleKickMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::S2S_KICK_MATCH_TO_GAME_ACK, &KFMatchClientModule::HandleKickMatchToGameAck );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_FIGHT_MATCH_REQ, &KFMatchClientModule::HandleFightMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_PREPARE_MATCH_REQ, &KFMatchClientModule::HandlePrepareMatchReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_INVITE_MATCH_REQ, &KFMatchClientModule::HandleInviteMatchReq );
     }
 
     void KFMatchClientModule::BeforeShut()

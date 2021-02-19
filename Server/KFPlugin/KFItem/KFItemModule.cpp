@@ -20,7 +20,7 @@ namespace KFrame
         __REGISTER_PLAYER_ENTER__( &KFItemModule::OnEnterItemModule );
         __REGISTER_PLAYER_LEAVE__( &KFItemModule::OnLeaveItemModule );
         ///////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFMsg::MSG_REMOVE_ITEM_REQ, &KFItemModule::HandleRemoveItemReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_REMOVE_ITEM_REQ, &KFItemModule::HandleRemoveItemReq );
     }
 
     void KFItemModule::BeforeShut()

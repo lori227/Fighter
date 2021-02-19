@@ -10,9 +10,9 @@ namespace KFrame
         __REGISTER_ADD_ELEMENT__( __STRING__( effect ), &KFHeroModule::AddEffectElement );
         __REGISTER_ADD_ELEMENT__( __STRING__( foot ), &KFHeroModule::AddFootElement );
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFHeroModule, KFMessageEnum::Player, KFMsg::MSG_FIGHTER_HERO_REQ, KFMsg::MsgFighterHeroReq, HandleFighterHeroReq );
-        __REGISTER_MESSAGE__( KFHeroModule, KFMessageEnum::Player, KFMsg::MSG_EFFECT_USE_REQ, KFMsg::MsgEffectUseReq, HandleEffectUseReq );
-        __REGISTER_MESSAGE__( KFHeroModule, KFMessageEnum::Player, KFMsg::MSG_FOOT_USE_REQ, KFMsg::MsgFootUseReq, HandleFootUseReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_FIGHTER_HERO_REQ, &KFHeroModule::HandleFighterHeroReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_EFFECT_USE_REQ, &KFHeroModule::HandleEffectUseReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_FOOT_USE_REQ, &KFHeroModule::HandleFootUseReq );
     }
 
     void KFHeroModule::BeforeShut()

@@ -7,7 +7,7 @@ namespace KFrame
     {
         __REGISTER_RESET__( __STRING__( score ), &KFFightModule::OnResetFightScore );
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        __REGISTER_MESSAGE__( KFFightModule, KFMessageEnum::Player, KFMsg::MSG_UPDATE_SOCRE_REQ, KFMsg::MsgUpdateScoreReq, HandleUpdateScoreReq );
+        __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_UPDATE_SOCRE_REQ, &KFFightModule::HandleUpdateScoreReq );
     }
 
     void KFFightModule::ShutDown()
