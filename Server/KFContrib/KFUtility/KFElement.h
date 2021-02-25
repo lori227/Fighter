@@ -1,7 +1,6 @@
 ﻿#ifndef __KF_ELEMENT_H__
 #define __KF_ELEMENT_H__
 
-#include "KFInclude.h"
 #include "KFRange.h"
 
 namespace KFrame
@@ -12,6 +11,8 @@ namespace KFrame
     class KFValue
     {
     public:
+        virtual ~KFValue() = default;
+
         // 设置数值
         virtual void SetValue( std::string value ) = 0;
 
@@ -22,12 +23,12 @@ namespace KFrame
         }
 
         // 计算数值
-        virtual uint64 CalcUseValue( const KFDataSetting* kfsetting, double multiple )
+        virtual uint64 CalcUseValue( std::shared_ptr<const KFDataSetting>& setting, double multiple )
         {
             return _invalid_int;
         }
 
-        virtual uint64 CalcUseValue( const KFDataSetting* kfsetting, const std::string& dataname, double multiple )
+        virtual uint64 CalcUseValue( std::shared_ptr<const KFDataSetting>& setting, const std::string& data_name, double multiple )
         {
             return _invalid_int;
         }
@@ -42,7 +43,7 @@ namespace KFrame
         bool IsNeedShow();
 
         // 是否类型
-        bool IsType( uint32 type ) const
+        inline bool IsType( uint32 type ) const
         {
             return _type == type;
         }
@@ -52,7 +53,7 @@ namespace KFrame
         uint32 _type = 0;
 
         // 配置属性
-        const KFDataSetting* _data_setting = nullptr;
+        std::shared_ptr<const KFDataSetting> _data_setting = nullptr;
     };
     //////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////
@@ -60,13 +61,14 @@ namespace KFrame
     {
     public:
         KFIntValue();
+        virtual ~KFIntValue();
 
         // 设置数值
         virtual void SetValue( std::string value );
 
         // 计算数值
-        virtual uint64 CalcUseValue( const KFDataSetting* kfsetting, double multiple );
-        virtual uint64 CalcUseValue( const KFDataSetting* kfsetting, const std::string& dataname, double multiple );
+        virtual uint64 CalcUseValue( std::shared_ptr<const KFDataSetting>& setting, double multiple );
+        virtual uint64 CalcUseValue( std::shared_ptr<const KFDataSetting>& setting, const std::string& data_name, double multiple );
 
         // 获得使用数值
         virtual uint64 GetUseValue() const;
@@ -80,6 +82,7 @@ namespace KFrame
     {
     public:
         KFStrValue();
+        virtual ~KFStrValue();
 
         // 设置数值
         virtual void SetValue( std::string value );
@@ -97,12 +100,12 @@ namespace KFrame
     {
     public:
         KFObjValue();
-        ~KFObjValue();
+        virtual ~KFObjValue();
 
         virtual void SetValue( std::string value ) {};
     public:
         // 元素列表
-        KFElementObject* _element = nullptr;;
+        std::shared_ptr<KFElementObject> _element = nullptr;
     };
 
     //////////////////////////////////////////////////////////////////
@@ -144,7 +147,7 @@ namespace KFrame
         uint32 _operate = KFEnum::Add;
 
         // 配置属性
-        const KFDataSetting* _data_setting = nullptr;
+        std::shared_ptr<const KFDataSetting> _data_setting = nullptr;
     };
 
     //////////////////////////////////////////////////////////////////
@@ -165,7 +168,7 @@ namespace KFrame
 
     public:
         // 属性值
-        KFValue* _value = nullptr;
+        std::shared_ptr<KFValue> _value = nullptr;
     };
     /////////////////////////////////////////////////////////////////////////////////
     // 对象元素
@@ -175,24 +178,24 @@ namespace KFrame
         virtual bool IsObject() const;
 
         // 设置数值
-        void SetValue( const std::string& dataname, std::string value );
+        void SetValue( const std::string& data_name, std::string value );
 
         // 获得数值
-        uint64 CalcValue( const KFDataSetting* kfsetting, const std::string& dataname, double multiple = _default_multiple );
-        uint64 GetValue( const std::string& dataname ) const;
+        uint64 CalcValue( std::shared_ptr<const KFDataSetting>& setting, const std::string& data_name, double multiple = _default_multiple );
+        uint64 GetValue( const std::string& data_name ) const;
 
         // 格式化
         virtual const std::string& ToString() const;
 
         // 创建对象数值
-        KFObjValue* CreateObjectValue( const std::string& dataname );
+        std::shared_ptr<KFObjValue> CreateObjectValue( const std::string& data_name );
 
     public:
         // 配置id( 如果有的话 )
         uint32 _config_id = _invalid_int;
 
         // 属性数据
-        KFHashMap< std::string, KFValue > _values;
+        KFHashMap<std::string, KFValue> _values;
     };
     /////////////////////////////////////////////////////////////////////////////////
     class KFElements
@@ -211,7 +214,7 @@ namespace KFrame
         void SetOperate( uint32 operate );
 
         // 解析字符串奖励
-        bool Parse( const std::string& strdata, const char* function, uint32 line );
+        bool Parse( const std::string& data, const char* function, uint32 line );
 
         // 计算返回元素
         const std::string& CalcElement( double multiple ) const;
@@ -233,7 +236,7 @@ namespace KFrame
         std::string _str_parse;
 
         // 元素列表
-        std::vector< KFElement* > _element_list;
+        std::vector<std::shared_ptr<KFElement>> _element_list;
     };
 
     //////////////////////////////////////////////////////////////////////////////////////////
@@ -242,14 +245,14 @@ namespace KFrame
     class KFElementData
     {
     public:
-        void AddData( const std::string& dataname, const std::string& datavalue, uint32 dataid = 0u )
+        void AddData( const std::string& data_name, const std::string& data_value, uint32 data_id = 0u )
         {
-            _data_list.emplace_back( std::make_tuple( dataname, datavalue, dataid ) );
+            _data_list.emplace_back( std::make_tuple( data_name, data_value, data_id ) );
         }
 
-        void AddData( const std::string& dataname, uint32 datavalue, uint32 dataid = 0u )
+        void AddData( const std::string& data_name, uint32 data_value, uint32 data_id = 0u )
         {
-            _data_list.emplace_back( std::make_tuple( dataname, __TO_STRING__( datavalue ), dataid ) );
+            _data_list.emplace_back( std::make_tuple( data_name, __TO_STRING__( data_value ), data_id ) );
         }
 
         bool IsEmpty() const

@@ -11,49 +11,49 @@ namespace KFrame
         //////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////
         // 注册到连接器
-        virtual bool RegisteNetHandle( uint64 sessionid, uint64 handleid, uint64 objectid ) = 0;
+        virtual bool RegisteNetHandle( uint64 session_id, uint64 handle_id, uint64 object_id ) = 0;
 
         // 关闭连接器
-        virtual bool CloseNetHandle( uint64 handleid, uint32 delaytime, const char* function, uint32 line ) = 0;
+        virtual bool CloseNetHandle( uint64 handle_id, uint32 delaytime, const char* function, uint32 line ) = 0;
 
         // 连接数量
         virtual uint32 GetHandleCount() = 0;
 
         // 是否存在连接
-        virtual bool HaveHandle( uint64 handleid ) = 0;
+        virtual bool HaveHandle( uint64 handle_id ) = 0;
 
         // 获得连接ip
-        virtual const std::string& GetHandleIp( uint64 handleid ) = 0;
+        virtual const std::string& GetHandleIp( uint64 handle_id ) = 0;
 
         // 设置id
-        virtual bool BindObjectId( uint64 handleid, uint64 objectid ) = 0;
+        virtual bool BindObjectId( uint64 handle_id, uint64 object_id ) = 0;
 
         // 连接列表
-        virtual void GetHandleList( NetDataList& outlist ) = 0;
+        virtual void GetHandleList( NetDataList& out_list ) = 0;
         ////////////////////////////////////////////////////////////////////////////////////
 
         // 给全部客户端发送消息
-        virtual void SendNetMessage( uint32 msgid, const char* data, uint32 length, uint64 excludeid = 0 ) = 0;
-        virtual void SendNetMessage( uint32 msgid, google::protobuf::Message* message, uint64 excludeid = 0 ) = 0;
+        virtual void SendNetMessage( uint32 msg_id, const char* data, uint32 length, uint64 exclude_id = 0 ) = 0;
+        virtual void SendNetMessage( uint32 msg_id, google::protobuf::Message* message, uint64 exclude_id = 0 ) = 0;
 
         // 给指定客户端发送消息
-        virtual bool SendNetMessage( uint64 handleid, uint32 msgid, const char* data, uint32 length, uint32 delay = 0u ) = 0;
-        virtual bool SendNetMessage( uint64 handleid, uint32 msgid, google::protobuf::Message* message, uint32 delay = 0u ) = 0;
+        virtual bool SendNetMessage( uint64 handle_id, uint32 msg_id, const char* data, uint32 length, uint32 delay = 0u ) = 0;
+        virtual bool SendNetMessage( uint64 handle_id, uint32 msg_id, google::protobuf::Message* message, uint32 delay = 0u ) = 0;
 
         // 给指定对象发送消息
-        virtual bool SendNetMessage( uint64 handleid, uint64 recvid, uint32 msgid, const char* data, uint32 length, uint32 delay = 0u ) = 0;
-        virtual bool SendNetMessage( uint64 handleid, uint64 recvid, uint32 msgid, google::protobuf::Message* message, uint32 delay = 0u ) = 0;
+        virtual bool SendNetMessage( uint64 handle_id, uint64 recv_id, uint32 msg_id, const char* data, uint32 length, uint32 delay = 0u ) = 0;
+        virtual bool SendNetMessage( uint64 handle_id, uint64 recv_id, uint32 msg_id, google::protobuf::Message* message, uint32 delay = 0u ) = 0;
 
         // 给指定类型发送消息
-        virtual void SendMessageToName( const std::string& name, uint32 msgid, google::protobuf::Message* message ) = 0;
+        virtual void SendMessageToName( const std::string& name, uint32 msg_id, google::protobuf::Message* message ) = 0;
 
-        virtual void SendMessageToType( const std::string& type, uint32 msgid, google::protobuf::Message* message ) = 0;
-        virtual void SendMessageToType( const std::string& type, uint32 msgid, const char* data, uint32 length ) = 0;
+        virtual void SendMessageToType( const std::string& type, uint32 msg_id, google::protobuf::Message* message ) = 0;
+        virtual void SendMessageToType( const std::string& type, uint32 msg_id, const char* data, uint32 length ) = 0;
 
         // 给某一类型客户端发送消息
         //////////////////////////////////////////////////////////////////////////////////////////
         // 注册连接成功函数
-        template< class T >
+        template<class T>
         void RegisterDiscoverFunction( T* module, void ( T::*handle )( const KFNetData* ) )
         {
             KFNetEventFunction function = std::bind( handle, module, std::placeholders::_1 );
@@ -61,7 +61,7 @@ namespace KFrame
         }
 
         // 卸载
-        template< class T >
+        template<class T>
         void UnRegisterDiscoverFunction( T* module )
         {
             RemoveDiscoverFunction( module );
@@ -69,7 +69,7 @@ namespace KFrame
         //////////////////////////////////////////////////////////////////////////////////////////
 
         // 注册断线回调函数
-        template< class T >
+        template<class T>
         void RegisterLostFunction( T* module, void ( T::*handle )( const KFNetData* ) )
         {
             KFNetEventFunction function = std::bind( handle, module, std::placeholders::_1 );
@@ -77,24 +77,24 @@ namespace KFrame
         }
 
         // 卸载
-        template< class T >
+        template<class T>
         void UnRegisterLostFunction( T* module )
         {
             RemoveLostFunction( module );
         }
         /////////////////////////////////////////////////////////////////////////////
         // 注册转发
-        template< class T >
-        void RegisterTranspondFunction( T* module, bool ( T::*handle )( const Route& route, uint32 msgid, const char* data, uint32 length ) )
+        template<class T>
+        void RegisterForwardFunction( T* module, bool ( T::*handle )( const Route&, uint32, const char*, uint32 ) )
         {
-            KFTranspondFunction function = std::bind( handle, module, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4 );
-            AddTranspondFunction( module, function );
+            KFForwardFunction function = std::bind( handle, module, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4 );
+            AddForwardFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterTranspondFunction( T* module )
+        template<class T>
+        void UnRegisterForwardFunction( T* module )
         {
-            RemoveTranspondFunction( module );
+            RemoveForwardFunction( module );
         }
 
     private:
@@ -104,8 +104,8 @@ namespace KFrame
         virtual void AddLostFunction( KFModule* module, KFNetEventFunction& function ) = 0;
         virtual void RemoveLostFunction( KFModule* module ) = 0;
 
-        virtual void AddTranspondFunction( KFModule* module, KFTranspondFunction& function ) = 0;
-        virtual void RemoveTranspondFunction( KFModule* module ) = 0;
+        virtual void AddForwardFunction( KFModule* module, KFForwardFunction& function ) = 0;
+        virtual void RemoveForwardFunction( KFModule* module ) = 0;
 
     };
 
@@ -125,11 +125,11 @@ namespace KFrame
 #define __UN_TCP_SERVER_LOST__() \
     _kf_tcp_server->UnRegisterLostFunction( this )
 
-#define __REGISTER_TCP_SERVER_TRANSPOND__( function ) \
-    _kf_tcp_server->RegisterTranspondFunction( this, function )
+#define __REGISTER_TCP_SERVER_FORWARD__( function ) \
+    _kf_tcp_server->RegisterForwardFunction( this, function )
 
-#define __UN_TCP_SERVER_TRANSPOND__() \
-    _kf_tcp_server->UnRegisterTranspondFunction( this )
+#define __UN_TCP_SERVER_FORWARD__() \
+    _kf_tcp_server->UnRegisterForwardFunction( this )
 
 }
 

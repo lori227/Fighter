@@ -36,7 +36,7 @@ namespace KFrame
     //////////////////////////////////////////////////////////////////////////////////////////////
     typedef std::map<std::string, int32> MongoIndexType;
     //////////////////////////////////////////////////////////////////////////////////////////////
-    template< class T >
+    template<class T>
     class KFMongoExpression
     {
     public:
@@ -135,8 +135,8 @@ namespace KFrame
         std::string _condition;
 
         // 表达式列表
-        std::list< KFMongoExpression< uint64 >* > _int_expressions;
-        std::list< KFMongoExpression< std::string >* > _str_expressions;
+        std::list< KFMongoExpression<uint64>* > _int_expressions;
+        std::list< KFMongoExpression<std::string>* > _str_expressions;
 
         // 包含的条件列表
         std::list< KFMongoDocument* > _documents;
@@ -146,9 +146,9 @@ namespace KFrame
     class KFMongoSelector
     {
     public:
-        void AddReturn( const std::string& value, int32 ordertype = MongoKeyword::_asc )
+        void AddReturn( const std::string& value, int32 order_type = MongoKeyword::_asc )
         {
-            _returns[ value ] = ordertype;
+            _returns[ value ] = order_type;
         }
 
         void AddLimitReturn( const std::string& value )

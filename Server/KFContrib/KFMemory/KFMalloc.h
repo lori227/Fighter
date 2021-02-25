@@ -2,7 +2,7 @@
 #define __KF_MALLOC_H__
 
 #include "KFEnum.h"
-#include "KFInclude.h"
+#include "KFDefine.h"
 #include "KFMacros.h"
 #include "KFMemoryDefine.h"
 
@@ -37,22 +37,22 @@ namespace KFrame
         ~KFMalloc();
 
         // 创建
-        static void Initialize( KFMalloc* kfmalloc );
+        static void Initialize( KFMalloc* malloc );
 
         // 接口
         static KFMalloc* Instance();
         ///////////////////////////////////////////////////////////////////////////////////
         // 申请内存
-        template< class T >
+        template<class T>
         T* Malloc( uint32 size, const char* function, uint32 line )
         {
             auto* memory = malloc( size );
             AddMemory( typeid( T ).name(), memory, size );
-            return reinterpret_cast< T* >( memory );
+            return reinterpret_cast<T*>( memory );
         }
 
         // 释放内存
-        template< class T >
+        template<class T>
         void Free( void* memory, const char* function, uint32 line )
         {
             memory = RemoveMemory( typeid( T ).name(), memory, function, line );
@@ -68,17 +68,17 @@ namespace KFrame
         template< class T, class ... P >
         inline T* New( const char* function, uint32 line, P&& ...params )
         {
-            auto size = static_cast< uint32 >( sizeof( T ) );
+            auto size = static_cast<uint32>( sizeof( T ) );
             auto* object = malloc( size );
             AddMemory( typeid( T ).name(), object, size );
             return new ( object ) T( std::forward< P >( params )... );
         }
 
         // 释放对象
-        template< class T >
+        template<class T>
         inline void Delete( T* object, const char* function, uint32 line )
         {
-            object = reinterpret_cast< T* >( RemoveMemory( typeid( T ).name(), object, function, line ) );
+            object = reinterpret_cast<T*>( RemoveMemory( typeid( T ).name(), object, function, line ) );
             if ( object == nullptr )
             {
                 return;
@@ -130,21 +130,21 @@ namespace KFrame
         KFMutex* _memory_list_mutex;
 
         // 内存列表
-        std::unordered_map< void*, MemoryData > _memory_list;
+        std::unordered_map<void*, MemoryData> _memory_list;
 
         // 统计信息
-        std::unordered_map< std::string, MemoryLogData > _log_data_list;
+        std::unordered_map<std::string, MemoryLogData> _log_data_list;
 
         // 线程内存
         KFMutex* _thread_buffer_mutex;
 
         // 线程buffer列表
-        std::unordered_map< uint32, KFThreadBuffer< int8 > > _int8_list;
-        std::unordered_map< uint32, KFThreadBuffer< uint8 > > _uint8_list;
+        std::unordered_map<ThreadId, KFThreadBuffer<int8>> _int8_list;
+        std::unordered_map<ThreadId, KFThreadBuffer<uint8>> _uint8_list;
 
         // 共享内存
         KFMutex* _share_memory_mutex;
-        std::unordered_map < std::string, KFShareMemory > _share_memory_list;
+        std::unordered_map<std::string, KFShareMemory> _share_memory_list;
     };
 }
 

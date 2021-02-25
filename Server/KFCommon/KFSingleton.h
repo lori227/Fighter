@@ -1,5 +1,5 @@
-﻿#ifndef __KF_SINGLETION_H__
-#define __KF_SINGLETION_H__
+﻿#ifndef __KF_SINGLETON_H__
+#define __KF_SINGLETON_H__
 
 #include <utility>
 #include "KFMacros.h"
@@ -15,7 +15,7 @@
 
 namespace KFrame
 {
-    template< typename T >
+    template<typename T>
     class KFSingleton
     {
     public:
@@ -49,15 +49,17 @@ namespace KFrame
         }
 
     private:
-        KFSingleton( const KFSingleton& ) = delete;
-        KFSingleton& operator = ( const KFSingleton& ) = delete;
+        KFSingleton(const KFSingleton&) = delete;
+        KFSingleton& operator=(const KFSingleton&) = delete;
+        KFSingleton(KFSingleton&&) = delete;
+        KFSingleton& operator=(KFSingleton&&) = delete;
 
     private:
         static T* _instance;
     };
 
-    template< typename T >
-    T* KFSingleton< T >::_instance = nullptr;
+    template<typename T>
+    T* KFSingleton<T>::_instance = nullptr;
 }
 
 #endif

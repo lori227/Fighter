@@ -26,6 +26,7 @@
 #ifndef __MAX__
     #define __MAX__( x, y ) ( (x) > (y) ? (x) : (y) )
 #endif
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __NEW_ARRAY__
     #define __NEW_ARRAY__( name, size ) new name[size]
@@ -42,6 +43,15 @@
 #ifndef __DELETE_OBJECT__
     #define __DELETE_OBJECT__( p ) if ( p != nullptr ) { delete p; p = nullptr; }
 #endif
+
+#ifndef __SHARED_OBJECT__
+#define __SHARED_OBJECT__(name, object) std::shared_ptr<name> object = nullptr;
+#endif // !__SHARED_OBJECT__
+
+#ifndef __MAKE_SHARED__
+#define __MAKE_SHARED__(name, ...) std::make_shared<name>( __VA_ARGS__ )
+#endif // !__MAKE_SHARED__
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef __TO_STRING__
     #define __TO_STRING__( value ) std::to_string( value )
@@ -68,22 +78,22 @@
 #endif
 
 #ifndef __FORMAT__
-    #define __FORMAT__( myfmt, ... ) fmt::format( myfmt, __VA_ARGS__ )
+    #define __FORMAT__( my_fmt, ... ) fmt::format( my_fmt, __VA_ARGS__ )
 #endif
 
 #ifndef __PROTO_TO_MAP__
-#define __PROTO_TO_MAP__( pbdata, values )\
-    for ( auto iter = pbdata->begin(); iter != pbdata->end(); ++iter )\
+#define __PROTO_TO_MAP__( pb_data, values )\
+    for ( auto iter = pb_data->begin(); iter != pb_data->end(); ++iter )\
     {\
         values[ iter->first ] = iter->second;\
     }
 #endif
 
 #ifndef __MAP_TO_PROTO__
-#define __MAP_TO_PROTO__( values, pbdata )\
+#define __MAP_TO_PROTO__( values, pb_data )\
     for ( auto iter = values.begin(); iter != values.end(); ++iter )\
     {\
-        pbdata[ iter->first ] = iter->second;\
+        pb_data[ iter->first ] = iter->second;\
     }
 #endif
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -193,8 +203,8 @@
 #endif
 
 #ifndef __DO_WHILE__
-#define __DO_WHILE__(conditon) \
-    while( (conditon) && (++doloopcount < __MAX_LOOP_COUNT__) );\
+#define __DO_WHILE__(condition) \
+    while( (condition) && (++doloopcount < __MAX_LOOP_COUNT__) );\
     if ( doloopcount >= __MAX_LOOP_COUNT__ )\
     {\
         __LOG_ERROR__( "infinite loop!");\
@@ -203,9 +213,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // 有计数上限的安全的while循环, 防止死循环
 #ifndef __SAFE_WHILE__
-#define __SAFE_WHILE__(conditon) \
+#define __SAFE_WHILE__(condition) \
     auto whileloopcount = 0u;\
-    while( (conditon) && (++whileloopcount < __MAX_LOOP_COUNT__) );
+    while( (condition) && (++whileloopcount < __MAX_LOOP_COUNT__) );
 #endif
 
 #ifndef __SAFE_WHILE_END__

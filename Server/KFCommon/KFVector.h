@@ -5,100 +5,84 @@
 
 namespace KFrame
 {
-    template< class T >
+    template<class T>
     class KFVector
     {
-    public:
-        KFVector()
-        {
-            _objects.clear();
-        }
+        typedef std::shared_ptr<T> ObjectPtr;
+        typedef std::shared_ptr<const T> ConstObjectPtr;
 
+    public:
         virtual ~KFVector()
         {
             Clear();
         }
 
         // 清空
-        void Clear()
+        inline virtual void Clear()
         {
-            for ( auto object : _objects )
-            {
-                if ( object != nullptr )
-                {
-                    __KF_DELETE__( T, object );
-                }
-            }
-
             _objects.clear();
         }
 
         // 重置数量
-        void Resize( uint32 maxcount )
+        // @max_count : 最大容量
+        inline void Resize( uint32 max_count )
         {
             auto count = _objects.size();
-            if ( maxcount <= count )
+            if ( max_count <= count )
             {
                 return;
             }
 
-            _objects.resize( maxcount, nullptr );
+            _objects.resize( max_count, nullptr );
         }
 
-        // 空位置
-        uint32 FindEmpty()
+        // 查找空位置
+        inline uint32 FindEmpty()
         {
-            uint32 index = 0;
-            for ( auto object : _objects )
+            for ( auto i = 0u; i < _objects.size(); ++i )
             {
-                if ( object == nullptr )
+                if ( _objects[ i ] == nullptr )
                 {
-                    return index;
+                    return i;
                 }
-
-                ++index;
             }
 
             return MaxSize();
         }
 
         // 最大数量
-        uint32 MaxSize() const
+        inline uint32 MaxSize() const
         {
-            return static_cast< uint32 >( _objects.size() );
+            return static_cast<uint32>( _objects.size() );
         }
 
         // 是否为空
-        bool IsValid( uint32 index ) const
+        // @index : 索引
+        inline bool IsValid( uint32 index ) const
         {
             return index < MaxSize();
         }
 
         // 添加
-        void Add( T* object )
-        {
-            _objects.push_back( object );
-        }
-
-        // 添加
-        void Insert( T* object )
+        // @object : 数据对象
+        inline void Add( ObjectPtr& object )
         {
             uint32 index = FindEmpty();
             Insert( index, object );
         }
 
-        void Insert( uint32 index, T* object )
+        // 插入
+        // index : 索引
+        // @object : 数据对象
+        inline void Insert( uint32 index, ObjectPtr& object )
         {
-            if ( !IsValid( index ) )
-            {
-                _objects.resize( index + 1, nullptr );
-            }
-
+            // 确保容量大小
+            Resize( index+ 1 );
             _objects[ index ] = object;
         }
 
         // 查找
-        T* Find( uint32 index ) const
+        inline ObjectPtr Find( uint32 index ) const
         {
             if ( !IsValid( index ) )
             {
@@ -109,19 +93,19 @@ namespace KFrame
         }
 
         // 删除
-        void Remove( uint32 index )
+        inline ObjectPtr Remove( uint32 index )
         {
             if ( !IsValid( index ) )
             {
-                return;
+                return nullptr;
             }
 
-            auto* object = _objects[ index ];
-            __KF_DELETE__( T, object );
+            auto object = _objects[ index ];
             _objects[ index ] = nullptr;
+            return object;
         }
 
-        T* First()
+        inline ObjectPtr First()
         {
             _iter = _objects.begin();
             if ( _iter == _objects.end() )
@@ -132,7 +116,7 @@ namespace KFrame
             return *_iter;
         }
 
-        T* Next()
+        inline ObjectPtr Next()
         {
             ++_iter;
             if ( _iter == _objects.end() )
@@ -143,18 +127,12 @@ namespace KFrame
             return *_iter;
         }
 
-        bool End()
-        {
-            return _iter == _objects.end();
-
-        }
-
     public:
         // 列表
-        std::vector< T* > _objects;
+        std::vector< ObjectPtr > _objects;
 
     protected:
-        typename std::vector< T* >::iterator _iter;
+        typename std::vector< ObjectPtr >::iterator _iter;
     };
 
     /////////////////////////////////////////////////////////////////////////////////////

@@ -20,7 +20,7 @@ namespace KFrame
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 多线程 string
-        template< class T >
+        template<class T>
         void MTGet( const std::string& url, const std::string& data,
                     T* module = nullptr, void ( T::*handle )( std::string&, std::string&, std::string& ) = nullptr,
                     const std::string& args = _invalid_string )
@@ -34,7 +34,7 @@ namespace KFrame
             MTGetRequest( function, url, data, args );
         }
 
-        template< class T >
+        template<class T>
         void MTPost( const std::string& url, const std::string& data,
                      T* module = nullptr, void ( T::*handle )( std::string&, std::string&, std::string& ) = nullptr,
                      const std::string& args = _invalid_string )
@@ -50,7 +50,7 @@ namespace KFrame
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 多线程 json
-        template< class T >
+        template<class T>
         void MTGet( const std::string& url, KFJson& json,
                     T* module = nullptr, void ( T::*handle )( std::string&, std::string&, std::string& ) = nullptr,
                     const std::string& args = _invalid_string )
@@ -64,7 +64,7 @@ namespace KFrame
             MTGetRequest( function, url, json, args );
         }
 
-        template< class T >
+        template<class T>
         void MTPost( const std::string& url, KFJson& json,
                      T* module = nullptr, void ( T::*handle )( std::string&, std::string&, std::string& ) = nullptr,
                      const std::string& args = _invalid_string )
@@ -89,11 +89,11 @@ namespace KFrame
         virtual std::string SendResponse( KFJson& json ) = 0;
 
     protected:
-        virtual void MTGetRequest( KFHttpClientFunction& function, const std::string& url, const std::string& data, const std::string& args ) = 0;
-        virtual void MTPostRequest( KFHttpClientFunction& function, const std::string& url, const std::string& data, const std::string& args ) = 0;
+        virtual void MTGetRequest( KFHttpClientFunction& function, const std::string& url, const std::string& data, const std::string& pass_back_data ) = 0;
+        virtual void MTPostRequest( KFHttpClientFunction& function, const std::string& url, const std::string& data, const std::string& pass_back_data ) = 0;
 
-        virtual void MTGetRequest( KFHttpClientFunction& function, const std::string& url, KFJson& json, const std::string& args ) = 0;
-        virtual void MTPostRequest( KFHttpClientFunction& function, const std::string& url, KFJson& json, const std::string& args ) = 0;
+        virtual void MTGetRequest( KFHttpClientFunction& function, const std::string& url, KFJson& json, const std::string& pass_back_data ) = 0;
+        virtual void MTPostRequest( KFHttpClientFunction& function, const std::string& url, KFJson& json, const std::string& pass_back_data ) = 0;
     };
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,7 +101,7 @@ namespace KFrame
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define __KF_HTTP_CALL_BACK_FUNCTION__( function )\
-    void function( std::string& senddata, std::string& recvdata, std::string& args )
+    void function( std::string& send_data, std::string& recv_data, std::string& pass_back_data )
 
 }
 

@@ -9,231 +9,195 @@ namespace KFrame
     class KFPlayerInterface : public KFModule
     {
     public:
-        template< class T >
-        void RegisterInitDataFunction( T* object, void ( T::*handle )( KFEntity* player ) )
-        {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddInitDataFunction( typeid( T ).name(), function );
-        }
-
-        template< class T >
-        void UnRegisterInitDataFunction( T* object )
-        {
-            RemoveInitDataFunction( typeid( T ).name() );
-        }
-
         //////////////////////////////////////////////////////////////////////////////////////////////
-        template< class T >
-        void RegisterUnInitDataFunction( T* object, void ( T::*handle )( KFEntity* player ) )
-        {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddUnInitDataFunction( typeid( T ).name(), function );
-        }
-
-        template< class T >
-        void UnRegisterUnInitDataFunction( T* object )
-        {
-            RemoveUnInitDataFunction( typeid( T ).name() );
-        }
-        ////////////////////////////////////////////////////////////////////////////////////////////////
         // 逻辑函数
-        template< class T >
-        void RegisterRunDataFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterRunDataFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddRunDataFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddRunDataFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterRunDataFunction( T* object )
+        template<class T>
+        void UnRegisterRunDataFunction( T* module )
         {
-            RemoveRunDataFunction( typeid( T ).name() );
+            RemoveRunDataFunction( module );
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // 逻辑函数
-        template< class T >
-        void RegisterAfterRunDataFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterAfterRunDataFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddAfterRunDataFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddAfterRunDataFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterAfterRunDataFunction( T* object )
+        template<class T>
+        void UnRegisterAfterRunDataFunction( T* module )
         {
-            RemoveAfterRunDataFunction( typeid( T ).name() );
+            RemoveAfterRunDataFunction( module );
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 重置函数
-        template< class T >
-        void RegisterResetFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterResetFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddResetFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddResetFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterResetFunction( T* object )
+        template<class T>
+        void UnRegisterResetFunction( T* module )
         {
-            RemoveResetFunction( typeid( T ).name() );
+            RemoveResetFunction( module );
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////
         // 登录函数
-        template< class T >
-        void RegisterBeforeEnterFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterBeforeEnterFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddBeforeEnterFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddBeforeEnterFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterBeforeEnterFunction( T* object )
+        template<class T>
+        void UnRegisterBeforeEnterFunction( T* module )
         {
-            RemoveBeforeEnterFunction( typeid( T ).name() );
+            RemoveBeforeEnterFunction( module );
         }
         // 登录函数
-        template< class T >
-        void RegisterEnterFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterEnterFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddEnterFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddEnterFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterEnterFunction( T* object )
+        template<class T>
+        void UnRegisterEnterFunction( T* module )
         {
-            RemoveEnterFunction( typeid( T ).name() );
+            RemoveEnterFunction( module );
         }
 
         // 登录函数
-        template< class T >
-        void RegisterAfterEnterFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterAfterEnterFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddAfterEnterFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddAfterEnterFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterAfterEnterFunction( T* object )
+        template<class T>
+        void UnRegisterAfterEnterFunction( T* module )
         {
-            RemoveAfterEnterFunction( typeid( T ).name() );
+            RemoveAfterEnterFunction( module );
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         // 离开函数
-        template< class T >
-        void RegisterLeaveFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterLeaveFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddLeaveFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddLeaveFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterLeaveFunction( T* object )
+        template<class T>
+        void UnRegisterLeaveFunction( T* module )
         {
-            RemoveLeaveFunction( typeid( T ).name() );
+            RemoveLeaveFunction( module );
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////////////////////////
         // 新玩家首次登陆函数
-        template< class T >
-        void RegisterNewPlayerFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterNewPlayerFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddNewPlayerFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddNewPlayerFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterNewPlayerFunction( T* object )
+        template<class T>
+        void UnRegisterNewPlayerFunction( T* module )
         {
-            RemoveNewPlayerFunction( typeid( T ).name() );
+            RemoveNewPlayerFunction( module );
         }
 
         // 创建角色
-        template< class T >
-        void RegisterCreateRoleFunction( T* object, void ( T::*handle )( KFEntity* player ) )
+        template<class T>
+        void RegisterCreateRoleFunction( T* module, void ( T::*handle )( EntityPtr ) )
         {
-            KFEntityFunction function = std::bind( handle, object, std::placeholders::_1 );
-            AddCreateRoleFunction( typeid( T ).name(), function );
+            KFEntityFunction function = std::bind( handle, module, std::placeholders::_1 );
+            AddCreateRoleFunction( module, function );
         }
 
-        template< class T >
-        void UnRegisterCreateRoleFunction( T* object )
+        template<class T>
+        void UnRegisterCreateRoleFunction( T* module )
         {
-            RemoveCreateRoleFunction( typeid( T ).name() );
+            RemoveCreateRoleFunction( module );
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        // 创建玩家
-        virtual KFEntity* Login( const KFMsg::PBLoginData* pblogin, const KFMsg::PBObject* pbplayerdata ) = 0;
+        // 玩家登录
+        virtual EntityPtr Login( const KFMsg::PBLoginData* login_data, const KFMsg::PBObject* player_data ) = 0;
 
         // 重新登录
-        virtual KFEntity* ReLogin( uint64 playerid, uint64 gateid ) = 0;
+        virtual EntityPtr ReLogin( uint64 player_id, uint64 gate_id ) = 0;
+
+        // 玩家登出
+        virtual void Logout() = 0;
+        virtual void Logout( uint64 player_id ) = 0;
+        virtual void Logout( EntityPtr player ) = 0;
 
         // 查找玩家
-        virtual KFEntity* FindPlayer( uint64 playerid ) = 0;
-
-        // 删除玩家
-        virtual void RemovePlayer() = 0;
-        virtual void RemovePlayer( uint64 playerid ) = 0;
-        virtual void RemovePlayer( KFEntity* player ) = 0;
+        virtual EntityPtr FindPlayer( uint64 player_id ) = 0;
 
         // 发送消息
-        virtual bool SendToClient( KFEntity* player, uint32 msgid, ::google::protobuf::Message* message, uint32 deplay = 0u ) = 0;
+        virtual bool SendToClient( EntityPtr player, uint32 msg_id, ::google::protobuf::Message* message, uint32 delay = 0u ) = 0;
         ///////////////////////////////////////////////////////////////////////////////////////////////////
     protected:
-        virtual void AddInitDataFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveInitDataFunction( const std::string& moudle ) = 0;
+        virtual void AddRunDataFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveRunDataFunction( KFModule* module ) = 0;
 
-        virtual void AddUnInitDataFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveUnInitDataFunction( const std::string& moudle ) = 0;
+        virtual void AddAfterRunDataFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveAfterRunDataFunction( KFModule* module ) = 0;
 
-        virtual void AddRunDataFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveRunDataFunction( const std::string& moudle ) = 0;
+        virtual void AddResetFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveResetFunction( KFModule* module ) = 0;
 
-        virtual void AddAfterRunDataFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveAfterRunDataFunction( const std::string& moudle ) = 0;
+        virtual void AddBeforeEnterFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveBeforeEnterFunction( KFModule* module ) = 0;
 
-        virtual void AddResetFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveResetFunction( const std::string& moudle ) = 0;
+        virtual void AddEnterFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveEnterFunction( KFModule* module ) = 0;
 
-        virtual void AddBeforeEnterFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveBeforeEnterFunction( const std::string& moudle ) = 0;
+        virtual void AddAfterEnterFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveAfterEnterFunction( KFModule* module ) = 0;
 
-        virtual void AddEnterFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveEnterFunction( const std::string& moudle ) = 0;
+        virtual void AddLeaveFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveLeaveFunction( KFModule* module ) = 0;
 
-        virtual void AddAfterEnterFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveAfterEnterFunction( const std::string& moudle ) = 0;
+        virtual void AddNewPlayerFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveNewPlayerFunction( KFModule* module ) = 0;
 
-        virtual void AddLeaveFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveLeaveFunction( const std::string& moudle ) = 0;
-
-        virtual void AddNewPlayerFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveNewPlayerFunction( const std::string& moudle ) = 0;
-
-        virtual void AddCreateRoleFunction( const std::string& moudle, KFEntityFunction& function ) = 0;
-        virtual void RemoveCreateRoleFunction( const std::string& moudle ) = 0;
+        virtual void AddCreateRoleFunction( KFModule* module, KFEntityFunction& function ) = 0;
+        virtual void RemoveCreateRoleFunction( KFModule* module ) = 0;
     };
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_INTERFACE__( _kf_player, KFPlayerInterface );
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define __FIND_PLAYER_BY_ID__ \
-    auto playerid = kfmsg->playerid(); \
-    auto player = _kf_player->FindPlayer( playerid );\
+    auto player_id = kfmsg->playerid(); \
+    auto player = _kf_player->FindPlayer( player_id );\
     if ( player == nullptr )\
     {\
         return;\
     }\
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define __KF_PLAYER_ENTER_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_PLAYER_ENTER_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_PLAYER_ENTER__( function ) _kf_player->RegisterEnterFunction( this, function )
 #define __UN_PLAYER_ENTER__() _kf_player->UnRegisterEnterFunction( this )
 
@@ -243,35 +207,27 @@ namespace KFrame
 #define __REGISTER_PLAYER_AFTER_ENTER__( function ) _kf_player->RegisterAfterEnterFunction( this, function )
 #define __UN_PLAYER_AFTER_ENTER__() _kf_player->UnRegisterAfterEnterFunction( this )
 
-#define __KF_PLAYER_LEAVE_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_PLAYER_LEAVE_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_PLAYER_LEAVE__( function ) _kf_player->RegisterLeaveFunction( this, function )
 #define __UN_PLAYER_LEAVE__() _kf_player->UnRegisterLeaveFunction( this )
 
-#define __KF_PLAYER_RESET_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_PLAYER_RESET_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_PLAYER_RESET__( function ) _kf_player->RegisterResetFunction( this, function )
 #define __UN_PLAYER_RESET__() _kf_player->UnRegisterResetFunction( this )
 
-#define __KF_PLAYER_RUN_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_PLAYER_RUN_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_PLAYER_RUN__( function ) _kf_player->RegisterRunDataFunction( this, function )
 #define __UN_PLAYER_RUN__() _kf_player->UnRegisterRunDataFunction( this )
 
-#define __KF_PLAYER_AFTER_RUN_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_PLAYER_AFTER_RUN_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_PLAYER_AFTER_RUN__( function ) _kf_player->RegisterAfterRunDataFunction( this, function )
 #define __UN_PLAYER_AFTER_RUN__() _kf_player->UnRegisterAfterRunDataFunction( this )
 
-#define __KF_PLAYER_INIT_FUNCTION__( function ) void function( KFEntity* player )
-#define __REGISTER_PLAYER_INIT__( function ) _kf_player->RegisterInitDataFunction( this, function )
-#define __UN_PLAYER_INIT__() _kf_player->UnRegisterInitDataFunction( this )
-
-#define __KF_PLAYER_UNINIT_FUNCTION__( function ) void function( KFEntity* player )
-#define __REGISTER_PLAYER_UNINIT__( function ) _kf_player->RegisterUnInitDataFunction( this, function )
-#define __UN_PLAYER_UNINIT__() _kf_player->UnRegisterUnInitDataFunction( this )
-
-#define __KF_NEW_PLAYER_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_NEW_PLAYER_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_NEW_PLAYER__( function ) _kf_player->RegisterNewPlayerFunction( this, function )
 #define __UN_NEW_PLAYER__() _kf_player->UnRegisterNewPlayerFunction( this )
 
-#define __KF_CREATE_ROLE_FUNCTION__( function ) void function( KFEntity* player )
+#define __KF_CREATE_ROLE_FUNCTION__( function ) void function( EntityPtr player )
 #define __REGISTER_CREATE_ROLE__( function ) _kf_player->RegisterCreateRoleFunction( this, function )
 #define __UN_CREATE_ROLE__() _kf_player->UnRegisterCreateRoleFunction( this )
 

@@ -13,22 +13,22 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 发送消息( 只发送一次, 不管成功还是失败 )
-        virtual bool SendToProxy( uint32 msgid, const char* data, uint32 length ) = 0;
-        virtual bool SendToProxy( uint32 msgid, google::protobuf::Message* message ) = 0;
+        virtual bool SendToProxy( uint32 msg_id, const char* data, uint32 length ) = 0;
+        virtual bool SendToProxy( uint32 msg_id, google::protobuf::Message* message ) = 0;
 
-        virtual bool SendToProxy( uint64 shardid, uint32 msgid, const char* data, uint32 length ) = 0;
-        virtual bool SendToProxy( uint64 shardid, uint32 msgid, google::protobuf::Message* message ) = 0;
+        virtual bool SendToProxy( uint64 shard_id, uint32 msg_id, const char* data, uint32 length ) = 0;
+        virtual bool SendToProxy( uint64 shard_id, uint32 msg_id, google::protobuf::Message* message ) = 0;
 
         // 发送消息( 失败重复发送, 一直到发送成功 )
-        virtual bool RepeatToProxy( uint32 msgid, const char* data, uint32 length ) = 0;
-        virtual bool RepeatToProxy( uint32 msgid, google::protobuf::Message* message ) = 0;
+        virtual bool RepeatToProxy( uint32 msg_id, const char* data, uint32 length ) = 0;
+        virtual bool RepeatToProxy( uint32 msg_id, google::protobuf::Message* message ) = 0;
 
-        virtual bool RepeatToProxy( uint64 shardid, uint32 msgid, const char* data, uint32 length ) = 0;
-        virtual bool RepeatToProxy( uint64 shardid, uint32 msgid, google::protobuf::Message* message ) = 0;
+        virtual bool RepeatToProxy( uint64 shard_id, uint32 msg_id, const char* data, uint32 length ) = 0;
+        virtual bool RepeatToProxy( uint64 shard_id, uint32 msg_id, google::protobuf::Message* message ) = 0;
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 注册回调
-        template< class T >
+        template<class T>
         void RegisterConnectionFunction( T* object, void ( T::*handle )( uint64 ) )
         {
             KFClusterConnectionFunction function = std::bind( handle, object, std::placeholders::_1 );
@@ -36,7 +36,7 @@ namespace KFrame
         }
 
         // 卸载回调
-        template< class T >
+        template<class T>
         void UnRegisterConnectionFunction( T* object )
         {
             RemoveConnectionFunction( typeid( T ).name() );
