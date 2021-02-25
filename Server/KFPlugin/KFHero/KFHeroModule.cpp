@@ -4,7 +4,7 @@ namespace KFrame
 {
     void KFHeroModule::BeforeRun()
     {
-        _kf_component = _kf_kernel->FindComponent( __STRING__( player ) );
+        _component = _kf_kernel->FindComponent( __STRING__( player ) );
 
         __REGISTER_ADD_ELEMENT__( __STRING__( hero ), &KFHeroModule::AddHeroElement );
         __REGISTER_ADD_ELEMENT__( __STRING__( effect ), &KFHeroModule::AddEffectElement );
@@ -28,91 +28,88 @@ namespace KFrame
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddHeroElement )
     {
-        auto kfelement = kfresult->_element;
-        if ( !kfelement->IsObject() )
+        if ( !element_result->_element->IsObject() )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", kfelement->_data_name );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", element_result->_element->_data_name );
             return false;
         }
 
-        auto kfelementobject = reinterpret_cast< KFElementObject* >( kfelement );
-        if ( kfelementobject->_config_id == _invalid_int )
+        auto element_object = std::dynamic_pointer_cast<KFElementObject>( element_result->_element );
+        if ( element_object->_config_id == _invalid_int )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_data_name );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", element_result->_element->_data_name );
             return false;
         }
 
-        auto kfsetting = KFHeroConfig::Instance()->FindSetting( kfelementobject->_config_id );
+        auto kfsetting = KFHeroConfig::Instance()->FindSetting( element_object->_config_id );
         if ( kfsetting == nullptr )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
+            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", element_object->_config_id );
             return false;
         }
 
         // todo: 临时代码, 不重复添加英雄
-        auto kfhero = kfparent->Find( kfelementobject->_config_id );
-        if ( kfhero != nullptr )
+        auto hero_data = parent_data->Find( element_object->_config_id );
+        if ( hero_data != nullptr )
         {
             return false;
         }
 
-        kfhero = player->CreateData( kfparent );
-        player->SetElementToData( kfhero, kfelementobject, kfresult->_multiple );
-        player->AddRecord( kfparent, kfelementobject->_config_id, kfhero );
+        hero_data = player->CreateData( parent_data );
+        player->SetElementToData( hero_data, element_object, element_result->_multiple );
+        player->AddRecord( parent_data, element_object->_config_id, hero_data );
 
-        return kfresult->AddResult( kfelementobject->_config_id, kfhero );
+        return element_result->AddResult( element_object->_config_id, hero_data );
     }
 
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddEffectElement )
     {
-        auto kfelement = kfresult->_element;
-        if ( !kfelement->IsObject() )
+        if ( !element_result->_element->IsObject() )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", kfelement->_data_name );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", element_result->_element->_data_name );
             return false;
         }
 
-        auto kfelementobject = reinterpret_cast< KFElementObject* >( kfelement );
-        if ( kfelementobject->_config_id == _invalid_int )
+        auto element_object = std::dynamic_pointer_cast<KFElementObject>( element_result->_element );
+        if ( element_object->_config_id == _invalid_int )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_data_name );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", element_result->_element->_data_name );
             return false;
         }
 
-        auto kfsetting = KFEffectConfig::Instance()->FindSetting( kfelementobject->_config_id );
+        auto kfsetting = KFEffectConfig::Instance()->FindSetting( element_object->_config_id );
         if ( kfsetting == nullptr )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
+            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", element_object->_config_id );
             return false;
         }
 
         // todo: 临时代码, 不重复添加英雄
-        auto kfeffect = kfparent->Find( kfelementobject->_config_id );
-        if ( kfeffect != nullptr )
+        auto effect_data = parent_data->Find( element_object->_config_id );
+        if ( effect_data != nullptr )
         {
             return false;
         }
 
-        kfeffect = player->CreateData( kfparent );
-        player->SetElementToData( kfeffect, kfelementobject, kfresult->_multiple );
-        player->AddRecord( kfparent, kfelementobject->_config_id, kfeffect );
+        effect_data = player->CreateData( parent_data );
+        player->SetElementToData( effect_data, element_object, element_result->_multiple );
+        player->AddRecord( parent_data, element_object->_config_id, effect_data );
 
-        return kfresult->AddResult( kfelementobject->_config_id, kfeffect );
+        return element_result->AddResult( element_object->_config_id, effect_data );
     }
 
     __KF_ADD_ELEMENT_FUNCTION__( KFHeroModule::AddFootElement )
     {
-        auto kfelement = kfresult->_element;
-        if ( !kfelement->IsObject() )
+        if ( !element_result->_element->IsObject() )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", kfelement->_data_name );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] not object!", element_result->_element->_data_name );
             return false;
         }
 
-        auto kfelementobject = reinterpret_cast< KFElementObject* >( kfelement );
+        auto kfelementobject = std::dynamic_pointer_cast<KFElementObject>( element_result->_element );
         if ( kfelementobject->_config_id == _invalid_int )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", kfelement->_data_name );
+            __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", element_result->_element->_data_name );
             return false;
         }
 
@@ -124,51 +121,51 @@ namespace KFrame
         }
 
         // todo: 临时代码, 不重复添加英雄
-        auto kffoot = kfparent->Find( kfelementobject->_config_id );
-        if ( kffoot != nullptr )
+        auto foot_data = parent_data->Find( kfelementobject->_config_id );
+        if ( foot_data != nullptr )
         {
             return false;
         }
 
-        kffoot = player->CreateData( kfparent );
-        player->SetElementToData( kffoot, kfelementobject, kfresult->_multiple );
-        player->AddRecord( kfparent, kfelementobject->_config_id, kffoot );
+        foot_data = player->CreateData( parent_data );
+        player->SetElementToData( foot_data, kfelementobject, element_result->_multiple );
+        player->AddRecord( parent_data, kfelementobject->_config_id, foot_data );
 
-        return kfresult->AddResult( kfelementobject->_config_id, kffoot );
+        return element_result->AddResult( kfelementobject->_config_id, foot_data );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFighterHeroReq, KFMsg::MsgFighterHeroReq )
     {
         // 判断是否存在英雄
-        auto kfhero = kfentity->Find( __STRING__( hero ), kfmsg->heroid() );
+        auto kfhero = entity->Find( __STRING__( hero ), kfmsg->heroid() );
         if ( kfhero == nullptr )
         {
-            return _kf_display->SendToClient( kfentity, KFMsg::HeroNotExist );
+            return _kf_display->SendToClient( entity, KFMsg::HeroNotExist );
         }
 
-        kfentity->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg->heroid() );
+        entity->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg->heroid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleEffectUseReq, KFMsg::MsgEffectUseReq )
     {
-        auto kfeffect = kfentity->Find( __STRING__( effect ), kfmsg->effectid() );
+        auto kfeffect = entity->Find( __STRING__( effect ), kfmsg->effectid() );
         if ( kfeffect == nullptr )
         {
-            return _kf_display->SendToClient( kfentity, KFMsg::EffectNotExist );
+            return _kf_display->SendToClient( entity, KFMsg::EffectNotExist );
         }
 
-        kfentity->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg->effectid() );
+        entity->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg->effectid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFootUseReq, KFMsg::MsgFootUseReq )
     {
-        auto kffoot = kfentity->Find( __STRING__( foot ), kfmsg->footid() );
+        auto kffoot = entity->Find( __STRING__( foot ), kfmsg->footid() );
         if ( kffoot == nullptr )
         {
-            return _kf_display->SendToClient( kfentity, KFMsg::FootNotExist );
+            return _kf_display->SendToClient( entity, KFMsg::FootNotExist );
         }
 
-        kfentity->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg->footid() );
+        entity->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg->footid() );
     }
 }

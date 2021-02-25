@@ -53,7 +53,7 @@ namespace KFrame
         // 选择脚印
         __KF_MESSAGE_FUNCTION__( HandleFootUseReq, KFMsg::MsgFootUseReq );
     protected:
-        KFComponent* _kf_component = nullptr;
+        std::shared_ptr<KFComponent> _component = nullptr;
     };
 }
 
