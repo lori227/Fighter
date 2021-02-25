@@ -19,7 +19,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFLeaveConfig : public KFConfigT< KFLeaveSetting >, public KFInstance< KFLeaveConfig >
+	class KFLeaveConfig : public KFConfigT<KFLeaveSetting>, public KFInstance<KFLeaveConfig>
 	{
 	public:
 		KFLeaveConfig()
@@ -31,10 +31,10 @@ namespace KFrame
 		~KFLeaveConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFLeaveSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFLeaveSetting> setting )
 		{
-			kfsetting->_lua_file = xmlnode.ReadString( "luafile", true );
-			kfsetting->_lua_function = xmlnode.ReadString( "luafunction", true );
+			setting->_lua_file = xml_node.ReadString( "luafile", true );
+			setting->_lua_function = xml_node.ReadString( "luafunction", true );
 		}
 
 	};

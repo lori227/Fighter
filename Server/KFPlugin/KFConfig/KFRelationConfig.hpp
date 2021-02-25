@@ -43,7 +43,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFRelationConfig : public KFConfigT< KFRelationSetting >, public KFInstance< KFRelationConfig >
+	class KFRelationConfig : public KFConfigT<KFRelationSetting>, public KFInstance<KFRelationConfig>
 	{
 	public:
 		KFRelationConfig()
@@ -55,18 +55,18 @@ namespace KFrame
 		~KFRelationConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFRelationSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFRelationSetting> setting )
 		{
-			kfsetting->_max_count = xmlnode.ReadUInt32( "maxcount", true );
-			kfsetting->_both_way = xmlnode.ReadBoolen( "bothway", true );
-			kfsetting->_need_update = xmlnode.ReadBoolen( "needupdate", true );
-			kfsetting->_online_load = xmlnode.ReadBoolen( "onlineload", true );
-			kfsetting->_invite_list_count = xmlnode.ReadUInt32( "invitelistcount", true );
-			kfsetting->_invite_keep_time = xmlnode.ReadUInt32( "invitekeeptime", true );
-			kfsetting->_data_list_name = xmlnode.ReadString( "datalistname", true );
-			kfsetting->_invite_data_name = xmlnode.ReadString( "invitedataname", true );
-			kfsetting->_invite_list_name = xmlnode.ReadString( "invitelistname", true );
-			kfsetting->_refuse_name = xmlnode.ReadString( "refusename", true );
+			setting->_max_count = xml_node.ReadUInt32( "maxcount", true );
+			setting->_both_way = xml_node.ReadBoolen( "bothway", true );
+			setting->_need_update = xml_node.ReadBoolen( "needupdate", true );
+			setting->_online_load = xml_node.ReadBoolen( "onlineload", true );
+			setting->_invite_list_count = xml_node.ReadUInt32( "invitelistcount", true );
+			setting->_invite_keep_time = xml_node.ReadUInt32( "invitekeeptime", true );
+			setting->_data_list_name = xml_node.ReadString( "datalistname", true );
+			setting->_invite_data_name = xml_node.ReadString( "invitedataname", true );
+			setting->_invite_list_name = xml_node.ReadString( "invitelistname", true );
+			setting->_refuse_name = xml_node.ReadString( "refusename", true );
 		}
 
 	};

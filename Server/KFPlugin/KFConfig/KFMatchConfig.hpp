@@ -28,7 +28,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFMatchConfig : public KFConfigT< KFMatchSetting >, public KFInstance< KFMatchConfig >
+	class KFMatchConfig : public KFConfigT<KFMatchSetting>, public KFInstance<KFMatchConfig>
 	{
 	public:
 		KFMatchConfig()
@@ -40,13 +40,13 @@ namespace KFrame
 		~KFMatchConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFMatchSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFMatchSetting> setting )
 		{
-			kfsetting->_max_count = xmlnode.ReadUInt32( "maxcount", true );
-			kfsetting->_upper_grade = xmlnode.ReadUInt32( "uppergrade", true );
-			kfsetting->_lower_grade = xmlnode.ReadUInt32( "lowergrade", true );
-			kfsetting->_add_robot_time = xmlnode.ReadUInt32( "addrobottime", true );
-			kfsetting->_add_robot_count = xmlnode.ReadUInt32( "addrobotcount", true );
+			setting->_max_count = xml_node.ReadUInt32( "maxcount", true );
+			setting->_upper_grade = xml_node.ReadUInt32( "uppergrade", true );
+			setting->_lower_grade = xml_node.ReadUInt32( "lowergrade", true );
+			setting->_add_robot_time = xml_node.ReadUInt32( "addrobottime", true );
+			setting->_add_robot_count = xml_node.ReadUInt32( "addrobotcount", true );
 		}
 
 	};

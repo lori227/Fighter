@@ -13,7 +13,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFStoreConfig : public KFConfigT< KFStoreSetting >, public KFInstance< KFStoreConfig >
+	class KFStoreConfig : public KFConfigT<KFStoreSetting>, public KFInstance<KFStoreConfig>
 	{
 	public:
 		KFStoreConfig()
@@ -25,7 +25,7 @@ namespace KFrame
 		~KFStoreConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFStoreSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFStoreSetting> setting )
 		{
 		}
 

@@ -1,4 +1,4 @@
-<root version="b23436e3e9f4daa80e38a6dcab7724c8">
+<root version="74c814464fb919404838b1d756819330">
 	<node row="8" id="class" name="dropclass" path="./config/" canreload="1"/>
 	<node row="9" id="class" name="relationclass" path="./config/" canreload="1"/>
 	<node row="10" id="class" name="achieveclass" path="./config/" canreload="1"/>

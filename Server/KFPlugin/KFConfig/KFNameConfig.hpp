@@ -16,7 +16,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFNameConfig : public KFConfigT< KFNameSetting >, public KFInstance< KFNameConfig >
+	class KFNameConfig : public KFConfigT<KFNameSetting>, public KFInstance<KFNameConfig>
 	{
 	public:
 		KFNameConfig()
@@ -28,9 +28,9 @@ namespace KFrame
 		~KFNameConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFNameSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFNameSetting> setting )
 		{
-			kfsetting->_name.push_back( xmlnode.ReadString( "name", true ) );
+			setting->_name.push_back( xml_node.ReadString( "name", true ) );
 		}
 
 	};

@@ -49,7 +49,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFItemBagConfig : public KFConfigT< KFItemBagSetting >, public KFInstance< KFItemBagConfig >
+	class KFItemBagConfig : public KFConfigT<KFItemBagSetting>, public KFInstance<KFItemBagConfig>
 	{
 	public:
 		KFItemBagConfig()
@@ -61,20 +61,20 @@ namespace KFrame
 		~KFItemBagConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFItemBagSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFItemBagSetting> setting )
 		{
-			kfsetting->_max_count = xmlnode.ReadUInt32( "maxcount", true );
-			kfsetting->_index_name = xmlnode.ReadString( "indexname", true );
-			kfsetting->_tab_list = xmlnode.ReadStringSet( "tablist", true );
-			kfsetting->_extend_bag = xmlnode.ReadString( "extendbag", true );
-			kfsetting->_use_child_bag = xmlnode.ReadStringList( "usechildbag", true );
-			kfsetting->_update_add_from_source = xmlnode.ReadStringSet( "updateaddfromsource", true );
-			kfsetting->_update_move_to_target = xmlnode.ReadStringSet( "updatemovetotarget", true );
-			kfsetting->_show_move_to_target = xmlnode.ReadStringSet( "showmovetotarget", true );
-			kfsetting->_show_when_add = xmlnode.ReadBoolen( "showwhenadd", true );
-			kfsetting->_can_move = xmlnode.ReadBoolen( "canmove", true );
-			kfsetting->_can_move_all = xmlnode.ReadBoolen( "canmoveall", true );
-			kfsetting->_can_cleanup = xmlnode.ReadBoolen( "cancleanup", true );
+			setting->_max_count = xml_node.ReadUInt32( "maxcount", true );
+			setting->_index_name = xml_node.ReadString( "indexname", true );
+			setting->_tab_list = xml_node.ReadStringSet( "tablist", true );
+			setting->_extend_bag = xml_node.ReadString( "extendbag", true );
+			setting->_use_child_bag = xml_node.ReadStringList( "usechildbag", true );
+			setting->_update_add_from_source = xml_node.ReadStringSet( "updateaddfromsource", true );
+			setting->_update_move_to_target = xml_node.ReadStringSet( "updatemovetotarget", true );
+			setting->_show_move_to_target = xml_node.ReadStringSet( "showmovetotarget", true );
+			setting->_show_when_add = xml_node.ReadBoolen( "showwhenadd", true );
+			setting->_can_move = xml_node.ReadBoolen( "canmove", true );
+			setting->_can_move_all = xml_node.ReadBoolen( "canmoveall", true );
+			setting->_can_cleanup = xml_node.ReadBoolen( "cancleanup", true );
 		}
 
 	};

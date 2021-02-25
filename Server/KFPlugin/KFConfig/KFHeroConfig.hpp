@@ -16,7 +16,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFHeroConfig : public KFConfigT< KFHeroSetting >, public KFInstance< KFHeroConfig >
+	class KFHeroConfig : public KFConfigT<KFHeroSetting>, public KFInstance<KFHeroConfig>
 	{
 	public:
 		KFHeroConfig()
@@ -28,9 +28,9 @@ namespace KFrame
 		~KFHeroConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFHeroSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFHeroSetting> setting )
 		{
-			kfsetting->_name = xmlnode.ReadString( "name", true );
+			setting->_name = xml_node.ReadString( "name", true );
 		}
 
 	};

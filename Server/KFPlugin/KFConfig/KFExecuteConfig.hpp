@@ -23,7 +23,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFExecuteConfig : public KFConfigT< KFExecuteSetting >, public KFInstance< KFExecuteConfig >
+	class KFExecuteConfig : public KFConfigT<KFExecuteSetting>, public KFInstance<KFExecuteConfig>
 	{
 	public:
 		KFExecuteConfig()
@@ -36,19 +36,19 @@ namespace KFrame
 
 		virtual void LoadAllComplete()
 		{
-			for ( auto& iter : _settings._objects )
+			for ( auto& iter : _setting_list._objects )
 			{
-				auto kfsetting = iter.second;
+				auto setting = iter.second;
 
-				for ( auto& executedata : kfsetting->_execute_data)
+				for ( auto& execute_data : setting->_execute_data)
 				{
-					auto& execute = executedata._execute;
+					auto& execute = execute_data._execute;
 					if ( execute->_name == __STRING__( data ) )
 					{
-						auto& datavalue = execute->_param_list._params[ 0 ]->_str_value;
-						auto& dataname = execute->_param_list._params[ 1 ]->_str_value;
-						auto& datakey = execute->_param_list._params[ 2 ]->_int_value;
-						KFGlobal::Instance()->FormatElement( execute->_elements, dataname, datavalue, datakey );
+						auto& data_value = execute->_param_list._params[ 0 ]->_str_value;
+						auto& data_name = execute->_param_list._params[ 1 ]->_str_value;
+						auto& data_key = execute->_param_list._params[ 2 ]->_int_value;
+						KFGlobal::Instance()->FormatElement( execute->_elements, data_name, data_value, data_key );
 					}
 				}
 
@@ -56,12 +56,12 @@ namespace KFrame
 		}
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFExecuteSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFExecuteSetting> setting )
 		{
 		
-			ExecuteData executedata;
-			executedata._execute = xmlnode.ReadExecuteData( "execute", true );
-			kfsetting->_execute_data.push_back( executedata );
+			ExecuteData execute_data;
+			execute_data._execute = xml_node.ReadExecuteData( "execute", true );
+			setting->_execute_data.push_back( execute_data );
 		}
 
 	};

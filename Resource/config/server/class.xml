@@ -1,4 +1,4 @@
-<root version="b23436e3e9f4daa80e38a6dcab7724c8">
+<root version="9ed5a1afd9fa7f890e489013b5534606">
 	<node row="8" id="BasicPlayer" name="grade" type="uint32" sync="1" view="1" addcall="1" removecall="1" updatecall="1" basic="1" relation="1" team="1" guild="1" rank="1"/>
 	<node row="9" element="经验" id="Player" name="exp" type="uint32" show="1" save="1" sync="1" updatecall="1"/>
 	<node row="10" id="Player" name="matchid" type="uint32" save="1" sync="1"/>

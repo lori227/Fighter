@@ -1,4 +1,4 @@
-<root version="4abcd717e041c603923dcfe080a82919">
+<root version="edb57e167f3c32e1a824aa18a585a881">
 	<node row="8" id="1" weight="100" logicname="data" dataname="money" dropvalue="100"/>
 	<node row="9" id="2" weight="100" logicname="data" dataname="money" dropvalue="200"/>
 	<node row="10" id="3" weight="100" logicname="data" dataname="money" dropvalue="100-200"/>

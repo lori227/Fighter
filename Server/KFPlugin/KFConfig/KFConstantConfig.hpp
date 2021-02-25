@@ -10,35 +10,27 @@ namespace KFrame
 	class KFConstantSetting : public KFIntSetting
 	{
 	public:
-		// 字段名(不能改这个字段)
-		std::string _name;
-
-		// 键值
-		uint32 _key = 0u;
-
 		// 设置数值
 		std::string _value;
 
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFConstantConfig : public KFConfigT< KFConstantSetting >, public KFInstance< KFConstantConfig >
+	class KFConstantConfig : public KFConfigT<KFConstantSetting>, public KFInstance<KFConstantConfig>
 	{
 	public:
 		KFConstantConfig()
 		{
-			_key_name = "id";
+			_key_name = "name";
 			_file_name = "constant";
 		}
 
 		~KFConstantConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFConstantSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFConstantSetting> setting )
 		{
-			kfsetting->_name = xmlnode.ReadString( "name", true );
-			kfsetting->_key = xmlnode.ReadUInt32( "key", true );
-			kfsetting->_value = xmlnode.ReadString( "value", true );
+			setting->_value = xml_node.ReadString( "value", true );
 		}
 
 	};

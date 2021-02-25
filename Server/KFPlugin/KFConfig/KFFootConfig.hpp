@@ -16,7 +16,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFFootConfig : public KFConfigT< KFFootSetting >, public KFInstance< KFFootConfig >
+	class KFFootConfig : public KFConfigT<KFFootSetting>, public KFInstance<KFFootConfig>
 	{
 	public:
 		KFFootConfig()
@@ -28,9 +28,9 @@ namespace KFrame
 		~KFFootConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFFootSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFFootSetting> setting )
 		{
-			kfsetting->_name = xmlnode.ReadString( "name", true );
+			setting->_name = xml_node.ReadString( "name", true );
 		}
 
 	};

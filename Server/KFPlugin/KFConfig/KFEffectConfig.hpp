@@ -16,7 +16,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFEffectConfig : public KFConfigT< KFEffectSetting >, public KFInstance< KFEffectConfig >
+	class KFEffectConfig : public KFConfigT<KFEffectSetting>, public KFInstance<KFEffectConfig>
 	{
 	public:
 		KFEffectConfig()
@@ -28,9 +28,9 @@ namespace KFrame
 		~KFEffectConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFEffectSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFEffectSetting> setting )
 		{
-			kfsetting->_name = xmlnode.ReadString( "name", true );
+			setting->_name = xml_node.ReadString( "name", true );
 		}
 
 	};

@@ -56,7 +56,7 @@ namespace KFrame
 	};
 
 	/////////////////////////////////////////////////////////////////////////////////
-	class KFConditionDefineConfig : public KFConfigT< KFConditionDefineSetting >, public KFInstance< KFConditionDefineConfig >
+	class KFConditionDefineConfig : public KFConfigT<KFConditionDefineSetting>, public KFInstance<KFConditionDefineConfig>
 	{
 	public:
 		KFConditionDefineConfig()
@@ -68,23 +68,23 @@ namespace KFrame
 		~KFConditionDefineConfig() = default;
 
 	protected:
-		virtual void ReadSetting( KFXmlNode& xmlnode, KFConditionDefineSetting* kfsetting )
+		virtual void ReadSetting( KFXmlNode& xml_node, std::shared_ptr<KFConditionDefineSetting> setting )
 		{
-			kfsetting->_parent_name = xmlnode.ReadString( "parentname", true );
-			kfsetting->_data_name = xmlnode.ReadString( "dataname", true );
-			kfsetting->_init_calc_type = xmlnode.ReadUInt32( "initcalctype", true );
-			kfsetting->_save_uuid = xmlnode.ReadBoolen( "saveuuid", true );
+			setting->_parent_name = xml_node.ReadString( "parentname", true );
+			setting->_data_name = xml_node.ReadString( "dataname", true );
+			setting->_init_calc_type = xml_node.ReadUInt32( "initcalctype", true );
+			setting->_save_uuid = xml_node.ReadBoolen( "saveuuid", true );
 		
-			ConditionTrigger conditiontrigger;
-			conditiontrigger._call_type = xmlnode.ReadUInt32( "calltype", true );
-			conditiontrigger._trigger_type = xmlnode.ReadUInt32( "triggertype", true );
-			conditiontrigger._trigger_check = xmlnode.ReadUInt32( "triggercheck", true );
-			conditiontrigger._trigger_use = xmlnode.ReadUInt32( "triggeruse", true );
-			conditiontrigger._trigger_value = xmlnode.ReadUInt32( "triggervalue", true );
-			conditiontrigger._use_operate = xmlnode.ReadUInt32( "useoperate", true );
-			conditiontrigger._use_type = xmlnode.ReadUInt32( "usetype", true );
-			conditiontrigger._use_value = xmlnode.ReadUInt32( "usevalue", true );
-			kfsetting->_condition_trigger.push_back( conditiontrigger );
+			ConditionTrigger condition_trigger;
+			condition_trigger._call_type = xml_node.ReadUInt32( "calltype", true );
+			condition_trigger._trigger_type = xml_node.ReadUInt32( "triggertype", true );
+			condition_trigger._trigger_check = xml_node.ReadUInt32( "triggercheck", true );
+			condition_trigger._trigger_use = xml_node.ReadUInt32( "triggeruse", true );
+			condition_trigger._trigger_value = xml_node.ReadUInt32( "triggervalue", true );
+			condition_trigger._use_operate = xml_node.ReadUInt32( "useoperate", true );
+			condition_trigger._use_type = xml_node.ReadUInt32( "usetype", true );
+			condition_trigger._use_value = xml_node.ReadUInt32( "usevalue", true );
+			setting->_condition_trigger.push_back( condition_trigger );
 		}
 
 	};
