@@ -25,7 +25,7 @@ namespace KFrame
     }
 
     class KFMatchQueue;
-    class KFMatchRoom
+    class KFMatchRoom : public std::enable_shared_from_this<KFMatchRoom>
     {
     public:
         KFMatchRoom() = default;

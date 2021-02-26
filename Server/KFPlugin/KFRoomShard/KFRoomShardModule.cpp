@@ -234,10 +234,10 @@ namespace KFrame
     void KFRoomShardModule::SendPlayerBalanceToGame( uint64 server_id, uint64 player_id, uint64 room_id, const KFMsg::PBBattleBalance* pb_balance )
     {
         KFMsg::S2SPlayerBalanceToGameReq req;
-        req.set_roomid( roomid );
-        req.set_playerid( playerid );
-        req.mutable_balance()->CopyFrom( *pbbalance );
-        _kf_route->RepeatToEntity( serverid, playerid, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req );
+        req.set_roomid( room_id );
+        req.set_playerid( player_id );
+        req.mutable_balance()->CopyFrom( *pb_balance );
+        _kf_route->RepeatToEntity( server_id, player_id, KFMsg::S2S_PLAYER_BALANCE_TO_GAME_REQ, &req );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandlePlayerBalanceToRoomResult, KFMsg::S2SPlayerBalanceToRoomResult )

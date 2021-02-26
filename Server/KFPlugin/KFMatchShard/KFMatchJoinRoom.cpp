@@ -173,7 +173,7 @@ namespace KFrame
         }
 
         ChangeState( KFMatchEnum::CreateState, 10 );
-        _match_queue->RoomMatchFinish( this );
+        _match_queue->RoomMatchFinish( shared_from_this() );
         return KFMsg::Ok;
     }
 
