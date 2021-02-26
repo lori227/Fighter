@@ -41,8 +41,8 @@ namespace KFrame
             return false;
         }
 
-        auto kfsetting = KFHeroConfig::Instance()->FindSetting( element_object->_config_id );
-        if ( kfsetting == nullptr )
+        auto setting = KFHeroConfig::Instance()->FindSetting( element_object->_config_id );
+        if ( setting == nullptr )
         {
             __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", element_object->_config_id );
             return false;
@@ -77,8 +77,8 @@ namespace KFrame
             return false;
         }
 
-        auto kfsetting = KFEffectConfig::Instance()->FindSetting( element_object->_config_id );
-        if ( kfsetting == nullptr )
+        auto setting = KFEffectConfig::Instance()->FindSetting( element_object->_config_id );
+        if ( setting == nullptr )
         {
             __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", element_object->_config_id );
             return false;
@@ -113,8 +113,8 @@ namespace KFrame
             return false;
         }
 
-        auto kfsetting = KFFootConfig::Instance()->FindSetting( kfelementobject->_config_id );
-        if ( kfsetting == nullptr )
+        auto setting = KFFootConfig::Instance()->FindSetting( kfelementobject->_config_id );
+        if ( setting == nullptr )
         {
             __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
             return false;

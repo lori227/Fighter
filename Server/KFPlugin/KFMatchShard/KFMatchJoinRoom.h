@@ -11,37 +11,38 @@ namespace KFrame
         KFMatchJoinRoom();
 
         // 初始化
-        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot );
+        virtual void InitRoom( std::shared_ptr<KFMatchQueue> match_queue, std::shared_ptr<KFMatchPlayer> match_player,
+                               const std::string& title, const std::string& password, bool add_robot );
 
         // 保存房间信息
-        virtual void SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist );
+        virtual void SaveTo( KFMsg::PBMatchRoom* pb_room, bool is_player_list );
 
         // 是否匹配
-        virtual bool IsMatched( KFMatchPlayer* kfplayer );
+        virtual bool IsMatched( std::shared_ptr<KFMatchPlayer> match_player );
 
         // 添加玩家
-        virtual bool AddPlayer( KFMatchPlayer* kfplayer );
+        virtual bool AddPlayer( std::shared_ptr<KFMatchPlayer> match_player );
 
         // 取消匹配
-        virtual uint32 CancelMatch( uint64 playerid );
+        virtual uint32 CancelMatch( uint64 player_id );
 
         // 加入玩家
-        virtual uint32 JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password );
+        virtual uint32 JoinPlayer( const KFMsg::PBMatchPlayer* pb_player, const std::string& version, const std::string& password );
 
         // 踢掉玩家
-        virtual uint32 KickPlayer( uint64 masterid, uint64 playerid );
+        virtual uint32 KickPlayer( uint64 master_id, uint64 player_id );
 
         // 开始战斗
-        virtual uint32 FightMatch( uint64 playerid );
+        virtual uint32 FightMatch( uint64 player_id );
 
         // 准备匹配
-        virtual uint32 PrepareMatch( uint64 playerid, bool prepare );
+        virtual uint32 PrepareMatch( uint64 player_id, bool prepare );
 
         // 邀请匹配
-        virtual uint32 InviteMatch( uint64 inviteid, uint64 playerid, uint64 serverid );
+        virtual uint32 InviteMatch( uint64 invite_id, uint64 player_id, uint64 server_id );
     protected:
         // 更新房主信息
-        void ChangeMasterPlayer( uint64 playerid );
+        void ChangeMasterPlayer( uint64 player_id );
 
         // 判断是否都准备
         bool CheckAllPrepare();

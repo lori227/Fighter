@@ -67,20 +67,20 @@ namespace KFrame
 
     protected:
         // 创建战场房间
-        KFBattleRoom* CreateBattleRoom( uint64 roomid );
+        std::shared_ptr<KFBattleRoom> CreateBattleRoom( uint64 room_id );
 
         // 删除战场房间
-        void RemoveBattleRoom( uint64 roomid );
+        void RemoveBattleRoom( uint64 room_id );
 
         // 发送结算消息到服务器
-        void SendPlayerBalanceToGame( uint64 serverid, uint64 playerid, uint64 roomid, const KFMsg::PBBattleBalance* pbbalance );
+        void SendPlayerBalanceToGame( uint64 server_id, uint64 player_id, uint64 room_id, const KFMsg::PBBattleBalance* pb_balance );
 
     private:
         // 房间列表
-        KFHashMap< uint64, KFBattleRoom > _room_list;
+        KFHashMap<uint64, KFBattleRoom> _room_list;
 
         // battle redis
-        KFRedisDriver* _room_redis = nullptr;
+        std::shared_ptr<KFRedisDriver> _redis_driver = nullptr;
     };
 }
 

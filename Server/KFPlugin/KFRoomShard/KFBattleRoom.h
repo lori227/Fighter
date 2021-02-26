@@ -14,27 +14,27 @@ namespace KFrame
             OpenState = 1,		// 打开状态
             InformState = 2,	// 通知状态
             PlayState = 3,		// 战斗状态
-            DestoryState = 4,	// 销毁状态
+            DestroyState = 4,	// 销毁状态
         };
 
     public:
         // 初始化
-        void Init( uint64 roomid );
+        void Init( uint64 room_id );
 
         // 逻辑
         bool Run();
 
         // 发送消息
-        void SendToRoom( uint32 msgid, google::protobuf::Message* message );
+        void SendToRoom( uint32 msg_id, google::protobuf::Message* message );
 
         // 确认开启战场
         void AffirmOpenBattle( bool ok );
 
         // 确认通知玩家
-        void AffirmInformPlayer( uint64 playerid );
+        void AffirmInformPlayer( uint64 player_id );
 
         // 查询房间
-        bool QueryRoom( uint64 playerid, uint64 serverid );
+        bool QueryRoom( uint64 player_id, uint64 server_id );
 
         // 结束房间
         void FinishRoom();
@@ -58,11 +58,11 @@ namespace KFrame
         void RunInformPlayer();
 
         // 添加通知玩家
-        void AddInformPlayer( KFBattlePlayer* kfplayer );
+        void AddInformPlayer( std::shared_ptr<KFBattlePlayer> battle_player );
 
         // 发送通知消息
         void RunSendInformToPlayer();
-        void SendInformToPlayer( KFBattlePlayer* kfplayer );
+        void SendInformToPlayer( std::shared_ptr<KFBattlePlayer> battle_player );
 
         // 发送结束消息
         void SendFinishToPlayer();
@@ -81,7 +81,7 @@ namespace KFrame
         uint64 _battle_server_id = _invalid_int;
 
         // 玩家的列表
-        KFHashMap< uint64, KFBattlePlayer > _player_list;
+        KFHashMap<uint64, KFBattlePlayer> _player_list;
 
         // 有效时间
         uint64 _valid_time = _invalid_int;
@@ -103,7 +103,7 @@ namespace KFrame
         uint32 _battle_open_count = _invalid_int;
 
         // 通知列表
-        std::map< KFBattlePlayer*, uint64 > _inform_list;
+        std::map<std::shared_ptr<KFBattlePlayer>, uint64> _inform_list;
 
         // 心跳超时时间
         uint64 _heartbeat_timeout = _invalid_int;

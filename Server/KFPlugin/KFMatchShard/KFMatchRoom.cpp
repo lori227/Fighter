@@ -5,33 +5,34 @@
 
 namespace KFrame
 {
-    void KFMatchRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot )
+    void KFMatchRoom::InitRoom( std::shared_ptr<KFMatchQueue> match_queue, std::shared_ptr<KFMatchPlayer> match_player,
+                                const std::string& title, const std::string& password, bool add_robot )
     {
-        _match_queue = kfqueue;
-        _is_add_robot = addrobot;
+        _match_queue = match_queue;
+        _is_add_robot = add_robot;
         _state = KFMatchEnum::MatchState;
-        _grade = kfplayer->_pb_player.grade();
-        _version = kfplayer->_version;
-        _battle_server_id = kfplayer->_battle_server_id;
+        _grade = match_player->_pb_player.grade();
+        _version = match_player->_version;
+        _battle_server_id = match_player->_battle_server_id;
         _id = KFGlobal::Instance()->STMakeUuid();
     }
 
-    void KFMatchRoom::SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist )
+    void KFMatchRoom::SaveTo( KFMsg::PBMatchRoom* pb_room, bool is_player_list )
     {
-        pbroom->set_matchid( _match_queue->_match_setting->_id );
-        pbroom->set_roomid( _id );
-        pbroom->set_version( _version );
-        pbroom->set_maxplayer( _match_queue->_match_setting->_max_count );
-        pbroom->set_nowplayer( _player_list.Size() );
-        pbroom->set_grade( _grade );
-        pbroom->set_addrobot( _is_add_robot );
+        pb_room->set_matchid( _match_queue->_match_setting->_id );
+        pb_room->set_roomid( _id );
+        pb_room->set_version( _version );
+        pb_room->set_maxplayer( _match_queue->_match_setting->_max_count );
+        pb_room->set_nowplayer( _player_list.Size() );
+        pb_room->set_grade( _grade );
+        pb_room->set_addrobot( _is_add_robot );
 
-        if ( isplayerlist )
+        if ( is_player_list )
         {
             for ( auto& iter : _player_list._objects )
             {
                 auto player = iter.second;
-                player->SaveTo( pbroom->add_pbplayer() );
+                player->SaveTo( pb_room->add_pbplayer() );
             }
         }
     }
@@ -43,10 +44,10 @@ namespace KFrame
         __LOG_DEBUG__( "room=[{}] state=[{}] time=[{}]", _id, _state, time );
     }
 
-    bool KFMatchRoom::AddPlayer( KFMatchPlayer* kfplayer )
+    bool KFMatchRoom::AddPlayer( std::shared_ptr<KFMatchPlayer> match_player )
     {
-        kfplayer->_match_room = this;
-        _player_list.Insert( kfplayer->_id, kfplayer );
+        match_player->_match_room = this;
+        _player_list.Insert( match_player->_id, match_player );
         return false;
     }
 
@@ -107,7 +108,7 @@ namespace KFrame
         ChangeState( KFMatchEnum::DestroyState, 100 );
     }
 
-    uint32 KFMatchRoom::CancelMatch( uint64 playerid )
+    uint32 KFMatchRoom::CancelMatch( uint64 player_id )
     {
         if ( _state != KFMatchEnum::MatchState )
         {
@@ -115,13 +116,12 @@ namespace KFrame
         }
 
         // 删除玩家
-        _player_list.Remove( playerid );
+        _player_list.Remove( player_id );
 
         // 判断是否全是机器人
         for ( auto iter : _player_list._objects )
         {
-            auto kfplayer = iter.second;
-            if ( !kfplayer->_pb_player.isrobot() )
+            if ( !iter.second->_pb_player.isrobot() )
             {
                 return KFMatchEnum::CancelOk;
             }
@@ -132,16 +132,16 @@ namespace KFrame
         return KFMatchEnum::CancelDestory;
     }
 
-    bool KFMatchRoom::IsMatched( KFMatchPlayer* kfplayer )
+    bool KFMatchRoom::IsMatched( std::shared_ptr<KFMatchPlayer> match_player )
     {
         // 版本号
-        if ( kfplayer->_version != _version )
+        if ( match_player->_version != _version )
         {
             return false;
         }
 
         // 服务器id
-        if ( kfplayer->_battle_server_id != _battle_server_id )
+        if ( match_player->_battle_server_id != _battle_server_id )
         {
             return false;
         }
@@ -154,45 +154,45 @@ namespace KFrame
         return false;
     }
 
-    KFMatchPlayer* KFMatchRoom::CreateMatchRobot()
+    std::shared_ptr<KFMatchPlayer> KFMatchRoom::CreateMatchRobot()
     {
-        auto kfrobot = __KF_NEW__( KFMatchPlayer );
-        kfrobot->_id = KFGlobal::Instance()->STMakeUuid();
-        kfrobot->_version = _version;
-        kfrobot->_battle_server_id = _battle_server_id;
-        kfrobot->_pb_player.set_id( kfrobot->_id );
-        kfrobot->_pb_player.set_grade( _grade );
-        kfrobot->_pb_player.set_isrobot( true );
+        auto robot = __MAKE_SHARED__( KFMatchPlayer );
+        robot->_id = KFGlobal::Instance()->STMakeUuid();
+        robot->_version = _version;
+        robot->_battle_server_id = _battle_server_id;
+        robot->_pb_player.set_id( robot->_id );
+        robot->_pb_player.set_grade( _grade );
+        robot->_pb_player.set_isrobot( true );
 
         // 英雄id
-        kfrobot->_pb_player.set_heroid( RandRobotHeroId() );
+        robot->_pb_player.set_heroid( RandRobotHeroId() );
         // 机器人名字
-        kfrobot->_pb_player.set_name( RandRobotName() );
-        return kfrobot;
+        robot->_pb_player.set_name( RandRobotName() );
+        return robot;
     }
 
-    void KFMatchRoom::SendToRoom( uint32 msgid, google::protobuf::Message* message )
+    void KFMatchRoom::SendToRoom( uint32 msg_id, google::protobuf::Message* message )
     {
         for ( auto& iter : _player_list._objects )
         {
-            auto kfplayer = iter.second;
-            if ( !kfplayer->_pb_player.isrobot() )
+            auto match_player = iter.second;
+            if ( !match_player->_pb_player.isrobot() )
             {
-                _kf_route->SendToEntity( kfplayer->_pb_player.serverid(), kfplayer->_id, msgid, message );
+                _kf_route->SendToEntity( match_player->_pb_player.serverid(), match_player->_id, msg_id, message );
             }
         }
     }
 
     uint32 KFMatchRoom::RandRobotHeroId()
     {
-        auto size = KFHeroConfig::Instance()->_settings.Size();
+        auto size = KFHeroConfig::Instance()->_setting_list.Size();
         if ( size == 0u )
         {
             return _invalid_int;
         }
 
         auto index = KFGlobal::Instance()->RandRatio( size );
-        auto begin = KFHeroConfig::Instance()->_settings._objects.begin();
+        auto begin = KFHeroConfig::Instance()->_setting_list._objects.begin();
         std::advance( begin, index );
         return ( uint32 )begin->second->_id;
     }
@@ -203,63 +203,63 @@ namespace KFrame
         static std::string _name = "";
         _name.clear();
 
-        for ( auto iter : KFNameConfig::Instance()->_settings._objects )
+        for ( auto iter : KFNameConfig::Instance()->_setting_list._objects )
         {
-            auto kfsetting = iter.second;
-            if ( kfsetting->_name.empty() )
+            auto setting = iter.second;
+            if ( setting->_name.empty() )
             {
                 continue;
             }
 
-            auto index = KFGlobal::Instance()->RandRatio( ( uint32 )kfsetting->_name.size() );
-            _name += kfsetting->_name[ index ];
+            auto index = KFGlobal::Instance()->RandRatio( ( uint32 )setting->_name.size() );
+            _name += setting->_name[ index ];
         }
 
         return _name;
     }
 
 
-    void KFMatchRoom::SendJoinRoomToPlayer( uint64 playerid, uint64 serverid )
+    void KFMatchRoom::SendJoinRoomToPlayer( uint64 player_id, uint64 server_id )
     {
         KFMsg::S2SJoinMatchToGameAck ack;
         SaveTo( ack.mutable_pbroom(), true );
-        auto ok = _kf_route->SendToEntity( serverid, playerid, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
+        auto ok = _kf_route->SendToEntity( server_id, player_id, KFMsg::S2S_JOIN_MATCH_TO_GAME_ACK, &ack );
         if ( !ok )
         {
-            __LOG_ERROR__( "player=[{}] send join match ack failed!", playerid );
+            __LOG_ERROR__( "player=[{}] send join match ack failed!", player_id );
         }
     }
 
     // 加入玩家
-    uint32 KFMatchRoom::JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password )
+    uint32 KFMatchRoom::JoinPlayer( const KFMsg::PBMatchPlayer* pb_player, const std::string& version, const std::string& password )
     {
         return KFMsg::MatchRoomIdError;
     }
 
-    uint32 KFMatchRoom::KickPlayer( uint64 masterid, uint64 playerid )
+    uint32 KFMatchRoom::KickPlayer( uint64 master_id, uint64 player_id )
     {
         return KFMsg::MatchRoomKickTypeError;
     }
 
-    void KFMatchRoom::SendLeaveToRoom( uint64 playerid, uint32 type )
+    void KFMatchRoom::SendLeaveToRoom( uint64 player_id, uint32 type )
     {
         KFMsg::MsgLeaveMatchAck ack;
-        ack.set_playerid( playerid );
+        ack.set_playerid( player_id );
         ack.set_type( type );
         SendToRoom( KFMsg::MSG_LEAVE_MATCH_ACK, &ack );
     }
 
-    uint32 KFMatchRoom::FightMatch( uint64 playerid )
+    uint32 KFMatchRoom::FightMatch( uint64 player_id )
     {
         return KFMsg::MatchRoomKickTypeError;
     }
 
-    uint32 KFMatchRoom::PrepareMatch( uint64 playerid, bool prepare )
+    uint32 KFMatchRoom::PrepareMatch( uint64 player_id, bool prepare )
     {
         return KFMsg::MatchRoomPrepareTypeError;
     }
 
-    uint32 KFMatchRoom::InviteMatch( uint64 inviteid, uint64 playerid, uint64 serverid )
+    uint32 KFMatchRoom::InviteMatch( uint64 invite_id, uint64 player_id, uint64 server_id )
     {
         return KFMsg::MatchInviteTypeError;
     }

@@ -37,7 +37,7 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
         // 创建房间
-        void AddRoom( KFMatchRoom* kfroom );
+        void AddRoom( std::shared_ptr<KFMatchRoom> room );
 
     protected:
         // 请求开始匹配
@@ -75,17 +75,17 @@ namespace KFrame
 
     protected:
         // 查找匹配模式
-        KFMatchQueue* FindMatchQueue( uint32 matchid );
+        std::shared_ptr<KFMatchQueue> FindMatchQueue( uint32 match_id );
 
     private:
         // 版本列表
-        std::set< std::string > _battle_version_list;
+        std::set<std::string> _battle_version_list;
 
         // 匹配模式列表
-        KFHashMap< uint32, KFMatchQueue > _match_queue_list;
+        KFHashMap<uint32, KFMatchQueue> _match_queue_list;
 
         // 匹配的房间
-        KFHashMap< uint64, KFMatchRoom > _match_room_list;
+        KFHashMap<uint64, KFMatchRoom> _match_room_list;
     };
 }
 

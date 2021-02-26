@@ -10,13 +10,13 @@ namespace KFrame
     {
     public:
         // 加载
-        void CopyFrom( const KFMsg::PBMatchPlayer* pbplayer );
+        void CopyFrom( const KFMsg::PBMatchPlayer* pb_player );
 
         // 保存
-        void SaveTo( KFMsg::PBMatchPlayer* pbplayer );
+        void SaveTo( KFMsg::PBMatchPlayer* pb_player );
 
         // 发送消息
-        bool SendToGame( uint32 msgid, google::protobuf::Message* message );
+        bool SendToGame( uint32 msg_id, google::protobuf::Message* message );
 
     public:
         // 玩家id

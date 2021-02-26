@@ -8,42 +8,43 @@ namespace KFrame
         _type = KFMatchEnum::RandRoom;
     }
 
-    void KFMatchRandRoom::InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot )
+    void KFMatchRandRoom::InitRoom( std::shared_ptr<KFMatchQueue> match_queue, std::shared_ptr<KFMatchPlayer> match_player,
+                                    const std::string& title, const std::string& password, bool add_robot )
     {
-        KFMatchRoom::InitRoom( kfqueue, kfplayer, title, password, addrobot );
-        _next_add_robot_time = KFGlobal::Instance()->_game_time + kfqueue->_match_setting->_add_robot_time;
+        KFMatchRoom::InitRoom( match_queue, match_player, title, password, add_robot );
+        _next_add_robot_time = KFGlobal::Instance()->_game_time + match_queue->_match_setting->_add_robot_time;
     }
 
-    void KFMatchRandRoom::SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist )
+    void KFMatchRandRoom::SaveTo( KFMsg::PBMatchRoom* pb_room, bool is_player_list )
     {
-        KFMatchRoom::SaveTo( pbroom, isplayerlist );
+        KFMatchRoom::SaveTo( pb_room, is_player_list );
     }
 
-    bool KFMatchRandRoom::AddPlayer( KFMatchPlayer* kfplayer )
+    bool KFMatchRandRoom::AddPlayer( std::shared_ptr<KFMatchPlayer> match_player )
     {
-        KFMatchRoom::AddPlayer( kfplayer );
-        __LOG_DEBUG__( "room=[{}] add player=[{}] count=[{}]!", _id, kfplayer->_id, _player_list.Size() );
+        KFMatchRoom::AddPlayer( match_player );
+        __LOG_DEBUG__( "room=[{}] add player=[{}] count=[{}]!", _id, match_player->_id, _player_list.Size() );
 
         // 更新匹配玩家数量
         SentMatchCountToClient();
         return CheckFull();
     }
 
-    bool KFMatchRandRoom::IsMatched( KFMatchPlayer* kfplayer )
+    bool KFMatchRandRoom::IsMatched( std::shared_ptr<KFMatchPlayer> match_player )
     {
         // 上限积分差距
-        if ( kfplayer->_pb_player.grade() > _grade + _match_queue->_match_setting->_upper_grade )
+        if ( match_player->_pb_player.grade() > _grade + _match_queue->_match_setting->_upper_grade )
         {
             return false;
         }
 
         // 下限积分差距
-        if ( kfplayer->_pb_player.grade() + _match_queue->_match_setting->_lower_grade < _grade )
+        if ( match_player->_pb_player.grade() + _match_queue->_match_setting->_lower_grade < _grade )
         {
             return false;
         }
 
-        return KFMatchRoom::IsMatched( kfplayer );
+        return KFMatchRoom::IsMatched( match_player );
     }
 
     bool KFMatchRandRoom::AddRobot()
@@ -54,15 +55,15 @@ namespace KFrame
         }
 
         _next_add_robot_time = KFGlobal::Instance()->_game_time + _match_queue->_match_setting->_add_robot_time;
-        auto addcount = __MIN__( _match_queue->_match_setting->_add_robot_count, _match_queue->_match_setting->_max_count - _player_list.Size() );
+        auto add_count = __MIN__( _match_queue->_match_setting->_add_robot_count, _match_queue->_match_setting->_max_count - _player_list.Size() );
 
         do
         {
-            auto kfrobot = CreateMatchRobot();
-            _player_list.Insert( kfrobot->_id, kfrobot );
-            __LOG_DEBUG__( "room=[{}] add robot=[{}] count=[{}]!", _id, kfrobot->_id, _player_list.Size() );
+            auto robot = CreateMatchRobot();
+            _player_list.Insert( robot->_id, robot );
+            __LOG_DEBUG__( "room=[{}] add robot=[{}] count=[{}]!", _id, robot->_id, _player_list.Size() );
 
-        } while ( ( --addcount ) > 0 );
+        } while ( ( --add_count ) > 0 );
         SentMatchCountToClient();
 
         return CheckFull();

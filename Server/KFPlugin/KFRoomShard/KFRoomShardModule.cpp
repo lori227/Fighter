@@ -36,45 +36,44 @@ namespace KFrame
 
     void KFRoomShardModule::PrepareRun()
     {
-        _room_redis = _kf_redis->Create( __STRING__( logic ) );
-        _battle_allot->Initialize( _room_redis );
+        _redis_driver = _kf_redis->Create( __STRING__( logic ) );
+        _battle_allot->Initialize( _redis_driver );
     }
 
     void KFRoomShardModule::Run()
     {
-        std::set< uint64 > removes;
+        UInt64Set remove_list;
         for ( auto& iter : _room_list._objects )
         {
-            auto kfroom = iter.second;
-            auto ok = kfroom->Run();
+            auto ok = iter.second->Run();
             if ( !ok )
             {
-                removes.insert( kfroom->_id );
+                remove_list.insert( iter.first );
             }
         }
 
-        for ( auto id : removes )
+        for ( auto id : remove_list )
         {
             RemoveBattleRoom( id );
         }
     }
 
-    KFBattleRoom* KFRoomShardModule::CreateBattleRoom( uint64 roomid )
+    std::shared_ptr<KFBattleRoom> KFRoomShardModule::CreateBattleRoom( uint64 room_id )
     {
-        auto kfroom = _room_list.Create( roomid );
-        if ( kfroom->_id == _invalid_int )
+        auto room = _room_list.Create( room_id );
+        if ( room->_id == _invalid_int )
         {
             // 创建房间
-            kfroom->Init( roomid );
+            room->Init( room_id );
         }
 
-        return kfroom;
+        return room;
     }
 
-    void KFRoomShardModule::RemoveBattleRoom( uint64 roomid )
+    void KFRoomShardModule::RemoveBattleRoom( uint64 room_id )
     {
         // 删除房间
-        _room_list.Remove( roomid );
+        _room_list.Remove( room_id );
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,13 +94,13 @@ namespace KFrame
     {
         __LOG_DEBUG__( "open room[{}] result[{}] ack!", kfmsg->roomid(), kfmsg->result() );
 
-        auto kfroom = _room_list.Find( kfmsg->roomid() );
-        if ( kfroom == nullptr )
+        auto room = _room_list.Find( kfmsg->roomid() );
+        if ( room == nullptr )
         {
             return __LOG_ERROR__( "can't find room[{}]!", kfmsg->roomid() );
         }
 
-        kfroom->AffirmOpenBattle( kfmsg->result() );
+        room->AffirmOpenBattle( kfmsg->result() );
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,19 +109,19 @@ namespace KFrame
     {
         __LOG_DEBUG__( "create room[{}|{}|{}] req!", kfmsg->roomid(), kfmsg->version(), KFAppId::ToString( kfmsg->serverid() ) );
 
-        auto kfroom = CreateBattleRoom( kfmsg->roomid() );
+        auto room = CreateBattleRoom( kfmsg->roomid() );
 
-        kfroom->_version = kfmsg->version();
-        kfroom->_match_id = kfmsg->matchid();
-        kfroom->_battle_server_id = kfmsg->serverid();
-        kfroom->_valid_time = KFGlobal::Instance()->_game_time + 3600000;
+        room->_version = kfmsg->version();
+        room->_match_id = kfmsg->matchid();
+        room->_battle_server_id = kfmsg->serverid();
+        room->_valid_time = KFGlobal::Instance()->_game_time + 3600000;
         for ( auto i = 0; i < kfmsg->pbplayer_size(); ++i )
         {
-            auto pbplayer = &kfmsg->pbplayer( i );
+            auto pb_player = &kfmsg->pbplayer( i );
 
-            auto kfplayer = __KF_NEW__( KFBattlePlayer );
-            kfplayer->CopyFrom( pbplayer );
-            kfroom->_player_list.Insert( kfplayer->_id, kfplayer );
+            auto battle_player = __MAKE_SHARED__( KFBattlePlayer );
+            battle_player->CopyFrom( pb_player );
+            room->_player_list.Insert( battle_player->_id, battle_player );
         }
 
         // 返回确认信息
@@ -135,13 +134,13 @@ namespace KFrame
     {
         __LOG_DEBUG__( "player=[{}] inform room=[{}] ack!", kfmsg->playerid(), kfmsg->roomid() );
 
-        auto kfroom = _room_list.Find( kfmsg->roomid() );
-        if ( kfroom == nullptr )
+        auto room = _room_list.Find( kfmsg->roomid() );
+        if ( room == nullptr )
         {
             return __LOG_ERROR__( "can't find room[{}]!", kfmsg->roomid() );
         }
 
-        kfroom->AffirmInformPlayer( kfmsg->playerid() );
+        room->AffirmInformPlayer( kfmsg->playerid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandleQueryRoomToRoomReq, KFMsg::S2SQueryRoomToRoomReq )
@@ -150,10 +149,10 @@ namespace KFrame
 
         auto ok = false;
 
-        auto kfroom = _room_list.Find( kfmsg->roomid() );
-        if ( kfroom != nullptr )
+        auto room = _room_list.Find( kfmsg->roomid() );
+        if ( room != nullptr )
         {
-            ok = kfroom->QueryRoom( kfmsg->playerid(), __ROUTE_SERVER_ID__ );
+            ok = room->QueryRoom( kfmsg->playerid(), __ROUTE_SERVER_ID__ );
         }
 
         if ( !ok )
@@ -168,10 +167,10 @@ namespace KFrame
     {
         __LOG_DEBUG__( "room=[{}] finish req!", kfmsg->roomid() );
 
-        auto kfroom = _room_list.Find( kfmsg->roomid() );
-        if ( kfroom != nullptr )
+        auto room = _room_list.Find( kfmsg->roomid() );
+        if ( room != nullptr )
         {
-            kfroom->FinishRoom();
+            room->FinishRoom();
         }
 
         KFMsg::S2SFinishRoomToBattleAck ack;
@@ -183,10 +182,10 @@ namespace KFrame
     {
         //__LOG_DEBUG__( "server=[{}] room=[{}] heartbeat req!", KFAppId::ToString( kfmsg->serverid() ), kfmsg->roomid() );
 
-        auto kfroom = _room_list.Find( kfmsg->roomid() );
-        if ( kfroom != nullptr )
+        auto room = _room_list.Find( kfmsg->roomid() );
+        if ( room != nullptr )
         {
-            kfroom->UpdateHeartBeatTime();
+            room->UpdateHeartBeatTime();
         }
         else
         {
@@ -198,33 +197,32 @@ namespace KFrame
     {
         __LOG_DEBUG__( "room=[{}] player=[{}] balance req!", kfmsg->roomid(), kfmsg->playerid() );
 
-        auto kfroom = _room_list.Find( kfmsg->roomid() );
-        if ( kfroom == nullptr )
+        auto room = _room_list.Find( kfmsg->roomid() );
+        if ( room == nullptr )
         {
             return __LOG_ERROR__( "room=[{}] not exist!", kfmsg->roomid() );
         }
 
-        auto kfplayer = kfroom->_player_list.Find( kfmsg->playerid() );
-        if ( kfplayer == nullptr )
+        auto battle_player = room->_player_list.Find( kfmsg->playerid() );
+        if ( battle_player == nullptr )
         {
             return __LOG_ERROR__( "player=[{}] not in room!", kfmsg->playerid() );
         }
 
-        if ( !kfplayer->_is_balance )
+        if ( !battle_player->_is_balance )
         {
             // 先保存到数据库
-            auto pbbalance = &kfmsg->balance();
-            auto strdata = KFProto::Serialize( pbbalance, KFCompressEnum::ZSTD, 5u, true );
-            auto kfresult = _room_redis->HSet( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ), kfmsg->roomid(), strdata );
-            if ( !kfresult->IsOk() )
+            auto pb_balance = &kfmsg->balance();
+            auto balance_data = KFProto::Serialize( pb_balance, KFCompressEnum::ZSTD, 5u, true );
+            auto result = _redis_driver->HSet( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ), kfmsg->roomid(), balance_data );
+            if ( !result->IsOk() )
             {
                 return __LOG_ERROR__( "player=[{}] balance save failed!", kfmsg->playerid() );
             }
 
-            kfplayer->_is_balance = true;
-
             // 发送到游戏服务器
-            SendPlayerBalanceToGame( kfplayer->_pb_player.serverid(), kfmsg->playerid(), kfmsg->roomid(), pbbalance );
+            battle_player->_is_balance = true;
+            SendPlayerBalanceToGame( battle_player->_pb_player.serverid(), kfmsg->playerid(), kfmsg->roomid(), pb_balance );
         }
 
         KFMsg::S2SPlayerBalanceToBattleAck ack;
@@ -233,7 +231,7 @@ namespace KFrame
         _kf_route->SendToRoute( route, KFMsg::S2S_PLAYER_BALANCE_TO_BATTLE_ACK, &ack );
     }
 
-    void KFRoomShardModule::SendPlayerBalanceToGame( uint64 serverid, uint64 playerid, uint64 roomid, const KFMsg::PBBattleBalance* pbbalance )
+    void KFRoomShardModule::SendPlayerBalanceToGame( uint64 server_id, uint64 player_id, uint64 room_id, const KFMsg::PBBattleBalance* pb_balance )
     {
         KFMsg::S2SPlayerBalanceToGameReq req;
         req.set_roomid( roomid );
@@ -246,8 +244,8 @@ namespace KFrame
     {
         __LOG_DEBUG__( "room=[{}] player=[{}] balance ok!", kfmsg->roomid(), kfmsg->playerid() );
 
-        auto kfresult = _room_redis->HDel( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ), kfmsg->roomid() );
-        if ( !kfresult->IsOk() )
+        auto result = _room_redis->HDel( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ), kfmsg->roomid() );
+        if ( !result->IsOk() )
         {
             return __LOG_ERROR__( "player=[{}] balance failed!", kfmsg->playerid() );
         }
@@ -255,14 +253,14 @@ namespace KFrame
 
     __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandleQueryBalanceToRoomReq, KFMsg::S2SQueryBalanceToRoomReq )
     {
-        auto kfresult = _room_redis->HGetAll( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ) );
-        for ( auto& iter : kfresult->_value )
+        auto result = _room_redis->HGetAll( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ) );
+        for ( auto& iter : result->_value )
         {
-            KFMsg::PBBattleBalance pbbalance;
-            KFProto::Parse( &pbbalance, iter.second, KFCompressEnum::ZSTD, true );
+            KFMsg::PBBattleBalance pb_balance;
+            KFProto::Parse( &pb_balance, iter.second, KFCompressEnum::ZSTD, true );
 
-            auto roomid = KFUtility::ToValue< uint64 >( iter.first );
-            SendPlayerBalanceToGame( __ROUTE_SERVER_ID__, kfmsg->playerid(), roomid, &pbbalance );
+            auto room_id = KFUtility::ToValue< uint64 >( iter.first );
+            SendPlayerBalanceToGame( __ROUTE_SERVER_ID__, kfmsg->playerid(), room_id, &pb_balance );
         }
     }
 }

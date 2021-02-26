@@ -13,10 +13,10 @@ namespace KFrame
         ~KFMatchPlayer();
 
         // 加载
-        void CopyFrom( const KFMsg::PBMatchPlayer* pbplayer );
+        void CopyFrom( const KFMsg::PBMatchPlayer* pb_player );
 
         // 保存
-        void SaveTo( KFMsg::PBMatchPlayer* pbplayer );
+        void SaveTo( KFMsg::PBMatchPlayer* pb_player );
 
     public:
         // 玩家id
@@ -37,7 +37,7 @@ namespace KFrame
 
     //////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////
-    class KFMatchPlayerManage : public KFSingleton< KFMatchPlayerManage >
+    class KFMatchPlayerManage : public KFSingleton<KFMatchPlayerManage>
     {
     public:
         // 添加玩家

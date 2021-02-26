@@ -5,7 +5,7 @@ namespace KFrame
 {
     void KFMatchPlayerManage::Add( uint64 id, KFMatchPlayer* player )
     {
-        _player_list[ id ] = player;
+        _player_list[id] = player;
     }
 
     void KFMatchPlayerManage::Remove( uint64 id )
@@ -29,15 +29,15 @@ namespace KFrame
         _match_player_manage->Remove( _id );
     }
 
-    void KFMatchPlayer::CopyFrom( const KFMsg::PBMatchPlayer* pbplayer )
+    void KFMatchPlayer::CopyFrom( const KFMsg::PBMatchPlayer* pb_player )
     {
-        _id = pbplayer->id();
-        _pb_player.CopyFrom( *pbplayer );
+        _id = pb_player->id();
+        _pb_player.CopyFrom( *pb_player );
         _match_player_manage->Add( _id, this );
     }
 
-    void KFMatchPlayer::SaveTo( KFMsg::PBMatchPlayer* pbplayer )
+    void KFMatchPlayer::SaveTo( KFMsg::PBMatchPlayer* pb_player )
     {
-        pbplayer->CopyFrom( _pb_player );
+        pb_player->CopyFrom( _pb_player );
     }
 }

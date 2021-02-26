@@ -80,13 +80,13 @@ namespace KFrame
         __KF_PLAYER_LEAVE_FUNCTION__( OnLeaveCancelMatch );
     protected:
         // 判断是否能匹配
-        bool CheckCanMatch( KFEntity* player, uint32 matchid );
+        bool CheckCanMatch( EntityPtr player, uint32 match_id );
 
         // 初始化玩家
-        void FormatMatchPlayerData( KFEntity* player, KFMsg::PBMatchPlayer* pbplayer );
+        void FormatMatchPlayerData( EntityPtr player, KFMsg::PBMatchPlayer* match_player );
 
         // 设置玩家的匹配信息
-        void SetMatchData( KFEntity* player, uint32 matchid, uint64 serverid );
+        void SetMatchData( EntityPtr player, uint32 match_id, uint64 server_id );
     };
 }
 

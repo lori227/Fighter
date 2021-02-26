@@ -19,30 +19,30 @@ namespace KFrame
 
     __KF_RESET_FUNCTION__( KFFightModule::OnResetFightScore )
     {
-        auto kfscorerecord = player->Find( __STRING__( score ) );
-        if ( kfscorerecord == nullptr )
+        auto score_record = player->Find( __STRING__( score ) );
+        if ( score_record == nullptr )
         {
             return;
         }
 
-        for ( auto kfsocre = kfscorerecord->First(); kfsocre != nullptr; kfsocre = kfscorerecord->Next() )
+        for ( auto score_data = score_record->First(); score_data != nullptr; score_data = score_record->Next() )
         {
-            auto todayscore = kfsocre->Get( __STRING__( today ) );
+            auto today_score = score_data->Get( __STRING__( today ) );
 
-            player->UpdateObject( kfsocre, __STRING__( today ), KFEnum::Set, 0u );
-            player->UpdateObject( kfsocre, __STRING__( yesterday ), KFEnum::Set, todayscore );
+            player->UpdateObject( score_data, __STRING__( today ), KFEnum::Set, 0u );
+            player->UpdateObject( score_data, __STRING__( yesterday ), KFEnum::Set, today_score );
         }
     }
 
     __KF_MESSAGE_FUNCTION__( KFFightModule::HandleUpdateScoreReq, KFMsg::MsgUpdateScoreReq )
     {
-        auto kfscorerecord = kfentity->Find( __STRING__( score ) );
-        if ( kfscorerecord == nullptr )
+        auto score_record = entity->Find( __STRING__( score ) );
+        if ( score_record == nullptr )
         {
             return;
         }
 
-        kfentity->UpdateRecord( kfscorerecord, kfmsg->id(), __STRING__( today ), KFEnum::Greater, kfmsg->socre() );
-        kfentity->UpdateRecord( kfscorerecord, kfmsg->id(), __STRING__( ever ), KFEnum::Greater, kfmsg->socre() );
+        entity->UpdateRecord( score_record, kfmsg->id(), __STRING__( today ), KFEnum::Greater, kfmsg->socre() );
+        entity->UpdateRecord( score_record, kfmsg->id(), __STRING__( ever ), KFEnum::Greater, kfmsg->socre() );
     }
 }

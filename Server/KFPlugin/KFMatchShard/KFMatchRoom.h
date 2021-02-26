@@ -32,19 +32,20 @@ namespace KFrame
         virtual ~KFMatchRoom() = default;
 
         // 初始化
-        virtual void InitRoom( KFMatchQueue* kfqueue, KFMatchPlayer* kfplayer, const std::string& title, const std::string& password, bool addrobot );
+        virtual void InitRoom( std::shared_ptr<KFMatchQueue> match_queue, std::shared_ptr<KFMatchPlayer> match_player,
+                               const std::string& title, const std::string& password, bool add_robot );
 
         // 保存房间信息
-        virtual void SaveTo( KFMsg::PBMatchRoom* pbroom, bool isplayerlist );
+        virtual void SaveTo( KFMsg::PBMatchRoom* pb_room, bool is_player_list );
 
         // 逻辑
         virtual bool Run();
 
         // 是否匹配
-        virtual bool IsMatched( KFMatchPlayer* kfplayer );
+        virtual bool IsMatched( std::shared_ptr<KFMatchPlayer> match_player );
 
         // 添加玩家
-        virtual bool AddPlayer( KFMatchPlayer* kfplayer );
+        virtual bool AddPlayer( std::shared_ptr<KFMatchPlayer> match_player );
 
         // 添加机器人
         virtual bool AddRobot();
@@ -53,25 +54,25 @@ namespace KFrame
         virtual void AffirmCreate();
 
         // 取消匹配
-        virtual uint32 CancelMatch( uint64 playerid );
+        virtual uint32 CancelMatch( uint64 player_id );
 
         // 加入房间
-        virtual void SendJoinRoomToPlayer( uint64 playerid, uint64 serverid );
+        virtual void SendJoinRoomToPlayer( uint64 player_id, uint64 server_id );
 
         // 加入玩家
-        virtual uint32 JoinPlayer( const KFMsg::PBMatchPlayer* pbplayer, const std::string& version, const std::string& password );
+        virtual uint32 JoinPlayer( const KFMsg::PBMatchPlayer* pb_player, const std::string& version, const std::string& password );
 
         // 踢掉玩家
-        virtual uint32 KickPlayer( uint64 masterid, uint64 playerid );
+        virtual uint32 KickPlayer( uint64 master_id, uint64 player_id );
 
         // 开始战斗
-        virtual uint32 FightMatch( uint64 playerid );
+        virtual uint32 FightMatch( uint64 player_id );
 
         // 准备匹配
-        virtual uint32 PrepareMatch( uint64 playerid, bool prepare );
+        virtual uint32 PrepareMatch( uint64 player_id, bool prepare );
 
         // 邀请匹配
-        virtual uint32 InviteMatch( uint64 inviteid, uint64 playerid, uint64 serverid );
+        virtual uint32 InviteMatch( uint64 invite_id, uint64 player_id, uint64 server_id );
     protected:
         // 是否有效
         bool IsValid();
@@ -83,7 +84,7 @@ namespace KFrame
         bool CheckFull();
 
         // 创建机器人
-        KFMatchPlayer* CreateMatchRobot();
+        std::shared_ptr<KFMatchPlayer> CreateMatchRobot();
 
         // 创建房间
         void CreateRoom();
@@ -95,10 +96,10 @@ namespace KFrame
         const std::string& RandRobotName();
 
         // 发送消息
-        void SendToRoom( uint32 msgid, google::protobuf::Message* message );
+        void SendToRoom( uint32 msg_id, google::protobuf::Message* message );
 
         // 发送离开消息
-        void SendLeaveToRoom( uint64 playerid, uint32 type );
+        void SendLeaveToRoom( uint64 player_id, uint32 type );
 
     public:
         // 类型
@@ -108,7 +109,7 @@ namespace KFrame
         uint64 _id = _invalid_int;
 
         // 玩家的列表
-        KFHashMap< uint64, KFMatchPlayer > _player_list;
+        KFHashMap<uint64, KFMatchPlayer> _player_list;
 
         // 版本号
         std::string _version;
@@ -130,7 +131,7 @@ namespace KFrame
         KFTimer _timer;
 
         // 匹配队列
-        KFMatchQueue* _match_queue;
+        std::shared_ptr<KFMatchQueue> _match_queue = nullptr;
     };
 }
 

@@ -52,7 +52,7 @@ namespace KFrame
         __KF_PLAYER_ENTER_FUNCTION__( OnEnterQueryRoom );
 
         // 设置房间信息
-        void SetRoomData( KFEntity* player, uint64 roomid, uint64 roomserverid );
+        void SetRoomData( EntityPtr player, uint64 room_id, uint64 room_server_id );
     };
 }
 
