@@ -28,7 +28,7 @@ namespace KFrame
     {
         __LOG_DEBUG__( "player=[{}] room=[{}] battle=[{}|{}:{}]", kfmsg->playerid(), kfmsg->roomid(), kfmsg->battleid(), kfmsg->ip(), kfmsg->port() );
 
-        SetRoomData( entity, kfmsg->roomid(), __ROUTE_SERVER_ID__ );
+        SetRoomData( player, kfmsg->roomid(), __ROUTE_SERVER_ID__ );
 
         // 通知客户端
         KFMsg::MsgInformBattleReq req;
@@ -36,27 +36,27 @@ namespace KFrame
         req.set_battleid( kfmsg->battleid() );
         req.set_ip( kfmsg->ip() );
         req.set_port( kfmsg->port() );
-        _kf_player->SendToClient( entity, KFMsg::MSG_INFORM_BATTLE_REQ, &req );
+        _kf_player->SendToClient( player, KFMsg::MSG_INFORM_BATTLE_REQ, &req );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleInformBattleAck, KFMsg::MsgInformBattleAck )
     {
-        __LOG_DEBUG__( "player=[{}] affirm battle!", entity->GetKeyID() );
+        __LOG_DEBUG__( "player=[{}] affirm battle!", player->GetKeyID() );
 
-        auto room_id = entity->Get( __STRING__( roomid ) );
-        auto room_server_id = entity->Get( __STRING__( roomserverid ) );
+        auto room_id = player->Get( __STRING__( roomid ) );
+        auto room_server_id = player->Get( __STRING__( roomserverid ) );
         if ( room_server_id == _invalid_int || room_id == _invalid_int )
         {
-            return __LOG_ERROR__( "player=[{}] affirm battle failed!", entity->GetKeyID() );
+            return __LOG_ERROR__( "player=[{}] affirm battle failed!", player->GetKeyID() );
         }
 
         KFMsg::S2SInformBattleToRoomAck ack;
         ack.set_roomid( room_id );
-        ack.set_playerid( entity->GetKeyID() );
+        ack.set_playerid( player->GetKeyID() );
         _kf_route->SendToServer( room_server_id, KFMsg::S2S_INFORM_BATTLE_TO_ROOM_ACK, &ack );
 
         // 更新下排名信息, 否则如果相同不会回调
-        entity->UpdateData( __STRING__( ranking ), KFEnum::Set, 0u );
+        player->UpdateData( __STRING__( ranking ), KFEnum::Set, 0u );
     }
 
     __KF_PLAYER_ENTER_FUNCTION__( KFRoomClientModule::OnEnterQueryRoom )
@@ -102,50 +102,50 @@ namespace KFrame
 
     __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleQueryRoomToGameAck, KFMsg::S2SQueryRoomToGameAck )
     {
-        SetRoomData( entity, _invalid_int, _invalid_int );
+        SetRoomData( player, _invalid_int, _invalid_int );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleFinishRoomToGameReq, KFMsg::S2SFinishRoomToGameReq )
     {
         __LOG_DEBUG__( "player=[{}] room=[{}] finish!", kfmsg->playerid(), kfmsg->roomid() );
 
-        auto room_id = entity->Get( __STRING__( roomid ) );
+        auto room_id = player->Get( __STRING__( roomid ) );
         if ( room_id != kfmsg->roomid() )
         {
             return;
         }
 
-        SetRoomData( entity, _invalid_int, _invalid_int );
+        SetRoomData( player, _invalid_int, _invalid_int );
 
         KFMsg::MsgFinishRoomReq req;
         req.set_roomid( kfmsg->roomid() );
-        _kf_player->SendToClient( entity, KFMsg::MSG_FINISH_ROOM_REQ, &req );
+        _kf_player->SendToClient( player, KFMsg::MSG_FINISH_ROOM_REQ, &req );
     }
 
     __KF_MESSAGE_FUNCTION__( KFRoomClientModule::HandleBalanceToGameReq, KFMsg::S2SPlayerBalanceToGameReq )
     {
         __LOG_DEBUG__( "player=[{}] room=[{}] balance!", kfmsg->playerid(), kfmsg->roomid() );
 
-        auto room_id = entity->Get< uint64 >( __STRING__( roomid ) );
+        auto room_id = player->Get< uint64 >( __STRING__( roomid ) );
         if ( room_id == kfmsg->roomid() )
         {
-            SetRoomData( entity, _invalid_int, _invalid_int );
+            SetRoomData( player, _invalid_int, _invalid_int );
         }
 
         // 开始结算
         auto pb_balance = &kfmsg->balance();
 
         // 排名ranking
-        entity->UpdateData( __STRING__( ranking ), KFEnum::Set, pb_balance->ranking() );
+        player->UpdateData( __STRING__( ranking ), KFEnum::Set, pb_balance->ranking() );
 
         // 结算奖励
         for ( auto i = 0; i < pb_balance->data_size(); ++i )
         {
             auto pb_data = &pb_balance->data( i );
-            auto data = entity->Find( pb_data->name() );
+            auto data = player->Find( pb_data->name() );
             if ( data == nullptr )
             {
-                data = entity->Find( __STRING__( basic ), pb_data->name() );
+                data = player->Find( __STRING__( basic ), pb_data->name() );
                 if ( data == nullptr )
                 {
                     continue;
@@ -154,11 +154,11 @@ namespace KFrame
 
             if ( pb_data->value() > 0 )
             {
-                entity->UpdateData( data, KFEnum::Add, ( uint32 )pb_data->value() );
+                player->UpdateData( data, KFEnum::Add, ( uint32 )pb_data->value() );
             }
             else
             {
-                entity->UpdateData( data, KFEnum::Dec, ( uint32 )abs( pb_data->value() ) );
+                player->UpdateData( data, KFEnum::Dec, ( uint32 )abs( pb_data->value() ) );
             }
         }
 

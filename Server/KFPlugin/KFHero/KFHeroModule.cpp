@@ -106,66 +106,66 @@ namespace KFrame
             return false;
         }
 
-        auto kfelementobject = std::dynamic_pointer_cast<KFElementObject>( element_result->_element );
-        if ( kfelementobject->_config_id == _invalid_int )
+        auto element_object = std::dynamic_pointer_cast<KFElementObject>( element_result->_element );
+        if ( element_object->_config_id == _invalid_int )
         {
             __LOG_ERROR_FUNCTION__( function, line, "element=[{}] no id!", element_result->_element->_data_name );
             return false;
         }
 
-        auto setting = KFFootConfig::Instance()->FindSetting( kfelementobject->_config_id );
+        auto setting = KFFootConfig::Instance()->FindSetting( element_object->_config_id );
         if ( setting == nullptr )
         {
-            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", kfelementobject->_config_id );
+            __LOG_ERROR_FUNCTION__( function, line, "hero id=[{}] no setting!", element_object->_config_id );
             return false;
         }
 
         // todo: 临时代码, 不重复添加英雄
-        auto foot_data = parent_data->Find( kfelementobject->_config_id );
+        auto foot_data = parent_data->Find( element_object->_config_id );
         if ( foot_data != nullptr )
         {
             return false;
         }
 
         foot_data = player->CreateData( parent_data );
-        player->SetElementToData( foot_data, kfelementobject, element_result->_multiple );
-        player->AddRecord( parent_data, kfelementobject->_config_id, foot_data );
+        player->SetElementToData( foot_data, element_object, element_result->_multiple );
+        player->AddRecord( parent_data, element_object->_config_id, foot_data );
 
-        return element_result->AddResult( kfelementobject->_config_id, foot_data );
+        return element_result->AddResult( element_object->_config_id, foot_data );
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFighterHeroReq, KFMsg::MsgFighterHeroReq )
     {
         // 判断是否存在英雄
-        auto kfhero = entity->Find( __STRING__( hero ), kfmsg->heroid() );
-        if ( kfhero == nullptr )
+        auto hero_data = player->Find( __STRING__( hero ), kfmsg->heroid() );
+        if ( hero_data == nullptr )
         {
-            return _kf_display->SendToClient( entity, KFMsg::HeroNotExist );
+            return _kf_display->SendToClient( player, KFMsg::HeroNotExist );
         }
 
-        entity->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg->heroid() );
+        player->UpdateData( __STRING__( heroid ), KFEnum::Set, kfmsg->heroid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleEffectUseReq, KFMsg::MsgEffectUseReq )
     {
-        auto kfeffect = entity->Find( __STRING__( effect ), kfmsg->effectid() );
-        if ( kfeffect == nullptr )
+        auto effect_data = player->Find( __STRING__( effect ), kfmsg->effectid() );
+        if ( effect_data == nullptr )
         {
-            return _kf_display->SendToClient( entity, KFMsg::EffectNotExist );
+            return _kf_display->SendToClient( player, KFMsg::EffectNotExist );
         }
 
-        entity->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg->effectid() );
+        player->UpdateData( __STRING__( effectid ),  KFEnum::Set, kfmsg->effectid() );
     }
 
     __KF_MESSAGE_FUNCTION__( KFHeroModule::HandleFootUseReq, KFMsg::MsgFootUseReq )
     {
-        auto kffoot = entity->Find( __STRING__( foot ), kfmsg->footid() );
-        if ( kffoot == nullptr )
+        auto foot_data = player->Find( __STRING__( foot ), kfmsg->footid() );
+        if ( foot_data == nullptr )
         {
-            return _kf_display->SendToClient( entity, KFMsg::FootNotExist );
+            return _kf_display->SendToClient( player, KFMsg::FootNotExist );
         }
 
-        entity->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg->footid() );
+        player->UpdateData( __STRING__( footid ), KFEnum::Set, kfmsg->footid() );
     }
 }

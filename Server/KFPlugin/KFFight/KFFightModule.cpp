@@ -36,13 +36,13 @@ namespace KFrame
 
     __KF_MESSAGE_FUNCTION__( KFFightModule::HandleUpdateScoreReq, KFMsg::MsgUpdateScoreReq )
     {
-        auto score_record = entity->Find( __STRING__( score ) );
+        auto score_record = player->Find( __STRING__( score ) );
         if ( score_record == nullptr )
         {
             return;
         }
 
-        entity->UpdateRecord( score_record, kfmsg->id(), __STRING__( today ), KFEnum::Greater, kfmsg->socre() );
-        entity->UpdateRecord( score_record, kfmsg->id(), __STRING__( ever ), KFEnum::Greater, kfmsg->socre() );
+        player->UpdateRecord( score_record, kfmsg->id(), __STRING__( today ), KFEnum::Greater, kfmsg->socre() );
+        player->UpdateRecord( score_record, kfmsg->id(), __STRING__( ever ), KFEnum::Greater, kfmsg->socre() );
     }
 }
