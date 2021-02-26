@@ -116,7 +116,11 @@ namespace KFrame
         }
 
         // 删除玩家
-        _player_list.Remove( player_id );
+        auto match_player = _player_list.Remove( player_id );
+        if ( match_player != nullptr )
+        {
+            match_player->_match_room = nullptr;
+        }
 
         // 判断是否全是机器人
         for ( auto iter : _player_list._objects )
@@ -128,7 +132,7 @@ namespace KFrame
         }
 
         // 如果没有真是玩家, 房间销毁
-        _match_queue->RemoveRoom( this );
+        _match_queue->RemoveRoom( shared_from_this() );
         return KFMatchEnum::CancelDestory;
     }
 
