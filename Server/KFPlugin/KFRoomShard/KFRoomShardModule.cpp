@@ -244,7 +244,7 @@ namespace KFrame
     {
         __LOG_DEBUG__( "room=[{}] player=[{}] balance ok!", kfmsg->roomid(), kfmsg->playerid() );
 
-        auto result = _room_redis->HDel( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ), kfmsg->roomid() );
+        auto result = _redis_driver->HDel( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ), kfmsg->roomid() );
         if ( !result->IsOk() )
         {
             return __LOG_ERROR__( "player=[{}] balance failed!", kfmsg->playerid() );
@@ -253,7 +253,7 @@ namespace KFrame
 
     __KF_MESSAGE_FUNCTION__( KFRoomShardModule::HandleQueryBalanceToRoomReq, KFMsg::S2SQueryBalanceToRoomReq )
     {
-        auto result = _room_redis->HGetAll( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ) );
+        auto result = _redis_driver->HGetAll( __DATABASE_KEY_2__( __STRING__( balance ), kfmsg->playerid() ) );
         for ( auto& iter : result->_value )
         {
             KFMsg::PBBattleBalance pb_balance;

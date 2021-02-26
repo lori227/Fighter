@@ -57,7 +57,7 @@ namespace KFrame
             return;
         }
 
-        auto match_server_id = player->Get( __STRING__( match_server_id ) );
+        auto match_server_id = player->Get( __STRING__( matchserverid ) );
 
         KFMsg::S2SQueryMatchToMatchReq req;
         req.set_matchid( match_id );
@@ -85,7 +85,7 @@ namespace KFrame
             return;
         }
 
-        auto match_server_id = player->Get( __STRING__( match_server_id ) );
+        auto match_server_id = player->Get( __STRING__( matchserverid ) );
 
         KFMsg::S2SCancelMatchToShardReq req;
         req.set_matchid( match_id );
@@ -93,7 +93,7 @@ namespace KFrame
         _kf_route->RepeatToServer( match_server_id, KFMsg::S2S_CANCEL_MATCH_TO_SHARD_REQ, &req );
 
         player->Operate( __STRING__( matchid ), KFEnum::Set, _invalid_int );
-        player->Operate( __STRING__( match_server_id ), KFEnum::Set, _invalid_int );
+        player->Operate( __STRING__( matchserverid ), KFEnum::Set, _invalid_int );
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////
     bool KFMatchClientModule::CheckCanMatch( EntityPtr player, uint32 match_id )
@@ -163,7 +163,7 @@ namespace KFrame
     void KFMatchClientModule::SetMatchData( EntityPtr player, uint32 match_id, uint64 server_id )
     {
         player->UpdateData( __STRING__( matchid ), KFEnum::Set, match_id );
-        player->UpdateData( __STRING__( match_server_id ), KFEnum::Set, server_id );
+        player->UpdateData( __STRING__( matchserverid ), KFEnum::Set, server_id );
 
         if ( match_id != 0u )
         {
@@ -190,7 +190,7 @@ namespace KFrame
             return _kf_display->SendToClient( entity, KFMsg::MatchNotInMatch );
         }
 
-        auto match_server_id = entity->Get( __STRING__( match_server_id ) );
+        auto match_server_id = entity->Get( __STRING__( matchserverid ) );
 
         KFMsg::S2SCancelMatchToShardReq req;
         req.set_matchid( match_id );
@@ -295,7 +295,7 @@ namespace KFrame
             return _kf_display->SendToClient( entity, KFMsg::MatchNotInMatch );
         }
 
-        auto match_server_id = entity->Get( __STRING__( match_server_id ) );
+        auto match_server_id = entity->Get( __STRING__( matchserverid ) );
 
         KFMsg::S2SKickMatchToShardReq req;
         req.set_matchid( waitmatchid );
@@ -328,7 +328,7 @@ namespace KFrame
             return _kf_display->SendToClient( entity, KFMsg::MatchNotInMatch );
         }
 
-        auto match_server_id = entity->Get( __STRING__( match_server_id ) );
+        auto match_server_id = entity->Get( __STRING__( matchserverid ) );
 
         KFMsg::S2SFightMatchToShardReq req;
         req.set_playerid( entity->GetKeyID() );

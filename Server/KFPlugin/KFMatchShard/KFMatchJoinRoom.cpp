@@ -78,7 +78,7 @@ namespace KFrame
 
                 // 更新给客户端
                 KFMsg::MsgChangeMatchMasterAck ack;
-                ack.set_player_id( _master_player_id );
+                ack.set_playerid( _master_player_id );
                 ack.set_name( _master_player_name );
                 return SendToRoom( KFMsg::MSG_CHANGE_MATCH_MASTER_ACK, &ack );
             }
