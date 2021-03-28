@@ -33,6 +33,7 @@
 		<Plugin Name="KFChat" Param=""/>		
 		<Plugin Name="KFFight" Param=""/>	
 		<Plugin Name="KFTask" Param=""/>	
+		<Plugin Name="KFTaskRefresh" Param=""/>	
 		<Plugin Name="KFMatchClient" Param=""/>	
 		<Plugin Name="KFRoomClient" Param=""/>		
 	</Plugins>
