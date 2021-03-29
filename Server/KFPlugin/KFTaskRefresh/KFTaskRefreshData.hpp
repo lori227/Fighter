@@ -10,6 +10,12 @@ namespace KFrame
     public:
         std::vector<std::shared_ptr<KFTaskSetting>> _task_list;
     };
+
+    class KFTaskQualityList
+    {
+    public:
+
+    };
 }
 
 
