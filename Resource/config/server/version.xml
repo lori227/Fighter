@@ -16,11 +16,11 @@
 	<node name="relation" version="5d9331f4f85c88a0d2aeca78cfcf1c93"/>
 	<node name="channel" version="839a87a99fb21f10cf910bace7466ea6"/>
 	<node name="sign" version="1ff2472bb132760d73ae30e3d4e6f3c8"/>
-	<node name="constant" version="b9f245e6cb67053b7b4cdadf901bb239"/>
+	<node name="constant" version="b4e067bf397caaac41e0b2fc5b82f428"/>
 	<node name="timeloop" version="4020f452c4b7b8b295209dde52efafff"/>
 	<node name="template" version="d3f6e2668b7968a91cf92a5660a62b72"/>
 	<node name="relationclass" version="67ac579c049baed291685f71b4dcd9cf"/>
-	<node name="weight" version="b9d3c06448495fcb47c2047b51d7b236"/>
+	<node name="weight" version="2a5b36a48f73d805b69442bed0c46b15"/>
 	<node name="foot" version="5bd4e3563da345c7e6f86e03863c7c51"/>
 	<node name="conditiondefine" version="e49534e87e516d902e03e821e3a0b949"/>
 	<node name="goods" version="ba75db42b68b1f84c2f9f29f60e39c4a"/>

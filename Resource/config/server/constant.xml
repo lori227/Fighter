@@ -1,4 +1,7 @@
-<root version="b9f245e6cb67053b7b4cdadf901bb239">
+<root version="b4e067bf397caaac41e0b2fc5b82f428">
 	<node row="8" name="playernamelength" value="14"/>
 	<node row="9" name="chatintervaltime" value="2000"/>
+	<node row="10" name="refreshtaskcount" value="2"/>
+	<node row="11" name="norepeatquality" value="3"/>
+	<node row="12" name="refreshtaskpool" value="1"/>
 </root>
