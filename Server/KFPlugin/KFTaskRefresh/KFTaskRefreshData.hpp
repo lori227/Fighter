@@ -23,9 +23,9 @@ namespace KFrame {
 
     class KFTaskTypeList {
     public:
-        std::shared_ptr<KFTaskSetting>& RandTaskSetting(UInt32Set& exclude_list) {
+        std::shared_ptr<KFTaskSetting> RandTaskSetting(UInt32Set& exclude_list) {
             UInt32Vector type_list;
-            for (auto& iter : _type_task_list) {
+            for (auto& iter : _type_task_list._objects) {
                 if (exclude_list.count(iter.first) == 0) {
                     type_list.push_back(iter.first);
                 }
