@@ -20,7 +20,7 @@ namespace KFrame {
             auto quality_task_data = _quality_task_list.Create(task_setting->_quality);
             quality_task_data->_quality = task_setting->_quality;
             auto type_task_data = quality_task_data->_type_task_list.Create(task_setting->_type);
-            type_task_data->_task_list.push_back(task_setting->_id);
+            type_task_data->_task_list.push_back(task_setting);
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +46,7 @@ namespace KFrame {
         }
     }
 
-    std::shared_ptr<KFTaskSetting> KFTaskRefreshModule::TaskRefresh(EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set7 exclude_type_list) {
+    std::shared_ptr<KFTaskSetting> KFTaskRefreshModule::TaskRefresh(EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set& exclude_type_list) {
         static auto _refresh_task_pool_constant = KFGlobal::Instance()->FindConstant(__STRING__(refreshtaskpool));
         auto weight_setting = KFWeightConfig::Instance()->FindSetting(_refresh_task_pool_constant->_uint32_value);
         if (weight_setting == nullptr) {

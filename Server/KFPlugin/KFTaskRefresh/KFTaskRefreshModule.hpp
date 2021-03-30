@@ -41,7 +41,7 @@ namespace KFrame {
         __KF_RESET_FUNCTION__(OnResetTaskRefresh);
 
         // 刷新任务
-        std::shared_ptr<KFTaskSetting> TaskRefresh(EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set7 exclude_type_list);
+        std::shared_ptr<KFTaskSetting> TaskRefresh(EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set& exclude_type_list);
 
         // 删除任务回调
         __KF_REMOVE_DATA_FUNCTION__( OnRemoveTask );
