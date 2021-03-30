@@ -80,4 +80,5 @@ add_subdirectory(KFRoomClient)
 add_subdirectory(KFRoomShard)
 add_subdirectory(KFHero)
 add_subdirectory(KFFight)
+add_subdirectory(KFTaskRefresh)
 

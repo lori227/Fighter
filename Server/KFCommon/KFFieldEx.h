@@ -40,6 +40,9 @@ namespace KFrame
         __STRING_DEFINE__( today );
         __STRING_DEFINE__( yesterday );
         __STRING_DEFINE__( ever );
+        __STRING_DEFINE__( refreshtaskcount );
+        __STRING_DEFINE__( norepeatquality );
+        __STRING_DEFINE__( refreshtaskpool );
 
     }
 }

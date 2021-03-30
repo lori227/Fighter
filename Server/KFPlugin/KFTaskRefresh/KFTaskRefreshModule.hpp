@@ -17,13 +17,14 @@
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFReset/KFResetInterface.h"
+#include "KFTask/KFTaskInterface.h"
+#include "KFConfig/KFWeightConfig.hpp"
 
-namespace KFrame
-{
-    class KFTaskRefreshModule : public KFTaskRefreshInterface
-    {
+namespace KFrame {
+    class KFTaskRefreshModule : public KFTaskRefreshInterface {
     public:
         KFTaskRefreshModule() = default;
+
         ~KFTaskRefreshModule() = default;
 
         // 加载
@@ -37,16 +38,22 @@ namespace KFrame
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
     protected:
-        __KF_RESET_FUNCTION__( OnResetTaskRefresh );
+        __KF_RESET_FUNCTION__(OnResetTaskRefresh);
+
+        // 刷新任务
+        std::shared_ptr<KFTaskSetting> TaskRefresh(EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set7 exclude_type_list);
+
+        // 删除任务回调
+        __KF_REMOVE_DATA_FUNCTION__( OnRemoveTask );
 
     protected:
         // 玩家组件
         std::shared_ptr<KFComponent> _component = nullptr;
 
         // 任务刷新数据
+        KFHashMap<uint32, KFTaskTypeList> _quality_task_list;
     };
 }
-
 
 
 #endif

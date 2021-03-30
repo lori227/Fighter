@@ -17,16 +17,20 @@ namespace KFrame
 
     void KFTaskRefreshPlugin::LoadModule()
     {
+        __FIND_MODULE__( _kf_task, KFTaskInterface );
         __FIND_MODULE__( _kf_reset, KFResetInterface );
         __FIND_MODULE__( _kf_loader, KFLoaderInterface );
         __FIND_MODULE__( _kf_kernel, KFKernelInterface );
         __FIND_MODULE__( _kf_player, KFPlayerInterface );
         __FIND_MODULE__( _kf_display, KFDisplayInterface );
         __FIND_MODULE__( _kf_message, KFMessageInterface );
+
     }
 
     void KFTaskRefreshPlugin::AddConfig()
     {
         __KF_ADD_CONFIG__( KFTaskConfig );
+        __KF_ADD_CONFIG__( KFWeightConfig );
+
     }
 }
