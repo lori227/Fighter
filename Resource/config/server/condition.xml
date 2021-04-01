@@ -1,4 +1,4 @@
-<root version="be9380a9ff2335eb3ecad01be0d95ac9">
+<root version="11df9121cdf877fd717b57485d72f74a">
 	<node row="8" id="1" condition="costmoney" donetype=">=" donevalue="100"/>
 	<node row="9" id="2" condition="owngrade" donetype=">=" donevalue="85"/>
 	<node row="10" id="3" condition="owngrade" donetype=">=" donevalue="510"/>
@@ -6,7 +6,28 @@
 	<node row="12" id="5" condition="totalsignin" donetype=">=" donevalue="1"/>
 	<node row="13" id="6" condition="totalsignin" donetype=">=" donevalue="4"/>
 	<node row="14" id="7" condition="totalsignin" donetype=">=" donevalue="7"/>
-	<node row="15" id="10101" condition="fight" donetype=">=" donevalue="1"/>
-	<node row="16" id="10102" condition="fight" donetype=">=" donevalue="5"/>
+	<node row="15" id="10001" condition="fight" donetype=">=" donevalue="2"/>
+	<node row="16" id="10002" condition="fight" donetype=">=" donevalue="5"/>
 	<node row="17" id="10103" condition="fight" donetype=">=" donevalue="10"/>
+	<node row="18" id="10004" condition="fight" donetype=">=" donevalue="1"/>
+	<node row="19" id="10005" condition="fight" donetype=">=" donevalue="3"/>
+	<node row="20" id="10006" condition="fight" donetype=">=" donevalue="2"/>
+	<node row="21" id="10007" condition="fight" donetype=">=" donevalue="5"/>
+	<node row="22" id="10008" condition="fight" donetype=">=" donevalue="10"/>
+	<node row="23" id="10009" condition="fight" donetype=">=" donevalue="1"/>
+	<node row="24" id="10010" condition="fight" donetype=">=" donevalue="3"/>
+	<node row="25" id="10011" condition="fight" donetype=">=" donevalue="5"/>
+	<node row="26" id="11001" condition="fight" donetype=">=" donevalue="2"/>
+	<node row="27" id="11002" condition="fight" donetype=">=" donevalue="5"/>
+	<node row="28" id="11003" condition="fight" donetype=">=" donevalue="10"/>
+	<node row="29" id="11004" condition="addmoney" donetype=">=" donevalue="100"/>
+	<node row="30" id="11005" condition="addmoney" donetype=">=" donevalue="500"/>
+	<node row="31" id="11006" condition="addmoney" donetype=">=" donevalue="1000"/>
+	<node row="32" id="11007" condition="fight" donetype=">=" donevalue="2"/>
+	<node row="33" id="11008" condition="fight" donetype=">=" donevalue="5"/>
+	<node row="34" id="11009" condition="fight" donetype=">=" donevalue="10"/>
+	<node row="35" id="12001" condition="fight" donetype=">=" donevalue="3"/>
+	<node row="36" id="12002" condition="fight" donetype=">=" donevalue="6"/>
+	<node row="37" id="12003" condition="fight" donetype=">=" donevalue="10"/>
+	<node row="38" id="12004" condition="fight" donetype=">=" donevalue="60"/>
 </root>
