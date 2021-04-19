@@ -5,7 +5,7 @@ namespace KFrame {
         _component = _kf_kernel->FindComponent(__STRING__(player));
 
         __REGISTER_RESET__(__STRING__(taskrefresh), &KFTaskRefreshModule::OnResetTaskRefresh);
-        __REGISTER_REMOVE_DATA_1__(__STRING__(task), &KFTaskRefreshModule::OnRemoveTask);
+        //__REGISTER_REMOVE_DATA_1__(__STRING__(task), &KFTaskRefreshModule::OnRemoveTask);
     }
 
     void KFTaskRefreshModule::BeforeShut() {
