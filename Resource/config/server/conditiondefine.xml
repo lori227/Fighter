@@ -1,4 +1,4 @@
-<root version="e49534e87e516d902e03e821e3a0b949">
+<root version="b6e918cd6e5871c498f3f58d318ca8d2">
 	<node row="8" id="addmoney" parentname="player" dataname="money" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
 	<node row="9" id="costmoney" parentname="player" dataname="money" calltype="3" triggertype="2" useoperate="1" usetype="1"/>
 	<node row="10" id="adddiamond" parentname="player" dataname="diamond" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
@@ -14,4 +14,17 @@
 	<node row="20" id="owngrade" parentname="basic" dataname="grade" initcalctype="2" calltype="3" useoperate="3" usetype="2"/>
 	<node row="21" triggeruse="2" id="ownachieve" parentname="achieve" dataname="status" initcalctype="1" calltype="3" triggertype="3" triggercheck="13" triggervalue="4" useoperate="1" usevalue="1"/>
 	<node row="22" id="fight" parentname="player" dataname="roomid" calltype="3" triggertype="3" triggercheck="16" useoperate="1" usevalue="1"/>
+	<node row="23" id="buffcount" parentname="buffer" dataname="value" calltype="1" useoperate="1" usetype="1"/>
+	<node row="24" id="buffcount" parentname="buffer" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="25" id="finishlevel" parentname="finishlevellist" dataname="value" calltype="1" useoperate="1" usetype="1"/>
+	<node row="26" id="finishlevel" parentname="finishlevellist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="27" id="extrapath" parentname="extrapathlist" dataname="value" calltype="1" useoperate="1" usetype="1"/>
+	<node row="28" id="extrapath" parentname="extrapathlist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="29" id="getitem" parentname="getitemlist" dataname="value" calltype="1" useoperate="1" usetype="1"/>
+	<node row="30" id="getitem" parentname="getitemlist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="31" id="jumppass" parentname="jumppasslist" dataname="value" calltype="1" useoperate="1" usetype="1"/>
+	<node row="32" id="jumppass" parentname="jumppasslist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="33" id="finishnodmg" parentname="finishnodmglist" dataname="value" calltype="1" useoperate="1" usetype="1"/>
+	<node row="34" id="finishnodmg" parentname="finishnodmglist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="35" id="score" parentname="score" dataname="today" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
 </root>

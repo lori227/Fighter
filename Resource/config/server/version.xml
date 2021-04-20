@@ -22,18 +22,18 @@
 	<node name="relationclass" version="67ac579c049baed291685f71b4dcd9cf"/>
 	<node name="weight" version="2a5b36a48f73d805b69442bed0c46b15"/>
 	<node name="foot" version="5bd4e3563da345c7e6f86e03863c7c51"/>
-	<node name="conditiondefine" version="e49534e87e516d902e03e821e3a0b949"/>
+	<node name="conditiondefine" version="b6e918cd6e5871c498f3f58d318ca8d2"/>
 	<node name="goods" version="ba75db42b68b1f84c2f9f29f60e39c4a"/>
 	<node name="timesection" version="4020f452c4b7b8b295209dde52efafff"/>
-	<node name="condition" version="11df9121cdf877fd717b57485d72f74a"/>
-	<node name="execute" version="8d8ccf8f9f7ec6568af2de65d0b51448"/>
+	<node name="condition" version="93a5cc8cf79252f5141d35df717a95a7"/>
+	<node name="execute" version="80d5ed885e4d460c0677d7b8dd467926"/>
 	<node name="frameclass" version="67ac579c049baed291685f71b4dcd9cf"/>
 	<node name="itemclass" version="67ac579c049baed291685f71b4dcd9cf"/>
 	<node name="rank" version="78f406e9702b70bf0fab219bb3c55cc3"/>
 	<node name="name" version="2cb5ff19787ca0a68aa49653ffa8da3d"/>
 	<node name="match" version="10c9b4242e0febce3aa900f4ece77066"/>
 	<node name="achieveclass" version="67ac579c049baed291685f71b4dcd9cf"/>
-	<node name="task" version="18ca7fe8a8f37f7d48fd5bc5ba7da343"/>
+	<node name="task" version="79bacfc1a3fb6ef8de975505a7edcb4d"/>
 	<node name="signclass" version="67ac579c049baed291685f71b4dcd9cf"/>
 	<node name="taskchain" version="031aabd747f18bf65e87a8cd91f5c55b"/>
 	<node name="store" version="58418dad67c3710d5603e921f2c1c3d0"/>
@@ -42,7 +42,7 @@
 	<node name="storeclass" version="67ac579c049baed291685f71b4dcd9cf"/>
 	<node name="reset" version="756357ed0c34df5ad1afccfc32196b4f"/>
 	<node name="0_0_zone" version="8e8e8d50ce267f0ab40be4e484d84ad0"/>
-	<node name="class" version="9ed5a1afd9fa7f890e489013b5534606"/>
+	<node name="class" version="109326c9d2ff9742469036ff3fa30aa7"/>
 	<node name="teamclass" version="67ac579c049baed291685f71b4dcd9cf"/>
 	<node name="effect" version="cb08d6178189d33a0a3dfa8d478be737"/>
 	<node name="dropclass" version="67ac579c049baed291685f71b4dcd9cf"/>

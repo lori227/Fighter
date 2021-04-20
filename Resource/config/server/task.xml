@@ -1,26 +1,26 @@
-<root version="18ca7fe8a8f37f7d48fd5bc5ba7da343">
-	<node row="8" id="10001" type="1" quality="1" completemode="1" completecondition="10001" taskname(string)="完成关卡2次"/>
-	<node row="9" id="10002" type="1" quality="2" completemode="1" completecondition="10002" taskname(string)="完成关卡5次"/>
-	<node row="10" id="10003" type="1" quality="3" completemode="1" completecondition="10003" taskname(string)="完成关卡10次"/>
-	<node row="11" id="10004" type="2" quality="2" completemode="1" completecondition="10004" taskname(string)="无伤完成关卡1次"/>
-	<node row="12" id="10005" type="2" quality="3" completemode="1" completecondition="10005" taskname(string)="无伤完成关卡3次"/>
-	<node row="13" id="10006" type="3" quality="1" completemode="1" completecondition="10006" taskname(string)="无尽模式达到5000里程"/>
-	<node row="14" id="10007" type="3" quality="2" completemode="1" completecondition="10007" taskname(string)="无尽模式达到12000里程"/>
-	<node row="15" id="10008" type="3" quality="3" completemode="1" completecondition="10008" taskname(string)="无尽模式达到20000里程"/>
-	<node row="16" id="10009" type="4" quality="1" completemode="1" completecondition="10009" taskname(string)="进入密道1次"/>
-	<node row="17" id="10010" type="4" quality="2" completemode="1" completecondition="10010" taskname(string)="进入密道3次"/>
-	<node row="18" id="10011" type="4" quality="3" completemode="1" completecondition="10011" taskname(string)="进入密道5次"/>
-	<node row="19" id="11001" type="5" quality="1" completemode="1" completecondition="11001" taskname(string)="获得BUFF2次"/>
-	<node row="20" id="11002" type="5" quality="2" completemode="1" completecondition="11002" taskname(string)="获得BUFF5次"/>
-	<node row="21" id="11003" type="5" quality="3" completemode="1" completecondition="11003" taskname(string)="获得BUFF10次"/>
-	<node row="22" id="11004" type="6" quality="1" completemode="1" completecondition="11004" taskname(string)="获得金钱100"/>
-	<node row="23" id="11005" type="6" quality="2" completemode="1" completecondition="11005" taskname(string)="获得金钱500"/>
-	<node row="24" id="11006" type="6" quality="3" completemode="1" completecondition="11006" taskname(string)="获得金钱1000"/>
-	<node row="25" id="11007" type="7" quality="1" completemode="1" completecondition="11007" taskname(string)="获得道具2次"/>
-	<node row="26" id="11008" type="7" quality="2" completemode="1" completecondition="11008" taskname(string)="获得道具5次"/>
-	<node row="27" id="11009" type="7" quality="3" completemode="1" completecondition="11009" taskname(string)="获得道具10次"/>
-	<node row="28" id="12001" type="8" quality="1" completemode="1" completecondition="12001" taskname(string)="跳过3个障碍物"/>
-	<node row="29" id="12002" type="8" quality="2" completemode="1" completecondition="12002" taskname(string)="跳过6个障碍物"/>
-	<node row="30" id="12003" type="8" quality="3" completemode="1" completecondition="12003" taskname(string)="跳过10个障碍物"/>
-	<node row="31" id="12004" type="9" quality="1" completemode="1" completecondition="12004" taskname(string)="累计游戏时长1小时"/>
+<root version="79bacfc1a3fb6ef8de975505a7edcb4d">
+	<node row="8" id="10001" type="1" quality="1" completemode="1" completecondition="10001" execute="10001" taskname(string)="完成关卡2次" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="9" id="10002" type="1" quality="2" completemode="1" completecondition="10002" execute="10002" taskname(string)="完成关卡5次" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="10" id="10003" type="1" quality="3" completemode="1" completecondition="10003" execute="10003" taskname(string)="完成关卡10次" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="11" id="10004" type="2" quality="2" completemode="1" completecondition="10004" execute="10002" taskname(string)="无伤完成关卡1次" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="12" id="10005" type="2" quality="3" completemode="1" completecondition="10005" execute="10003" taskname(string)="无伤完成关卡3次" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="13" id="10006" type="3" quality="1" completemode="1" completecondition="10006" execute="10001" taskname(string)="无尽模式达到5000里程" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="14" id="10007" type="3" quality="2" completemode="1" completecondition="10007" execute="10002" taskname(string)="无尽模式达到12000里程" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="15" id="10008" type="3" quality="3" completemode="1" completecondition="10008" execute="10003" taskname(string)="无尽模式达到20000里程" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="16" id="10009" type="4" quality="1" completemode="1" completecondition="10009" execute="10001" taskname(string)="进入密道1次" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="17" id="10010" type="4" quality="2" completemode="1" completecondition="10010" execute="10002" taskname(string)="进入密道3次" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="18" id="10011" type="4" quality="3" completemode="1" completecondition="10011" execute="10003" taskname(string)="进入密道5次" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="19" id="11001" type="5" quality="1" completemode="1" completecondition="11001" execute="10001" taskname(string)="获得BUFF2次" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="20" id="11002" type="5" quality="2" completemode="1" completecondition="11002" execute="10002" taskname(string)="获得BUFF5次" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="21" id="11003" type="5" quality="3" completemode="1" completecondition="11003" execute="10003" taskname(string)="获得BUFF10次" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="22" id="11004" type="6" quality="1" completemode="1" completecondition="11004" execute="10001" taskname(string)="获得金钱100" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="23" id="11005" type="6" quality="2" completemode="1" completecondition="11005" execute="10002" taskname(string)="获得金钱500" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="24" id="11006" type="6" quality="3" completemode="1" completecondition="11006" execute="10003" taskname(string)="获得金钱1000" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="25" id="11007" type="7" quality="1" completemode="1" completecondition="11007" execute="10001" taskname(string)="获得道具2次" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="26" id="11008" type="7" quality="2" completemode="1" completecondition="11008" execute="10002" taskname(string)="获得道具5次" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="27" id="11009" type="7" quality="3" completemode="1" completecondition="11009" execute="10003" taskname(string)="获得道具10次" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="28" id="12001" type="8" quality="1" completemode="1" completecondition="12001" execute="10001" taskname(string)="跳过3个障碍物" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="29" id="12002" type="8" quality="2" completemode="1" completecondition="12002" execute="10002" taskname(string)="跳过6个障碍物" rewarddisplay(string)="[{&quot;money&quot;:&quot;200&quot;}]"/>
+	<node row="30" id="12003" type="8" quality="3" completemode="1" completecondition="12003" execute="10003" taskname(string)="跳过10个障碍物" rewarddisplay(string)="[{&quot;money&quot;:&quot;300&quot;}]"/>
+	<node row="31" id="12004" type="9" quality="1" completemode="1" completecondition="12004" execute="10001" taskname(string)="累计游戏时长1小时" rewarddisplay(string)="[{&quot;money&quot;:&quot;100&quot;}]"/>
 </root>
