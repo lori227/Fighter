@@ -43,7 +43,7 @@ namespace KFrame
         __STRING_DEFINE__( refreshtaskcount );
         __STRING_DEFINE__( norepeatquality );
         __STRING_DEFINE__( refreshtaskpool );
-
+        __STRING_DEFINE__( onlinetime );
     }
 }
 

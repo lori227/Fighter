@@ -16,6 +16,7 @@
 #include "KFDisplay/KFDisplayInterface.h"
 #include "KFMessage/KFMessageInterface.h"
 #include "KFReset/KFResetInterface.h"
+#include "KFTimer/KFTimerInterface.h"
 
 namespace KFrame
 {
@@ -35,6 +36,15 @@ namespace KFrame
 
         // 处理积分更新
         __KF_MESSAGE_FUNCTION__( HandleUpdateScoreReq, KFMsg::MsgUpdateScoreReq );
+
+        // 添加游戏时长
+        __KF_TIMER_FUNCTION__( OnTimerAddOnlineTime );
+
+        // 玩家进入游戏
+        __KF_PLAYER_ENTER_FUNCTION__( OnPlayerEnterFighter );
+
+        // 玩家离开游戏
+        __KF_PLAYER_ENTER_FUNCTION__( OnPlayerLeaveFighter );
     };
 }
 

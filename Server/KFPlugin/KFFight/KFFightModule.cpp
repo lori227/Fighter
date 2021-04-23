@@ -6,6 +6,8 @@ namespace KFrame
     void KFFightModule::BeforeRun()
     {
         __REGISTER_RESET__( __STRING__( score ), &KFFightModule::OnResetFightScore );
+        __REGISTER_PLAYER_ENTER__(&KFFightModule::OnPlayerEnterFighter);
+        __REGISTER_PLAYER_LEAVE__(&KFFightModule::OnPlayerLeaveFighter);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         __REGISTER_MESSAGE__( KFMessageEnum::Player, KFMsg::MSG_UPDATE_SOCRE_REQ, &KFFightModule::HandleUpdateScoreReq );
     }
@@ -44,5 +46,26 @@ namespace KFrame
 
         player->UpdateRecord( score_record, kfmsg->id(), __STRING__( today ), KFEnum::Greater, kfmsg->socre() );
         player->UpdateRecord( score_record, kfmsg->id(), __STRING__( ever ), KFEnum::Greater, kfmsg->socre() );
+    }
+
+    __KF_PLAYER_ENTER_FUNCTION__(KFFightModule::OnPlayerEnterFighter)
+    {
+        __LOOP_TIMER_1__( player->GetKeyID(), 60000, 0, &KFFightModule::OnTimerAddOnlineTime);
+    }
+
+    __KF_PLAYER_LEAVE_FUNCTION__( KFFightModule::OnPlayerLeaveFighter)
+    {
+        __UN_TIMER_1__(player->GetKeyID());
+    }
+
+    __KF_TIMER_FUNCTION__(KFFightModule::OnTimerAddOnlineTime)
+    {
+        auto player = _kf_player->FindPlayer(object_id);
+        if ( player == nullptr )
+        {
+            return;;
+        }
+
+        player->UpdateData(__string__(onlinetime), KFEnum::Add, 60 );
     }
 }

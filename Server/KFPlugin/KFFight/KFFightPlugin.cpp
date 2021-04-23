@@ -16,6 +16,7 @@ namespace KFrame
 
     void KFFightPlugin::LoadModule()
     {
+        __FIND_MODULE__( _kf_timer, KFTimerInterface );
         __FIND_MODULE__( _kf_reset, KFResetInterface );
         __FIND_MODULE__( _kf_player, KFPlayerInterface );
         __FIND_MODULE__( _kf_display, KFDisplayInterface );
