@@ -1,4 +1,4 @@
-<root version="109326c9d2ff9742469036ff3fa30aa7">
+<root version="7c60b6ef6112f2fbe2a840b62f87a95f">
 	<node row="8" id="BasicPlayer" name="grade" type="uint32" sync="1" view="1" addcall="1" removecall="1" updatecall="1" basic="1" relation="1" team="1" guild="1" rank="1"/>
 	<node row="9" element="经验" id="Player" name="exp" type="uint32" show="1" save="1" sync="1" updatecall="1"/>
 	<node row="10" id="Player" name="matchid" type="uint32" save="1" sync="1"/>
@@ -19,12 +19,13 @@
 	<node row="25" id="Player" name="extrapathlist" type="record" containclass="KeyValue" keyname="id" configkeyname="id" valuekeyname="value" addcall="1" updatecall="1" client="1"/>
 	<node row="26" id="Player" name="getitemlist" type="record" containclass="KeyValue" keyname="id" configkeyname="id" valuekeyname="value" addcall="1" updatecall="1" client="1"/>
 	<node row="27" id="Player" name="jumppasslist" type="record" containclass="KeyValue" keyname="id" configkeyname="id" valuekeyname="value" addcall="1" updatecall="1" client="1"/>
-	<node row="28" id="Player" name="finishlevelnodmglist" type="record" containclass="KeyValue" keyname="id" configkeyname="id" valuekeyname="value" addcall="1" updatecall="1" client="1"/>
-	<node row="29" id="Score" name="id" type="uint32" sync="1" removecall="1" updatecall="1"/>
-	<node row="30" element="今日最好战绩" id="Score" name="today" type="uint64" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1" rank="1" client="1"/>
-	<node row="31" element="昨日最好战绩" id="Score" name="yesterday" type="uint64" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1" rank="1"/>
-	<node row="32" element="历史最好战绩" id="Score" name="ever" type="uint64" save="1" sync="1" addcall="1" removecall="1" updatecall="1" rank="1"/>
-	<node row="33" element="id" id="Hero" name="id" type="uint32" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1"/>
-	<node row="34" element="id" id="Effect" name="id" type="uint32" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1"/>
-	<node row="35" element="id" id="Foot" name="id" type="uint32" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1"/>
+	<node row="28" id="Player" name="finishnodmglist" type="record" containclass="KeyValue" keyname="id" configkeyname="id" valuekeyname="value" addcall="1" updatecall="1" client="1"/>
+	<node row="29" id="Player" name="onlinetime" type="uint64" save="1" sync="1" updatecall="1"/>
+	<node row="30" id="Score" name="id" type="uint32" sync="1" removecall="1" updatecall="1"/>
+	<node row="31" element="今日最好战绩" id="Score" name="today" type="uint64" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1" rank="1" client="1"/>
+	<node row="32" element="昨日最好战绩" id="Score" name="yesterday" type="uint64" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1" rank="1"/>
+	<node row="33" element="历史最好战绩" id="Score" name="ever" type="uint64" save="1" sync="1" addcall="1" removecall="1" updatecall="1" rank="1"/>
+	<node row="34" element="id" id="Hero" name="id" type="uint32" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1"/>
+	<node row="35" element="id" id="Effect" name="id" type="uint32" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1"/>
+	<node row="36" element="id" id="Foot" name="id" type="uint32" show="1" save="1" sync="1" addcall="1" removecall="1" updatecall="1"/>
 </root>

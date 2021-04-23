@@ -15,7 +15,7 @@
 	<file name="K-框架-时间配置-(框架定义,策划填写).xlsx" type="3" md5client="4020f452c4b7b8b295209dde52efafff" md5server="4020f452c4b7b8b295209dde52efafff"/>
 	<file name="K-框架-数据模板-(框架维护,请勿修改).xlsx" type="3" md5client="d3f6e2668b7968a91cf92a5660a62b72" md5server="d3f6e2668b7968a91cf92a5660a62b72"/>
 	<file name="K-框架-随机权重-(框架定义,策划填写).xlsx" type="3" md5client="2a5b36a48f73d805b69442bed0c46b15" md5server="2a5b36a48f73d805b69442bed0c46b15"/>
-	<file name="K-框架-条件定义-(框架定义,后端维护).xlsx" type="3" md5client="b6e918cd6e5871c498f3f58d318ca8d2" md5server="b6e918cd6e5871c498f3f58d318ca8d2"/>
+	<file name="K-框架-条件定义-(框架定义,后端维护).xlsx" type="3" md5client="079e5ff584c90deca905001dfaa7a8f9" md5server="079e5ff584c90deca905001dfaa7a8f9"/>
 	<file name="K-框架-条件配置-(框架定义,策划填写).xlsx" type="3" md5client="93a5cc8cf79252f5141d35df717a95a7" md5server="93a5cc8cf79252f5141d35df717a95a7"/>
 	<file name="K-框架-玩家属性-(框架维护,请勿修改).xlsx" type="3" md5client="67ac579c049baed291685f71b4dcd9cf" md5server="67ac579c049baed291685f71b4dcd9cf"/>
 	<file name="K-框架-执行输出-(框架定义,策划填写).xlsx" type="3" md5client="80d5ed885e4d460c0677d7b8dd467926" md5server="80d5ed885e4d460c0677d7b8dd467926"/>
@@ -29,8 +29,8 @@
 	<file name="S-商店-商店配置-(框架定义,策划填写).xlsx" type="3" md5client="58418dad67c3710d5603e921f2c1c3d0" md5server="58418dad67c3710d5603e921f2c1c3d0"/>
 	<file name="S-商店-商品配置-(框架定义,策划填写).xlsx" type="3" md5client="ba75db42b68b1f84c2f9f29f60e39c4a" md5server="ba75db42b68b1f84c2f9f29f60e39c4a"/>
 	<file name="W-玩家-进入游戏-(框架定义,后端维护).xlsx" type="3" md5client="e52d2af6524888af17fcbf3087eab5ee" md5server="e52d2af6524888af17fcbf3087eab5ee"/>
-	<file name="W-玩家-属性重置-(框架定义,策划填写).xlsx" type="3" md5client="756357ed0c34df5ad1afccfc32196b4f" md5server="756357ed0c34df5ad1afccfc32196b4f"/>
-	<file name="W-玩家-玩家属性-(框架定义,后端维护).xlsx" type="3" md5client="109326c9d2ff9742469036ff3fa30aa7" md5server="109326c9d2ff9742469036ff3fa30aa7"/>
+	<file name="W-玩家-属性重置-(框架定义,策划填写).xlsx" type="3" md5client="577815761efb4b0cac9813b573e2d93d" md5server="577815761efb4b0cac9813b573e2d93d"/>
+	<file name="W-玩家-玩家属性-(框架定义,后端维护).xlsx" type="3" md5client="7c60b6ef6112f2fbe2a840b62f87a95f" md5server="7c60b6ef6112f2fbe2a840b62f87a95f"/>
 	<file name="W-玩家-新建角色-(框架定义,策划填写).xlsx" type="3" md5client="d204aa23a9f096aa804399240c5f18eb" md5server="d204aa23a9f096aa804399240c5f18eb"/>
 	<file name="Y-英雄-脚印配置-(后端定义,策划填写).xlsx" type="3" md5client="5bd4e3563da345c7e6f86e03863c7c51" md5server="5bd4e3563da345c7e6f86e03863c7c51"/>
 	<file name="Y-英雄-特效配置-(后端定义,策划填写).xlsx" type="3" md5client="cb08d6178189d33a0a3dfa8d478be737" md5server="cb08d6178189d33a0a3dfa8d478be737"/>
