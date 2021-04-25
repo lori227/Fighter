@@ -66,6 +66,6 @@ namespace KFrame
             return;;
         }
 
-        player->UpdateData(__string__(onlinetime), KFEnum::Add, 60 );
+        player->UpdateData(__STRING__(onlinetime), KFEnum::Add, 60 );
     }
 }
