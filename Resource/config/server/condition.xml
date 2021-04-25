@@ -1,4 +1,4 @@
-<root version="ce9c12f27ce7b36e1d0a5fe2c24c4eab">
+<root version="b136798d7ea492221c2bc0772f1ca96a">
 	<node row="8" id="1" condition="costmoney" donetype=">=" donevalue="100"/>
 	<node row="9" id="2" condition="owngrade" donetype=">=" donevalue="85"/>
 	<node row="10" id="3" condition="owngrade" donetype=">=" donevalue="510"/>
@@ -11,9 +11,9 @@
 	<node row="17" id="10003" condition="finishlevel" donetype=">=" donevalue="10"/>
 	<node row="18" id="10004" condition="finishnodmg" donetype=">=" donevalue="1"/>
 	<node row="19" id="10005" condition="finishnodmg" donetype=">=" donevalue="3"/>
-	<node row="20" id="10006" condition="scroe" donetype=">=" donevalue="5000"/>
-	<node row="21" id="10007" condition="scroe" donetype=">=" donevalue="12000"/>
-	<node row="22" id="10008" condition="scroe" donetype=">=" donevalue="20000"/>
+	<node row="20" id="10006" condition="todayscore" donetype=">=" donevalue="5000"/>
+	<node row="21" id="10007" condition="todayscore" donetype=">=" donevalue="12000"/>
+	<node row="22" id="10008" condition="todayscore" donetype=">=" donevalue="20000"/>
 	<node row="23" id="10009" condition="extrapath" donetype=">=" donevalue="1"/>
 	<node row="24" id="10010" condition="extrapath" donetype=">=" donevalue="3"/>
 	<node row="25" id="10011" condition="extrapath" donetype=">=" donevalue="5"/>
@@ -29,5 +29,5 @@
 	<node row="35" id="12001" condition="jumppass" donetype=">=" donevalue="3"/>
 	<node row="36" id="12002" condition="jumppass" donetype=">=" donevalue="6"/>
 	<node row="37" id="12003" condition="jumppass" donetype=">=" donevalue="10"/>
-	<node row="38" id="12004" condition="alive" donetype=">=" donevalue="60"/>
+	<node row="38" id="12004" condition="dayonlinetime" donetype=">=" donevalue="3600"/>
 </root>

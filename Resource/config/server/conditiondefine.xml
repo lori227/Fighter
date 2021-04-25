@@ -1,4 +1,4 @@
-<root version="079e5ff584c90deca905001dfaa7a8f9">
+<root version="022aa605595ccb475323d05753268c1f">
 	<node row="8" id="addmoney" parentname="player" dataname="money" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
 	<node row="9" id="costmoney" parentname="player" dataname="money" calltype="3" triggertype="2" useoperate="1" usetype="1"/>
 	<node row="10" id="adddiamond" parentname="player" dataname="diamond" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
@@ -26,6 +26,6 @@
 	<node row="32" id="jumppass" parentname="jumppasslist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
 	<node row="33" id="finishnodmg" parentname="finishnodmglist" dataname="value" calltype="1" useoperate="1" usetype="1"/>
 	<node row="34" id="finishnodmg" parentname="finishnodmglist" dataname="value" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
-	<node row="35" id="score" parentname="score" dataname="today" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
+	<node row="35" id="todayscore" parentname="player" dataname="endlessscore" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
 	<node row="36" id="dayonlinetime" parentname="player" dataname="onlinetime" calltype="3" triggertype="1" useoperate="1" usetype="1"/>
 </root>
