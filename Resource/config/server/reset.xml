@@ -1,4 +1,4 @@
-<root version="577815761efb4b0cac9813b573e2d93d">
+<root version="3c55647384bce8e8e5cc19be28114b0a">
 	<node row="8" id="1" dataname="sevenday" operate="3"/>
 	<node row="9" id="1" dataname="sevenreward" operate="3"/>
 	<node row="10" id="1" functionname="goods"/>
@@ -7,4 +7,5 @@
 	<node row="13" id="2" functionname="score"/>
 	<node row="14" id="2" functionname="taskrefresh"/>
 	<node row="15" id="2" dataname="onlinetime" operate="3"/>
+	<node row="16" id="2" dataname="endlessscore" operate="3"/>
 </root>
