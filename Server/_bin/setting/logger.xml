@@ -14,37 +14,37 @@
 
 	<Loggers Default="normal">
 		<!-- 正常日志 -->
-		<Logger Name="normal" QueueCount="1024" SinkType="1" StepSeconds="3600" MaxLogSize="1073741824‬" WinPath="./logs/output/" LinuxPath="./logs/output/" FileInfo="" Split="-">
+		<Logger Name="normal" QueueCount="1024" SinkType="1" StepSeconds="3600" MaxLogSize="1073741824" WinPath="./log/" LinuxPath="./log/" FileInfo="" Split="-">
 			<Debug Console="1" Level="1" Pattern="%^[%Y%m%d %H:%M:%S.%e][%l]%v%$"/>
 			<Release Console="1" Level="2" Pattern="[%Y%m%d %H:%M:%S.%e][%l]%v"/>
 		</Logger>
 
 		<!-- 远程日志 -->
-		<Logger Name="remote" QueueCount="1024" SinkType="1" StepSeconds="3600" MaxLogSize="1073741824‬" WinPath="./_output/" LinuxPath="/data/_binlog/" FileInfo="" Split="-">
+		<Logger Name="remote" QueueCount="1024" SinkType="1" StepSeconds="3600" MaxLogSize="1073741824" WinPath="./_output/" LinuxPath="/data/_binlog/" FileInfo="" Split="-">
 			<Debug Console="0" Level="1" Pattern="%^[%Y%m%d %H:%M:%S.%e][%l]%v%$"/>
 			<Release Console="0" Level="2" Pattern="[%Y%m%d %H:%M:%S.%e][%l]%v"/>
 		</Logger>
 
 		<!-- 部署工具日志 -->
-		<Logger Name="deploy" QueueCount="1024" SinkType="1" StepSeconds="3600" MaxLogSize="1073741824‬" WinPath="./_output/" LinuxPath="./_output/" FileInfo="" Split="-">
+		<Logger Name="deploy" QueueCount="1024" SinkType="1" StepSeconds="3600" MaxLogSize="1073741824" WinPath="./_output/" LinuxPath="./_output/" FileInfo="" Split="-">
 			<Debug Console="0" Level="1" Pattern="%^[%Y%m%d %H:%M:%S.%e][%l]%v%$"/>
 			<Release Console="0" Level="2" Pattern="[%Y%m%d %H:%M:%S.%e][%l]%v"/>
 		</Logger>
 
 		<!-- 运营1级日志 -->
-		<Logger Name="onelevel" QueueCount="1024" SinkType="3" StepSeconds="3600" MaxLogSize="1073741824‬" WinPath="./logs/glog/" LinuxPath="./logs/glog/" FileInfo="onelevel" Split="_">
+		<Logger Name="onelevel" QueueCount="1024" SinkType="3" StepSeconds="3600" MaxLogSize="1073741824" WinPath="./logs/glog/" LinuxPath="./logs/glog/" FileInfo="onelevel" Split="_">
 			<Debug Console="0" Level="2" Pattern="%v"/>
 			<Release Console="0" Level="2" Pattern="%v"/>
 		</Logger>
 
 		<!-- 运营2级日志 -->
-		<Logger Name="twolevel" QueueCount="1024" SinkType="3" StepSeconds="3600" MaxLogSize="1073741824‬" WinPath="./logs/glog/" LinuxPath="./logs/glog/" FileInfo="twolevel" Split="_">
+		<Logger Name="twolevel" QueueCount="1024" SinkType="3" StepSeconds="3600" MaxLogSize="1073741824" WinPath="./logs/glog/" LinuxPath="./logs/glog/" FileInfo="twolevel" Split="_">
 			<Debug Console="0" Level="2" Pattern="%v"/>
 			<Release Console="0" Level="2" Pattern="%v"/>
 		</Logger>
 
 		<!-- 运营3级日志 -->
-		<Logger Name="threelevel" QueueCount="1024" SinkType="3" StepSeconds="3600" MaxLogSize="1073741824‬" WinPath="./logs/glog/" LinuxPath="./logs/glog/" FileInfo="threelevel" Split="_">
+		<Logger Name="threelevel" QueueCount="1024" SinkType="3" StepSeconds="3600" MaxLogSize="1073741824" WinPath="./logs/glog/" LinuxPath="./logs/glog/" FileInfo="threelevel" Split="_">
 			<Debug Console="0" Level="2" Pattern="%v"/>
 			<Release Console="0" Level="2" Pattern="%v"/>
 		</Logger>
