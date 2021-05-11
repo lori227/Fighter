@@ -1,4 +1,4 @@
-<root version="b136798d7ea492221c2bc0772f1ca96a">
+<root version="4e45bd530ac57497cb6187031acdf13c">
 	<node row="8" id="1" condition="costmoney" donetype=">=" donevalue="100"/>
 	<node row="9" id="2" condition="owngrade" donetype=">=" donevalue="85"/>
 	<node row="10" id="3" condition="owngrade" donetype=">=" donevalue="510"/>
@@ -6,28 +6,29 @@
 	<node row="12" id="5" condition="totalsignin" donetype=">=" donevalue="1"/>
 	<node row="13" id="6" condition="totalsignin" donetype=">=" donevalue="4"/>
 	<node row="14" id="7" condition="totalsignin" donetype=">=" donevalue="7"/>
-	<node row="15" id="10001" condition="finishlevel" donetype=">=" donevalue="2"/>
-	<node row="16" id="10002" condition="finishlevel" donetype=">=" donevalue="5"/>
-	<node row="17" id="10003" condition="finishlevel" donetype=">=" donevalue="10"/>
-	<node row="18" id="10004" condition="finishnodmg" donetype=">=" donevalue="1"/>
+	<node row="15" id="10001" condition="finishlevel" donetype=">=" donevalue="1"/>
+	<node row="16" id="10002" condition="finishlevel" donetype=">=" donevalue="2"/>
+	<node row="17" id="10003" condition="finishlevel" donetype=">=" donevalue="3"/>
+	<node row="18" id="10004" condition="finishnodmg" donetype=">=" donevalue="2"/>
 	<node row="19" id="10005" condition="finishnodmg" donetype=">=" donevalue="3"/>
-	<node row="20" id="10006" condition="todayscore" donetype=">=" donevalue="5000"/>
-	<node row="21" id="10007" condition="todayscore" donetype=">=" donevalue="12000"/>
-	<node row="22" id="10008" condition="todayscore" donetype=">=" donevalue="20000"/>
+	<node row="20" id="10006" condition="todayscore" donetype=">=" donevalue="1000"/>
+	<node row="21" id="10007" condition="todayscore" donetype=">=" donevalue="2000"/>
+	<node row="22" id="10008" condition="todayscore" donetype=">=" donevalue="3000"/>
 	<node row="23" id="10009" condition="extrapath" donetype=">=" donevalue="1"/>
-	<node row="24" id="10010" condition="extrapath" donetype=">=" donevalue="3"/>
-	<node row="25" id="10011" condition="extrapath" donetype=">=" donevalue="5"/>
-	<node row="26" id="11001" condition="buffcount" donetype=">=" donevalue="2"/>
-	<node row="27" id="11002" condition="buffcount" donetype=">=" donevalue="5"/>
-	<node row="28" id="11003" condition="buffcount" donetype=">=" donevalue="10"/>
-	<node row="29" id="11004" condition="addmoney" donetype=">=" donevalue="100"/>
-	<node row="30" id="11005" condition="addmoney" donetype=">=" donevalue="500"/>
-	<node row="31" id="11006" condition="addmoney" donetype=">=" donevalue="1000"/>
-	<node row="32" id="11007" condition="getitem" donetype=">=" donevalue="2"/>
-	<node row="33" id="11008" condition="getitem" donetype=">=" donevalue="5"/>
-	<node row="34" id="11009" condition="getitem" donetype=">=" donevalue="10"/>
-	<node row="35" id="12001" condition="jumppass" donetype=">=" donevalue="3"/>
-	<node row="36" id="12002" condition="jumppass" donetype=">=" donevalue="6"/>
-	<node row="37" id="12003" condition="jumppass" donetype=">=" donevalue="10"/>
-	<node row="38" id="12004" condition="dayonlinetime" donetype=">=" donevalue="3600"/>
+	<node row="24" id="10010" condition="extrapath" donetype=">=" donevalue="2"/>
+	<node row="25" id="10011" condition="extrapath" donetype=">=" donevalue="3"/>
+	<node row="26" id="10012" condition="finishnodmg" donetype=">=" donevalue="1"/>
+	<node row="27" id="11001" condition="buffcount" donetype=">=" donevalue="2"/>
+	<node row="28" id="11002" condition="buffcount" donetype=">=" donevalue="5"/>
+	<node row="29" id="11003" condition="buffcount" donetype=">=" donevalue="10"/>
+	<node row="30" id="11004" condition="addmoney" donetype=">=" donevalue="100"/>
+	<node row="31" id="11005" condition="addmoney" donetype=">=" donevalue="500"/>
+	<node row="32" id="11006" condition="addmoney" donetype=">=" donevalue="1000"/>
+	<node row="33" id="11007" condition="getitem" donetype=">=" donevalue="2"/>
+	<node row="34" id="11008" condition="getitem" donetype=">=" donevalue="5"/>
+	<node row="35" id="11009" condition="getitem" donetype=">=" donevalue="10"/>
+	<node row="36" id="12001" condition="jumppass" donetype=">=" donevalue="1"/>
+	<node row="37" id="12002" condition="jumppass" donetype=">=" donevalue="2"/>
+	<node row="38" id="12003" condition="jumppass" donetype=">=" donevalue="3"/>
+	<node row="39" id="12004" condition="dayonlinetime" donetype=">=" donevalue="3600"/>
 </root>
