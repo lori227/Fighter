@@ -38,13 +38,19 @@ namespace KFrame {
         ////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
     protected:
-        __KF_RESET_FUNCTION__(OnResetTaskRefresh);
+        __KF_RESET_FUNCTION__( OnResetTaskRefresh );
 
         // 刷新任务
-        std::shared_ptr<KFTaskSetting> TaskRefresh(EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set& exclude_type_list);
+        std::shared_ptr<KFTaskSetting> TaskRefresh( EntityPtr player, UInt32Set& exclude_quality_list, UInt32Set& exclude_type_list );
 
         // 删除任务回调
         __KF_REMOVE_DATA_FUNCTION__( OnRemoveTask );
+
+        // 刷新任务
+        __KF_MESSAGE_FUNCTION__( HandleRefreshTaskReq, KFMsg::MsgRefreshTaskReq );
+
+        // 处理刷新任务
+        void OnRefreshTask( EntityPtr player );
 
     protected:
         // 玩家组件

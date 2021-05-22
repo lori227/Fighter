@@ -46,7 +46,7 @@ namespace protobuf_ClientMessage_2eproto {
 struct LIBPROTOC_EXPORT TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[24];
+  static const ::google::protobuf::internal::ParseTable schema[25];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -117,6 +117,9 @@ LIBPROTOC_EXPORT extern MsgQueryMatchListAckDefaultTypeInternal _MsgQueryMatchLi
 class MsgQueryMatchListReq;
 class MsgQueryMatchListReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgQueryMatchListReqDefaultTypeInternal _MsgQueryMatchListReq_default_instance_;
+class MsgRefreshTaskReq;
+class MsgRefreshTaskReqDefaultTypeInternal;
+LIBPROTOC_EXPORT extern MsgRefreshTaskReqDefaultTypeInternal _MsgRefreshTaskReq_default_instance_;
 class MsgStartMatchReq;
 class MsgStartMatchReqDefaultTypeInternal;
 LIBPROTOC_EXPORT extern MsgStartMatchReqDefaultTypeInternal _MsgStartMatchReq_default_instance_;
@@ -150,6 +153,7 @@ template<> LIBPROTOC_EXPORT ::KFMsg::MsgPrePareMatchAck* Arena::CreateMaybeMessa
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgPrePareMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgPrePareMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgQueryMatchListAck* Arena::CreateMaybeMessage<::KFMsg::MsgQueryMatchListAck>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgQueryMatchListReq* Arena::CreateMaybeMessage<::KFMsg::MsgQueryMatchListReq>(Arena*);
+template<> LIBPROTOC_EXPORT ::KFMsg::MsgRefreshTaskReq* Arena::CreateMaybeMessage<::KFMsg::MsgRefreshTaskReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgStartMatchReq* Arena::CreateMaybeMessage<::KFMsg::MsgStartMatchReq>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgTellMatchCount* Arena::CreateMaybeMessage<::KFMsg::MsgTellMatchCount>(Arena*);
 template<> LIBPROTOC_EXPORT ::KFMsg::MsgUpdateScoreReq* Arena::CreateMaybeMessage<::KFMsg::MsgUpdateScoreReq>(Arena*);
@@ -184,12 +188,13 @@ enum ClientProtocol {
   MSG_INVITE_MATCH_REQ = 3121,
   MSG_INVITE_MATCH_ACK = 3122,
   MSG_UPDATE_SOCRE_REQ = 3200,
+  MSG_REFRESH_TASK_REQ = 3210,
   ClientProtocol_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientProtocol_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 LIBPROTOC_EXPORT bool ClientProtocol_IsValid(int value);
 const ClientProtocol ClientProtocol_MIN = MSG_CLIENT_BEGIN;
-const ClientProtocol ClientProtocol_MAX = MSG_UPDATE_SOCRE_REQ;
+const ClientProtocol ClientProtocol_MAX = MSG_REFRESH_TASK_REQ;
 const int ClientProtocol_ARRAYSIZE = ClientProtocol_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* ClientProtocol_descriptor();
@@ -2911,6 +2916,102 @@ class LIBPROTOC_EXPORT MsgUpdateScoreReq : public ::google::protobuf::Message /*
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT MsgRefreshTaskReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:KFMsg.MsgRefreshTaskReq) */ {
+ public:
+  MsgRefreshTaskReq();
+  virtual ~MsgRefreshTaskReq();
+
+  MsgRefreshTaskReq(const MsgRefreshTaskReq& from);
+
+  inline MsgRefreshTaskReq& operator=(const MsgRefreshTaskReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgRefreshTaskReq(MsgRefreshTaskReq&& from) noexcept
+    : MsgRefreshTaskReq() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgRefreshTaskReq& operator=(MsgRefreshTaskReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgRefreshTaskReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgRefreshTaskReq* internal_default_instance() {
+    return reinterpret_cast<const MsgRefreshTaskReq*>(
+               &_MsgRefreshTaskReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  void Swap(MsgRefreshTaskReq* other);
+  friend void swap(MsgRefreshTaskReq& a, MsgRefreshTaskReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgRefreshTaskReq* New() const final {
+    return CreateMaybeMessage<MsgRefreshTaskReq>(NULL);
+  }
+
+  MsgRefreshTaskReq* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MsgRefreshTaskReq>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MsgRefreshTaskReq& from);
+  void MergeFrom(const MsgRefreshTaskReq& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MsgRefreshTaskReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:KFMsg.MsgRefreshTaskReq)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_ClientMessage_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -4121,9 +4222,15 @@ inline void MsgUpdateScoreReq::set_socre(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:KFMsg.MsgUpdateScoreReq.socre)
 }
 
+// -------------------------------------------------------------------
+
+// MsgRefreshTaskReq
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

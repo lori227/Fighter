@@ -40,6 +40,9 @@ enum ClientProtocol
 
 	// gameplay
 	MSG_UPDATE_SOCRE_REQ		= 3200;	// 请求更新积分
+
+	// 刷新任务
+	MSG_REFRESH_TASK_REQ		= 3210;	// 刷新任务
  }
 //////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -234,4 +237,11 @@ message MsgUpdateScoreReq
 {
 	uint32 id = 1;		// id
 	uint64 socre = 2;	// 积分
+}
+
+// 刷新任务
+// MSG_REFRESH_TASK_REQ
+message MsgRefreshTaskReq
+{
+
 }
