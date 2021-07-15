@@ -11,7 +11,7 @@
 	<file name="K-框架-配置列表-(框架维护,请勿修改).xlsx" type="3" md5client="b0df58dfed220013d3755a6fe8172a95" md5server="b0df58dfed220013d3755a6fe8172a95"/>
 	<file name="K-框架-屏蔽字符-(框架维护,请勿修改).xlsx" type="3" md5client="4f3c8869de1f5a39b08c2b1106aabc9c" md5server="4f3c8869de1f5a39b08c2b1106aabc9c"/>
 	<file name="K-框架-渠道配置-(框架定义,后端维护).xlsx" type="3" md5client="839a87a99fb21f10cf910bace7466ea6" md5server="839a87a99fb21f10cf910bace7466ea6"/>
-	<file name="K-框架-全局常量-(框架使用,请勿修改).xlsx" type="3" md5client="b4e067bf397caaac41e0b2fc5b82f428" md5server="b4e067bf397caaac41e0b2fc5b82f428"/>
+	<file name="K-框架-全局常量-(框架使用,请勿修改).xlsx" type="3" md5client="e99fc00afee778f201374347af5aef51" md5server="e99fc00afee778f201374347af5aef51"/>
 	<file name="K-框架-时间配置-(框架定义,策划填写).xlsx" type="3" md5client="2616f2a8f1baca409248950868f1b0b2" md5server="2616f2a8f1baca409248950868f1b0b2"/>
 	<file name="K-框架-数据模板-(框架维护,请勿修改).xlsx" type="3" md5client="d3f6e2668b7968a91cf92a5660a62b72" md5server="d3f6e2668b7968a91cf92a5660a62b72"/>
 	<file name="K-框架-随机权重-(框架定义,策划填写).xlsx" type="3" md5client="2a5b36a48f73d805b69442bed0c46b15" md5server="2a5b36a48f73d805b69442bed0c46b15"/>
@@ -31,7 +31,7 @@
 	<file name="W-玩家-进入游戏-(框架定义,后端维护).xlsx" type="3" md5client="e52d2af6524888af17fcbf3087eab5ee" md5server="e52d2af6524888af17fcbf3087eab5ee"/>
 	<file name="W-玩家-属性重置-(框架定义,策划填写).xlsx" type="3" md5client="3c55647384bce8e8e5cc19be28114b0a" md5server="3c55647384bce8e8e5cc19be28114b0a"/>
 	<file name="W-玩家-玩家属性-(框架定义,后端维护).xlsx" type="3" md5client="75220a3b22d2b68d20cf7d54066d5aaf" md5server="75220a3b22d2b68d20cf7d54066d5aaf"/>
-	<file name="W-玩家-新建角色-(框架定义,策划填写).xlsx" type="3" md5client="d204aa23a9f096aa804399240c5f18eb" md5server="d204aa23a9f096aa804399240c5f18eb"/>
+	<file name="W-玩家-新建角色-(框架定义,策划填写).xlsx" type="3" md5client="86e4025caebe211b68c0720d021e3d6a" md5server="86e4025caebe211b68c0720d021e3d6a"/>
 	<file name="Y-英雄-脚印配置-(后端定义,策划填写).xlsx" type="3" md5client="5bd4e3563da345c7e6f86e03863c7c51" md5server="5bd4e3563da345c7e6f86e03863c7c51"/>
 	<file name="Y-英雄-特效配置-(后端定义,策划填写).xlsx" type="3" md5client="cb08d6178189d33a0a3dfa8d478be737" md5server="cb08d6178189d33a0a3dfa8d478be737"/>
 	<file name="Y-英雄-英雄配置-(后端定义,策划填写).xlsx" type="3" md5client="9edfa4df1bac34b49b0e7c20f07a81e9" md5server="9edfa4df1bac34b49b0e7c20f07a81e9"/>
