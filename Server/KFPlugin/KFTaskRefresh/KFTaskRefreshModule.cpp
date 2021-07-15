@@ -97,16 +97,16 @@ namespace KFrame {
 
     __KF_MESSAGE_FUNCTION__( KFTaskRefreshModule::HandleRefreshTaskReq, KFMsg::MsgRefreshTaskReq )
     {
-        static KFElements elements;
+        static KFElements _elements;
         static auto _cost_constant = KFGlobal::Instance()->FindConstant( __STRING__( refreshtaskcost ) );
 
-        if ( elements.IsEmpty() )
+        if ( _elements.IsEmpty() )
         {
-            elements._str_parse = _cost_constant->_str_value;
-            KFGlobal::Instance()->ParseElement(elements, __FUNC_LINE__);
+            _elements._str_parse = _cost_constant->_str_value;
+            KFGlobal::Instance()->ParseElement(_elements, __FUNC_LINE__);
         }
 
-        auto data_name = player->RemoveElement(&elements, _default_multiple, __STRING__( refreshtaskcost ), 0, __FUNC_LINE__ );
+        auto data_name = player->RemoveElement(&_elements, _default_multiple, __STRING__( refreshtaskcost ), 0, __FUNC_LINE__ );
         if( !data_name.empty() )
         {
             return;
