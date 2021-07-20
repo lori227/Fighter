@@ -1,4 +1,4 @@
-<root version="67ac579c049baed291685f71b4dcd9cf">
+<root version="cf81ea37579052e55b4d53c7caf69193">
 	<node row="8" element="任务" id="Player" name="task" type="record" containclass="Task" keyname="id" configkeyname="id" valuekeyname="status" save="1" sync="1" removecall="1"/>
 	<node row="9" element="id" id="Task" name="id" type="uint32" sync="1"/>
 	<node row="10" element="状态" id="Task" name="status" type="uint32" save="1" sync="1"/>

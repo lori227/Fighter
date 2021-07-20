@@ -1,4 +1,4 @@
-<root version="d189bf631f078aed87a7bb09c492426a">
-	<node row="8" id="package" maxcount="100" showwhenadd="1"/>
-	<node row="9" id="storage" maxcount="100"/>
+<root version="473f9e9f46780aa60cdefb55f09c636e">
+	<node row="8" id="package" maxcount="100" usechildbag="storage" showwhenadd="1"/>
+	<node row="9" id="storage" maxcount="100" usechildbag="package"/>
 </root>
