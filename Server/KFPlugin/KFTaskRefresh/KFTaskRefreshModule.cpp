@@ -109,7 +109,7 @@ namespace KFrame {
         auto data_name = player->RemoveElement(&_elements, _default_multiple, __STRING__( refreshtaskcost ), 0, __FUNC_LINE__ );
         if( !data_name.empty() )
         {
-            return;
+            return _kf_display->SendToClient( player, KFMsg::DataNotEnough, data_name );
         }
 
         OnRefreshTask( player );
