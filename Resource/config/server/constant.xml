@@ -1,8 +1,8 @@
-<root version="e99fc00afee778f201374347af5aef51">
+<root version="76b1e1b4c6ce93a25462fe41c64b5f03">
 	<node row="8" name="playernamelength" value="14"/>
 	<node row="9" name="chatintervaltime" value="2000"/>
 	<node row="10" name="refreshtaskcount" value="2"/>
 	<node row="11" name="norepeatquality" value="3"/>
 	<node row="12" name="refreshtaskpool" value="1"/>
-	<node row="13" name="refreshtaskcost" value="[{&quot;money&quot;:&quot;100&quot;}]"/>
+	<node row="13" name="refreshtaskcost" value="[{&quot;item&quot;:{&quot;id&quot;:&quot;20001&quot;,&quot;count&quot;:&quot;1&quot;}}]"/>
 </root>
